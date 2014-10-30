@@ -1,0 +1,35 @@
+body {
+	color: #c0caca;
+	margin: 10px;
+	font-family: Arial Rounded MT Bold;
+	background-color: #a4d2dc;
+}
+#funDiv {
+	color: black;
+	overflow: scroll;
+	border: 10px dotted black;
+	background-color: yellow;
+}
+.bold {
+	font-weight: bold;
+	font-size: 40px;
+	text-decoration: underline;
+}
+#blueBox {
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+	border: 10px solid black;
+	border-radius: 10px;
+}
+img {
+	<!--border-radius: 20px;-->
+	margin: 30px;
+}
+#redBox {
+	width: 20px;
+	height: 40px;
+	border-radius: 10px;
+	background-color: red;
+	margin: 20px;
+}
