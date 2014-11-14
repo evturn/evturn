@@ -3,6 +3,11 @@ html,body {
 	background-color: #a4d2dc;
 }
 
+.background {
+	margin-top: 100px;
+	position: center;
+}
+
 .about {
 	float: left;
 }
