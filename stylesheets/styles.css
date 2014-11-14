@@ -1,6 +1,10 @@
 html,body {
 	margin: 10px;
 	background-color: #a4d2dc;
+	background-image: url(http://evturn.com/img/Palm.gif);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 .background {
@@ -8,8 +12,15 @@ html,body {
 	position: center;
 }
 
+
 .about {
 	float: left;
+	font-size: 20px;
+	font-family: calibri;
+	color: white;
+	margin: 100px;
+	width: 300px;
+	position: left;
 }
 
 .summary {
@@ -24,22 +35,22 @@ html,body {
 
 /* nav bar */
 
-#cssmenu {
+#nav-bar {
   zoom: 1;
   width: auto;
   background: #a4d2dc;
   padding: 8px 0;
 }
-#cssmenu:before {
+#nav-bar:before {
   content: '';
   display: block;
 }
-#cssmenu:after {
+#nav-bar:after {
   content: '';
   display: table;
   clear: both;
 }
-#cssmenu ul {
+#nav-bar ul {
   list-style-type: none;
   position: relative;
   display: block;
@@ -50,22 +61,22 @@ html,body {
   border-bottom: 1px solid #7ab900;
   zoom: 1;
 }
-#cssmenu ul:before {
+#nav-bar ul:before {
   content: '';
   display: block;
 }
-#cssmenu ul:after {
+#nav-bar ul:after {
   content: '';
   display: table;
   clear: both;
 }
-#cssmenu li {
+#nav-bar li {
   display: block;
   float: left;
   margin: 0;
   padding: 0;
 }
-#cssmenu li a {
+#nav-bar li a {
   float: left=;
   color: #A79787;
   text-decoration: none;
@@ -73,15 +84,16 @@ html,body {
   padding: 9px 15px 0;
   font-weight: normal;
 }
-#cssmenu li:hover,
-#cssmenu .active {
+#nav-bar li:hover,
+#nav-bar .home {
   text-decoration: none;
   border-bottom: 2px solid #7ab900;
 }
-#cssmenu li:hover a {
-  color: #fff;
+#nav-bar li:hover a {
+  color: #ffffff;
+  font-style: italic;
 }
-#cssmenu .active a {
+#nav-bar .home a {
   color: #fff;
   font-weight: 700;
   font-style: italic;
