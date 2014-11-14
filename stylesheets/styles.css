@@ -1,10 +1,21 @@
-body {
+html,body {
 	margin: 10px;
 	background-color: #a4d2dc;
 }
 
+.about {
+	float: left;
+}
 
+.summary {
+	float: left;
+	padding: 5px;
+	margin: 200px;
+}
 
+#italic {
+	font-style: italic;
+}
 
 /* nav bar */
 
@@ -68,4 +79,5 @@ body {
 #cssmenu .active a {
   color: #fff;
   font-weight: 700;
+  font-style: italic;
 }
