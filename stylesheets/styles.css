@@ -98,26 +98,3 @@ html,body {
   font-weight: 700;
   font-style: italic;
 }
-
-
-@media all and (max-width: 480px) {
-    ul.nav-bar {  height: auto; }
-    ul.nav-bar > li {  float: none; width: 100%; }
-    ul.nav-bar a { line-height: 40px; }
-    ul.nav-bar ul { position: relative; }
-}
-
-@media all and (min-width: 481px) {
-    ul.nav-bar li:hover { background: #555;  }
-    ul.nav-bar li:hover ul { display: block;  }
-}
-
-@media all and (max-width: 480px) {
-    ul.nav-bar {  height: auto; }
-    ul.nav-bar > li {  float: none; width: 100%; }
-    ul.nav-bar a { line-height: 40px; }
-    ul.nav-bar ul { position: relative; }
-
-    ul.nav-bar li.tap { background: #555;  }
-    ul.nav-bar li.tap ul { display: block;  }
-}
