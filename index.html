@@ -18,22 +18,19 @@
 			<li class="tab"><button class="twelve columns button" href="#">Evan Turner</button></li>
 			<li class="tab"><a class="twelve columns button button-primary" id="bio-tab" href="#">Bio</a></li>
 			<li class="tab"><a class="twelve columns button button-primary" id="portfolio-tab" href="#">Portfolio</a></li>
-			<li class="tab"><a class="twelve columns button button-primary" id="contact-tab" href="#">Contact</a></li>
 			<li class="tab"><a class="twelve columns button button-primary" href="http://www.linkedin.com/in/evturn/">Linkedin</a></li>
 			<li class="tab"><a class="twelve columns button button-primary" href="http://github.com/evturn">Code</a></li>
+			<li class="tab"><a class="twelve columns button button-primary" id="contact-tab" href="#">Contact</a></li>
 		</ul>
 	</div>
 
 
 <div class="row twelve columns" id="main-content">
 	
-	<div class="row twelve columns" id="portfolio">		
-	</div>
-
-		<div class="row twelve columns">	
-			<div class="row two-thirds column" id="bio"></div>
-		<div class="one-third column" id="contact"></div>
-		</div>
+	<div class="one-third column" id="contact"></div>
+	<div class="row twelve columns" id="portfolio"></div>		
+	<div class="row twelve columns" id="bio"></div>
+		
 </div>
 
 
@@ -64,18 +61,16 @@
 </script>
 
 <script type="text/template" id="bio-template">
-	<div class="row six columns alpha">
-		<p>Evan Turner has extensively studied many front-end and back-end languages. Evan was born and raised in Los Angeles, California. A graduate from New York City's Hunter College and also a seasoned musician. In addition, Evan successfully completed a 12 week full time code bootcamp at General Assembly</p>
-	</div>
-	<div class="six columns omega">
-	<p>Most comfortable in a mix of a Rails and Backbone.js framework environment, Evan has built applications since the age of 3. He also invented the internet<sup><a id="footnote" href="#">[1]</a></sup></p>
-	<div class="row twelve columns footnote">
-		<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
-	</div>
-	</div>
+		<div class="one-third column">
+			<p>Evan Turner has extensively studied many front-end and back-end languages. Evan was born and raised in Los Angeles, California. A graduate from New York City's Hunter College and also a seasoned musician. In addition, Evan successfully completed a 12 week full time code bootcamp at General Assembly</p>
+			<p>Most comfortable in a mix of a Rails and Backbone.js framework environment, Evan has built applications since the age of 3. He also invented the internet<sup><a id="footnote" href="#">[1]</a></sup></p>
+				<div class="row twelve columns footnote">
+					<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
+				</div>
+		</div>
 
-	<div class="row twelve columns">
-		<div class="row six columns alpha">
+		<div class="five columns">
+			<div class="row six columns alpha">
 			<h5>Front-End</h5>
 				<ul>
 					<li class="language"><pre><code><img class="code-logo" src="assets/img/javascript.png">JavaScript</pre></code></li>
@@ -96,7 +91,7 @@
 				<ul>
 					<li class="language"><pre><code><img class="code-logo" src="assets/img/html.png">HTML</pre></code></li>
 				</ul>
-			</div>
+				</div>
 		<div class="six columns omega">
 			<h5>Back-End</h5>
 				<ul>
@@ -117,7 +112,14 @@
 					<li class="language"><pre><code><img class="code-logo" src="assets/img/git.png">Git</pre></code></li>
 				</ul>
 		</div>
-		</div>
+	</div>
+	
+
+	
+			
+	
+		
+		
 </script>
 
 
