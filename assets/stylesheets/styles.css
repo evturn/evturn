@@ -34,6 +34,7 @@ body {
 
 .head {
 	border-radius: 50%;
+	border: 1px solid black;
 	max-width: 200px;
 	max-width: 200px;
 }
