@@ -3,7 +3,7 @@ var Bio = Backbone.View.extend({
 	initialize: function() {
 		this.render();
 	},
-	template: _.bioTemplate($('#bio-template').html()),
+	template: _.template($('#bio-template').html()),
 	render: function() {
 		this.$el.html(this.template());
 		return this;
