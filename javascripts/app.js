@@ -1,13 +1,18 @@
 
 $(function() {
 	var bio = new Bio();
+	showBio();
 
-	$('#bio-tab').on('click', function(e) {
-		e.preventDefault();
-		$.ajax({
-			
-		})
-	});
+
+	
+
+	function showBio() {
+		$('#bio').hide();
+		$('#bio-tab').on('click', function() {
+			$('#bio').toggle();
+			});
+	}
+
 
 });
 
