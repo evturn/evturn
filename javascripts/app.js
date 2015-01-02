@@ -1,6 +1,6 @@
 
 $(function() {
-	showBio();
+	// showBio();
 	showContact();
 	showPortfolio();
 	
@@ -12,13 +12,13 @@ var portfolio = new Portfolio();
 
 	
 
-	function showBio() {
-		$('#bio').hide();
-		$('#bio-tab').on('click', function() {
-			$('.footnote').hide();
-			$('#bio').toggle();
-			});
-	}
+	// function showBio() {
+	// 	$('#bio').hide();
+	// 	$('#bio-tab').on('click', function() {
+	// 		$('.footnote').hide();
+	// 		$('#bio').toggle();
+	// 		});
+	// }
 
 	function showContact() {
 		$('#contact').hide();
