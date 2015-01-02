@@ -15,6 +15,7 @@ var portfolio = new Portfolio();
 	function showBio() {
 		$('#bio').hide();
 		$('#bio-tab').on('click', function() {
+			$('.footnote').hide();
 			$('#bio').toggle();
 			});
 	}
@@ -32,13 +33,18 @@ var portfolio = new Portfolio();
 	$('#portfolio-tab').on('click', function() {
 	$('#project').hide();
 		console.log('fort polio')
-		$('#portfolio').toggle();
+		$('#portfolio').slideToggle();
 		});
 	}
 
 	$('#ramen-button').on('click', function() {
 		console.log('Ramen');
-		$('#project').slideToggle();
+		$('#project').toggle();
+	});
+
+	$('#footnote').on('click', function() {
+		console.log('Evan actually did invent the internet');
+		$('.footnote').slideToggle();
 	});
 	
 	
