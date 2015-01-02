@@ -3,6 +3,7 @@ $(function() {
 	showBio();
 	showContact();
 	showPortfolio();
+	// showProject();
 
 
 var bio = new Bio();
@@ -35,6 +36,13 @@ var portfolio = new Portfolio();
 		$('#portfolio').toggle();
 		});
 	}
+
+	// function showProject() {
+	// 	$('#ramen-button').on('click', function() {
+	// 		console.log('Ramen?');
+	// 		$('#project').toggle();
+	// 	});
+	// }
 
 
 });
