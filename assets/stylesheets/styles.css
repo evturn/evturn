@@ -1,6 +1,6 @@
 body {
 	margin: 20px;
-	background: #a4d2dc url('http://evturn.com/img/Palm.gif');
+	background: #a4d2dc url('../img/palm.gif');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed; 
@@ -9,4 +9,8 @@ body {
 .tab {
 	list-style-type: none;
 	display: inline-block;
+}
+
+.language {
+	list-style-type: none;
 }
