@@ -18,17 +18,17 @@
 			<li class="tab"><button class="twelve columns button" href="#">Evan Turner</button></li>
 			<li class="tab"><a class="twelve columns button button-primary" id="bio-tab" href="#">Bio</a></li>
 			<li class="tab"><a class="twelve columns button button-primary" id="portfolio-tab" href="#">Portfolio</a></li>
+			<li class="tab"><a class="twelve columns button button-primary" id="contact-tab" href="#">Contact</a></li>
 			<li class="tab"><a class="twelve columns button button-primary" href="http://www.linkedin.com/in/evturn/">Linkedin</a></li>
 			<li class="tab"><a class="twelve columns button button-primary" href="http://github.com/evturn">Code</a></li>
-			<li class="tab"><a class="twelve columns button button-primary" id="contact-tab" href="#">Contact</a></li>
 		</ul>
 	</div>
 
 
 <div class="row twelve columns" id="main-content">
 	
-	<div class="one-third column" id="contact"></div>
-	<div class="row twelve columns" id="portfolio"></div>		
+	<div class="row twelve columns" id="portfolio"></div>	
+	<div class="twelve columns" id="contact"></div>
 	<div class="row twelve columns" id="bio"></div>
 		
 </div>
@@ -56,8 +56,10 @@
 </script>
 
 <script type="text/template" id="contact-template">
-	<h5>evturn@gmail.com</h5>
-	<a class="u-full-width button button-primary" href="mailto:evturn@gmail.com">Click to Email</a>
+	<ul>
+		<li class="tab"><pre><code>evturn@gmail.com</pre></code></li>
+		<li class="project-tab"><a class="three columns button button-primary" href="mailto:evturn@gmail.com">Click to Email</a></li>
+	<ul>
 </script>
 
 <script type="text/template" id="bio-template">
@@ -71,8 +73,8 @@
 
 		<div class="five columns">
 			<div class="row six columns alpha">
-			<h5>Front-End</h5>
 				<ul>
+					<li class="tab"><button class="twelve columns button" >Front-End</li>
 					<li class="language"><pre><code><img class="code-logo" src="assets/img/javascript.png">JavaScript</pre></code></li>
 						<ul>
 							<li><img class="code-logo" src="assets/img/backbone.png"> Backbone</li>
@@ -93,8 +95,8 @@
 				</ul>
 				</div>
 		<div class="six columns omega">
-			<h5>Back-End</h5>
 				<ul>
+					<li class="tab"><button class="twelve columns button" >Back-End</li>
 					<li class="language"><pre><code><img class="code-logo" src="assets/img/ruby.png"> Ruby</pre></code></li>
 						<ul>
 							<li><img class="code-logo" src="assets/img/rails.png"> Rails</li>
@@ -113,13 +115,6 @@
 				</ul>
 		</div>
 	</div>
-	
-
-	
-			
-	
-		
-		
 </script>
 
 
