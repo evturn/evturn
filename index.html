@@ -15,12 +15,12 @@
 
 	<div class="row twelve columns" id="navbar">	
 		<ul>
-			<li class="tab"><button class="button-primary" href="#">Evan Turner</button></li>
-			<li class="tab"><a class="button" id="bio-tab" href="#">Bio</a></li>
-			<li class="tab"><a class="button" id="portfolio-tab" href="#">Portfolio</a></li>
-			<li class="tab"><a class="button" id="contact-tab" href="#">Contact</a></li>
-			<li class="tab"><a class="button" href="http://www.linkedin.com/in/evturn/">Linkedin</a></li>
-			<li class="tab"><a class="button" href="http://github.com/evturn">Code</a></li>
+			<li class="tab"><button class="twelve columns button" href="#">Evan Turner</button></li>
+			<li class="tab"><a class="twelve columns button button-primary" id="bio-tab" href="#">Bio</a></li>
+			<li class="tab"><a class="twelve columns button button-primary" id="portfolio-tab" href="#">Portfolio</a></li>
+			<li class="tab"><a class="twelve columns button button-primary" id="contact-tab" href="#">Contact</a></li>
+			<li class="tab"><a class="twelve columns button button-primary" href="http://www.linkedin.com/in/evturn/">Linkedin</a></li>
+			<li class="tab"><a class="twelve columns button button-primary" href="http://github.com/evturn">Code</a></li>
 		</ul>
 	</div>
 
@@ -39,14 +39,17 @@
 
 
 <script type="text/template" id="portfolio-template">
-	<div class="row twelve columns" id="projects">
-			<a class="button button-primary" id="ramen-button" href="#">Ramen Buffet</a>
-			<a class="button button-primary" id="alculator-button" href="#">Alculator</a>
-			<a class="button button-primary" id="maxwells-button" href="#">Maxwells</a>
-			<a class="button button-primary" id="marshallz-button" href="#">Marshallz</a>
-			<a class="button button-primary" id="sad-button" href="#">Sad Blog</a>
+	<div class="row three columns alpha" id="projects">
+			<ul>
+			<li class="project-tab"><a class="button u-full-width" href="#">Projects</a></li>
+			<li class="project-tab"><a class="button button-primary u-full-width" id="ramen-button" href="#">Ramen Buffet</a></li>
+			<li class="project-tab"><a class="button button-primary u-full-width" id="alculator-button" href="#">Alculator</a></li>
+			<li class="project-tab"><a class="button button-primary u-full-width" id="maxwells-button" href="#">Maxwells</a></li>
+			<li class="project-tab"><a class="button button-primary u-full-width" id="marshallz-button" href="#">Marshallz</a></li>
+			<li class="project-tab"><a class="button button-primary u-full-width" id="sad-button" href="#">Sad Blog</a></li>
+			</ul>
 		</div>
-		<div class="row twelve columns" id="project">
+		<div class="nine columns omega" id="project">
 			<img class="screenshot"src="assets/img/ramen-buffet.png">
 		</div>
 </script>

@@ -11,6 +11,10 @@ body {
 	display: inline-block;
 }
 
+.project-tab {
+	list-style-type: none;
+}
+
 .language {
 	list-style-type: none;
 }

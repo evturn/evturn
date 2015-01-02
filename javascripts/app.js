@@ -33,13 +33,13 @@ var portfolio = new Portfolio();
 	$('#project').hide();
 		console.log('fort polio')
 		$('#portfolio').toggle();
-		$('#ramen-button').on('click', function() {
-			console.log('Ramen');
-			$('#project').slideToggle();
-		});
 		});
 	}
 
+	$('#ramen-button').on('click', function() {
+		console.log('Ramen');
+		$('#project').slideToggle();
+	});
 	
 	
 
