@@ -1,5 +1,6 @@
 var ProjectView = Backbone.View.extend({
 	el: $('#project'),
+	model: Project,
 	template: _.template($('#project-template').html()),
 	initialize: function() {
 		this.render();

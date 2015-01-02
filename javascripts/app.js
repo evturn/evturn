@@ -3,7 +3,7 @@ $(function() {
 	showBio();
 	showContact();
 	showPortfolio();
-	// showProject();
+	
 
 
 var bio = new Bio();
@@ -29,20 +29,19 @@ var portfolio = new Portfolio();
 
 	function showPortfolio() {
 	$('#portfolio').hide();
-	$('#project').hide();
 	$('#portfolio-tab').on('click', function() {
+	$('#project').hide();
 		console.log('fort polio')
-		var projectView = new ProjectView();
 		$('#portfolio').toggle();
+		$('#ramen-button').on('click', function() {
+			console.log('Ramen');
+			$('#project').slideToggle();
+		});
 		});
 	}
 
-	// function showProject() {
-	// 	$('#ramen-button').on('click', function() {
-	// 		console.log('Ramen?');
-	// 		$('#project').toggle();
-	// 	});
-	// }
+	
+	
 
 
 });
