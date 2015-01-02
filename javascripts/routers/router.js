@@ -1,6 +1,7 @@
 var Router = Backbone.Router.extend({
   routes:{
-    '': ''
+    '': '',
+    'bio': 'showBio'
   },
 });
 
