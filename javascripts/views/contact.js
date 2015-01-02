@@ -10,5 +10,4 @@ var Contact = Backbone.View.extend({
 	}
 });
 
-
 console.log('Contact');
