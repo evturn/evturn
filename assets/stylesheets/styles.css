@@ -15,7 +15,13 @@ body {
 	list-style-type: none;
 }
 
-img {
+.code-logo {
 	max-width: 32px;
 	max-width: 32px;
+}
+
+.screenshot {
+	max-width: 730px;
+	max-width: 730px;
+
 }
