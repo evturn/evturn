@@ -1,7 +1,7 @@
 
 $(function() {
 
-	showContact();
+	// showContact();
 	showPortfolio();
 	
 
@@ -12,13 +12,13 @@ var portfolio = new Portfolio();
 var stack = new Stack();
 	
 
-	function showContact() {
-		$('#contact').hide();
-		$('#contact-tab').on('click', function() {
-			console.log('YIKES')
-			$('#contact').toggle();
-			});
-	}
+	// function showContact() {
+	// 	$('#contact').hide();
+	// 	$('#contact-tab').on('click', function() {
+	// 		console.log('YIKES')
+	// 		$('#contact').toggle();
+	// 		});
+	// }
 
 	function showPortfolio() {
 	$('#portfolio').hide();
