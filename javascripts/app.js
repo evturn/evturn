@@ -8,6 +8,7 @@ $(function() {
 var bio = new Bio();
 var contact = new Contact();
 var portfolio = new Portfolio();
+
 	
 
 	function showBio() {
@@ -27,17 +28,11 @@ var portfolio = new Portfolio();
 
 	function showPortfolio() {
 	$('#portfolio').hide();
+	$('#project').hide();
 	$('#portfolio-tab').on('click', function() {
 		console.log('fort polio')
+		var projectView = new ProjectView();
 		$('#portfolio').toggle();
-		});
-	}
-
-	function showProject() {
-	$('#project').hide();
-	$('#ramen-button').on('click', function() {
-		console.log('Ramen?')
-		$('#project').toggle();
 		});
 	}
 
