@@ -1,10 +1,13 @@
-var BioView = Backbone.View.extend({
+var Bio = Backbone.View.extend({
 	el: $('#bio'),
 	initialize: function() {
-	template: _.bioTemplate($('#bio-template').html()),
-		this.render()
+		this.render();
 	},
+	template: _.bioTemplate($('#bio-template').html()),
 	render: function() {
 		this.$el.html(this.template());
+		return this;
 	}
 });
+
+console.log('Bio');

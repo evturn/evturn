@@ -1,4 +1,5 @@
 $(function(){
-	var bio = new BioView();
+
+var bio = new Bio();
 
 });
