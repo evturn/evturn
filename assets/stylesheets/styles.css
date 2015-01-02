@@ -1,6 +1,6 @@
 body {
 	margin: 30px;
-	background: #a6cfd9 url('../img/palm.gif');
+	background: #b6cfd9 url('../img/palm.gif');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed; 
@@ -35,7 +35,8 @@ body {
 
 .head {
 	border-radius: 50%;
-	border: 1px solid black;
+	margin-left: 50px;
+	border: 1px solid #81c0eb;
 	max-width: 200px;
 	max-width: 200px;
 }
