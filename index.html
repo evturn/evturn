@@ -15,12 +15,12 @@
 
 	<div class="row twelve columns" id="navbar">	
 		<ul>
-			<li><button class="button-primary" href="#">Evan Turner</button></li>
-			<li><a class="button" id="bio-tab" href="#">Bio</a></li>
-			<li><a class="button" href="#">Portfolio</a></li>
-			<li><a class="button" id="contact-tab" href="#">Contact</a></li>
-			<li><a class="button" href="http://www.linkedin.com/in/evturn/">Linkedin</a></li>
-			<li><a class="button" href="http://github.com/evturn">Code</a></li>
+			<li class="tab"><button class="button-primary" href="#">Evan Turner</button></li>
+			<li class="tab"><a class="button" id="bio-tab" href="#">Bio</a></li>
+			<li class="tab"><a class="button" href="#">Portfolio</a></li>
+			<li class="tab"><a class="button" id="contact-tab" href="#">Contact</a></li>
+			<li class="tab"><a class="button" href="http://www.linkedin.com/in/evturn/">Linkedin</a></li>
+			<li class="tab"><a class="button" href="http://github.com/evturn">Code</a></li>
 		</ul>
 	</div>
 
@@ -34,11 +34,51 @@
 </div>
 <script type="text/template" id="contact-template">
 	<label>evturn@gmail.com</label>
-	<a class ="button" href="mailto:evturn@gmail.com">Click to Email</a>
+	<a class="button button-primary" href="mailto:evturn@gmail.com">Click to Email</a>
 </script>
 
 <script type="text/template" id="bio-template">
-		Evan Turner has extensively studied many front-end and back-end languages which include JavaScript, Ruby, PostgreSQL, HTML, and CSS.</p>
+	<div class="row four columns">
+	<p>
+		Evan Turner has extensively studied many front-end and back-end languages
+		</p>
+		</div>
+		<h5>Front-End</h5>
+			<ul>
+				<li>JavaScript</li>
+					<ul>
+						<li>Backbone</li>
+						<li>Underscore</li>		
+						<li>jQuery</li>
+					</ul>
+			</ul>
+			<ul>
+				<li>CSS</li>
+					<ul>
+						<li>Bootstrap</li>
+						<li>Skeleton</li>
+						<li>SASS</li>
+					</ul>
+			</ul>
+			<ul>
+				<li>HTML</li>
+			</ul>
+		
+		<h5>Back-End</h5>
+			<ul>
+				<li>Ruby</li>
+					<ul>
+						<li>Rails</li>
+						<li>Sinatra</li>
+					</ul>
+			</ul>
+			<ul>
+				<li>Databases</li>
+					<ul>
+						<li>PostgreSQL</li>
+						<li>MongoDB</li>
+					</ul>
+			</ul>
 	<p>
 		Most comfortable in a mix of a Rails and Backbone.js framework environment, Evan has built applications since the age of 3. He also invented the internet.</p>
 	<p>Evan was born and raised in Los Angeles, California. A graduate from New York City's Hunter College and also a seasoned musician.</p>
