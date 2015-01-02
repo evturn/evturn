@@ -14,28 +14,33 @@
 <div class="container">
 
 	<div class="row twelve columns" id="navbar">	
-		<ul>
-			<li class="tab"><a class="twelve columns button button-primary" id="portfolio-tab" href="#">&#8645; Portfolio</a></li>
-		</ul>
+		<div class="three columns alpha">
+			<a class="button button-primary" id="portfolio-tab" href="#">&#8645; Portfolio</a>
+		</div>
+			<div class="four columns offset-by-one omega">
+				<h5 align="center"><strong>EVAN TURNER</strong></h5>
+			</div>
 	</div>
 
 
-<div class="row twelve columns" id="main-content">
-	
-	<div class="row twelve columns" id="portfolio"></div>	
-	<div class="row twelve columns">
-		<div class="one-third column" id="bio"></div>
-		<div class="one-third column" id="stack"></div>
-		<div class="one-third column" id="contact"></div>
+	<div class="row twelve columns" id="main-content">
+		
+		<div class="row twelve columns" id="portfolio"></div>	
+		<div class="row twelve columns">
+			<div class="one-third column" id="bio"></div>
+			<div class="one-third column" id="stack"></div>
+			<div class="one-third column" id="contact"></div>
+		</div>
 	</div>
+
 </div>
 
 
 
 <script type="text/template" id="portfolio-template">
 	<div class="row three columns alpha" id="projects">
+			<h6><strong>PROJECTS</strong></h6>
 			<ul>
-			<li class="project-tab"><a class="button u-full-width" href="#">Projects</a></li>
 			<li class="project-tab"><a class="button button-primary u-full-width" id="ramen-button" href="#">Ramen Buffet</a></li>
 			<li class="project-tab"><a class="button button-primary u-full-width" id="alculator-button" href="#">Alculator</a></li>
 			<li class="project-tab"><a class="button button-primary u-full-width" id="maxwells-button" href="#">Maxwells</a></li>
@@ -53,7 +58,7 @@
 </script>
 
 <script type="text/template" id="contact-template">
-	<h4 align="center">Contact</h4>
+	<h6><strong>CONTACT</strong></h6>
 	<ul>
 		<li class="project-tab"><pre><code>evturn@gmail.com</pre></code></li>
 		<li class="project-tab"><a class="button u-full-width" href="mailto:evturn@gmail.com">Email</a></li>
@@ -63,9 +68,9 @@
 </script>
 
 <script type="text/template" id="bio-template">
-	<h4 align="center">Evan Turner</h4>
+	<h6><strong>ABOUT</strong></h6>
 	<img class="head" src="assets/img/ev.jpg">
-		<p align="justify">Evan Turner has extensively studied many front-end and back-end languages. Evan was born and raised in Los Angeles, California. A graduate from New York City's Hunter College and also a seasoned musician. In addition, Evan successfully completed a 12 week full time code bootcamp at General Assembly</p>
+		<p align="justify">Evan Turner has extensively studied many front-end and back-end languages. A graduate from New York City's Hunter College and also a seasoned musician. In addition, Evan successfully completed a 12 week full time code bootcamp at General Assembly</p>
 		<p align="justify">Most comfortable in a mix of a Rails and Backbone.js framework environment, Evan has built applications since the age of 3. He also invented the internet<sup><a id="footnote" href="#">[1]</a></sup></p>
 		<div class="row twelve columns footnote">
 			<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
@@ -74,46 +79,61 @@
 
 
 <script type="text/template" id="stack-template">
-	<h4 align="center">Stack</h4>
-	<div class="six columns alpha">
+	<h6><strong>WEB DEVELOPMENT</strong></h6>
+	<div class="row twelve columns">
+		<div class="row six columns alpha">
+			<ul>
+				<li class="language"><img class="code-logo" src="assets/img/javascript.png"><strong>JavaScript</strong></li>
+					<ul>
+						<li class="project-tab"><img class="code-logo" src="assets/img/backbone.png"> Backbone</li>
+						<li class="project-tab"><img class="code-logo" src="assets/img/underscore.png"> Underscore</li>		
+						<li class="project-tab"><img class="code-logo" src="assets/img/jquery.png"> jQuery</li>
+					</ul>
+			</ul>
+			</div>
+
+		<div class="five columns omega">
+			<ul>
+				<li class="language"><img class="code-logo" src="assets/img/ruby.png"><strong>Ruby</strong></li>
+					<ul>
+						<li class="project-tab"><img class="code-logo" src="assets/img/rails.png"> Rails</li>
+						<li class="project-tab"><img class="code-logo" src="assets/img/sinatra.png"> Sinatra</li>
+					</ul>
+			</ul>	
+		</div>
+</div>
+	<div class="row twelve columns">		
+	<div class="row six columns alpha">
 		<ul>
-			<li class="language"><img class="code-logo" src="assets/img/javascript.png">JavaScript</li>
-				<ul>
-					<li class="project-tab"><img class="code-logo" src="assets/img/backbone.png"> Backbone</li>
-					<li class="project-tab"><img class="code-logo" src="assets/img/underscore.png"> Underscore</li>		
-					<li class="project-tab"><img class="code-logo" src="assets/img/jquery.png"> jQuery</li>
-				</ul>
-		</ul>
-		<ul>
-			<li class="language"><img class="code-logo" src="assets/img/css.png">CSS</li>
+			<li class="language"><img class="code-logo" src="assets/img/css.png"><strong>CSS</strong></li>
 				<ul>
 					<li class="project-tab"><img class="code-logo" src="assets/img/bootstrap.png"> Bootstrap</li>
 					<li class="project-tab"><img class="code-logo" src="assets/img/skeleton.png"> Skeleton</li>
 					<li class="project-tab"><img class="code-logo" src="assets/img/sass.png"> SASS</li>
 				</ul>
 		</ul>
-		<ul>
-			<li class="language"><img class="code-logo" src="assets/img/html.png">HTML</li>
-		</ul>
 	</div>
 	<div class="five columns omega">
-		<ul>
-			<li class="language"><img class="code-logo" src="assets/img/ruby.png"> Ruby</li>
-				<ul>
-					<li class="project-tab"><img class="code-logo" src="assets/img/rails.png"> Rails</li>
-					<li class="project-tab"><img class="code-logo" src="assets/img/sinatra.png"> Sinatra</li>
-				</ul>
-		</ul>
-		<ul>
-			<li class="language"><img class="code-logo" src="assets/img/database.png">Databases</li>
+	<ul>
+			<li class="language"><img class="code-logo" src="assets/img/database.png"><strong>Database</strong></li>
 				<ul>
 					<li class="project-tab"><img class="code-logo" src="assets/img/postgresql.png"> PostgreSQL</li>
 					<li class="project-tab"><img class="code-logo" src="assets/img/mongodb.png"> MongoDB</li>
 				</ul>
 		</ul>
+	</div>
+	</div>
+	<div class="row twelve columns">
+	<div class="row six columns alpha">
 		<ul>
-			<li class="language"><img class="code-logo" src="assets/img/git.png">Git</li>
+			<li class="language"><img class="code-logo" src="assets/img/html.png"><strong>HTML</strong></li>
 		</ul>
+	</div>
+		<div class="five columns omega">
+		<ul>
+			<li class="language"><img class="code-logo" src="assets/img/git.png"><strong>Git</strong></li>
+		</ul>
+	</div>
 	</div>
 
 </script>

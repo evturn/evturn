@@ -5,6 +5,10 @@ body {
 	background-attachment: fixed; 
 }
 
+#navbar {
+	border-bottom: 1px solid black;
+}
+
 .tab {
 	list-style-type: none;
 	display: inline-block;
@@ -32,4 +36,8 @@ body {
 	border-radius: 50%;
 	max-width: 200px;
 	max-width: 200px;
+}
+
+p {
+	display: block;
 }
