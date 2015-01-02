@@ -27,5 +27,8 @@ body {
 .screenshot {
 	max-width: 550px;
 	max-width: 550px;
+}
 
+.head {
+	border-radius: 50%;
 }
