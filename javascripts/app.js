@@ -9,7 +9,7 @@ $(function() {
 var bio = new Bio();
 var contact = new Contact();
 var portfolio = new Portfolio();
-
+var stack = new Stack();
 	
 
 	function showContact() {
