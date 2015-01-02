@@ -25,12 +25,20 @@ var portfolio = new Portfolio();
 			});
 	}
 
-		function showPortfolio() {
-		$('#portfolio').hide();
-		$('#portfolio-tab').on('click', function() {
-			console.log('fort polio')
-			$('#portfolio').toggle();
-			});
+	function showPortfolio() {
+	$('#portfolio').hide();
+	$('#portfolio-tab').on('click', function() {
+		console.log('fort polio')
+		$('#portfolio').toggle();
+		});
+	}
+
+	function showProject() {
+	$('#project').hide();
+	$('#ramen-button').on('click', function() {
+		console.log('Ramen?')
+		$('#project').toggle();
+		});
 	}
 
 
