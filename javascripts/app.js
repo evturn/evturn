@@ -1,6 +1,6 @@
 
 $(function() {
-	// showBio();
+
 	showContact();
 	showPortfolio();
 	
@@ -11,14 +11,6 @@ var contact = new Contact();
 var portfolio = new Portfolio();
 
 	
-
-	// function showBio() {
-	// 	$('#bio').hide();
-	// 	$('#bio-tab').on('click', function() {
-	// 		$('.footnote').hide();
-	// 		$('#bio').toggle();
-	// 		});
-	// }
 
 	function showContact() {
 		$('#contact').hide();
