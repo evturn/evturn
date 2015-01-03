@@ -10,6 +10,10 @@ body {
 	border-bottom: 1px solid black;
 }
 
+#stack {
+	padding-left: 20px;
+}
+
 .tab {
 	list-style-type: none;
 	display: inline-block;
