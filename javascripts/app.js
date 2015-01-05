@@ -11,7 +11,7 @@ $(function() {
 
 
 	function showPortfolio() {
-		// $('#portfolio').hide();
+		$('#portfolio').hide();
 		$('#portfolio-tab').on('click', function() {
 			console.log('fort polio')
 			$('#portfolio').slideToggle();
@@ -21,6 +21,11 @@ $(function() {
 	$('#ramen-button').on('click', function() {
 		console.log('Ramen clicked');
 		var ramenView = new RamenView();
+	});
+
+	$('#alculator-button').on('click', function() {
+		console.log('Alc clicked');
+		var alculatorView = new AlculatorView();
 	});
 
 	$('.footnote').hide();
