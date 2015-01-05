@@ -1,8 +1,8 @@
 var Avatar = Backbone.View.extend({
 	el: $('#avatar'),
-	template: _.template($('contact-template').html()),
+	template: _.template($('#avatar-template').html()),
 	initialize: function() {
-		this.render():
+		this.render();
 	},
 	render: function() {
 		this.$el.html(this.template());

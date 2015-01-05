@@ -7,6 +7,7 @@ $(function() {
 	var contact = new Contact();
 	var portfolio = new Portfolio();
 	var stack = new Stack();
+	var avatar = new Avatar();
 
 
 	function showPortfolio() {
