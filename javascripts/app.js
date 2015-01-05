@@ -11,17 +11,16 @@ $(function() {
 
 
 	function showPortfolio() {
-		$('#portfolio').hide();
+		// $('#portfolio').hide();
 		$('#portfolio-tab').on('click', function() {
-		$('#project').hide();
 			console.log('fort polio')
 			$('#portfolio').slideToggle();
 			});
 	}
 
 	$('#ramen-button').on('click', function() {
-		console.log('Ramen');
-		$('#project').toggle();
+		console.log('Ramen clicked');
+		var ramenView = new RamenView();
 	});
 
 	$('.footnote').hide();

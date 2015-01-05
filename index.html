@@ -17,21 +17,23 @@
 		<div class="three columns alpha">
 			<a class="button button-primary" id="portfolio-tab" href="#">&#8645; Portfolio</a>
 		</div>
-<!-- 			<div class="four columns offset-by-one omega">
-				<h5 align="center">EVAN TURNER</h5>
-			</div> -->
-	</div>
+
 
 
 	<div class="row twelve columns" id="main-content">
 		
-		<div class="row twelve columns" id="portfolio"></div>	
+		<div class="row twelve columns" id="portfolio">
+			<div class="row three columns alpha" id="projects"></div>
+			<div class="nine columns omega" id="project-img"></div>
+		</div>	
+		
 		<div class="row twelve columns">
 			<div class="two-thirds column">
-			<div class="row six columns alpha" id="contact"></div>
-			<div class="six columns omega" id="avatar"></div>
-			<div class="row twelve columns" id="stack"></div>
-		</div>
+				<div class="row six columns alpha" id="contact"></div>
+				<div class="six columns omega" id="avatar"></div>
+				<div class="row twelve columns" id="stack"></div>
+			</div>	
+
 			<div class="one-third column" id="bio"></div>
 		</div>
 	</div>
@@ -40,8 +42,8 @@
 
 
 
-<script type="text/template" id="portfolio-template">
-	<div class="row three columns alpha" id="projects">
+<script type="text/template" id="projects-template">
+	
 			<h6><strong>PROJECTS</strong></h6>
 			<ul>
 			<li class="project-tab"><a class="button button-primary u-full-width" id="ramen-button" href="#">Ramen Buffet</a></li>
@@ -50,19 +52,15 @@
 			<li class="project-tab"><a class="button button-primary u-full-width" id="marshallz-button" href="#">Marshallz</a></li>
 			<li class="project-tab"><a class="button button-primary u-full-width" id="sad-button" href="#">Sad Blog</a></li>
 			</ul>
-		</div>
-		<div class="nine columns omega" id="project">
-			<img class="screenshot"src="assets/img/ramen-buffet.png">
-		</div>
 </script>
 
-<script type="text/template" id="project-template">
-	<img src="assets/img/ramen-buffet.png">
-</script>
+<script type="text/template" id="ramen-template">
+	<img class="screenshot" src="assets/img/ramen-buffet.png">
+</script>	
 
 <script type="text/template" id="avatar-template">
-<h6><strong>EVAN TURNER</strong></h6>
-<img class="head" src="assets/img/ev.jpg">
+	<h6><strong>EVAN TURNER</strong></h6>
+	<img class="head" src="assets/img/ev.jpg">
 </script>
 
 <script type="text/template" id="contact-template">
@@ -128,15 +126,12 @@
 <script src="javascripts/lib/jquery.js"></script>
 <script src="javascripts/lib/underscore.js"></script>
 <script src="javascripts/lib/backbone.js"></script>
-<script src="javascripts/models/project.js"></script>
-<script src="javascripts/collections/projects.js"></script>
 <script src="javascripts/views/bio.js"></script>
 <script src="javascripts/views/contact.js"></script>
 <script src="javascripts/views/portfolio.js"></script>
-<script src="javascripts/views/project.js"></script>
+<script src="javascripts/views/ramen.js"></script>
 <script src="javascripts/views/stack.js"></script>
 <script src="javascripts/views/avatar.js"></script>
-<script src="javascripts/routers/router.js"></script>
 <script src="javascripts/app.js"></script>
 
 

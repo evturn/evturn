@@ -1,6 +1,6 @@
 var Portfolio = Backbone.View.extend({
-	el: $('#portfolio'),
-	tabsTemplate: _.template($('#portfolio-template').html()),
+	el: $('#projects'),
+	tabsTemplate: _.template($('#projects-template').html()),
 	initialize: function() {
 		this.render();
 	},
