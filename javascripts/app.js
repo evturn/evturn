@@ -9,7 +9,6 @@ $(function() {
 	var stack = new Stack();
 	var avatar = new Avatar();
 
-
 	function showPortfolio() {
 		$('#portfolio').hide();
 		$('#portfolio-tab').on('click', function() {
@@ -54,7 +53,10 @@ $(function() {
 		$('.footnote').toggle();
 	});
 	
-	
+
+
+
+
 
 
 });
