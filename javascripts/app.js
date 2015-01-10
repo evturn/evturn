@@ -13,6 +13,7 @@ $(function() {
 		$('#portfolio').hide();
 		$('#portfolio-tab').on('click', function() {
 			console.log('fort polio')
+			var alculatorView = new AlculatorView();
 			$('#portfolio').slideToggle();
 			});
 	}
