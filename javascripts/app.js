@@ -38,6 +38,11 @@ $(function() {
 		var maxwellsView = new MaxwellsView();
 	});
 
+	$('#spyorts-button').on('click', function() {
+		console.log('SpYorts clicked');
+		var spyorts = new SpyortsView();
+	});
+
 	$('#marshallz-button').on('click', function() {
 		console.log('Marshallz clicked');
 		var marshallzView = new MarshallzView();
