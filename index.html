@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<link rel="icon" type="image/png" href="assets/img/ev_bw.png">
 	<link rel="stylesheet" href="assets/stylesheets/normalize.css">
+	<link rel="stylesheet" href="assets/stylesheets/bootstrap.css">
+	<link rel="stylesheet" href="assets/stylesheets/bootstrap-theme.css">
 	<link rel="stylesheet" href="assets/stylesheets/skeleton.css">
 	<link rel="stylesheet" href="assets/stylesheets/styles.css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600' rel='stylesheet' type='text/css'>
@@ -18,6 +20,9 @@
 			<a class="button button-primary" id="portfolio-tab" href="#">&#8645; Portfolio</a>
 		</div>
 	</div>
+
+	
+
 
 
 
@@ -60,7 +65,37 @@
 	<p>Users select items from an investory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol and lethal doses</p>
 </div>
 <div class="nine columns omega">
-	<img class="screenshot" src="assets/img/alculator1.png">
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="assets/img/alculator1.png">
+    </div>
+    <div class="item">
+      <img src="assets/img/alculator2.png">
+    </div>
+    <div class="item">
+      <img src="assets/img/alculator3.png">
+    </div>
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="carousel-chevron">&#10094;</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="carousel-chevron">&#10095;</span>
+  </a>
+</div> 
+</div> 
+
 	<p>Express.js &#x95; Node.js &#x95; Backbone.js &#x95;Underscore.js &#x95; Javascript - <a taret="_blank" class="button button-primary" id="alculator-site-button" href="http://alculator.co">OFFICAL SITE</a></p>
 	</div>
 </script>
@@ -182,6 +217,7 @@
 <script src="javascripts/lib/jquery.js"></script>
 <script src="javascripts/lib/underscore.js"></script>
 <script src="javascripts/lib/backbone.js"></script>
+<script src="javascripts/lib/bootstrap.js"></script>
 <script src="javascripts/views/bio.js"></script>
 <script src="javascripts/views/contact.js"></script>
 <script src="javascripts/views/portfolio.js"></script>
@@ -191,7 +227,6 @@
 <script src="javascripts/views/maxwells.js"></script>
 <script src="javascripts/views/marshallz.js"></script>
 <script src="javascripts/views/spyorts.js"></script>
-<script src="javascripts/views/sad.js"></script>
 <script src="javascripts/views/stack.js"></script>
 <script src="javascripts/views/avatar.js"></script>
 <script src="javascripts/app.js"></script>

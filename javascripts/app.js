@@ -6,6 +6,7 @@ $(function() {
 	var bio = new Bio();
 	var contact = new Contact();
 	var portfolio = new Portfolio();
+	new AlculatorView();
 	var stack = new Stack();
 	var avatar = new Avatar();
 
@@ -58,9 +59,9 @@ $(function() {
 		console.log('Evan actually did invent the internet');
 		$('.footnote').toggle();
 	});
+
 	
-
-
+    
 
 
 
