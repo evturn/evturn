@@ -50,12 +50,14 @@ span {
 	max-width: 710px;
 }
 
-.head {
+.avatar {
 	border-radius: 50%;
 	margin-left: 20px;
 	border: 1px solid #81c0eb;
-	max-width: 200px;
-	max-width: 200px;
+	max-width: 100%;
+	width: 100%;
+	min-width: 100px;
+	height: auto;
 }
 
 p {
