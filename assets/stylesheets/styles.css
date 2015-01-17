@@ -6,7 +6,6 @@ body {
 }
 
 #navbar {
-	max-width: 944px;
 	border-bottom: 1px solid gray;
 }
 
@@ -46,8 +45,11 @@ span {
 }
 
 .screenshot {
-	max-width: 710px;
-	max-width: 710px;
+	padding-top: 44px;
+	max-width: 100%;
+	width: 100%;
+	min-width: 100px;
+	height: auto;
 }
 
 .avatar {
