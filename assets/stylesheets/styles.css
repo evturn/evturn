@@ -13,6 +13,24 @@ body {
 	border-bottom: 1px solid gray;	
 }
 
+#egg {
+	max-width: 100%;
+	width: 100%;
+	min-width: 15px;
+	height: auto;
+}
+
+.description {
+	padding-top: 10px;
+	font-weight: 500;
+	text-align: justify;
+}
+
+.bio {
+	font-weight: 500;
+	text-align: justify;
+}
+
 .carousel-control {
 	margin-top: 44px;
 }
