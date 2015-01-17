@@ -45,12 +45,14 @@ span {
 }
 
 .screenshot {
-	padding-top: 44px;
+	margin-top: 44px;
 	max-width: 100%;
 	width: 100%;
 	min-width: 100px;
 	height: auto;
+	border: 1px solid #81c0eb;
 }
+
 
 .avatar {
 	border-radius: 50%;
