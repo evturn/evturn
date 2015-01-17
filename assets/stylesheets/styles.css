@@ -5,25 +5,14 @@ body {
 	background-attachment: fixed;
 }
 
-#navbar {
-	border-bottom: 1px solid gray;
-}
-
-#portfolio {
-	border-bottom: 1px solid gray;	
-}
-
-#egg {
+.avatar {
+	border-radius: 50%;
+	margin-left: 20px;
+	border: 1px solid #81c0eb;
 	max-width: 100%;
 	width: 100%;
-	min-width: 15px;
+	min-width: 100px;
 	height: auto;
-}
-
-.description {
-	padding-top: 10px;
-	font-weight: 500;
-	text-align: justify;
 }
 
 .bio {
@@ -40,30 +29,46 @@ body {
 	opacity: 0;
 }
 
-.right.carousel-control, .left.carousel-control {
-    display: none;
+.code-logo {
+	max-width: 32px;
+	max-width: 32px;
 }
 
-#stack {
-	padding-left: 20px;
+.description {
+	padding-top: 10px;
+	font-weight: 500;
+	text-align: justify;
 }
 
-.tab {
-	list-style-type: none;
-	display: inline-block;
-}
-
-.project-tab {
-	list-style-type: none;
+#egg {
+	max-width: 100%;
+	width: 100%;
+	min-width: 15px;
+	height: auto;
 }
 
 .language {
 	list-style-type: none;
 }
 
-.code-logo {
-	max-width: 32px;
-	max-width: 32px;
+#navbar {
+	border-bottom: 1px solid gray;
+}
+
+p {
+	display: block;
+}
+
+#portfolio {
+	border-bottom: 1px solid gray;	
+}
+
+.project-tab {
+	list-style-type: none;
+}
+
+.right.carousel-control, .left.carousel-control {
+    display: none;
 }
 
 .screenshot {
@@ -75,17 +80,11 @@ body {
 	border: 1px solid #81c0eb;
 }
 
-
-.avatar {
-	border-radius: 50%;
-	margin-left: 20px;
-	border: 1px solid #81c0eb;
-	max-width: 100%;
-	width: 100%;
-	min-width: 100px;
-	height: auto;
+#stack {
+	padding-left: 20px;
 }
 
-p {
-	display: block;
+.tab {
+	list-style-type: none;
+	display: inline-block;
 }
