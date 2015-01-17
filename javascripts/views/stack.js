@@ -9,5 +9,3 @@ var Stack = Backbone.View.extend({
 		return this;
 	}
 });
-
-console.log('Stack');

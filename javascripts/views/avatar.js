@@ -9,5 +9,3 @@ var Avatar = Backbone.View.extend({
 		return this;
 	}
 });
-
-console.log('Avatar');

@@ -9,5 +9,3 @@ var MaxwellsView = Backbone.View.extend({
 		return this;
 	}
 });
-
-console.log('MaxwellsView');

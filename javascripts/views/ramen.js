@@ -9,5 +9,3 @@ var RamenView = Backbone.View.extend({
 		return this;
 	}
 });
-
-console.log('RamenView');

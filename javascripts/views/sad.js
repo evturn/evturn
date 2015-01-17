@@ -9,5 +9,3 @@ var SadView = Backbone.View.extend({
 		return this;
 	}
 });
-
-console.log('SadView');

@@ -13,13 +13,17 @@ body {
 	border-bottom: 1px solid gray;	
 }
 
-span {
-	color: white;
-	opacity: .9;
+.carousel-control {
+	margin-top: 44px;
 }
 
-.carousel-indicators {
-	margin-bottom: -20px;
+.carousel-control:hover {
+	margin-top: 44px;
+	opacity: 0;
+}
+
+.right.carousel-control, .left.carousel-control {
+    display: none;
 }
 
 #stack {

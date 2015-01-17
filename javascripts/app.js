@@ -1,57 +1,40 @@
+new Bio();
+new Contact();
+new AlculatorView();
+new Stack();
+new Avatar();
+new Portfolio();
 
 $(function() {
-
-	showPortfolio();
 	
-	var bio = new Bio();
-	var contact = new Contact();
-	var portfolio = new Portfolio();
-	new AlculatorView();
-	var stack = new Stack();
-	var avatar = new Avatar();
+	showPortfolio();
 
 	function showPortfolio() {
 		$('#portfolio').hide();
 		$('#portfolio-tab').on('click', function() {
-			console.log('fort polio')
 			var alculatorView = new AlculatorView();
 			$('#portfolio').slideToggle();
-			});
-	}
+		});
+	};
 
 	$('#alculator-button').on('click', function() {
-		console.log('Alc clicked');
-		var alculatorView = new AlculatorView();
+		new AlculatorView();
 	});
 
 	$('#ramen-button').on('click', function() {
-		console.log('Ramen clicked');
-		var ramenView = new RamenView();
+		new RamenView();
 	});
 
 	$('#gamez-button').on('click', function() {
-		console.log('Gamez clicked');
-		var gamezView = new GamezView();
+		new GamezView();
 	});
 
 	$('#maxwells-button').on('click', function() {
-		console.log('Maxwells clicked');
-		var maxwellsView = new MaxwellsView();
-	});
-
-	$('#spyorts-button').on('click', function() {
-		console.log('SpYorts clicked');
-		var spyorts = new SpyortsView();
+		new MaxwellsView();
 	});
 
 	$('#marshallz-button').on('click', function() {
-		console.log('Marshallz clicked');
-		var marshallzView = new MarshallzView();
-	});
-
-	$('#sad-button').on('click', function() {
-		console.log('Sad clicked');
-		var sadView = new SadView();
+		new MarshallzView();
 	});
 
 	$('.footnote').hide();
@@ -59,14 +42,4 @@ $(function() {
 		console.log('Evan actually did invent the internet');
 		$('.footnote').toggle();
 	});
-
-	
-    
-
-
-
-
 });
-
-
-console.log('app');

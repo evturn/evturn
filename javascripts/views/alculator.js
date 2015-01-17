@@ -9,5 +9,3 @@ var AlculatorView = Backbone.View.extend({
 		return this;
 	}
 });
-
-console.log('AlculatorView');

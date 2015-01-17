@@ -9,5 +9,3 @@ var Contact = Backbone.View.extend({
 		return this;
 	}
 });
-
-console.log('Contact');
