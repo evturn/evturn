@@ -10,11 +10,6 @@ body {
 	border-bottom: 1px solid black;
 }
 
-.carousel-control {
-	margin-top: 130px;
-	background-color: transparent;
-}
-
 .carousel-indicators {
 	margin-bottom: -20px;
 }

@@ -61,10 +61,8 @@
 
 <!-- Project screenshots -->
 <script type="text/template" id="alculator-template">
-<div class="row three columns alpha">
-	<p>Users select items from an inventory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol and lethal doses</p>
-</div>
-<div class="nine columns omega">
+
+<div class="row twelve columns omega">
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -93,9 +91,10 @@
   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
     <span class="carousel-chevron">&#10095;</span>
   </a>
-</div> 
+</div><p>Users select items from an inventory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol and lethal doses</p>
 	<p>Express.js &#x95; Node.js &#x95; Backbone.js &#x95;Underscore.js &#x95; Javascript - <a taret="_blank" class="button button-primary" id="alculator-site-button" href="http://alculator.co">OFFICAL SITE</a></p>
 </div> 
+</div>
 
 	</div>
 </script>
@@ -220,6 +219,7 @@
   ga('create', 'UA-58635966-1', 'auto');
   ga('send', 'pageview');
 
+	ga(‘set’, ‘&uid’, {{USER_ID}}); // Set the user ID using signed-in user_id.
 </script>
 
 
