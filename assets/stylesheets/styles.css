@@ -10,7 +10,7 @@ body {
 	border-bottom: 1px solid gray;
 }
 
-span .carousel-chevron {
+span {
 	color: white;
 	opacity: .9;
 }
