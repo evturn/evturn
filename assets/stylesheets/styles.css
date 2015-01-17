@@ -6,6 +6,7 @@ body {
 }
 
 #navbar {
+	max-width: 944px;
 	border-bottom: 1px solid gray;
 }
 
@@ -41,8 +42,8 @@ span .carousel-chevron {
 }
 
 .screenshot {
-/*	max-width: 525px;
-	max-width: 525px;*/
+	max-width: 710px;
+	max-width: 710px;
 }
 
 .head {
