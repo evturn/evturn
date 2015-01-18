@@ -41,9 +41,9 @@ body {
 }
 
 #egg {
-	max-width: 100%;
+	max-width: 20%;
 	width: 100%;
-	min-width: 15px;
+	min-width: 42px;
 	height: auto;
 }
 
