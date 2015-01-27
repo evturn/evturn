@@ -12,10 +12,11 @@
 	<title>Evan Turner</title>
 </head>
 <body>
+
 <div class="container">
-	<div class="row twelve columns" id="navbar">	
-		<div class="three columns">
-			<a class="button button-primary u-full-width" id="portfolio-tab" href="#">&#8645; Portfolio</a>
+	<div class="row" id="navbar">	
+		<div class="twelve columns">
+			<a class="button button-primary" id="portfolio-tab" href="#">&#8645; Portfolio</a>
 		</div>
 	</div>
 	
@@ -56,70 +57,79 @@
 			<a class="button button-default u-full-width" id="marshallz-button" href="#">Marshallz Blog</a>
 			</li>
 		<li class="project-tab">
-			<a class="button button-default u-full-width" id="maxwells-button" href="#">Maxwells Bar</a>
+			<a class="button button-default u-full-width" id="maxwells-button" href="#">Maxwell's Bar</a>
 		</li>
 	</ul>
 </script>
 
 <script type="text/template" id="alculator-template">
-	<div class="row twelve columns omega">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		  <ol class="carousel-indicators">
-		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-		    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-		  </ol>
-			  <div class="carousel-inner">
-			    <div class="item active">
-			      <img class="screenshot" src="assets/img/alculator1.png">
-			    </div>
-			    <div class="item">
-			      <img class="screenshot" src="assets/img/alculator2.png">
-			    </div>
-			    <div class="item">
-			      <img class="screenshot" src="assets/img/alculator3.png">
-			    </div>
-			  </div>
-		  <a class="carousel-control left" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
-			<a class="carousel-control right" href="#carousel-example-generic" data-slide="next"> <span class="icon-next"></a>
+	<div class="row">
+		<div class="twelve columns">
+			<img class="screenshot" src="assets/img/alculator1.png"> 
+			<p class="description">Users select items from an inventory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol and lethal doses</p>
 		</div>
-		<p class="description">Users select items from an inventory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol and lethal doses</p>
-		<a taret="_blank" class="button button-primary" id="alculator-site-button" href="http://alculator.co">OFFICAL SITE</a>
-		<p>Version 2 &#x95; Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>
-			Version 1 &#x95; Rails &#x95; Backbone.js &#x95; Underscore.js &#x95; Ruby &#x95; Javascript</p>
-		</div> 
+	</div>
+	<div class="row">		
+		<div class="twelve columns">
+			<a taret="_blank" class="button button-primary" id="alculator-site-button" href="http://alculator.co">OFFICAL SITE</a>
+			<p>Version 2 &#x95; Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>
+				Version 1 &#x95; Rails &#x95; Backbone.js &#x95; Underscore.js &#x95; Ruby &#x95; Javascript</p>
+		</div>
 	</div>
 </script>
 
 <script type="text/template" id="ramen-template">
-	<div class="row twelve columns">
-		<img class="screenshot active" src="assets/img/ramen-buffet.png">
-		<p class="description">Ramen Buffet is your own bottomless personal to-do list. Ramen Buffet requires no refreshing and saves instantly upon click or keydown. The Buffet uses the local storage on your machine via Backbone.localStorage to persist the data saving it as it is received</p>
-		<a taret="_blank" class="button button-primary" id="ramenbuffet-site-button" href="http://ramenbuffet.com">OFFICAL SITE</a>
-		<p>Built with Backbone.js &#x95; Underscore.js &#x95; Backbone.localStorage &#x95; Javascript</p>
+	<div class="row">
+		<div class="twelve columns">
+			<img class="screenshot active" src="assets/img/ramen-buffet.png">
+			<p class="description">Ramen Buffet is your own bottomless personal to-do list. Ramen Buffet requires no refreshing and saves instantly upon click or keydown. The Buffet uses the local storage on your machine via Backbone.localStorage to persist the data saving it as it is received</p>
+		</div>
+	</div>
+	<div class="row">		
+		<div class="twelve columns">
+			<a taret="_blank" class="button button-primary" id="ramenbuffet-site-button" href="http://ramenbuffet.com">OFFICAL SITE</a>
+			<p>Built with Backbone.js &#x95; Underscore.js &#x95; Backbone.localStorage &#x95; Javascript</p>
+		</div>
 	</div>
 </script>
 
 <script type="text/template" id="maxwells-template">
-	<div class="row twelve columns">
-		<img class="screenshot" src="assets/img/maxwells.png">
-		<p class="description">Maxwells Bar & Baby Food is an app designed for restaurant wait staff. Employees input their party's name, select, and remove food items. Ultimately, the server places the order and receives a receipt</p>
-		<p>Built with Sinatra &#x95; Ruby &#x95; PostgreSQL</p>
+	<div class="row"> 
+		<div class="twelve columns">
+			<img class="screenshot" src="assets/img/maxwells.png">
+			<p class="description">Maxwell's Bar & Baby Food is an app designed for restaurant wait staff. Employees input their party's name, select, and remove food items. Ultimately, the server places the order and receives a receipt</p>
+		</div>
+	</div>
+	<div class="row">		
+		<div class="twelve columns">
+			<p>Built with Sinatra &#x95; Ruby &#x95; PostgreSQL</p>
+		</div>
 	</div>
 </script>
 
 <script type="text/template" id="marshallz-template">
-	<div class="row twelve columns">
-		<img class="screenshot" src="assets/img/marshallz.png">
-		<p class="description">Built in Sinatra, Marshallz Blog is the blog of a fictious 9 year old that only writes about serious current affairs. The blog user can create new posts as well as edit and delete them. Other user's who have signed up can leave comments</p>
-		<p>Built with Sinatra &#x95; Ruby &#x95; PostgreSQL</p>
+	<div class="row">
+		<div class="twelve columns">
+			<img class="screenshot" src="assets/img/marshallz.png">
+			<p class="description">Built in Sinatra, Marshallz Blog is the blog of a fictious 9 year old that only writes about serious current affairs. The blog user can create new posts as well as edit and delete them. Other user's who have signed up can leave comments</p>
+		</div>
+	</div>
+	<div class="row">		
+		<div class="twelve columns">
+			<p>Built with Sinatra &#x95; Ruby &#x95; PostgreSQL</p>
+		</div>
 	</div>
 </script>
 
 <script type="text/template" id="gamez-template">
-	<div class="row twelve columns">
-		<img class="screenshot" src="assets/img/hangman.png">
-		<p class="description">Hangman was original built in Sinatra using only Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and redid the game from scratch in all Javascript with Backbone.js and Express.js running a Node server. Instead of using AJAX calls, Backbone renders all views itself as the game goes on</p>
+	<div class="row"> 
+		<div class="twelve columns">
+			<img class="screenshot" src="assets/img/hangman.png">
+			<p class="description">Hangman was original built in Sinatra using only Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and redid the game from scratch in all Javascript with Backbone.js and Express.js running a Node server. Instead of using AJAX calls, Backbone renders all views itself as the game goes on</p>
+		</div>
+	</div>
+	<div class="row">		
+		<div class="twelve columns">
 		<a taret="_blank" class="button button-primary" id="hangman-site-button" href="https://hangman-node.herokuapp.com/">OFFICAL SITE</a>
 		<p>Version 2 &#x95; Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>
 			Version 1 &#x95; Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX</p>
