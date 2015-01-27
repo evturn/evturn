@@ -2,12 +2,11 @@
 
 .avatar {
 	border-radius: 50%;
-	margin-left: 20px;
 	border: 1px solid #81c0eb;
-	max-width: 100%;
+	max-width: 300px;
 	width: 100%;
-	min-width: 100px;
 	height: auto;
+	position: center;
 }
 
 .bio {
@@ -15,14 +14,7 @@
 	text-align: justify;
 }
 
-.carousel-control {
-	margin-top: 44px;
-}
 
-.carousel-control:hover {
-	margin-top: 44px;
-	opacity: 0;
-}
 
 .code-logo {
 	max-width: 32px;
@@ -55,9 +47,6 @@ p {
 	list-style-type: none;
 }
 
-.right.carousel-control, .left.carousel-control {
-    display: none;
-}
 
 .screenshot {
 	margin-top: 44px;
@@ -68,8 +57,3 @@ p {
 }
 
 
-
-.tab {
-	list-style-type: none;
-	display: inline-block;
-}
