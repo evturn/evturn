@@ -1,10 +1,8 @@
 .avatar {
 	border-radius: 50%;
 	border: 1px solid #81c0eb;
-	max-width: 300px;
-	width: 100%;
+	max-width: 100%;
 	height: auto;
-	position: center;
 }
 
 .bio {
@@ -25,7 +23,7 @@
 }
 
 #navbar {
-	padding-top: 10px;
+	padding-top: 20px;
 	border-bottom: 1px solid gray;
 }
 
