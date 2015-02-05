@@ -1,6 +1,6 @@
 new Bio();
 new Contact();
-new AlculatorView();
+new MarshallzView();
 new Stack();
 new Avatar();
 new Portfolio();
@@ -12,7 +12,7 @@ $(function() {
 	function showPortfolio() {
 		$('#portfolio').hide();
 		$('#portfolio-tab').on('click', function() {
-			var alculatorView = new AlculatorView();
+			var marshallzView = new MarshallzView();
 			$('#portfolio').slideToggle();
 		});
 	};
@@ -20,7 +20,7 @@ $(function() {
 	$('#marshallz-button').on('click', function() {
 		new MarshallzView();
 	});
-	
+
 	$('#alculator-button').on('click', function() {
 		new AlculatorView();
 	});
