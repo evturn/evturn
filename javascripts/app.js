@@ -17,6 +17,10 @@ $(function() {
 		});
 	};
 
+	$('#marshallz-button').on('click', function() {
+		new MarshallzView();
+	});
+	
 	$('#alculator-button').on('click', function() {
 		new AlculatorView();
 	});
@@ -33,9 +37,6 @@ $(function() {
 		new MaxwellsView();
 	});
 
-	$('#marshallz-button').on('click', function() {
-		new MarshallzView();
-	});
 
 	$('.footnote').hide();
 	$('#footnote').on('click', function() {
