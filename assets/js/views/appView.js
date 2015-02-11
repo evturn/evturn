@@ -7,7 +7,9 @@ var AppView = Backbone.View.extend({
 	navbarTemplate: _.template($('#navbar-template').html()),
 	initialize: function() {
 		this.setMain();
-		new PortfolioView();
+	},
+	events: {
+		'click #portfolio-button': 'togglePortfolio'
 	},
 	setMain: function() {
 		$('#bio').html(this.bioTemplate);
@@ -15,5 +17,9 @@ var AppView = Backbone.View.extend({
 		$('#avatar').html(this.avatarTemplate);
 		$('#contact').html(this.contactTemplate);
 		$('#navbar').html(this.navbarTemplate);
+	},
+	togglePortfolio: function(e) {
+		e.preventDefault();
+		$('#portfolio').slideToggle();
 	},
 });

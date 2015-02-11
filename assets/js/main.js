@@ -1,13 +1,6 @@
 new AppView();
-
-
-function showPortfolio() {
-	$('#portfolio').hide();
-	$('#portfolio-button').on('click', function() {
-		var marshallzView = new MarshallzView();
-		$('#portfolio').slideToggle();
-	});
-};
+portfolioView  = new PortfolioView();
+$('#portfolio').hide();
 
 
 	$('.carousel').carousel({
@@ -16,7 +9,7 @@ function showPortfolio() {
 
 $(function() {
 	
-	showPortfolio();
+	
 
 
 

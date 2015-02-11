@@ -1,6 +1,6 @@
 var PortfolioView = Backbone.View.extend({
+	el: '#portfolio',
 	appButtonsTemplate: _.template($('#projects-template').html()),
-	
 	initialize: function() {
 		this.renderAppButtons();
 		new MarshallzView();
@@ -8,5 +8,7 @@ var PortfolioView = Backbone.View.extend({
 	renderAppButtons: function() {
 		$('#projects').html(this.appButtonsTemplate);
 	},
+	renderProjects: function() {
 
+	},
 });
