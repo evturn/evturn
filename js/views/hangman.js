@@ -1,6 +1,6 @@
-var GamezView = Backbone.View.extend({
+var HangmanView = Backbone.View.extend({
 	el: $('#project-img'),
-	template: _.template($('#gamez-template').html()),
+	template: _.template($('#hangman-template').html()),
 	initialize: function() {
 		this.render();
 	},

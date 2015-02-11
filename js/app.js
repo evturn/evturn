@@ -11,7 +11,7 @@ $(function() {
 
 	function showPortfolio() {
 		$('#portfolio').hide();
-		$('#portfolio-tab').on('click', function() {
+		$('#portfolio-button').on('click', function() {
 			var marshallzView = new MarshallzView();
 			$('#portfolio').slideToggle();
 		});
@@ -29,8 +29,8 @@ $(function() {
 		new RamenView();
 	});
 
-	$('#gamez-button').on('click', function() {
-		new GamezView();
+	$('#hangman-button').on('click', function() {
+		new HangmanView();
 	});
 
 	$('#ttt-button').on('click', function() {

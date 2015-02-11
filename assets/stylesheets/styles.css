@@ -1,6 +1,6 @@
 .avatar {
 	border-radius: 50%;
-	border: 1px solid #81c0eb;
+	border: 1px solid black;
 	max-width: 80%;
 	height: auto;
 }
@@ -9,6 +9,37 @@
 	font-weight: 500;
 	text-align: justify;
 }
+
+a.button {
+	background-color: #000;
+	color: #fff;
+}
+
+a.button:visited {
+	color: white;
+	text-decoration: none;
+}
+
+a.button:hover {
+	color: yellow;
+	text-decoration: none;
+}
+
+button.target-btn {
+	color: yellow;
+	text-decoration: none;
+}
+
+button.target-btn:visited {
+	color: yellow;
+	text-decoration: none;
+}
+
+button.target-btn:hover {
+	color: white;
+	text-decoration: none;
+}
+
 
 .code-logo {
 	max-width: 50px;
@@ -31,10 +62,10 @@ p {
 	display: block;
 }
 
-#portfolio {
+/*#portfolio {
 	border-bottom: 1px solid gray;
 	font-weight: 500;	
-}
+}*/
 
 li {
 	list-style-type: none;
