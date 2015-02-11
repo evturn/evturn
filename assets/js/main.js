@@ -1,17 +1,10 @@
 new AppView();
 portfolioView  = new PortfolioView();
 $('#portfolio').hide();
+$('.footnote').hide();
 
 
-	$('.carousel').carousel({
-		interval: 1000
-	});
-
-$(function() {
-
-	$('.footnote').hide();
-	$('#footnote').on('click', function() {
-		console.log('Evan actually did invent the internet');
-		$('.footnote').toggle();
-	});
+$('.carousel').carousel({
+	interval: 2000
 });
+

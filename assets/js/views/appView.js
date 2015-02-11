@@ -9,7 +9,8 @@ var AppView = Backbone.View.extend({
 		this.setMain();
 	},
 	events: {
-		'click #portfolio-button': 'togglePortfolio'
+		'click #portfolio-button': 'togglePortfolio',
+		'click #footnote': 'toggleFact',
 	},
 	setMain: function() {
 		$('#bio').html(this.bioTemplate);
@@ -21,5 +22,10 @@ var AppView = Backbone.View.extend({
 	togglePortfolio: function(e) {
 		e.preventDefault();
 		$('#portfolio').slideToggle();
+	},
+	toggleFact: function(e) {
+		e.preventDefault();
+		console.log('Evan actually did invent the internet');
+		$('.footnote').toggle();
 	},
 });

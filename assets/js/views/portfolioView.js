@@ -16,7 +16,7 @@ var PortfolioView = Backbone.View.extend({
 		'click #button-2': 'setAlculator',
 		'click #button-3': 'setHangman',
 		'click #button-4': 'setTTT',
-		'click #button-5': 'setRamenBuffet'
+		'click #button-5': 'setRamenBuffet',
 	},
 	renderAppButtons: function() {
 		$('#projects').html(this.appButtonsTemplate);
