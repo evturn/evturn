@@ -3,20 +3,37 @@ var PortfolioView = Backbone.View.extend({
 	appButtonsTemplate: _.template($('#projects-template').html()),
 	marshallzTemplate: _.template($('#marshallz-template').html()),
 	alculatorTemplate: _.template($('#alculator-template').html()),
+	hangmanTemplate: _.template($('#hangman-template').html()),
+	tttTemplate: _.template($('#ttt-template').html()),
+	ramenBuffetTemplate: _.template($('#ramen-template').html()),
 	initialize: function() {
+		$projectEl = $('#project-summary');
 		this.renderAppButtons();
-		new MarshallzView();
+		this.setMarshallz();
 	},
 	events: {
-		'click .app-button': 'setAlculator'
+		'click #button-1': 'setMarshallz',
+		'click #button-2': 'setAlculator',
+		'click #button-3': 'setHangman',
+		'click #button-4': 'setTTT',
+		'click #button-5': 'setRamenBuffet'
 	},
 	renderAppButtons: function() {
 		$('#projects').html(this.appButtonsTemplate);
 	},
 	setMarshallz: function() {
-
+		$projectEl.html(this.marshallzTemplate);
 	},
 	setAlculator: function() {
-		$('#project-summary').html(this.alculatorTemplate);
+		$projectEl.html(this.alculatorTemplate);
+	},
+	setHangman: function() {
+		$projectEl.html(this.hangmanTemplate);
+	},
+	setTTT: function() {
+		$projectEl.html(this.tttTemplate);
+	},
+	setRamenBuffet: function() {
+		$projectEl.html(this.ramenBuffetTemplate);
 	},
 });
