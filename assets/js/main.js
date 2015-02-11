@@ -1,21 +1,22 @@
 new Bio();
-new Contact();
-new MarshallzView();
 new Stack();
 new Avatar();
+new Contact();
 new Portfolio();
+new MarshallzView();
 
+function showPortfolio() {
+	$('#portfolio').hide();
+	$('#portfolio-button').on('click', function() {
+		var marshallzView = new MarshallzView();
+		$('#portfolio').slideToggle();
+	});
+};
+	
 $(function() {
 	
 	showPortfolio();
 
-	function showPortfolio() {
-		$('#portfolio').hide();
-		$('#portfolio-button').on('click', function() {
-			var marshallzView = new MarshallzView();
-			$('#portfolio').slideToggle();
-		});
-	};
 
 	$('#marshallz-button').on('click', function() {
 		new MarshallzView();
