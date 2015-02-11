@@ -1,9 +1,5 @@
-new Bio();
-new Stack();
-new Avatar();
-new Contact();
-new Portfolio();
-new MarshallzView();
+new LandingView();
+
 
 function showPortfolio() {
 	$('#portfolio').hide();
@@ -12,10 +8,16 @@ function showPortfolio() {
 		$('#portfolio').slideToggle();
 	});
 };
-	
+
+
+	$('.carousel').carousel({
+		interval: 1000
+	});
+
 $(function() {
 	
 	showPortfolio();
+
 
 
 	$('#marshallz-button').on('click', function() {
