@@ -1,3 +1,7 @@
+body {
+	background-image: url('../img/waves.png');
+}
+
 #avatar {
 	text-align: center;
 }
