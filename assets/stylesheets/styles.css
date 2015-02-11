@@ -1,3 +1,7 @@
+ 
+
+
+
 #avatar {
 	text-align: center;
 }
@@ -17,6 +21,8 @@
 }
 
 h6 {
+	font-family: "Raleway";
+	font-weight: 500;
 	text-align: left;
 }
 
@@ -70,12 +76,9 @@ button.target-btn:hover {
 
 p {
 	display: block;
+	font-family: "Raleway";
+	font-weight: 500;
 }
-
-/*#portfolio {
-	border-bottom: 1px solid gray;
-	font-weight: 500;	
-}*/
 
 li {
 	list-style-type: none;
