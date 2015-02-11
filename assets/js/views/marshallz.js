@@ -1,5 +1,5 @@
 var MarshallzView = Backbone.View.extend({
-	el: $('#project-img'),
+	el: $('#project-summary'),
 	template: _.template($('#marshallz-template').html()),
 	initialize: function() {
 		this.render();
