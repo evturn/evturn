@@ -1,4 +1,4 @@
-new LandingView();
+new AppView();
 
 
 function showPortfolio() {
