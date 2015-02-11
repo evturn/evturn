@@ -4,15 +4,16 @@ var AppView = Backbone.View.extend({
 	stackTemplate: _.template($('#stack-template').html()),
 	avatarTemplate: _.template($('#avatar-template').html()),
 	contactTemplate: _.template($('#contact-template').html()),
+	navbarTemplate: _.template($('#navbar-template').html()),
 	initialize: function() {
-		this.setAll();
-		new Portfolio();
-		new MarshallzView();
+		this.setMain();
+		new PortfolioView();
 	},
-	setAll: function() {
+	setMain: function() {
 		$('#bio').html(this.bioTemplate);
 		$('#stack').html(this.stackTemplate);
 		$('#avatar').html(this.avatarTemplate);
 		$('#contact').html(this.contactTemplate);
+		$('#navbar').html(this.navbarTemplate);
 	},
 });
