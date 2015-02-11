@@ -1,6 +1,6 @@
-var MaxwellsView = Backbone.View.extend({
+var TTT = Backbone.View.extend({
 	el: $('#project-img'),
-	template: _.template($('#maxwells-template').html()),
+	template: _.template($('#ttt-template').html()),
 	initialize: function() {
 		this.render();
 	},

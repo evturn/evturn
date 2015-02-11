@@ -33,8 +33,8 @@ $(function() {
 		new GamezView();
 	});
 
-	$('#maxwells-button').on('click', function() {
-		new MaxwellsView();
+	$('#ttt-button').on('click', function() {
+		new TTT();
 	});
 
 
