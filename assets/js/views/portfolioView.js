@@ -21,7 +21,8 @@ var PortfolioView = Backbone.View.extend({
 		$('#projects').html(this.appButtonsTemplate);
 	},
 	setMarshallz: function() {
-		$projectEl.html(this.marshallzTemplate);
+		summary1 = new Summary(marshallzSummary);
+		$projectEl.html(this.marshallzTemplate(summary.toJSON()));
 	},
 	setAlculator: function() {
 		$projectEl.html(this.alculatorTemplate);
