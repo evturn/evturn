@@ -1,13 +1,12 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
+	ramenBuffetTemplate: _.template($('#ramen-template').html()),
 	appButtonsTemplate: _.template($('#projects-template').html()),
 	marshallzTemplate: _.template($('#marshallz-template').html()),
 	alculatorTemplate: _.template($('#alculator-template').html()),
 	hangmanTemplate: _.template($('#hangman-template').html()),
 	tttTemplate: _.template($('#ttt-template').html()),
-	ramenBuffetTemplate: _.template($('#ramen-template').html()),
 	initialize: function() {
-		$projectEl = $('#project-summary');
 		this.renderAppButtons();
 		this.setMarshallz();
 	},

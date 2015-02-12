@@ -21,6 +21,11 @@ body {
 	text-align: justify;
 }
 
+code{
+	background-color: #000;
+	color: #fff;
+}
+
 h6 {
 	font-family: "Raleway";
 	font-weight: 500;
