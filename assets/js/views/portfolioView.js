@@ -22,10 +22,11 @@ var PortfolioView = Backbone.View.extend({
 	},
 	setMarshallz: function() {
 		summary1 = new Summary(marshallzSummary);
-		$projectEl.html(this.marshallzTemplate(summary.toJSON()));
+		$projectEl.html(this.marshallzTemplate(summary1.toJSON()));
 	},
 	setAlculator: function() {
-		$projectEl.html(this.alculatorTemplate);
+		summary2 = new Summary(alculatorSummary);
+		$projectEl.html(this.alculatorTemplate(summary2.toJSON()));
 	},
 	setHangman: function() {
 		$projectEl.html(this.hangmanTemplate);
