@@ -79,14 +79,19 @@ button.target-btn:hover {
 	border-bottom: 1px solid gray;
 }
 
+#landing {
+	border-top: 1px solid gray;
+}
+
+
+li {
+	list-style-type: none;
+}
+
 p {
 	display: block;
 	font-family: "Raleway";
 	font-weight: 500;
-}
-
-li {
-	list-style-type: none;
 }
 
 .screenshot {
