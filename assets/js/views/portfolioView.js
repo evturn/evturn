@@ -33,9 +33,11 @@ var PortfolioView = Backbone.View.extend({
 		$projectEl.html(this.hangmanTemplate(summary3.toJSON()));
 	},
 	setTTT: function() {
-		$projectEl.html(this.tttTemplate);
+		summary4 = new Summary(tttSummary);
+		$projectEl.html(this.tttTemplate(summary4.toJSON()));
 	},
 	setRamenBuffet: function() {
-		$projectEl.html(this.ramenBuffetTemplate);
+		summary5 = new Summary(ramenBuffetSummary);
+		$projectEl.html(this.ramenBuffetTemplate(summary5.toJSON()));
 	},
 });

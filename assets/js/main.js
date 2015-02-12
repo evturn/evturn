@@ -5,6 +5,9 @@ alculatorSummary = {summary: "Users select items from an inventory of alcoholic 
 
 hangmanSummary = {summary: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and remade the game from scratch in Javascript Backbone.js handling the views as the game is played"}
 
+tttSummary = {summary: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay"}
+
+ramenBuffetSummary = {summary: "This To-Do list requires no refreshing and saves instantly upon click or keydown. Data is stored locally on your machine with Backbone.localStorage"}
 
 new AppView();
 
