@@ -153,6 +153,56 @@
 	</div>
 </script>
 
+<script type="text/template" id="hangman-template">
+	<div class="row"> 
+		<div class="twelve columns">
+			  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="assets/img/hangman-2.png" alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="assets/img/hangman-3.png" alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="assets/img/hangman-4.png" alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="assets/img/hangman-1.png" alt="...">
+      <div class="carousel-caption">
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> <!-- Carousel -->
+			<p class="description"><%= summary %></p>
+		</div>
+	</div>
+	<div class="row">		
+		<div class="twelve columns">
+		<a taret="_blank" class="button button-primary" id="hangman-site-button" href="https://hangman-node.herokuapp.com/">OFFICAL SITE</a>
+		<p>Rebuilt with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>
+			(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX)</p>
+		</div>
+	</div>
+</script>
+
 <script type="text/template" id="ramen-template">
 	<div class="row">
 		<div class="twelve columns">
@@ -210,55 +260,7 @@
 	</div>
 </script>
 
-<script type="text/template" id="hangman-template">
-	<div class="row"> 
-		<div class="twelve columns">
-			  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
- 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="assets/img/hangman-2.png" alt="...">
-      <div class="carousel-caption">
-      </div>
-    </div>
-    <div class="item">
-      <img src="assets/img/hangman-3.png" alt="...">
-      <div class="carousel-caption">
-      </div>
-    </div>
-    <div class="item">
-      <img src="assets/img/hangman-4.png" alt="...">
-      <div class="carousel-caption">
-      </div>
-    </div>
-    <div class="item">
-      <img src="assets/img/hangman-1.png" alt="...">
-      <div class="carousel-caption">
-      </div>
-    </div>
-  </div>
- 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div> <!-- Carousel -->
-			<p class="description">Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and remade the game from scratch in Javascript Backbone.js handling the views as the game is played</p>
-		</div>
-	</div>
-	<div class="row">		
-		<div class="twelve columns">
-		<a taret="_blank" class="button button-primary" id="hangman-site-button" href="https://hangman-node.herokuapp.com/">OFFICAL SITE</a>
-		<p>Rebuilt with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>
-			(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX)</p>
-		</div>
-	</div>
-</script>
 
 <script type="text/template" id="avatar-template">
 	<h6>

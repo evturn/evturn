@@ -29,7 +29,8 @@ var PortfolioView = Backbone.View.extend({
 		$projectEl.html(this.alculatorTemplate(summary2.toJSON()));
 	},
 	setHangman: function() {
-		$projectEl.html(this.hangmanTemplate);
+		summary3 = new Summary(hangmanSummary);
+		$projectEl.html(this.hangmanTemplate(summary3.toJSON()));
 	},
 	setTTT: function() {
 		$projectEl.html(this.tttTemplate);
