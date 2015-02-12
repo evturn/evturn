@@ -4,19 +4,32 @@ marshallzSummary =
 	stack: "Rebuilt with Node.js &#x95; Express.js &#x95; MongoDB &#x95; Backbone.js &#x95; Handlebars &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL)"
 }
 
-alculatorSummary = {summary: "Users select items from an inventory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol to lethal doses", stack: "Rebuilt with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Rails &#x95; Backbone.js &#x95; Underscore.js &#x95; Ruby &#x95; Javascript)"}
+alculatorSummary = 
+	{
+		summary: "Users select items from an inventory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol to lethal doses",
+		stack: "Rebuilt with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Rails &#x95; Backbone.js &#x95; Underscore.js &#x95; Ruby &#x95; Javascript)"
+	}
 
-hangmanSummary = {summary: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and remade the game from scratch in Javascript Backbone.js handling the views as the game is played"}
+hangmanSummary = 
+	{
+		summary: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and remade the game from scratch in Javascript Backbone.js handling the views as the game is played",
+		stack: "Rebuilt with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX)"
+	}
 
-tttSummary = {summary: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay"}
+tttSummary = 
+	{
+		summary: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay",
+		stack: "Built with Backbone.js &#x95; Underscore.js &#x95; Javascript"
+	}
 
-ramenBuffetSummary = {summary: "This To-Do list requires no refreshing and saves instantly upon click or keydown. Data is stored locally on your machine with Backbone.localStorage"}
+ramenBuffetSummary = 
+	{
+		summary: "This To-Do list requires no refreshing and saves instantly upon click or keydown. Data is stored locally on your machine with Backbone.localStorage", 
+		stack: "Built with Backbone.js &#x95; Underscore.js &#x95; Backbone.localStorage &#x95; Javascript",
+		image: 'assets/img/ramen-buffet.png'
+	}
 
 new AppView();
-
-
-
-	
 $projectEl = $('#project-summary');
 
 portfolioView  = new PortfolioView();
