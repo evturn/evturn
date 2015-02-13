@@ -39,7 +39,8 @@ var PortfolioView = Backbone.View.extend({
 		$projectEl.html(this.projectTemplate(model4.toJSON()));
 	},
 	setRamenBuffet: function() {
-		project5 = projectsCollection.models[4]
-		$projectEl.html(this.ramenBuffetTemplate(project5.toJSON()));
+		model5 = projectsCollection.models[4]
+		projectGallery = model5.get('gallery');
+		$projectEl.html(this.projectTemplate(model5.toJSON()));
 	},
 });
