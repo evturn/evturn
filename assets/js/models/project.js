@@ -2,12 +2,7 @@ var Project = Backbone.Model.extend({
 	defaults: {
 		summary: '',
 		stack: '',
-		gallery: 
-			[
-			{
-				url: 'assets/img/evturn-winter-white.jpg',
-				active: 'dummy'
-			}
-			]
+		lead: 'assets/img/evturn-winter-white.jpg',
+		gallery: 'assets/img/evturn-winter-white.jpg'
 	},
 });
