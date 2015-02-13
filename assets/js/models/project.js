@@ -2,11 +2,11 @@ var Project = Backbone.Model.extend({
 	defaults: {
 		summary: '',
 		stack: '',
-		image: 
+		gallery: 
 			[
 			{
 				url: 'assets/img/evturn-winter-white.jpg',
-				active: 'regular'
+				active: 'dummy'
 			}
 			]
 	},

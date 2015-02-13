@@ -3,10 +3,13 @@ new AppView();
 projectsCollection = new ProjectsCollection(projects);
 
 projectModels = projectsCollection.models;
-imageObject = projectModels[0].get('image');
-imageValues = _.values(imageObject[0]);
-imageUrl = imageValues[0];
-imageActive = imageValues[1];
+
+galleryTest = projectModels[0];
+galleryObjectOfImageObjects = galleryTest.get('gallery');
+firstImageObjectInGalleryObject = _.values(galleryObjectOfImageObjects[0]);
+urlString = firstImageObjectInGalleryObject[0];
+activeString = firstImageObjectInGalleryObject[1];
+
 
 $projectEl = $('#project-summary');
 
