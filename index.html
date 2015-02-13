@@ -69,13 +69,13 @@
 
 
 
-      <%_.each(projectImages, function(projectImage) { %>
   			<div class="carousel-inner">
+      		<% _.each(projectImages, function(projectImage) { %>
     			<div class="item active">
-  					<img src="<%= projectImage  %>">
+  					<img src="assets/img/ev-winter-white.jpg">
     			</div>
+					<% }); %>
   			</div>
-			<% }); %>
  
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>

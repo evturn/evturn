@@ -2,11 +2,12 @@ var Project = Backbone.Model.extend({
 	defaults: {
 		summary: '',
 		stack: '',
-		image: '',
-		carousel1: '',
-		carousel2: '',
-		carousel3: '',
-		carousel4: '',
-		url: ''
+		image: 
+			[
+			{
+				url: 'assets/img/evturn-winter-white.jpg',
+				active: 'regular'
+			}
+			]
 	},
 });

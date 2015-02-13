@@ -5,10 +5,10 @@ projects = [
 		stack: "Rebuilt with Node.js &#x95; Express.js &#x95; MongoDB &#x95; Backbone.js &#x95; Handlebars &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL)",
 		image: 
 			[
-			'assets/img/marshallz-1.png', 
-			'assets/img/marshallz-2.png', 
-			'assets/img/marshallz-3.png', 
-			'assets/img/marshallz-4.png'
+				{url: 'assets/img/marshallz-1.png', active: 'active'},
+				{url: 'assets/img/marshallz-2.png', active: 'dummy'}, 
+				{url: 'assets/img/marshallz-3.png', active: 'dummy'}, 
+				{url: 'assets/img/marshallz-4.png', active: 'dummy'}
 			]
 	},
 	{

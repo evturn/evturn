@@ -2,7 +2,8 @@ new AppView();
 
 projectsCollection = new ProjectsCollection(projects);
 
-projectImages = projectsCollection.models[0].get('image');
+projectImages = projectsCollection.models
+
 
 
 $projectEl = $('#project-summary');
