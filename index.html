@@ -64,32 +64,22 @@
 	<div class="row">
 		<div class="twelve columns">
 			 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-
-
-
-
-  			<div class="carousel-inner">
-  			  <div class="item active">
-  					<img src="<%=lead %>">
-    			</div>
-					
-      		<% for (var i = testerGallery.length - 1; i >= 0; i--) { %>
-	 				<%	image = testerGallery[i] %>
-    			<div class="item">
-  					<img src="<%= image %>">
-    			</div>
+				
+				<div class="carousel-inner">
+				  <div class="item active">
+						<img src="<%=lead %>">
+					</div>
+					<% for (var i = projectGallery.length - 1; i >= 0; i--) { %>
+						<%	image = projectGallery[i] %>
+					<div class="item">
+						<img src="<%= image %>">
+					</div>
 					<% }; %>	
-  			</div>
- 
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div> 
-
+				</div>	
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div> 
+			
 			<p class="summary"><%= summary %></p>
 		</div>
 	</div>
