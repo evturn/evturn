@@ -3,6 +3,6 @@ var Project = Backbone.Model.extend({
 		summary: '',
 		stack: '',
 		lead: 'assets/img/evturn-winter-white.jpg',
-		gallery: 'assets/img/evturn-winter-white.jpg'
+		gallery: ['assets/img/ev-winter-white.jpg']
 	},
 });
