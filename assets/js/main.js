@@ -1,5 +1,3 @@
-
-
 new AppView();
 $projectEl = $('#project-summary');
 

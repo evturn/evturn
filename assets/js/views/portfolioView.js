@@ -21,23 +21,23 @@ var PortfolioView = Backbone.View.extend({
 		$('#projects').html(this.appButtonsTemplate);
 	},
 	setMarshallz: function() {
-		summary1 = new Summary(marshallzSummary);
-		$projectEl.html(this.marshallzTemplate(summary1.toJSON()));
+		model1 = new Summary(marshallzModel);
+		$projectEl.html(this.marshallzTemplate(model1.toJSON()));
 	},
 	setAlculator: function() {
-		summary2 = new Summary(alculatorSummary);
-		$projectEl.html(this.alculatorTemplate(summary2.toJSON()));
+		model2 = new Summary(alculatorModel);
+		$projectEl.html(this.alculatorTemplate(model2.toJSON()));
 	},
 	setHangman: function() {
-		summary3 = new Summary(hangmanSummary);
-		$projectEl.html(this.hangmanTemplate(summary3.toJSON()));
+		model3 = new Summary(hangmanModel);
+		$projectEl.html(this.hangmanTemplate(model3.toJSON()));
 	},
 	setTTT: function() {
-		summary4 = new Summary(tttSummary);
-		$projectEl.html(this.tttTemplate(summary4.toJSON()));
+		model4 = new Summary(tttModel);
+		$projectEl.html(this.tttTemplate(model4.toJSON()));
 	},
 	setRamenBuffet: function() {
-		summary5 = new Summary(ramenBuffetSummary);
-		$projectEl.html(this.ramenBuffetTemplate(summary5.toJSON()));
+		model5 = new Summary(ramenBuffetModel);
+		$projectEl.html(this.ramenBuffetTemplate(model5.toJSON()));
 	},
 });
