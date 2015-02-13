@@ -2,7 +2,6 @@ var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
 	projectTemplate: _.template($('#project-template').html()),
 	projectsNavTemplate: _.template($('#projects-nav-template').html()),
-	hangmanTemplate: _.template($('#hangman-template').html()),
 	tttTemplate: _.template($('#ttt-template').html()),
 	ramenBuffetTemplate: _.template($('#ramen-template').html()),
 	initialize: function() {
