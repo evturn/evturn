@@ -4,6 +4,9 @@ projectsCollection = new ProjectsCollection(projects);
 
 projectModels = projectsCollection.models;
 
+
+
+
 galleryTest = projectModels[0];
 galleryObjectOfImageObjects = galleryTest.get('gallery');
 firstImageObjectInGalleryObject = _.values(galleryObjectOfImageObjects[0]);

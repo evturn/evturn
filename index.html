@@ -68,12 +68,12 @@
 
 
 
-			 <% console.log(urlString)%>
+
   			<div class="carousel-inner">
       		<% _.each(projectModels, function(projectImage) { %>
     
-    			<div class="item active">
-  					<img src="<%= gallery %>">
+    			<div class="item <%= activeString %>">
+  					<img src="<%= urlString %>">
     			</div>
 					<% }); %>
   			</div>
