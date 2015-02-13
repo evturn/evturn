@@ -6,6 +6,7 @@ var Summary = Backbone.Model.extend({
 		carousel1: '',
 		carousel2: '',
 		carousel3: '',
-		carousel4: ''
+		carousel4: '',
+		url: ''
 	},
 });
