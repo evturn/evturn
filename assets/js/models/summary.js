@@ -3,11 +3,9 @@ var Summary = Backbone.Model.extend({
 		summary: '',
 		stack: '',
 		image: '',
-		carousel: {
-			image1: '',
-			image2: '',
-			image3: '',
-			image4: ''
-		}
-	}
+		carousel1: '',
+		carousel2: '',
+		carousel3: '',
+		carousel4: ''
+	},
 });
