@@ -65,20 +65,17 @@
 		<div class="twelve columns">
 			 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="<%= carousel1 %>">
-    </div>
-    <div class="item">
-      <img src="<%= carousel2 %>">
-    </div>
-    <div class="item">
-      <img src="<%= carousel3 %>">
-    </div>
-    <div class="item">
-      <img src="<%= carousel4 %>">
-    </div>
-  </div>
+
+
+
+
+      <%_.each(projectImages, function(projectImage) { %>
+  			<div class="carousel-inner">
+    			<div class="item active">
+  					<img src="<%= projectImage  %>">
+    			</div>
+  			</div>
+			<% }); %>
  
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
