@@ -26,7 +26,11 @@ hangmanSummary =
 tttSummary = 
 	{
 		summary: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay",
-		stack: "Built with Backbone.js &#x95; Underscore.js &#x95; Javascript"
+		stack: "Built with Backbone.js &#x95; Underscore.js &#x95; Javascript",
+		carousel1: "assets/img/hangman-2.png",
+		carousel2: "assets/img/hangman-3.png",
+		carousel3: "assets/img/hangman-4.png",
+		carousel4: "assets/img/hangman-1.png"
 	}
 
 ramenBuffetSummary = 
