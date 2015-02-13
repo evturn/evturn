@@ -71,9 +71,8 @@
 
   			<div class="carousel-inner">
       		<% _.each(projectModels, function(projectImage) { %>
-    			<% projectImage.get('image') %>
     			<div class="item active">
-  					<img src="assets/img/ev-winter-white.jpg">
+  					<img src="<%= image %>">
     			</div>
 					<% }); %>
   			</div>
