@@ -1,4 +1,4 @@
-var Summary = Backbone.Model.extend({
+var Project = Backbone.Model.extend({
 	defaults: {
 		summary: '',
 		stack: '',
