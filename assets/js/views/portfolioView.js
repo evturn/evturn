@@ -30,8 +30,9 @@ var PortfolioView = Backbone.View.extend({
 		$projectEl.html(this.projectTemplate(model2.toJSON()));
 	},
 	setHangman: function() {
-		project3 = projectsCollection.models[2]
-		$projectEl.html(this.hangmanTemplate(project3.toJSON()));
+		model3 = projectsCollection.models[2]
+		projectGallery = model3.get('gallery');
+		$projectEl.html(this.projectTemplate(model3.toJSON()));
 	},
 	setTTT: function() {
 		project4 = projectsCollection.models[3]
