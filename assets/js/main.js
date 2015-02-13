@@ -1,4 +1,7 @@
 new AppView();
+
+projectsCollection = new ProjectsCollection(projects);
+
 $projectEl = $('#project-summary');
 
 portfolioView  = new PortfolioView();
