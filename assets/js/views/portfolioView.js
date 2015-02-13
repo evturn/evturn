@@ -1,32 +1,31 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
 	ramenBuffetTemplate: _.template($('#ramen-template').html()),
-	appButtonsTemplate: _.template($('#projects-template').html()),
-	marshallzTemplate: _.template($('#marshallz-template').html()),
-	alculatorTemplate: _.template($('#alculator-template').html()),
+	projectsNavTemplate: _.template($('#projects-nav-template').html()),
+	projectTemplate: _.template($('#marshallz-template').html()),
 	hangmanTemplate: _.template($('#hangman-template').html()),
 	tttTemplate: _.template($('#ttt-template').html()),
 	initialize: function() {
-		this.renderAppButtons();
-		this.setMarshallz();
+		this.renderProjectsNav();
+		this.setProject1();
 	},
 	events: {
-		'click #button-1': 'setMarshallz',
-		'click #button-2': 'setAlculator',
+		'click #button-1': 'setProject1',
+		'click #button-2': 'setProject2',
 		'click #button-3': 'setHangman',
 		'click #button-4': 'setTTT',
 		'click #button-5': 'setRamenBuffet',
 	},
-	renderAppButtons: function() {
-		$('#projects').html(this.appButtonsTemplate);
+	renderProjectsNav: function() {
+		$('#projects-nav').html(this.projectsNavTemplate);
 	},
-	setMarshallz: function() {
+	setProject1: function() {
 		project1 = projectsCollection.models[0]
-		$projectEl.html(this.marshallzTemplate(project1.toJSON()));
+		$projectEl.html(this.projectTemplate(project1.toJSON()));
 	},
-	setAlculator: function() {
+	setProject2: function() {
 		project2 = projectsCollection.models[1]
-		$projectEl.html(this.alculatorTemplate(project2.toJSON()));
+		$projectEl.html(this.projectTemplate(project2.toJSON()));
 	},
 	setHangman: function() {
 		project3 = projectsCollection.models[2]
