@@ -49,3 +49,21 @@ projects = [
 		gallery:['assets/img/ramen-buffet.png']
 	}
 ];
+
+contacts = [
+	{
+		name: 'email',
+		url: 'mailto:evturn@gmail.com',
+		image: 'assets/img/email.png',
+	},
+	{
+		name: 'linkedin',
+		url: 'http://www.linkedin.com/in/evturn/',
+		image: 'assets/img/linkedin.png'
+	},
+	{
+		name: 'github',
+		url: 'http://github.com/evturn',
+		image: 'assets/img/github.png'
+	}
+];
