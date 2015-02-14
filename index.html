@@ -29,22 +29,20 @@
 	</div>
 	
 <script type="text/template" id="navbar-template">
-<ul>
-</ul>
-<div class="row">
-			<ul id="contacts-list">
-				<li class="contact-tab">
-					<a class="icon-button" id="portfolio-button" href="#"><img class="icon" src="assets/img/pizza.png"></a>
-				</li>
-			<%	contactsCollection.each(function(contact) { %>
-				<li class="contact-tab">
-					<% url = contact.get('url'); %>
-					<% image = contact.get('image'); %>
-					<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
-				</li>
-			<% }); %>			
-			</ul>
-		</div>
+	<div class="row">
+		<ul id="nav-list">
+			<li class="nav-button">
+				<a class="icon-button" id="portfolio-button" href="#"><img class="icon" src="assets/img/pizza.png"></a>
+			</li>
+		<%	contactsCollection.each(function(contact) { %>
+			<li class="nav-button">
+				<% url = contact.get('url'); %>
+				<% image = contact.get('image'); %>
+				<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+			</li>
+		<% }); %>			
+		</ul>
+	</div>
 </script>
 
 <script type="text/template" id="projects-nav-template">

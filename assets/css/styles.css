@@ -95,7 +95,7 @@ a.icon-button {
 	color: #fff;
 }
 
-.contact-tab {
+.nav-button {
 	background-color: #000;
 	border-radius: 20%;
 }
@@ -105,7 +105,7 @@ ul {
 	text-align: center;
 }
 
-ul#contacts-list li {
+ul#nav-list li {
 	display: inline-block;
 }
 
