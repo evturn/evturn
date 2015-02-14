@@ -78,3 +78,32 @@ siteCopy = [
 	{fact: '<strike>Evan has built applications since the age of 3. He also invented the internet</strike><sup><a id="footnote" href="#">[1]</a></sup>', id: 2},
 	{correction: 'Evan did not invent the internet', id: 3}
 ];
+
+technologies = [
+	{
+		image: 'assets/img/js-stack-white.png',
+		technology: 'Node.js',
+		technology: 'Express.js',
+		technology: 'Backbone.js',
+		technology: 'MondgoDB'
+	},
+		{
+		image: 'assets/img/rails-stack-white.png',
+		technology: 'Rails',
+		technology: 'PostgreSQL',
+		technology: 'Sinatra'
+	},
+		{
+		image: 'assets/img/gear-stack-white.png',
+		technology: 'Git',
+		technology: 'Digital Ocean',
+		technology: 'Heroku'
+	},
+		{
+		image: 'assets/img/glid-stack-white.png',
+		technology: 'jQuery',
+		technology: 'Underscore.js',
+		technology: 'Handlebars',
+		technology: 'Bootstrap'
+	}
+];
