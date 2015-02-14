@@ -14,8 +14,9 @@ $('.carousel').carousel({
 
 newIds = [];
 function createId(string) {
+	total = projectsCollection.length
   counter = 1;
-  for (counter + 1; counter <= 3; counter++) {
+  for (counter + 1; counter <= total; counter++) {
     elementId = string + '-' + counter;
     newIds.push(elementId);
   };
