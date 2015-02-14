@@ -3,6 +3,7 @@ var PortfolioView = Backbone.View.extend({
 	projectTemplate: _.template($('#project-template').html()),
 	projectsNavTemplate: _.template($('#projects-nav-template').html()),
 	initialize: function() {
+		buttons = [];
 		this.renderProjectsNav();
 		this.setProject5();
 		this.setProject4();
@@ -18,7 +19,7 @@ var PortfolioView = Backbone.View.extend({
 		'click #button-5': 'setProject5',
 	},
 	renderProjectsNav: function() {
-		createId('button');
+		this.createId('button');
 		buttonsCollection = new ButtonsCollection(buttons);
 		$('#projects-nav').html(this.projectsNavTemplate);
 	},
@@ -47,4 +48,14 @@ var PortfolioView = Backbone.View.extend({
 		projectGallery = model5.get('gallery');
 		$projectEl.html(this.projectTemplate(model5.toJSON()));
 	},
+	createId: function(string) {
+  counter = 1;
+  for (counter + 1; counter <= total; counter++) {
+    var projectButton = new ProjectButton;
+    buttonId = string + '-' + counter;
+    projectNumber = counter;
+    projectButton.set({number: projectNumber, id: buttonId});
+    buttons.push(projectButton);
+  };
+},
 });
