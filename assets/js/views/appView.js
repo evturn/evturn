@@ -6,6 +6,7 @@ var AppView = Backbone.View.extend({
 	contactTemplate: _.template($('#contact-template').html()),
 	navbarTemplate: _.template($('#navbar-template').html()),
 	initialize: function() {
+		contactsCollection = new ContactsCollection(contacts);
 		this.setMain();
 	},
 	events: {
@@ -13,10 +14,10 @@ var AppView = Backbone.View.extend({
 		'click #footnote': 'toggleFact',
 	},
 	setMain: function() {
+		$('#contact').html(this.contactTemplate);
 		$('#bio').html(this.bioTemplate);
 		$('#stack').html(this.stackTemplate);
 		$('#avatar').html(this.avatarTemplate);
-		$('#contact').html(this.contactTemplate);
 		$('#navbar').html(this.navbarTemplate);
 	},
 	togglePortfolio: function(e) {

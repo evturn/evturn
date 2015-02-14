@@ -94,20 +94,21 @@
 		<strong>CONTACT</strong>
 	</h6>
 		<div class="row">
-			<div class="one column alpha project-tab">
-				<a class="button" target="_blank" href="mailto:evturn@gmail.com"><img class="icon" src="assets/img/email.png"></a>
-		</div>
-			<div class="six columns omega project-tab">
+			<div class="twelve columns omega project-tab">
 				<pre><code>evturn@gmail.com</pre></code>
 			</div>
 		</div>
-		<div class="row">
-			<div class="one column alpha project-tab">
-				<a class="button" target="_blank" href="http://www.linkedin.com/in/evturn/"><img class="icon" src="assets/img/linkedin.png"></a>
-			</div>
-			<div class="one column omega project-tab">
-				<a class="button" target="_blank" href="http://github.com/evturn"><img class="icon" src="assets/img/github.png"></a>
-			</div>
+			<ul>
+			<%	contactsCollection.each(function(contact) { %>
+			<li class="project-tab">
+			<% url = contact.get('url'); %>
+			<% image = contact.get('image'); %>
+				<a class="button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+			</li>
+				<% }); %>
+			
+			</ul>
+		
 		</div>
 	
 </script>
