@@ -19,7 +19,7 @@ var PortfolioView = Backbone.View.extend({
 	},
 	renderProjectsNav: function() {
 		createId('button');
-		buttonsCollection = new ButtonsCollection();
+		buttonsCollection = new ButtonsCollection(buttons);
 		$('#projects-nav').html(this.projectsNavTemplate);
 	},
 	setProject1: function() {
