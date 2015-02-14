@@ -77,6 +77,10 @@ button.target-btn:hover {
 	min-height: 85vh;
 }
 
+#project-summary {
+	border-bottom: 1px solid gray;
+}
+
 ul#buttons-list li {
 	display: inline-block;
 }
