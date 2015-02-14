@@ -57,11 +57,6 @@ contacts = [
 		image: 'assets/img/email.png',
 	},
 	{
-		name: 'linkedin',
-		url: 'http://www.linkedin.com/in/evturn/',
-		image: 'assets/img/linkedin.png'
-	},
-	{
 		name: 'github',
 		url: 'http://github.com/evturn',
 		image: 'assets/img/github.png'
@@ -70,6 +65,11 @@ contacts = [
 		name: 'general assembly',
 		url: 'https://profiles.generalassemb.ly/ev',
 		image: 'assets/img/ga.png'
+	},
+	{
+		name: 'linkedin',
+		url: 'http://www.linkedin.com/in/evturn/',
+		image: 'assets/img/linkedin.png'
 	}
 ];
 
