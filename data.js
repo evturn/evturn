@@ -82,28 +82,30 @@ siteCopy = [
 technologies = [
 	{
 		image: 'assets/img/js-stack-white.png',
-		technology: 'Node.js',
-		technology: 'Express.js',
-		technology: 'Backbone.js',
-		technology: 'MondgoDB'
+		technology: 
+			[
+			'Node.js','Express.js','Backbone.js','MondgoDB'
+			]
 	},
 		{
 		image: 'assets/img/rails-stack-white.png',
-		technology: 'Rails',
-		technology: 'PostgreSQL',
-		technology: 'Sinatra'
+		technology: 
+			[
+			'Rails','PostgreSQL','Sinatra'
+			]
 	},
 		{
 		image: 'assets/img/gear-stack-white.png',
-		technology: 'Git',
-		technology: 'Digital Ocean',
-		technology: 'Heroku'
+		technology: 
+			[
+			'Git','Digital Ocean','Heroku'
+			]
 	},
 		{
 		image: 'assets/img/glid-stack-white.png',
-		technology: 'jQuery',
-		technology: 'Underscore.js',
-		technology: 'Handlebars',
-		technology: 'Bootstrap'
+		technology: 
+			[
+			'jQuery', 'Underscore.js', 'Handlebars', 'Bootstrap'
+			]
 	}
 ];
