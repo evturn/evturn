@@ -10,25 +10,22 @@
 	<link rel="stylesheet" href="assets/css/lib/bootstrap.css">
 	<link rel="stylesheet" href="assets/css/lib/bootstrap-theme.css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600' rel='stylesheet' type='text/css'>
-	<title>Evan Turner</title>
+	<title>Evan Turner | Developer</title>
 </head>
 <body>
 
-	<div class="container" id="wrapper">
+	<div class="container">
 		<div class="row" id="navbar"></div>
 		<div class="row" id="portfolio">
 			<div class="twelve columns" id="projects-nav"></div>
 			<div class="twelve columns" id="project-summary"></div>
 		</div>		
-		<div class="five columns">
+		
 			<div class="row">
-				<div class="twelve columns" id="contact"></div>
+				<div class="one-half column" id="contact"></div>
+				<div class="one-half column" id="stack"></div>
 			</div>
-		</div>
-		<div class="six columns offset-by-one">	
-			<div class="row">
-				<div class="twelve columns" id="stack"></div>
-			</div>
+		
 	</div>
 	
 <script type="text/template" id="navbar-template">
@@ -86,30 +83,31 @@
 			<div class="eleven columns">
 				<pre><code>evturn@gmail.com</pre></code>
 			</div>
+		</div>
+		<div class="row">
 			<ul id="contacts-list">
 			<%	contactsCollection.each(function(contact) { %>
 				<li class="contact-tab">
 					<% url = contact.get('url'); %>
 					<% image = contact.get('image'); %>
-					<a class="button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+					<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
 				</li>
 			<% }); %>			
 			</ul>
-	</div>
+		</div>
 </script>
 
 <script type="text/template" id="stack-template">
+	
 	<h6><strong>WEB DEVELOPER</strong></h6>
-	<% copyCollection.each(function(text) { %>
-	<% 	bio = text.get('paragraph'); %>
-	<% 	fact = text.get('fact'); %>
-	<p class="bio"><%= bio %></p> 
-	<p class="bio"><%= fact %></p>
-	<% }); %>
-	<div class="twelve columns footnote">
+		<% copyCollection.each(function(text) { %>
+		<% 	bio = text.get('paragraph'); %>
+		<% 	fact = text.get('fact'); %>
+		<p class="bio"><%= bio %></p> 
+		<p class="bio"><%= fact %></p>
+		<% }); %>
 		<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
-	</div>
-	<div class="row">
+	<div class="twelve columns">
 		<h6><strong>FULL STACK</strong></h6>
 		<ul id="stack-list">
 		<% techCollection.each(function(tech) { %>
@@ -127,6 +125,7 @@
 			<% }); %>	
 			</ul>
 		</div>
+		
 </script>
 
 	<script src="assets/js/lib/jquery.js"></script>

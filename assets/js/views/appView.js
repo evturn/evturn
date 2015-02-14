@@ -1,5 +1,5 @@
 var AppView = Backbone.View.extend({
-	el: '#wrapper',
+	el: '.container',
 	stackTemplate: _.template($('#stack-template').html()),
 	contactTemplate: _.template($('#contact-template').html()),
 	navbarTemplate: _.template($('#navbar-template').html()),

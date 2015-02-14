@@ -86,12 +86,22 @@ ul#buttons-list li {
 }
 
 .icon {	
-	max-width: 27px;
+	max-width: 60px;
 }
 
 .icon-stack {	
-	max-width: 115px;
+	max-width: 100px;
 	
+}
+
+a.icon-button {
+	background-color: #000;
+	color: #fff;
+}
+
+.contact-tab {
+	background-color: #000;
+	border-radius: 20%;
 }
 
 ul#contacts-list li {
