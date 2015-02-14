@@ -20,6 +20,7 @@ var AppView = Backbone.View.extend({
 		$('#stack').html(this.stackTemplate);
 		$('#avatar').html(this.avatarTemplate);
 		$('#navbar').html(this.navbarTemplate);
+		$('.footnote').hide();
 	},
 	togglePortfolio: function(e) {
 		e.preventDefault();
