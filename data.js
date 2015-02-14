@@ -102,11 +102,7 @@ technologies = [
 	{
 		image: 'assets/img/rails-stack-white.png',
 		technology: 
-			[
-			'Rails',
-			'PostgreSQL',
-			'Sinatra'
-			]
+			['Rails', 'PostgreSQL', 'Sinatra']
 	},
 	{
 		image: 'assets/img/gear-stack-white.png',
@@ -118,7 +114,7 @@ technologies = [
 			]
 	},
 	{
-		image: 'assets/img/glid-stack-white.png',
+		image: 'assets/img/grid-stack-white.png',
 		technology: 
 			[
 			'jQuery',

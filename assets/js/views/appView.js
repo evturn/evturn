@@ -4,6 +4,7 @@ var AppView = Backbone.View.extend({
 	contactTemplate: _.template($('#contact-template').html()),
 	navbarTemplate: _.template($('#navbar-template').html()),
 	initialize: function() {
+		techCollection = new TechCollection(technologies);
 		contactsCollection = new ContactsCollection(contacts);
 		copyCollection = new CopyCollection(siteCopy);
 		this.setMain();
