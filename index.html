@@ -15,27 +15,40 @@
 <body>
 
 	<div class="container">
-		<div class="row" id="navbar"></div>
+		<div class="row">
+			<div class="twelve columns" id="navbar"></div>
+		</div>
 		<div class="row" id="portfolio">
 			<div class="twelve columns" id="projects-nav"></div>
 			<div class="twelve columns" id="project-summary"></div>
 		</div>		
-		
-			<div class="row">
-				<div class="one-half column" id="contact"></div>
-				<div class="one-half column" id="stack"></div>
-			</div>
-		
+		<div class="row">
+			<div class="one-half column" id="contact"></div>
+			<div class="one-half column" id="stack"></div>
+		</div>
 	</div>
 	
 <script type="text/template" id="navbar-template">
-	<div class="three columns omega">
-		<a class="button button-default" id="portfolio-button" href="#"><img class="icon" src="assets/img/pizza.png"> Portfolio</a>
-	</div>
+<ul>
+</ul>
+<div class="row">
+			<ul id="contacts-list">
+				<li class="contact-tab">
+					<a class="icon-button" id="portfolio-button" href="#"><img class="icon" src="assets/img/pizza.png"></a>
+				</li>
+			<%	contactsCollection.each(function(contact) { %>
+				<li class="contact-tab">
+					<% url = contact.get('url'); %>
+					<% image = contact.get('image'); %>
+					<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+				</li>
+			<% }); %>			
+			</ul>
+		</div>
 </script>
 
 <script type="text/template" id="projects-nav-template">
-	<h6><strong>PROJECTS</strong></h6>
+	<h3><strong>PROJECTS</strong></h3>
 	<ul id="buttons-list">
 		<%	buttonsCollection.each(function(btn) { %>
 			<% id = btn.get('id'); %>
@@ -76,39 +89,28 @@
 </script>
 
 <script type="text/template" id="contact-template">
-	<h6><strong>EVAN TURNER</strong></h6>
-	<img src="assets/img/ev-winter-yellow.jpg" class="avatar">
-	<h6><strong>CONTACT</strong></h6>
+	<h3><strong>EVAN TURNER</strong></h3>
+	<a class="avatar"><img class="avatar" src="assets/img/ev-winter-yellow.jpg"></a>
+	<h3><strong>CONTACT</strong></h3>
 		<div class="row">
-			<div class="eleven columns">
+			<div class="twelve columns">
 				<pre><code>evturn@gmail.com</pre></code>
 			</div>
-		</div>
-		<div class="row">
-			<ul id="contacts-list">
-			<%	contactsCollection.each(function(contact) { %>
-				<li class="contact-tab">
-					<% url = contact.get('url'); %>
-					<% image = contact.get('image'); %>
-					<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
-				</li>
-			<% }); %>			
-			</ul>
 		</div>
 </script>
 
 <script type="text/template" id="stack-template">
 	
-	<h6><strong>WEB DEVELOPER</strong></h6>
+	<h3><strong>WEB DEVELOPER</strong></h3>
 		<% copyCollection.each(function(text) { %>
 		<% 	bio = text.get('paragraph'); %>
 		<% 	fact = text.get('fact'); %>
 		<p class="bio"><%= bio %></p> 
 		<p class="bio"><%= fact %></p>
 		<% }); %>
-		<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
+		<p class="footnote"><em>Evan did not invent the internet</em><sup> 1</sub></p>
 	<div class="twelve columns">
-		<h6><strong>FULL STACK</strong></h6>
+		<h3><strong>FULL STACK</strong></h3>
 		<ul id="stack-list">
 		<% techCollection.each(function(tech) { %>
 		<% 	image = tech.get('image'); %>

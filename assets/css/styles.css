@@ -2,10 +2,6 @@ body {
 	background-image: url('../img/waves.png');
 }
 
-#avatar {
-	text-align: center;
-}
-
 .avatar {
 	border-radius: 50%;
 	border: 1px solid black;
@@ -13,6 +9,7 @@ body {
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 
 .bio {
@@ -90,8 +87,7 @@ ul#buttons-list li {
 }
 
 .icon-stack {	
-	max-width: 100px;
-	
+	max-width: 100px;	
 }
 
 a.icon-button {
@@ -104,17 +100,17 @@ a.icon-button {
 	border-radius: 20%;
 }
 
+ul {
+	width: 100%;
+	text-align: center;
+}
+
 ul#contacts-list li {
 	display: inline-block;
 }
 
 ul#stack-list li {
-	text-align: center;
 	display: inline-block;
-}
-
-#landing {
-	border-top: 1px solid gray;
 }
 
 li {
@@ -122,17 +118,8 @@ li {
 }
 
 p {
-	display: block;
 	font-family: "Raleway";
 	font-weight: 500;
-}
-
-.screenshot {
-	margin-top: 44px;
-	max-width: 100%;
-	width: 100%;
-	height: auto;
-	border: 1px solid #81c0eb;
 }
 
 
