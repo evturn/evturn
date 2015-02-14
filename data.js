@@ -93,34 +93,38 @@ technologies = [
 		image: 'assets/img/js-stack-white.png',
 		technology: 
 			[
-			'Node.js',
-			'Express.js',
+			'MondgoDB',
 			'Backbone.js',
-			'MondgoDB'
+			'Express.js',
+			'Node.js'
 			]
 	},
 	{
 		image: 'assets/img/rails-stack-white.png',
 		technology: 
-			['Rails', 'PostgreSQL', 'Sinatra']
+			[
+			'Sinatra',
+			'PostgreSQL', 
+			'Rails'
+			]
 	},
 	{
 		image: 'assets/img/gear-stack-white.png',
 		technology: 
 			[
-			'Git',
+			'Heroku',
 			'Digital Ocean',
-			'Heroku'
+			'Git'
 			]
 	},
 	{
 		image: 'assets/img/grid-stack-white.png',
 		technology: 
 			[
-			'jQuery',
-			'Underscore.js',
 			'Handlebars',
-			'Bootstrap'
+			'Bootstrap',
+			'Underscore.js',
+			'jQuery'
 			]
 	}
 ];
