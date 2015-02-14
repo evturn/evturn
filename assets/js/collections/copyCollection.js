@@ -1,0 +1,1 @@
+var CopyCollection = Backbone.Collection.extend({});
