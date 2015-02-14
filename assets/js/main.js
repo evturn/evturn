@@ -1,9 +1,9 @@
 new AppView();
 
 projectsCollection = new ProjectsCollection(projects);
-
 total = projectsCollection.length
 
+contactsCollection = new ContactsCollection(contacts);
 
 
 
