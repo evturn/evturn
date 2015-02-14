@@ -12,14 +12,16 @@ $('.carousel').carousel({
 	interval: 2000
 });
 
-elementIds = [];
+total = projectsCollection.length
+
+
 function createId(string) {
-	elementIds = [];
-	total = projectsCollection.length
   counter = 1;
   for (counter + 1; counter <= total; counter++) {
-    elementId = string + '-' + counter;
-    elementIds.push(elementId);
+    var projectButton = new ProjectButton;
+    buttonId = string + '-' + counter;
+    projectNumber = counter;
+    projectButton.set({number: projectNumber, id: buttonId});
   };
 };
 
