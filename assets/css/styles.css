@@ -15,12 +15,10 @@ body {
 	margin-right: auto;
 }
 
-.icon {	
-	max-width: 27px;
-}
 
-ul#contacts-list li {
-	display: inline-block;
+
+ul#buttons-list li {
+	display: inline-block;	
 }
 
 .bio {
@@ -85,6 +83,23 @@ button.target-btn:hover {
 #navbar {
 	padding-top: 20px;
 	border-bottom: 1px solid gray;
+}
+
+#portfolio {
+	min-height: 85vh;
+}
+
+
+ul#buttons-list li {
+	display: inline-block;
+}
+
+.icon {	
+	max-width: 27px;
+}
+
+ul#contacts-list li {
+	display: inline-block;
 }
 
 #landing {

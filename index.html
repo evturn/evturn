@@ -17,8 +17,8 @@
 <div class="container" id="wrapper">
 	<div class="row" id="navbar"></div>
 		<div class="row" id="portfolio">
-			<div class="one column alpha" id="projects-nav"></div>
-			<div class="ten columns omega offset-by-one" id="project-summary"></div>
+			<div class="twelve columns" id="projects-nav"></div>
+			<div class="twelve columns" id="project-summary"></div>
 		</div>	
 		<div class="row" id="landing">
 			<div class="six columns alpha" id="avatar"></div>
@@ -41,15 +41,17 @@
 	<h6>
 		<strong>PROJECTS</strong>
 	</h6>
-	<ul>
-		<li class="project-tab">
+	<ul id="buttons-list">
 		<%	buttonsCollection.each(function(btn) { %>
 			<% id = btn.get('id'); %>
 			<% number = btn.get('number'); %>
+		<li class="project-tab">
 			<a class="button button-default u-full-width" id="<%= id %>" href="#"><%= number %></a>
-		<% }); %>
 			</li>
+		<% }); %>
 	</ul>
+
+
 </script>
 
 <script type="text/template" id="project-template">
@@ -75,8 +77,9 @@
 			<p class="summary"><%= summary %></p>
 		</div>
 	</div>
+	
 	<div class="row">		
-		<div class="twelve columns">
+		<div class="eleven columns alpha">
 			<p><%= stack %></p>
 		</div>
 	</div>
@@ -99,7 +102,7 @@
 			</div>
 			<ul id="contacts-list">
 			<%	contactsCollection.each(function(contact) { %>
-				<li class="project-tab">
+				<li class="contact-tab">
 					<% url = contact.get('url'); %>
 					<% image = contact.get('image'); %>
 					<a class="button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
