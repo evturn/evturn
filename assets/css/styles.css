@@ -86,7 +86,7 @@ ul#buttons-list li {
 }
 
 .icon-stack {	
-	max-width: 100px;
+	max-width: 115px;
 	
 }
 
@@ -95,6 +95,7 @@ ul#contacts-list li {
 }
 
 ul#stack-list li {
+	text-align: center;
 	display: inline-block;
 }
 
