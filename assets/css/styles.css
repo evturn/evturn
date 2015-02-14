@@ -86,11 +86,8 @@ ul#buttons-list li {
 }
 
 .icon-stack {	
-	max-width: 40px;
-}
-
-img.icon-stack {
-	/*float: right;*/
+	max-width: 90px;
+	
 }
 
 ul#contacts-list li {
