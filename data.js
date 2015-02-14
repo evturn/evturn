@@ -19,8 +19,7 @@ projects = [
 		gallery: 
 			[
 			"assets/img/alculator-2.png",
-			"assets/img/alculator-3.png",
-			"assets/img/alculator-4.png"
+			"assets/img/alculator-3.png"
 			]
 	},
 	{
