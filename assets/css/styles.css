@@ -15,6 +15,10 @@ body {
 	margin-right: auto;
 }
 
+#pizza {
+	max-width: 27px;
+}
+
 .bio {
 	font-family: "Raleway";
 	font-weight: 500;
