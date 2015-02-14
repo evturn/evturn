@@ -65,5 +65,10 @@ contacts = [
 		name: 'github',
 		url: 'http://github.com/evturn',
 		image: 'assets/img/github.png'
+	},
+	{
+		name: 'general assembly',
+		url: 'https://profiles.generalassemb.ly/ev',
+		image: 'assets/img/ga.png'
 	}
 ];

@@ -15,8 +15,12 @@ body {
 	margin-right: auto;
 }
 
-.icon {
+.icon {	
 	max-width: 27px;
+}
+
+ul#contacts-list li {
+	display: inline-block;
 }
 
 .bio {
