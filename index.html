@@ -99,18 +99,14 @@
 			</div>
 			<ul id="contacts-list">
 			<%	contactsCollection.each(function(contact) { %>
-			<li class="project-tab">
-			<% url = contact.get('url'); %>
-			<% image = contact.get('image'); %>
-				<a class="button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
-			</li>
-				<% }); %>
-			
+				<li class="project-tab">
+					<% url = contact.get('url'); %>
+					<% image = contact.get('image'); %>
+					<a class="button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+				</li>
+			<% }); %>			
 			</ul>
-		</div>
-		
-		</div>
-	
+	</div>
 </script>
 
 <script type="text/template" id="bio-template">
