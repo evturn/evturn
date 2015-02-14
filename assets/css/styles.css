@@ -86,11 +86,15 @@ ul#buttons-list li {
 }
 
 .icon-stack {	
-	max-width: 60px;
+	max-width: 100px;
 	
 }
 
 ul#contacts-list li {
+	display: inline-block;
+}
+
+ul#stack-list li {
 	display: inline-block;
 }
 
