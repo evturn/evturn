@@ -109,22 +109,24 @@
 	<div class="twelve columns footnote">
 		<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
 	</div>
-	<h6><strong>FULL STACK</strong></h6>
-	<ul id="stack-list">
-	<% techCollection.each(function(tech) { %>
-	<% 	image = tech.get('image'); %>
-	<% 	techArray = tech.get('technology'); %>
-		<li class="stack-tab">
-			<div class="three columns">
-				<% for (var i = techArray.length - 1; i >= 0; i--) { %>
-					<%	tech = techArray[i] %>
-				<h5 class="bio"><%= tech %></h5>
-				<% }; %>
-				<a><img class="icon-stack" src="<%= image %>"></a>
-			</div>
-		</li>
-	<% }); %>	
-		</ul>
+	<div class="row">
+		<h6><strong>FULL STACK</strong></h6>
+		<ul id="stack-list">
+		<% techCollection.each(function(tech) { %>
+		<% 	image = tech.get('image'); %>
+		<% 	techArray = tech.get('technology'); %>
+			<li class="stack-tab">
+				<div class="twelve columns">
+					<% for (var i = techArray.length - 1; i >= 0; i--) { %>
+						<%	tech = techArray[i] %>
+					<h5 class="bio"><%= tech %></h5>
+					<% }; %>
+					<a><img class="icon-stack" src="<%= image %>"></a>
+				</div>
+			</li>
+			<% }); %>	
+			</ul>
+		</div>
 </script>
 
 	<script src="assets/js/lib/jquery.js"></script>
