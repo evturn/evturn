@@ -74,9 +74,18 @@ contacts = [
 ];
 
 siteCopy = [
-	{paragraph: 'Although I initially built apps almost exclusively in a Rails environment, my attraction to the world of isomorphic JavaScript has heavily strengthened the application logic I write. Given my familiarity with the MVC architectural pattern Rails implements, I find employing libraries like Backbone.js on the client side a pertinent fit. As the web continues to evolve in the direction of single page applications, exploring solutions and strategies to building these rich front-end apps is not only essential but defines an exciting time for design.', id: 1},
-	{fact: '<strike>Evan has built applications since the age of 3. He also invented the internet</strike><sup><a id="footnote" href="#">[1]</a></sup>', id: 2},
-	{correction: 'Evan did not invent the internet', id: 3}
+	{
+		paragraph: 'Although I initially built apps almost exclusively in a Rails environment, my attraction to the world of isomorphic JavaScript has heavily strengthened the application logic I write. Given my familiarity with the MVC architectural pattern Rails implements, I find employing libraries like Backbone.js on the client side a pertinent fit. As the web continues to evolve in the direction of single page applications, exploring solutions and strategies to building these rich front-end apps is not only essential but defines an exciting time for design.',
+		id: 1
+	},
+	{
+		fact: '<strike>Evan has built applications since the age of 3. He also invented the internet</strike><sup><a id="footnote" href="#">[1]</a></sup>',
+		id: 2
+	},
+	{
+		correction: 'Evan did not invent the internet',
+		id: 3
+	}
 ];
 
 technologies = [
@@ -90,7 +99,7 @@ technologies = [
 			'MondgoDB'
 			]
 	},
-		{
+	{
 		image: 'assets/img/rails-stack-white.png',
 		technology: 
 			[
@@ -99,7 +108,7 @@ technologies = [
 			'Sinatra'
 			]
 	},
-		{
+	{
 		image: 'assets/img/gear-stack-white.png',
 		technology: 
 			[
@@ -108,7 +117,7 @@ technologies = [
 			'Heroku'
 			]
 	},
-		{
+	{
 		image: 'assets/img/glid-stack-white.png',
 		technology: 
 			[
