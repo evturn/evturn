@@ -93,51 +93,64 @@
 </script>
 
 <script type="text/template" id="contact-template">
-	<h6>
-		<strong>CONTACT</strong>
-	</h6>
-		<div class="row">
-			<div class="twelve columns omega project-tab">
-				<pre><code>evturn@gmail.com</pre></code>
-			</div>
-			<ul id="contacts-list">
-			<%	contactsCollection.each(function(contact) { %>
-				<li class="contact-tab">
-					<% url = contact.get('url'); %>
-					<% image = contact.get('image'); %>
-					<a class="button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
-				</li>
-			<% }); %>			
-			</ul>
-	</div>
+<h6><strong>CONTACT</strong></h6>
+	<div class="row">
+		<div class="twelve columns omega project-tab">
+			<pre><code>evturn@gmail.com</pre></code>
+		</div>
+		<ul id="contacts-list">
+		<%	contactsCollection.each(function(contact) { %>
+			<li class="contact-tab">
+				<% url = contact.get('url'); %>
+				<% image = contact.get('image'); %>
+				<a class="button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+			</li>
+		<% }); %>			
+		</ul>
+</div>
 </script>
 
 <script type="text/template" id="bio-template">
-	<h6><strong>WEB DEVELOPER</strong></h6>
-	<% copyCollection.each(function(text) { %>
-	<% 	bio = text.get('paragraph'); %>
-	<% 	fact = text.get('fact'); %>
-	<p class="bio"><%= bio %></p> 
-	<p class="bio"><%= fact %></p>
-	<% }); %>
-
-	<div class="row twelve columns footnote">
-		<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
-		<br class='clear'>
-	</div>
-	<br class='clear'>
+<h6><strong>WEB DEVELOPER</strong></h6>
+<% copyCollection.each(function(text) { %>
+<% 	bio = text.get('paragraph'); %>
+<% 	fact = text.get('fact'); %>
+<p class="bio"><%= bio %></p> 
+<p class="bio"><%= fact %></p>
+<% }); %>
+<div class="twelve columns footnote">
+	<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
+</div>
 </script>
 
 <script type="text/template" id="stack-template">
 	<h6>
-		<strong>FULL STACK DEVELOPMENT</strong>
+		<strong>FULL STACK</strong>
 	</h6>
 	<div class="row">
 		<div class="three columns">
 			<img class="icon-stack" src="assets/img/js-stack-black.png">
 		</div>
 		<div class="three columns">
+			<ul>
+				<li>Node.js</li>
+					<li>Express.js</li>
+					<li>Backbone.js</li>
+					<li>MongoDB</li>
+					<li>Digital Ocean</li>
+			</ul>
+		</div>
+		<div class="three columns">
 			<img class="icon-stack" src="assets/img/ruby-stack-black.png">
+		</div>
+		<div class="three columns">
+			<ul>
+				<li>Rails</li>
+					<li>PostgreSQL</li>
+					<li>Bootstrap</li>
+					<li>Heroku</li>
+					<li>Sinatra</li>
+			</ul>
 		</div>
 	</div>
 

@@ -62,12 +62,6 @@ button.target-btn:hover {
 	text-decoration: none;
 }
 
-.code-logo {
-	max-width: 50px;
-	width: 100%;
-	height: auto;	
-}
-
 .summary {
 	padding-top: 10px;
 	font-weight: 500;
@@ -95,6 +89,10 @@ ul#buttons-list li {
 	max-width: 40px;
 }
 
+img.icon-stack {
+	/*float: right;*/
+}
+
 ul#contacts-list li {
 	display: inline-block;
 }
@@ -102,7 +100,6 @@ ul#contacts-list li {
 #landing {
 	border-top: 1px solid gray;
 }
-
 
 li {
 	list-style-type: none;
