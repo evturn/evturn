@@ -7,6 +7,7 @@ var AppView = Backbone.View.extend({
 	navbarTemplate: _.template($('#navbar-template').html()),
 	initialize: function() {
 		contactsCollection = new ContactsCollection(contacts);
+		copyCollection = new CopyCollection(siteCopy);
 		this.setMain();
 	},
 	events: {

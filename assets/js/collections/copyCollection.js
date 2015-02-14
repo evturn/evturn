@@ -1,1 +1,3 @@
-var CopyCollection = Backbone.Collection.extend({});
+var CopyCollection = Backbone.Collection.extend({
+	model: Copy
+});

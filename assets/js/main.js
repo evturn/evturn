@@ -3,7 +3,10 @@ new AppView();
 projectsCollection = new ProjectsCollection(projects);
 total = projectsCollection.length
 
-$projectEl = $('#project-summary');
+
+
+
+
 
 portfolioView  = new PortfolioView();
 $('#portfolio').hide();
