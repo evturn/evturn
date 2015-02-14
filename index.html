@@ -25,14 +25,10 @@
 				<div class="twelve columns" id="contact"></div>
 			</div>
 		</div>
-		<div class="six columns offset-by-one">
-			<div class="row">
-				<div class="twelve columns" id="bio"></div>
-			</div>
+		<div class="six columns offset-by-one">	
 			<div class="row">
 				<div class="twelve columns" id="stack"></div>
 			</div>
-		</div>
 	</div>
 	
 <script type="text/template" id="navbar-template">
@@ -102,7 +98,7 @@
 	</div>
 </script>
 
-<script type="text/template" id="bio-template">
+<script type="text/template" id="stack-template">
 	<h6><strong>WEB DEVELOPER</strong></h6>
 	<% copyCollection.each(function(text) { %>
 	<% 	bio = text.get('paragraph'); %>
@@ -113,9 +109,6 @@
 	<div class="twelve columns footnote">
 		<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
 	</div>
-</script>
-
-<script type="text/template" id="stack-template">
 	<h6><strong>FULL STACK</strong></h6>
 	<ul id="stack-list">
 		<li class="stack-tab">
