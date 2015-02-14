@@ -1,6 +1,7 @@
 new AppView();
 
 projectsCollection = new ProjectsCollection(projects);
+projectsCollection = new ButtonsCollection(projects);
 
 $projectEl = $('#project-summary');
 
