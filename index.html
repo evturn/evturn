@@ -108,7 +108,7 @@
 <script type="text/template" id="contact-template">
 <h6><strong>CONTACT</strong></h6>
 	<div class="row">
-		<div class="twelve columns omega project-tab">
+		<div class="twelve columns project-tab">
 			<pre><code>evturn@gmail.com</pre></code>
 		</div>
 		<ul id="contacts-list">
@@ -124,22 +124,20 @@
 </script>
 
 <script type="text/template" id="bio-template">
-<h6><strong>WEB DEVELOPER</strong></h6>
-<% copyCollection.each(function(text) { %>
-<% 	bio = text.get('paragraph'); %>
-<% 	fact = text.get('fact'); %>
-<p class="bio"><%= bio %></p> 
-<p class="bio"><%= fact %></p>
-<% }); %>
-<div class="twelve columns footnote">
-	<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
-</div>
+	<h6><strong>WEB DEVELOPER</strong></h6>
+	<% copyCollection.each(function(text) { %>
+	<% 	bio = text.get('paragraph'); %>
+	<% 	fact = text.get('fact'); %>
+	<p class="bio"><%= bio %></p> 
+	<p class="bio"><%= fact %></p>
+	<% }); %>
+	<div class="twelve columns footnote">
+		<p><em>Evan did not invent the internet</em><sup> 1</sub></p>
+	</div>
 </script>
 
 <script type="text/template" id="stack-template">
-	<h6>
-		<strong>FULL STACK</strong>
-	</h6>
+	<h6><strong>FULL STACK</strong></h6>
 	<div class="row">
 		<div class="four columns">
 			<div class="three columns offset-by-one">
