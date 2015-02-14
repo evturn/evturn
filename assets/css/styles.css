@@ -91,6 +91,10 @@ ul#buttons-list li {
 	max-width: 27px;
 }
 
+.icon-stack {	
+	max-width: 40px;
+}
+
 ul#contacts-list li {
 	display: inline-block;
 }
