@@ -86,7 +86,7 @@ technologies = [
 		image: 'assets/img/js-stack-white.png',
 		technology: 
 			[
-			'MondgoDB',
+			'MongoDB',
 			'Backbone.js',
 			'Express.js',
 			'Node.js'
