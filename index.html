@@ -24,7 +24,10 @@
 		</div>		
 		<div class="row">
 			<div class="one-half column" id="contact"></div>
-			<div class="one-half column" id="stack"></div>
+			<div class="one-half column" id="bio"></div>
+		</div>
+		<div class="row">
+			<div class="twelve columns" id="stack"></div>
 		</div>
 	</div>
 	
@@ -89,17 +92,10 @@
 <script type="text/template" id="contact-template">
 	<h3><strong>EVAN TURNER</strong></h3>
 	<a class="avatar"><img class="avatar" src="assets/img/ev-winter-white.jpg"></a>
-	<h3><strong>CONTACT</strong></h3>
-		<div class="row">
-			<div class="twelve columns">
-				<pre><code>evturn@gmail.com</pre></code>
-			</div>
-		</div>
 </script>
 
-<script type="text/template" id="stack-template">
-	
-	<h3><strong>WEB DEVELOPER</strong></h3>
+<script type="text/template" id="bio-template">
+<h3><strong>WEB DEVELOPER</strong></h3>
 		<% copyCollection.each(function(text) { %>
 		<% 	bio = text.get('paragraph'); %>
 		<% 	fact = text.get('fact'); %>
@@ -108,7 +104,10 @@
 		<% }); %>
 		<p class="footnote"><em>Evan did not invent the internet</em><sup> 1</sub></p>
 	<div class="twelve columns">
-		<h3><strong>FULL STACK</strong></h3>
+</script>
+
+<script type="text/template" id="stack-template">	
+			<h3><strong>FULL STACK</strong></h3>
 		<ul id="stack-list">
 		<% techCollection.each(function(tech) { %>
 		<% 	image = tech.get('image'); %>
@@ -125,7 +124,6 @@
 			<% }); %>	
 			</ul>
 		</div>
-		
 </script>
 
 	<script src="assets/js/lib/jquery.js"></script>

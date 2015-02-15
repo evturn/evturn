@@ -1,6 +1,7 @@
 var AppView = Backbone.View.extend({
 	el: '.container',
 	stackTemplate: _.template($('#stack-template').html()),
+	bioTemplate: _.template($('#bio-template').html()),
 	contactTemplate: _.template($('#contact-template').html()),
 	navbarTemplate: _.template($('#navbar-template').html()),
 	initialize: function() {
@@ -15,6 +16,7 @@ var AppView = Backbone.View.extend({
 	},
 	setMain: function() {
 		$('#contact').html(this.contactTemplate);
+		$('#bio').html(this.bioTemplate);
 		$('#stack').html(this.stackTemplate);
 		$('#navbar').html(this.navbarTemplate);
 		$('.footnote').hide();
