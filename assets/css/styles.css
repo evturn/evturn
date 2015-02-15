@@ -86,7 +86,7 @@ ul#buttons-list li {
 }
 
 .icon-stack {	
-	max-width: 100px;	
+	max-width: 125px;	
 }
 
 a.icon-button {
@@ -121,7 +121,7 @@ p {
 	font-weight: 500;
 }
 
-#info {
+#footer {
 	margin: 65px auto 0;
 	color: #a6a6a6;
 	font-size: 12px;
@@ -129,7 +129,7 @@ p {
 	text-align: center;
 }
 
-#info a {
+#footer a {
 	color: inherit;
 }
 
