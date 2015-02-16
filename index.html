@@ -55,9 +55,12 @@
 		<div class="projects-nav">
 			<h3><strong>PROJECTS</strong></h3>
 			<ul id="buttons-list">
+			<% projectsCollection.each(function(model) { %>
+				<% id = model.get('id'); %>
 				<li class="project-tab">
 					<a class="button button-default u-full-width" id="button-<%= id %>" href="#"><%= id %></a>
 				</li>
+			<% }) %>
 			</ul>
 		</div>
 	</div>
