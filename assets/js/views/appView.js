@@ -3,7 +3,7 @@ var AppView = Backbone.View.extend({
 	stackTemplate: _.template($('#stack-template').html()),
 	bioTemplate: _.template($('#bio-template').html()),
 	contactTemplate: _.template($('#contact-template').html()),
-	navbarTemplate: _.template($('#navbar-template').html()),
+	navTemplate: _.template($('#nav-template').html()),
 	initialize: function() {
 		techCollection = new TechCollection(technologies);
 		contactsCollection = new ContactsCollection(contacts);
@@ -20,7 +20,7 @@ var AppView = Backbone.View.extend({
 		$('#contact').html(this.contactTemplate);
 		$('#bio').html(this.bioTemplate);
 		$('#stack').html(this.stackTemplate);
-		$('#navbar').html(this.navbarTemplate);
+		$('#nav').html(this.navTemplate);
 		$('.footnote').hide();
 	},
 	togglePortfolio: function(e) {

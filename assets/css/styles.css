@@ -64,7 +64,7 @@ button.target-btn:hover {
 	text-align: justify;
 }
 
-#navbar {
+#nav {
 	padding-top: 20px;
 	border-bottom: 1px solid gray;
 }
@@ -73,7 +73,7 @@ button.target-btn:hover {
 	min-height: 85vh;
 }
 
-#project-summary {
+#project {
 	border-bottom: 1px solid gray;
 }
 
@@ -132,5 +132,3 @@ p {
 #footer a {
 	color: inherit;
 }
-
-
