@@ -5,9 +5,5 @@ portfolioView  = new PortfolioView();
 
 $('#portfolio').hide();
 
-$('.carousel').carousel({
-	interval: 2000
-});
-
 
 
