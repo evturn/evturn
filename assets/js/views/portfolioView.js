@@ -1,8 +1,8 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#project',
 	initialize: function() {
-		$projectEl = $('#project');
 		this.addAll();
+		this.setProject1();
 	},
 	events: {
 		'click #button-1': 'setProject1',
