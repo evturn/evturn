@@ -1,9 +1,9 @@
 var AppView = Backbone.View.extend({
 	el: '.container',
-	stackTemplate: _.template($('#stack-template').html()),
-	bioTemplate: _.template($('#bio-template').html()),
-	contactTemplate: _.template($('#contact-template').html()),
 	navTemplate: _.template($('#nav-template').html()),
+	avatarTemplate: _.template($('#avatar-template').html()),
+	bioTemplate: _.template($('#bio-template').html()),
+	stackTemplate: _.template($('#stack-template').html()),
 	initialize: function() {
 		projectsCollection = new ProjectsCollection(projects);
 		techCollection = new TechCollection(technologies);
@@ -18,7 +18,7 @@ var AppView = Backbone.View.extend({
 		'click #footnote': 'toggleFact',
 	},
 	setMain: function() {
-		$('#contact').html(this.contactTemplate);
+		$('#avatar').html(this.avatarTemplate);
 		$('#bio').html(this.bioTemplate);
 		$('#stack').html(this.stackTemplate);
 		$('#nav').html(this.navTemplate);
