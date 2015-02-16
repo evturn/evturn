@@ -3,6 +3,7 @@ var PortfolioView = Backbone.View.extend({
 	projectTemplate: _.template($('#project-template').html()),
 	projectsNavTemplate: _.template($('#projects-nav-template').html()),
 	initialize: function() {
+		projectsCollection = new ProjectsCollection(projects);
 		$projectEl = $('#project-summary');
 		total = projectsCollection.length
 		buttons = [];

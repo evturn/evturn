@@ -8,6 +8,8 @@ var AppView = Backbone.View.extend({
 		techCollection = new TechCollection(technologies);
 		contactsCollection = new ContactsCollection(contacts);
 		copyCollection = new CopyCollection(siteCopy);
+		portfolioView  = new PortfolioView();
+		$('#portfolio').hide();
 		this.setMain();
 	},
 	events: {
