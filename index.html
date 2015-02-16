@@ -57,7 +57,7 @@
 			<ul id="buttons-list">
 			<% projectsCollection.each(function(model) { %>
 				<% id = model.get('id'); %>
-				<li class="project-tab" id="<%= id %>">
+				<li class="project-tab" id="project-<%= id %>">
 					<a class="button button-default u-full-width" id="button-<%= id %>"href="#"><%= id %></a>
 				</li>
 			<% }) %>
