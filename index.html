@@ -34,66 +34,66 @@
 	</div>
 	
 <script type="text/template" id="nav-template">
-	<div class="row">
-		<ul id="nav-list">
-			<li class="nav-button">
-				<a class="icon-button" id="portfolio-button" href="#"><img class="icon" src="assets/img/portfolio.png"></a>
-			</li>
+<div class="row">
+	<ul id="nav-list">
+		<li class="nav-button">
+			<a class="icon-button" id="portfolio-button" href="#"><img class="icon" src="assets/img/portfolio.png"></a>
+		</li>
 		<%	contactsCollection.each(function(contact) { %>
-			<li class="nav-button">
-				<% url = contact.get('url'); %>
-				<% image = contact.get('image'); %>
-				<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
-			</li>
+		<li class="nav-button">
+			<% url = contact.get('url'); %>
+			<% image = contact.get('image'); %>
+			<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+		</li>
 		<% }); %>			
-		</ul>
-	</div>
+	</ul>
+</div>
 </script>
 
 <script type="text/template" id="project-template">
-	<div class="row">
-		<div class="projects-nav">
-			<h3><strong>PROJECTS</strong></h3>
-			<ul id="buttons-list">
-			<% projectsCollection.each(function(model) { %>
-				<% id = model.get('id'); %>
-				<li class="project-tab" id="project-<%= id %>">
-					<a class="button button-default u-full-width" id="button-<%= id %>"href="#"><%= id %></a>
-				</li>
-			<% }) %>
-			</ul>
-		</div>
+<div class="row">
+	<div class="projects-nav">
+		<h3><strong>PROJECTS</strong></h3>
+		<ul id="buttons-list">
+		<% projectsCollection.each(function(model) { %>
+			<% id = model.get('id'); %>
+			<li class="project-tab" id="project-<%= id %>">
+				<a class="button button-default u-full-width" id="button-<%= id %>"href="#"><%= id %></a>
+			</li>
+		<% }) %>
+		</ul>
 	</div>
-	<div class="row">
-		<div class="ten columns offset-by-one">
-			 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				<div class="carousel-inner">
-				  <div class="item active">
-						<img src="<%= lead %>">
-					</div>
-					<% for (var i = gallery.length - 1; i >= 0; i--) { %>
-					<div class="item">
-					<% 	galleryItem = gallery[i]; %>
-						<img src="<%= galleryItem %>">
-					</div>	
-					<% }; %>
+</div>
+<div class="row">
+	<div class="ten columns offset-by-one">
+		 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+			  <div class="item active">
+					<img src="<%= lead %>">
+				</div>
+				<% for (var i = gallery.length - 1; i >= 0; i--) { %>
+				<div class="item">
+				<% 	galleryItem = gallery[i]; %>
+					<img src="<%= galleryItem %>">
 				</div>	
-			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-			</div> 
-		</div>
+				<% }; %>
+			</div>	
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+		</div> 
 	</div>
-	<div class="row">		
-		<div class="ten columns offset-by-one">
-			<p class="summary"><%= summary %></p>
-			<p><%= stack %></p>
-		</div>
+</div>
+<div class="row">		
+	<div class="ten columns offset-by-one">
+		<p class="summary"><%= summary %></p>
+		<p><%= stack %></p>
 	</div>
+</div>
 </script>
 
 <script type="text/template" id="avatar-template">
-	<h3><strong>EVAN TURNER</strong></h3>
-	<a class="avatar"><img class="avatar" src="assets/img/ev-winter-white.jpg"></a>
+<h3><strong>EVAN TURNER</strong></h3>
+<a class="avatar"><img class="avatar" src="assets/img/ev-winter-white.jpg"></a>
 </script>
 
 <script type="text/template" id="bio-template">
@@ -109,23 +109,22 @@
 </script>
 
 <script type="text/template" id="stack-template">	
-			<h3><strong>FULL STACK</strong></h3>
-		<ul id="stack-list">
-		<% techCollection.each(function(tech) { %>
-		<% 	image = tech.get('image'); %>
-		<% 	techArray = tech.get('technology'); %>
-			<li class="stack-tab">
-				<div class="twelve columns">
-					<% for (var i = techArray.length - 1; i >= 0; i--) { %>
-						<%	tech = techArray[i] %>
-					<h5 class="bio"><%= tech %></h5>
-					<% }; %>
-					<a><img class="icon-stack" src="<%= image %>"></a>
-				</div>
-			</li>
-			<% }); %>	
-			</ul>
+<h3><strong>FULL STACK</strong></h3>
+<ul id="stack-list">
+<% techCollection.each(function(tech) { %>
+<% 	image = tech.get('image'); %>
+<% 	techArray = tech.get('technology'); %>
+	<li class="stack-tab">
+		<div class="twelve columns">
+			<% for (var i = techArray.length - 1; i >= 0; i--) { %>
+				<%	tech = techArray[i] %>
+			<h5 class="bio"><%= tech %></h5>
+			<% }; %>
+			<a><img class="icon-stack" src="<%= image %>"></a>
 		</div>
+	</li>
+	<% }); %>	
+</ul>
 </script>
 
 	<script src="assets/js/lib/jquery.js"></script>
