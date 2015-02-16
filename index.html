@@ -50,20 +50,15 @@
 	</div>
 </script>
 
-<script type="text/template" id="projects-nav-template">
-
-</script>
-
 <script type="text/template" id="project-template">
 	<div class="row">
 		<div class="projects-nav">
 			<h3><strong>PROJECTS</strong></h3>
 			<ul id="buttons-list">
-				<%	buttonsCollection.each(function(btn) { %>
+				<%	projectsCollection.each(function(btn) { %>
 				<% id = btn.get('id'); %>
-				<% number = btn.get('number'); %>
 				<li class="project-tab">
-					<a class="button button-default u-full-width" id="<%= id %>" href="#"><%= number %></a>
+					<a class="button button-default u-full-width" id="button-<%= id %>" href="#"><%= id %></a>
 				</li>
 				<% }); %>
 			</ul>

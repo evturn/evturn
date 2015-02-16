@@ -5,8 +5,6 @@ var PortfolioView = Backbone.View.extend({
 		projectsCollection = new ProjectsCollection(projects);
 		$projectEl = $('#project');
 		total = projectsCollection.length
-		buttons = [];
-		this.renderProjectsNav();
 		this.setProject5();
 		this.setProject4();
 		this.setProject3();
@@ -19,10 +17,6 @@ var PortfolioView = Backbone.View.extend({
 		'click #button-3': 'setProject3',
 		'click #button-4': 'setProject4',
 		'click #button-5': 'setProject5',
-	},
-	renderProjectsNav: function() {
-		this.createId('button');
-		buttonsCollection = new ButtonsCollection(buttons);
 	},
 	setProject1: function() {
 		model1 = projectsCollection.models[0];
@@ -54,16 +48,16 @@ var PortfolioView = Backbone.View.extend({
 		$projectEl.html(this.projectTemplate(model5.toJSON()));
 		this.activateCarousel();
 	},
-	createId: function(string) {
-	  counter = 1;
-	  for (counter + 1; counter <= total; counter++) {
-	    var projectButton = new ProjectButton;
-	    buttonId = string + '-' + counter;
-	    projectNumber = counter;
-	    projectButton.set({number: projectNumber, id: buttonId});
-	    buttons.push(projectButton);
-	  };
-	},
+	// createId: function(string) {
+	//   counter = 1;
+	//   for (counter + 1; counter <= total; counter++) {
+	//     var projectButton = new ProjectButton;
+	//     buttonId = string + '-' + counter;
+	//     projectNumber = counter;
+	//     projectButton.set({number: projectNumber, id: buttonId});
+	//     buttons.push(projectButton);
+	//   };
+	// },
 	activateCarousel: function() {
 		$('.carousel').carousel({
 			interval: 2000
