@@ -55,16 +55,12 @@
 		<div class="projects-nav">
 			<h3><strong>PROJECTS</strong></h3>
 			<ul id="buttons-list">
-				<%	projectsCollection.each(function(btn) { %>
-				<% id = btn.get('id'); %>
 				<li class="project-tab">
 					<a class="button button-default u-full-width" id="button-<%= id %>" href="#"><%= id %></a>
 				</li>
-				<% }); %>
 			</ul>
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="ten columns offset-by-one">
 			 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -72,12 +68,9 @@
 				  <div class="item active">
 						<img src="<%=lead %>">
 					</div>
-					<% for (var i = projectGallery.length - 1; i >= 0; i--) { %>
-						<%	image = projectGallery[i] %>
 					<div class="item">
-						<img src="<%= image %>">
-					</div>
-					<% }; %>	
+						<img src="<%= gallery[0] %>">
+					</div>	
 				</div>	
 			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
 			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -135,7 +128,6 @@
 	<script src="assets/js/lib/backbone.js"></script>
 	<script src="assets/js/lib/bootstrap.js"></script>
 	<script src="./data.js"></script>
-	<script src="assets/js/models/projectButton.js"></script>
 	<script src="assets/js/models/tech.js"></script>
 	<script src="assets/js/models/contact.js"></script>
 	<script src="assets/js/models/project.js"></script>
@@ -143,8 +135,8 @@
 	<script src="assets/js/collections/projectsCollection.js"></script>
 	<script src="assets/js/collections/techCollection.js"></script>
 	<script src="assets/js/collections/contactsCollection.js"></script>
-	<script src="assets/js/collections/buttonsCollection.js"></script>
 	<script src="assets/js/collections/copyCollection.js"></script>
+	<script src="assets/js/views/projectView.js"></script>
 	<script src="assets/js/views/portfolioView.js"></script>
 	<script src="assets/js/views/appView.js"></script>
 	<script src="assets/js/main.js"></script>

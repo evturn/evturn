@@ -5,10 +5,11 @@ var AppView = Backbone.View.extend({
 	contactTemplate: _.template($('#contact-template').html()),
 	navTemplate: _.template($('#nav-template').html()),
 	initialize: function() {
+		projectsCollection = new ProjectsCollection(projects);
 		techCollection = new TechCollection(technologies);
 		contactsCollection = new ContactsCollection(contacts);
 		copyCollection = new CopyCollection(siteCopy);
-		portfolioView  = new PortfolioView();
+		portfolioView  = new PortfolioView({collection: projectsCollection});
 		$('#portfolio').hide();
 		this.setMain();
 	},
