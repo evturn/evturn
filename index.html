@@ -19,7 +19,6 @@
 			<div class="twelve columns" id="nav"></div>
 		</div>
 		<div class="row" id="portfolio">
-			<div class="twelve columns" id="projects-nav"></div>
 			<div class="twelve columns" id="project"></div>
 		</div>		
 		<div class="row">
@@ -52,19 +51,25 @@
 </script>
 
 <script type="text/template" id="projects-nav-template">
-	<h3><strong>PROJECTS</strong></h3>
-	<ul id="buttons-list">
-		<%	buttonsCollection.each(function(btn) { %>
-			<% id = btn.get('id'); %>
-			<% number = btn.get('number'); %>
-		<li class="project-tab">
-			<a class="button button-default u-full-width" id="<%= id %>" href="#"><%= number %></a>
-		</li>
-		<% }); %>
-	</ul>
+
 </script>
 
 <script type="text/template" id="project-template">
+	<div class="row">
+		<div class="projects-nav">
+			<h3><strong>PROJECTS</strong></h3>
+			<ul id="buttons-list">
+				<%	buttonsCollection.each(function(btn) { %>
+				<% id = btn.get('id'); %>
+				<% number = btn.get('number'); %>
+				<li class="project-tab">
+					<a class="button button-default u-full-width" id="<%= id %>" href="#"><%= number %></a>
+				</li>
+				<% }); %>
+			</ul>
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="ten columns offset-by-one">
 			 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">

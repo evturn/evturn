@@ -1,7 +1,6 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
 	projectTemplate: _.template($('#project-template').html()),
-	projectsNavTemplate: _.template($('#projects-nav-template').html()),
 	initialize: function() {
 		projectsCollection = new ProjectsCollection(projects);
 		$projectEl = $('#project');
@@ -24,7 +23,6 @@ var PortfolioView = Backbone.View.extend({
 	renderProjectsNav: function() {
 		this.createId('button');
 		buttonsCollection = new ButtonsCollection(buttons);
-		$('#projects-nav').html(this.projectsNavTemplate);
 	},
 	setProject1: function() {
 		model1 = projectsCollection.models[0];
