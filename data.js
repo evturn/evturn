@@ -107,7 +107,7 @@ technologies = [
 			]
 	},
 	{
-		image: 'assets/img/gear-stack-white.png',
+		image: 'assets/img/grid-stack-white.png',
 		technology: 
 			[
 			'Heroku',
@@ -116,7 +116,7 @@ technologies = [
 			]
 	},
 	{
-		image: 'assets/img/grid-stack-white.png',
+		image: 'assets/img/gear-stack-white.png',
 		technology: 
 			[
 			'Handlebars',
