@@ -3,12 +3,12 @@ var AppView = Backbone.View.extend({
 	workTemplate: _.template($('#work-template').html()),
 	bioTemplate: _.template($('#bio-template').html()),
 	initialize: function() {
-		bioCopy = new Copy(copy);
 		projectsCollection = new ProjectsCollection(projects);
+		portfolioView  = new PortfolioView({collection: projectsCollection});
 		stackCollection = new StackCollection(technologies);
 		linksCollection = new LinksCollection(links);
-		portfolioView  = new PortfolioView({collection: projectsCollection});
 		$('#portfolio').hide();
+		this.setBio();
 		this.setStacks();
 		this.setLinks();
 		this.setMain();
@@ -19,8 +19,11 @@ var AppView = Backbone.View.extend({
 	},
 	setMain: function() {
 		$('#work').html(this.workTemplate);
-		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
 		$('.footnote').hide();
+	},
+	setBio: function() {
+		bioCopy = new Copy(copy);
+		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
 	},
 	addStack: function(model) {
 		var view = new FullStackView({model: model});
