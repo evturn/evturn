@@ -27,9 +27,6 @@
 		</div>
 		<div class="row">
 			<div class="twelve columns" id="stack"></div>
-			<div class="twelve columns" id="footer">
-				<a href="#">&#169; 2015 evturn.com</a>
-			</div>
 		</div>
 	</div>
 	
@@ -48,6 +45,11 @@
 		<% }); %>			
 	</ul>
 </div>
+</script>
+
+<script type="text/template" id="avatar-template">
+<h3><strong>EVAN TURNER</strong></h3>
+<a><img class="avatar" src="assets/img/ev-winter-white.jpg"></a>
 </script>
 
 <script type="text/template" id="project-template">
@@ -91,21 +93,15 @@
 </div>
 </script>
 
-<script type="text/template" id="avatar-template">
-<h3><strong>EVAN TURNER</strong></h3>
-<a class="avatar"><img class="avatar" src="assets/img/ev-winter-white.jpg"></a>
-</script>
-
 <script type="text/template" id="bio-template">
 <h3><strong>WEB DEVELOPER</strong></h3>
-		<% copyCollection.each(function(text) { %>
-		<% 	bio = text.get('paragraph'); %>
-		<% 	fact = text.get('fact'); %>
-		<p class="bio"><%= bio %></p> 
-		<p class="bio"><%= fact %></p>
-		<% }); %>
-		<p class="footnote"><em>Evan did not invent the internet</em><sup> 1</sub></p>
-	<div class="twelve columns">
+<% copyCollection.each(function(text) { %>
+<% 	bio = text.get('paragraph'); %>
+<% 	fact = text.get('fact'); %>
+<p class="bio"><%= bio %></p> 
+<p class="bio"><%= fact %></p>
+<% }); %>
+<p class="footnote"><em>Evan did not invent the internet</em><sup> 1</sub></p>
 </script>
 
 <script type="text/template" id="stack-template">	
@@ -125,6 +121,9 @@
 	</li>
 	<% }); %>	
 </ul>
+<div class="twelve columns" id="footer">
+				<a href="#">&#169; 2015 evturn.com</a>
+			</div>
 </script>
 
 	<script src="assets/js/lib/jquery.js"></script>
