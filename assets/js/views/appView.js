@@ -1,16 +1,16 @@
 var AppView = Backbone.View.extend({
 	el: '.container',
-	navTemplate: _.template($('#nav-template').html()),
 	workTemplate: _.template($('#work-template').html()),
 	bioTemplate: _.template($('#bio-template').html()),
 	initialize: function() {
 		bioCopy = new Copy(copy);
 		projectsCollection = new ProjectsCollection(projects);
 		stackCollection = new StackCollection(technologies);
-		contactsCollection = new ContactsCollection(links);
+		linksCollection = new LinksCollection(links);
 		portfolioView  = new PortfolioView({collection: projectsCollection});
 		$('#portfolio').hide();
 		this.setStacks();
+		this.setLinks();
 		this.setMain();
 	},
 	events: {
@@ -20,7 +20,6 @@ var AppView = Backbone.View.extend({
 	setMain: function() {
 		$('#work').html(this.workTemplate);
 		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
-		$('#nav').html(this.navTemplate);
 		$('.footnote').hide();
 	},
 	addStack: function(model) {
@@ -30,6 +29,15 @@ var AppView = Backbone.View.extend({
 	setStacks: function() {
 		stackCollection.each(function(model) {
 			this.addStack(model);
+		}.bind(this));
+	},
+	addLink: function(model) {
+		var view = new LinkView({model: model});
+		$('#link-list').append(view.el)
+	},
+	setLinks: function() {
+		linksCollection.each(function(model) {
+			this.addLink(model);
 		}.bind(this));
 	},
 	togglePortfolio: function(e) {

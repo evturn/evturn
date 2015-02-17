@@ -64,7 +64,7 @@ button.target-btn:hover {
 	text-align: justify;
 }
 
-#nav {
+#links {
 	padding-top: 20px;
 	border-bottom: 1px solid gray;
 }
@@ -114,7 +114,11 @@ ul {
 	text-align: center;
 }
 
-ul#nav-list li {
+ul#link-list li {
+	display: inline-block;
+}
+
+ul#header-list li {
 	display: inline-block;
 }
 
