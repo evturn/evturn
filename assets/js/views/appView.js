@@ -1,7 +1,7 @@
 var AppView = Backbone.View.extend({
 	el: '.container',
 	navTemplate: _.template($('#nav-template').html()),
-	avatarTemplate: _.template($('#avatar-template').html()),
+	workTemplate: _.template($('#work-template').html()),
 	bioTemplate: _.template($('#bio-template').html()),
 	stackTemplate: _.template($('#stack-template').html()),
 	initialize: function() {
@@ -18,7 +18,7 @@ var AppView = Backbone.View.extend({
 		'click #footnote': 'toggleFact',
 	},
 	setMain: function() {
-		$('#avatar').html(this.avatarTemplate);
+		$('#work').html(this.workTemplate);
 		$('#bio').html(this.bioTemplate);
 		$('#stack').html(this.stackTemplate);
 		$('#nav').html(this.navTemplate);
