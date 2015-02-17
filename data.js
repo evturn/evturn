@@ -59,22 +59,22 @@ links = [
 	{
 		name: 'email',
 		url: 'mailto:evturn@gmail.com',
-		image: 'assets/img/email.png',
+		image: 'assets/img/email-yellow.png',
 	},
 	{
 		name: 'github',
 		url: 'http://github.com/evturn',
-		image: 'assets/img/github.png'
+		image: 'assets/img/github-yellow.png'
 	},
 	{
 		name: 'general assembly',
 		url: 'https://profiles.generalassemb.ly/ev',
-		image: 'assets/img/ga.png'
+		image: 'assets/img/ga-yellow.png'
 	},
 	{
 		name: 'linkedin',
 		url: 'http://www.linkedin.com/in/evturn/',
-		image: 'assets/img/linkedin.png'
+		image: 'assets/img/linkedin-yellow.png'
 	}
 ];
 
