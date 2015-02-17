@@ -6,5 +6,5 @@ var ProjectView = Backbone.View.extend({
 	render: function() {
 		this.$el.append(this.projectTemplate(this.model.toJSON()));
 		return this;
-	}
+	},
 });
