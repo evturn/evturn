@@ -59,7 +59,7 @@ links = [
 	{
 		name: 'email',
 		url: 'mailto:evturn@gmail.com',
-		image: 'assets/img/email.png',
+		image: 'assets/img/email-yellow.png',
 	},
 	{
 		name: 'github',
