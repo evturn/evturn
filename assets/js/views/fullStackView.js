@@ -1,4 +1,6 @@
 var FullStackView = Backbone.View.extend({
+	tagName: 'li',
+	className: 'stack-tab',
 	fullStackTemplate: _.template($('#full-stack-template').html()),
 	initialize: function() {
 		this.render();
