@@ -56,26 +56,14 @@
 	  <a href="#project"><img src="<%= main %>"></a>
 	 </div>
 </div>
+<% for (var i = thumbnail.length - 1; i >= 0; i--) { %>
+	<% preview = thumbnail[i] %>
 <div class="col-xs-6 col-sm-3">
   <div class="thumbnail project">
-    <a href="#project"><img src="<%= image1 %>"></a>
-  </div>
- </div>
-<div class="col-xs-6 col-sm-3">
-  <div class="thumbnail project">
-    <a href="#"project><img src="<%= image2 %>"></a>
+    <a href="#project"><img src="<%= preview %>"></a>
   </div>
 </div>
-<div class="col-xs-6 col-sm-3">
-  <div class="thumbnail project">
-    <a href="#project"><img src="<%= image3 %>"></a>
-  </div>
-</div>
-<div class="col-xs-6 col-sm-3">
-  <div class="thumbnail project">
-    <a href="#project"><img src="<%= image4 %>"></a>
-  </div>
-</div>
+<% }; %>
 </script>
 
 <script type="text/template" id="bio-template">
