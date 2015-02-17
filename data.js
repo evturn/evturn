@@ -127,9 +127,9 @@ technologies = [
 ];
 
 myWork = {
-	main: '"assets/img/portfolio-2.png"',
-	image1: '"assets/img/marshallz-1.png"',
-	image2: '"assets/img/alculator-1.png"',
-	image3: '"assets/img/hangman-1.png"',
-	image4: '"assets/img/ttt.png"'
+	main: "assets/img/portfolio-2.png",
+	image1: "assets/img/marshallz-1.png",
+	image2: "assets/img/alculator-1.png",
+	image3: "assets/img/hangman-1.png",
+	image4: "assets/img/ttt.png"
 };

@@ -11,6 +11,7 @@ var AppView = Backbone.View.extend({
 		this.setBio();
 		this.setStacks();
 		this.setLinks();
+		this.setWork();
 		this.setMain();
 	},
 	events: {
@@ -18,12 +19,15 @@ var AppView = Backbone.View.extend({
 		'click #footnote': 'toggleFact',
 	},
 	setMain: function() {
-		$('#work').html(this.workTemplate);
 		$('.footnote').hide();
 	},
 	setBio: function() {
 		bioCopy = new Copy(copy);
 		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
+	},
+	setWork: function() {
+		workModel = new Work(myWork);
+		$('#work').html(this.workTemplate(workModel.toJSON()));
 	},
 	addStack: function(model) {
 		var view = new FullStackView({model: model});
