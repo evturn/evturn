@@ -127,16 +127,14 @@
 </div>
 </script>
 
-
-
 <script type="text/template" id="full-stack-template">			
-			<div class="col-xs-6 col-sm-12">
-			<% for (var i = technology.length - 1; i >= 0; i--) { %>
-			<%	tech = technology[i] %>
-				<h5 class="bio"><%= tech %></h5>
-			<% }; %>
-				<a><img class="icon-stack" src="<%= image %>"></a>
-			</div>
+<div class="col-xs-6 col-sm-12">
+	<% for (var i = technology.length - 1; i >= 0; i--) { %>
+	<% tech = technology[i] %>
+	<h5 class="bio"><%= tech %></h5>
+	<% }; %>
+	<a><img class="icon-stack" src="<%= image %>"></a>
+</div>
 </script>
 
 	<script src="assets/js/lib/jquery.js"></script>
@@ -144,12 +142,12 @@
 	<script src="assets/js/lib/backbone.js"></script>
 	<script src="assets/js/lib/bootstrap.js"></script>
 	<script src="./data.js"></script>
-	<script src="assets/js/models/tech.js"></script>
+	<script src="assets/js/models/stack.js"></script>
 	<script src="assets/js/models/contact.js"></script>
 	<script src="assets/js/models/project.js"></script>
 	<script src="assets/js/models/copy.js"></script>
 	<script src="assets/js/collections/projectsCollection.js"></script>
-	<script src="assets/js/collections/techCollection.js"></script>
+	<script src="assets/js/collections/stackCollection.js"></script>
 	<script src="assets/js/collections/contactsCollection.js"></script>
 	<script src="assets/js/collections/copyCollection.js"></script>
 	<script src="assets/js/views/projectView.js"></script>

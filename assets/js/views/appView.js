@@ -6,7 +6,7 @@ var AppView = Backbone.View.extend({
 	initialize: function() {
 		bioCopy = new Copy(copy);
 		projectsCollection = new ProjectsCollection(projects);
-		techCollection = new TechCollection(technologies);
+		stackCollection = new StackCollection(technologies);
 		contactsCollection = new ContactsCollection(links);
 		portfolioView  = new PortfolioView({collection: projectsCollection});
 		$('#portfolio').hide();
@@ -28,7 +28,7 @@ var AppView = Backbone.View.extend({
 		$('#stack-list').append(view.el)
 	},
 	setStacks: function() {
-		techCollection.each(function(model) {
+		stackCollection.each(function(model) {
 			this.addStack(model);
 		}.bind(this));
 	},

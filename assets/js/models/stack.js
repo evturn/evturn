@@ -1,4 +1,4 @@
-var Tech = Backbone.Model.extend({
+var Stack = Backbone.Model.extend({
 	defaults: {
 		image: '',
 		technology: ''
