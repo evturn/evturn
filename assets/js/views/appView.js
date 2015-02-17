@@ -8,10 +8,6 @@ var AppView = Backbone.View.extend({
 		stackCollection = new StackCollection(technologies);
 		linksCollection = new LinksCollection(links);
 		$('#portfolio').hide();
-		this.setBio();
-		this.setStacks();
-		this.setLinks();
-		this.setWork();
 		this.setMain();
 	},
 	events: {
@@ -19,6 +15,10 @@ var AppView = Backbone.View.extend({
 		'click #footnote': 'toggleFact',
 	},
 	setMain: function() {
+		this.setBio();
+		this.setStacks();
+		this.setLinks();
+		this.setWork();
 		$('.footnote').hide();
 	},
 	setBio: function() {
@@ -27,7 +27,8 @@ var AppView = Backbone.View.extend({
 	},
 	setWork: function() {
 		workModel = new Work(myWork);
-		$('#work').html(this.workTemplate(workModel.toJSON()));
+		var view = new WorkView({model: workModel})
+		$('#work').append(view.el);
 	},
 	addStack: function(model) {
 		var view = new FullStackView({model: model});
@@ -46,10 +47,6 @@ var AppView = Backbone.View.extend({
 		linksCollection.each(function(model) {
 			this.addLink(model);
 		}.bind(this));
-	},
-	togglePortfolio: function(e) {
-		e.preventDefault();
-		$('#portfolio').slideToggle();
 	},
 	toggleFact: function(e) {
 		e.preventDefault();
