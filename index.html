@@ -119,13 +119,8 @@
 
 <script type="text/template" id="bio-template">
 <h3><strong>WEB DEVELOPER</strong></h3>
-<% copyCollection.each(function(text) { %>
-<% 	bio = text.get('paragraph'); %>
-<% 	fact = text.get('fact'); %>
-<% 	footnote = text.get('footnote'); %>
-<p class="bio"><%= bio %></p> 
+<p class="bio"><%= paragraph %></p> 
 <p class="bio"><%= fact %></p>
-<% }); %>
 <p class="footnote"><%= footnote %></p>
 </script>
 

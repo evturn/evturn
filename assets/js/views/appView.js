@@ -8,7 +8,7 @@ var AppView = Backbone.View.extend({
 		projectsCollection = new ProjectsCollection(projects);
 		techCollection = new TechCollection(technologies);
 		contactsCollection = new ContactsCollection(contacts);
-		copyCollection = new CopyCollection(siteCopy);
+		bioCopy = new Copy(copy);
 		portfolioView  = new PortfolioView({collection: projectsCollection});
 		$('#portfolio').hide();
 		this.setMain();
@@ -19,7 +19,7 @@ var AppView = Backbone.View.extend({
 	},
 	setMain: function() {
 		$('#work').html(this.workTemplate);
-		$('#bio').html(this.bioTemplate);
+		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
 		$('#stack').html(this.stackTemplate);
 		$('#nav').html(this.navTemplate);
 		$('.footnote').hide();
