@@ -26,7 +26,7 @@
 			<div class="col-xs-12 col-sm-6" id="bio"></div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-12" id="stack"></div>
+			<div class="col-xs-12 col-sm-12" id="full-stack"></div>
 		</div>
 	</div>
 	
@@ -76,6 +76,13 @@
 </div>
 </script>
 
+<script type="text/template" id="bio-template">
+<h3><strong>WEB DEVELOPER</strong></h3>
+<p class="bio"><%= paragraph %></p> 
+<p class="bio"><%= fact %></p>
+<p class="footnote"><%= footnote %></p>
+</script>
+
 <script type="text/template" id="project-template">
 <div class="row">
 	<div class="projects-nav">
@@ -117,34 +124,19 @@
 </div>
 </script>
 
-<script type="text/template" id="bio-template">
-<h3><strong>WEB DEVELOPER</strong></h3>
-<p class="bio"><%= paragraph %></p> 
-<p class="bio"><%= fact %></p>
-<p class="footnote"><%= footnote %></p>
-</script>
 
-<script type="text/template" id="stack-template">	
+
+<script type="text/template" id="full-stack-template">	
 <h3><strong>FULL STACK</strong></h3>
 <div class="row">
-<ul id="stack-list">
-	<% techCollection.each(function(tech) { %>
-	<% image = tech.get('image'); %>
-	<% techArray = tech.get('technology'); %>
-	<li class="stack-tab">
-		<div class="col-xs-6 col-sm-12">
-			<% for (var i = techArray.length - 1; i >= 0; i--) { %>
-				<% tech = techArray[i] %>
-			<h5 class="bio"><%= tech %></h5>
-			<% }; %>
-			<a><img class="icon-stack" src="<%= image %>"></a>
-		</div>
-	</li>
-	<% }); %>	
-</ul>
-<div class="col-xs-12 col-sm-12" id="footer">
-	<a href="#">&#169; 2015 evturn.com</a>
-</div>
+	<ul id="stack-list">
+		<li class="stack-tab">
+			<div class="col-xs-6 col-sm-12">
+				<h5 class="bio"><%= technology %></h5>
+				<a><img class="icon-stack" src="<%= image %>"></a>
+			</div>
+		</li>
+	</ul>
 </div>
 </script>
 
@@ -162,6 +154,7 @@
 	<script src="assets/js/collections/contactsCollection.js"></script>
 	<script src="assets/js/collections/copyCollection.js"></script>
 	<script src="assets/js/views/projectView.js"></script>
+	<script src="assets/js/views/fullStackView.js"></script>
 	<script src="assets/js/views/portfolioView.js"></script>
 	<script src="assets/js/views/appView.js"></script>
 	<script src="assets/js/main.js"></script>

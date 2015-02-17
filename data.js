@@ -55,7 +55,7 @@ projects = [
 	}
 ];
 
-contacts = [
+links = [
 	{
 		name: 'email',
 		url: 'mailto:evturn@gmail.com',

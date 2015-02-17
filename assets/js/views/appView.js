@@ -4,13 +4,15 @@ var AppView = Backbone.View.extend({
 	workTemplate: _.template($('#work-template').html()),
 	bioTemplate: _.template($('#bio-template').html()),
 	stackTemplate: _.template($('#stack-template').html()),
+	fullStackTemplate: _.template($('#full-stack-template').html()),
 	initialize: function() {
+		bioCopy = new Copy(copy);
 		projectsCollection = new ProjectsCollection(projects);
 		techCollection = new TechCollection(technologies);
-		contactsCollection = new ContactsCollection(contacts);
-		bioCopy = new Copy(copy);
+		contactsCollection = new ContactsCollection(links);
 		portfolioView  = new PortfolioView({collection: projectsCollection});
 		$('#portfolio').hide();
+		this.addTech();
 		this.setMain();
 	},
 	events: {
@@ -20,9 +22,13 @@ var AppView = Backbone.View.extend({
 	setMain: function() {
 		$('#work').html(this.workTemplate);
 		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
-		$('#stack').html(this.stackTemplate);
 		$('#nav').html(this.navTemplate);
 		$('.footnote').hide();
+	},
+	addTech: function() {
+		techCollection.each(function(model) {
+			$('#stack').html(this.fullStackTemplate(model.toJSON()));
+		});
 	},
 	togglePortfolio: function(e) {
 		e.preventDefault();
