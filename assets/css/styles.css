@@ -81,6 +81,15 @@ ul#buttons-list li {
 	display: inline-block;
 }
 
+.portfolio-button {
+	background-color: #000;
+	border-radius: 20%;
+}
+
+.icon-portfolio {
+	max-width: 250px;
+}
+
 .icon {	
 	max-width: 60px;
 }
@@ -98,6 +107,7 @@ a.icon-button {
 	background-color: #000;
 	border-radius: 20%;
 }
+
 
 ul {
 	width: 100%;

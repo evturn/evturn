@@ -22,8 +22,8 @@
 			<div class="twelve columns" id="project"></div>
 		</div>		
 		<div class="row">
-			<div class="one-half column" id="avatar"></div>
 			<div class="one-half column" id="bio"></div>
+			<div class="one-half column" id="avatar"></div>
 		</div>
 		<div class="row">
 			<div class="twelve columns" id="stack"></div>
@@ -33,8 +33,8 @@
 <script type="text/template" id="nav-template">
 <div class="row">
 	<ul id="nav-list">
-		<li class="nav-button">
-			<a class="icon-button" id="portfolio-button" href="#"><img class="icon" src="assets/img/portfolio.png"></a>
+		<li class="icon-button" >
+		<a><img class="avatar" class="icon" src="assets/img/ev-winter-white.jpg"></a>
 		</li>
 		<%	contactsCollection.each(function(contact) { %>
 		<li class="nav-button">
@@ -48,8 +48,32 @@
 </script>
 
 <script type="text/template" id="avatar-template">
-<h3><strong>EVAN TURNER</strong></h3>
-<a><img class="avatar" src="assets/img/ev-winter-white.jpg"></a>
+<h3><strong>MY WORK</strong></h3>
+<ul id="nav-list">
+<div class="col-xs-12 col-sm-6">
+    <div class="thumbnail project">
+      <a href="#"><img src="assets/img/marshallz-1.png" alt="Blog"></a>
+      
+   
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="thumbnail project">
+      <a href="#"><img src="assets/img/alculator-1.png" alt="BAC Calcucator"></a>
+    </div>
+  </div>
+    <div class="col-xs-12 col-sm-6">
+    <div class="thumbnail project">
+      <a href="#"><img src="assets/img/ttt.png" alt="Hangman"></a>
+    </div>
+  </div>
+ 	<div class="col-xs-12 col-sm-6">
+    <div class="thumbnail project">
+      <a href="#"><img src="assets/img/ramen-buffet.png" alt="To-Do-List"></a>
+    </div>
+  </div>
+</div>
+</div>
 </script>
 
 <script type="text/template" id="project-template">
