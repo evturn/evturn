@@ -13,7 +13,7 @@
 	<title>Evan Turner | Developer</title>
 </head>
 <body>
-
+<a><div ata-toggle="tooltip" data-placement="bottom" title="I'm an egg." id="tooltip"></div></a>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12" id="links">
@@ -76,7 +76,7 @@
 		<ul id="buttons-list">
 		<% projectsCollection.each(function(model) { %>
 			<% id = model.get('id'); %>
-			<li class="project-tab" id="project-<%= id %>">
+			<li class="project-tab" data-id="<%= id %>" id="project-<%= id %>">
 				<a class="button button-default u-full-width" id="button-<%= id %>"href="#project"><%= id %></a>
 			</li>
 		<% }) %>

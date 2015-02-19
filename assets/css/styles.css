@@ -2,6 +2,14 @@ body {
 	background-image: url('../img/brickwall.png');
 }
 
+#tooltip {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	height: 100px;
+	background-image: url('../img/egg.png');
+}
 .avatar {
 	border-radius: 20%;
 	max-width: 45%;
@@ -107,7 +115,6 @@ a.icon-button {
 	background-color: #000;
 	border-radius: 20%;
 }
-
 
 ul {
 	width: 100%;
