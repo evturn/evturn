@@ -25,10 +25,22 @@ projects = [
 			]
 	},
 	{
+		name: 'To-Do List',
+		summary: "This To-Do list requires no refreshing and saves instantly upon click or keydown. Users can create an account for the app and in addition login and link their Twitter and Facebook accounts. Data is stored using MongoDB with Angular.js running on the client-side. In my first version, data was stored locally in the browsers storage with Backbone.localStorage", 
+		stack: "Built with Node.js &#x95; Express.js &#x95; MongoDB &#x95; Angular.js<br>(Originally Backbone.js &#x95; Underscore.js &#x95; Backbone.localStorage)",
+		id: 3,
+		lead: 'assets/img/ramen-1.png',
+		gallery:
+			[
+			"assets/img/ramen-3.png",
+			"assets/img/ramen-2.png"
+			]
+	},
+	{
 		name: 'Hangman',
 		summary: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and remade the game from scratch in Javascript Backbone.js handling the views as the game is played",
 		stack: "Built with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX)",
-		id: 3,
+		id: 4,
 		lead: "assets/img/hangman-2.png",
 		gallery: 
 			[
@@ -41,18 +53,11 @@ projects = [
 		name: 'Tic Tac Toe',
 		summary: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay",
 		stack: "Built with Backbone.js &#x95; Underscore.js &#x95; Javascript",
-		id: 4,
+		id: 5,
 		lead: 'assets/img/ttt.png',
 		gallery: ['assets/img/ttt.png']
-	},
-	{
-		name: 'To-Do List',
-		summary: "This To-Do list requires no refreshing and saves instantly upon click or keydown. Data is stored locally on your machine with Backbone.localStorage", 
-		stack: "Built with Backbone.js &#x95; Underscore.js &#x95; Backbone.localStorage &#x95; Javascript",
-		id: 5,
-		lead: 'assets/img/ramen-buffet.png',
-		gallery:['assets/img/ramen-buffet.png']
 	}
+
 ];
 
 links = [
