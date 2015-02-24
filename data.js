@@ -54,8 +54,8 @@ projects = [
 		summary: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay",
 		stack: "Built with Backbone.js &#x95; Underscore.js &#x95; Javascript",
 		id: 5,
-		lead: 'assets/img/ttt.png',
-		gallery: ['assets/img/ttt.png']
+		lead: 'assets/img/ttt-1.png',
+		gallery: ['assets/img/ttt-2.png']
 	}
 
 ];
