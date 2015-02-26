@@ -26,7 +26,7 @@ projects = [
 	},
 	{
 		name: 'To-Do List',
-		summary: "This To-Do list requires no refreshing and saves instantly upon click or keydown. Users can create an account for the app and in addition login and link their Twitter and Facebook accounts. Data is stored using MongoDB with Angular.js running on the client-side. In my first version, data was stored locally in the browsers storage with Backbone.localStorage", 
+		summary: "This single page Node.js and AngularJS app is a To-Do list which requires no refreshing and stores the data from the user input using MongoDB (NoSQL) upon click or keydown. Users can create an account for the app and in addition login and link their Twitter and Facebook accounts. The original version of this web app was built using the Backbone.js library and stored data locally in the browser with Backbone.localStorage", 
 		stack: "Built with Node.js &#x95; Express.js &#x95; MongoDB &#x95; Angular.js<br>(Originally Backbone.js &#x95; Underscore.js &#x95; Backbone.localStorage)",
 		id: 3,
 		lead: 'assets/img/ramen-1.png',
