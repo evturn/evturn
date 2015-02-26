@@ -96,7 +96,7 @@ technologies = [
 		technology: 
 			[
 			'MongoDB',
-			'Backbone.js',
+			'AngularJS',
 			'Express.js',
 			'Node.js'
 			]
@@ -107,6 +107,7 @@ technologies = [
 			[
 			'Sinatra',
 			'PostgreSQL', 
+			'Backbone.js',
 			'Rails'
 			]
 	},
