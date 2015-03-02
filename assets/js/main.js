@@ -1,5 +1,1 @@
-new AppView();
-
-$(function() {
-	$('#tooltip').tooltip()
-});
+router = new Router();
