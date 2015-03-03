@@ -11,8 +11,7 @@ var AppView = Backbone.View.extend({
 		this.setMain();
 	},
 	events: {
-		'click .thumbnail': 'togglePortfolio',
-		'click #footnote': 'toggleFact',
+		'click #footnote': 'toggleFact'
 	},
 	setMain: function() {
 		this.setBio();
