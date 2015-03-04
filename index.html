@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="assets/img/ev-winter-yellow-200.jpg">
-	<link rel="stylesheet" href="assets/css/lib/normalize.css">
+
 	<link rel="stylesheet" href="assets/css/lib/skeleton.css">
 	<link rel="stylesheet" href="assets/css/lib/bootstrap.css">
 	<link rel="stylesheet" href="assets/css/lib/bootstrap-theme.css">
@@ -81,16 +81,22 @@
 
 
 <script type="text/template" id="bio-template">
-<h3><strong>WEB DEVELOPMENT</strong></h3>
-<p class="bio"><%= paragraph %></p> 
-<p class="bio"><%= fact %></p>
-<p class="footnote"><%= footnote %></p>
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+	<h2>WEB DEVELOPMENT</h2>
+	<p class="lead"><%= lead %></p>
+</div>
+	<div class="col-xs-12 col-sm-6">
+	<p class="bio"><%= paragraph1 %></p>
+</div>
+	<div class="col-xs-12 col-sm-6">
+	<p class="bio"><%= paragraph2 %></p>
+</div> 
 </script>
 
 <script type="text/template" id="project-template">
 <div class="row">
 	<div class="col-xs-12 col-sm-12">
-		<h3><strong>PORTFOLIO</strong></h3>
+		<h2>PORTFOLIO</h2>
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
 			  <div class="item active">

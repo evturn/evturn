@@ -1,4 +1,4 @@
-body {
+body, h6, h5, h4, h3, h2, h1, p {
 	background-image: url('../img/brickwall.png');
 	font-family: "Raleway";
 	font-weight: 500;
@@ -99,9 +99,6 @@ body {
 	padding:10px;
 }
 
-.header .social-icons {
- display: none
-}
 
 
 @media (min-width:768px) {
@@ -140,16 +137,27 @@ body {
 	font-family: "Raleway";
 	font-weight: 500;
 	text-align: justify;
+	line-height: 1.8;
+	color: #999;
 }
 
-code{
-	background-color: #000;
-	color: #fff;
+.section-title h2 {
+    z-index: 2;
+    font-size: 30px;
+    letter-spacing: 0.1em;
+    position: relative;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
-h6, h5, h4, h3, h2, h1 {
-	font-family: "Raleway";
-	font-weight: 500;
+.section-title .lead {
+    font-size: 18px;
+    line-height: 2;
+    margin-top: 40px;
+}
+
+.lead {
+	line-height: 2;
 }
 
 a {
@@ -255,11 +263,6 @@ ul#stack-list li {
 
 li {
 	list-style-type: none;
-}
-
-p {
-	font-family: "Raleway";
-	font-weight: 500;
 }
 
 #footer {
