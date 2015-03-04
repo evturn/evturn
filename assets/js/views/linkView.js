@@ -6,7 +6,7 @@ var LinkView = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
-		this.$el.append(this.linksTemplate(this.model.toJSON()));
+		this.$el.prepend(this.linksTemplate(this.model.toJSON()));
 		return this;
 	},
 });
