@@ -29,7 +29,7 @@ var AppView = Backbone.View.extend({
 	},
 	addStack: function(model) {
 		var view = new FullStackView({model: model});
-		$('#stack-list').append(view.el)
+		$('#technologies-list').append(view.el)
 	},
 	setStacks: function() {
 		stackCollection.each(function(model) {
