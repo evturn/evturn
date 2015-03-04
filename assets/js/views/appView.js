@@ -16,7 +16,7 @@ var AppView = Backbone.View.extend({
 		this.setBio();
 		this.setStacks();
 		this.setLinks();
-		this.setWork();
+		
 		$('.footnote').hide();
 	},
 	setBio: function() {
