@@ -172,13 +172,8 @@ ul#buttons-list li {
 	display: inline-block;
 }
 
-.icon {	
-	max-width: 50px;
-	vertical-align: text-bottom;
-}
-
 .icon-stack {	
-	max-width: 125px;	
+	max-width: 112px;	
 	margin-bottom: 40px;
 }
 
@@ -190,6 +185,7 @@ a.icon-button {
 .nav-button {
 	background-color: #8f8f8f;
 	border-radius: 20%;
+	float: left;
 }
 
 ul {
@@ -197,16 +193,14 @@ ul {
 	text-align: center;
 }
 
-#contact {
-	float: right;
-}
 
 ul#contact li {
-	display: inline-block;
+	display: block;
 }
 
-ul#collapse-list li {
-	display: inline-block;
+.icon {	
+	max-width: 50px;
+	vertical-align: text-bottom;
 }
 
 .technology-box {
