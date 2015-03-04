@@ -3,15 +3,9 @@ var WorkView = Backbone.View.extend({
 	initialize: function() {
 		this.render();
 	},
-	events: {
-		'click .thumbnail': 'togglePortfolio'
-	},
+	events: {},
 	render: function() {
 		this.$el.append(this.workTemplate(this.model.toJSON()));
 		return this;
-	},
-	togglePortfolio: function(e) {
-		e.preventDefault();
-		$('#portfolio').slideToggle('slow');
 	},
 });

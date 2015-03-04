@@ -8,8 +8,3 @@ $(window).load(function() {
 $(function() {
 	$('#tooltip').tooltip()
 });
-
-$('.open').on('click', function(e) {
-		e.preventDefault();
-		$('#portfolio').slideToggle('slow');
-	});

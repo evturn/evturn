@@ -7,7 +7,6 @@ var AppView = Backbone.View.extend({
 		portfolioView  = new PortfolioView({collection: projectsCollection});
 		stackCollection = new StackCollection(technologies);
 		linksCollection = new LinksCollection(links);
-		$('#portfolio').hide();
 		this.setMain();
 	},
 	events: {
