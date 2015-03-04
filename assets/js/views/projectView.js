@@ -12,6 +12,6 @@ var ProjectView = Backbone.View.extend({
 	},
 	togglePortfolio: function(e) {
 		e.preventDefault();
-		$('#portfolio').slideToggle();
+		$('#portfolio').slideToggle('slow');
 	},
 });
