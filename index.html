@@ -115,7 +115,7 @@
 	<h2>Portfolio</h2>
 </div>
 <div class="row">
-	<div class="col-xs-12 col-sm-12">
+	<div class="col-xs-12 col-sm-12" id="gallery">
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
 			  <div class="item active">
@@ -140,7 +140,7 @@
 		<% projectsCollection.each(function(model) { %>
 			<% id = model.get('id'); %>
 			<li class="project-tab" data-id="<%= id %>" id="project-<%= id %>">
-				<a class="button button-default u-full-width" id="button-<%= id %>"href="#carousel-example-generic"><%= id %></a>
+				<a class="button button-default u-full-width" id="button-<%= id %>"href="#gallery"><%= id %></a>
 			</li>
 		<% }) %>
 		</ul>
