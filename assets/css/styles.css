@@ -142,22 +142,18 @@ body, h6, h5, h4, h3, h2, h1, p {
 }
 
 .section-title h2 {
-    z-index: 2;
-    font-size: 30px;
-    letter-spacing: 0.1em;
-    position: relative;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.section-title .lead {
-    font-size: 18px;
-    line-height: 2;
-    margin-top: 40px;
+  z-index: 2;
+  font-size: 30px;
+  margin-top: 40px;
+  position: relative;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .lead {
+  font-size: 18px;
 	line-height: 2;
+  margin-top: 40px;
 }
 
 a {
