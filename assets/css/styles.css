@@ -115,6 +115,10 @@ h6, h5, h4, h3, h2, h1 {
 	font-weight: 500;
 }
 
+a {
+	background-color: transparent;
+}
+
 a.button {
 	background-color: #000;
 	color: #fff;
@@ -151,11 +155,6 @@ button.target-btn:hover {
 	text-align: justify;
 }
 
-#links {
-	padding-top: 20px;
-	border-bottom: 1px solid gray;
-}
-
 #portfolio {
 	min-height: 85vh;
 }
@@ -179,6 +178,7 @@ ul#buttons-list li {
 
 .icon {	
 	max-width: 60px;
+	vertical-align: text-bottom;
 }
 
 .icon-stack {	
@@ -198,6 +198,10 @@ a.icon-button {
 ul {
 	width: 100%;
 	text-align: center;
+}
+
+#link-list {
+	float: right;
 }
 
 ul#link-list li {

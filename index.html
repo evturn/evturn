@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="assets/css/lib/skeleton.css">
 	<link rel="stylesheet" href="assets/css/lib/bootstrap.css">
 	<link rel="stylesheet" href="assets/css/lib/bootstrap-theme.css">
+	<link rel="stylesheet" href="assets/css/lib/font-awesome.css">
 	    <link href="assets/css/lib/bootFolio.css" rel="stylesheet">
     <link href="assets/css/lib/prettyPhoto.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600' rel='stylesheet' type='text/css'>
@@ -20,15 +21,43 @@
     <img class="preloader" src="assets/img/loader.gif" alt="">
   </div>
 
+<div class="wrapper">
+  <header id="home" class="header">
+    <div class="menu-wrapper">
+      <nav class="navbar yamm navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="fa fa-bars"></span>
+	          </button>
+            <a class="navbar-brand" href="/"><img src="assets/img/egg.png" alt=""></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">                           
+              <li class="dropdown normalmenu"><a href="#" data-toggle="dropdown" class="dropdown-toggle"> <span class="dropcar fa fa-angle-down"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a title="" href="index.html">Definitely not.</a></li>
+                  </ul><!-- end dropdown-menu -->
+              </li><!-- end standard drop down -->
+              <li class="dropdown normalmenu"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Blog <span class="dropcar fa fa-angle-down"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a title="" href="#">Nope</a></li>
+                </ul><!-- end dropdown-menu -->
+              </li><!-- end standard drop down -->
+	            <li><a title="" href="#">Contact</a></li>
+  		    </ul>
+  			</div><!--/.nav-collapse -->
+			</div><!--/.container-fluid -->
+		</nav>
+	</div><!-- end menu-wrapper -->
+</header><!-- end header -->
+
+
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12" id="links">
-				
-					<ul>
-					<li>
-						<a class="text-center"><img class="avatar" src="assets/img/ev-winter-white.jpg"></a>
-					</li>
-					</ul>
+			<div class="col-xs-12 col-sm-12">
+				<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
 			</div>
 		</div>
 		<div class="row" id="portfolio">
@@ -50,9 +79,11 @@
 				<a href="#">&#169; 2015 evturn.com</a>
 		</div>
 	</div>
-	
+</div>
+
+
 <script type="text/template" id="links-template">
-<a class="icon-button" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a>
+	<span><a class="border-radius" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a></span>
 </script>
 
 <script type="text/template" id="work-template">
