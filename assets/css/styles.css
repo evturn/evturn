@@ -273,3 +273,24 @@ p {
 #footer a {
 	color: inherit;
 }
+
+.dmtop {
+  background-color:#0b0b0b;
+  background-image: url('../img/arrow.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  text-indent: -99999px;
+  position: fixed;
+  bottom: -100px;
+  right: 25px;
+  cursor: pointer;
+  -webkit-transition: all .7s ease-in-out;
+  -moz-transition: all .7s ease-in-out;
+  -o-transition: all .7s ease-in-out;
+  -ms-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
+  overflow: auto;
+}
