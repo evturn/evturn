@@ -142,12 +142,14 @@ body, h6, h5, h4, h3, h2, h1, p {
 }
 
 .section-title h2 {
-  z-index: 2;
+  color: #000;
   font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 40px;
   margin-top: 40px;
   position: relative;
-  font-weight: 500;
   text-transform: uppercase;
+  z-index: 2;
 }
 
 .lead {
@@ -200,21 +202,8 @@ button.target-btn:hover {
 	min-height: 85vh;
 }
 
-#project {
-	border-bottom: 1px solid gray;
-}
-
 ul#buttons-list li {
 	display: inline-block;
-}
-
-.portfolio-button {
-	background-color: #000;
-	border-radius: 20%;
-}
-
-.icon-portfolio {
-	max-width: 250px;
 }
 
 .icon {	
@@ -262,6 +251,7 @@ li {
 }
 
 #footer {
+	border-top: 1px solid gray;
 	margin: 65px auto 0;
 	color: #a6a6a6;
 	font-size: 12px;

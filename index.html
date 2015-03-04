@@ -57,7 +57,10 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12" id="bio"></div>
 			<div class="col-xs-12 col-sm-12" id="full-stack">
-				<ul id="stack-list"></ul>
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
+					<h2>Technologies</h2>
+				</div>
+					<ul id="stack-list"></ul>
 			</div>
 		</div>
 		<div class="row" id="portfolio">
@@ -66,10 +69,13 @@
 		<div class="row">
 				
 			<div class="col-xs-12 col-sm-12" id="footer">
+				<div class="col-xs-12 col-sm-12 section-title text-center">
+					<h2>Contact</h2>
+				</div>
 				<ul id="link-list">
 				</ul>
 				<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
-				<a href="#">&#169; 2015 evturn.com</a>
+				<a href="#">&#169; 2015 evturn.com | All Rights Reserved</a>
 				<div class="dmtop" style="bottom: 25px;">Scroll to top</div>
 		</div>
 	</div>
@@ -97,7 +103,7 @@
 
 <script type="text/template" id="project-template">
 <div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
-	<h2><strong>Portfolio</strong></h2>
+	<h2>Portfolio</h2>
 </div>
 <div class="row">
 	<div class="col-xs-12 col-sm-12">
@@ -139,8 +145,8 @@
 </div>
 </script>
 
-<script type="text/template" id="full-stack-template">			
-	<div class="col-xs-3 col-sm-12">
+<script type="text/template" id="full-stack-template">
+	<div class="col-xs-3 col-sm-12 text-center">
 		<% for (var i = technology.length - 1; i >= 0; i--) { %>
 		<% tech = technology[i] %>
 		<h5 class="bio"><%= tech %></h5>
