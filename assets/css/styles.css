@@ -177,7 +177,7 @@ ul#buttons-list li {
 }
 
 .icon {	
-	max-width: 60px;
+	max-width: 50px;
 	vertical-align: text-bottom;
 }
 
@@ -191,7 +191,7 @@ a.icon-button {
 }
 
 .nav-button {
-	background-color: #000;
+	background-color: #8f8f8f;
 	border-radius: 20%;
 }
 
