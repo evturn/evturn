@@ -1,6 +1,5 @@
 var AppView = Backbone.View.extend({
 	el: '.container',
-	workTemplate: _.template($('#work-template').html()),
 	bioTemplate: _.template($('#bio-template').html()),
 	initialize: function() {
 		projectsCollection = new ProjectsCollection(projects);
