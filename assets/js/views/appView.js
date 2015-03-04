@@ -8,9 +8,7 @@ var AppView = Backbone.View.extend({
 		linksCollection = new LinksCollection(links);
 		this.setMain();
 	},
-	events: {
-		'click #footnote': 'toggleFact'
-	},
+	events: {},
 	setMain: function() {
 		this.setBio();
 		this.setStacks();
@@ -22,14 +20,9 @@ var AppView = Backbone.View.extend({
 		bioCopy = new Copy(copy);
 		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
 	},
-	setWork: function() {
-		workModel = new Work(myWork);
-		var view = new WorkView({model: workModel})
-		$('#work').append(view.el);
-	},
 	addStack: function(model) {
 		var view = new FullStackView({model: model});
-		$('#technologies-list').append(view.el)
+		$('#stack').append(view.el)
 	},
 	setStacks: function() {
 		stackCollection.each(function(model) {
@@ -38,7 +31,7 @@ var AppView = Backbone.View.extend({
 	},
 	addLink: function(model) {
 		var view = new LinkView({model: model});
-		$('#link-list').append(view.el)
+		$('#contact').append(view.el)
 	},
 	setLinks: function() {
 		linksCollection.each(function(model) {

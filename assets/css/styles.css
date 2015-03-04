@@ -196,11 +196,11 @@ ul {
 	text-align: center;
 }
 
-#link-list {
+#contact {
 	float: right;
 }
 
-ul#link-list li {
+ul#contact li {
 	display: inline-block;
 }
 

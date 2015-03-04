@@ -37,9 +37,9 @@
 	          </div>
 	          <div id="navbar" class="navbar-collapse collapse">
 	              <ul class="nav navbar-nav navbar-right">
-	              <li><a href="#portfolio">Portfolio</a>
-	      				</li>
-		            <li><a title="" href="#link-list">Contact</a></li>
+	              <li><a href="#portfolio">Portfolio</a></li>
+	              <li><a title="" href="#stack">Stack</a></li>
+		            <li><a title="" href="#contact">Contact</a></li>
 	  		    </ul>
 	  			</div>
 				</div>
@@ -60,7 +60,7 @@
 				<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
 					<h2>Technologies</h2>
 				</div>
-					<div class="row" id="technologies-list"></div>
+					<div class="row" id="stack"></div>
 			</div>
 		</div>
 		<div class="row" id="portfolio">
@@ -72,7 +72,7 @@
 				<div class="col-xs-12 col-sm-12 section-title text-center">
 					<h2>Contacts</h2>
 				</div>
-				<ul id="link-list">
+				<ul id="contact">
 				</ul>
 				<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
 				<a href="#">&#169; 2015 evturn.com | All Rights Reserved</a>
@@ -86,7 +86,7 @@
 	<span><a class="border-radius" target="_blank" href="<%= url %>"><img class="icon" src="<%= image %>"></a></span>
 </script>
 
-<script type="text/template" id="full-stack-template">
+<script type="text/template" id="stack-template">
 	<div class="technology-box text-center">
 		<a><img class="icon-stack" src="<%= image %>"></a>
 		<% for (var i = technology.length - 1; i >= 0; i--) { %>
