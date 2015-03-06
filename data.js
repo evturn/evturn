@@ -119,7 +119,8 @@ technologies = [
 			[
 			'Heroku',
 			'Digital Ocean',
-			'Git'
+			'Git',
+			'Firebase'
 			]
 	},
 	{
