@@ -1,5 +1,18 @@
 projects = [ 
 	{
+		name: 'Music Insider',
+		summary: "Music Insider is a Los Angeles based podcast. Using Backbone.js I designed an Admin interface that uses Firebase for User Authentication and real time cloud storage. Clients that are authenticated are given access to admin tools to where the user can add and update posts.",
+		stack: "Node.js &#x95; Express.js &#x95; Firebase &#x95; Backbone.js &#x95; Underscore.js",
+		id: 1,
+		lead: "assets/img/mi-1.png",
+		gallery: 
+			[
+			'assets/img/mi-2.png', 
+			'assets/img/mi-3.png', 
+			'assets/img/mi-4.png',
+			'assets/img/mi-5.png'
+			]
+	},
 		name: 'Blog',
 		summary: "I originally built this blog in Sinatra. I implemented user authentication using bcrypt's hash algorithm and used PostgreSQL to store encrypted passwords. Once a user creates an account they are granted access to tools that allow them to create new posts as well as edit or delete any of their published entries. I recently revisted this project and rebuilt it using Node on the server-side, Backbone for the client, and MongoDB for storage. Since I never used the original blog, I decided to write a task that uses the New York Times API to select sentences at random from various recent articles. These sentences are then combined to create new, nonsensical blog posts which are authored by a fictious nine year old user. In addition, anyone wanting to leave comments on these posts can do so by signing in with their Facebook account",
 		stack: "Built with Node.js &#x95; Express.js &#x95; MongoDB &#x95; Backbone.js &#x95; Handlebars &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL)",
