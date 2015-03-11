@@ -108,13 +108,19 @@ body, h6, h5, h4, h3, h2, h1, p {
   z-index: 5;
 }
 
-div#carousel-nav.social-icons {
+div#carousel-nav.social-icons a {
   display: inline-block;
   width: 100%;
 }
 
 *[id^='button-']{
    background-color: transparent;
+   color: #4a4a4a;
+}
+
+*[id^='button-']:hover {
+   background-color: transparent;
+   color: #000;
 }
 
 i {
