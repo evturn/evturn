@@ -116,59 +116,32 @@ body, h6, h5, h4, h3, h2, h1, p {
   border-top: 1px solid #ccc;
 }
 
-.social-icons a {   
-  color:#000;
-  width: 70px;
-  height: 70px;
-  outline: none;
-  line-height: 38px;
-  display: inline-block;
-  text-align: center;
-}
-
 i {
-  padding-top: 7px;
+  padding-top: 14px;
 }
 
 .footer .social-icons a {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #a6a6a6;
+  color:#000;
+  display: inline-block;
+  font-size: 14px;
+  height: 70px;
+  line-height: 38px;
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 14px;
-  border-radius: 8%;
-  border: 1px solid #ccc;
-  color:#000;
-  background-color: #fff;
-  
+  outline: none;
+  text-align: center;
+  width: 70px;
+
 }
 
 .footer .social-icons a:hover {
   border: 1px solid #fff;
   background-color: #000;
-  border-radius: 8%;
+  border-radius: 50%;
   color: #fff;
-}
-
-
-#footer {
-  border-top: 1px solid gray;
-  margin: 65px auto 0;
-  color: #a6a6a6;
-  font-size: 12px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
-  text-align: center;
-}
-
-
-.footer ul li {
-    list-style: none;
-    margin-bottom: 8px;
-    font-size:16px;
-    color:#0b0b0b !important;
-}
-
-.footer a {
-    outline: none;
-    color:#0b0b0b !important;
 }
 
 .footer {
@@ -183,14 +156,9 @@ i {
 }
 
 .footer .section-title h3 {
-    padding-bottom: 17px;
+  padding-bottom: 17px;
 }
 
-.border-radius {
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px;
-  border-radius: 500px;
-}
 
 .bio {
 	font-family: "Raleway";
