@@ -79,21 +79,30 @@ links = [
 		name: 'email',
 		url: 'mailto:evturn@gmail.com',
 		image: 'assets/img/email.png',
+		icon: 'fa fa-paper-plane'
 	},
 	{
 		name: 'github',
 		url: 'http://github.com/evturn',
-		image: 'assets/img/github.png'
+		image: 'assets/img/github.png',
+		icon: 'fa fa-github'
 	},
 	{
 		name: 'general assembly',
 		url: 'https://profiles.generalassemb.ly/ev',
-		image: 'assets/img/ga.png'
+		image: 'assets/img/ga.png',
+		icon: 'fa fa-certificate'
 	},
 	{
 		name: 'linkedin',
 		url: 'http://www.linkedin.com/in/evturn/',
-		image: 'assets/img/linkedin.png'
+		image: 'assets/img/linkedin.png',
+		icon: 'fa fa-linkedin-square'
+	},
+	{
+		name: 'stack overflow',
+		url: 'http://stackoverflow.com/users/4076706/evturn',
+		icon: 'fa fa-stack-overflow'
 	}
 ];
 
