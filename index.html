@@ -173,9 +173,9 @@
 	<div class="section-title text-center">
 		<h2>Portfolio</h2>
 	</div>
-	<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+	<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<div id="gallery" class="carousel slide" data-ride="carousel">
 			
 
 			<!--Wrapper for slides-->
@@ -193,10 +193,10 @@
 			</div><!--end carousel-inner-->
 
 			<!--Controls-->
-		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		  <a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
 		  	<span class="glyphicon glyphicon-chevron-left"></span>
 		  </a>
-			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<a class="right carousel-control" href="#gallery" role="button" data-slide="next">
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 			
@@ -207,24 +207,22 @@
 	
 
 
-		<div class="col-sm-10 col-sm-offset-1 col-xs-12">
-			<ul id="buttons-list">
+		<div class="col-sm-12 col-xs-12 text-center">
+			<ul id="carousel-nav">
 			<% projectsCollection.each(function(model) { %>
 				<% id = model.get('id'); %>
-				<li class="project-tab" data-id="<%= id %>" id="project-<%= id %>">
+				<li>
 					<a class="btn btn-primary btn-lg" id="button-<%= id %>"href="#gallery"><%= id %></a>
 				</li>
 			<% }) %>
 			</ul>
 		</div>
-
-
-	<div class="row">		
+		
 		<div class="col-sm-10 col-sm-offset-1 col-xs-12">
 			<p class="summary"><%= summary %></p>
 			<p><%= stack %></p>
 		</div>
-	</div>
+	
 </script>
 
 <script>

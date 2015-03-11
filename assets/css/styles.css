@@ -205,9 +205,15 @@ p.bio {
 	text-align: justify;
 }
 
-ul#buttons-list li {
+ul#carousel-nav li {
 	display: inline-block;
+  padding-top: 15px;
+  list-style-type: none;
 
+}
+
+#gallery {
+  max-width: 960px;
 }
 
 .icon-stack {	
@@ -237,17 +243,13 @@ ul {
   padding: 20px 0 0;
 }
 
-li {
-	list-style-type: none;
-}
-
 .btn {
   border-radius: 50%;
   font-family: "Dosis",sans-serif;
   font-weight: 300;
   outline: none !important;
   color: #fff;
-  padding: 20px 25px;
+  /*padding: 20px 20px;*/
   font-size: 13px;
   background-color: #0b0b0b;
   line-height: 1.33;
