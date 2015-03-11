@@ -217,13 +217,15 @@
 		</div><!--end carousel-->
 	</div><!--end col-->
 
+	<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 	<div class="social-icons" id="carousel-nav">
 		<% projectsCollection.each(function(model) { %>
 		<% id = model.get('id'); %>
-		<div class="col-xs-1 col-sm-1 text-center">
+		<div class="col-xs-2 col-sm-2 text-center">
 			<span><a id="button-<%= id %>" href="#gallery"><i class="fa fa-circle fa-3x"></i></span></a>
 		</div>
 		<% }) %>
+		</div>
 		</div>
 
 	<div class="col-sm-10 col-sm-offset-1 col-xs-12">

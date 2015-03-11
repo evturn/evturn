@@ -66,24 +66,7 @@ body, h6, h5, h4, h3, h2, h1, p {
   border-radius: 100%;
 }
 
-@-webkit-keyframes rotation {
-  from {-webkit-transform: rotate(0deg);}
-  to {-webkit-transform: rotate(359deg);}
-}
 
-@-moz-keyframes rotation {
-  from {-moz-transform: rotate(0deg);}
-  to {-moz-transform: rotate(359deg);}
-}
-
-@-o-keyframes rotation {
-  from {-o-transform: rotate(0deg);}
-  to {-o-transform: rotate(359deg);}
-}
-@keyframes rotation {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(359deg);}
-}
 
 .navbar-default .navbar-nav > li > a {
   text-transform: uppercase;
@@ -127,8 +110,11 @@ body, h6, h5, h4, h3, h2, h1, p {
 
 div#carousel-nav.social-icons {
   display: inline-block;
-  /*text-align: center;*/
   width: 100%;
+}
+
+*[id^='button-']{
+   background-color: transparent;
 }
 
 i {
@@ -148,9 +134,7 @@ i {
   outline: none;
   text-align: center;
   width: 70px;
-
 }
-
 
 .footer .social-icons a:hover {
   border: 1px solid #fff;
@@ -230,11 +214,6 @@ p.bio {
 	margin-bottom: 40px;
 }
 
-a.icon-button {
-	background-color: #000;
-	color: #fff;
-}
-
 #technologies {
   background-color: #999;
   border-bottom: 1px solid #4a4a4a;
@@ -251,27 +230,7 @@ a.icon-button {
   padding: 20px 0 0;
 }
 
-.btn {
-  border-radius: 50%;
-  font-family: "Dosis",sans-serif;
-  font-weight: 300;
-  outline: none !important;
-  color: #fff;
-  /*padding: 20px 20px;*/
-  font-size: 13px;
-  background-color: #0b0b0b;
-  line-height: 1.33;
-}
 
-.btn .btn-primary .btn-lg {
-  color:#fff;
-  background-color: #fff;
-
-}
-
-.btn-primary {
-  background-image: none;
-}
 
 
 .dmtop {
@@ -315,5 +274,24 @@ a.icon-button {
   .copyright {
     font-size: 11px;
   }
+}
+
+@-webkit-keyframes rotation {
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(359deg);}
+}
+
+@-moz-keyframes rotation {
+  from {-moz-transform: rotate(0deg);}
+  to {-moz-transform: rotate(359deg);}
+}
+
+@-o-keyframes rotation {
+  from {-o-transform: rotate(0deg);}
+  to {-o-transform: rotate(359deg);}
+}
+@keyframes rotation {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
 }
 
