@@ -116,42 +116,43 @@ body, h6, h5, h4, h3, h2, h1, p {
   border-top: 1px solid #ccc;
 }
 
-.social-icons {
-    margin-left: 10px;
+.social-icons a {   
+  color:#000;
+  width: 70px;
+  height: 70px;
+  outline: none;
+  line-height: 38px;
+  display: inline-block;
+  text-align: center;
 }
 
-.social-icons a {
-    border:1px solid #959697;
-    color:#fff;
-    width: 40px;
-    height: 40px;
-    outline:none;
-    line-height: 38px;
-    display: inline-block;
-    text-align: center;
-    margin-left: 10px
-}
-
-.social-icons a:hover {
-    border-color:#fff;
+i {
+  padding-top: 7px;
 }
 
 .footer .social-icons a {
-    margin-left: 0;
+    margin-left: 10px;
     margin-right: 10px;
-    font-size:14px;
-    border-color:#000;
+    font-size: 14px;
+    border-color: #000;
     color:#000;
-}
-
-.footer .social-icons {
-    margin-left: 0;
-    margin-top: 30px;
 }
 
 .footer .social-icons a:hover {
     border-color:#0b0b0b;
-    color:#0b0b0b;
+    background-color: #000;
+    border-radius: 8%;
+    color: #fff;
+}
+
+
+#footer {
+  border-top: 1px solid gray;
+  margin: 65px auto 0;
+  color: #a6a6a6;
+  font-size: 12px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  text-align: center;
 }
 
 
@@ -271,25 +272,10 @@ a.icon-button {
 	color: #fff;
 }
 
-#contact ul li {
-	display: block;
-}
-
-.contact {
-	background-color: #8f8f8f;
-	border-radius: 20%;
-	float: left;
-	margin-right: 10px;
-}
 
 ul {
 	width: 100%;
 	text-align: center;
-}
-
-.icon {	
-	max-width: 50px;
-	vertical-align: text-bottom;
 }
 
 .technology-box {
@@ -307,14 +293,7 @@ li {
 	list-style-type: none;
 }
 
-#footer {
-	border-top: 1px solid gray;
-	margin: 65px auto 0;
-	color: #a6a6a6;
-	font-size: 12px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
-	text-align: center;
-}
+
 
 .dmtop {
   background-color:#0b0b0b;
