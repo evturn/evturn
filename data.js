@@ -74,7 +74,7 @@ projects = [
 		id: 6,
 		lead: 'assets/img/ttt-1.jpg',
 		gallery: ['assets/img/ttt-2.jpg'],
-		icon: 'fa fa-flask'
+		icon: 'fa fa-times-circle'
 	}
 
 ];

@@ -2,9 +2,10 @@ body {
   background-image: url('../img/brickwall.png');
 }
 
-body, h6, h5, h4, h3, h2, h1, p {
+body, h6, h5, h4, h3, h2, h1, p, a {
 	font-family: "Raleway";
 	font-weight: 500;
+  background-color: transparent;
 }
 
 #preloader {
@@ -235,9 +236,6 @@ p.bio {
   margin-bottom: 10px;
   padding: 20px 0 0;
 }
-
-
-
 
 .dmtop {
   background-color:#ccc;
