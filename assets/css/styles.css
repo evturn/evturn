@@ -141,6 +141,10 @@ i {
 
 }
 
+.copyright {
+  z-index: 5;
+}
+
 .footer .social-icons a:hover {
   border: 1px solid #fff;
   background-color: #000;
@@ -310,6 +314,12 @@ ul {
   
   .navbar-nav > li > a {
   	padding:9px 15px;
+  }
+}
+
+@media (max-width: 570px) {
+  .copyright {
+    font-size: 11px;
   }
 }
 
