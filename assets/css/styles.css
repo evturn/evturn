@@ -167,8 +167,9 @@ i {
   background: none;
 }
 
-#bio {
+#development, .footer, #technologies {
   padding-bottom: 40px;
+  margin-top: 70px;
 }
 
 p.bio {

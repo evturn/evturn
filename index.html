@@ -35,63 +35,73 @@
 	            <!-- <a class="navbar-brand" href="/"><img src="#" alt=""></a> -->
 	          </div>
 	          <div id="navbar" class="navbar-collapse collapse">
-	              <ul class="nav navbar-nav navbar-right">
-	              <li><a href="#portfolio">Portfolio</a></li>
+              <ul class="nav navbar-nav navbar-right">
+	              <li><a href="#development">Portfolio</a></li>
 	              <li><a href="#technologies">Stack</a></li>
 		            <li><a href="#contact">Contact</a></li>
-	  		    </ul>
-	  			</div>
-				</div>
-			</nav>
-		</div>
-	</header>
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
+		  		    </ul>
+		  			</div>
+					</div>
+				</nav>
 			</div>
-		</div>
-	</div><!--end container-->
-
-
-
-
-	<div class="container">
-		<div class="row">
-			<div class="section-title text-center">
-				<h2>Full Stack Web Development</h2>
-				<p class="lead"></p>
-			</div>
-			<div id="bio">
-			
-				<!-- INJECTED SUMMARY -->
-
-		</div>
-	</div><!--end container-->
-		
-
-
-	<div class="container" id="technologies">
-		<div class="row">
-			<div class="section-title text-center">
-				<h2>Technologies</h2>
-			</div>
-			<div id="stack">
-
-
-			
-			<!-- INJECTED STACK -->
-
-
-
-			</div>
-		</div>
-	</div><!--end container-->
+		</header>
 
 
 		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
+				</div>
+			</div>
+		</div><!--end container-->
+
+
+
+
+		<div class="container" id="about">
+			<div class="row">
+				<div class="section-title text-center">
+					<h2>Full Stack Web Development</h2>
+					<p class="lead">
+						
+					<!-- INJECTED CHILD VIEW -->
+
+					</p>
+				</div>
+				<div id="bio">
+
+				
+					<!-- INJECTED SUMMARY -->
+
+
+				</div>
+			</div>
+		</div><!--end container-->
+			
+
+
+
+		<div class="container" id="technologies">
+			<div class="row">
+				<div class="section-title text-center">
+					<h2>Technologies</h2>
+				</div>
+				<div id="stack">
+
+
+				
+				<!-- INJECTED STACK -->
+
+
+
+				</div>
+			</div>
+		</div><!--end container-->
+
+
+
+
+		<div class="container" id="development">
 			<div class="row">
 				<div id="portfolio">
 				
@@ -103,42 +113,45 @@
 				</div>
 			</div>
 		</div>
-	
-
-
-<footer class="footer">
-  <div class="container">
-  	<div class="row">
-    	<div class="section-title text-center">
-    		<h2>CONTACT</h2>
-  		</div>
-      <div class="social-icons" id="contact">
-
-
-					<!-- INJECTED SOCIAL ICONS -->
-
-      	
-    	</div><!-- end social-icons -->
- 		</div><!-- end row -->
-  </div><!-- end container -->
-</footer><!-- end footer -->
+		
 
 
 
+		<footer class="footer">
+		  <div class="container">
+		  	<div class="row">
+		    	<div class="section-title text-center">
+		    		<h2>CONTACT</h2>
+		  		</div>
+		      <div class="social-icons" id="contact">
 
 
-<div class="copyrights">
-  <div class="container">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <p>Copyright 2015 ©  evturn.com | All Rights Reserved</p>
-    </div><!-- end col-lg-4 -->
-  </div><!-- end container -->
-<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
-</div><!-- end copyrights -->
 
-<div class="dmtop" style="bottom: 25px;">Scroll to top</div>
+							<!-- INJECTED SOCIAL ICONS -->
 
-</div><!--end wrapper-->
+
+		      	
+		    	</div><!-- end social-icons -->
+		 		</div><!-- end row -->
+		  </div><!-- end container -->
+		</footer><!-- end footer -->
+
+
+
+
+		<div class="copyrights">
+		  <div class="container">
+		    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		      <p>Copyright 2015 ©  evturn.com | All Rights Reserved</p>
+		    </div>
+		  </div>
+			<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
+		</div><!-- end copyrights -->
+
+
+		<div class="dmtop" style="bottom: 25px;">Scroll to top</div>
+
+	</div><!--end wrapper-->
 
 
 
@@ -204,25 +217,22 @@
 		</div><!--end carousel-->
 	</div><!--end col-->
 
+	<div class="col-sm-12 col-xs-12 text-center">
+		<ul id="carousel-nav">
+		<% projectsCollection.each(function(model) { %>
+			<% id = model.get('id'); %>
+			<li>
+				<a class="btn btn-primary btn-lg" id="button-<%= id %>"href="#gallery"><%= id %></a>
+			</li>
+		<% }) %>
+		</ul>
+	</div>
 	
-
-
-		<div class="col-sm-12 col-xs-12 text-center">
-			<ul id="carousel-nav">
-			<% projectsCollection.each(function(model) { %>
-				<% id = model.get('id'); %>
-				<li>
-					<a class="btn btn-primary btn-lg" id="button-<%= id %>"href="#gallery"><%= id %></a>
-				</li>
-			<% }) %>
-			</ul>
-		</div>
-		
-		<div class="col-sm-10 col-sm-offset-1 col-xs-12">
-			<p class="summary"><%= summary %></p>
-			<p><%= stack %></p>
-		</div>
 	
+	<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+		<p class="summary"><%= summary %></p>
+		<p><%= stack %></p>
+	</div>	
 </script>
 
 <script>
