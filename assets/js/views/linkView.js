@@ -1,5 +1,5 @@
 var LinkView = Backbone.View.extend({
-	className: 'col-xs-3 col-sm-3 col-md-1',
+	className: 'col-xs-3 col-sm-3 text-center',
 	linksTemplate: _.template($('#links-template').html()),
 	initialize: function() {
 		this.render();

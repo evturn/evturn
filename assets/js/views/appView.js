@@ -1,5 +1,5 @@
 var AppView = Backbone.View.extend({
-	el: '.container',
+
 	bioTemplate: _.template($('#bio-template').html()),
 	initialize: function() {
 		projectsCollection = new ProjectsCollection(projects);
@@ -13,8 +13,6 @@ var AppView = Backbone.View.extend({
 		this.setBio();
 		this.setStacks();
 		this.setLinks();
-		
-		$('.footnote').hide();
 	},
 	setBio: function() {
 		bioCopy = new Copy(copy);
