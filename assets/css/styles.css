@@ -199,40 +199,6 @@ p.bio {
   margin-top: 40px;
 }
 
-/*a {
-	background-color: transparent;
-}
-
-a.button {
-	background-color: #000;
-	color: #fff;
-}
-
-a.button:visited {
-	color: white;
-	text-decoration: none;
-}
-
-a.button:hover {
-	color: yellow;
-	text-decoration: none;
-}
-
-button.target-btn {
-	color: yellow;
-	text-decoration: none;
-}
-
-button.target-btn:visited {
-	color: yellow;
-	text-decoration: none;
-}
-
-button.target-btn:hover {
-	color: white;
-	text-decoration: none;
-}*/
-
 .summary {
 	padding-top: 10px;
 	font-weight: 500;
