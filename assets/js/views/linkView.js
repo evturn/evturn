@@ -1,6 +1,5 @@
 var LinkView = Backbone.View.extend({
-	tagName: 'li',
-	className: 'contact',
+	tagName: 'span',
 	linksTemplate: _.template($('#links-template').html()),
 	initialize: function() {
 		this.render();

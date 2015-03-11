@@ -16,6 +16,7 @@ $(window).scroll(function(){
     $('.dmtop').css({bottom:"-100px"});
   }
 });
+
 $('.dmtop').click(function(){
   $('html, body').animate({scrollTop: '0px'}, 800);
   return false;
