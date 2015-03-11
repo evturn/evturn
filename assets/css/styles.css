@@ -162,10 +162,6 @@ i {
 
 }
 
-#whitey {
-  background-color: #fff;
-}
-
 .footer .section-title h3 {
   padding-bottom: 17px;
   background: none;
@@ -203,7 +199,7 @@ p.bio {
   margin-top: 40px;
 }
 
-a {
+/*a {
 	background-color: transparent;
 }
 
@@ -235,16 +231,12 @@ button.target-btn:visited {
 button.target-btn:hover {
 	color: white;
 	text-decoration: none;
-}
+}*/
 
 .summary {
 	padding-top: 10px;
 	font-weight: 500;
 	text-align: justify;
-}
-
-#portfolio {
-	min-height: 85vh;
 }
 
 ul#buttons-list li {
@@ -282,6 +274,7 @@ ul {
 li {
 	list-style-type: none;
 }
+
 .btn {
   border-radius: 50%;
   font-family: "Dosis",sans-serif;

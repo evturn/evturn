@@ -18,7 +18,9 @@ var AppView = Backbone.View.extend({
 	},
 	setBio: function() {
 		bioCopy = new Copy(copy);
+		lead = bioCopy.get('lead');
 		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
+		$('.lead').append(lead);
 	},
 	addStack: function(model) {
 		var view = new FullStackView({model: model});

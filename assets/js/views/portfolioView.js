@@ -1,5 +1,5 @@
 var PortfolioView = Backbone.View.extend({
-	el: '#project',
+	el: '#portfolio',
 	initialize: function() {
 		this.addAll();
 		this.setProject1();

@@ -47,53 +47,78 @@
 	</header>
 
 
-<div class="container">
-
-	<div class="row">
-		<div class="col-xs-12 col-sm-12">
-			<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
+			</div>
 		</div>
-	</div>
+	</div><!--end container-->
 
-	<div class="row">
-		<div class="col-xs-12 col-sm-12" id="bio">
+
+
+
+	<div class="container">
+		<div class="section-title text-center">
+			<h2>Full Stack Web Development</h2>
+			<p class="lead"></p>
+		</div>
+		<div class="row">
+			<div id="bio">
 			
-			<!-- INJECTED SUMMARY -->
+				<!-- INJECTED SUMMARY -->
 
 		</div>
-			<div class="col-xs-12 col-sm-12" id="full-stack">
-				<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
-					<h2>Technologies</h2>
-				</div>
-				<div class="row" id="stack">
-					
-					<!-- INJECTED STACK -->
+	</div><!--end container-->
+		
 
-				</div>
+
+	<div class="container">
+		<div class="section-title text-center">
+			<h2>Technologies</h2>
+		</div>
+		<div class="row">
+			<div id="stack">
+
+
+			
+			<!-- INJECTED STACK -->
+
+
+
 			</div>
 		</div>
+	</div><!--end container-->
 
-		<div class="row" id="portfolio">
-			<div class="col-xs-12 col-sm-12" id="project">
+
+		<div class="container">
+			<div class="row">
+				<div id="portfolio">
 				
-				<!-- INJECTED PORTFOLIO -->
+						
 
+					<!-- INJECTED PORTFOLIO -->
+
+
+				</div>
 			</div>
-		</div>	
-	</div> <!--end container-->
+		</div>
+	
+
 
 <footer class="footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12 section-title text-center">
-      	<h2>CONTACT</h2>
-      	<div class="social-icons" id="contact">
+    <div class="section-title text-center">
+    	<h2>CONTACT</h2>
+  	</div>
+  	<div class="row">
+      <div class="social-icons" id="contact">
+
 
 					<!-- INJECTED SOCIAL ICONS -->
+
       	
-      	</div>
-      	       
-    	</div>
+    	</div><!-- end social-icons -->
  		</div><!-- end row -->
   </div><!-- end container -->
 </footer><!-- end footer -->
@@ -136,10 +161,6 @@
 
 
 <script type="text/template" id="bio-template">
-	<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
-		<h2>Full Stack Web Development</h2>
-		<p class="lead"><%= lead %></p>
-	</div>
 		<div class="col-xs-12 col-sm-6">
 		<p class="bio"><%= paragraph1 %></p>
 	</div>
@@ -149,47 +170,59 @@
 </script>
 
 <script type="text/template" id="project-template">
-<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
-	<h2>Portfolio</h2>
-</div>
-<div class="row">
-	<div class="col-xs-12 col-sm-12" id="gallery">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	<div class="section-title text-center">
+		<h2>Portfolio</h2>
+	</div>
+
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			
+			<!--Wrapper for slides-->
 			<div class="carousel-inner">
-			  <div class="item active">
-					<img src="<%= lead %>">
-				</div>
-				<% for (var i = gallery.length - 1; i >= 0; i--) { %>
-				<div class="item">
-				<% 	galleryItem = gallery[i]; %>
-					<img src="<%= galleryItem %>">
-				</div>	
-				<% }; %>
-			</div>	
-		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-		</div> 
+					<div class="item active">
+						<img src="<%= lead %>">
+					</div>
+
+					<% for (var i = gallery.length - 1; i >= 0; i--) { %>
+					<div class="item">
+					<% 	galleryItem = gallery[i]; %>
+						<img src="<%= galleryItem %>">
+					</div>	
+					<% }; %>
+			</div><!--end carousel-inner-->
+
+			<!--Controls-->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		  	<span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+			
+	</div><!--end carousel-->
+
+	
+
+
+	<div class="row">
+		<div class="projects-nav">
+			<ul id="buttons-list">
+			<% projectsCollection.each(function(model) { %>
+				<% id = model.get('id'); %>
+				<li class="project-tab" data-id="<%= id %>" id="project-<%= id %>">
+					<a class="btn btn-primary btn-lg" id="button-<%= id %>"href="#gallery"><%= id %></a>
+				</li>
+			<% }) %>
+			</ul>
+		</div>
 	</div>
-</div>
-<br>
-<div class="row">
-	<div class="projects-nav">
-		<ul id="buttons-list">
-		<% projectsCollection.each(function(model) { %>
-			<% id = model.get('id'); %>
-			<li class="project-tab" data-id="<%= id %>" id="project-<%= id %>">
-				<a class="btn btn-primary btn-lg" id="button-<%= id %>"href="#gallery"><%= id %></a>
-			</li>
-		<% }) %>
-		</ul>
+
+
+	<div class="row">		
+		<div class="col-xs-12 col-sm-12">
+			<p class="summary"><%= summary %></p>
+			<p><%= stack %></p>
+		</div>
 	</div>
-</div>
-<div class="row">		
-	<div class="col-xs-12 col-sm-12">
-		<p class="summary"><%= summary %></p>
-		<p><%= stack %></p>
-	</div>
-</div>
 </script>
 
 <script>
