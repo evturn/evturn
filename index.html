@@ -92,8 +92,8 @@
 
 					<!-- INJECTED SOCIAL ICONS -->
       	
-      	</div><!-- end contact -->            
-    	</div><!-- end col -->
+      	</div>          
+    	</div>
  		</div><!-- end row -->
   </div><!-- end container -->
 </footer><!-- end footer -->
@@ -111,10 +111,9 @@
 <a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
 </div><!-- end copyrights -->
 
-
 <div class="dmtop" style="bottom: 25px;">Scroll to top</div>
 
-</div>  <!--end wrapper-->
+</div><!--end wrapper-->
 
 
 
@@ -180,7 +179,7 @@
 		<% projectsCollection.each(function(model) { %>
 			<% id = model.get('id'); %>
 			<li class="project-tab" data-id="<%= id %>" id="project-<%= id %>">
-				<a class="button button-default u-full-width" id="button-<%= id %>"href="#gallery"><%= id %></a>
+				<a class="btn btn-primary btn-lg" id="button-<%= id %>"href="#gallery"><%= id %></a>
 			</li>
 		<% }) %>
 		</ul>
