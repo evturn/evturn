@@ -82,6 +82,10 @@ body, h6, h5, h4, h3, h2, h1, p {
   to {transform: rotate(359deg);}
 }
 
+.navbar-default .navbar-nav > li > a {
+  text-transform: uppercase;
+}
+
 #tooltip {
 	position: absolute;
 	bottom: 0;
