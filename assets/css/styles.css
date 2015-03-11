@@ -129,8 +129,8 @@ i {
   font-size: 14px;
   height: 70px;
   line-height: 38px;
-  margin-left: 10px;
-  margin-right: 10px;
+/*  margin-left: 10px;
+  margin-right: 10px;*/
   outline: none;
   text-align: center;
   width: 70px;
@@ -145,20 +145,24 @@ i {
 }
 
 .footer {
-    padding: 80px 0;
-    position:relative;
-    display:block;
-    font-size:18px;
-    line-height:2;
-    box-sizing: border-box;
-    width: 100%;
-    z-index: 1;
+  box-sizing: border-box;
+  display:block;
+  font-size: 18px;
+  line-height:2;
+  padding: 80px 0;
+  position:relative;
+  width: 100%;
+  z-index: 1;
 }
 
 .footer .section-title h3 {
   padding-bottom: 17px;
 }
 
+p.bio {
+  text-align: center;
+  font-size: 14px;
+}
 
 .bio {
 	font-family: "Raleway";

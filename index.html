@@ -86,8 +86,8 @@
 <footer class="footer">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-sm-12 col-xs-12">
-      	<div class="social-icons text-center" id="contact">
+      <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+      	<div class="social-icons" id="contact">
 
 					<!-- INJECTED SOCIAL ICONS -->
       	
@@ -120,7 +120,8 @@
 <!-- UNDERSCORE TEMPLATES -->
 
 <script type="text/template" id="links-template">
-	<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a>
+	<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a></span>
+	<p class="bio"><%= name %></p>
 </script>
 
 <script type="text/template" id="stack-template">

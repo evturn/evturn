@@ -88,7 +88,7 @@ links = [
 		icon: 'fa fa-github'
 	},
 	{
-		name: 'general assembly',
+		name: 'ga',
 		url: 'https://profiles.generalassemb.ly/ev',
 		image: 'assets/img/ga.png',
 		icon: 'fa fa-certificate'
@@ -98,11 +98,6 @@ links = [
 		url: 'http://www.linkedin.com/in/evturn/',
 		image: 'assets/img/linkedin.png',
 		icon: 'fa fa-linkedin-square'
-	},
-	{
-		name: 'stack overflow',
-		url: 'http://stackoverflow.com/users/4076706/evturn',
-		icon: 'fa fa-stack-overflow'
 	}
 ];
 
