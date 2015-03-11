@@ -131,18 +131,21 @@ i {
 }
 
 .footer .social-icons a {
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 14px;
-    border-color: #000;
-    color:#000;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  border-radius: 8%;
+  border: 1px solid #ccc;
+  color:#000;
+  background-color: #fff;
+  
 }
 
 .footer .social-icons a:hover {
-    border-color:#0b0b0b;
-    background-color: #000;
-    border-radius: 8%;
-    color: #fff;
+  border: 1px solid #fff;
+  background-color: #000;
+  border-radius: 8%;
+  color: #fff;
 }
 
 
