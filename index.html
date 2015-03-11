@@ -225,7 +225,7 @@
 			<% id = model.get('id'); %>
 			<% icon = model.get('icon'); %>
 			<div class="col-xs-2 col-sm-2 text-center">
-				<span><a id="button-<%= id %>" href="#gallery"><i class="<%= icon %> fa-3x"></i></span></a>
+				<span><a id="button-<%= id %>" data-id="<%= id %>" href="#gallery"><i class="<%= icon %> fa-3x"></i></span></a>
 			</div>
 			<% }) %>
 		</div><!--end social-icons-->
