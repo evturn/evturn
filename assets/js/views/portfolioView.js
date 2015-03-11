@@ -9,7 +9,8 @@ var PortfolioView = Backbone.View.extend({
 		'click #button-2': 'setProject2',
 		'click #button-3': 'setProject3',
 		'click #button-4': 'setProject4',
-		'click #button-5': 'setProject5'
+		'click #button-5': 'setProject5',
+    'click #button-6': 'setProject6'
 	},
   addOne: function(model) {
     var view = new ProjectView({model: model});
@@ -41,6 +42,10 @@ var PortfolioView = Backbone.View.extend({
   setProject5: function() {
   	var project = this.collection.get(5);
   	this.addOne(project);
+  },
+  setProject6: function() {
+    var project = this.collection.get(6);
+    this.addOne(project);
   },
 	activateCarousel: function() {
 		$('.carousel').carousel({
