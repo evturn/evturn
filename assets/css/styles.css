@@ -87,7 +87,7 @@ body, h6, h5, h4, h3, h2, h1, p {
 }
 
 #tooltip {
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100px;
@@ -124,7 +124,7 @@ i {
   background-color: transparent;
   border-radius: 50%;
   border: 1px solid #a6a6a6;
-  color:#000;
+  color: #000;
   display: inline-block;
   font-size: 14px;
   height: 70px;
@@ -162,6 +162,8 @@ i {
 p.bio {
   text-align: center;
   font-size: 14px;
+  background: none;
+  padding-top: 5px;
 }
 
 .bio {

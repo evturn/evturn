@@ -86,7 +86,8 @@
 <footer class="footer">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+      <div class="col-md-12 col-sm-12 col-xs-12 section-title text-center">
+      	<h2>CONTACT</h2>
       	<div class="social-icons" id="contact">
 
 					<!-- INJECTED SOCIAL ICONS -->
@@ -107,9 +108,9 @@
       <p>Copyright 2015 ©  evturn.com | All Rights Reserved</p>
     </div><!-- end col-lg-4 -->
   </div><!-- end container -->
+<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
 </div><!-- end copyrights -->
 
-<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
 
 <div class="dmtop" style="bottom: 25px;">Scroll to top</div>
 
@@ -120,8 +121,9 @@
 <!-- UNDERSCORE TEMPLATES -->
 
 <script type="text/template" id="links-template">
-	<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a></span>
+	<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i>
 	<p class="bio"><%= name %></p>
+	</a></span>
 </script>
 
 <script type="text/template" id="stack-template">
