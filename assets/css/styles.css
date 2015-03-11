@@ -121,6 +121,16 @@ body, h6, h5, h4, h3, h2, h1, p {
   border-top: 1px solid #ccc;
 }
 
+.copyright {
+  z-index: 5;
+}
+
+div#carousel-nav.social-icons {
+  display: inline-block;
+  /*text-align: center;*/
+  width: 100%;
+}
+
 i {
   padding-top: 14px;
   padding-right: 2px;
@@ -141,9 +151,6 @@ i {
 
 }
 
-.copyright {
-  z-index: 5;
-}
 
 .footer .social-icons a:hover {
   border: 1px solid #fff;
@@ -214,13 +221,6 @@ p.bio {
 	text-align: justify;
 }
 
-ul#carousel-nav li {
-	display: inline-block;
-  padding-top: 15px;
-  list-style-type: none;
-
-}
-
 #gallery {
   max-width: 960px;
 }
@@ -233,12 +233,6 @@ ul#carousel-nav li {
 a.icon-button {
 	background-color: #000;
 	color: #fff;
-}
-
-
-ul {
-	width: 100%;
-	text-align: center;
 }
 
 #technologies {
