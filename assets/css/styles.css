@@ -167,6 +167,10 @@ i {
   background: none;
 }
 
+#bio {
+  padding-bottom: 40px;
+}
+
 p.bio {
   text-align: center;
   font-size: 14px;
