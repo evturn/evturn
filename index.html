@@ -217,17 +217,12 @@
 		</div><!--end carousel-->
 	</div><!--end col-->
 
-	<div class="col-sm-12 col-xs-12 text-center">
-		<ul id="carousel-nav">
 		<% projectsCollection.each(function(model) { %>
-			<% id = model.get('id'); %>
-			<li>
-				<a class="btn btn-primary btn-lg" id="button-<%= id %>"href="#gallery"><%= id %></a>
-			</li>
+		<% id = model.get('id'); %>
+		<div class="col-xs-1 col-sm-1 text-center">
+			<span><a id="button-<%= id %>" href="#gallery"><i class="fa fa-circle fa-3x"></i></span></a>
+		</div>
 		<% }) %>
-		</ul>
-	</div>
-	
 
 	<div class="col-sm-10 col-sm-offset-1 col-xs-12">
 		<p class="summary"><%= summary %></p>
