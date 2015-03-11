@@ -232,6 +232,11 @@ ul {
 	text-align: center;
 }
 
+#technologies {
+  background-color: #999;
+  border-bottom: 1px solid #4a4a4a;
+}
+
 .technology-box {
   padding: 15px 20px;
   margin: 15px 0;
