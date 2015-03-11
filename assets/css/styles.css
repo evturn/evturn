@@ -89,7 +89,7 @@ body, h6, h5, h4, h3, h2, h1, p {
 #tooltip {
 	position: absolute;
 	bottom: 0;
-	right: 0;
+	left: 0;
 	width: 100px;
 	height: 100px;
 	background-image: url('../img/egg.png');
@@ -101,6 +101,19 @@ body, h6, h5, h4, h3, h2, h1, p {
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.copyrights {
+  background: transparent;
+  padding:35px 0;
+  font-size:16px;
+  color:#0b0b0b;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-align: center;
+  position:relative;
+  display:block;
+  border-top: 1px solid #ccc;
 }
 
 .bio {
