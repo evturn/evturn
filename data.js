@@ -34,8 +34,7 @@ projects = [
 		lead: "assets/img/alculator-1.png",
 		gallery: 
 			[
-			"assets/img/alculator-2.png",
-			"assets/img/alculator-3.png"
+			"assets/img/alculator-2.png"
 			]
 	},
 	{
