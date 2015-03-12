@@ -67,8 +67,6 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   border-radius: 100%;
 }
 
-
-
 .navbar-default .navbar-nav > li > a {
   text-transform: uppercase;
 }
@@ -81,7 +79,6 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 	height: 100px;
 	background-image: url('../img/egg.png');
 }
-
 
 .avatar {
 	border-radius: 20%;
