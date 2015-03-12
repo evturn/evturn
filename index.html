@@ -221,13 +221,7 @@
 
 	<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
 		<div class="social-icons" id="carousel-nav">
-			<% projectsCollection.each(function(model) { %>
-			<% id = model.get('id'); %>
-			<% icon = model.get('icon'); %>
-			<div class="col-xs-2 col-sm-2 text-center">
-				<span><a id="button-<%= id %>" data-id="<%= id %>" href="#gallery"><i class="<%= icon %> fa-3x"></i></span></a>
-			</div>
-			<% }) %>
+			
 		</div><!--end social-icons-->
 	</div><!--end col-->
 
@@ -235,6 +229,12 @@
 		<p class="summary"><%= summary %></p>
 		<p><%= stack %></p>
 	</div>	
+</script>
+
+<script type="text/template" id="carousel-nav-template">
+	<div class="col-xs-2 col-sm-2 text-center">
+		<span><a id="button-<%= id %>" data-id="<%= id %>"href="#gallery"><i class="<%= icon %> fa-3x"></i></span></a>
+	</div>
 </script>
 
 <script>

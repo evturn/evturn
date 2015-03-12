@@ -1,8 +1,9 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
+  carouselNavTemplate: _.template($('#carousel-nav-template').html()),
 	initialize: function() {
 		this.addAll();
-		// this.initializeCarousel();
+    this.setNav();
 	},
 	events: {
 		'click a' : 'setProject'
@@ -24,10 +25,11 @@ var PortfolioView = Backbone.View.extend({
     var project = this.collection.get(id);
     this.addOne(project);
   },
-  initializeCarousel: function() {
-  	var project = this.collection.get(1);
-  	this.addOne(project);
- },
+  setNav: function() {
+    this.collection.each(function(model) {
+      $('#carousel-nav').append(this.carouselNavTemplate(model.toJSON()));
+    }.bind(this));
+  },
 	activateCarousel: function() {
 		$('.carousel').carousel({
 			interval: 3500
