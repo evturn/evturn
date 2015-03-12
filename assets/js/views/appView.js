@@ -10,11 +10,11 @@ var AppView = Backbone.View.extend({
 	},
 	events: {},
 	setMain: function() {
-		this.setBio();
+		this.renderAbout();
 		this.setStacks();
 		this.setLinks();
 	},
-	setBio: function() {
+	renderAbout: function() {
 		var bioCopy = new Copy(copy);
 		var lead = bioCopy.get('lead');
 		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
@@ -22,19 +22,19 @@ var AppView = Backbone.View.extend({
 	},
 	setStacks: function() {
 		stackCollection.each(function(model) {
-			this.addStack(model);
+			this.renderTechnologies(model);
 		}.bind(this));
 	},
 	setLinks: function() {
 		linksCollection.each(function(model) {
-			this.addLink(model);
+			this.renderContact(model);
 		}.bind(this));
 	},
-	addStack: function(model) {
+	renderTechnologies: function(model) {
 		var view = new FullStackView({model: model});
 		$('#stack').append(view.el)
 	},
-	addLink: function(model) {
+	renderContact: function(model) {
 		$('#contact').append(this.linksTemplate(model.toJSON()));
 		return this;
 	},
