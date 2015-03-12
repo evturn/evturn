@@ -12,7 +12,7 @@ var AppView = Backbone.View.extend({
 	events: {},
 	setMain: function() {
 		this.renderAbout();
-		this.setStacks();
+		this.renderTechnologies();
 		this.setLinks();
 	},
 	renderAbout: function() {
@@ -21,19 +21,16 @@ var AppView = Backbone.View.extend({
 		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
 		$('.lead').append(lead);
 	},
-	setStacks: function() {
+	renderTechnologies: function() {
 		stackCollection.each(function(model) {
-			this.renderTechnologies(model);
+			$('#stack').append(this.stacksTemplate(model.toJSON()));
+			return this;
 		}.bind(this));
 	},
 	setLinks: function() {
 		linksCollection.each(function(model) {
 			this.renderContact(model);
 		}.bind(this));
-	},
-	renderTechnologies: function(model) {
-		$('#stack').append(this.stacksTemplate(model.toJSON()));
-		return this;
 	},
 	renderContact: function(model) {
 		$('#contact').append(this.linksTemplate(model.toJSON()));
