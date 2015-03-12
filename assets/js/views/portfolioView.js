@@ -14,7 +14,7 @@ var PortfolioView = Backbone.View.extend({
     this.activateCarousel();
   },
   addAll: function() {
-    this.$el.empty();
+    $('#carousel-slide').empty();
     this.collection.each(function(model) {
       this.addOne(model);
     }.bind(this));
@@ -25,6 +25,7 @@ var PortfolioView = Backbone.View.extend({
     e.preventDefault();
     var id = $(e.currentTarget).data('id');
     var project = this.collection.get(id);
+    console.log(project);
     this.addOne(project);
   },
   setNav: function() {
