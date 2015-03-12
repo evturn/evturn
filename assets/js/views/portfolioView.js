@@ -6,7 +6,7 @@ var PortfolioView = Backbone.View.extend({
     this.renderCarousel();
 	},
 	events: {
-		'click .project-icon' : 'setProject'
+		'click .carousel-icon' : 'setProject'
 	},
   renderNav: function(model) {
     var view = new CarouselNav({model: model});
