@@ -156,12 +156,14 @@
 	</script>
 
 	<script type="text/template" id="stack-template">
-		<div class="technology-box text-center">
-			<a><img class="icon-stack" src="<%= image %>"></a>
-			<% for (var i = technology.length - 1; i >= 0; i--) { %>
-			<% tech = technology[i] %>
-			<p><%= tech %></p>
-			<% }; %>
+		<div class="col-xs-6 col-sm-3">
+			<div class="technology-box text-center">
+				<a><img class="icon-stack" src="<%= image %>"></a>
+				<% for (var i = technology.length - 1; i >= 0; i--) { %>
+				<% tech = technology[i] %>
+				<p><%= tech %></p>
+				<% }; %>
+			</div>
 		</div>
 	</script>
 
@@ -225,7 +227,7 @@
 	<script src="assets/js/collections/projectsCollection.js"></script>
 	<script src="assets/js/collections/stackCollection.js"></script>
 	<script src="assets/js/collections/linksCollection.js"></script>
-	<script src="assets/js/views/fullStackView.js"></script>
+	
 	<script src="assets/js/views/portfolio.js"></script>
 	<script src="assets/js/views/appView.js"></script>
 	<script src="assets/js/routers/router.js"></script>
