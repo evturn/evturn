@@ -146,82 +146,68 @@
 
 	</div><!--end wrapper-->
 
+	<!-- UNDERSCORE TEMPLATES -->
+	<script type="text/template" id="links-template">
+		<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i>
+		<p class="bio"><%= name %></p>
+		</a></span>
+	</script>
 
-<!-- UNDERSCORE TEMPLATES -->
-<script type="text/template" id="links-template">
-	<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i>
-	<p class="bio"><%= name %></p>
-	</a></span>
-</script>
-
-<script type="text/template" id="stack-template">
-	<div class="technology-box text-center">
-		<a><img class="icon-stack" src="<%= image %>"></a>
-		<% for (var i = technology.length - 1; i >= 0; i--) { %>
-		<% tech = technology[i] %>
-		<p><%= tech %></p>
-		<% }; %>
-	</div>
-</script>
-
-<script type="text/template" id="bio-template">
-	<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-		<div class="col-xs-12 col-sm-6">
-			<p class="bio"><%= paragraph1 %></p>
+	<script type="text/template" id="stack-template">
+		<div class="technology-box text-center">
+			<a><img class="icon-stack" src="<%= image %>"></a>
+			<% for (var i = technology.length - 1; i >= 0; i--) { %>
+			<% tech = technology[i] %>
+			<p><%= tech %></p>
+			<% }; %>
 		</div>
-		<div class="col-xs-12 col-sm-6">
-			<p class="bio"><%= paragraph2 %></p>
-		</div>
-	</div> 
-</script>
+	</script>
 
-<script type="text/template" id="carousel-template">	
-	
+	<script type="text/template" id="bio-template">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+			<div class="col-xs-12 col-sm-6">
+				<p class="bio"><%= paragraph1 %></p>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<p class="bio"><%= paragraph2 %></p>
+			</div>
+		</div> 
+	</script>
+
+	<script type="text/template" id="carousel-template">	
 		<div id="gallery" class="carousel slide" data-ride="carousel">
-
-			<!--Wrapper for slides-->
 			<div class="carousel-inner">
-					<div class="item active">
-						<img src="<%= lead %>">
-					</div>
+				<div class="item active">
+					<img src="<%= lead %>">
+				</div>
 
-					<% for (var i = gallery.length - 1; i >= 0; i--) { %>
-					<div class="item">
-					<% 	galleryItem = gallery[i]; %>
-						<img src="<%= galleryItem %>">
-					</div>	
-					<% }; %>
+					<!-- INJECTED GALLERY ITEMS -->
+
 			</div><!--end carousel-inner-->
-
-			<!--Controls-->
-		  <a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
-		  	<span class="glyphicon glyphicon-chevron-left"></span>
-		  </a>
+			<a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
+  			<span class="glyphicon glyphicon-chevron-left"></span>
+  		</a>
 			<a class="right carousel-control" href="#gallery" role="button" data-slide="next">
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
-			
+		</div><!--end gallery-->
+	</script>
 
-	</div><!--end col-->
-</script>
+	<script type="text/template" id="carousel-nav-template">
+		<div class="col-xs-2 col-sm-2 text-center">
+			<span><a id="button-<%= id %>" data-id="<%= id %>" href="#"><i class="<%= icon %> fa-3x"></i></span></a>
+		</div>
+	</script>
 
-			
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<script type="text/template" id="carousel-nav-template">
-	<div class="col-xs-2 col-sm-2 text-center">
-		<span><a id="button-<%= id %>" data-id="<%= id %>" href="#"><i class="<%= icon %> fa-3x"></i></span></a>
-	</div>
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-58635966-1', 'auto');
-  ga('send', 'pageview');
-</script>
+	  ga('create', 'UA-58635966-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
 
 	<script src="assets/js/lib/jquery.js"></script>
 	<script src="assets/js/lib/underscore.js"></script>

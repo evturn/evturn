@@ -28,6 +28,7 @@ var PortfolioView = Backbone.View.extend({
     $('#carousel-slide').html(this.carouselTemplate(activeModel.toJSON()));
     $('.summary').html(activeModel.get('summary'));
     $('.specs').html(activeModel.get('stack'));
+    this.addGallery(activeModel);
     this.automateCarousel();
     return this;
   },
@@ -36,4 +37,11 @@ var PortfolioView = Backbone.View.extend({
 			interval: 3500
 		});
 	},
+  addGallery: function(model) {
+    var gallery = model.get('gallery');
+    for (var i = gallery.length - 1; i >= 0; i--) {
+      carouselItem = gallery[i];
+    $('.carousel-inner').prepend('<div class="item"><img src="' + carouselItem + '"></div>');
+    };
+  },
 });
