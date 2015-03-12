@@ -18,6 +18,8 @@ var PortfolioView = Backbone.View.extend({
     this.collection.each(function(model) {
       this.addOne(model);
     }.bind(this));
+    var first= this.collection.get(1);
+    this.addOne(first);
   },
   setProject: function(e) {
     e.preventDefault();
