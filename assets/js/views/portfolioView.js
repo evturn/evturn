@@ -1,37 +1,33 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
-  carouselNavTemplate: _.template($('#carousel-nav-template').html()),
+  carouselTemplate: _.template($('#carousel-template').html()),
 	initialize: function() {
-		this.addAll();
-    this.setNav();
+		this.addNav();
+    this.carouselManagement();
 	},
 	events: {
 		'click a' : 'setProject'
 	},
-  addOne: function(model) {
+  addIcon: function(model) {
     var view = new ProjectView({model: model});
-    this.$el.html(view.el);
-    this.activateCarousel();
+    $('#carousel-nav').append(view.el);
   },
-  addAll: function() {
-    $('#carousel-slide').empty();
+  addNav: function() {
     this.collection.each(function(model) {
-      this.addOne(model);
+      this.addIcon(model);
     }.bind(this));
-    var first = this.collection.get(1);
-    this.addOne(first);
   },
   setProject: function(e) {
     e.preventDefault();
     var id = $(e.currentTarget).data('id');
     var project = this.collection.get(id);
     console.log(project);
-    this.addOne(project);
+    this.carouselManagement(project);
   },
-  setNav: function() {
-    this.collection.each(function(model) {
-      $('#carousel-nav').append(this.carouselNavTemplate(model.toJSON()));
-    }.bind(this));
+  carouselManagement: function(model) {
+    var carousel = model || this.collection.get(1);
+    $('#carousel-slide').html(this.carouselTemplate(carousel.toJSON()));
+    return this;
   },
 	activateCarousel: function() {
 		$('.carousel').carousel({

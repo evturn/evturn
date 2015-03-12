@@ -1,12 +1,11 @@
 var ProjectView = Backbone.View.extend({
-	el: '#carousel-slide',
-	projectTemplate: _.template($('#carousel-template').html()),
+	carouselNavTemplate: _.template($('#carousel-nav-template').html()),
 	initialize: function() {
 		this.render();
 	},
 	events: {},
 	render: function() {
-		this.$el.html(this.projectTemplate(this.model.toJSON()));
+  	this.$el.append(this.carouselNavTemplate(this.model.toJSON()));
 		return this;
 	},
 });
