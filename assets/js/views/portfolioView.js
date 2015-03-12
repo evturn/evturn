@@ -6,7 +6,7 @@ var PortfolioView = Backbone.View.extend({
     this.renderCarousel();
 	},
 	events: {
-		'click a' : 'setProject'
+		'click .project-icon' : 'setProject'
 	},
   renderNav: function(model) {
     var view = new CarouselNav({model: model});
@@ -38,10 +38,11 @@ var PortfolioView = Backbone.View.extend({
 		});
 	},
   addGallery: function(model) {
+    console.log('adding gallery!');
     var gallery = model.get('gallery');
     for (var i = gallery.length - 1; i >= 0; i--) {
       carouselItem = gallery[i];
-    $('.carousel-inner').prepend('<div class="item"><img src="' + carouselItem + '"></div>');
+    $('.carousel-inner').append('<div class="item"><img src="' + carouselItem + '"></div>');
     };
   },
 });
