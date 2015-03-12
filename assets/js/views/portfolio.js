@@ -1,4 +1,4 @@
-var PortfolioView = Backbone.View.extend({
+var Portfolio = Backbone.View.extend({
 	el: '#portfolio',
   carouselTemplate: _.template($('#carousel-template').html()),
 	initialize: function() {
@@ -38,7 +38,6 @@ var PortfolioView = Backbone.View.extend({
 		});
 	},
   addGallery: function(model) {
-    console.log('adding gallery!');
     var gallery = model.get('gallery');
     for (var i = gallery.length - 1; i >= 0; i--) {
       carouselItem = gallery[i];

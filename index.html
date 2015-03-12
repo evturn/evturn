@@ -148,9 +148,11 @@
 
 	<!-- UNDERSCORE TEMPLATES -->
 	<script type="text/template" id="links-template">
-		<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i>
-		<p class="bio"><%= name %></p>
-		</a></span>
+		<div class="col-xs-3 col-sm-3 text-center">
+			<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i>
+			<p class="bio"><%= name %></p>
+			</a></span>
+		</div>
 	</script>
 
 	<script type="text/template" id="stack-template">
@@ -217,17 +219,15 @@
 	<script src="assets/js/lib/jquery.bootFolio.js"></script>
 	<script src="./data.js"></script>
 	<script src="assets/js/models/stack.js"></script>
-	<script src="assets/js/models/work.js"></script>
-	<script src="assets/js/models/link.js"></script>
+	<script src="assets/js/models/hyperlink.js"></script>
 	<script src="assets/js/models/project.js"></script>
 	<script src="assets/js/models/copy.js"></script>
 	<script src="assets/js/collections/projectsCollection.js"></script>
 	<script src="assets/js/collections/stackCollection.js"></script>
 	<script src="assets/js/collections/linksCollection.js"></script>
-	<script src="assets/js/views/projectView.js"></script>
-	<script src="assets/js/views/linkView.js"></script>
+	<script src="assets/js/views/carouselNav.js"></script>
 	<script src="assets/js/views/fullStackView.js"></script>
-	<script src="assets/js/views/portfolioView.js"></script>
+	<script src="assets/js/views/portfolio.js"></script>
 	<script src="assets/js/views/appView.js"></script>
 	<script src="assets/js/routers/router.js"></script>
 	<script src="assets/js/main.js"></script>

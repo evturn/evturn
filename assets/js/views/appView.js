@@ -1,8 +1,9 @@
 var AppView = Backbone.View.extend({
 	bioTemplate: _.template($('#bio-template').html()),
+	linksTemplate: _.template($('#links-template').html()),
 	initialize: function() {
 		var projectsCollection = new ProjectsCollection(projects);
-		var portfolioView  		 = new PortfolioView({collection: projectsCollection});
+		var portfolio  		 		 = new Portfolio({collection: projectsCollection});
 		stackCollection 			 = new StackCollection(technologies);
 		linksCollection 			 = new LinksCollection(links);
 		this.setMain();
@@ -34,7 +35,7 @@ var AppView = Backbone.View.extend({
 		$('#stack').append(view.el)
 	},
 	addLink: function(model) {
-		var view = new LinkView({model: model});
-		$('#contact').append(view.el)
+		$('#contact').append(this.linksTemplate(model.toJSON()));
+		return this;
 	},
 });
