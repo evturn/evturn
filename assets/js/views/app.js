@@ -22,14 +22,22 @@ var AppView = Backbone.View.extend({
 		var collection = new StacksCollection(technologies);
 		collection.each(function(model) {
 			$('#stack').append(this.stacksTemplate(model.toJSON()));
-			return this;
+			stackModel = model;
+			this.addTechnologies(stackModel);
 		}.bind(this));
+	},
+	addTechnologies: function(model) {
+		var technologies = stackModel.get('technology');
+		console.log('adding tech', technologies);
+		for (var i = 0; i < technologies.length; i++) {
+				var technology = technologies[i]
+			$('.technology-box').append('<p>' + technology + '</p>');
+			};
 	},
 	renderContact: function() {
 		var collection = new LinksCollection(links);
 		collection.each(function(model) {
 			$('#contact').append(this.linksTemplate(model.toJSON()));
-			return this;
 		}.bind(this));
 	},
 });
