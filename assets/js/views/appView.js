@@ -3,24 +3,23 @@ var AppView = Backbone.View.extend({
 	linksTemplate: _.template($('#links-template').html()),
 	stacksTemplate: _.template($('#stack-template').html()),
 	initialize: function() {
-		var projectsCollection = new ProjectsCollection(projects);
-		var portfolio  		 		 = new Portfolio({collection: projectsCollection});
+		var projectsCollection  = new ProjectsCollection(projects);
+		var portfolio 					= new Portfolio({collection: projectsCollection});
 		this.render();
 	},
-	events: {},
 	render: function() {
 		this.renderAbout();
 		this.renderTechnologies();
 		this.renderContact();
 	},
 	renderAbout: function() {
-		var bioCopy = new Copy(copy);
-		var lead = bioCopy.get('lead');
-		$('#bio').html(this.bioTemplate(bioCopy.toJSON()));
+		var about = new Copy(copy);
+		var lead = about.get('lead');
+		$('#bio').html(this.bioTemplate(about.toJSON()));
 		$('.lead').append(lead);
 	},
 	renderTechnologies: function() {
-		var collection = new StackCollection(technologies);
+		var collection = new StacksCollection(technologies);
 		collection.each(function(model) {
 			$('#stack').append(this.stacksTemplate(model.toJSON()));
 			return this;
