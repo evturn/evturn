@@ -22,17 +22,8 @@ var AppView = Backbone.View.extend({
 		var collection = new StacksCollection(technologies);
 		collection.each(function(model) {
 			$('#stack').append(this.stacksTemplate(model.toJSON()));
-			stackModel = model;
-			this.addTechnologies(stackModel);
+			return this;
 		}.bind(this));
-	},
-	addTechnologies: function(model) {
-		var technologies = stackModel.get('technology');
-		console.log('adding tech', technologies);
-		for (var i = 0; i < technologies.length; i++) {
-				var technology = technologies[i]
-			$('.technology-box').append('<p>' + technology + '</p>');
-			};
 	},
 	renderContact: function() {
 		var collection = new LinksCollection(links);
