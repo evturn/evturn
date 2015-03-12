@@ -9,7 +9,7 @@ var PortfolioView = Backbone.View.extend({
 		'click a' : 'setProject'
 	},
   renderNav: function(model) {
-    var view = new ProjectView({model: model});
+    var view = new CarouselNav({model: model});
     $('#carousel-nav').append(view.el);
   },
   addNav: function() {
@@ -28,9 +28,10 @@ var PortfolioView = Backbone.View.extend({
     $('#carousel-slide').html(this.carouselTemplate(activeModel.toJSON()));
     $('.summary').html(activeModel.get('summary'));
     $('.specs').html(activeModel.get('stack'));
+    this.automateCarousel();
     return this;
   },
-	activateCarousel: function() {
+	automateCarousel: function() {
 		$('.carousel').carousel({
 			interval: 3500
 		});

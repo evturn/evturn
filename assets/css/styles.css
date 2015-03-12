@@ -111,12 +111,17 @@ div#carousel-nav.social-icons a {
   width: 100%;
 }
 
-*[id^='data-']{
+*[id^='button-']{
    background-color: transparent;
    color: #4a4a4a;
 }
 
-*[id^='data-']:hover {
+*[id^='button-']:hover {
+   background-color: transparent;
+   color: #000;
+}
+
+*[id^='button-']:focus {
    background-color: transparent;
    color: #000;
 }

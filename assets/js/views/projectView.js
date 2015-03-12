@@ -1,4 +1,4 @@
-var ProjectView = Backbone.View.extend({
+var CarouselNav = Backbone.View.extend({
 	carouselNavTemplate: _.template($('#carousel-nav-template').html()),
 	initialize: function() {
 		this.render();
