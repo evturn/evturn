@@ -7,7 +7,6 @@ var Router = Backbone.Router.extend({
 		this.egg();
 	},
 	egg: function() {
-
 		$(function() {
 			$('#tooltip').tooltip()
 
@@ -30,7 +29,6 @@ var Router = Backbone.Router.extend({
 			});
 
 		});
-
 	},
 });
 
