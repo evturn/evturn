@@ -58,7 +58,8 @@ projects = [
 		gallery: 
 			[
 			"assets/img/hangman-2.jpg",
-			"assets/img/hangman-3.jpg"
+			"assets/img/hangman-3.jpg",
+			"assets/img/hangman-4.jpg"
 			]
 	}, 
 	{
