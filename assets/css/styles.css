@@ -8,6 +8,17 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   background-color: transparent;
 }
 
+.btn {
+  padding: 7px 10px;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+.btn-defaut {
+  background-color: #000;
+  background-image: none;
+}
+
 #preloader {
   width: 100%;
   height: 100%;

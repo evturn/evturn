@@ -2,7 +2,7 @@ projects = [
 	{
 		name: 'Music Insider',
 		summary: "Music Insider is a Los Angeles based podcast. Using Backbone.js I designed an Admin interface that uses Firebase for User Authentication and real time cloud storage. Clients that are authenticated are given access to admin tools to where the user can add and update posts.",
-		stack: "Node.js &#x95; Express.js &#x95; Firebase &#x95; Backbone.js &#x95; Underscore.js",
+		stack: "Node.js &#x95; Express.js &#x95; Firebase &#x95; Backbone.js &#x95; Underscore.js<br><br><a href='http://musicinsider.co' target='_blank' class='btn btn-default'>WEBSITE</button>",
 		id: 1,
 		lead: "assets/img/mi-1.jpg",
 		gallery: 
@@ -31,7 +31,7 @@ projects = [
 	{
 		name: 'BAC Calculator',
 		summary: "Users select items from an inventory of alcoholic beverages and have access to a beer database. These selection(s) along with the user's information return a blood alcohol level, a description, and color scheme representing stages from low traces of alcohol to lethal doses",
-		stack: "Built with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Rails &#x95; Backbone.js &#x95; Underscore.js &#x95; Ruby &#x95; Javascript)",
+		stack: "Built with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Rails &#x95; Backbone.js &#x95; Underscore.js &#x95; Ruby &#x95; Javascript)<br><br><a href='http://alculator.co' target='_blank' class='btn btn-default'>WEBSITE</button>",
 		id: 3,
 		lead: "assets/img/alculator-1.jpg",
 		gallery: 
