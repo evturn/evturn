@@ -58,12 +58,11 @@ projects = [
 		summary: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and remade the game from scratch in Javascript Backbone.js handling the views as the game is played",
 		stack: "Built with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX)",
 		id: 5,
-		lead: "assets/img/hangman-2.jpg",
+		lead: "assets/img/hangman-1.jpg",
 		gallery: 
 			[
-			"assets/img/hangman-3.jpg",
-			"assets/img/hangman-4.jpg",
-			"assets/img/hangman-1.jpg"
+			"assets/img/hangman-2.jpg",
+			"assets/img/hangman-3.jpg"
 			],
 		icon: 'fa fa-male'
 	}, 
