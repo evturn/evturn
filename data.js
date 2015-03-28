@@ -17,7 +17,7 @@ projects = [
 	{
 		name: 'Blog',
 		summary: "I originally built this blog in Sinatra. I implemented user authentication using bcrypt's hash algorithm and used PostgreSQL to store encrypted passwords. Once a user creates an account they are granted access to tools that allow them to create new posts as well as edit or delete any of their published entries. I revisted this project and rebuilt it using Node.js on the server-side, Backbone.js for the client, and MongoDB for storage. Since I never used the original blog, I decided to write a task that uses the New York Times API to select sentences at random from various recent articles. These sentences are then combined to create new, nonsensical blog posts which are authored by a fictious nine year old user. In addition, anyone wanting to leave comments on these posts can do so by signing in with their Facebook account",
-		stack: "Built with Node.js &#x95; Express.js &#x95; MongoDB &#x95; Backbone.js &#x95; Handlebars &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL)",
+		stack: "Built with Node.js &#x95; Express.js &#x95; MongoDB &#x95; Backbone.js &#x95; Handlebars &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL)<br><br><a href='http://marshallz.com' target='_blank' class='btn btn-default'>WEBSITE</button>",
 		id: 2,
 		lead: "assets/img/marshallz-1.jpg",
 		gallery: 
@@ -56,7 +56,7 @@ projects = [
 	{
 		name: 'Hangman',
 		summary: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I revisited the project for fun and remade the game from scratch in Javascript Backbone.js handling the views as the game is played",
-		stack: "Built with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX)",
+		stack: "Built with Node.js &#x95; Express.js &#x95; Backbone.js &#x95; Underscore.js &#x95; Javascript<br>(Originally Sinatra &#x95; Ruby &#x95; PostgreSQL &#x95; AJAX)<br><br><a href='http://hangman-node.herokuapp.com' target='_blank' class='btn btn-default'>WEBSITE</button>",
 		id: 5,
 		lead: "assets/img/hangman-1.jpg",
 		gallery: 
