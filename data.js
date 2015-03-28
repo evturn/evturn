@@ -11,8 +11,7 @@ projects = [
 			'assets/img/mi-3.jpg', 
 			'assets/img/mi-4.jpg',
 			'assets/img/mi-5.jpg'
-			],
-		icon: 'fa fa-microphone'
+			]
 	},
 	{
 		name: 'Blog',
@@ -25,8 +24,7 @@ projects = [
 			'assets/img/marshallz-2.jpg', 
 			'assets/img/marshallz-3.jpg', 
 			'assets/img/marshallz-4.jpg'
-			],
-		icon: 'fa fa-quote-left'
+			]
 	},
 	{
 		name: 'BAC Calculator',
@@ -37,8 +35,7 @@ projects = [
 		gallery: 
 			[
 			"assets/img/alculator-2.jpg"
-			],
-		icon: 'fa fa-flask'
+			]
 	},
 	{
 		name: 'Task Manager',
@@ -50,8 +47,7 @@ projects = [
 			[
 			"assets/img/ramen-3.jpg",
 			"assets/img/ramen-2.jpg"
-			],
-		icon: 'fa fa-list-alt'
+			]
 	},
 	{
 		name: 'Hangman',
@@ -63,8 +59,7 @@ projects = [
 			[
 			"assets/img/hangman-2.jpg",
 			"assets/img/hangman-3.jpg"
-			],
-		icon: 'fa fa-male'
+			]
 	}, 
 	{
 		name: 'Tic Tac Toe',
@@ -72,8 +67,7 @@ projects = [
 		stack: "Backbone.js",
 		id: 6,
 		lead: 'assets/img/ttt-1.jpg',
-		gallery: ['assets/img/ttt-2.jpg'],
-		icon: 'fa fa-times-circle'
+		gallery: ['assets/img/ttt-2.jpg']
 	}
 
 ];
