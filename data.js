@@ -1,4 +1,4 @@
-projects = [ 
+var projects = [ 
 	{
 		name: 'Music Insider',
 		summary: "Music Insider is a Los Angeles based podcast. Using Backbone.js I designed an Admin interface that uses Firebase for User Authentication and real time cloud storage. Clients that are authenticated are given access to admin tools to where the user can add and update posts.",
@@ -73,7 +73,7 @@ projects = [
 
 ];
 
-links = [
+var links = [
 	{
 		name: 'email',
 		url: 'mailto:evturn@gmail.com',
@@ -100,13 +100,13 @@ links = [
 	}
 ];
 
-copy = {
+var copy = {
 	lead: 'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation.',
 	paragraph1: 'As a JavaScript Developer, I focus on building responsive single page applications that optimize scalability through RESTful APIs. I initially built apps almost exclusively in a Rails environment with Ruby, but my attraction to the world of isomorphic JavaScript has heavily strengthened the application logic I write.',
 	paragraph2: 'Given my familiarity with the Model–view–controller (MVC) architectural pattern that Rails implements, I find employing JavaScript libraries like Backbone.js and AngularJS a pertinent fit on the frontend.'
 	};
 
-technologies = [
+var technologies = [
 	{
 		image: 'assets/img/js-stack-white.png',
 		technology: 
@@ -149,7 +149,7 @@ technologies = [
 	}
 ];
 
-myWork = {
+var myWork = {
 	main: "assets/img/portfolio-2.png",
 	thumbnail:
 	[
