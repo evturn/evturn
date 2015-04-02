@@ -1,4 +1,4 @@
-var Hyperlink = Backbone.Model.extend({
+var Contact = Backbone.Model.extend({
 	defaults: {
 		name: '',
 		url: '',
