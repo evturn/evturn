@@ -1,5 +1,5 @@
 var Contact = Backbone.Collection.extend({
-	model: Link
+	model: Link,
 });
 
 var links = [
