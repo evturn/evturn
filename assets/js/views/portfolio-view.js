@@ -1,16 +1,16 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
-  carouselTemplate: _.template($('#carousel-template').html()),
-  navTemplate: _.template($('#carousel-nav-template').html()),
+  carouselTpl: _.template($('#carousel-template').html()),
+  navTpl: _.template($('#carousel-nav-template').html()),
 	initialize: function() {
 		this.nav();
-    this.renderCarousel();
+    this.carousel();
 	},
 	events: {
 		'click .carousel-icon' : 'setProject'
 	},
   renderNav: function(model) {
-    $('#carousel-nav').append(this.navTemplate(model.toJSON()));
+    $('#carousel-nav').append(this.navTpl(model.toJSON()));
     return this;
   },
   nav: function() {
@@ -22,18 +22,18 @@ var PortfolioView = Backbone.View.extend({
     e.preventDefault();
     var id = $(e.currentTarget).data('id');
     var project = this.collection.get(id);
-    this.renderCarousel(project);
+    this.carousel(project);
   },
-  renderCarousel: function(model) {
+  carousel: function(model) {
     var activeModel = model || this.collection.get(1);
-    $('#carousel-slide').html(this.carouselTemplate(activeModel.toJSON()));
+    $('#carousel-slide').html(this.carouselTpl(activeModel.toJSON()));
     $('.summary').html(activeModel.get('summary'));
     $('.specs').html(activeModel.get('stack'));
     this.addGallery(activeModel);
-    this.automateCarousel();
+    this.slide();
     return this;
   },
-	automateCarousel: function() {
+	slide: function() {
 		$('.carousel').carousel({
 			interval: 3500
 		});
