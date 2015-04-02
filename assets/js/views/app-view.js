@@ -15,8 +15,7 @@ var AppView = Backbone.View.extend({
 		$('.lead').append(lead);
 	},
 	stack: function() {
-		var collection = new Technologies(technologies);
-		collection.each(function(model) {
+		technologies.each(function(model) {
 			$('#stack').append(this.stacksTemplate(model.toJSON()));
 			return this;
 		}.bind(this));
