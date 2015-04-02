@@ -1,7 +1,1 @@
-var Contact = Backbone.Model.extend({
-	defaults: {
-		name: '',
-		url: '',
-		image: ''
-	},
-});
+var Contact = Backbone.Model.extend({});
