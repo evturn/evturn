@@ -7,18 +7,14 @@ var PortfolioView = Backbone.View.extend({
     this.carousel();
 	},
 	events: {
-		'click .carousel-icon' : 'setProject'
+		'click .carousel-icon' : 'switch'
 	},
-  renderNav: function(model) {
-    $('#carousel-nav').append(this.navTpl(model.toJSON()));
-    return this;
-  },
   nav: function() {
     this.collection.each(function(model) {
-      this.renderNav(model);
+      $('#carousel-nav').append(this.navTpl(model.toJSON()));
     }.bind(this));
   },
-  setProject: function(e) {
+  switch: function(e) {
     e.preventDefault();
     var id = $(e.currentTarget).data('id');
     var project = this.collection.get(id);
@@ -29,7 +25,7 @@ var PortfolioView = Backbone.View.extend({
     $('#carousel-slide').html(this.carouselTpl(activeModel.toJSON()));
     $('.summary').html(activeModel.get('summary'));
     $('.specs').html(activeModel.get('stack'));
-    this.addGallery(activeModel);
+    this.gallery(activeModel);
     this.slide();
     return this;
   },
@@ -38,7 +34,7 @@ var PortfolioView = Backbone.View.extend({
 			interval: 3500
 		});
 	},
-  addGallery: function(model) {
+  gallery: function(model) {
     var gallery = model.get('gallery');
     for (var i = gallery.length - 1; i >= 0; i--) {
       carouselItem = gallery[i];

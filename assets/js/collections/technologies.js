@@ -1,5 +1,7 @@
 var Technologies = Backbone.Collection.extend({
-	model: Stack
+	model: Stack,
+	el: '#stack',
+	template: _.template($('#stack-template').html()),
 });
 
 var stacks = [
