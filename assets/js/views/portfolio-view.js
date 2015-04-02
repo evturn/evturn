@@ -27,7 +27,6 @@ var PortfolioView = Backbone.View.extend({
     $('.specs').html(project.get('stack'));
     this.gallery(project);
     this.slide();
-    return this;
   },
 	slide: function() {
 		$('.carousel').carousel({
@@ -37,8 +36,8 @@ var PortfolioView = Backbone.View.extend({
   gallery: function(model) {
     var gallery = model.get('gallery');
     for (var i = gallery.length - 1; i >= 0; i--) {
-      carouselItem = gallery[i];
-    $('.carousel-inner').append('<div class="item"><img src="' + carouselItem + '"></div>');
+      var screenshot = gallery[i];
+    $('.carousel-inner').append('<div class="item"><img src="' + screenshot + '"></div>');
     };
   },
 });
