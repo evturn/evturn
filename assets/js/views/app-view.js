@@ -4,14 +4,12 @@ var AppView = Backbone.View.extend({
 	contactTemplate: _.template($('#contact-template').html()),
 	stacksTemplate: _.template($('#stack-template').html()),
 	initialize: function() {
-		var portfolio  = new Portfolio(projects);
 		var portfolioView  = new PortfolioView({collection: portfolio});
 		this.about();
 		this.stack();
 		this.contact();
 	},
 	about: function() {
-		var about = new Copy(copy);
 		var lead = about.get('lead');
 		$('#bio').html(this.bioTemplate(about.toJSON()));
 		$('.lead').append(lead);
@@ -24,8 +22,7 @@ var AppView = Backbone.View.extend({
 		}.bind(this));
 	},
 	contact: function() {
-		var collection = new Links(links);
-		collection.each(function(model) {
+		contact.each(function(model) {
 			$('#contact').append(this.contactTemplate(model.toJSON()));
 		}.bind(this));
 	},
