@@ -130,6 +130,7 @@ div#carousel-nav.social-icons a {
 .carousel-icon:hover {
    background-color: transparent;
    color: #000;
+   cursor: pointer;
 }
 
 .carousel-icon:focus {
