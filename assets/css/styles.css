@@ -241,17 +241,6 @@ p.bio {
   border-radius: 2px;
 }
 
-.technology-box {
-  padding: 15px 20px;
-  margin: 15px 0;
-}
-
-.technology-box h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  padding: 20px 0 0;
-}
-
 .dmtop {
   background-color:#ccc;
   background-image: url('../img/arrow.png');

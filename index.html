@@ -158,14 +158,12 @@
 	</script>
 
 	<script type="text/template" id="stack-template">
-		<div class="col-xs-6 col-sm-3">
-			<div class="technology-box text-center">
-				<a><img class="icon-stack" src="<%= image %>"></a>
-				<% for (var i = technology.length - 1; i >= 0; i--) { %>
-				<% var tech = technology[i] %>
-				<p><%= tech %></p>
-				<% }; %>	
-			</div>
+		<div class="col-xs-6 col-sm-3 text-center">
+			<a><img class="icon-stack" src="<%= image %>"></a>
+			<% for (var i = technology.length - 1; i >= 0; i--) { %>
+			<% var tech = technology[i] %>
+			<p><%= tech %></p>
+			<% }; %>	
 		</div>
 	</script>
 
