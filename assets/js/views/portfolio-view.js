@@ -21,11 +21,11 @@ var PortfolioView = Backbone.View.extend({
     this.carousel(project);
   },
   carousel: function(model) {
-    var activeModel = model || this.collection.get(1);
-    $('#carousel-slide').html(this.carouselTpl(activeModel.toJSON()));
-    $('.summary').html(activeModel.get('summary'));
-    $('.specs').html(activeModel.get('stack'));
-    this.gallery(activeModel);
+    var project = model || this.collection.get(1);
+    $('#carousel-slide').html(this.carouselTpl(project.toJSON()));
+    $('.summary').html(project.get('summary'));
+    $('.specs').html(project.get('stack'));
+    this.gallery(project);
     this.slide();
     return this;
   },
