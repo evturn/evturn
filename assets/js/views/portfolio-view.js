@@ -15,10 +15,16 @@ var PortfolioView = Backbone.View.extend({
     this.collection.each(function(model) {
       $('#carousel-nav').append(this.navTpl(model.toJSON()));
     }.bind(this));
+    $('i').first().addClass('fa-dot-circle-o');
   },
   switch: function(e) {
     e.preventDefault();
     var id = $(e.currentTarget).data('id');
+    var icon = $(e.currentTarget).find('i');
+    $('i').removeClass('fa-dot-circle-o');
+    $('i').addClass('fa-circle-o');
+    icon.removeClass('fa-circle-o');
+    icon.addClass('fa-dot-circle-o');
     var project = this.collection.get(id);
     this.carousel(project);
   },
