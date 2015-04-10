@@ -13,8 +13,7 @@ var projects = [
 			[
 			'assets/img/pique-2.jpg', 
 			'assets/img/pique-3.jpg', 
-			'assets/img/pique-4.jpg',
-			'assets/img/pique-5.jpg'
+			'assets/img/pique-4.jpg'
 			]
 	}, 
 	{
