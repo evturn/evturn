@@ -119,6 +119,9 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 
 ul#carousel-nav li {
   display: inline-block;
+  list-style-type: none;
+  padding-left: 5%;
+  padding-right: 5%; 
 }
 
 #social-icons a {
