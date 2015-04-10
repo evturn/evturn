@@ -282,12 +282,7 @@ p.bio {
   .yamm .yamm-content {
   	padding:4px 20px !important;
   }
-}
-@media (min-width:991px) and (max-width:1191px) {
-  .header .social-icons {
-  	display:none;
-  }
-  
+} 
   .navbar-nav > li > a {
   	padding:9px 15px;
   }
