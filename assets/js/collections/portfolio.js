@@ -12,9 +12,9 @@ var projects = [
 		lead: "assets/img/pique-1.jpg",
 		gallery: 
 			[
-			'assets/img/pique-2.jpg', 
-			'assets/img/pique-3.jpg', 
-			'assets/img/pique-4.jpg'
+				{item: 'assets/img/pique-2.jpg'}, 
+				{item: 'assets/img/pique-3.jpg'}, 
+				{item: 'assets/img/pique-4.jpg'}
 			]
 	}, 
 	{

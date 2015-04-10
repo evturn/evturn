@@ -1,8 +1,9 @@
 var PortfolioView = Backbone.View.extend({
 	el: '#portfolio',
-  carouselTpl: _.template($('#carousel-template').html()),
-  navTpl: _.template($('#carousel-nav-template').html()),
-  siteLinkTpl: _.template($('#site-link-template').html()),
+  carouselTpl : _.template($('#carousel-template').html()),
+  navTpl      : _.template($('#carousel-nav-template').html()),
+  siteLinkTpl : _.template($('#site-link-template').html()),
+  galleryTpl  : _.template($('#gallery-template').html()),
 	initialize: function() {
 		this.nav();
     this.carousel();
@@ -41,9 +42,9 @@ var PortfolioView = Backbone.View.extend({
 	},
   gallery: function(model) {
     var gallery = model.get('gallery');
-    for (var i = gallery.length - 1; i >= 0; i--) {
-      var screenshot = gallery[i];
-      $('.carousel-inner').append('<div class="item"><img class="img-responsive center-block" src="' + screenshot + '"></div>');
-    };
+    for (var i = 0; i < gallery.length; i++) {
+      var item = gallery[i];
+    $('.carousel-inner').append(this.galleryTpl(item));
+    }
   },
 });
