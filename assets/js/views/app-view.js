@@ -9,8 +9,8 @@ var AppView = Backbone.View.extend({
 	},
 	about: function() {
 		var lead = about.get('lead');
-		$('#bio').html(this.aboutTpl(about.toJSON()));
-		$('.lead').append(lead);
+		$('.about-paragraphs').html(this.aboutTpl(about.toJSON()));
+		$('.about-lead').append(lead);
 		return this;
 	},
 	section: function(collection) {

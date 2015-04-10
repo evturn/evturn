@@ -207,14 +207,14 @@ i {
   margin-top: 70px;
 }
 
-p.bio {
+p.about {
   text-align: center;
   font-size: 14px;
   background: none;
   padding-top: 5px;
 }
 
-.bio {
+.about {
 	font-family: "Raleway";
 	font-weight: 500;
 	text-align: justify;
@@ -233,7 +233,7 @@ p.bio {
   z-index: 2;
 }
 
-.lead {
+.about-lead {
   font-size: 18px;
 	line-height: 2;
 }
