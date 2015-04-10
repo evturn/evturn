@@ -144,12 +144,12 @@ img.img-responsive.center-block {
 
 .carousel-icon {
    background-color: transparent;
-   color: #4a4a4a;
+   color: #000;
 }
 
 .carousel-icon:hover {
    background-color: transparent;
-   color: #000;
+   color: #ccc;
    cursor: pointer;
 }
 
