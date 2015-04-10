@@ -282,10 +282,6 @@ p.bio {
   .yamm .yamm-content {
   	padding:4px 20px !important;
   }
-} 
-  .navbar-nav > li > a {
-  	padding:9px 15px;
-  }
 }
 
 @media (max-width: 570px) {
