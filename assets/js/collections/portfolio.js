@@ -5,7 +5,7 @@ var Portfolio = Backbone.Collection.extend({
 var projects = [
 	{
 		name: 'Pique',
-		summary: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone",
+		summary: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
 		stack: "Backbone.js &#x95; Firebase <br><br><a href='http://piqueapp.github.io' target='_blank' class='btn btn-default'>WEBSITE</button>",
 		id: 1,
 		lead: "assets/img/pique-1.jpg",
