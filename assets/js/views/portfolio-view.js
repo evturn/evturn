@@ -33,7 +33,7 @@ var PortfolioView = Backbone.View.extend({
   carousel: function(model) {
     var project = model || this.collection.get(1);
     $('#carousel-slide').html(this.carouselTpl(project.toJSON()));
-    $('.summary').html(project.get('summary'));
+    $('.description').html(project.get('description'));
     $('.specs').html(project.get('stack'));
     $('.site').empty(); 
     if (project.has('url')) {
