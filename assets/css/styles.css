@@ -20,6 +20,7 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   text-shadow: none;
   color: #FCFCFC;
   padding: 15px 15px 10px 15px;
+  float: right;
 }
 
 .btn.btn-default:hover {

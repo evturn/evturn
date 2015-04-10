@@ -25,6 +25,13 @@ var PortfolioView = Backbone.View.extend({
     $('#carousel-slide').html(this.carouselTpl(project.toJSON()));
     $('.summary').html(project.get('summary'));
     $('.specs').html(project.get('stack'));
+
+    if (project.has('site')) {
+      $('.site-link').addClass('btn btn-default');
+      $('.site-link').attr('href', project.get('site'));
+      $('.site-link').text('WEBSITE');
+      $('.site-link').html();
+    }
     this.gallery(project);
     this.slide();
   },

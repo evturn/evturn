@@ -6,7 +6,7 @@ var projects = [
 	{
 		name: 'Pique',
 		summary: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
-		stack: "Backbone.js &#x95; Firebase <br><br><a href='http://piqueapp.github.io' target='_blank' class='btn btn-default'>WEBSITE</button>",
+		stack: "Backbone.js &#x95; Firebase <br><br><a href='http://piqueapp.github.io' target='_blank' class='btn btn-default'>WEBSITE</a",
 		id: 1,
 		lead: "assets/img/pique-1.jpg",
 		gallery: 
@@ -19,7 +19,7 @@ var projects = [
 	{
 		name: 'Music Insider',
 		summary: "Music Insider is a Los Angeles based podcast. Using Backbone.js I designed an Admin interface that uses Firebase for User Authentication and real time cloud storage. Clients that are authenticated are given access to admin tools to where the user can add and update posts.",
-		stack: " Backbone.js &#x95; Firebase &#x95; Node.js &#x95; Express.js<br><br><a href='http://musicinsider.co' target='_blank' class='btn btn-default'>WEBSITE</button>",
+		stack: " Backbone.js &#x95; Firebase &#x95; Node.js &#x95; Express.js<br><br><a href='http://musicinsider.co' target='_blank' class='btn btn-default'>WEBSITE</a>",
 		id: 2,
 		lead: "assets/img/mi-1.jpg",
 		gallery: 
@@ -33,7 +33,7 @@ var projects = [
 	{
 		name: 'Blog',
 		summary: "All blog posts are created using the New York Times API to select sentences at random from various articles. These sentences are then combined to create new, nonsensical blog posts which are authored by a fictious nine year old user. In addition, these posts allow comments from other users by signing in with their Facebook or Twitter account",
-		stack: "Backbone.js &#x95; Handlebars &#x95; MongoDB &#x95; Node.js &#x95; Express.js<br><br><a href='http://marshallz.com' target='_blank' class='btn btn-default'>WEBSITE</button>",
+		stack: "Backbone.js &#x95; Handlebars &#x95; MongoDB &#x95; Node.js &#x95; Express.js<br><br><a href='http://marshallz.com' target='_blank' class='btn btn-default'>WEBSITE</a>",
 		id: 3,
 		lead: "assets/img/marshallz-1.jpg",
 		gallery: 
@@ -46,7 +46,7 @@ var projects = [
 	{
 		name: 'BAC Calculator',
 		summary: "Users select from an investory of alcoholic beverages. In addition, users have search access to a database of beer. All alcohol percentages for the user's selected beverages gathered. That data, along with the user's information, is run through the Widmark formula to calculate the individual's blood alcohol level. The results provide a description particular to the user's intoxication level ranging from low traces of alcohol to lethal doses.",
-		stack: "Backbone.js &#x95; Node.js &#x95; Express.js<br><br><a href='http://alculator.co' target='_blank' class='btn btn-default'>WEBSITE</button>",
+		stack: "Backbone.js &#x95; Node.js &#x95; Express.js<br><br><a href='http://alculator.co' target='_blank' class='btn btn-default'>WEBSITE</a>",
 		id: 4,
 		lead: "assets/img/alculator-1.jpg",
 		gallery: 
@@ -69,7 +69,8 @@ var projects = [
 	{
 		name: 'Hangman',
 		summary: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I remade the game from with Backbone.js",
-		stack: "Backbone.js &#x95; Node.js &#x95; Express.js<br><br><a href='http://hangman-node.herokuapp.com' target='_blank' class='btn btn-default'>WEBSITE</button>",
+		stack: "Backbone.js &#x95; Node.js &#x95; Express.js",
+		site: "http://hangman-node.herokuapp.com",
 		id: 6,
 		lead: "assets/img/hangman-1.jpg",
 		gallery: 
