@@ -117,7 +117,11 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   z-index: 5;
 }
 
-div#carousel-nav.social-icons a {
+ul#carousel-nav li {
+  display: inline-block;
+}
+
+#social-icons a {
   display: inline-block;
   width: 100%;
 }
