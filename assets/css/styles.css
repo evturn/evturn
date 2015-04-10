@@ -9,9 +9,7 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 }
 
 .btn {
-  padding: 10px 10px;
-  line-height: 1.5;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .btn.btn-default {
@@ -19,8 +17,8 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   background-image: none;
   text-shadow: none;
   color: #FCFCFC;
-  padding: 15px 15px 10px 15px;
-  float: right;
+  padding: 0px 15px 0px 15px;
+  
 }
 
 .btn.btn-default:hover {
