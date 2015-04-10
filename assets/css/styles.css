@@ -284,6 +284,18 @@ p.bio {
   }
 }
 
+@media (min-width: 768px) {
+  .site {
+    float: right;
+  }
+}
+
+@media (min-width: 992px) {
+  .site {
+    float: none;
+  }
+}
+
 @-webkit-keyframes rotation {
   from {-webkit-transform: rotate(0deg);}
   to {-webkit-transform: rotate(359deg);}
