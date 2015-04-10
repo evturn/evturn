@@ -7,42 +7,42 @@ var Technologies = Backbone.Collection.extend({
 var stacks = [
 	{
 		image: 'assets/img/js-stack-white.png',
-		technology: 
+		technologies: 
 			[
-			'Express.js',
-			'Node.js',
-			'AngularJS',
-			'Backbone.js'
+				{technology: 'Express.js'},
+				{technology: 'Node.js'},
+				{technology: 'AngularJS'},
+				{technology: 'Backbone.js'}
 			]
 	},
 	{
 		image: 'assets/img/gear-stack-white.png',
-		technology: 
+		technologies: 
 			[
-			'Handlebars',
-			'Underscore.js',
-			'jQuery',
-			'Bootstrap'
+				{technology: 'Handlebars'},
+				{technology: 'Underscore.js'},
+				{technology: 'jQuery'},
+				{technology: 'Bootstrap'}
 			]
 	},
 	{
 		image: 'assets/img/grid-stack-white.png',
-		technology: 
+		technologies: 
 			[
-			'Heroku',
-			'Digital Ocean',
-			'MongoDB',
-			'Firebase'
+			 {technology: 'Heroku'},
+			 {technology: 'Digital Ocean'},
+			 {technology: 'MongoDB'},
+			 {technology: 'Firebase'}
 			]
 	},
 	{
 		image: 'assets/img/rails-stack-white.png',
-		technology: 
+		technologies: 
 			[
-			'Sinatra',
-			'Rails',
-			'PostgreSQL', 
-			'Git'
+			 {technology: 'Sinatra'},
+			 {technology: 'Rails'},
+			 {technology: 'PostgreSQL'}, 
+			 {technology: 'Git'}
 			]
 	}
 ];
