@@ -226,8 +226,8 @@ p.bio {
   color: #000;
   font-size: 30px;
   font-weight: 500;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   position: relative;
   text-transform: uppercase;
   z-index: 2;
@@ -236,7 +236,6 @@ p.bio {
 .lead {
   font-size: 18px;
 	line-height: 2;
-  margin-top: 40px;
 }
 
 .summary {
@@ -292,7 +291,7 @@ p.bio {
 
 @media (min-width: 992px) {
   .site {
-    float: none;
+    float: right;
   }
 }
 
