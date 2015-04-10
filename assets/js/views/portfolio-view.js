@@ -37,7 +37,7 @@ var PortfolioView = Backbone.View.extend({
     var gallery = model.get('gallery');
     for (var i = gallery.length - 1; i >= 0; i--) {
       var screenshot = gallery[i];
-      $('.carousel-inner').append('<div class="item"><img src="' + screenshot + '"></div>');
+      $('.carousel-inner').append('<div class="item"><img class="img-responsive center-block" src="' + screenshot + '"></div>');
     };
   },
 });

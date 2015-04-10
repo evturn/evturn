@@ -124,6 +124,11 @@ ul#carousel-nav li {
   padding-right: 5%; 
 }
 
+img.img-responsive.center-block {
+  width: 100%;
+  height: auto;
+}
+
 #social-icons a {
   display: inline-block;
   width: 100%;
@@ -231,10 +236,6 @@ p.bio {
 	padding-top: 10px;
 	font-weight: 500;
 	text-align: justify;
-}
-
-#gallery {
-  max-width: 960px;
 }
 
 .icon-stack {	
