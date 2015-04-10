@@ -278,12 +278,6 @@ p.bio {
   overflow: auto;
 }
 
-@media (min-width:768px) {
-  .yamm .yamm-content {
-  	padding:4px 20px !important;
-  }
-}
-
 @media (max-width: 570px) {
   .copyright {
     font-size: 11px;
