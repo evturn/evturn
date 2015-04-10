@@ -10,7 +10,7 @@ var projects = [
 		id: 1,
 		url: 'http://piqueapp.github.io',
 		lead: "assets/img/pique-1.jpg",
-		gallery: 
+		items: 
 			[
 				{item: 'assets/img/pique-2.jpg'}, 
 				{item: 'assets/img/pique-3.jpg'}, 
@@ -24,7 +24,7 @@ var projects = [
 		id: 2,
 		url: 'http://musicinsider.co',
 		lead: "assets/img/mi-1.jpg",
-		gallery: 
+		items: 
 			[
 				{item: 'assets/img/mi-2.jpg'}, 
 				{item: 'assets/img/mi-3.jpg'}, 
@@ -39,7 +39,7 @@ var projects = [
 		id: 3,
 		url: 'http://marshallz.com',
 		lead: "assets/img/marshallz-1.jpg",
-		gallery: 
+		items: 
 			[
 				{item: 'assets/img/marshallz-2.jpg'}, 
 				{item: 'assets/img/marshallz-3.jpg'}, 
@@ -53,7 +53,7 @@ var projects = [
 		id: 4,
 		url: 'http://alculator.co',
 		lead: "assets/img/alculator-1.jpg",
-		gallery: 
+		items: 
 			[
 				{item: "assets/img/alculator-2.jpg"}
 			]
@@ -65,7 +65,7 @@ var projects = [
 		id: 5,
 		url: 'http://ramenbuffet.com',
 		lead: 'assets/img/ramen-1.jpg',
-		gallery:
+		items:
 			[
 				{item: "assets/img/ramen-3.jpg"},
 				{item: "assets/img/ramen-2.jpg"}
@@ -78,7 +78,7 @@ var projects = [
 		id: 6,
 		url: "http://hangman-node.herokuapp.com",
 		lead: "assets/img/hangman-1.jpg",
-		gallery: 
+		items: 
 			[
 				{item: "assets/img/hangman-2.jpg"},
 				{item: "assets/img/hangman-3.jpg"},
@@ -91,7 +91,7 @@ var projects = [
 		stack: "Backbone.js",
 		id: 7,
 		lead: 'assets/img/ttt-1.jpg',
-		gallery: 
+		items: 
 			[
 				{item: 'assets/img/ttt-2.jpg'}
 			]
