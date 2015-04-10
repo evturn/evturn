@@ -127,8 +127,12 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 ul#carousel-nav li {
   display: inline-block;
   list-style-type: none;
-  padding-left: 5%;
-  padding-right: 5%; 
+}
+
+#carousel-nav li {
+  padding-left: 1%;
+  padding-right: 2px; 
+  padding-top: 20px;
 }
 
 img.img-responsive.center-block {
@@ -157,7 +161,7 @@ img.img-responsive.center-block {
    color: #000;
 }
 
-i {
+#contact i {
   padding-top: 14px;
   padding-right: 2px;
 }
