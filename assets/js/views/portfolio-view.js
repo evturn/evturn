@@ -19,16 +19,16 @@ var PortfolioView = Backbone.View.extend({
   },
   switch: function(e) {
     e.preventDefault();
-    var id = $(e.currentTarget).data('id');
-    var icon = $(e.currentTarget).find('i');
+    var id      = $(e.currentTarget).data('id');
+    var model   = this.collection.get(id);
+    var next    = $(e.currentTarget).find('i');
     var current = $('.fa-dot-circle-o');
-    var last = $('#carousel-nav').find(current);
-    last.removeClass('fa-dot-circle-o');
-    last.addClass('fa-circle-o');
-    icon.removeClass('fa-circle-o');
-    icon.addClass('fa-dot-circle-o');
-    var project = this.collection.get(id);
-    this.carousel(project);
+    var prev    = $('#carousel-nav').find(current);
+    prev.removeClass('fa-dot-circle-o');
+    prev.addClass('fa-circle-o');
+    next.removeClass('fa-circle-o');
+    next.addClass('fa-dot-circle-o');
+    this.carousel(model);
   },
   carousel: function(model) {
     var project = model || this.collection.get(1);
