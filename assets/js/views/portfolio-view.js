@@ -21,8 +21,10 @@ var PortfolioView = Backbone.View.extend({
     e.preventDefault();
     var id = $(e.currentTarget).data('id');
     var icon = $(e.currentTarget).find('i');
-    $('i').removeClass('fa-dot-circle-o');
-    $('i').addClass('fa-circle-o');
+    var current = $('.fa-dot-circle-o');
+    var last = $('#carousel-nav').find(current);
+    last.removeClass('fa-dot-circle-o');
+    last.addClass('fa-circle-o');
     icon.removeClass('fa-circle-o');
     icon.addClass('fa-dot-circle-o');
     var project = this.collection.get(id);

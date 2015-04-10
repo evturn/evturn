@@ -285,7 +285,7 @@ p.bio {
 
 @media (min-width: 768px) {
   .site {
-    float: right;
+    float: none;
   }
 }
 
