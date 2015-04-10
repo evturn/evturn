@@ -26,10 +26,10 @@ var projects = [
 		lead: "assets/img/mi-1.jpg",
 		gallery: 
 			[
-			'assets/img/mi-2.jpg', 
-			'assets/img/mi-3.jpg', 
-			'assets/img/mi-4.jpg',
-			'assets/img/mi-5.jpg'
+				{item: 'assets/img/mi-2.jpg'}, 
+				{item: 'assets/img/mi-3.jpg'}, 
+				{item: 'assets/img/mi-4.jpg'},
+				{item: 'assets/img/mi-5.jpg'}
 			]
 	},
 	{
@@ -41,9 +41,9 @@ var projects = [
 		lead: "assets/img/marshallz-1.jpg",
 		gallery: 
 			[
-			'assets/img/marshallz-2.jpg', 
-			'assets/img/marshallz-3.jpg', 
-			'assets/img/marshallz-4.jpg'
+				{item: 'assets/img/marshallz-2.jpg'}, 
+				{item: 'assets/img/marshallz-3.jpg'}, 
+				{item: 'assets/img/marshallz-4.jpg'}
 			]
 	},
 	{
@@ -55,7 +55,7 @@ var projects = [
 		lead: "assets/img/alculator-1.jpg",
 		gallery: 
 			[
-			"assets/img/alculator-2.jpg"
+				{item: "assets/img/alculator-2.jpg"}
 			]
 	},
 	{
@@ -67,8 +67,8 @@ var projects = [
 		lead: 'assets/img/ramen-1.jpg',
 		gallery:
 			[
-			"assets/img/ramen-3.jpg",
-			"assets/img/ramen-2.jpg"
+				{item: "assets/img/ramen-3.jpg"},
+				{item: "assets/img/ramen-2.jpg"}
 			]
 	},
 	{
@@ -80,9 +80,9 @@ var projects = [
 		lead: "assets/img/hangman-1.jpg",
 		gallery: 
 			[
-			"assets/img/hangman-2.jpg",
-			"assets/img/hangman-3.jpg",
-			"assets/img/hangman-4.jpg"
+				{item: "assets/img/hangman-2.jpg"},
+				{item: "assets/img/hangman-3.jpg"},
+				{item: "assets/img/hangman-4.jpg"}
 			]
 	}, 
 	{
@@ -91,7 +91,10 @@ var projects = [
 		stack: "Backbone.js",
 		id: 7,
 		lead: 'assets/img/ttt-1.jpg',
-		gallery: ['assets/img/ttt-2.jpg']
+		gallery: 
+			[
+				{item: 'assets/img/ttt-2.jpg'}
+			]
 	}
 
 ];
