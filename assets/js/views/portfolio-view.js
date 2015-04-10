@@ -26,12 +26,19 @@ var PortfolioView = Backbone.View.extend({
     $('.summary').html(project.get('summary'));
     $('.specs').html(project.get('stack'));
 
-    if (project.has('site')) {
+      
+    if (project.has('url')) {
       $('.site-link').addClass('btn btn-default');
-      $('.site-link').attr('href', project.get('site'));
+      $('.site-link').attr('href', project.get('url'));
       $('.site-link').text('WEBSITE');
       $('.site-link').html();
+    } else {
+      $('.site-link').removeClass('btn btn-default');
+      $('.site-link').removeAttr('href');
+      $('.site-link').empty();
     }
+      
+
     this.gallery(project);
     this.slide();
   },
