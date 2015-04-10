@@ -240,6 +240,7 @@ p.about {
 .about-lead {
   font-size: 18px;
 	line-height: 2;
+  color: #999;
 }
 
 .description {
@@ -290,6 +291,10 @@ p.about {
 @media (min-width: 768px) {
   .site {
     float: none;
+  }
+  .btn.btn-default {
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 }
 
