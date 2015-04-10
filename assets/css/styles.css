@@ -302,6 +302,11 @@ p.about {
   .site {
     float: right;
   }
+
+  .btn.btn-default {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 @-webkit-keyframes rotation {
