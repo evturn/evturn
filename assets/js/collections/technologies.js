@@ -65,6 +65,13 @@ var mongoDB =
 		id: 10
 	};								
 
-var stacks = [node, angular, backbone, jQuery, bootstrap, git, photoshop, digitalOcean];
-
-var technologies = new Technologies(stacks)
+var technologies = new Technologies([
+	node, 
+	angular, 
+	backbone, 
+	jQuery, 
+	bootstrap, 
+	git, 
+	photoshop, 
+	digitalOcean
+]);

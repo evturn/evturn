@@ -139,8 +139,6 @@ var tictactoe =
 			]
 	};
 
-
-
 var portfolio  = new Portfolio([
 		piqueBeta, 
 		musicInsider, 
