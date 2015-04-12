@@ -7,9 +7,7 @@ var AppView = Backbone.View.extend({
 		this.section(contact);
 	},
 	about: function() {
-		var lead = about.get('lead');
 		$('.about-paragraphs').html(this.aboutTpl(about.toJSON()));
-		$('.about-lead').append(lead);
 		return this;
 	},
 	section: function(collection) {

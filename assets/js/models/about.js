@@ -1,9 +1,9 @@
 var About = Backbone.Model.extend({});
 
 var bio = {
-	lead: 'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation.',
-	paragraph1: 'As a JavaScript Developer, I focus on building responsive single page applications that optimize scalability through RESTful APIs. I initially built apps almost exclusively in a Rails environment writing Ruby, but my attraction to the JavaScript language and the seemingly endless amount of libraries has heavily strengthened the application logic I write.',
-	paragraph2: 'Given my familiarity with the Model–view–controller (MVC) architectural pattern that Rails implements, I find employing JavaScript libraries like Backbone.js and AngularJS a pertinent fit on the frontend.'
+	lead: 'Hi, I\'m Evan. I am web developer who lives in Brooklyn. I drink an unhealthy amount of coffee and write a lot of JavaScript.',
+	paragraph1: 'When I\'m not building web apps and writing JavaScript, you can find me drinking an unhealthy amount of coffee and writing a lot HTML (wrapped in script tags, designed to be appended to a web document somewhere which will eventually be rendered by the JavaScript I wrote).',
+	paragraph2: 'I am also a proud alum of General Assembly\'s Web Development Immersive program. I find the rapid evolution of technology fascinating. As the web continues in the direction of single page application, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation.'
 	};
 
 var about	= new About(bio);
