@@ -8,69 +8,70 @@ var node =
 	{
 		technology: 'Node.js',
 		icon: 'devicon-nodejs-plain',
-		iconColor: 'devicon-nodejs-plain colored',
+		color: 'devicon-nodejs-plain colored',
 		id: 1
 	};
 var angular =				
 	{
 		technology: 'AngularJS',
 		icon: 'devicon-angularjs-plain',
-		iconColor: 'devicon-angularjs-plain colored',
+		color: 'devicon-angularjs-plain colored',
 		id: 2
 	};
 var backbone =  		
 	{
 		technology: 'Backbone.js',
 		icon: 'devicon-backbonejs-plain',
-		iconColor: 'devicon-backbonejs-plain colored',
+		color: 'devicon-backbonejs-plain colored',
 		id: 3
 	};
 var jQuery = 				
 	{
 		technology: 'jQuery',
 		icon: 'devicon-jquery-plain',
-		iconColor: 'devicon-jquery-plain colored',
+		color: 'devicon-jquery-plain colored',
 		id: 4
 	};
 var bootstrap =  		
 	{
 		technology: 'Bootstrap',
 		icon: 'devicon-bootstrap-plain',
-		iconColor: 'devicon-bootstrap-plain colored',
+		color: 'devicon-bootstrap-plain colored',
 		id: 5
 	};
 var git =						
 	{
 	 	technology: 'git',
 	 	icon: 'devicon-git-plain',
-	 	iconColor: 'devicon-git-plain colored',
+	 	color: 'devicon-git-plain colored',
 	 	id: 6
 	};
 var photoshop =			
 	{
 		technology: 'Photoshop',
 		icon: 'devicon-photoshop-plain',
-		iconColor: 'devicon-photoshop-plain colored',
+		color: 'devicon-photoshop-plain colored',
 		id: 7
  	};
 var digitalOcean =	
 	{
 		technology: 'Digital Ocean',
 		icon: 'devicon-ubuntu-plain',
-		iconColor: 'devicon-ubuntu-plain colored',
+		color: 'devicon-ubuntu-plain colored',
 		id: 8
 	};
 var firebase =      
 	{
 		technology: 'Firebase',
 		icon: 'fa fa-database fa-3x',
+		color: this.icon,
 		id: 9
 	};
 var mongoDB =
 	{
 		technology: 'MongoDB',
 		icon: 'devicon-mongodb-plain',
-		iconColor: 'devicon-mongodb-plain colored',
+		color: 'devicon-mongodb-plain colored',
 		id: 10
 	};								
 
