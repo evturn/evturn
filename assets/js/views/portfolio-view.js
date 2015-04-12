@@ -17,6 +17,7 @@ var PortfolioView = Backbone.View.extend({
     this.collection.each(function(model) {
       $('#carousel-icons').append(this.navTpl(model.toJSON()));
     }.bind(this));
+    $('i').first().removeClass('fa-circle-thin');
     $('i').first().addClass('fa-circle');
   },
   switch: function(e) {
