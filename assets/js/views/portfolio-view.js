@@ -3,6 +3,7 @@ var PortfolioView = Backbone.View.extend({
   carouselTpl : _.template($('#carousel-template').html()),
   navTpl      : _.template($('#carousel-nav-template').html()),
   infoTemplate: _.template($('#project-info-template').html()),
+  stackTemplate: _.template($('#project-stack-template').html()),
   siteLinkTpl : _.template($('#site-link-template').html()),
   galleryTpl  : _.template($('#gallery-template').html()),
 	initialize: function() {
@@ -41,6 +42,7 @@ var PortfolioView = Backbone.View.extend({
     }
       
     this.gallery(project);
+    this.stack(project);
     this.slide();
   },
 	slide: function() {
@@ -53,6 +55,13 @@ var PortfolioView = Backbone.View.extend({
     for (var i = 0; i < gallery.length; i++) {
       var item = gallery[i];
     $('.carousel-inner').append(this.galleryTpl(item));
+    }
+  },
+  stack: function(model) {
+    var stack = model.get('stack');
+    for (var i = 0; i < stack.length; i++) {
+      var spec = stack[i];
+    $('#project-stack').append(this.stackTemplate(spec));
     }
   },
 });

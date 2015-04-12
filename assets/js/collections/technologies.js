@@ -4,47 +4,47 @@ var Technologies = Backbone.Collection.extend({
 	template: _.template($('#technologies-template').html()),
 });
 
-var stacks = [
-	{
-		technology: 'Node.js',
-		icon: 'devicon-nodejs-plain',
-		id: 1
-	},
-	{
-		technology: 'AngularJS',
-		icon: 'devicon-angularjs-plain',
-		id: 2
-	},
-	{
-		technology: 'Backbone.js',
-		icon: 'devicon-backbonejs-plain',
-		id: 3
-	},
-	{
-		technology: 'jQuery',
-		icon: 'devicon-jquery-plain',
-		id: 4
-	},
- 	{
- 		technology: 'Bootstrap',
- 		icon: 'devicon-bootstrap-plain',
- 		id: 5
-	},
-	{
-	 	technology: 'git',
-	 	icon: 'devicon-git-plain',
-	 	id: 6
-	},
- 	{
- 		technology: 'Photoshop',
- 		icon: 'devicon-photoshop-plain',
- 		id: 7
- 	},
- 	 	{
- 		technology: 'Digital Ocean',
- 		icon: 'devicon-ubuntu-plain',
- 		id: 8
- 	}
-];
+var node = 					{
+											technology: 'Node.js',
+											icon: 'devicon-nodejs-plain',
+											id: 1
+										};
+var angular =				{
+											technology: 'AngularJS',
+											icon: 'devicon-angularjs-plain',
+											id: 2
+										};
+var backbone =  		{
+											technology: 'Backbone.js',
+											icon: 'devicon-backbonejs-plain',
+											id: 3
+										};
+var jQuery = 				{
+											technology: 'jQuery',
+											icon: 'devicon-jquery-plain',
+											id: 4
+										};
+var bootstrap =  		{
+											technology: 'Bootstrap',
+									 		icon: 'devicon-bootstrap-plain',
+									 		id: 5
+										};
+var git =						{
+										 	technology: 'git',
+										 	icon: 'devicon-git-plain',
+										 	id: 6
+										};
+var photoshop =			{
+									 		technology: 'Photoshop',
+									 		icon: 'devicon-photoshop-plain',
+									 		id: 7
+									 	};
+var digitalOcean =	{
+						 					technology: 'Digital Ocean',
+						 					icon: 'devicon-ubuntu-plain',
+						 					id: 8
+						 				};
+
+var stacks = [node, angular, backbone, jQuery, bootstrap, git, photoshop, digitalOcean];
 
 var technologies = new Technologies(stacks)
