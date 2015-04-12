@@ -123,12 +123,18 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   z-index: 5;
 }
 
-ul#carousel-nav li {
+.carousel-nav a:hover {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #ccc;
+}
+
+ul#carousel-icons li {
   display: inline-block;
   list-style-type: none;
 }
 
-#carousel-nav li {
+#carousel-icons li {
   padding-left: 1%;
   padding-right: 2px; 
   padding-top: 20px;
@@ -150,20 +156,9 @@ img.img-responsive.center-block {
    cursor: pointer;
 }
 
-.carousel-icons a:hover {
-  border: 1px solid #fff;
-  background: transparent;
-  color: #ccc;
-}
-
 .icon:focus {
    background-color: transparent;
    color: #000;
-}
-
-#contact i {
-  padding-top: 14px;
-  padding-right: 2px;
 }
 
 .footer .social-icons a {
@@ -241,7 +236,7 @@ p.about {
 	text-align: justify;
 }
 
-.icon-stack {	
+#stack img {	
 	max-width: 112px;	
 }
 

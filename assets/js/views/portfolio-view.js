@@ -13,7 +13,7 @@ var PortfolioView = Backbone.View.extend({
 	},
   nav: function() {
     this.collection.each(function(model) {
-      $('#carousel-nav').append(this.navTpl(model.toJSON()));
+      $('#carousel-icons').append(this.navTpl(model.toJSON()));
     }.bind(this));
     $('i').first().addClass('fa-dot-circle-o');
   },
@@ -23,7 +23,7 @@ var PortfolioView = Backbone.View.extend({
     var model   = this.collection.get(id);
     var next    = $(e.currentTarget).find('i');
     var current = $('.fa-dot-circle-o');
-    var prev    = $('#carousel-nav').find(current);
+    var prev    = $('#carousel-icons').find(current);
     prev.removeClass('fa-dot-circle-o');
     prev.addClass('fa-circle-o');
     next.removeClass('fa-circle-o');

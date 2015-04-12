@@ -76,8 +76,8 @@
 		<!-- template carousel -->
 
 					</div>
-					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center carousel-icons">
-						<ul id="carousel-nav">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center carousel-nav">
+						<ul id="carousel-icons">
 
 		<!-- template carousel nav -->
 
@@ -118,7 +118,7 @@
 				<div class="section-title text-center">
 					<h2>Technologies</h2>
 				</div>
-				<div id="stack">
+				<div class="col-xs-12 col-sm-12 col-md-12 text-center" id="stack">
 				
 		<!-- template technologies -->
 
@@ -196,7 +196,7 @@
 
 	<script type="text/template" id="technologies-template"><!-- tpl technologies -->
 		<div class="col-xs-3 col-sm-3 text-center">
-			<a><img class="icon-stack" src="<%= image %>"></a>
+			<a><img class="img-responsive" src="<%= image %>"></a>
 			<% for (var i = technologies.length - 1; i >= 0; i--) { %>
 			<% var tech = technologies[i] %>
 			<p><%= tech.technology %></p>
