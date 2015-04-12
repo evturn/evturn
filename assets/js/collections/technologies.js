@@ -48,10 +48,16 @@ var digitalOcean =	{
 						 				};
 var firebase =      {
 											technology: 'Firebase',
-											icon: 'fa fa-database fa-2x',
+											icon: 'fa fa-database fa-3x',
 											id: 9
 										};
-		 				
+var mongoDB =
+	{
+		technology: 'MongoDB',
+		icon: 'devicon-mongodb-plain',
+		id: 10
+	};								
+
 
 var stacks = [node, angular, backbone, jQuery, bootstrap, git, photoshop, digitalOcean];
 

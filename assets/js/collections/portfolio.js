@@ -8,7 +8,9 @@ var projects = [
 		description: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
 		stack: 
 			[
-				backbone
+				backbone,
+				firebase,
+				photoshop
 			],
 		id: 1,
 		url: 'http://piqueapp.github.io',
@@ -25,7 +27,10 @@ var projects = [
 		description: "Music Insider is a Los Angeles based podcast. Using Backbone.js I designed an Admin interface that uses Firebase for User Authentication and real time cloud storage. Clients that are authenticated are given access to admin tools to where the user can add and update posts.",
 		stack: 
 			[
-				backbone, node
+				backbone, 
+				node,
+				firebase,
+				photoshop
 			],
 		id: 2,
 		url: 'http://musicinsider.co',
@@ -43,7 +48,9 @@ var projects = [
 		description: "All blog posts are created using the New York Times API to select sentences at random from various articles. These sentences are then combined to create new, nonsensical blog posts which are authored by a fictious nine year old user. In addition, these posts allow comments from other users by signing in with their Facebook or Twitter account",
 		stack:
 			[
-			backbone, node
+			backbone,
+			node,
+			mongoDB
 			],
 		id: 3,
 		url: 'http://marshallz.com',
@@ -60,7 +67,9 @@ var projects = [
 		description: "Users select from an investory of alcoholic beverages. In addition, users have search access to a database of beer. All alcohol percentages for the user's selected beverages gathered. That data, along with the user's information, is run through the Widmark formula to calculate the individual's blood alcohol level. The results provide a description particular to the user's intoxication level ranging from low traces of alcohol to lethal doses.",
 		stack:
 			[
-				backbone, node, photoshop
+				backbone,
+				node,
+				photoshop
 			],
 		id: 4,
 		url: 'http://alculator.co',
@@ -77,7 +86,9 @@ var projects = [
 		description: "This single page AngularJS app  stores the data from the user input using MongoDB. Users can create an account for the app and in addition login and link their Twitter and Facebook accounts. I have built this app multiple times since the concept provides a great avenue to exploring other technologies. Other iterations of this app used Backbone.js, Marionette.js, and Firebase.", 
 		stack: 
 			[
-				angular, node
+				angular,
+				node,
+				mongoDB
 			],
 		id: 5,
 		url: 'http://ramenbuffet.com',
@@ -93,7 +104,9 @@ var projects = [
 		description: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I remade the game from with Backbone.js",
 		stack:
 			[
-				backbone, node
+				backbone,
+				node,
+				photoshop
 			],
 		id: 6,
 		url: "http://hangman-node.herokuapp.com",
