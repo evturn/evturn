@@ -123,7 +123,6 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 }
 
 .carousel-nav a:hover {
-  border: 1px solid #fff;
   background: transparent;
   color: #ccc;
 }

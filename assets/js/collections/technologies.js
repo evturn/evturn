@@ -73,7 +73,7 @@ var mongoDB =
 		icon: 'devicon-mongodb-plain',
 		color: 'devicon-mongodb-plain colored',
 		id: 10
-	};								
+	};
 
 var technologies = new Technologies([
 	node, 
