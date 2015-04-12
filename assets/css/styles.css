@@ -160,33 +160,6 @@ img.img-responsive.center-block {
    color: #000;
 }
 
-.footer .social-icons a {
-  background-color: transparent;
-  border-radius: 50%;
-  border: 1px solid #a6a6a6;
-  color: #ccc;
-  display: inline-block;
-  font-size: 14px;
-  height: 70px;
-  line-height: 38px;
-  outline: none;
-  text-align: center;
-  width: 70px;
-}
-
- {
-  display:block;
-  font-size: 18px;
-  line-height:2;
-  padding: 0 0 80px 0;
-  margin-top: 80px;
-  position:relative;
-  width: 100%;
-  z-index: 1;
-  background-color: #fff;
-
-}
-
 .section-title h3 {
   padding-bottom: 17px;
   background: none;
@@ -195,6 +168,10 @@ img.img-responsive.center-block {
 #development {
   padding-bottom: 40px;
   margin-top: 70px;
+}
+
+.site {
+  float: left;
 }
 
 p.about {
