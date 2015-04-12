@@ -1,6 +1,1 @@
-var Stack = Backbone.Model.extend({
-	defaults: {
-		image: '',
-		technology: ''
-	}
-});
+var Stack = Backbone.Model.extend({});
