@@ -26,13 +26,13 @@ var links = [
 		icon: 'fa fa-certificate'
 	},
 	{
-		name: 'codepen.io',
-		url: 'http://codepen.io/Ev/',
-		icon: 'fa fa-codepen'
+		name: 'twitter',
+		url: 'http://twitter.com/evturn',
+		icon: 'fa fa-twitter'
 	},
 	{
 		name: 'skype: @evturn',
-		url: '#',
+		url: 'javaScript:void(0);',
 		icon: 'fa fa-skype',
 	}
 ];
