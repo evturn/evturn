@@ -7,8 +7,8 @@ var Technologies = Backbone.Collection.extend({
 var node =
 	{
 		technology: 'Node.js',
-		icon: 'devicon-nodejs-plain',
-		color: 'devicon-nodejs-plain colored',
+		icon: 'devicon-nodejs-plain-wordmark',
+		color: 'devicon-nodejs-plain-wordmark colored',
 		id: 1
 	};
 var angular =				
@@ -74,6 +74,21 @@ var mongoDB =
 		color: 'devicon-mongodb-plain colored',
 		id: 10
 	};
+var underscore =
+	{
+		technology: 'Underscore.js',
+		icon: 'fa fa-minus fa-3x',
+		color: this.icon,
+		id: 11
+	};
+var express =
+	{
+		technology: 'Express.js',
+		icon: 'devicon-nodejs-plain',
+		color: 'devicon-nodejs-plain colored',
+		id: 12	
+	};
+
 
 var technologies = new Technologies([
 	node, 

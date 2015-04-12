@@ -11,7 +11,8 @@ var piqueBeta =
 				backbone,
 				firebase,
 				photoshop,
-				jQuery
+				jQuery,
+				underscore
 			],
 		id: 1,
 		url: 'http://piqueapp.github.io',
@@ -31,9 +32,11 @@ var musicInsider =
 			[
 				backbone, 
 				node,
-				firebase,
+				express,
 				photoshop,
-				jQuery
+				jQuery,
+				underscore,
+				firebase
 			],
 		id: 2,
 		url: 'http://musicinsider.co',
@@ -54,8 +57,10 @@ var marshallz =
 			[
 			backbone,
 			node,
+			express,
 			mongoDB,
-			jQuery
+			jQuery,
+			underscore
 			],
 		id: 3,
 		url: 'http://marshallz.com',
@@ -75,8 +80,10 @@ var alculator =
 			[
 				backbone,
 				node,
+				express,
 				photoshop,
-				jQuery
+				jQuery,
+				underscore
 			],
 		id: 4,
 		url: 'http://alculator.co',
@@ -96,8 +103,10 @@ var ramenBuffet =
 			[
 				angular,
 				node,
+				express,
 				mongoDB,
-				jQuery
+				jQuery,
+				underscore
 			],
 		id: 5,
 		url: 'http://ramenbuffet.com',
@@ -116,8 +125,10 @@ var hangman =
 			[
 				backbone,
 				node,
+				express,
 				photoshop,
-				jQuery
+				jQuery,
+				underscore
 			],
 		id: 6,
 		url: "http://hangman-node.herokuapp.com",
@@ -136,7 +147,8 @@ var tictactoe =
 		stack:
 			[
 				backbone,
-				jQuery
+				jQuery,
+				underscore
 			],
 		id: 7,
 		lead: 'assets/img/ttt-1.jpg',

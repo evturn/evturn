@@ -53,15 +53,13 @@ var PortfolioView = Backbone.View.extend({
   gallery: function(model) {
     var gallery = model.get('items');
     for (var i = 0; i < gallery.length; i++) {
-      var item = gallery[i];
-    $('.carousel-inner').append(this.galleryTpl(item));
+    $('.carousel-inner').append(this.galleryTpl(gallery[i]));
     }
   },
   stack: function(model) {
     var stack = model.get('stack');
     for (var i = 0; i < stack.length; i++) {
-      var spec = stack[i];
-    $('#project-stack').append(this.stackTemplate(spec));
+    $('#project-stack').append(this.stackTemplate(stack[i]));
     }
   },
 });
