@@ -17,19 +17,19 @@ var PortfolioView = Backbone.View.extend({
     this.collection.each(function(model) {
       $('#carousel-icons').append(this.navTpl(model.toJSON()));
     }.bind(this));
-    $('i').first().addClass('fa-dot-circle-o');
+    $('i').first().addClass('fa-circle');
   },
   switch: function(e) {
     e.preventDefault();
     var id      = $(e.currentTarget).data('id');
     var model   = this.collection.get(id);
     var next    = $(e.currentTarget).find('i');
-    var current = $('.fa-dot-circle-o');
+    var current = $('.fa-circle');
     var prev    = $('#carousel-icons').find(current);
-    prev.removeClass('fa-dot-circle-o');
-    prev.addClass('fa-circle-o');
-    next.removeClass('fa-circle-o');
-    next.addClass('fa-dot-circle-o');
+    prev.removeClass('fa-circle');
+    prev.addClass('fa-circle-thin');
+    next.removeClass('fa-circle-thin');
+    next.addClass('fa-circle');
     this.carousel(model);
   },
   carousel: function(model) {
