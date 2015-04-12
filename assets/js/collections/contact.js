@@ -8,7 +8,7 @@ var links = [
 	{
 		name: 'email',
 		url: 'mailto:evturn@gmail.com',
-		icon: 'fa fa-paper-plane'
+		icon: 'fa fa-envelope-o'
 	},
 	{
 		name: 'github',
