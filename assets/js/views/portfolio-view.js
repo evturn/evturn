@@ -1,7 +1,8 @@
 var PortfolioView = Backbone.View.extend({
-	el: '#portfolio',
+	el: '#development',
   carouselTpl : _.template($('#carousel-template').html()),
   navTpl      : _.template($('#carousel-nav-template').html()),
+  infoTemplate: _.template($('#project-info-template').html()),
   siteLinkTpl : _.template($('#site-link-template').html()),
   galleryTpl  : _.template($('#gallery-template').html()),
 	initialize: function() {
@@ -33,8 +34,7 @@ var PortfolioView = Backbone.View.extend({
   carousel: function(model) {
     var project = model || this.collection.get(1);
     $('#carousel-slide').html(this.carouselTpl(project.toJSON()));
-    $('.description').html(project.get('description'));
-    $('.specs').html(project.get('stack'));
+    $('#project-info').html(this.infoTemplate(project.toJSON()));
     $('.site').empty(); 
     if (project.has('url')) {
       $('.site').append(this.siteLinkTpl(project.toJSON()));
