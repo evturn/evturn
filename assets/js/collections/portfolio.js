@@ -55,9 +55,9 @@ var projects = [
 		lead: "assets/img/alculator-1.png",
 		items: 
 			[
-				{item: "assets/img/alculator-2.jpg"},
-				{item: "assets/img/alculator-3.jpg"},
-				{item: "assets/img/alculator-4.jpg"}
+				{item: "assets/img/alculator-2.png"},
+				{item: "assets/img/alculator-3.png"},
+				{item: "assets/img/alculator-4.png"}
 			]
 	},
 	{
