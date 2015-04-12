@@ -108,14 +108,14 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 
 .copyrights {
   background: transparent;
-  padding:35px 0;
-  font-size:16px;
-  color:#0b0b0b;
+  padding: 35px 0;
+  font-size: 16px;
+  color: #0b0b0b;
   font-weight: 500;
   letter-spacing: 0.4px;
   text-align: center;
-  position:relative;
-  display:block;
+  position: relative;
+  display: block;
   border-top: 1px solid #ccc;
 }
 
@@ -139,23 +139,24 @@ img.img-responsive.center-block {
   height: auto;
 }
 
-#social-icons a {
-  display: inline-block;
-  width: 100%;
-}
-
-.carousel-icon {
-   background-color: transparent;
+.icon {
+   background: transparent;
    color: #000;
 }
 
-.carousel-icon:hover {
-   background-color: transparent;
+.icon:hover {
+   background: transparent;
    color: #ccc;
    cursor: pointer;
 }
 
-.carousel-icon:focus {
+.carousel-icons a:hover {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #ccc;
+}
+
+.icon:focus {
    background-color: transparent;
    color: #000;
 }
@@ -179,15 +180,7 @@ img.img-responsive.center-block {
   width: 70px;
 }
 
-.footer .social-icons a:hover {
-  border: 1px solid #fff;
-  background-color: #000;
-  border-radius: 50%;
-  color: #fff;
-}
-
-.footer {
-  box-sizing: border-box;
+ {
   display:block;
   font-size: 18px;
   line-height:2;
@@ -200,12 +193,12 @@ img.img-responsive.center-block {
 
 }
 
-.footer .section-title h3 {
+ .section-title h3 {
   padding-bottom: 17px;
   background: none;
 }
 
-#development, .footer, #technologies {
+#development, #technologies {
   padding-bottom: 40px;
   margin-top: 70px;
 }
@@ -250,7 +243,6 @@ p.about {
 
 .icon-stack {	
 	max-width: 112px;	
-	margin-bottom: 40px;
 }
 
 #technologies {

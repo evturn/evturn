@@ -9,7 +9,7 @@ var PortfolioView = Backbone.View.extend({
     this.carousel();
 	},
 	events: {
-		'click .carousel-icon' : 'switch'
+		'click .icon' : 'switch'
 	},
   nav: function() {
     this.collection.each(function(model) {

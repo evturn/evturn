@@ -76,7 +76,7 @@
 		<!-- template carousel -->
 
 					</div>
-					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center social-icons">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center carousel-icons">
 						<ul id="carousel-nav">
 
 		<!-- template carousel nav -->
@@ -113,7 +113,7 @@
 			</div>
 		</div><!--end-->
 
-		<div class="container wow fadeInUp" id="technologies">
+		<div class="container-fluid wow fadeInUp" id="technologies">
 			<div class="row">
 				<div class="section-title text-center">
 					<h2>Technologies</h2>
@@ -126,20 +126,18 @@
 			</div>
 		</div><!--end-->
 
-		<footer class="footer">
-		  <div class="container wow fadeInUp">
-		  	<div class="row">
-		    	<div class="section-title text-center">
-		    		<h2>CONTACT</h2>
-		  		</div>
-		      <div class="social-icons" id="contact">
+	  <div class="container wow fadeInUp">
+	  	<div class="row">
+	    	<div class="section-title text-center">
+	    		<h2>CONTACT</h2>
+	  		</div>
+	      <div class="social-icons" id="contact">
 
-		<!-- template contacts -->
-		      	
-		    	</div>
-		 		</div>
-		  </div>
-		</footer><!--end-->
+	<!-- template contacts -->
+	      	
+	    	</div>
+	 		</div>
+	  </div>
 
 		<div class="copyrights">
 		  <div class="container">
@@ -193,11 +191,11 @@
 
 
 	<script type="text/template" id="carousel-nav-template"><!-- tpl carousel nav -->
-		<li><span><a class="carousel-icon" data-id="<%= id %>"><i class="fa fa-circle-o fa-2x"></i></span></a></li>
+		<li><a class="icon" data-id="<%= id %>"><i class="fa fa-circle-o fa-2x"></i></a></li>
 	</script>
 
 	<script type="text/template" id="technologies-template"><!-- tpl technologies -->
-		<div class="col-xs-6 col-sm-3 text-center">
+		<div class="col-xs-3 col-sm-3 text-center">
 			<a><img class="icon-stack" src="<%= image %>"></a>
 			<% for (var i = technologies.length - 1; i >= 0; i--) { %>
 			<% var tech = technologies[i] %>
