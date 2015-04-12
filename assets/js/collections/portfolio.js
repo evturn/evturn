@@ -52,10 +52,12 @@ var projects = [
 		stack: "Backbone.js &#x95; Node.js &#x95; Express.js",
 		id: 4,
 		url: 'http://alculator.co',
-		lead: "assets/img/alculator-1.jpg",
+		lead: "assets/img/alculator-1.png",
 		items: 
 			[
-				{item: "assets/img/alculator-2.jpg"}
+				{item: "assets/img/alculator-2.jpg"},
+				{item: "assets/img/alculator-3.jpg"},
+				{item: "assets/img/alculator-4.jpg"}
 			]
 	},
 	{
