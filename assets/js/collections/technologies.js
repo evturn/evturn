@@ -6,14 +6,6 @@ var Technologies = Backbone.Collection.extend({
 
 var stacks = [
 	{
-		technology: 'JavaScript',
-		icon: 'devicon-javascript-plain'
-	},
-	{
-		technology: 'Express.js',
-		icon: 'fa fa-diamond'
-	},
-	{
 		technology: 'Node.js',
 		icon: 'devicon-nodejs-plain'
 	},
@@ -30,18 +22,6 @@ var stacks = [
 		icon: 'devicon-jquery-plain'
 	},
  	{
- 		technology: 'Heroku',
- 		icon: 'fa fa-diamond'
- 	},
- 	{
- 		technology: 'Digital Ocean',
- 		icon: 'devicon-ubuntu-plain'
- 	},
- 	{
- 		technology: 'MongoDB',
- 		icon: 'devicon-mongodb-plain'
- 	},
- 	{
  		technology: 'Bootstrap',
  		icon: 'devicon-bootstrap-plain'
 	},
@@ -50,24 +30,12 @@ var stacks = [
 	 	icon: 'devicon-git-plain'
 	},
  	{
- 		technology: 'Firebase',
- 		icon: 'fa fa-database'
- 	},
- 	{
  		technology: 'Photoshop',
  		icon: 'devicon-photoshop-plain'
  	},
- 	{
- 		technology: 'PostgreSQL',
- 		icon: 'devicon-postgresql-plain'
- 	},
- 	{
- 		technology: 'Rails',
- 		icon: 'devicon-rails-plain'
- 	},
- 	{
- 		technology: 'Ruby',
- 		icon: 'devicon-ruby-plain'
+ 	 	{
+ 		technology: 'Digital Ocean',
+ 		icon: 'devicon-ubuntu-plain'
  	}
 ];
 

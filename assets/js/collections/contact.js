@@ -16,14 +16,14 @@ var links = [
 		icon: 'fa fa-github-square'
 	},
 	{
-		name: 'ga',
-		url: 'https://profiles.generalassemb.ly/ev',
-		icon: 'fa fa-certificate'
-	},
-	{
 		name: 'linkedin',
 		url: 'http://www.linkedin.com/in/evturn/',
 		icon: 'fa fa-linkedin-square'
+	},
+	{
+		name: 'general assembly',
+		url: 'https://profiles.generalassemb.ly/ev',
+		icon: 'fa fa-certificate'
 	},
 	{
 		name: 'codepen.io',

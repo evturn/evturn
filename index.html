@@ -121,12 +121,12 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-4 col-md-4 pull-right text-center">	
 					<h3>TECHNOLOGIES</h3>
-					<ul id="stack">
+					<div id="stack">
 				
 		<!-- template technologies -->
 
 
-					</ul>
+					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 text-center">
 	    		<h3>CODE</h3>
@@ -218,8 +218,10 @@
 	</script>
 
 	<script type="text/template" id="technologies-template"><!-- tpl technologies -->
-		<i class="<%= icon %>"></i>
-		<p><%= technology %></p>
+		<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+			<i class="<%= icon %>"></i>
+			<p><%= technology %></p>
+		</div>
 	</script>
 
 	<script type="text/template" id="contact-template"><!-- tpl contact -->
