@@ -111,6 +111,10 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   color: #ccc;
 }
 
+ul#carousel-icons {
+  padding-left: 0;
+}
+
 ul#carousel-icons li {
   display: inline-block;
   list-style-type: none;
