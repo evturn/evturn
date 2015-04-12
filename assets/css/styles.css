@@ -213,7 +213,7 @@ p.about {
 	color: #999;
 }
 
-.section-title h2 {
+/*.section-title h2 {
   color: #000;
   font-size: 30px;
   font-weight: 500;
@@ -222,7 +222,7 @@ p.about {
   position: relative;
   text-transform: uppercase;
   z-index: 2;
-}
+}*/
 
 .about-lead {
   font-size: 18px;
@@ -237,7 +237,7 @@ p.about {
 }
 
 #stack img {	
-	max-width: 112px;	
+	max-height: 60px;	
 }
 
 #technologies {
