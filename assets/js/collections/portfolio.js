@@ -139,6 +139,14 @@ var tictactoe =
 			]
 	};
 
-var projects = [piqueBeta, musicInsider, marshallz, alculator, ramenBuffet, hangman, tictactoe];
 
-var portfolio  = new Portfolio(projects);
+
+var portfolio  = new Portfolio([
+		piqueBeta, 
+		musicInsider, 
+		marshallz, 
+		alculator, 
+		ramenBuffet, 
+		hangman, 
+		tictactoe
+]);
