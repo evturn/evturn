@@ -271,6 +271,12 @@ p.about {
   }
 }
 
+@media (min-width: 992px) {
+  #gallery {
+    min-height: 591px;
+  }
+}
+
 @-webkit-keyframes rotation {
   from {-webkit-transform: rotate(0deg);}
   to {-webkit-transform: rotate(359deg);}
