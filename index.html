@@ -115,22 +115,22 @@
 
 		<div class="container-fluid wow fadeInUp" id="technologies">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6 text-center">
+				<div class="col-xs-12 col-sm-6 col-md-6 pull-right text-center">
 	    		<h2>CONTACT</h2>
-	      	<div id="contact">
+	      	<ul id="links">
 
 	<!-- template contacts -->
 	      	
-	 		   	</div>
+	 		   	</ul>
 	    	</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 text-center">	
+				<div class="col-xs-12 col-sm-6 col-md-6 pull-left text-center">	
 					<h2>TECHNOLOGIES</h2>
-					<div id="stack">
+					<ul id="stack">
 				
 		<!-- template technologies -->
 
 
-					</div>
+					</ul>
 				</div>
 			</div>
 		</div><!--end-->
@@ -196,21 +196,20 @@
 	</script>
 
 	<script type="text/template" id="technologies-template"><!-- tpl technologies -->
-		<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+		<li>
 			<a><img class="img-responsive" src="<%= image %>"></a>
 			<% for (var i = technologies.length - 1; i >= 0; i--) { %>
 			<% var tech = technologies[i] %>
 			<p><%= tech.technology %></p>
 			<% }; %>	
-		</div>
+		</li>
 	</script>
 
 	<script type="text/template" id="contact-template"><!-- tpl contact -->
-		<div class="col-xs-3 col-sm-3 text-center">
-			<span><a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i>
+		<li>
+			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a>
 			<p><%= name %></p>
-			</a></span>
-		</div>
+		</li>
 	</script>
 
 	<script type="text/template" id="site-link-template"><!-- tpl site link -->

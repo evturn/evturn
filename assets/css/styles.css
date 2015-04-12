@@ -188,12 +188,12 @@ img.img-responsive.center-block {
 
 }
 
- .section-title h3 {
+.section-title h3 {
   padding-bottom: 17px;
   background: none;
 }
 
-#development, #technologies {
+#development {
   padding-bottom: 40px;
   margin-top: 70px;
 }
@@ -246,6 +246,14 @@ p.about {
   border-radius: 2px;
 }
 
+ul#stack li {
+  display: block;
+}
+
+ul#links li {
+  display: block;
+}
+
 .dmtop {
   background-color:#ccc;
   background-image: url('../img/arrow.png');
@@ -267,6 +275,7 @@ p.about {
   transition: all .7s ease-in-out;
   overflow: auto;
 }
+
 
 @media (max-width: 570px) {
   .copyright {
