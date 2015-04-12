@@ -10,7 +10,8 @@ var piqueBeta =
 			[
 				backbone,
 				firebase,
-				photoshop
+				photoshop,
+				jQuery
 			],
 		id: 1,
 		url: 'http://piqueapp.github.io',
@@ -31,7 +32,8 @@ var musicInsider =
 				backbone, 
 				node,
 				firebase,
-				photoshop
+				photoshop,
+				jQuery
 			],
 		id: 2,
 		url: 'http://musicinsider.co',
@@ -52,7 +54,8 @@ var marshallz =
 			[
 			backbone,
 			node,
-			mongoDB
+			mongoDB,
+			jQuery
 			],
 		id: 3,
 		url: 'http://marshallz.com',
@@ -72,7 +75,8 @@ var alculator =
 			[
 				backbone,
 				node,
-				photoshop
+				photoshop,
+				jQuery
 			],
 		id: 4,
 		url: 'http://alculator.co',
@@ -92,7 +96,8 @@ var ramenBuffet =
 			[
 				angular,
 				node,
-				mongoDB
+				mongoDB,
+				jQuery
 			],
 		id: 5,
 		url: 'http://ramenbuffet.com',
@@ -111,7 +116,8 @@ var hangman =
 			[
 				backbone,
 				node,
-				photoshop
+				photoshop,
+				jQuery
 			],
 		id: 6,
 		url: "http://hangman-node.herokuapp.com",
@@ -129,7 +135,8 @@ var tictactoe =
 		description: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay",
 		stack:
 			[
-				backbone
+				backbone,
+				jQuery
 			],
 		id: 7,
 		lead: 'assets/img/ttt-1.jpg',
