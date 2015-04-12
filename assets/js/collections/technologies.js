@@ -4,16 +4,18 @@ var Technologies = Backbone.Collection.extend({
 	template: _.template($('#technologies-template').html()),
 });
 
-var node = 					{
-											technology: 'Node.js',
-											icon: 'devicon-nodejs-plain',
-											id: 1
-										};
-var angular =				{
-											technology: 'AngularJS',
-											icon: 'devicon-angularjs-plain',
-											id: 2
-										};
+var node =
+	{
+		technology: 'Node.js',
+		icon: 'devicon-nodejs-plain',
+		id: 1
+	};
+var angular =				
+	{
+		technology: 'AngularJS',
+		icon: 'devicon-angularjs-plain',
+		id: 2
+	};
 var backbone =  		{
 											technology: 'Backbone.js',
 											icon: 'devicon-backbonejs-plain',
@@ -44,6 +46,12 @@ var digitalOcean =	{
 						 					icon: 'devicon-ubuntu-plain',
 						 					id: 8
 						 				};
+var firebase =      {
+											technology: 'Firebase',
+											icon: 'fa fa-database fa-2x',
+											id: 9
+										};
+		 				
 
 var stacks = [node, angular, backbone, jQuery, bootstrap, git, photoshop, digitalOcean];
 

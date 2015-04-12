@@ -23,7 +23,10 @@ var projects = [
 	{
 		name: 'Music Insider',
 		description: "Music Insider is a Los Angeles based podcast. Using Backbone.js I designed an Admin interface that uses Firebase for User Authentication and real time cloud storage. Clients that are authenticated are given access to admin tools to where the user can add and update posts.",
-		stack: " Backbone.js &#x95; Firebase &#x95; Node.js &#x95; Express.js",
+		stack: 
+			[
+				backbone, node
+			],
 		id: 2,
 		url: 'http://musicinsider.co',
 		lead: "assets/img/mi-1.jpg",
@@ -38,7 +41,10 @@ var projects = [
 	{
 		name: 'Blog',
 		description: "All blog posts are created using the New York Times API to select sentences at random from various articles. These sentences are then combined to create new, nonsensical blog posts which are authored by a fictious nine year old user. In addition, these posts allow comments from other users by signing in with their Facebook or Twitter account",
-		stack: "Backbone.js &#x95; Handlebars &#x95; MongoDB &#x95; Node.js &#x95; Express.js",
+		stack:
+			[
+			backbone, node
+			],
 		id: 3,
 		url: 'http://marshallz.com',
 		lead: "assets/img/marshallz-1.jpg",
@@ -52,7 +58,10 @@ var projects = [
 	{
 		name: 'BAC Calculator',
 		description: "Users select from an investory of alcoholic beverages. In addition, users have search access to a database of beer. All alcohol percentages for the user's selected beverages gathered. That data, along with the user's information, is run through the Widmark formula to calculate the individual's blood alcohol level. The results provide a description particular to the user's intoxication level ranging from low traces of alcohol to lethal doses.",
-		stack: "Backbone.js &#x95; Node.js &#x95; Express.js",
+		stack:
+			[
+				backbone, node, photoshop
+			],
 		id: 4,
 		url: 'http://alculator.co',
 		lead: "assets/img/alculator-3.png",
@@ -66,7 +75,10 @@ var projects = [
 	{
 		name: 'Task Manager',
 		description: "This single page AngularJS app  stores the data from the user input using MongoDB. Users can create an account for the app and in addition login and link their Twitter and Facebook accounts. I have built this app multiple times since the concept provides a great avenue to exploring other technologies. Other iterations of this app used Backbone.js, Marionette.js, and Firebase.", 
-		stack: "AngularJS &#x95; MongoDB &#x95; Node.js &#x95; Express.js",
+		stack: 
+			[
+				angular, node
+			],
 		id: 5,
 		url: 'http://ramenbuffet.com',
 		lead: 'assets/img/ramen-1.jpg',
@@ -79,7 +91,10 @@ var projects = [
 	{
 		name: 'Hangman',
 		description: "Hangman was original built in Sinatra using Ruby. The game state updated in real time and was stored using a PostgreSQL database. Months later I remade the game from with Backbone.js",
-		stack: "Backbone.js &#x95; Node.js &#x95; Express.js",
+		stack:
+			[
+				backbone, node
+			],
 		id: 6,
 		url: "http://hangman-node.herokuapp.com",
 		lead: "assets/img/hangman-1.jpg",
@@ -93,7 +108,10 @@ var projects = [
 	{
 		name: 'Tic Tac Toe',
 		description: "This version of Tic Tac Toe was built using Backbone.js. I sparingly used jQuery for this project giving the entire workload of event handling to my Backbone Views. I designed images for each game piece with Adobe Photoshop. Each image's file path was stored as an attribute to a certain model within the application and then used to render bits and pieces of the game in the browser on initial page load and during gameplay",
-		stack: "Backbone.js",
+		stack:
+			[
+				backbone
+			],
 		id: 7,
 		lead: 'assets/img/ttt-1.jpg',
 		items: 
