@@ -17,7 +17,6 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   background-image: none;
   text-shadow: none;
   color: #FCFCFC;
-  padding: 0px 15px 0px 15px;
   
 }
 
@@ -285,27 +284,6 @@ p.about {
 @media (max-width: 570px) {
   .copyright {
     font-size: 11px;
-  }
-}
-
-@media (min-width: 768px) {
-  .site {
-    float: none;
-  }
-  .btn.btn-default {
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (min-width: 992px) {
-  .site {
-    float: right;
-  }
-
-  .btn.btn-default {
-    margin-top: 0px;
-    margin-bottom: 0px;
   }
 }
 
