@@ -93,6 +93,9 @@
 							
 						</p>
 					</div>
+
+	
+
 					<div class="col-xs-12 col-sm-4 col-md-3">
 						<h3>Technologies</h3>
 							
@@ -115,15 +118,33 @@
 
 		<div class="container-fluid wow fadeInUp" id="technologies">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6 pull-right text-center">
-	    		<h2>CONTACT</h2>
-	      	<ul id="links">
+				<div class="col-xs-12 col-sm-4 col-md-4 pull-right text-center">
+	    		<h2>LINKS</h2>
+	      	<div id="links">
 
 	<!-- template contacts -->
 	      	
-	 		   	</ul>
+	 		   	</div>
 	    	</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 pull-left text-center">	
+				<div class="col-xs-12 col-sm-4 col-md-4 text-center">
+	    		<h2>CODE</h2>
+	    		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
+		    		<span><i class="fa fa-keyboard-o fa-2x"></i></span>
+		      	<h3 class="stat-count">72</h3>
+		      	<p>Commit Streak</p>
+					</div>
+	    		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
+		    		<span><i class="fa fa-area-chart fa-2x"></i></span>
+		      	<h3 class="stat-count">276</h3>
+		      	<p>Weekly Average</p>
+					</div>
+		    	<div class="col-xs-4 col-sm-4 col-md-4 text-center">
+		    		<span><i class="fa fa-code fa-2x"></i></span>
+		      	<h3 class="stat-count">4025</h3>
+		    		<p>Github Commits</p>
+	    		</div>
+	    	</div>
+				<div class="col-xs-12 col-sm-4 col-md-4 pull-left text-center">	
 					<h2>TECHNOLOGIES</h2>
 					<ul id="stack">
 				
@@ -196,20 +217,16 @@
 	</script>
 
 	<script type="text/template" id="technologies-template"><!-- tpl technologies -->
-		<li>
-			<a><img class="img-responsive" src="<%= image %>"></a>
-			<% for (var i = technologies.length - 1; i >= 0; i--) { %>
-			<% var tech = technologies[i] %>
-			<p><%= tech.technology %></p>
-			<% }; %>	
-		</li>
+		<li><p><%= technology %></p></li>
 	</script>
 
 	<script type="text/template" id="contact-template"><!-- tpl contact -->
-		<li>
+		
+			<div class="col-xs-4 col-sm-4 col-md-4 text-center">
 			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a>
 			<p><%= name %></p>
-		</li>
+		</div>
+		
 	</script>
 
 	<script type="text/template" id="site-link-template"><!-- tpl site link -->
