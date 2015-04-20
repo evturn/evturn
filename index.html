@@ -42,6 +42,12 @@
 		</div>
 	</nav><!--end-->
 
+
+
+
+
+
+
 	<div class="container wow fadeInDown">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
@@ -143,7 +149,7 @@
 
 
 	<!-- UNDERSCORE TEMPLATES -->
-	<script type="text/template" id="about-template"><!-- tpl about -->
+	<script type="text/template" id="about-template"><!-- parent about -->
 		<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 			<p class="about-lead"><%= lead %></p>
 		</div>
@@ -155,7 +161,7 @@
 			</div>
 	</script>
 
-	<script type="text/template" id="project-info-template">
+	<script type="text/template" id="project-info-template"><!-- parent project info -->
 		<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1">
 			<h3>Description</h3>
 			<p class="description wow fadeIn"><%= description %></p>
@@ -175,7 +181,7 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="carousel-template"><!-- tpl carousel -->
+	<script type="text/template" id="carousel-template"><!-- parent carousel -->
 		<div id="gallery" class="carousel slide wow bounceInRight" data-wow-offset="10" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="item active">
@@ -209,6 +215,18 @@
 		</div>
 	</script>
 
+	<script type="text/template" id="site-link-template"><!-- tpl site link -->
+		<a class="icon site" href="<%= url %>"target="_blank"><i class="devicon-ubuntu-plain"></i></a>
+		<p>Site</p>
+	</script>
+
+	<script type="text/template" id="project-stack-template"><!-- tpl project-stack -->
+		<div class="col-xs-4 col-sm-3 col-md-2 text-center wow fadeIn">
+			<i class="<%= color || icon %>"></i>
+			<p class="specs"><%= technology %></p>
+		</div>
+	</script>
+
 	<script type="text/template" id="contact-template"><!-- tpl contact -->
 		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
 			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-2x"></i></a>
@@ -216,17 +234,7 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="site-link-template"><!-- tpl site link -->
-		<a class="icon site" href="<%= url %>"target="_blank"><i class="devicon-ubuntu-plain"></i></a>
-		<p>Site</p>
-	</script>
 
-	<script type="text/template" id="project-stack-template">
-		<div class="col-xs-3 col-sm-3 col-md-2 text-center wow fadeIn">
-			<i class="<%= color || icon %>"></i>
-			<p class="specs"><%= technology %></p>
-		</div>
-	</script>
 
 
 	<!-- ANALYTICS -->
