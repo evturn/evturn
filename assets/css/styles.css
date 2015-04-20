@@ -152,6 +152,10 @@ img.img-responsive.center-block {
   background: none;
 }
 
+p.specs {
+  font-size: 11px;
+}
+
 #development {
   padding-bottom: 40px;
   margin-top: 70px;
