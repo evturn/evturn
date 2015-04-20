@@ -16,10 +16,10 @@ var piqueBeta =
 			],
 		id: 1,
 		url: 'http://piqueapp.github.io',
-		lead: "assets/img/pique-1.jpg",
+		lead: "assets/img/pique-2.jpg",
 		items: 
 			[
-				{item: 'assets/img/pique-2.jpg'}, 
+				{item: 'assets/img/pique-1.jpg'}, 
 				{item: 'assets/img/pique-3.jpg'}, 
 				{item: 'assets/img/pique-4.jpg'}
 			]
