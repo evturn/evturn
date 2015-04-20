@@ -7,6 +7,10 @@ body {
   box-shadow: none;
 }
 
+.navbar-right {
+  font-size: 13px;
+}
+
 .navbar-collapse {
   padding-right: 10%;
   padding-left: 10%;
