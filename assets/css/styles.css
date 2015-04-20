@@ -2,6 +2,29 @@ body {
   background-image: url('../img/brickwall.png');
 }
 
+.navbar-default {
+  background: transparent;
+  box-shadow: none;
+}
+
+.navbar-collapse {
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.navbar {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #000;
+}
+
+.navbar-left {
+  font-size: 25px;
+}
+
 body, h6, h5, h4, h3, h2, h1, p, a {
 	font-family: "Raleway";
 	font-weight: 500;
