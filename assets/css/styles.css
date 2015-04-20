@@ -205,9 +205,13 @@ p.about {
 }
 
 #technologies {
-  background-color: #999;
+  background: transparent;
   border-bottom: 1px solid #4a4a4a;
   border-radius: 2px;
+}
+
+#stack [class^="devicon-"], [class*=" devicon-"] {
+  font-size: 2em;
 }
 
 .dmtop {
