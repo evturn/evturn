@@ -152,10 +152,6 @@ img.img-responsive.center-block {
   background: none;
 }
 
-p.specs {
-  font-size: 11px;
-}
-
 #development {
   padding-bottom: 40px;
   margin-top: 70px;
@@ -212,6 +208,19 @@ p.about {
 
 #stack [class^="devicon-"], [class*=" devicon-"] {
   font-size: 2em;
+}
+
+#project-stack p {
+  text-align: center;
+}
+
+#project-stack .fa-3x {
+  margin-bottom: 2px;
+}
+
+p.specs {
+  font-size: 11px;
+  text-align: center;
 }
 
 .dmtop {
