@@ -1,9 +1,4 @@
-/* ==============================================
-    Backbone
-=============================================== */
 
-new Home();
-new About();
 
 
 /* ==============================================
@@ -58,3 +53,6 @@ $(".stat-count").each(function() {
   $(this).html('0');
   count($(this));
 });
+
+var router = new Router();
+Backbone.history.start();
