@@ -1,4 +1,4 @@
-var PortfolioView = Backbone.View.extend({
+var Work = Backbone.View.extend({
 	el: '#development',
   carouselTpl : _.template($('#carousel-template').html()),
   navTpl      : _.template($('#carousel-nav-template').html()),

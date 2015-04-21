@@ -34,7 +34,7 @@
           <li><a href="#">Evan Turner</a></li>
 		    </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#development">Portfolio</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
 		    </ul>
@@ -149,7 +149,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">	
 				<h3>TOOLS</h3>
-				<div id="stack">
+				<div class="row about-stack">
 					<!-- about stack -->
 				</div>
 			</div>
@@ -170,14 +170,13 @@
 	      	<h3 class="stat-count">4000</h3>
 	    		<p>Github Contributions</p>
     		</div>
-    	</div>
-		
+    	</div>	
 		</div>
 	</div>
 </script>
 <!-- about template -->
 
-	<script type="text/template" id="technologies-template"><!-- tpl about technologies -->
+	<script type="text/template" id="about-stack-template"><!-- tpl about stack -->
 		<div class="col-xs-3 col-sm-3 col-md-2 text-center">
 			<i class="<%= icon %>"></i>
 			<p class="specs"><%= technology %></p>
@@ -287,10 +286,9 @@
 	<script src="assets/js/models/stack.js"></script>
 	<script src="assets/js/models/link.js"></script>
 	<script src="assets/js/models/project.js"></script>
-	<script src="assets/js/models/about.js"></script>
 	
-	<script src="assets/js/collections/technologies.js"></script>
-	<script src="assets/js/collections/portfolio.js"></script>
+	<script src="assets/js/collections/stack.js"></script>
+	<script src="assets/js/collections/work.js"></script>
 	<script src="assets/js/collections/contact.js"></script>
 	
 	<script src="assets/js/views/about.js"></script>
