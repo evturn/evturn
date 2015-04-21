@@ -1,8 +1,8 @@
 var AppView = Backbone.View.extend({
-	aboutTpl: _.template($('#about-template').html()),
+	// aboutTpl: _.template($('#about-template').html()),
 	initialize: function() {
 		var portfolioView  = new PortfolioView({collection: portfolio});
-		this.about();
+		// this.about();
 		this.section(technologies);
 		this.section(contact);
 	},
