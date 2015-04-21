@@ -86,4 +86,13 @@ body {
 	span {
 		display: none;
 	}
+
+	.project-thumbnail a:before {
+		background: none;
+		box-shadow: none;
+	}
+
+	.project-thumbnail {
+		margin: 15px auto;
+	}
 }
