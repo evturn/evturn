@@ -21,38 +21,68 @@
     <img class="preloader" src="assets/img/loader.gif" alt="">
   </div>
 
-	<div id="navigation">
-	  <nav class="navbar navbar-default" role="navigation">
-	    <div class="container-fluid">
-	      <div class="navbar-header">
-	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	          <span class="sr-only">Toggle navigation</span>
-	          <span class="fa fa-bars"></span>
-	        </button>
-	      </div>
-	      <div id="navbar" class="navbar-collapse collapse">
-	      	<ul class="nav navbar-nav navbar-left">
-	          <li><a href="#">Evan Turner</a></li>
-			    </ul>
-	        <ul class="nav navbar-nav navbar-right">
-	          <li><a href="#development">Portfolio</a></li>
-	          <li><a href="#about">About</a></li>
-	          <li><a href="#contact">Contact</a></li>
-			    </ul>
-				</div>
-			</div>
-		</nav>	
-	</div>
-<!-- #navigation -->
-
-	<div id="home">
-		<div class="container wow fadeInDown">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12">
-					<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
-				</div>
+ 	<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="fa fa-bars"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+      	<ul class="nav navbar-nav navbar-left">
+          <li><a href="#">Evan Turner</a></li>
+		    </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#development">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+		    </ul>
 			</div>
 		</div>
+	</nav>
+<!-- #navigation -->
+
+	<div id="home"></div>
+<!-- #home -->
+
+	<div id="portfolio"></div>
+<!-- #portfolio -->
+	
+	<div id="about"></div>		
+<!-- #about -->
+
+	<div id="contact"></div>
+<!-- #contact -->
+	
+<div class="copyrights">
+  <div class="container">
+  	<div class="row">
+  		<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center">
+  		<h3>CONNECT</h3>
+	    	<div id="links">
+					<!-- contacts -->
+		   	</div>
+	   	</div>		
+  	</div>
+  	<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 copyright">
+      <p>2015 © evturn.com | All Rights Reserved</p>
+    </div>
+    </div>
+  </div>
+	<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div></a>
+</div>
+<!-- #footer -->
+
+<div class="dmtop" style="bottom: 25px;">Scroll to top</div>
+
+
+
+<!-- UNDERSCORE TEMPLATES -->
+
+	<script type="text/template" id="home-template">
+		
 
 		<div class="container">
 			<div class="row">
@@ -86,71 +116,41 @@
 				</div>
 			</div>
 		</div>
-	</div>
-<!-- #home -->
+	</script>
+<!-- home template -->
 
-
-
-	<div id="development">	
-		<div class="container wow fadeInUp" data-wow-offset="10">
-			
-			<div class="row">
-				<div class="section-title text-center">
-					<h2>Portfolio</h2>
-				</div>
-				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="carousel-slide"> 
-
-					<!-- carousel -->
-
-				</div>
-				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center carousel-nav">
-					<ul id="carousel-icons">
-
-					<!-- carousel nav -->
-
-					</ul>
-				</div>
+<script type="text/template" id="about-template">
+	<div class="container wow fadeInDown">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
 			</div>
-			
-			<div class"row" id="project-info">
-
-					<!-- project info -->
-
-			</div>
-
 		</div>
 	</div>
-<!-- #development -->
-	
-
-
-	<div id="about">
-		<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
-						<h2>Web Developer</h2>
-					<div class="about-paragraphs">			
-						<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-							<p class="about-lead">As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation.</p>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<p class="about lead">As a JavaScript Developer, I focus on building responsive single page applications that optimize scalability through RESTful APIs. I initially built apps almost exclusively in a Rails environment writing Ruby, but my attraction to the JavaScript language and the seemingly endless amount of libraries has heavily strengthened the application logic I write.</p>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<p class="about lead">Given my familiarity with the Model–view–controller (MVC) architectural pattern that Rails implements, I find employing JavaScript libraries like Backbone.js and AngularJS a pertinent fit on the frontend.</p>
-						</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
+				<h2>Web Developer</h2>
+				<div class="about-paragraphs">			
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+						<p class="about-lead">As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation.</p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<p class="about lead">As a JavaScript Developer, I focus on building responsive single page applications that optimize scalability through RESTful APIs. I initially built apps almost exclusively in a Rails environment writing Ruby, but my attraction to the JavaScript language and the seemingly endless amount of libraries has heavily strengthened the application logic I write.</p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<p class="about lead">Given my familiarity with the Model–view–controller (MVC) architectural pattern that Rails implements, I find employing JavaScript libraries like Backbone.js and AngularJS a pertinent fit on the frontend.</p>
 					</div>
 				</div>
-			</div>		
+			</div>
+		</div>		
 	</div>
 	<div class="container-fluid wow fadeInUp" id="technologies" data-wow-offset="10">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">	
 				<h3>TOOLS</h3>
 				<div id="stack">
-			
-	<!-- template technologies -->
-
+					<!-- about stack -->
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">
@@ -173,81 +173,76 @@
     	</div>
 		
 		</div>
-	</div><!--end-->
-<!-- #about -->
-
-	<div id="contact">
-		<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center">
-  		<h3>CONNECT</h3>
-    	<div id="links">
-
-				<!-- contacts -->
-    	
-	   	</div>
-   	</div>		
 	</div>
-<!-- #contact -->
+</script>
+<!-- about template -->
 
-
-
-	<div id="footer">
-		<div class="copyrights">
-		  <div class="container">
-		    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 copyright">
-		      <p>2015 © evturn.com | All Rights Reserved</p>
-		    </div>
-		  </div>
-			<a>
-				<div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div>
-			</a>
+	<script type="text/template" id="technologies-template"><!-- tpl about technologies -->
+		<div class="col-xs-3 col-sm-3 col-md-2 text-center">
+			<i class="<%= icon %>"></i>
+			<p class="specs"><%= technology %></p>
 		</div>
-	</div>
-<!-- #footer -->
+	</script>
 
-	<div class="dmtop" style="bottom: 25px;">Scroll to top</div>
+	<script type="text/template" id="contact-template"><!-- tpl about contact -->
+		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
+			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-2x"></i></a>
+			<p><%= name %></p>
+		</div>
+	</script>
 
 
-
-	<!-- UNDERSCORE TEMPLATES -->
-
-	<script type="text/template" id="project-info-template"><!-- parent project info -->
+	<script type="text/template" id="project-info-template">
 		<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1">
 			<h3>Description</h3>
 			<p class="description wow fadeIn"><%= description %></p>
 			<span class="site wow fadeIn">
-						
-	<!-- template site link -->
-
+				<!-- website link -->
 			</span>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
 			<h3>Built with</h3>
 			<div id="project-stack">
-				
-	<!-- template project info -->
-
+				<!-- template project info -->
 			</div>
 		</div>
 	</script>
+<!-- project info template-->
 
-	<script type="text/template" id="carousel-template"><!-- parent carousel -->
-		<div id="gallery" class="carousel slide wow bounceInRight" data-wow-offset="10" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="item active">
-					<img class="img-responsive center-block" src="<%= lead %>">
+	<script type="text/template" id="carousel-template">
+		<div class="container">	
+			<div class="row">
+				<div class="section-title text-center">
+					<h2>Portfolio</h2>
 				</div>
-
-					<!-- template gallery -->
-
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="carousel-slide"> 
+					<div id="gallery" class="carousel slide wow bounceInRight" data-wow-offset="10" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="item active">
+								<img class="img-responsive center-block" src="<%= lead %>">
+							</div>
+							<!-- gallery -->
+						</div>
+						<a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
+			  			<span class="glyphicon glyphicon-chevron-left"></span>
+			  		</a>
+						<a class="right carousel-control" href="#gallery" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center carousel-nav">
+					<ul id="carousel-icons">
+						<!-- carousel nav -->
+					</ul>
+				</div>
 			</div>
-			<a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
-  			<span class="glyphicon glyphicon-chevron-left"></span>
-  		</a>
-			<a class="right carousel-control" href="#gallery" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
+			<div class"row" id="project-info">
+				<!-- project info -->
+			</div>
 		</div>
 	</script>
+<!-- carousel body template -->
 
 	<script type="text/template" id="gallery-template"><!-- tpl gallery -->
 		<div class="item"><img class="img-responsive center-block gallery-item" src="<%= item %>"></div>
@@ -255,13 +250,6 @@
 
 	<script type="text/template" id="carousel-nav-template"><!-- tpl carousel nav -->
 		<li><a class="icon" data-id="<%= id %>"><i class="fa fa-circle-thin fa-2x"></i></a></li>
-	</script>
-
-	<script type="text/template" id="technologies-template"><!-- tpl technologies -->
-		<div class="col-xs-3 col-sm-3 col-md-2 text-center">
-			<i class="<%= icon %>"></i>
-			<p class="specs"><%= technology %></p>
-		</div>
 	</script>
 
 	<script type="text/template" id="site-link-template"><!-- tpl site link -->
@@ -276,12 +264,7 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="contact-template"><!-- tpl contact -->
-		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
-			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-2x"></i></a>
-			<p><%= name %></p>
-		</div>
-	</script>
+
 
 
 
