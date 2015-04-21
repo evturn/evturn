@@ -21,6 +21,21 @@
     <img class="preloader" src="assets/img/loader.gif" alt="">
   </div>
 
+
+	<div id="navigation"></div>
+
+	<div id="home"></div>
+	<div id="development"></div>
+	<div id="about"></div>
+	<div id="contact"></div>
+
+	<div id="footer"></div>
+
+
+
+
+
+
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -35,12 +50,14 @@
 		    </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#development">Portfolio</a></li>
-          <li><a href="#stack">Stack</a></li>
+          <li><a href="#stack">About</a></li>
           <li><a href="#links">Contact</a></li>
 		    </ul>
 			</div>
 		</div>
 	</nav><!--end-->
+
+
 
 	<div class="container wow fadeInDown">
 		<div class="row">
@@ -49,20 +66,7 @@
 			</div>
 		</div>
 	</div><!--end-->
-
-	<div class="container" id="about">
-		<div class="row">
-			<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
-				<h2>Web Developer</h2>
-			<div class="about-paragraphs">
-			
-	<!-- template about -->
-
-			</div>
-		</div>
-	</div><!--end-->
 	
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -80,18 +84,51 @@
 						<a><img class="img-responsive" src="assets/img/alculator-tn.png"></a>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
+						<a><img class="img-responsive" src="assets/img/piqueapp-tn.png"></a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
 						<a><img class="img-responsive" src="assets/img/ramen-tn.png"></a>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-						<a><img class="img-responsive" src="assets/img/hangman-tn.jpg"></a>
+						<a><img class="img-responsive" src="assets/img/ttt-tn.png"></a>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-						<a><img class="img-responsive" src="assets/img/ttt-tn.png"></a>
+						<a><img class="img-responsive" src="assets/img/hangman-tn.jpg"></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+<div class="container">
+	<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
+				<h2>Web Developer</h2>
+			<div class="about-paragraphs">			
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+					<p class="about-lead"><%= lead %></p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<p class="about lead"><%= paragraph1 %></p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<p class="about lead"><%= paragraph2 %></p>
+				</div>
+			</div>
+		</div>
+	</div><!--end-->
+
+
+
+
+
+
 
 
 	<div class="container wow fadeInUp" data-wow-offset="10" id="development">
@@ -175,15 +212,7 @@
 
 	<!-- UNDERSCORE TEMPLATES -->
 	<script type="text/template" id="about-template"><!-- parent about -->
-		<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-			<p class="about-lead"><%= lead %></p>
-		</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<p class="about lead"><%= paragraph1 %></p>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<p class="about lead"><%= paragraph2 %></p>
-			</div>
+		
 	</script>
 
 	<script type="text/template" id="project-info-template"><!-- parent project info -->
