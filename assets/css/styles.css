@@ -10,10 +10,8 @@ body {
 
 .navbar-default {
   padding: 30px;
-}
-
-.navbar-collapse.collapse {
-  
+  background: transparent;
+  box-shadow: none;
 }
 
 .project-thumbnails-container {
@@ -28,18 +26,13 @@ body {
   cursor: pointer;
 }
 
-.navbar-default {
-  background: transparent;
-  box-shadow: none;
-}
-
 .navbar-right {
   font-size: 13px;
 }
 
 .navbar-collapse {
-  padding-right: 10%;
-  padding-left: 10%;
+  padding-right: 15%;
+  padding-left: 15%;
 }
 
 .navbar {
