@@ -81,3 +81,9 @@ body {
 	/*pushing the shadow down and scaling it down to size*/
 	transform: rotateX(0) translateZ(-60px) scale(0.85);
 }
+
+@media (max-width: 414px) {
+	span {
+		display: none;
+	}
+}
