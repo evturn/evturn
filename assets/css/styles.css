@@ -2,6 +2,14 @@ body {
   background-image: url('../img/brickwall.png');
 }
 
+.site-navigation {
+  height: 150px;
+}
+
+.navbar-collapse.collapse {
+  margin-top: 50px;
+}
+
 .project-thumbnail {
   padding-top: 15px;
   padding-right: 7.5px;
