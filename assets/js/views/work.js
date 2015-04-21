@@ -1,7 +1,6 @@
 var Work = Backbone.View.extend({
 	el: '.work',
   carouselTpl : _.template($('#carousel-template').html()),
-  navTpl      : _.template($('#carousel-nav-template').html()),
   infoTemplate: _.template($('#project-info-template').html()),
   stackTemplate: _.template($('#project-stack-template').html()),
   siteLinkTpl : _.template($('#project-link-template').html()),

@@ -61,7 +61,7 @@ var digitalOcean =
 var firebase =      
 	{
 		technology: 'Firebase',
-		icon: 'fa fa-database fa-3x',
+		icon: 'fa fa-database fa-2x',
 		color: this.icon,
 		id: 9
 	};
@@ -75,7 +75,7 @@ var mongoDB =
 var underscore =
 	{
 		technology: 'Underscore.js',
-		icon: 'fa fa-minus fa-3x',
+		icon: 'fa fa-minus fa-2x',
 		color: this.icon,
 		id: 11
 	};
