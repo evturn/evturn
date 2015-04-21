@@ -119,8 +119,19 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   text-transform: uppercase;
 }
 
+.footer-container {
+  position: relative; 
+}
+
+.footer-col {
+  position: absolute;
+  margin-top: 120px;
+  z-index: 1;
+}
+
 #tooltip {
 	position: absolute;
+  z-index: -1;
 	bottom: 0;
 	left: 0;
 	width: 100px;
