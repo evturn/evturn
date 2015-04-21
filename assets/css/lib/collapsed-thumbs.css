@@ -24,15 +24,16 @@ body {
 
 /*Thumbnail Background*/
 .project-thumbnail {
-	width: 400px; height: 400px; margin: 70px auto;
+	/*width: 400px; height: 400px; */
+	margin: 60px auto;
 	perspective: 1000px;
 }
 .project-thumbnail a {
 	display: block; width: 100%; height: 100%;
 	/*double layered BG for lighting effect*/
 	background: 
-		linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-		url("http://evturn.com/assets/img/ev-winter-yellow.jpg");
+		linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)); 
+		/*url("http://evturn.com/assets/img/ev-winter-yellow.jpg");*/
 	/*disabling the translucent black bg on the main image*/
 	background-size: 0, cover;
 	/*3d space for children*/
