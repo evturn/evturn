@@ -129,7 +129,7 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   z-index: 1;
 }
 
-#tooltip {
+.footer-egg {
 	position: absolute;
   z-index: -1;
 	bottom: 0;

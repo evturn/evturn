@@ -14,7 +14,7 @@ new WOW({offset: -30}).init();
 
 $(function() {
 	
-	$('#tooltip').tooltip()
+	$('.footer-egg').tooltip()
 
 	$(window).load(function() {
 		$("#preloader").delay(500).fadeOut();
