@@ -3,7 +3,9 @@ body {
 }
 
 .project-thumbnail {
-  padding-top: 30px;
+  padding-top: 15px;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
 }
 
 .navbar-default {
