@@ -3,11 +3,18 @@ body {
 }
 
 .site-navigation {
-  height: 150px;
+  height: 120px;
 }
 
 .navbar-collapse.collapse {
   margin-top: 50px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.project-thumbnails-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .project-thumbnail {
