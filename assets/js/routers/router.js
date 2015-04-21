@@ -9,7 +9,7 @@ var Router = Backbone.Router.extend({
 		$('.about').hide();
 		$('.contact').hide();
 		$('.work').hide();
-		var home = new Home();
+		var home = new Home({collection: portfolio});
 		$('.home').show();
 	},
 	about: function() {

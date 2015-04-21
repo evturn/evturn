@@ -11,7 +11,12 @@ var Home = Backbone.View.extend({
 		this.$el.html(this.homeTemplate());
 		return this;
 	},
-	work: function() {
-		router.navigate('work', {trigger: true});
+	work: function(e) {
+		var id = $(e.currentTarget).data('id');
+		$('.home').hide();
+		var project = new Work({collection: this.collection});
+		project.carousel(id);
+		$('.work').show();
+		router.navigate('work', {trigger: false});
 	},
 });

@@ -9,31 +9,8 @@ var Work = Backbone.View.extend({
 	initialize: function() {
     this.carousel();
 	},
-	events: {
-		'click .icon' : 'switch'
-	},
-  nav: function() {
-    this.collection.each(function(model) {
-      $('#carousel-icons').append(this.navTpl(model.toJSON()));
-    }.bind(this));
-    $('i').first().removeClass('fa-circle-thin');
-    $('i').first().addClass('fa-circle');
-  },
-  switch: function(e) {
-    e.preventDefault();
-    var id      = $(e.currentTarget).data('id');
-    var model   = this.collection.get(id);
-    var next    = $(e.currentTarget).find('i');
-    var current = $('.fa-circle');
-    var prev    = $('#carousel-icons').find(current);
-    prev.removeClass('fa-circle');
-    prev.addClass('fa-circle-thin');
-    next.removeClass('fa-circle-thin');
-    next.addClass('fa-circle');
-    this.carousel(model);
-  },
-  carousel: function(model) {
-    var project = model || this.collection.get(1);
+  carousel: function(id) {
+    var project = this.collection.get(id) || this.collection.get(1);
     $('.work').html(this.carouselTpl(project.toJSON()));
     $('#project-info').html(this.infoTemplate(project.toJSON()));
     $('.site').empty(); 
@@ -42,7 +19,6 @@ var Work = Backbone.View.extend({
     }
     this.gallery(project);
     this.stack(project);
-    this.nav()
     this.slide();
   },
 	slide: function() {
