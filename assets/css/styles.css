@@ -2,6 +2,10 @@ body {
   background-image: url('../img/brickwall.png');
 }
 
+.project-thumbnail {
+  padding-top: 30px;
+}
+
 .navbar-default {
   background: transparent;
   box-shadow: none;
