@@ -3,7 +3,8 @@ var Navbar = Backbone.View.extend({
 	events: {
 		'click .nav-home'  	 : 'home',
 		'click .nav-about' 	 : 'about',
-		'click .nav-contact' : 'contact'
+		'click .nav-contact' : 'contact',
+		'click .nav-work' 	 : 'work'
 	},
 	home: function() {
 		router.navigate('', {trigger: true});
@@ -13,5 +14,8 @@ var Navbar = Backbone.View.extend({
 	},
 	contact: function() {
 		router.navigate('contact', {trigger: true});
+	},
+	work: function() {
+		router.navigate('work', {trigger: true});
 	},
 });
