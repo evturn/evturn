@@ -87,9 +87,17 @@ body {
 		display: none;
 	}
 
+	.project-thumbnail a:after {
+		background: none;
+	}
+
 	.project-thumbnail a:before {
 		background: none;
 		box-shadow: none;
+		opacity: 0;
+	}
+	.project-thumbnail a {
+		background: none;
 	}
 
 	.project-thumbnail {
