@@ -1,0 +1,1 @@
+var ContactLink = Backbone.Model.extend({});

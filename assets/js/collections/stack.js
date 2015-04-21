@@ -1,5 +1,5 @@
 var Stack = Backbone.Collection.extend({
-	model: Stack,	
+	model: Software,	
 });
 
 var node =

@@ -1,7 +1,5 @@
-var Contact = Backbone.Collection.extend({
-	model: Link,
-	el: '#links',
-	template: _.template($('#contact-template').html()),
+var ContactLinks = Backbone.Collection.extend({
+	model: ContactLink,
 });
 
 var links = [
@@ -37,4 +35,4 @@ var links = [
 	}
 ];
 
-var contact = new Contact(links);
+var contactLinks = new ContactLinks(links);
