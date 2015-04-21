@@ -4,7 +4,7 @@ var Router = Backbone.Router.extend({
 		'about' : 'about'
 	},
 	home: function() {
-		$('.about').show();
+		$('.about').hide();
 		var home = new Home();
 		$('.home').show();
 	},
