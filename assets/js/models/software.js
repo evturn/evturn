@@ -1,0 +1,1 @@
+var Software = Backbone.Model.extend({});

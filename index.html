@@ -18,10 +18,10 @@
 
   <div id="preloader">
     <div id="spinner"></div>
-    <img class="preloader" src="assets/img/loader.gif" alt="">
+    <img class="preloader" src="assets/img/loader.gif">
   </div>
 
-  <nav class="navbar navbar-default" role="navigation">
+ 	<nav class="site-navigation navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,202 +31,239 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
       	<ul class="nav navbar-nav navbar-left">
-          <li><a href="#">Evan Turner</a></li>
+          <li><a class="nav-home" href="#">Evan Turner</a></li>
 		    </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#development">Portfolio</a></li>
-          <li><a href="#stack">Stack</a></li>
-          <li><a href="#links">Contact</a></li>
+        	<li><a class="nav-home" href="#">Home</a></li>
+          <li><a class="nav-work" href="#work">Work</a></li>
+          <li><a class="nav-about" href="#about">About</a></li>
+          <li><a class="nav-contact" href="#contact">Contact</a></li>
 		    </ul>
 			</div>
 		</div>
-	</nav><!--end-->
+	</nav>
+<!-- #navigation -->
 
-	<div class="container wow fadeInDown">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
+	<div class="home"></div>
+	<div class="work"></div>
+	<div class="about"></div>
+	<div class="contact"></div>	
+	
+	<footer>
+	  <div class="container-fluid footer-container">
+	  	<div class="row footer-row">
+		    <div class="col-md-12 col-sm-12 col-xs-12 text-center footer-col">
+		      <p>2015 © evturn.com | All Rights Reserved</p>
+			<a><div data-toggle="tooltip" data-placement="top" title="I'm an egg." class="footer-egg"></div></a>
+		    </div>
+	    </div>
+	  </div>
+	</footer>
+<!-- #footer -->
+
+<div class="dmtop" style="bottom: 25px;">Scroll to top</div>
+
+
+
+<!-- UNDERSCORE TEMPLATES -->
+
+	<script type="text/template" id="home-template">
+		<div class="container wow fadeInDown">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+					<a><img class="img-responsive" src="assets/img/tile.png"></a>
+				</div>
 			</div>
-		</div>
-	</div><!--end-->
+		</div>		
 
-	<div class="container" id="about">
-		<div class="row">
-			<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
-				<h2>Web Developer</h2>
-			<div class="about-paragraphs">
-			
-	<!-- template about -->
-
-			</div>
-		</div>
-	</div><!--end-->
-
-		<div class="container">
+		<div class="container project-thumbnails-container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="row">
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/pique-tn.jpg"></a>
+							<a><img class="img-responsive" src="assets/img/pique-tn.jpg"></a>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/mi-tn.png"></a>
+							<a><img class="img-responsive" src="assets/img/mi-tn.png"></a>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/marshallz-tn.png"></a>
+							<a><img class="img-responsive" src="assets/img/marshallz-tn.png"></a>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/alculator-tn.png"></a>
+							<a><img class="img-responsive" src="assets/img/alculator-tn.png"></a>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/piqueapp-tn.png"></a>
+							<a><img class="img-responsive" src="assets/img/piqueapp-tn.png"></a>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/ramen-tn.png"></a>
+							<a><img class="img-responsive" src="assets/img/ramen-tn.png"></a>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/ttt-tn.png"></a>
+							<a><img class="img-responsive" src="assets/img/ttt-tn.png"></a>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-3 project-thumbnail">
-							<a href="#carousel-slide"><img class="img-responsive" src="assets/img/hangman-tn.jpg"></a>
+							<a><img class="img-responsive" src="assets/img/hangman-tn.jpg"></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</script>
+<!-- home template -->
 
-	<div class="container wow fadeInUp" data-wow-offset="10" id="development">
-		<div class="row">
-			<div class="section-title text-center">
-				<h2>Portfolio</h2>
-			</div>
-			<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="carousel-slide"> 
-
-<!-- template carousel -->
-
-			</div>
-			<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center carousel-nav">
-				<ul id="carousel-icons">
-
-<!-- template carousel nav -->
-
-				</ul>
-			</div>
-		</div>	
-		<div class"row" id="project-info">
-
-<!-- template project info -->
-
-		</div>
-	</div><!--end-->
-
-	<div class="container-fluid wow fadeInUp" id="technologies" data-wow-offset="10">
-		<div class="row">
-			<div class="col-xs-12 col-sm-4 col-md-4 pull-right text-center">	
-				<h3>TOOLS</h3>
-				<div id="stack">
-			
-	<!-- template technologies -->
-
+	<script type="text/template" id="about-template">
+		<div class="container wow fadeInDown">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-4 col-md-4 text-center">
-    		<h3>STATS</h3>
-    		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
-	    		<span><i class="fa fa-check fa-2x"></i></span>
-	      	<h3 class="stat-count">777074</h3>
-	      	<p>Quesadillas Eaten</p>
-				</div>
-    		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
-	    		<span><i class="fa fa-terminal fa-2x"></i></span>
-	      	<h3 class="stat-count">276</h3>
-	      	<p>Weekly Commits</p>
-				</div>
-	    	<div class="col-xs-4 col-sm-4 col-md-4 text-center">
-	    		<span><i class="fa fa-code fa-2x"></i></span>
-	      	<h3 class="stat-count">4000</h3>
-	    		<p>Github Contributions</p>
-    		</div>
-    	</div>
-			<div class="col-xs-12 col-sm-4 col-md-4 pull-left text-center">
-    		<h3>CONNECT</h3>
-      	<div id="links">
-
-<!-- template contacts -->
-      	
- 		   	</div>
-		   	</div>
 		</div>
-	</div><!--end-->
 
-	<div class="copyrights">
-	  <div class="container">
-	    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 copyright">
-	      <p>2015 © evturn.com | All Rights Reserved</p>
-	    </div>
-	  </div>
-		<a>
-			<div data-toggle="tooltip" data-placement="top" title="I'm an egg." id="tooltip"></div>
-		</a>
-	</div><!--end-->
-
-	<div class="dmtop" style="bottom: 25px;">Scroll to top</div>
-
-
-
-	<!-- UNDERSCORE TEMPLATES -->
-	<script type="text/template" id="about-template"><!-- parent about -->
-		<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-			<p class="about-lead"><%= lead %></p>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 section-title text-center">
+					<h2>Web Developer</h2>
+					<div class="about-paragraphs">			
+						<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+							<p class="about-lead">As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation.</p>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<p class="about lead">As a JavaScript Developer, I focus on building responsive single page applications that optimize scalability through RESTful APIs. I initially built apps almost exclusively in a Rails environment writing Ruby, but my attraction to the JavaScript language and the seemingly endless amount of libraries has heavily strengthened the application logic I write.</p>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<p class="about lead">Given my familiarity with the Model–view–controller (MVC) architectural pattern that Rails implements, I find employing JavaScript libraries like Backbone.js and AngularJS a pertinent fit on the frontend.</p>
+						</div>
+					</div>
+				</div>
+			</div>		
 		</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<p class="about lead"><%= paragraph1 %></p>
+
+		<div class="container">
+			<div class="row about-stats">
+				<div class="col-md-10 col-md-offset-1 col-sm-offset-1">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6 text-center">	
+							<h3>TOOLS</h3>
+							<div class="row about-stack">
+								<!-- about stack -->
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-1 text-center">
+			    		<h3>FACTS</h3>
+			    		<div class="row">
+				    		<div class="col-xs-4 col-sm-3 col-md-4 text-center">
+					    		<span><i class="fa fa-check fa-2x"></i></span>
+					      	<h4 class="stat-count">777074</h4>
+					      	<p>Quesadillas Eaten</p>
+								</div>
+				    		<div class="col-xs-4 col-sm-3 col-md-4 text-center">
+					    		<span><i class="fa fa-terminal fa-2x"></i></span>
+					      	<h4 class="stat-count">276</h4>
+					      	<p>Weekly Commits</p>
+								</div>
+					    	<div class="col-xs-4 col-sm-3 col-md-4 text-center">
+					    		<span><i class="fa fa-code fa-2x"></i></span>
+					      	<h4 class="stat-count">4000</h4>
+					    		<p>Github Contributions</p>
+				    		</div>
+				    	</div>
+			    	</div>	
+					</div>
+				</div>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<p class="about lead"><%= paragraph2 %></p>
+		</div>
+	</script>
+<!-- about template -->
+
+
+	<script type="text/template" id="contact-template">
+		<div class="container wow fadeIn">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+					<a><img class="img-responsive" src="assets/img/city-invert.png"></a>
+					<p>@evturn // evturn@gmail.com</p>
+				</div>
 			</div>
+		</div>		
+
+		<div class="container contact-container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center">
+					<div class="row contact-links">
+						<!-- contacts -->
+			   	</div>
+			 	</div>		
+			</div>
+		</div>
+	</script>
+<!-- contact template -->
+
+
+	<script type="text/template" id="about-stack-template"><!-- tpl about-stack -->
+		<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+			<i class="<%= icon %>"></i>
+			<p class="specs"><%= technology %></p>
+		</div>
 	</script>
 
-	<script type="text/template" id="project-info-template"><!-- parent project info -->
+	<script type="text/template" id="contact-links-template"><!-- tpl contact-link -->
+		<div class="col-xs-4 col-sm-4 col-md-2 text-center">
+			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a>
+			<p><%= name %></p>
+		</div>
+	</script>
+
+
+	<script type="text/template" id="project-info-template">
 		<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1">
 			<h3>Description</h3>
 			<p class="description wow fadeIn"><%= description %></p>
 			<span class="site wow fadeIn">
-						
-	<!-- template site link -->
-
+				<!-- website link -->
 			</span>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
 			<h3>Built with</h3>
 			<div id="project-stack">
-				
-	<!-- template project info -->
-
+				<!-- template project info -->
 			</div>
 		</div>
 	</script>
+<!-- project info template-->
 
-	<script type="text/template" id="carousel-template"><!-- parent carousel -->
-		<div id="gallery" class="carousel slide wow bounceInRight" data-wow-offset="10" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="item active">
-					<img class="img-responsive center-block" src="<%= lead %>">
+	<script type="text/template" id="carousel-template">
+		<div class="container">	
+			<div class="row">
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="carousel-slide"> 
+					<div id="gallery" class="carousel slide wow bounceInRight" data-wow-offset="10" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="item active">
+								<img class="img-responsive center-block" src="<%= lead %>">
+							</div>
+							<!-- gallery -->
+						</div>
+						<a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
+			  			<span class="glyphicon glyphicon-chevron-left"></span>
+			  		</a>
+						<a class="right carousel-control" href="#gallery" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
 				</div>
-
-					<!-- template gallery -->
-
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center carousel-nav">
+					<ul id="carousel-icons">
+						<!-- carousel nav -->
+					</ul>
+				</div>
 			</div>
-			<a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
-  			<span class="glyphicon glyphicon-chevron-left"></span>
-  		</a>
-			<a class="right carousel-control" href="#gallery" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
+			<div class"row" id="project-info">
+				<!-- project info -->
+			</div>
 		</div>
 	</script>
+<!-- carousel body template -->
 
 	<script type="text/template" id="gallery-template"><!-- tpl gallery -->
 		<div class="item"><img class="img-responsive center-block gallery-item" src="<%= item %>"></div>
@@ -236,14 +273,7 @@
 		<li><a class="icon" data-id="<%= id %>"><i class="fa fa-circle-thin fa-2x"></i></a></li>
 	</script>
 
-	<script type="text/template" id="technologies-template"><!-- tpl technologies -->
-		<div class="col-xs-3 col-sm-3 col-md-2 text-center">
-			<i class="<%= icon %>"></i>
-			<p class="specs"><%= technology %></p>
-		</div>
-	</script>
-
-	<script type="text/template" id="site-link-template"><!-- tpl site link -->
+	<script type="text/template" id="project-link-template"><!-- tpl site link -->
 		<a class="icon site" href="<%= url %>"target="_blank"><i class="devicon-ubuntu-plain"></i></a>
 		<p>Site</p>
 	</script>
@@ -255,46 +285,33 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="contact-template"><!-- tpl contact -->
-		<div class="col-xs-4 col-sm-4 col-md-4 text-center">
-			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-2x"></i></a>
-			<p><%= name %></p>
-		</div>
-	</script>
-
-
-
-
-	<!-- ANALYTICS -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 	  ga('create', 'UA-58635966-1', 'auto');
 	  ga('send', 'pageview');
 	</script>
-
-	
 	<script src="assets/js/lib/jquery.js"></script>
 	<script src="assets/js/lib/underscore.js"></script>
 	<script src="assets/js/lib/backbone.js"></script>
 	<script src="assets/js/lib/bootstrap.js"></script>
 	<script src="assets/js/lib/wow.js"></script>
 	
-
-	<script src="assets/js/models/stack.js"></script>
-	<script src="assets/js/models/link.js"></script>
+	<script src="assets/js/models/software.js"></script>
+	<script src="assets/js/models/contact-link.js"></script>
 	<script src="assets/js/models/project.js"></script>
-	<script src="assets/js/models/about.js"></script>
 	
-	<script src="assets/js/collections/technologies.js"></script>
+	<script src="assets/js/collections/stack.js"></script>
 	<script src="assets/js/collections/portfolio.js"></script>
-	<script src="assets/js/collections/contact.js"></script>
+	<script src="assets/js/collections/contact-links.js"></script>
 	
-	<script src="assets/js/views/portfolio-view.js"></script>
-	<script src="assets/js/views/app-view.js"></script>
+	<script src="assets/js/views/contact.js"></script>
+	<script src="assets/js/views/about.js"></script>
+	<script src="assets/js/views/work.js"></script>
+	<script src="assets/js/views/home.js"></script>
+	<script src="assets/js/routers/router.js"></script>
 	<script src="assets/js/main.js"></script>
 </body>
 </html>

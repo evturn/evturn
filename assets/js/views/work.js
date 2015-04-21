@@ -1,13 +1,12 @@
-var PortfolioView = Backbone.View.extend({
-	el: '#development',
+var Work = Backbone.View.extend({
+	el: '.work',
   carouselTpl : _.template($('#carousel-template').html()),
   navTpl      : _.template($('#carousel-nav-template').html()),
   infoTemplate: _.template($('#project-info-template').html()),
   stackTemplate: _.template($('#project-stack-template').html()),
-  siteLinkTpl : _.template($('#site-link-template').html()),
+  siteLinkTpl : _.template($('#project-link-template').html()),
   galleryTpl  : _.template($('#gallery-template').html()),
 	initialize: function() {
-		this.nav();
     this.carousel();
 	},
 	events: {
@@ -35,15 +34,15 @@ var PortfolioView = Backbone.View.extend({
   },
   carousel: function(model) {
     var project = model || this.collection.get(1);
-    $('#carousel-slide').html(this.carouselTpl(project.toJSON()));
+    $('.work').html(this.carouselTpl(project.toJSON()));
     $('#project-info').html(this.infoTemplate(project.toJSON()));
     $('.site').empty(); 
     if (project.has('url')) {
       $('.site').append(this.siteLinkTpl(project.toJSON()));
     }
-      
     this.gallery(project);
     this.stack(project);
+    this.nav()
     this.slide();
   },
 	slide: function() {

@@ -1,5 +1,11 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 body {
   background-image: url('../img/brickwall.png');
+  margin-bottom: 60px;
 }
 
 .project-thumbnail {
@@ -7,8 +13,21 @@ body {
 }
 
 .navbar-default {
+  padding: 30px;
   background: transparent;
   box-shadow: none;
+}
+
+.project-thumbnails-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.project-thumbnail {
+  padding-top: 15px;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
+  cursor: pointer;
 }
 
 .navbar-right {
@@ -16,8 +35,8 @@ body {
 }
 
 .navbar-collapse {
-  padding-right: 10%;
-  padding-left: 10%;
+  padding-right: 15%;
+  padding-left: 15%;
 }
 
 .navbar {
@@ -102,8 +121,21 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   text-transform: uppercase;
 }
 
-#tooltip {
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-col {
+  z-index: 1;
+  text-align: center;
+  color: #a3a3a3;
+}
+
+.footer-egg {
 	position: absolute;
+  z-index: -1;
 	bottom: 0;
 	left: 0;
 	width: 100px;
@@ -118,6 +150,10 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.contact-container {
+  margin-top: 60px;
 }
 
 .copyrights {
@@ -208,6 +244,10 @@ p.about {
 	color: #a3a3a3;
 }
 
+.row.about-stats {
+  color: #0c0c0c;
+}
+
 .section-title h2 {
   color: #000;
   font-size: 30px;
@@ -229,12 +269,6 @@ p.about {
 	padding-top: 10px;
 	font-weight: 500;
 	text-align: justify;
-}
-
-#technologies {
-  background: transparent;
-  border-bottom: 1px solid #4a4a4a;
-  border-radius: 2px;
 }
 
 #stack [class^="devicon-"], [class*=" devicon-"] {

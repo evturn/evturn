@@ -1,7 +1,5 @@
-var Technologies = Backbone.Collection.extend({
-	model: Stack,
-	el: '#stack',
-	template: _.template($('#technologies-template').html()),
+var Stack = Backbone.Collection.extend({
+	model: Software,	
 });
 
 var node =
@@ -90,7 +88,7 @@ var express =
 	};
 
 
-var technologies = new Technologies([
+var myStack = new Stack([
 	node, 
 	angular, 
 	backbone, 
