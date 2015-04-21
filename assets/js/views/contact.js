@@ -8,7 +8,7 @@ var Contact = Backbone.View.extend({
 	render: function() {
 		this.$el.html(this.contactTemplate());
 		for (var i = contactLinks.length - 1; i >= 0; i--) {
-			$('.contact-links').append(this.contactLinksTemplate(contactLinks.models[i].toJSON()));
+			$('.contact-links').prepend(this.contactLinksTemplate(contactLinks.models[i].toJSON()));
 		}
 		return this;
 	},
