@@ -1,5 +1,15 @@
 
-
+function count($this){
+    var current = parseInt($this.html(), 10);
+    current = current + 50;
+    $this.html(++current);
+    if(current > $this.data('count')){
+      $this.html($this.data('count'));
+    } 
+    else {    
+      setTimeout(function(){count($this)}, 50);
+    }
+  }
 
 /* ==============================================
     Animations
@@ -7,10 +17,6 @@
 
 new WOW({offset: -30}).init();
 
-
-/* ==============================================
-    Tooltip
-=============================================== */
 
 $(function() {
 	
@@ -32,27 +38,14 @@ $(function() {
 	$('.dmtop').click(function(){
 		$('html, body').animate({scrollTop: '0px'}, 800);
 		return false;
-	});
+	});        
+      
+  $(".stat-count").each(function() {
+    $(this).data('count', parseInt($(this).html(), 10));
+    $(this).html('0');
+    count($(this));
+  });
 
 });
-
-function count($this){
-    var current = parseInt($this.html(), 10);
-    current = current + 50;
-    $this.html(++current);
-    if(current > $this.data('count')){
-      $this.html($this.data('count'));
-    } 
-    else {    
-      setTimeout(function(){count($this)}, 50);
-    }
-  }        
-    
-$(".stat-count").each(function() {
-  $(this).data('count', parseInt($(this).html(), 10));
-  $(this).html('0');
-  count($(this));
-});
-
 var router = new Router();
 Backbone.history.start();

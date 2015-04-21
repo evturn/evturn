@@ -236,6 +236,10 @@ p.about {
 	color: #a3a3a3;
 }
 
+.row.about-stats {
+  color: #0c0c0c;
+}
+
 .section-title h2 {
   color: #000;
   font-size: 30px;
@@ -257,12 +261,6 @@ p.about {
 	padding-top: 10px;
 	font-weight: 500;
 	text-align: justify;
-}
-
-#technologies {
-  background: transparent;
-  border-bottom: 1px solid #4a4a4a;
-  border-radius: 2px;
 }
 
 #stack [class^="devicon-"], [class*=" devicon-"] {
