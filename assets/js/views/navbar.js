@@ -4,7 +4,8 @@ var Navbar = Backbone.View.extend({
 		'click .nav-home'  	 : 'home',
 		'click .nav-about' 	 : 'about',
 		'click .nav-contact' : 'contact',
-		'click .nav-work' 	 : 'work'
+		'click .nav-work' 	 : 'work',
+		'click .collapse'		 : 'collapse'
 	},
 	home: function() {
 		router.navigate('', {trigger: true});
@@ -17,5 +18,8 @@ var Navbar = Backbone.View.extend({
 	},
 	work: function() {
 		router.navigate('work', {trigger: true});
+	},
+	collapse: function() {
+		$('.collapse').hide();
 	},
 });
