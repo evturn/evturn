@@ -1,5 +1,11 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 body {
   background-image: url('../img/brickwall.png');
+  margin-bottom: 60px;
 }
 
 .site-navigation {
@@ -120,13 +126,16 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 }
 
 .footer-container {
-  position: relative; 
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-col {
-  position: absolute;
-  margin-top: 120px;
   z-index: 1;
+  text-align: center;
+  color: #a3a3a3;
 }
 
 .footer-egg {
