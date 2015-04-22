@@ -23,7 +23,6 @@ body {
   background: none;
 }
 
-
 .navbar-default {
   padding: 30px;
   background: transparent;
@@ -271,6 +270,11 @@ p.specs {
 @media (max-width: 802px) {
   .nav.navbar-nav.navbar-left {
     display: none;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    font-size: 24px;
+    text-align: center;
   }
 }
 
