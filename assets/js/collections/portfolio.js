@@ -4,7 +4,7 @@ var Portfolio = Backbone.Collection.extend({
 
 var piqueBeta =
 	{
-		name: 'Pique',
+		name: 'Pique Beta',
 		description: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
 		stack: 
 			[
@@ -51,7 +51,7 @@ var musicInsider =
 	};
 var marshallz =
 	{
-		name: 'Blog',
+		name: 'Marshallz Blog',
 		description: "All blog posts are created using the New York Times API to select sentences at random from various articles. These sentences are then combined to create new, nonsensical blog posts which are authored by a fictious nine year old user. In addition, these posts allow comments from other users by signing in with their Facebook or Twitter account",
 		stack:
 			[
@@ -74,7 +74,7 @@ var marshallz =
 	};
 var alculator =
 	{
-		name: 'BAC Calculator',
+		name: 'Alculator',
 		description: "Users select from an investory of alcoholic beverages. In addition, users have search access to a database of beer. All alcohol percentages for the user's selected beverages gathered. That data, along with the user's information, is run through the Widmark formula to calculate the individual's blood alcohol level. The results provide a description particular to the user's intoxication level ranging from low traces of alcohol to lethal doses.",
 		stack:
 			[
@@ -97,7 +97,7 @@ var alculator =
 	};
 var ramenBuffet =
 	{
-		name: 'Task Manager',
+		name: 'Task Manager | Ramen Buffet',
 		description: "This single page AngularJS app  stores the data from the user input using MongoDB. Users can create an account for the app and in addition login and link their Twitter and Facebook accounts. I have built this app multiple times since the concept provides a great avenue to exploring other technologies. Other iterations of this app used Backbone.js, Marionette.js, and Firebase.", 
 		stack: 
 			[
