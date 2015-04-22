@@ -268,6 +268,12 @@ p.specs {
   text-align: center;
 }
 
+@media (max-width: 802px) {
+  .nav.navbar-nav.navbar-left {
+    display: none;
+  }
+}
+
 .dmtop {
   background-color:#ccc;
   background-image: url('../img/arrow.png');
