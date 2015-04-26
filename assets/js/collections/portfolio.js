@@ -2,28 +2,7 @@ var Portfolio = Backbone.Collection.extend({
 	model: Project,
 });
 
-var piqueBeta =
-	{
-		name: 'Pique Beta',
-		description: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
-		stack: 
-			[
-				backbone,
-				firebase,
-				photoshop,
-				jQuery,
-				underscore
-			],
-		id: 1,
-		url: 'http://piqueapp.github.io',
-		lead: "assets/img/pique-1.jpg",
-		items: 
-			[
-				{item: 'assets/img/pique-2.jpg'}, 
-				{item: 'assets/img/pique-3.jpg'}, 
-				{item: 'assets/img/pique-4.jpg'}
-			]
-	};
+
 var musicInsider =
 	{
 		name: 'Music Insider',
@@ -38,15 +17,15 @@ var musicInsider =
 				underscore,
 				firebase
 			],
-		id: 2,
+		id: 1,
 		url: 'http://musicinsider.co',
-		lead: "assets/img/mi-1.jpg",
+		lead: "assets/img/mi-1.png",
 		items: 
 			[
-				{item: 'assets/img/mi-2.jpg'}, 
-				{item: 'assets/img/mi-3.jpg'}, 
-				{item: 'assets/img/mi-4.jpg'},
-				{item: 'assets/img/mi-5.jpg'}
+				{item: 'assets/img/mi-2.png'}, 
+				{item: 'assets/img/mi-3.png'}, 
+				{item: 'assets/img/mi-4.png'},
+				{item: 'assets/img/mi-5.png'}
 			]
 	};
 var marshallz =
@@ -62,14 +41,36 @@ var marshallz =
 			jQuery,
 			underscore
 			],
-		id: 3,
+		id: 2,
 		url: 'http://marshallz.com',
-		lead: "assets/img/marshallz-1.jpg",
+		lead: "assets/img/marshallz-1.png",
 		items: 
 			[
-				{item: 'assets/img/marshallz-2.jpg'}, 
+				{item: 'assets/img/marshallz-2.png'}, 
 				{item: 'assets/img/marshallz-3.jpg'}, 
 				{item: 'assets/img/marshallz-4.jpg'}
+			]
+	};
+var piqueBeta =
+	{
+		name: 'Pique Beta',
+		description: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
+		stack: 
+			[
+				backbone,
+				firebase,
+				photoshop,
+				jQuery,
+				underscore
+			],
+		id: 3,
+		url: 'http://piqueapp.github.io',
+		lead: "assets/img/pique-1.jpg",
+		items: 
+			[
+				{item: 'assets/img/pique-2.jpg'}, 
+				{item: 'assets/img/pique-3.jpg'}, 
+				{item: 'assets/img/pique-4.jpg'}
 			]
 	};
 var alculator =
@@ -159,9 +160,9 @@ var tictactoe =
 	};
 
 var portfolio  = new Portfolio([
-		piqueBeta, 
 		musicInsider, 
 		marshallz, 
+		piqueBeta, 
 		alculator, 
 		ramenBuffet, 
 		hangman, 
