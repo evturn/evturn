@@ -31,7 +31,7 @@ var musicInsider =
 var marshallz =
 	{
 		name: 'Marshallz Blog',
-		description: "All blog posts are created using the New York Times API to select sentences at random from various articles. These sentences are then combined to create new, nonsensical blog posts which are authored by a fictious nine year old user. In addition, these posts allow comments from other users by signing in with their Facebook or Twitter account",
+		description: ".Using what is called a Markov Chain, several sections of a text file are extracted and then combined to form new, nonsensical blog posts every hour all of which are authored by a fictious nine year old user. In addition to the blog, the server also maintains a Twitter account which is fed posts daily. <a href='http://twitter.com/marshallzBlog' target='_blank'><i class='fa fa-twitter'></i></a>",
 		stack:
 			[
 			backbone,
