@@ -8,8 +8,16 @@ body {
   margin-bottom: 60px;
 }
 
+nav .container-fluid ul.nav.navbar-nav.navbar-left {
+  padding-left: 10%;  
+}
+
+nav .container-fluid ul.nav.navbar-nav.navbar-right {
+  padding-right: 10%;  
+}
+
 .project-thumbnail {
-  padding-top: 30px;
+  padding-top: 40px;
 }
 
 .navbar-default .navbar-toggle {
@@ -267,14 +275,27 @@ p.specs {
   text-align: center;
 }
 
-@media (max-width: 802px) {
+@media (max-width: 800px) {
   .nav.navbar-nav.navbar-left {
     display: none;
   }
 
   .navbar-default .navbar-nav > li > a {
-    font-size: 24px;
+    /*font-size: 18px;*/
     text-align: center;
+  }
+
+  .nav > li {
+    display: inline-block;
+    text-align: center;
+  }
+
+  nav .container-fluid {
+    text-align: center;
+  }
+
+  nav .container-fluid ul.nav.navbar-nav.navbar-right {
+    padding: 0;
   }
 
 }
