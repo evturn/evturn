@@ -10,6 +10,14 @@ var About = Backbone.View.extend({
 		for (var i = myStack.length - 1; i >= 0; i--) {
 			$('.about-stack').append(this.aboutStackTemplate(myStack.models[i].toJSON()));
 		};
+		this.statCount();
 		return this;
 	},
+	statCount: function() {
+  	$(".stat-count").each(function() {
+    	$(this).data('count', parseInt($(this).html(), 10));
+    	$(this).html('0');
+    	count($(this));
+  	});
+  },
 });

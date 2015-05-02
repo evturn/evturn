@@ -40,11 +40,7 @@ $(function() {
 		return false;
 	});        
       
-  $(".stat-count").each(function() {
-    $(this).data('count', parseInt($(this).html(), 10));
-    $(this).html('0');
-    count($(this));
-  });
+
 
 });
 var router = new Router();
