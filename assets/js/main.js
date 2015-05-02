@@ -15,7 +15,7 @@ function count($this){
     Animations
 =============================================== */
 
-new WOW({offset: -30}).init();
+new WOW().init();
 
 
 $(function() {

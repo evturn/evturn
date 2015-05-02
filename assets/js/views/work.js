@@ -8,6 +8,7 @@ var Work = Backbone.View.extend({
   thumbsTemplate: _.template($('#project-thumbs-template').html()),
 	initialize: function() {
     this.carousel();
+    $("html, body").animate({ scrollTop: 0 }, 500);
 	},
   events: {
     'click .project-thumbnail' : 'select'
@@ -40,5 +41,6 @@ var Work = Backbone.View.extend({
   select: function(e) {
     var id = $(e.currentTarget).data('id');
     this.carousel(id);
+    $("html, body").animate({ scrollTop: 0 }, 500);
   },
 });
