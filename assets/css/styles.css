@@ -55,17 +55,13 @@ nav .container-fluid ul.nav.navbar-nav.navbar-right {
   font-size: 13px;
 }
 
-.navbar-collapse {
-  padding-right: 15%;
-  padding-left: 15%;
-}
-
 .navbar {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .navbar-default .navbar-nav > li > a {
+  font-family: "Raleway";
   color: #000;
 }
 
@@ -74,7 +70,7 @@ nav .container-fluid ul.nav.navbar-nav.navbar-right {
 }
 
 body, h6, h5, h4, h3, h2, h1, p, a {
-	font-family: "Raleway";
+	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 500;
   background-color: transparent;
 }
@@ -182,9 +178,8 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   margin-top: 60px;
 }
 
-.carousel-nav a:hover {
-  background: transparent;
-  color: #ccc;
+.work .project-thumbnails-container {
+  margin-top: -20px;
 }
 
 img.img-responsive.center-block {
@@ -221,10 +216,11 @@ img.img-responsive.center-block {
 .site i {
   float: left;
   font-size: 1.4em;
-  
+
 }
 
 p.about {
+  font-family: "Raleway";
   text-align: center;
   font-size: 16px;
   background: none;
@@ -261,6 +257,7 @@ p.about {
 }
 
 .description {
+  font-size: 15px;
 	padding-top: 10px;
 	font-weight: 500;
 	text-align: justify;
@@ -271,11 +268,19 @@ p.about {
 }
 
 #project-stack p {
+  font-size: 15px;
   text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 #project-stack .fa-2x {
   margin-bottom: 3px;
+}
+
+p.description a {
+  text-decoration: none;
+  color: #a3a3a3;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 p.specs {
