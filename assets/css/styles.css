@@ -81,6 +81,7 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 
 #project-info {
   font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 15px;
 }
 
 #preloader {

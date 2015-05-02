@@ -37,7 +37,7 @@ var marshallz =
 			backbone,
 			node,
 			express,
-			mongoDB,
+			firebase,
 			jQuery,
 			underscore
 			],
