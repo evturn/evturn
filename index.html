@@ -228,11 +228,8 @@
 
 	<script type="text/template" id="project-info-template">
 		<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1">
-			<h4 class="text-center"><%= name %></h4>
+			<h4 class="text-center"><span class="site wow fadeIn"></span><%= name %></h4>
 			<p class="description wow fadeIn"><%= description %></p>
-			<span class="site wow fadeIn">
-				<!-- website link -->
-			</span>
 		</div>
 		<div class="col-xs-12 col-sm-5 col-md-5">
 			<h4 class="text-center">Built using</h4>
@@ -276,12 +273,11 @@
 
 	<script type="text/template" id="project-link-template"><!-- tpl site link -->
 		<a class="icon site" href="<%= url %>"target="_blank"><i class="devicon-ubuntu-plain"></i></a>
-		<p>Site</p>
 	</script>
 
 	<script type="text/template" id="project-stack-template"><!-- tpl project-stack -->
 		<div class="col-xs-4 col-sm-4 col-md-3 text-center wow fadeIn">
-			<i class="<%= color || icon %>"></i>
+			<i class="<%= icon %>"></i>
 			<p class="specs"><%= technology %></p>
 		</div>
 	</script>

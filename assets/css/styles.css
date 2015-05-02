@@ -218,9 +218,10 @@ img.img-responsive.center-block {
   margin-top: 70px;
 }
 
-.site {
+.site i {
   float: left;
-  text-align: center;
+  font-size: 1.4em;
+  
 }
 
 p.about {
