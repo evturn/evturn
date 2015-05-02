@@ -9,6 +9,9 @@ var Work = Backbone.View.extend({
 	initialize: function() {
     this.carousel();
 	},
+  events: {
+    'click .project-thumbnail' : 'select'
+  },
   carousel: function(id) {
     var project = this.collection.get(id) || this.collection.get(1);
     this.$el.html(this.carouselTpl(project.toJSON()));
@@ -33,5 +36,9 @@ var Work = Backbone.View.extend({
     for (var i = 0; i < stack.length; i++) {
     $('#project-stack').append(this.stackTemplate(stack[i]));
     }
+  },
+  select: function(e) {
+    var id = $(e.currentTarget).data('id');
+    this.carousel(id);
   },
 });
