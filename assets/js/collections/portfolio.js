@@ -31,7 +31,7 @@ var musicInsider =
 var marshallz =
 	{
 		name: 'Marshallz Blog',
-		description: ".Using what is called a Markov Chain, several sections of a text file are extracted and then combined to form new, nonsensical blog posts every hour all of which are authored by a fictitious nine year old. In addition to the blog, the server also maintains a Twitter account which is fed posts daily. <a href='http://twitter.com/marshallzBlog' target='_blank'><i class='fa fa-twitter'></i></a>",
+		description: ".Using what is called a Markov Chain, several sections of a text file are extracted and then combined to form new, nonsensical blog posts every hour all of which are authored by a fictitious nine year old. In addition to the blog, the server also maintains a Twitter account which is fed posts daily. <a href='http://twitter.com/marshallzBlog' target='_blank'> Follow Marshall <i class='fa fa-twitter'></i></a>",
 		stack:
 			[
 			backbone,

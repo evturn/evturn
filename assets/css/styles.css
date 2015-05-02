@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+
 html {
   min-height: 100%;
   position: relative;
@@ -75,6 +77,10 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 	font-family: "Raleway";
 	font-weight: 500;
   background-color: transparent;
+}
+
+#project-info {
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 #preloader {
