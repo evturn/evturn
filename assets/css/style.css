@@ -195,16 +195,19 @@ p.specs {
   height: auto;
   margin-left: auto;
   margin-right: auto;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* line 10, scss/partials/_header.scss */
+/* line 11, scss/partials/_header.scss */
 .header-subhead {
   text-align: center;
   text-transform: uppercase;
   line-height: 3em;
 }
 @media (min-width: 768px) {
-  /* line 10, scss/partials/_header.scss */
+  /* line 11, scss/partials/_header.scss */
   .header-subhead {
     display: none;
   }
@@ -332,96 +335,99 @@ p.specs {
   font-weight: 300;
   text-transform: uppercase;
   font-smooth: always;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-/* line 12, scss/partials/_nav.scss */
+/* line 13, scss/partials/_nav.scss */
 .nav.navbar-default .nav.navbar-nav a {
   text-decoration: none;
 }
-/* line 14, scss/partials/_nav.scss */
+/* line 15, scss/partials/_nav.scss */
 .nav.navbar-default .nav.navbar-nav a:hover {
   color: #a3a3a3;
 }
 @media (min-width: 320px) {
-  /* line 21, scss/partials/_nav.scss */
+  /* line 22, scss/partials/_nav.scss */
   .nav.navbar-default .container-fluid {
     text-align: center;
   }
-  /* line 22, scss/partials/_nav.scss */
+  /* line 23, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li {
     display: inline-block;
     padding: 5px 10px;
     text-align: center;
   }
-  /* line 26, scss/partials/_nav.scss */
+  /* line 27, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
     line-height: 2.4em;
     font-size: 18px;
     margin-bottom: 0;
   }
-  /* line 33, scss/partials/_nav.scss */
+  /* line 34, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
     display: none;
   }
 }
 @media (min-width: 480px) {
-  /* line 40, scss/partials/_nav.scss */
+  /* line 41, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
     font-size: 22px;
   }
 }
 @media (min-width: 768px) {
-  /* line 47, scss/partials/_nav.scss */
+  /* line 48, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
     float: right;
   }
-  /* line 49, scss/partials/_nav.scss */
+  /* line 50, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
     line-height: 2em;
     font-size: 18px;
   }
-  /* line 54, scss/partials/_nav.scss */
+  /* line 55, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
     display: inline-block;
   }
-  /* line 56, scss/partials/_nav.scss */
+  /* line 57, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
     font-size: 18px;
   }
 }
 @media (min-width: 992px) {
-  /* line 63, scss/partials/_nav.scss */
+  /* line 64, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
     padding-right: 30px;
   }
-  /* line 65, scss/partials/_nav.scss */
+  /* line 66, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
     font-size: 22px;
   }
 }
-/* line 71, scss/partials/_nav.scss */
+/* line 72, scss/partials/_nav.scss */
 .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
   padding-left: 30px;
 }
-/* line 73, scss/partials/_nav.scss */
+/* line 74, scss/partials/_nav.scss */
 .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
   font-size: 22px;
   line-height: 1.2em;
 }
 @media (min-width: 1200px) {
-  /* line 80, scss/partials/_nav.scss */
+  /* line 81, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
     padding-right: 120px;
   }
-  /* line 82, scss/partials/_nav.scss */
+  /* line 83, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
     font-size: 22px;
   }
 }
-/* line 88, scss/partials/_nav.scss */
+/* line 89, scss/partials/_nav.scss */
 .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
   padding-left: 120px;
 }
-/* line 90, scss/partials/_nav.scss */
+/* line 91, scss/partials/_nav.scss */
 .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
   font-size: 22px;
   line-height: 1.2em;
