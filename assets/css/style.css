@@ -197,6 +197,19 @@ p.specs {
   margin-right: auto;
 }
 
+/* line 10, scss/partials/_header.scss */
+.header-subhead {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 3em;
+}
+@media (min-width: 768px) {
+  /* line 10, scss/partials/_header.scss */
+  .header-subhead {
+    display: none;
+  }
+}
+
 /* line 1, scss/partials/_loader.scss */
 #preloader {
   width: 100%;
