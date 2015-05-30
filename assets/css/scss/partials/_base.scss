@@ -14,6 +14,7 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 500;
   background-color: transparent;
+  font-smooth: always;
 }
 
 img.img-responsive.center-block {
@@ -23,7 +24,7 @@ img.img-responsive.center-block {
 
 .icon {
    background: transparent;
-   color: #000;
+   color: $black;
 }
 
 .icon:hover {
@@ -34,7 +35,7 @@ img.img-responsive.center-block {
 
 .icon:focus {
    background-color: transparent;
-   color: #000;
+   color: $black;
 }
 
 .section-title h3 {
