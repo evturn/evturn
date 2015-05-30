@@ -1,9 +1,42 @@
 #project-info {
   font-family: 'Source Sans Pro', sans-serif;
+
+  .project-description {
+    font-size: 15px;
+    padding-top: 10px;
+    font-weight: 500;
+    text-align: justify;
+    a {
+      text-decoration: none;
+      color: #a3a3a3;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+  }
+  #project-stack {
+    padding-top: 15px;
+  }
+
+  #project-stack p {
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  #project-stack .fa {
+    margin-bottom: 3px;
+  }
+
   @media (min-width: $screen-xxs) {
+    .project-title, .stack-title {
+      text-align: left;
+      text-transform: uppercase;
+    }
   }
   @media (min-width: $screen-xs) {
-    padding-top: 30px;
+    padding-top: 20px;
+    .project-title, .stack-title {
+      text-align: center;
+    }
   }
 }
 
@@ -12,35 +45,10 @@
   margin-top: 70px;
 }
 
-.description {
-  font-size: 15px;
-  padding-top: 10px;
-  font-weight: 500;
-  text-align: justify;
-}
+
 
 #stack [class^="devicon-"], [class*=" devicon-"] {
   font-size: 2em;
-}
-
-#project-stack {
-  padding-top: 15px;
-}
-
-#project-stack p {
-  font-size: 15px;
-  text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-#project-stack .fa-2x {
-  margin-bottom: 3px;
-}
-
-p.description a {
-  text-decoration: none;
-  color: #a3a3a3;
-  font-family: 'Source Sans Pro', sans-serif;
 }
 
 p.specs {

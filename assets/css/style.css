@@ -90,69 +90,82 @@ p.about {
   font-size: 18px;
   line-height: 2;
   color: #4a4a4a;
+  text-align: left;
+}
+@media (max-width: 1199px) {
+  /* line 21, scss/partials/_about.scss */
+  .about-lead {
+    line-height: 1.4em;
+  }
 }
 
 /* line 1, scss/partials/_carousel.scss */
 #project-info {
   font-family: 'Source Sans Pro', sans-serif;
 }
-@media (min-width: 480px) {
-  /* line 1, scss/partials/_carousel.scss */
-  #project-info {
-    padding-top: 30px;
-  }
-}
-
-/* line 10, scss/partials/_carousel.scss */
-#development {
-  padding-bottom: 40px;
-  margin-top: 70px;
-}
-
-/* line 15, scss/partials/_carousel.scss */
-.description {
+/* line 4, scss/partials/_carousel.scss */
+#project-info .project-description {
   font-size: 15px;
   padding-top: 10px;
   font-weight: 500;
   text-align: justify;
 }
-
-/* line 22, scss/partials/_carousel.scss */
-#stack [class^="devicon-"], [class*=" devicon-"] {
-  font-size: 2em;
-}
-
-/* line 26, scss/partials/_carousel.scss */
-#project-stack {
-  padding-top: 15px;
-}
-
-/* line 30, scss/partials/_carousel.scss */
-#project-stack p {
-  font-size: 15px;
-  text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-/* line 36, scss/partials/_carousel.scss */
-#project-stack .fa-2x {
-  margin-bottom: 3px;
-}
-
-/* line 40, scss/partials/_carousel.scss */
-p.description a {
+/* line 9, scss/partials/_carousel.scss */
+#project-info .project-description a {
   text-decoration: none;
   color: #a3a3a3;
   font-family: 'Source Sans Pro', sans-serif;
 }
+/* line 15, scss/partials/_carousel.scss */
+#project-info #project-stack {
+  padding-top: 15px;
+}
+/* line 19, scss/partials/_carousel.scss */
+#project-info #project-stack p {
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+/* line 25, scss/partials/_carousel.scss */
+#project-info #project-stack .fa {
+  margin-bottom: 3px;
+}
+@media (min-width: 320px) {
+  /* line 30, scss/partials/_carousel.scss */
+  #project-info .project-title, #project-info .stack-title {
+    text-align: left;
+    text-transform: uppercase;
+  }
+}
+@media (min-width: 480px) {
+  /* line 1, scss/partials/_carousel.scss */
+  #project-info {
+    padding-top: 20px;
+  }
+  /* line 37, scss/partials/_carousel.scss */
+  #project-info .project-title, #project-info .stack-title {
+    text-align: center;
+  }
+}
 
-/* line 46, scss/partials/_carousel.scss */
+/* line 43, scss/partials/_carousel.scss */
+#development {
+  padding-bottom: 40px;
+  margin-top: 70px;
+}
+
+/* line 50, scss/partials/_carousel.scss */
+#stack [class^="devicon-"], [class*=" devicon-"] {
+  font-size: 2em;
+}
+
+/* line 54, scss/partials/_carousel.scss */
 p.specs {
   font-size: 11px;
   text-align: center;
 }
 
-/* line 51, scss/partials/_carousel.scss */
+/* line 59, scss/partials/_carousel.scss */
 .site i {
   float: left;
   font-size: 1.4em;
@@ -210,7 +223,7 @@ p.specs {
 .header-subhead {
   text-align: center;
   text-transform: uppercase;
-  line-height: 3em;
+  line-height: 4em;
 }
 @media (min-width: 768px) {
   /* line 11, scss/partials/_header.scss */
@@ -351,7 +364,7 @@ p.specs {
 }
 /* line 15, scss/partials/_nav.scss */
 .nav.navbar-default .nav.navbar-nav a:hover {
-  color: #d0d0d0;
+  color: white;
 }
 @media (min-width: 320px) {
   /* line 22, scss/partials/_nav.scss */
@@ -370,73 +383,83 @@ p.specs {
     font-size: 18px;
     margin-bottom: 0;
   }
-  /* line 34, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
+  /* line 33, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li {
     display: none;
+    padding: 5px 10px;
+    text-align: center;
+  }
+  /* line 37, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+    line-height: 2.4em;
+    font-size: 18px;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 480px) {
-  /* line 41, scss/partials/_nav.scss */
+  /* line 46, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li {
+    padding: 5px 10px;
+  }
+  /* line 48, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+    font-size: 22px;
+  }
+  /* line 52, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li {
+    padding: 5px 10px;
+  }
+  /* line 54, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
     font-size: 22px;
   }
 }
 @media (min-width: 768px) {
-  /* line 48, scss/partials/_nav.scss */
+  /* line 61, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
+    padding-right: 10%;
     float: right;
   }
-  /* line 50, scss/partials/_nav.scss */
+  /* line 64, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
-    line-height: 2em;
+    line-height: 2.5em;
     font-size: 18px;
   }
-  /* line 55, scss/partials/_nav.scss */
+  /* line 69, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
+    padding-left: 10%;
+    float: left;
     display: inline-block;
   }
-  /* line 57, scss/partials/_nav.scss */
+  /* line 73, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+    line-height: 2.5em;
     font-size: 18px;
   }
 }
 @media (min-width: 992px) {
-  /* line 64, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
-    padding-right: 30px;
-  }
-  /* line 66, scss/partials/_nav.scss */
+  /* line 82, scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
     font-size: 22px;
-  }
-}
-/* line 72, scss/partials/_nav.scss */
-.nav.navbar-default ul.nav.navbar-nav.navbar-brand {
-  padding-left: 30px;
-}
-/* line 74, scss/partials/_nav.scss */
-.nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
-  font-size: 22px;
-  line-height: 1.2em;
-}
-@media (min-width: 1200px) {
-  /* line 81, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
-    padding-right: 120px;
-  }
-  /* line 83, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
-    font-size: 22px;
+    line-height: 1.4em;
   }
 }
 /* line 89, scss/partials/_nav.scss */
-.nav.navbar-default ul.nav.navbar-nav.navbar-brand {
-  padding-left: 120px;
-}
-/* line 91, scss/partials/_nav.scss */
 .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
   font-size: 22px;
-  line-height: 1.2em;
+  line-height: 1.4em;
+}
+@media (min-width: 1200px) {
+  /* line 97, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+    font-size: 22px;
+    line-height: 1.4em;
+  }
+}
+/* line 104, scss/partials/_nav.scss */
+.nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+  font-size: 22px;
+  line-height: 1.4em;
 }
 
 /* line 2, scss/partials/_thumbnails.scss */

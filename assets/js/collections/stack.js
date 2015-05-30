@@ -53,7 +53,7 @@ var photoshop =
  	};
 var digitalOcean =	
 	{
-		technology: 'Digital Ocean',
+		technology: 'Droplet',
 		icon: 'devicon-ubuntu-plain',
 		color: 'devicon-ubuntu-plain colored',
 		id: 8

@@ -22,4 +22,8 @@ p.about {
   font-size: 18px;
   line-height: 2;
   color: #4a4a4a;
+  text-align: left;
+  @media (max-width: $screen-md-max) {
+    line-height: 1.4em;
+  }
 }
