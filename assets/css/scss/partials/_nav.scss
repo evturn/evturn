@@ -1,75 +1,76 @@
-nav .container-fluid ul.nav.navbar-nav.navbar-left {
-  padding-left: 10%;  
-}
-
-nav .container-fluid ul.nav.navbar-nav.navbar-right {
-  padding-right: 10%;  
-}
-
-.project-thumbnail {
-  padding-top: 40px;
-}
-
-.navbar-default .navbar-toggle {
-  border: none;
-  padding: 0;
-  margin-top: 0;
-  margin-right: 0;
-}
-
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.nav.navbar-default {
   background: none;
-}
-
-.navbar-default {
-  padding: 30px;
-  background: transparent;
-  box-shadow: none;
-}
-
-.navbar-right {
-  font-size: 13px;
-}
-
-.navbar {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.navbar-default .navbar-nav > li > a {
-  font-family: "Raleway";
-  color: #000;
-}
-
-.navbar-left {
-  font-size: 25px;
-}
-
-.navbar-default .navbar-nav > li > a {
-  text-transform: uppercase;
-}
-
-@media (max-width: 800px) {
-  .nav.navbar-nav.navbar-left {
-    display: none;
+  
+  .nav.navbar-nav {
+    .nav-title {
+      font-family: $primarysans;
+      color: $black;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-smooth: always;
+    }
+    a {
+      text-decoration: none;
+    }
   }
 
-  .navbar-default .navbar-nav > li > a {
-    /*font-size: 18px;*/
-    text-align: center;
+  @media (min-width: $screen-xxs) {
+    .container-fluid { text-align: center; }
+    ul.nav.navbar-nav.navbar-titles li {
+      display: inline-block;
+      padding: 5px 10px;
+      text-align: center;
+      p.nav-title {
+        line-height: 2.4em;
+        font-size: 18px;
+        margin-bottom: 0;
+      }
+    }
+    
+    ul.nav.navbar-nav.navbar-brand {
+      display: none;
+    }
   }
 
-  .nav > li {
-    display: inline-block;
-    text-align: center;
+  @media (min-width: $screen-xs) {
+    ul.nav.navbar-nav.navbar-titles li {
+      p.nav-title {
+        font-size: 22px;
+      }
+    }
   }
 
-  nav .container-fluid {
-    text-align: center;
+  @media (min-width: $screen-sm) {
+    ul.nav.navbar-nav.navbar-titles {
+      float: right;
+      & li p.nav-title {
+        line-height: 2em;
+        font-size: 18px;
+      }
+    }
+    ul.nav.navbar-nav.navbar-brand {
+      display: inline-block;
+      & li p.nav-title {
+        font-size: 18px;
+      }
+    }
   }
 
-  nav .container-fluid ul.nav.navbar-nav.navbar-right {
-    padding: 0;
+  @media (min-width: $screen-md) {
+  ul.nav.navbar-nav.navbar-titles {
+    padding-right: 30px;
+    & li p.nav-title {
+      font-size: 22px;
+      }
+    }
   }
+
+  ul.nav.navbar-nav.navbar-brand {
+    padding-left: 30px;
+    & li p.nav-title {
+      font-size: 22px;
+      line-height: 1.2em;
+      }
+    }
 
 }

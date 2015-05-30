@@ -309,95 +309,88 @@ p.specs {
 }
 
 /* line 1, scss/partials/_nav.scss */
-nav .container-fluid ul.nav.navbar-nav.navbar-left {
-  padding-left: 10%;
-}
-
-/* line 5, scss/partials/_nav.scss */
-nav .container-fluid ul.nav.navbar-nav.navbar-right {
-  padding-right: 10%;
-}
-
-/* line 9, scss/partials/_nav.scss */
-.project-thumbnail {
-  padding-top: 40px;
-}
-
-/* line 13, scss/partials/_nav.scss */
-.navbar-default .navbar-toggle {
-  border: none;
-  padding: 0;
-  margin-top: 0;
-  margin-right: 0;
-}
-
-/* line 20, scss/partials/_nav.scss */
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.nav.navbar-default {
   background: none;
 }
-
-/* line 24, scss/partials/_nav.scss */
-.navbar-default {
-  padding: 30px;
-  background: transparent;
-  box-shadow: none;
-}
-
-/* line 30, scss/partials/_nav.scss */
-.navbar-right {
-  font-size: 13px;
-}
-
-/* line 34, scss/partials/_nav.scss */
-.navbar {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* line 39, scss/partials/_nav.scss */
-.navbar-default .navbar-nav > li > a {
-  font-family: "Raleway";
-  color: #000;
-}
-
-/* line 44, scss/partials/_nav.scss */
-.navbar-left {
-  font-size: 25px;
-}
-
-/* line 48, scss/partials/_nav.scss */
-.navbar-default .navbar-nav > li > a {
+/* line 5, scss/partials/_nav.scss */
+.nav.navbar-default .nav.navbar-nav .nav-title {
+  font-family: Raleway;
+  color: black;
+  font-weight: 300;
   text-transform: uppercase;
+  font-smooth: always;
 }
-
-@media (max-width: 800px) {
-  /* line 53, scss/partials/_nav.scss */
-  .nav.navbar-nav.navbar-left {
+/* line 12, scss/partials/_nav.scss */
+.nav.navbar-default .nav.navbar-nav a {
+  text-decoration: none;
+}
+@media (min-width: 320px) {
+  /* line 18, scss/partials/_nav.scss */
+  .nav.navbar-default .container-fluid {
+    text-align: center;
+  }
+  /* line 19, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li {
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+  }
+  /* line 23, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+    line-height: 2.4em;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  /* line 30, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
     display: none;
   }
-
-  /* line 57, scss/partials/_nav.scss */
-  .navbar-default .navbar-nav > li > a {
-    /*font-size: 18px;*/
-    text-align: center;
-  }
-
-  /* line 62, scss/partials/_nav.scss */
-  .nav > li {
-    display: inline-block;
-    text-align: center;
-  }
-
-  /* line 67, scss/partials/_nav.scss */
-  nav .container-fluid {
-    text-align: center;
-  }
-
-  /* line 71, scss/partials/_nav.scss */
-  nav .container-fluid ul.nav.navbar-nav.navbar-right {
-    padding: 0;
+}
+@media (min-width: 480px) {
+  /* line 37, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+    font-size: 22px;
   }
 }
+@media (min-width: 768px) {
+  /* line 44, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
+    float: right;
+  }
+  /* line 46, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+    line-height: 2em;
+    font-size: 18px;
+  }
+  /* line 51, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
+    display: inline-block;
+  }
+  /* line 53, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 60, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
+    padding-right: 30px;
+  }
+  /* line 62, scss/partials/_nav.scss */
+  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+    font-size: 22px;
+  }
+}
+/* line 68, scss/partials/_nav.scss */
+.nav.navbar-default ul.nav.navbar-nav.navbar-brand {
+  padding-left: 30px;
+}
+/* line 70, scss/partials/_nav.scss */
+.nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+  font-size: 22px;
+  line-height: 1.2em;
+}
+
 /* line 1, scss/partials/_thumbnails.scss */
 .project-thumbnails-container {
   margin-top: 50px;
