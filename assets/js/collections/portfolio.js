@@ -100,7 +100,7 @@ var tictactoe =
 var drive =
 	{
 		name: 'Drive Publishing',
-		description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians."
+		description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
 		id: 8,
 		lead: 'assets/img/drive-1.png',
 		items: 
@@ -112,7 +112,8 @@ var drive =
 var portfolio  = new Portfolio([
 		musicInsider, 
 		marshallz, 
-		piqueBeta, 
+		piqueBeta,
+		drive, 
 		alculator, 
 		ramenBuffet, 
 		hangman, 

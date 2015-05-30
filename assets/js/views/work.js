@@ -2,7 +2,6 @@ var Work = Backbone.View.extend({
 	el: '.work',
   carouselTpl : _.template($('#carousel-template').html()),
   infoTemplate: _.template($('#project-info-template').html()),
-  stackTemplate: _.template($('#project-stack-template').html()),
   siteLinkTpl : _.template($('#project-link-template').html()),
   galleryTpl  : _.template($('#gallery-template').html()),
   thumbsTemplate: _.template($('#project-thumbs-template').html()),
@@ -22,7 +21,6 @@ var Work = Backbone.View.extend({
       $('.site').append(this.siteLinkTpl(project.toJSON()));
     }
     this.gallery(project);
-    this.stack(project);
     this.$el.append(this.thumbsTemplate());
 		$('.carousel').carousel({interval: 3500});
   },
@@ -30,12 +28,6 @@ var Work = Backbone.View.extend({
     var gallery = model.get('items');
     for (var i = 0; i < gallery.length; i++) {
     $('.carousel-inner').append(this.galleryTpl(gallery[i]));
-    }
-  },
-  stack: function(model) {
-    var stack = model.get('stack');
-    for (var i = 0; i < stack.length; i++) {
-    $('#project-stack').append(this.stackTemplate(stack[i]));
     }
   },
   select: function(e) {
