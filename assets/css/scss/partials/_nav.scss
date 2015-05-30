@@ -11,6 +11,9 @@
     }
     a {
       text-decoration: none;
+      &:hover {
+        color: $primarygrey;
+      }
     }
   }
 
@@ -67,6 +70,23 @@
 
   ul.nav.navbar-nav.navbar-brand {
     padding-left: 30px;
+    & li p.nav-title {
+      font-size: 22px;
+      line-height: 1.2em;
+      }
+    }
+
+    @media (min-width: $screen-lg) {
+  ul.nav.navbar-nav.navbar-titles {
+    padding-right: 120px;
+    & li p.nav-title {
+      font-size: 22px;
+      }
+    }
+  }
+
+  ul.nav.navbar-nav.navbar-brand {
+    padding-left: 120px;
     & li p.nav-title {
       font-size: 22px;
       line-height: 1.2em;
