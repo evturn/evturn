@@ -12,7 +12,8 @@
   text-align: center;
   text-transform: uppercase;
   line-height: 4em;
-  @media (min-width: $screen-sm) {
-    display: none;
+  @media (min-width: $screen-md) {
+    text-align: left;
+    font-size: 18px;
   }
 }

@@ -39,7 +39,7 @@ img.img-responsive.center-block {
 }
 
 /* line 36, scss/partials/_base.scss */
-.icon:focus {
+.fa:focus {
   background-color: transparent;
   color: black;
 }
@@ -225,10 +225,11 @@ p.specs {
   text-transform: uppercase;
   line-height: 4em;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   /* line 11, scss/partials/_header.scss */
   .header-subhead {
-    display: none;
+    text-align: left;
+    font-size: 18px;
   }
 }
 
@@ -470,7 +471,13 @@ p.specs {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 6, scss/partials/_thumbnails.scss */
+@media (min-width: 992px) {
+  /* line 2, scss/partials/_thumbnails.scss */
+  .home .project-thumbnails-container {
+    margin-top: 30px;
+  }
+}
+/* line 9, scss/partials/_thumbnails.scss */
 .home .project-thumbnails-container .project-thumbnail {
   padding-top: 15px;
   padding-right: 7.5px;
@@ -478,7 +485,7 @@ p.specs {
   cursor: pointer;
 }
 
-/* line 17, scss/partials/_thumbnails.scss */
+/* line 20, scss/partials/_thumbnails.scss */
 .work .project-thumbnails-container {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;

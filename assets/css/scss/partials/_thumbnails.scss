@@ -3,6 +3,9 @@
     margin-top: 50px;
     margin-bottom: 80px;
     @include transition(all 0.3s ease);
+    @media (min-width: $screen-md) {
+      margin-top: 30px;
+    }
     .project-thumbnail {
       padding-top: 15px;
       padding-right: 7.5px;
