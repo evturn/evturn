@@ -345,7 +345,7 @@ p.specs {
 }
 /* line 15, scss/partials/_nav.scss */
 .nav.navbar-default .nav.navbar-nav a:hover {
-  color: #a3a3a3;
+  color: #d0d0d0;
 }
 @media (min-width: 320px) {
   /* line 22, scss/partials/_nav.scss */
@@ -433,21 +433,26 @@ p.specs {
   line-height: 1.2em;
 }
 
-/* line 1, scss/partials/_thumbnails.scss */
-.project-thumbnails-container {
+/* line 2, scss/partials/_thumbnails.scss */
+.home .project-thumbnails-container {
   margin-top: 50px;
   margin-bottom: 80px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-
 /* line 6, scss/partials/_thumbnails.scss */
-.project-thumbnail {
+.home .project-thumbnails-container .project-thumbnail {
   padding-top: 15px;
   padding-right: 7.5px;
   padding-left: 7.5px;
   cursor: pointer;
 }
 
-/* line 13, scss/partials/_thumbnails.scss */
+/* line 17, scss/partials/_thumbnails.scss */
 .work .project-thumbnails-container {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   margin-top: -20px;
 }

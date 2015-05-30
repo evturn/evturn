@@ -1,15 +1,21 @@
-.project-thumbnails-container {
-  margin-top: 50px;
-  margin-bottom: 80px;
+.home {
+  .project-thumbnails-container {
+    margin-top: 50px;
+    margin-bottom: 80px;
+    @include transition(all 0.3s ease);
+    .project-thumbnail {
+      padding-top: 15px;
+      padding-right: 7.5px;
+      padding-left: 7.5px;
+      cursor: pointer;
+    }
+  }
+
 }
 
-.project-thumbnail {
-  padding-top: 15px;
-  padding-right: 7.5px;
-  padding-left: 7.5px;
-  cursor: pointer;
-}
-
-.work .project-thumbnails-container {
-  margin-top: -20px;
+.work {
+  .project-thumbnails-container {
+    @include transition(all 0.3s ease);
+    margin-top: -20px;
+  }
 }
