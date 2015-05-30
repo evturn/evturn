@@ -56,6 +56,7 @@
 
 <!-- UNDERSCORE TEMPLATES -->
 
+<!-- home header template -->
 	<script type="text/template" id="home-template">
 		<div class="container wow fadeInDown">
 			<div class="row">
@@ -66,7 +67,6 @@
 			</div>
 		</div>
 	</script>
-<!-- home template -->
 
 <script type="text/template" id="project-thumbs-template">
 	<div class="container project-thumbnails-container">
@@ -119,6 +119,7 @@
 	</div>
 </script>
 
+	<!-- about template -->
 	<script type="text/template" id="about-template">
 		<div class="container wow fadeInDown">
 			<div class="row">
@@ -127,7 +128,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-md-10 col-md-offset-1 section-title text-center">
@@ -143,18 +143,16 @@
 				</div>
 			</div>		
 		</div>
-
 		<div class="container">
 			<div class="row about-stats">
 				<div class="col-md-10 col-md-offset-1 col-sm-offset-1">
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6 text-center">	
-							<h3>TOOLS</h3>
+							<h3>Notible Build Tools</h3>
 							<div class="row about-stack">
 								<!-- about stack -->
 							</div>
 						</div>
-
 						<div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-1 text-center">
 			    		<h3>FACTS</h3>
 			    		<div class="row">
@@ -180,9 +178,8 @@
 			</div>
 		</div>
 	</script>
-<!-- about template -->
 
-
+	<!-- contact template -->
 	<script type="text/template" id="contact-template">
 		<div class="container wow fadeIn">
 			<div class="row">
@@ -192,7 +189,6 @@
 				</div>
 			</div>
 		</div>		
-
 		<div class="container contact-container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center">
@@ -203,8 +199,9 @@
 			</div>
 		</div>
 	</script>
-<!-- contact template -->
 
+
+	<!-- APPENDED TEMPLATES -->
 
 	<script type="text/template" id="about-stack-template"><!-- tpl about-stack -->
 		<div class="col-xs-3 col-sm-3 col-md-3 text-center">
@@ -221,14 +218,15 @@
 	</script>
 
 
+	<!-- project info template-->
 	<script type="text/template" id="project-info-template">
-		<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1">
-			<h4 class="project-title"><span class="site wow fadeIn"></span><%= name %></h4>
+		<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 wow fadeIn">
+			<h4 class="project-title"><a href="<%= url %>"><%= name %></a></h4>
 			<p class="project-description wow fadeIn"><%= description %></p>
 		</div>
 	</script>
-<!-- project info template-->
 
+	<!-- carousel body template -->
 	<script type="text/template" id="carousel-template">
 		<div class="container">	
 			<div class="row">
@@ -254,21 +252,9 @@
 			</div>
 		</div>
 	</script>
-<!-- carousel body template -->
 
 	<script type="text/template" id="gallery-template"><!-- tpl gallery -->
 		<div class="item"><img class="img-responsive center-block gallery-item" src="<%= item %>"></div>
-	</script>
-
-	<script type="text/template" id="project-link-template"><!-- tpl site link -->
-		<a class="icon site" href="<%= url %>"target="_blank"><i class="fa fa-external-link"></i></a>
-	</script>
-
-	<script type="text/template" id="project-stack-template"><!-- tpl project-stack -->
-		<div class="col-xs-4 col-sm-4 col-md-3 text-center wow fadeIn">
-			<i class="<%= icon %>"></i>
-			<p class="specs"><%= technology %></p>
-		</div>
 	</script>
 
 	<script>

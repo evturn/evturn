@@ -1,6 +1,5 @@
 #project-info {
   font-family: 'Source Sans Pro', sans-serif;
-
   .project-description {
     font-size: 15px;
     padding-top: 10px;
@@ -12,31 +11,15 @@
       font-family: 'Source Sans Pro', sans-serif;
     }
   }
-  #project-stack {
-    padding-top: 15px;
-  }
-
-  #project-stack p {
-    font-size: 15px;
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
-  }
-
-  #project-stack .fa {
-    margin-bottom: 3px;
-  }
 
   @media (min-width: $screen-xxs) {
-    .project-title, .stack-title {
+    padding-top: 20px;
+    .project-title {
       text-align: left;
-      text-transform: uppercase;
     }
   }
   @media (min-width: $screen-xs) {
-    padding-top: 20px;
-    .project-title, .stack-title {
-      text-align: center;
-    }
+    
   }
 }
 
@@ -44,20 +27,6 @@
   padding-bottom: 40px;
   margin-top: 70px;
 }
-
-
-
 #stack [class^="devicon-"], [class*=" devicon-"] {
   font-size: 2em;
-}
-
-p.specs {
-  font-size: 11px;
-  text-align: center;
-}
-
-.site i {
-  float: left;
-  font-size: 1.4em;
-
 }

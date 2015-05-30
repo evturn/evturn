@@ -103,72 +103,39 @@ p.about {
 #project-info {
   font-family: 'Source Sans Pro', sans-serif;
 }
-/* line 4, scss/partials/_carousel.scss */
+/* line 3, scss/partials/_carousel.scss */
 #project-info .project-description {
   font-size: 15px;
   padding-top: 10px;
   font-weight: 500;
   text-align: justify;
 }
-/* line 9, scss/partials/_carousel.scss */
+/* line 8, scss/partials/_carousel.scss */
 #project-info .project-description a {
   text-decoration: none;
   color: #a3a3a3;
   font-family: 'Source Sans Pro', sans-serif;
 }
-/* line 15, scss/partials/_carousel.scss */
-#project-info #project-stack {
-  padding-top: 15px;
-}
-/* line 19, scss/partials/_carousel.scss */
-#project-info #project-stack p {
-  font-size: 15px;
-  text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-/* line 25, scss/partials/_carousel.scss */
-#project-info #project-stack .fa {
-  margin-bottom: 3px;
-}
 @media (min-width: 320px) {
-  /* line 30, scss/partials/_carousel.scss */
-  #project-info .project-title, #project-info .stack-title {
-    text-align: left;
-    text-transform: uppercase;
-  }
-}
-@media (min-width: 480px) {
   /* line 1, scss/partials/_carousel.scss */
   #project-info {
     padding-top: 20px;
   }
-  /* line 37, scss/partials/_carousel.scss */
-  #project-info .project-title, #project-info .stack-title {
-    text-align: center;
+  /* line 17, scss/partials/_carousel.scss */
+  #project-info .project-title {
+    text-align: left;
   }
 }
 
-/* line 43, scss/partials/_carousel.scss */
+/* line 26, scss/partials/_carousel.scss */
 #development {
   padding-bottom: 40px;
   margin-top: 70px;
 }
 
-/* line 50, scss/partials/_carousel.scss */
+/* line 30, scss/partials/_carousel.scss */
 #stack [class^="devicon-"], [class*=" devicon-"] {
   font-size: 2em;
-}
-
-/* line 54, scss/partials/_carousel.scss */
-p.specs {
-  font-size: 11px;
-  text-align: center;
-}
-
-/* line 59, scss/partials/_carousel.scss */
-.site i {
-  float: left;
-  font-size: 1.4em;
 }
 
 /* line 1, scss/partials/_contact.scss */

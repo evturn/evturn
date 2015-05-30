@@ -2,7 +2,6 @@ var Work = Backbone.View.extend({
 	el: '.work',
   carouselTpl : _.template($('#carousel-template').html()),
   infoTemplate: _.template($('#project-info-template').html()),
-  siteLinkTpl : _.template($('#project-link-template').html()),
   galleryTpl  : _.template($('#gallery-template').html()),
   thumbsTemplate: _.template($('#project-thumbs-template').html()),
 	initialize: function() {
@@ -16,10 +15,6 @@ var Work = Backbone.View.extend({
     var project = this.collection.get(id) || this.collection.get(1);
     this.$el.html(this.carouselTpl(project.toJSON()));
     $('#project-info').html(this.infoTemplate(project.toJSON()));
-    $('.site').empty(); 
-    if (project.has('url')) {
-      $('.site').append(this.siteLinkTpl(project.toJSON()));
-    }
     this.gallery(project);
     this.$el.append(this.thumbsTemplate());
 		$('.carousel').carousel({interval: 3500});
