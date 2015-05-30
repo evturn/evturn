@@ -11,6 +11,9 @@
 .header-subhead {
   text-align: center;
   text-transform: uppercase;
+  @media (min-width: $screen-xxs) {
+    margin-bottom: 0;
+  }
   line-height: 4em;
   @media (min-width: $screen-md) {
     text-align: left;

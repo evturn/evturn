@@ -192,6 +192,12 @@ p.about {
   text-transform: uppercase;
   line-height: 4em;
 }
+@media (min-width: 320px) {
+  /* line 11, scss/partials/_header.scss */
+  .header-subhead {
+    margin-bottom: 0;
+  }
+}
 @media (min-width: 992px) {
   /* line 11, scss/partials/_header.scss */
   .header-subhead {
@@ -432,11 +438,16 @@ p.about {
 
 /* line 2, scss/partials/_thumbnails.scss */
 .home .project-thumbnails-container {
-  margin-top: 50px;
   margin-bottom: 80px;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+@media (min-width: 320px) {
+  /* line 2, scss/partials/_thumbnails.scss */
+  .home .project-thumbnails-container {
+    margin-top: 0;
+  }
 }
 @media (min-width: 992px) {
   /* line 2, scss/partials/_thumbnails.scss */
@@ -444,7 +455,7 @@ p.about {
     margin-top: 30px;
   }
 }
-/* line 9, scss/partials/_thumbnails.scss */
+/* line 11, scss/partials/_thumbnails.scss */
 .home .project-thumbnails-container .project-thumbnail {
   padding-top: 15px;
   padding-right: 7.5px;
@@ -452,7 +463,7 @@ p.about {
   cursor: pointer;
 }
 
-/* line 20, scss/partials/_thumbnails.scss */
+/* line 22, scss/partials/_thumbnails.scss */
 .work .project-thumbnails-container {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
