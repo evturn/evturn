@@ -1,7 +1,8 @@
 var Home = Backbone.View.extend({
 	el: '.home',
-	homeTemplate: _.template($('#home-template').html()),
-	thumbsTemplate: _.template($('#thumbnails-template').html()),
+	homeTemplate   			: _.template($('#home-template').html()),
+	thumbsTemplate 			: _.template($('#thumbnails-template').html()),
+	thumbsChildTemplate : _.template($('#thumbnail-child-template').html()),
 	events: {
 		'click .project-thumbnail' : 'work'
 	},
@@ -11,7 +12,13 @@ var Home = Backbone.View.extend({
 	render: function() {
 		this.$el.html(this.homeTemplate());
 		this.$el.append(this.thumbsTemplate());
+		this.thumbnails();
 		return this;
+	},
+	thumbnails: function() {
+		portfolio.each(function(app) {
+			$('.thumbnail-items').append(this.thumbsChildTemplate(app.toJSON()));
+		}.bind(this));
 	},
 	work: function(e) {
 		var id = $(e.currentTarget).data('id');

@@ -9,6 +9,7 @@ var musicInsider =
 		description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
 		id: 1,
 		url: 'http://musicinsider.co',
+		thumbnail: "assets/img/mi-tn.png",
 		lead: "assets/img/mi-1.png",
 		items: 
 			[
@@ -24,6 +25,7 @@ var marshallz =
 		description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
 		id: 2,
 		url: 'http://marshallz.com',
+		thumbnail: "assets/img/marshallz-tn.png",
 		lead: "assets/img/marshallz-1.png",
 		items: 
 			[
@@ -38,6 +40,7 @@ var piqueBeta =
 		description: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
 		id: 3,
 		url: 'http://piqueapp.github.io',
+		thumbnail: "assets/img/pique-tn.jpg",
 		lead: "assets/img/pique-1.jpg",
 		items: 
 			[
@@ -52,6 +55,7 @@ var alculator =
 		description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
 		id: 4,
 		url: 'http://alculator.co',
+		thumbnail: "assets/img/alculator-tn.png",
 		lead: "assets/img/alculator-3.png",
 		items: 
 			[
@@ -66,6 +70,7 @@ var ramenBuffet =
 		description: "Ramen Buffet manages a list of small tasks or todos. These tasks can be of any importance or priority. A clock is provided as timer which can be used to time breaks or time the user may want to set aside to dedicate to a particular task.",
 		id: 5,
 		url: 'http://ramenbuffet.com',
+		thumbnail: "assets/img/ramen-tn.png",
 		lead: 'assets/img/ramen-1.jpg',
 		items:
 			[
@@ -78,6 +83,7 @@ var hangman =
 		name: 'Hangman',
 		description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
 		id: 6,
+		thumbnail: "assets/img/hangman-tn.png",
 		lead: "assets/img/hangman-1.jpg",
 		items: 
 			[
@@ -91,6 +97,7 @@ var tictactoe =
 		name: 'Tic Tac Toe',
 		description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
 		id: 7,
+		thumbnail: "assets/img/ttt-tn.png",
 		lead: 'assets/img/ttt-1.jpg',
 		items: 
 			[
@@ -102,6 +109,7 @@ var drive =
 		name: 'Drive Publishing',
 		description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
 		id: 8,
+		thumbnail: "assets/img/drive-tn.png",
 		lead: 'assets/img/drive-1.png',
 		items: 
 			[
