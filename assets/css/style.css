@@ -99,45 +99,6 @@ p.about {
   }
 }
 
-/* line 1, scss/partials/_carousel.scss */
-#project-info {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-/* line 3, scss/partials/_carousel.scss */
-#project-info .project-description {
-  font-size: 15px;
-  padding-top: 10px;
-  font-weight: 500;
-  text-align: justify;
-}
-/* line 8, scss/partials/_carousel.scss */
-#project-info .project-description a {
-  text-decoration: none;
-  color: #a3a3a3;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-@media (min-width: 320px) {
-  /* line 1, scss/partials/_carousel.scss */
-  #project-info {
-    padding-top: 20px;
-  }
-  /* line 17, scss/partials/_carousel.scss */
-  #project-info .project-title {
-    text-align: left;
-  }
-}
-
-/* line 26, scss/partials/_carousel.scss */
-#development {
-  padding-bottom: 40px;
-  margin-top: 70px;
-}
-
-/* line 30, scss/partials/_carousel.scss */
-#stack [class^="devicon-"], [class*=" devicon-"] {
-  font-size: 2em;
-}
-
 /* line 1, scss/partials/_contact.scss */
 .contact-container {
   margin-top: 60px;
@@ -434,6 +395,45 @@ p.about {
 .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
   font-size: 22px;
   line-height: 1.4em;
+}
+
+/* line 1, scss/partials/_project.scss */
+#project-info {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+/* line 3, scss/partials/_project.scss */
+#project-info .project-description {
+  font-size: 15px;
+  padding-top: 10px;
+  font-weight: 500;
+  text-align: justify;
+}
+/* line 8, scss/partials/_project.scss */
+#project-info .project-description a {
+  text-decoration: none;
+  color: #a3a3a3;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+@media (min-width: 320px) {
+  /* line 1, scss/partials/_project.scss */
+  #project-info {
+    padding-top: 20px;
+  }
+  /* line 17, scss/partials/_project.scss */
+  #project-info .project-title {
+    text-align: left;
+  }
+}
+
+/* line 26, scss/partials/_project.scss */
+#development {
+  padding-bottom: 40px;
+  margin-top: 70px;
+}
+
+/* line 30, scss/partials/_project.scss */
+#stack [class^="devicon-"], [class*=" devicon-"] {
+  font-size: 2em;
 }
 
 /* line 2, scss/partials/_thumbnails.scss */
