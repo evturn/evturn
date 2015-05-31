@@ -1,7 +1,7 @@
 var Home = Backbone.View.extend({
 	el: '.home',
 	homeTemplate: _.template($('#home-template').html()),
-	thumbsTemplate: _.template($('#project-thumbs-template').html()),
+	thumbsTemplate: _.template($('#thumbnails-template').html()),
 	events: {
 		'click .project-thumbnail' : 'work'
 	},

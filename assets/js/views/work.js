@@ -3,7 +3,7 @@ var Work = Backbone.View.extend({
   carouselTpl : _.template($('#carousel-template').html()),
   infoTemplate: _.template($('#project-info-template').html()),
   galleryTpl  : _.template($('#gallery-template').html()),
-  thumbsTemplate: _.template($('#project-thumbs-template').html()),
+  thumbsTemplate: _.template($('#thumbnails-template').html()),
 	initialize: function() {
     this.carousel();
     $("html, body").animate({ scrollTop: 0 }, 500);
