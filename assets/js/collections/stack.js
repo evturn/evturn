@@ -100,6 +100,13 @@ var sass =
 		color: 'devicon-sass-original colored',
 		id: 14
 	};
+var mongodb =
+	{
+		technology: 'MongoDB',
+		icon: 'devicon-mongodb-plain',
+		color: 'devicon-mongodb-plain colored',
+		id: 15
+	};	
 
 var myStack = new Stack([
 	node,
@@ -108,6 +115,7 @@ var myStack = new Stack([
 	bootstrap,
 	git,
 	photoshop,
+	mongodb,
 	digitalOcean,
 	express
 ]);
