@@ -109,13 +109,15 @@ var drive =
 			]
 	};
 
-var portfolio  = new Portfolio([
-		musicInsider, 
-		marshallz, 
-		piqueBeta,
-		drive, 
-		alculator, 
-		ramenBuffet, 
-		hangman, 
-		tictactoe
-]);
+var featuredProjects = [
+	musicInsider, 
+	marshallz, 
+	piqueBeta,
+	drive, 
+	alculator, 
+	ramenBuffet, 
+	hangman, 
+	tictactoe
+];
+
+var portfolio  = new Portfolio(featuredProjects);

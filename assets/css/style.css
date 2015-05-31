@@ -93,11 +93,17 @@ img.img-responsive.center-block {
 @media (min-width: 320px) {
   /* line 26, scss/partials/_about.scss */
   .about .stat-items .stat-item {
+    width: 30%;
+  }
+}
+@media (min-width: 480px) {
+  /* line 26, scss/partials/_about.scss */
+  .about .stat-items .stat-item {
     width: 20%;
   }
 }
 
-/* line 37, scss/partials/_about.scss */
+/* line 40, scss/partials/_about.scss */
 .about-lead {
   font-size: 18px;
   line-height: 2;
@@ -105,7 +111,7 @@ img.img-responsive.center-block {
   text-align: left;
 }
 @media (max-width: 1199px) {
-  /* line 37, scss/partials/_about.scss */
+  /* line 40, scss/partials/_about.scss */
   .about-lead {
     line-height: 1.4em;
   }

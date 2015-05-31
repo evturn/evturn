@@ -27,6 +27,9 @@
       display: inline-block;
       text-align: center;
       @media (min-width: $screen-xxs) {
+        width: 30%;
+      }
+      @media (min-width: $screen-xs) {
         width: 20%;
       }
     }
