@@ -120,11 +120,9 @@
 					<a><img class="img-responsive" src="assets/img/tile.png"></a>
 				</div>
 			</div>
-		</div>
-		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-md-10 col-md-offset-1 section-title text-center">
-					<h2>Web Developer</h2>
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
+					<h2 class="section-title">Web Developer</h2>
 					<div class="about-paragraphs">			
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<p class="about-lead">As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.</p>
@@ -135,39 +133,35 @@
 					</div>
 				</div>
 			</div>		
-		</div>
-		<div class="container">
-			<div class="row about-stats">
-				<div class="col-md-10 col-md-offset-1 col-sm-offset-1">
-					<div class="row">
-						<div class="col-xs-12 col-sm-6 col-md-6 text-center">	
-							<h3>Notible Build Tools</h3>
-							<div class="row about-stack">
-								<!-- about stack -->
-							</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-10 col-md-offset-1">
+					<div class="col-md-6 col-sm-6 col-xs-12">	
+						<h4 class="about-subhead">Notible Build Tools</h4>
+						<div class="about-stack stat-items">
+						<!-- about stack -->
 						</div>
-						<div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-1 text-center">
-			    		<h3>FACTS</h3>
-			    		<div class="row">
-				    		<div class="col-xs-4 col-sm-3 col-md-4 text-center">
-					    		<span><i class="fa fa-check fa-2x"></i></span>
-					      	<h4 class="stat-count">777074</h4>
-					      	<p>Quesadillas Eaten</p>
-								</div>
-				    		<div class="col-xs-4 col-sm-3 col-md-4 text-center">
-					    		<span><i class="fa fa-terminal fa-2x"></i></span>
-					      	<h4 class="stat-count">276</h4>
-					      	<p>Weekly Commits</p>
-								</div>
-					    	<div class="col-xs-4 col-sm-3 col-md-4 text-center">
-					    		<span><i class="fa fa-code fa-2x"></i></span>
-					      	<h4 class="stat-count">5000</h4>
-					    		<p>Github Contributions</p>
-				    		</div>
-				    	</div>
-			    	</div>	
 					</div>
-				</div>
+					<div class="col-md-6 col-sm-6 col-xs-12">	
+		    		<h4 class="about-subhead">Stats</h4>
+		    		<div class="stat-items">
+			    		<div class="stat-item">
+				    		<span class="stat-icon"><i class="fa fa-check"></i></span>
+				      	<h4 class="stat-count">777074</h4>
+				      	<p>Quesadillas Eaten</p>
+							</div>
+			    		<div class="stat-item">
+				    		<span class="stat-icon"><i class="fa fa-terminal"></i></span>
+				      	<h4 class="stat-count">276</h4>
+				      	<p>Weekly Commits</p>
+							</div>
+				    	<div class="stat-item">
+				    		<span class="stat-icon"><i class="fa fa-code"></i></span>
+				      	<h4 class="stat-count">5000</h4>
+				    		<p>Github Contributions</p>
+			    		</div>
+		    		</div>
+		    	</div>	
+	    	</div>	
 			</div>
 		</div>
 	</script>
@@ -196,7 +190,7 @@
 
 	<!-- APPENDED TEMPLATES -->
 	<script type="text/template" id="about-stack-template">
-		<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+		<div class="stat-item">
 			<i class="<%= icon %>"></i>
 			<p class="specs"><%= technology %></p>
 		</div>

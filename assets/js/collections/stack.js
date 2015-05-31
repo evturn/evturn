@@ -86,15 +86,28 @@ var express =
 		color: 'devicon-nodejs-plain colored',
 		id: 12	
 	};
-
+var mongodb =
+	{
+		technology: 'MongoDB',
+		icon: 'devicon-mongdb-plain',
+		color: 'devicon-nodejs-plain colored',
+		id: 13	
+	};
+var sass =
+	{
+		technology: 'Sass',
+		icon: 'devicon-sass-original',
+		color: 'devicon-sass-original colored',
+		id: 14
+	};
 
 var myStack = new Stack([
-	node, 
-	angular, 
-	backbone, 
-	jQuery, 
-	bootstrap, 
-	git, 
-	photoshop, 
-	digitalOcean
+	node,
+	backbone,
+	sass,
+	bootstrap,
+	git,
+	photoshop,
+	digitalOcean,
+	express
 ]);

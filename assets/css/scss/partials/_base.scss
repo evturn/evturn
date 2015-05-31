@@ -29,7 +29,7 @@ img.img-responsive.center-block {
 
 .icon:hover {
    background: transparent;
-   color: #fff;
+   color: $white;
    cursor: pointer;
 }
 
@@ -38,18 +38,6 @@ img.img-responsive.center-block {
    color: $black;
 }
 
-.section-title h3 {
-  padding-bottom: 17px;
-  background: none;
-}
-
-.section-title h2 {
-  color: #000;
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  position: relative;
+.section-title {
   text-transform: uppercase;
-  z-index: 2;
 }

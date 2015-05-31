@@ -34,7 +34,7 @@ img.img-responsive.center-block {
 /* line 30, scss/partials/_base.scss */
 .icon:hover {
   background: transparent;
-  color: #fff;
+  color: white;
   cursor: pointer;
 }
 
@@ -45,47 +45,59 @@ img.img-responsive.center-block {
 }
 
 /* line 41, scss/partials/_base.scss */
-.section-title h3 {
-  padding-bottom: 17px;
-  background: none;
-}
-
-/* line 46, scss/partials/_base.scss */
-.section-title h2 {
-  color: #000;
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  position: relative;
+.section-title {
   text-transform: uppercase;
-  z-index: 2;
 }
 
 /* line 1, scss/partials/_about.scss */
-p.about {
-  font-family: "Raleway";
-  text-align: center;
-  font-size: 16px;
-  background: none;
-  padding-top: 5px;
-}
-
-/* line 9, scss/partials/_about.scss */
 .about {
   font-family: "Raleway";
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
-  color: #a3a3a3;
-}
-
-/* line 17, scss/partials/_about.scss */
-.row.about-stats {
   color: #0c0c0c;
 }
-
+/* line 7, scss/partials/_about.scss */
+.about .section-title {
+  text-align: center;
+}
+/* line 10, scss/partials/_about.scss */
+.about .about-subhead {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: left;
+}
+/* line 15, scss/partials/_about.scss */
+.about .stat-icon {
+  display: block;
+}
+/* line 17, scss/partials/_about.scss */
+.about .stat-icon .fa {
+  font-size: 2em;
+}
 /* line 21, scss/partials/_about.scss */
+.about .stat-items {
+  text-align: center;
+}
+@media (min-width: 320px) {
+  /* line 21, scss/partials/_about.scss */
+  .about .stat-items {
+    padding-top: 15px;
+  }
+}
+/* line 26, scss/partials/_about.scss */
+.about .stat-items .stat-item {
+  display: inline-block;
+  text-align: center;
+}
+@media (min-width: 320px) {
+  /* line 26, scss/partials/_about.scss */
+  .about .stat-items .stat-item {
+    width: 20%;
+  }
+}
+
+/* line 37, scss/partials/_about.scss */
 .about-lead {
   font-size: 18px;
   line-height: 2;
@@ -93,7 +105,7 @@ p.about {
   text-align: left;
 }
 @media (max-width: 1199px) {
-  /* line 21, scss/partials/_about.scss */
+  /* line 37, scss/partials/_about.scss */
   .about-lead {
     line-height: 1.4em;
   }
@@ -106,7 +118,7 @@ p.about {
 
 /* line 5, scss/partials/_contact.scss */
 .contact-links i:hover {
-  color: #fff;
+  color: white;
 }
 
 /* line 1, scss/partials/_footer.scss */
