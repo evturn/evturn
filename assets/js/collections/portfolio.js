@@ -2,7 +2,6 @@ var Portfolio = Backbone.Collection.extend({
 	model: Project,
 });
 
-
 var musicInsider =
 	{
 		name: 'Music Insider',
