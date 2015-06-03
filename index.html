@@ -174,35 +174,36 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="project-info-template">
-		<div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 wow fadeIn">
-			<h4 class="project-title"><%= name %></h4>
-			<p class="project-description wow fadeIn"><%= description %></p>
-		</div>
-	</script>
+
 
 	<script type="text/template" id="carousel-template">
 		<div class="container">	
 			<div class="row">
-				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="carousel-slide"> 
-					<div id="gallery" class="carousel slide wow bounceInRight" data-ride="carousel">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"> 
+					<div class="carousel slide wow bounceInRight" data-ride="carousel" id="gallery">
 						<div class="carousel-inner">
 							<div class="item active">
 								<img class="img-responsive center-block" src="<%= lead %>">
 							</div>
 							<!-- gallery -->
 						</div>
-						<a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
-			  			<span class="glyphicon glyphicon-chevron-left"></span>
-			  		</a><a class="right carousel-control" href="#gallery" role="button" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right"></span>
-						</a>
 					</div>
 				</div>
+				<div class="project-info-container">
+					<!-- project info -->
+				</div>
 			</div>
-			<div class="row" id="project-info">
-				<!-- project info -->
+		</div>
+	</script>
+
+		<script type="text/template" id="project-info-template">
+		<div class="col-lg-4 col-lg-4 col-md-4 col-sm-4col-xs-12 wow fadeIn">
+			<h2 class="project-title"><%= name %></h2>
+			<div class="btn-container">
+				<a class="btn btn-primary" href="#gallery" role="button" data-slide="prev"><span class="fa fa-arrow-left"></span></a>
+	  		<a class="btn btn-primary" href="#gallery" role="button" data-slide="next"><span class="fa fa-arrow-right"></span></a>
 			</div>
+			<p class="project-description wow fadeIn"><%= description %></p>
 		</div>
 	</script>
 

@@ -15,7 +15,7 @@ var Work = Backbone.View.extend({
   carousel: function(id) {
     var project = this.collection.get(id) || this.collection.get(1);
     this.$el.html(this.carouselTpl(project.toJSON()));
-    $('#project-info').html(this.infoTemplate(project.toJSON()));
+    $('.project-info-container').html(this.infoTemplate(project.toJSON()));
     this.gallery(project);
     this.$el.append(this.thumbsTemplate());
 		$('.carousel').carousel({interval: 3500});

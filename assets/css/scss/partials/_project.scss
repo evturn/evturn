@@ -1,4 +1,4 @@
-#project-info {
+.project-info-container {
   font-family: 'Source Sans Pro', sans-serif;
   .project-description {
     font-size: 15px;
@@ -13,20 +13,14 @@
   }
 
   @media (min-width: $screen-xxs) {
-    padding-top: 20px;
+    margin-top: 10%;
     .project-title {
       text-align: left;
     }
   }
   @media (min-width: $screen-xs) {
-    
+    .project-title {
+      text-align: center;
+    }
   }
-}
-
-#development {
-  padding-bottom: 40px;
-  margin-top: 70px;
-}
-#stack [class^="devicon-"], [class*=" devicon-"] {
-  font-size: 2em;
 }
