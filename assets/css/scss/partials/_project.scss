@@ -26,8 +26,11 @@
     }
     a {
       text-decoration: none;
-      color: #a3a3a3;
+      color: $primarylight;
       font-family: 'Source Sans Pro', sans-serif;
+      &:hover {
+        color: $primarylighthover;
+      }
     }
   }
 

@@ -194,14 +194,17 @@ img.img-responsive.center-block {
 
 /* line 11, scss/partials/_header.scss */
 .header-subhead {
+  background-color: #231f20;
+  color: white;
   text-align: center;
   text-transform: uppercase;
-  line-height: 4em;
+  border-radius: 1px;
 }
 @media (min-width: 320px) {
   /* line 11, scss/partials/_header.scss */
   .header-subhead {
     margin-bottom: 0;
+    padding-left: 0;
   }
 }
 @media (min-width: 992px) {
@@ -209,6 +212,7 @@ img.img-responsive.center-block {
   .header-subhead {
     text-align: left;
     font-size: 18px;
+    padding-left: 15px;
   }
 }
 
@@ -484,11 +488,15 @@ img.img-responsive.center-block {
 /* line 27, scss/partials/_project.scss */
 .project-info-container .project-text a {
   text-decoration: none;
-  color: #a3a3a3;
+  color: #00b2e2;
   font-family: 'Source Sans Pro', sans-serif;
 }
+/* line 31, scss/partials/_project.scss */
+.project-info-container .project-text a:hover {
+  color: #00cfff;
+}
 @media (min-width: 320px) {
-  /* line 35, scss/partials/_project.scss */
+  /* line 38, scss/partials/_project.scss */
   .project-info-container .project-title {
     text-transform: uppercase;
     color: white;
