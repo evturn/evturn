@@ -76,6 +76,30 @@ img.img-responsive.center-block {
   text-transform: uppercase;
 }
 
+/* line 68, scss/partials/_base.scss */
+.header-subhead {
+  background-color: #231f20;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 1px;
+}
+@media (min-width: 320px) {
+  /* line 68, scss/partials/_base.scss */
+  .header-subhead {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+}
+@media (min-width: 992px) {
+  /* line 68, scss/partials/_base.scss */
+  .header-subhead {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 15px;
+  }
+}
+
 /* line 1, scss/partials/_about.scss */
 .about {
   font-family: "Raleway";
@@ -190,30 +214,6 @@ img.img-responsive.center-block {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-}
-
-/* line 11, scss/partials/_header.scss */
-.header-subhead {
-  background-color: #231f20;
-  color: white;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 1px;
-}
-@media (min-width: 320px) {
-  /* line 11, scss/partials/_header.scss */
-  .header-subhead {
-    margin-bottom: 0;
-    padding-left: 0;
-  }
-}
-@media (min-width: 992px) {
-  /* line 11, scss/partials/_header.scss */
-  .header-subhead {
-    text-align: left;
-    font-size: 18px;
-    padding-left: 15px;
-  }
 }
 
 /* line 1, scss/partials/_loader.scss */

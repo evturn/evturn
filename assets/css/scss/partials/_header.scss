@@ -7,20 +7,3 @@
   margin-right: auto;
   @include transition(all 0.3s ease);
 }
-
-.header-subhead {
-  background-color: $black;
-  color: $white;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 1px;
-  @media (min-width: $screen-xxs) {
-    margin-bottom: 0;
-    padding-left: 0;
-  }
-  @media (min-width: $screen-md) {
-    text-align: left;
-    font-size: 18px;
-    padding-left: 15px;
-  }
-}
