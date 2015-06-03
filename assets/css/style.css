@@ -39,31 +39,39 @@ body, h6, h5, h4, h3, h2, h1, p, a {
 }
 
 /* line 36, scss/partials/_base.scss */
+.btn-white-outline {
+  background-color: white;
+  color: #231f20;
+  font-weight: bold;
+  border: 1px solid #d0d2d3;
+}
+
+/* line 43, scss/partials/_base.scss */
 img.img-responsive.center-block {
   width: 100%;
   height: auto;
 }
 
-/* line 41, scss/partials/_base.scss */
+/* line 48, scss/partials/_base.scss */
 .icon {
   background: transparent;
   color: #231f20;
 }
 
-/* line 46, scss/partials/_base.scss */
+/* line 53, scss/partials/_base.scss */
 .icon:hover {
   background: transparent;
   color: white;
   cursor: pointer;
 }
 
-/* line 52, scss/partials/_base.scss */
+/* line 59, scss/partials/_base.scss */
 .fa:focus {
   background-color: transparent;
   color: #231f20;
 }
 
-/* line 57, scss/partials/_base.scss */
+/* line 64, scss/partials/_base.scss */
 .section-title {
   text-transform: uppercase;
 }
@@ -443,49 +451,53 @@ img.img-responsive.center-block {
 .project-container {
   background-color: #e6e7e8;
   color: #231f20;
+  border-bottom: 1px solid #f8f8f8;
   border-right: 1px solid #f8f8f8;
   border-radius: 2px;
 }
 
-/* line 11, scss/partials/_project.scss */
+/* line 12, scss/partials/_project.scss */
 .carousel-container {
   padding-left: 0;
   padding-right: 0;
 }
 
-/* line 15, scss/partials/_project.scss */
+/* line 16, scss/partials/_project.scss */
 .project-info-container {
   font-family: 'Source Sans Pro', sans-serif;
 }
-/* line 17, scss/partials/_project.scss */
+/* line 18, scss/partials/_project.scss */
 .project-info-container .fa {
   font-weight: bold;
 }
-/* line 18, scss/partials/_project.scss */
+/* line 19, scss/partials/_project.scss */
 .project-info-container .project-text {
   padding: 15px;
 }
-/* line 20, scss/partials/_project.scss */
+/* line 21, scss/partials/_project.scss */
 .project-info-container .project-text p {
   font-size: 15px;
   padding-top: 10px;
   font-weight: normal;
   text-align: center;
 }
-/* line 26, scss/partials/_project.scss */
+/* line 27, scss/partials/_project.scss */
 .project-info-container .project-text a {
   text-decoration: none;
   color: #a3a3a3;
   font-family: 'Source Sans Pro', sans-serif;
 }
 @media (min-width: 320px) {
-  /* line 34, scss/partials/_project.scss */
+  /* line 35, scss/partials/_project.scss */
   .project-info-container .project-title {
+    text-transform: uppercase;
+    color: white;
+    background-color: #231f20;
     text-align: center;
   }
 }
 @media (min-width: 480px) {
-  /* line 15, scss/partials/_project.scss */
+  /* line 16, scss/partials/_project.scss */
   .project-info-container {
     padding-top: 7%;
   }

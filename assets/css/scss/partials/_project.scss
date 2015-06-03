@@ -5,6 +5,7 @@
 .project-container {
   background-color: $black10;
   color: $black;
+  border-bottom: 1px solid $primarygreylight;
   border-right: 1px solid $primarygreylight;
   border-radius: 2px;
 }
@@ -32,6 +33,9 @@
 
   @media (min-width: $screen-xxs) {
     .project-title {
+      text-transform: uppercase;
+      color: $white;
+      background-color: $black;
       text-align: center;
     }
   }
