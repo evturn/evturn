@@ -21,6 +21,18 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   text-align: center;
 }
 
+.btn-black {
+  background-color: $black;
+  color: $white;
+  font-weight: bold;
+}
+
+.btn-white {
+  background-color: $white;
+  color: $black;
+  font-weight: bold;
+}
+
 img.img-responsive.center-block {
   width: 100%;
   height: auto;

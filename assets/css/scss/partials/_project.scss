@@ -1,10 +1,28 @@
+.work {
+  background-image: url('../img/brickwall.png');
+}
+
+.project-container {
+  background-color: $black10;
+  color: $black;
+  border-right: 1px solid $primarygreylight;
+  border-radius: 2px;
+}
+.carousel-container {
+  padding-left: 0;
+  padding-right: 0;
+}
 .project-info-container {
   font-family: 'Source Sans Pro', sans-serif;
-  .project-description {
-    font-size: 15px;
-    padding-top: 10px;
-    font-weight: 500;
-    text-align: justify;
+  .fa { font-weight: bold; }
+  .project-text {
+    padding: 15px;
+    p {
+      font-size: 15px;
+      padding-top: 10px;
+      font-weight: normal;
+      text-align: center;
+    }
     a {
       text-decoration: none;
       color: #a3a3a3;
@@ -13,14 +31,14 @@
   }
 
   @media (min-width: $screen-xxs) {
-    margin-top: 10%;
     .project-title {
-      text-align: left;
+      text-align: center;
     }
   }
   @media (min-width: $screen-xs) {
+    padding-top: 7%;
     .project-title {
-      text-align: center;
+      
     }
   }
 }

@@ -174,12 +174,10 @@
 		</div>
 	</script>
 
-
-
 	<script type="text/template" id="carousel-template">
 		<div class="container">	
-			<div class="row">
-				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"> 
+			<div class="row project-container">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 carousel-container"> 
 					<div class="carousel slide wow bounceInRight" data-ride="carousel" id="gallery">
 						<div class="carousel-inner">
 							<div class="item active">
@@ -189,7 +187,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="project-info-container">
+				<div class="col-lg-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 project-info-container">
 					<!-- project info -->
 				</div>
 			</div>
@@ -197,13 +195,13 @@
 	</script>
 
 		<script type="text/template" id="project-info-template">
-		<div class="col-lg-4 col-lg-4 col-md-4 col-sm-4col-xs-12 wow fadeIn">
-			<h2 class="project-title"><%= name %></h2>
-			<div class="btn-container">
-				<a class="btn btn-primary" href="#gallery" role="button" data-slide="prev"><span class="fa fa-arrow-left"></span></a>
-	  		<a class="btn btn-primary" href="#gallery" role="button" data-slide="next"><span class="fa fa-arrow-right"></span></a>
-			</div>
-			<p class="project-description wow fadeIn"><%= description %></p>
+		<h2 class="project-title"><%= name %></h2>
+		<div class="btn-container">
+			<a class="btn btn-white" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+  		<a class="btn btn-white" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+		</div>
+		<div class="project-text">
+			<p><%= description %></p>
 		</div>
 	</script>
 
