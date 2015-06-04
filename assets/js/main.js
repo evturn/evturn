@@ -17,8 +17,6 @@ function count($this){
 new WOW().init();
 
 $(function() {
-	
-	$('.footer-egg').tooltip()
 
 	$(window).load(function() {
 		$("#preloader").delay(500).fadeOut();
