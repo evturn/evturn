@@ -29,23 +29,25 @@ var marshallz =
 		items: 
 			[
 				{item: 'assets/img/marshallz-2.png'}, 
-				{item: 'assets/img/marshallz-3.jpg'}, 
+				{item: 'assets/img/marshallz-6.png'},
+				{item: 'assets/img/marshallz-3.jpg'},
+				{item: 'assets/img/marshallz-5.png'}, 
 				{item: 'assets/img/marshallz-4.jpg'}
 			]
 	};
 var piqueBeta =
 	{
 		name: 'Pique',
-		description: "Pique is an app for people who are interested in networking, collaborating, and working on projects. I built the front end of this site which allows potential new users to sign up before the app is released. Views and route parameters are all handled by Backbone. Data from the input fields are saved using Firebase.",
+		description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
 		id: 3,
 		url: 'http://piqueapp.github.io',
-		thumbnail: "assets/img/pique-tn.jpg",
+		thumbnail: "assets/img/pique-tn.png",
 		lead: "assets/img/pique-1.jpg",
 		items: 
 			[
-				{item: 'assets/img/pique-2.jpg'}, 
-				{item: 'assets/img/pique-3.jpg'}, 
-				{item: 'assets/img/pique-4.jpg'}
+				{item: 'assets/img/pique-2.png'}, 
+				{item: 'assets/img/pique-3.png'}, 
+				{item: 'assets/img/pique-4.png'}
 			]
 	};
 var alculator =
@@ -112,7 +114,8 @@ var drive =
 		lead: 'assets/img/drive-1.png',
 		items: 
 			[
-				{item: 'assets/img/drive-2.png'}
+				{item: 'assets/img/drive-2.png'},
+				{item: 'assets/img/drive-3.png'}
 			]
 	};
 
