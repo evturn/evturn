@@ -1,198 +1,161 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
-/* line 3, scss/partials/_base.scss */
+/* line 3, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 html {
   min-height: 100%;
-  position: relative;
-}
+  position: relative; }
 
-/* line 8, scss/partials/_base.scss */
+/* line 8, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 body {
   background-image: url("../img/brickwall.png");
-  margin-bottom: 60px;
-}
+  margin-bottom: 60px; }
 
-/* line 13, scss/partials/_base.scss */
+/* line 13, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 body, h6, h5, h4, h3, h2, h1, p, a {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 500;
   background-color: transparent;
-  font-smooth: always;
-}
+  font-smooth: always; }
 
-/* line 20, scss/partials/_base.scss */
+/* line 20, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-container {
-  text-align: center;
-}
+  text-align: center; }
 
-/* line 24, scss/partials/_base.scss */
+/* line 24, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-black {
   background-color: #231f20;
-  color: white;
-  font-weight: bold;
-}
+  color: #ffffff;
+  font-weight: bold; }
 
-/* line 30, scss/partials/_base.scss */
+/* line 30, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-white {
-  background-color: white;
+  background-color: #ffffff;
   color: #231f20;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-/* line 36, scss/partials/_base.scss */
+/* line 36, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-white-outline {
-  background-color: white;
+  background-color: #ffffff;
   color: #231f20;
   font-weight: bold;
-  border: 1px solid #d0d2d3;
-}
+  border: 1px solid #d0d2d3; }
 
-/* line 43, scss/partials/_base.scss */
+/* line 43, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 img.img-responsive.center-block {
   width: 100%;
-  height: auto;
-}
+  height: auto; }
 
-/* line 48, scss/partials/_base.scss */
+/* line 48, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .icon {
   background: transparent;
-  color: #231f20;
-}
+  color: #231f20; }
 
-/* line 53, scss/partials/_base.scss */
+/* line 53, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .icon:hover {
   background: transparent;
-  color: white;
-  cursor: pointer;
-}
+  color: #ffffff;
+  cursor: pointer; }
 
-/* line 59, scss/partials/_base.scss */
+/* line 59, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .fa:focus {
   background-color: transparent;
-  color: #231f20;
-}
+  color: #231f20; }
 
-/* line 64, scss/partials/_base.scss */
+/* line 64, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .section-title {
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
-/* line 68, scss/partials/_base.scss */
+/* line 68, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .header-subhead {
   background-color: #231f20;
-  color: white;
+  color: #ffffff;
   text-align: center;
   text-transform: uppercase;
-  border-radius: 1px;
-}
-@media (min-width: 320px) {
-  /* line 68, scss/partials/_base.scss */
-  .header-subhead {
-    margin-bottom: 0;
-    padding-left: 0;
-  }
-}
-@media (min-width: 992px) {
-  /* line 68, scss/partials/_base.scss */
-  .header-subhead {
-    text-align: left;
-    font-size: 18px;
-    padding-left: 15px;
-  }
-}
+  border-radius: 1px; }
+  @media (min-width: 320px) {
+    /* line 68, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+    .header-subhead {
+      margin-bottom: 0;
+      padding-left: 0; } }
+  @media (min-width: 992px) {
+    /* line 68, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+    .header-subhead {
+      text-align: left;
+      font-size: 18px;
+      padding-left: 15px; } }
 
-/* line 1, scss/partials/_about.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
 .about {
   font-family: "Raleway";
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
-  color: #0c0c0c;
-}
-/* line 7, scss/partials/_about.scss */
-.about .section-title {
-  text-align: center;
-}
-/* line 10, scss/partials/_about.scss */
-.about .about-subhead {
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  text-align: left;
-}
-/* line 15, scss/partials/_about.scss */
-.about .stat-icon {
-  display: block;
-}
-/* line 17, scss/partials/_about.scss */
-.about .stat-icon .fa {
-  font-size: 2em;
-}
-/* line 21, scss/partials/_about.scss */
-.about .stat-items {
-  text-align: center;
-}
-@media (min-width: 320px) {
-  /* line 21, scss/partials/_about.scss */
+  color: #0c0c0c; }
+  /* line 7, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+  .about .section-title {
+    text-align: center; }
+  /* line 10, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+  .about .about-subhead {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: left; }
+  /* line 15, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+  .about .stat-icon {
+    display: block; }
+    /* line 17, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+    .about .stat-icon .fa {
+      font-size: 2em; }
+  /* line 21, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
   .about .stat-items {
-    padding-top: 15px;
-  }
-}
-/* line 26, scss/partials/_about.scss */
-.about .stat-items .stat-item {
-  display: inline-block;
-  text-align: center;
-}
-@media (min-width: 320px) {
-  /* line 26, scss/partials/_about.scss */
-  .about .stat-items .stat-item {
-    width: 30%;
-  }
-}
-@media (min-width: 480px) {
-  /* line 26, scss/partials/_about.scss */
-  .about .stat-items .stat-item {
-    width: 20%;
-  }
-}
+    text-align: center; }
+    @media (min-width: 320px) {
+      /* line 21, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+      .about .stat-items {
+        padding-top: 15px; } }
+    /* line 26, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+    .about .stat-items .stat-item {
+      display: inline-block;
+      text-align: center; }
+      @media (min-width: 320px) {
+        /* line 26, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+        .about .stat-items .stat-item {
+          width: 30%; } }
+      @media (min-width: 480px) {
+        /* line 26, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+        .about .stat-items .stat-item {
+          width: 20%; } }
 
-/* line 40, scss/partials/_about.scss */
+/* line 40, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
 .about-lead {
   font-size: 18px;
   line-height: 2;
   color: #4a4a4a;
-  text-align: left;
-}
-@media (max-width: 1199px) {
-  /* line 40, scss/partials/_about.scss */
-  .about-lead {
-    line-height: 1.4em;
-  }
-}
+  text-align: left; }
+  @media (max-width: 1199px) {
+    /* line 40, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_about.scss */
+    .about-lead {
+      line-height: 1.4em; } }
 
-/* line 1, scss/partials/_contact.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_contact.scss */
 .contact-container {
-  margin-top: 60px;
-}
+  margin-top: 60px; }
 
-/* line 5, scss/partials/_contact.scss */
+/* line 5, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_contact.scss */
 .contact-links i:hover {
-  color: white;
-}
+  color: #ffffff; }
 
-/* line 1, scss/partials/_footer.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_footer.scss */
 .footer-container {
   position: absolute;
   bottom: 0;
-  width: 100%;
-}
+  width: 100%; }
 
-/* line 7, scss/partials/_footer.scss */
+/* line 7, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_footer.scss */
 .footer-col {
   z-index: 1;
   text-align: center;
-  color: #a3a3a3;
-}
+  color: #a3a3a3; }
 
-/* line 13, scss/partials/_footer.scss */
+/* line 13, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_footer.scss */
 .footer-egg {
   position: absolute;
   z-index: -1;
@@ -200,10 +163,9 @@ img.img-responsive.center-block {
   left: 0;
   width: 100px;
   height: 100px;
-  background-image: url("../img/egg.png");
-}
+  background-image: url("../img/egg.png"); }
 
-/* line 1, scss/partials/_header.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_header.scss */
 .avatar {
   border-radius: 20%;
   max-width: 45%;
@@ -213,10 +175,9 @@ img.img-responsive.center-block {
   margin-right: auto;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s ease; }
 
-/* line 1, scss/partials/_loader.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
 #preloader {
   width: 100%;
   height: 100%;
@@ -227,10 +188,9 @@ img.img-responsive.center-block {
   background: #fff;
   z-index: 11000;
   position: fixed;
-  display: block;
-}
+  display: block; }
 
-/* line 14, scss/partials/_loader.scss */
+/* line 14, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
 .preloader {
   position: absolute;
   margin: 0 auto;
@@ -245,10 +205,9 @@ img.img-responsive.center-block {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  border-radius: 50%;
-}
+  border-radius: 50%; }
 
-/* line 31, scss/partials/_loader.scss */
+/* line 31, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
 #spinner {
   position: relative;
   height: 95px;
@@ -257,13 +216,12 @@ img.img-responsive.center-block {
   margin: 0 auto;
   margin-bottom: -45px;
   border-radius: 100%;
-  -webkit-animation: rotation 0.750s infinite linear;
-  -moz-animation: rotation 0.750s infinite linear;
-  -o-animation: rotation 0.750s infinite linear;
-  animation: rotation 0.750s infinite linear;
-}
+  -webkit-animation: rotation 0.75s infinite linear;
+  -moz-animation: rotation 0.75s infinite linear;
+  -o-animation: rotation 0.75s infinite linear;
+  animation: rotation 0.75s infinite linear; }
 
-/* line 45, scss/partials/_loader.scss */
+/* line 45, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
 #spinner:before {
   content: "";
   display: block;
@@ -276,272 +234,203 @@ img.img-responsive.center-block {
   border-left: 3px solid transparent;
   border-bottom: 3px solid transparent;
   border-right: 3px solid transparent;
-  border-radius: 100%;
-}
+  border-radius: 100%; }
 
 @-webkit-keyframes rotation {
-  /* line 61, scss/partials/_loader.scss */
   from {
-    -webkit-transform: rotate(0deg);
-  }
-
-  /* line 62, scss/partials/_loader.scss */
+    -webkit-transform: rotate(0deg); }
   to {
-    -webkit-transform: rotate(359deg);
-  }
-}
+    -webkit-transform: rotate(359deg); } }
 
 @-moz-keyframes rotation {
-  /* line 66, scss/partials/_loader.scss */
   from {
-    -moz-transform: rotate(0deg);
-  }
-
-  /* line 67, scss/partials/_loader.scss */
+    -moz-transform: rotate(0deg); }
   to {
-    -moz-transform: rotate(359deg);
-  }
-}
+    -moz-transform: rotate(359deg); } }
 
 @-o-keyframes rotation {
-  /* line 71, scss/partials/_loader.scss */
   from {
-    -o-transform: rotate(0deg);
-  }
-
-  /* line 72, scss/partials/_loader.scss */
+    -o-transform: rotate(0deg); }
   to {
-    -o-transform: rotate(359deg);
-  }
-}
+    -o-transform: rotate(359deg); } }
 
 @keyframes rotation {
-  /* line 75, scss/partials/_loader.scss */
   from {
-    transform: rotate(0deg);
-  }
-
-  /* line 76, scss/partials/_loader.scss */
+    transform: rotate(0deg); }
   to {
-    transform: rotate(359deg);
-  }
-}
+    transform: rotate(359deg); } }
 
-/* line 1, scss/partials/_nav.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
 .nav.navbar-default {
-  background: none;
-}
-/* line 5, scss/partials/_nav.scss */
-.nav.navbar-default .nav.navbar-nav .nav-title {
-  font-family: Raleway;
-  color: #231f20;
-  font-weight: 300;
-  text-transform: uppercase;
-  font-smooth: always;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-/* line 13, scss/partials/_nav.scss */
-.nav.navbar-default .nav.navbar-nav a {
-  text-decoration: none;
-}
-/* line 15, scss/partials/_nav.scss */
-.nav.navbar-default .nav.navbar-nav a:hover {
-  color: white;
-}
-@media (min-width: 320px) {
-  /* line 22, scss/partials/_nav.scss */
-  .nav.navbar-default .container-fluid {
-    text-align: center;
-  }
-  /* line 23, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li {
-    display: inline-block;
-    padding: 5px 10px;
-    text-align: center;
-  }
-  /* line 27, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
-    line-height: 2.4em;
-    font-size: 18px;
-    margin-bottom: 0;
-  }
-  /* line 33, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li {
-    display: none;
-    padding: 5px 10px;
-    text-align: center;
-  }
-  /* line 37, scss/partials/_nav.scss */
+  background: none; }
+  /* line 5, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+  .nav.navbar-default .nav.navbar-nav .nav-title {
+    font-family: Raleway;
+    color: #231f20;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-smooth: always;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+  /* line 13, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+  .nav.navbar-default .nav.navbar-nav a {
+    text-decoration: none; }
+    /* line 15, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default .nav.navbar-nav a:hover {
+      color: #ffffff; }
+  @media (min-width: 320px) {
+    /* line 22, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default .container-fluid {
+      text-align: center; }
+    /* line 23, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-titles li {
+      display: inline-block;
+      padding: 5px 10px;
+      text-align: center; }
+      /* line 27, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+        line-height: 2.4em;
+        font-size: 18px;
+        margin-bottom: 0; }
+    /* line 33, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-brand li {
+      display: none;
+      padding: 5px 10px;
+      text-align: center; }
+      /* line 37, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+        line-height: 2.4em;
+        font-size: 18px;
+        margin-bottom: 0; } }
+  @media (min-width: 480px) {
+    /* line 46, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-titles li {
+      padding: 5px 10px; }
+      /* line 48, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+        font-size: 22px; }
+    /* line 52, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-brand li {
+      padding: 5px 10px; }
+      /* line 54, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+        font-size: 22px; } }
+  @media (min-width: 768px) {
+    /* line 61, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
+      padding-right: 10%;
+      float: right; }
+      /* line 64, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+        line-height: 2.5em;
+        font-size: 18px; }
+    /* line 69, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
+      padding-left: 10%;
+      float: left;
+      display: inline-block; }
+      /* line 73, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
+        line-height: 2.5em;
+        font-size: 18px; } }
+  @media (min-width: 992px) {
+    /* line 82, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+      font-size: 22px;
+      line-height: 1.4em; } }
+  /* line 89, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
-    line-height: 2.4em;
-    font-size: 18px;
-    margin-bottom: 0;
-  }
-}
-@media (min-width: 480px) {
-  /* line 46, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li {
-    padding: 5px 10px;
-  }
-  /* line 48, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
     font-size: 22px;
-  }
-  /* line 52, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li {
-    padding: 5px 10px;
-  }
-  /* line 54, scss/partials/_nav.scss */
+    line-height: 1.4em; }
+  @media (min-width: 1200px) {
+    /* line 97, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
+      font-size: 22px;
+      line-height: 1.4em; } }
+  /* line 104, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
   .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
     font-size: 22px;
-  }
-}
-@media (min-width: 768px) {
-  /* line 61, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles {
-    padding-right: 10%;
-    float: right;
-  }
-  /* line 64, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
-    line-height: 2.5em;
-    font-size: 18px;
-  }
-  /* line 69, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-brand {
-    padding-left: 10%;
-    float: left;
-    display: inline-block;
-  }
-  /* line 73, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
-    line-height: 2.5em;
-    font-size: 18px;
-  }
-}
-@media (min-width: 992px) {
-  /* line 82, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
-    font-size: 22px;
-    line-height: 1.4em;
-  }
-}
-/* line 89, scss/partials/_nav.scss */
-.nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
-  font-size: 22px;
-  line-height: 1.4em;
-}
-@media (min-width: 1200px) {
-  /* line 97, scss/partials/_nav.scss */
-  .nav.navbar-default ul.nav.navbar-nav.navbar-titles li p.nav-title {
-    font-size: 22px;
-    line-height: 1.4em;
-  }
-}
-/* line 104, scss/partials/_nav.scss */
-.nav.navbar-default ul.nav.navbar-nav.navbar-brand li p.nav-title {
-  font-size: 22px;
-  line-height: 1.4em;
-}
+    line-height: 1.4em; }
 
-/* line 1, scss/partials/_project.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
 .work {
-  background-image: url("../img/brickwall.png");
-}
+  background-image: url("../img/brickwall.png"); }
 
-/* line 5, scss/partials/_project.scss */
+/* line 5, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
 .project-container {
   background-color: #e6e7e8;
   color: #231f20;
   border-bottom: 1px solid #f8f8f8;
   border-right: 1px solid #f8f8f8;
-  border-radius: 2px;
-}
+  border-radius: 2px; }
 
-/* line 12, scss/partials/_project.scss */
+/* line 12, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
 .carousel-container {
   padding-left: 0;
-  padding-right: 0;
-}
+  padding-right: 0; }
 
-/* line 16, scss/partials/_project.scss */
+/* line 16, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
 .project-info-container {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-/* line 18, scss/partials/_project.scss */
-.project-info-container .fa {
-  font-weight: bold;
-}
-/* line 19, scss/partials/_project.scss */
-.project-info-container .project-text {
-  padding: 15px;
-}
-/* line 21, scss/partials/_project.scss */
-.project-info-container .project-text p {
-  font-size: 15px;
-  padding-top: 10px;
-  font-weight: normal;
-  text-align: center;
-}
-/* line 27, scss/partials/_project.scss */
-.project-info-container .project-text a {
-  text-decoration: none;
-  color: #00b2e2;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-/* line 31, scss/partials/_project.scss */
-.project-info-container .project-text a:hover {
-  color: #00cfff;
-}
-@media (min-width: 320px) {
-  /* line 38, scss/partials/_project.scss */
-  .project-info-container .project-title {
-    text-transform: uppercase;
-    color: white;
-    background-color: #231f20;
-    text-align: center;
-  }
-}
-@media (min-width: 480px) {
-  /* line 16, scss/partials/_project.scss */
-  .project-info-container {
-    padding-top: 7%;
-  }
-}
+  font-family: 'Source Sans Pro', sans-serif; }
+  /* line 18, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+  .project-info-container .fa {
+    font-weight: bold; }
+  /* line 19, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+  .project-info-container .project-text {
+    padding: 15px; }
+    /* line 21, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+    .project-info-container .project-text p {
+      font-size: 15px;
+      padding-top: 10px;
+      font-weight: normal;
+      text-align: center; }
+    /* line 27, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+    .project-info-container .project-text a {
+      text-decoration: none;
+      color: #00b2e2;
+      font-family: 'Source Sans Pro', sans-serif; }
+      /* line 31, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+      .project-info-container .project-text a:hover {
+        color: #00cfff; }
+  @media (min-width: 320px) {
+    /* line 38, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+    .project-info-container .project-title {
+      text-transform: uppercase;
+      color: #ffffff;
+      background-color: #231f20;
+      text-align: center; } }
+  @media (min-width: 480px) {
+    /* line 16, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+    .project-info-container {
+      padding-top: 7%; } }
 
-/* line 2, scss/partials/_thumbnails.scss */
+/* line 2, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .home .project-thumbnails-container {
   margin-bottom: 80px;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-@media (min-width: 320px) {
-  /* line 2, scss/partials/_thumbnails.scss */
-  .home .project-thumbnails-container {
-    margin-top: 0;
-  }
-}
-@media (min-width: 992px) {
-  /* line 2, scss/partials/_thumbnails.scss */
-  .home .project-thumbnails-container {
-    margin-top: 30px;
-  }
-}
-/* line 11, scss/partials/_thumbnails.scss */
-.home .project-thumbnails-container .project-thumbnail {
-  padding-top: 15px;
-  padding-right: 7.5px;
-  padding-left: 7.5px;
-  cursor: pointer;
-}
+  transition: all 0.3s ease; }
+  @media (min-width: 320px) {
+    /* line 2, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+    .home .project-thumbnails-container {
+      margin-top: 0; } }
+  @media (min-width: 992px) {
+    /* line 2, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+    .home .project-thumbnails-container {
+      margin-top: 30px; } }
+  /* line 11, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+  .home .project-thumbnails-container .project-thumbnail {
+    padding-top: 15px;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    cursor: pointer; }
 
-/* line 22, scss/partials/_thumbnails.scss */
+/* line 22, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .work .project-thumbnails-container {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  margin-top: -20px;
-}
+  margin-top: -20px; }
+
+/*# sourceMappingURL=sass */
