@@ -9,7 +9,7 @@ var js = [
     './gulpfile.js'
 ];
 
-gulp.task('default', ['watch', 'sass']);
+gulp.task('default', ['watch', 'sass', 'lint']);
 
 gulp.task('sass', function() {
   return gulp.src('./assets/css/scss/**/*.scss')
@@ -19,7 +19,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('jshint', function() {
+gulp.task('lint', function() {
   return gulp.src('./assets/js/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
@@ -27,5 +27,5 @@ gulp.task('jshint', function() {
 
 gulp.task('watch', function() {
   gulp.watch('./assets/css/scss/**/*.scss', ['sass']);
-  gulp.watch(js, ['jshint']);
+  gulp.watch(js, ['lint']);
 });

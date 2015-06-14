@@ -30,7 +30,7 @@ var links = [
 	},
 	{
 		name: 'skype: @evturn',
-		url: 'javaScript:void(0);',
+		url: 'javaScript:void(0);', // jshint ignore:line
 		icon: 'fa fa-skype',
 	}
 ];
