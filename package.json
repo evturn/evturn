@@ -1,0 +1,30 @@
+{
+  "name": "evturn.com",
+  "version": "1.0.0",
+  "description": "A website about me for you.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evturn/evturn.github.io.git"
+  },
+    "author": {
+    "name": "Evan Turner",
+    "url": "http://evturn.com",
+    "github": "http://github.com/evturn"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evturn/evturn.github.io/issues"
+  },
+  "homepage": "https://github.com/evturn/evturn.github.io",
+    "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.0",
+    "gulp-sass": "^2.0.1",
+    "gulp-util": "^3.0.5",
+    "jshint-stylish": "^2.0.0"
+  }
+}
