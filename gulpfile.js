@@ -4,6 +4,11 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     sass = require('gulp-sass');
 
+var js = [
+    './assets/js/**/*.js',
+    './gulpfile.js'
+];
+
 gulp.task('default', ['watch', 'sass']);
 
 gulp.task('sass', function() {
@@ -14,6 +19,13 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./assets/css'));
 });
 
+gulp.task('jshint', function() {
+  return gulp.src('./assets/js/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
+});
+
 gulp.task('watch', function() {
   gulp.watch('./assets/css/scss/**/*.scss', ['sass']);
+  gulp.watch(js, ['jshint']);
 });

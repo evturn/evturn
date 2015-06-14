@@ -9,7 +9,7 @@ function count($this){
     $this.html($this.data('count'));
   } else {    
     setTimeout(function() {
-      count($this)
+      count($this);
       }, 50);
   }
 }

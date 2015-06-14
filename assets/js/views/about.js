@@ -9,7 +9,7 @@ var About = Backbone.View.extend({
 		this.$el.html(this.aboutTemplate());
 		for (var i = myStack.length - 1; i >= 0; i--) {
 			$('.about-stack').append(this.aboutStackTemplate(myStack.models[i].toJSON()));
-		};
+		}
 		this.statCount();
 		return this;
 	},
