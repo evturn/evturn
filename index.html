@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="vendor/css/animate.css">
 	<link rel="stylesheet" href="vendor/css/font-awesome.css">
 	<link rel="stylesheet" href="vendor/css/devicon.css">
-	<link rel="stylesheet" href="vendor/css/devicon-colors.css">
 	<link rel="stylesheet" href="vendor/css/collapsed-thumbs.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -157,7 +156,6 @@
 		</div>
 	</script>
 
-
 	<!-- APPENDED TEMPLATES -->
 	<script type="text/template" id="about-stack-template">
 		<div class="stat-item">
@@ -193,7 +191,7 @@
 		</div>
 	</script>
 
-		<script type="text/template" id="project-info-template">
+	<script type="text/template" id="project-info-template">
 		<h2 class="project-title"><%= name %></h2>
 		<div class="btn-container">
 			<a class="btn btn-white-outline" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
@@ -209,7 +207,7 @@
 			<img class="img-responsive center-block gallery-item" src="<%= item %>">
 		</div>
 	</script>
-
+	<!-- Google Analytics -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -218,25 +216,25 @@
 	  ga('create', 'UA-58635966-1', 'auto');
 	  ga('send', 'pageview');
 	</script>
+	<!-- Vendor -->
 	<script src="vendor/js/jquery.js"></script>
 	<script src="vendor/js/underscore.js"></script>
 	<script src="vendor/js/backbone.js"></script>
 	<script src="vendor/js/bootstrap.js"></script>
 	<script src="vendor/js/wow.js"></script>
-	
+	<!-- Backbone -->
 	<script src="assets/js/models/software.js"></script>
 	<script src="assets/js/models/contact-link.js"></script>
 	<script src="assets/js/models/project.js"></script>
-	
 	<script src="assets/js/collections/stack.js"></script>
 	<script src="assets/js/collections/portfolio.js"></script>
 	<script src="assets/js/collections/contact-links.js"></script>
-	
 	<script src="assets/js/views/contact.js"></script>
 	<script src="assets/js/views/about.js"></script>
 	<script src="assets/js/views/work.js"></script>
 	<script src="assets/js/views/home.js"></script>
 	<script src="assets/js/routers/router.js"></script>
+	<!-- Custom -->
 	<script src="assets/js/main.js"></script>
 </body>
 </html>
