@@ -106,14 +106,22 @@ var mongodb =
 		icon: 'devicon-mongodb-plain',
 		color: 'devicon-mongodb-plain colored',
 		id: 15
-	};	
+	};
+var gulp = 
+	{
+		technology: 'Gulp',
+		icon: 'devicon-gulp-plain',
+		color: 'devicon-gulp-plain',
+		id: 16
+	};
 
 var myStack = new Stack([
-	node,
 	backbone,
 	sass,
+	node,
 	bootstrap,
 	git,
+	gulp,
 	photoshop,
 	mongodb,
 	digitalOcean,
