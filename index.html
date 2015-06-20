@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="vendor/css/animate.css">
 	<link rel="stylesheet" href="vendor/css/font-awesome.css">
 	<link rel="stylesheet" href="vendor/css/devicon.css">
-	<link rel="stylesheet" href="vendor/css/collapsed-thumbs.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -172,11 +171,11 @@
 
 	<!-- Thumbnail Item -->
 	<script type="text/template" id="thumbnail-item-template">
-		<div class="col-md-3 col-sm-3 col-xs-4 thumbnail-item" data-id="<%= id %>">
-			<a class="project-thumbnail-anchor"><img class="img-responsive" src="<%= thumbnail %>">
-				<span><%= name %></span>
+		<li class="col-md-3 col-sm-3 col-xs-4 thumbnail-item" data-id="<%= id %>">
+			<a href="#work/<%= id %>">
+				<img class="img-responsive" src="<%= thumbnail %>">
 			</a>
-		</div>
+		</li>
 	</script>
 
 	<script type="text/template" id="carousel-container-template">
@@ -203,9 +202,9 @@
 		<div class="container project-thumbnails-container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
-					<div class="row thumbnail-items">
+					<ul class="thumbnail-items">
 						<!-- Thumbnails -->
-					</div>
+					</ul>
 				</div>
 			</div>
 		</div>

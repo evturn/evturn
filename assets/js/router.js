@@ -9,8 +9,10 @@ ev.Router = Backbone.Router.extend({
   routes: {
     ''        : 'index',
     'work'    : 'work',
+    'work/:id': 'work',
     'about'   : 'about',
-    'contact' : 'contact'
+    'contact' : 'contact',
+
   },
   initialize: function() {
     this.wrapper = new ev.Rza();
@@ -22,9 +24,11 @@ ev.Router = Backbone.Router.extend({
     this.wrapper.child = this.indexView;
     this.wrapper.render();
   },
-  work: function() {
+  work: function(id) {
     if (this.workView === null) {
-      this.workView = new ev.Carousel();
+      var collection = ev.fetch('projects');
+      var model = collection.get(id) || collection.get(1)
+      this.workView = new ev.Carousel({model: model});
     }
     this.wrapper.child = this.workView;
     this.wrapper.render();

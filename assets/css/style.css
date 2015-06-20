@@ -358,6 +358,10 @@ img.img-responsive.center-block {
 .work {
   background-image: url("../img/brickwall.png"); }
 
+/* line 4, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+li {
+  list-style-type: none; }
+
 /* line 5, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
 .project-container {
   background-color: #e6e7e8;
@@ -373,7 +377,7 @@ img.img-responsive.center-block {
 
 /* line 16, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
 .project-info-container {
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-family: Source Sans Pro; }
   /* line 18, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
   .project-info-container .fa {
     font-weight: bold; }
@@ -390,7 +394,7 @@ img.img-responsive.center-block {
     .project-info-container .project-text a {
       text-decoration: none;
       color: #00b2e2;
-      font-family: 'Source Sans Pro', sans-serif; }
+      font-family: Source Sans Pro; }
       /* line 31, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
       .project-info-container .project-text a:hover {
         color: #00cfff; }
