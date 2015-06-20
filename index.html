@@ -55,7 +55,7 @@
 
 <!-- UNDERSCORE TEMPLATES -->
 
-<!-- #index -->
+<!-- Index -->
 	<script type="text/template" id="index-container-template">
 		<div class="container wow fadeInDown">
 			<div class="row">
@@ -69,7 +69,7 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="row thumbnail-items">
-						<!-- thumbnails -->
+						<!-- Thumbnails -->
 					</div>
 				</div>
 			</div>
@@ -77,17 +77,7 @@
 	</script>
 
 
-	<!-- thumbnail item -->
-	<script type="text/template" id="thumbnail-item-template">
-		<div class="col-md-3 col-sm-3 col-xs-4 thumbnail-item" data-id="<%= id %>">
-			<a class="project-thumbnail-anchor"><img class="img-responsive" src="<%= thumbnail %>">
-				<span><%= name %></span>
-			</a>
-		</div>
-	</script>
-
-
-	<!-- about -->
+	<!-- About -->
 	<script type="text/template" id="technologies-container-template">
 		<div class="container wow fadeInDown">
 			<div class="row">
@@ -162,7 +152,9 @@
 		</div>
 	</script>
 
-	<!-- APPENDED TEMPLATES -->
+	<!-- Child Views -->
+
+	<!-- Technology Item-->
 	<script type="text/template" id="technology-item-template">
 		<div class="stat-item">
 			<i class="<%= icon %>"></i>
@@ -170,6 +162,7 @@
 		</div>
 	</script>
 
+	<!-- Link Item -->
 	<script type="text/template" id="link-item-template">
 		<div class="col-xs-4 col-sm-4 col-md-2 text-center">
 			<a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a>
@@ -177,7 +170,16 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="carousel-template">
+	<!-- Thumbnail Item -->
+	<script type="text/template" id="thumbnail-item-template">
+		<div class="col-md-3 col-sm-3 col-xs-4 thumbnail-item" data-id="<%= id %>">
+			<a class="project-thumbnail-anchor"><img class="img-responsive" src="<%= thumbnail %>">
+				<span><%= name %></span>
+			</a>
+		</div>
+	</script>
+
+	<script type="text/template" id="carousel-container-template">
 		<div class="container carousel-container">	
 			<div class="row project-container">
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 carousel-image-container"> 
@@ -186,7 +188,9 @@
 							<div class="item active">
 								<img class="img-responsive center-block" src="<%= lead %>">
 							</div>
+
 							<!-- gallery -->
+
 						</div>
 					</div>
 				</div>
@@ -195,7 +199,16 @@
 				</div>
 			</div>
 		</div>
-		<div id="thumbnails"></div>
+
+		<div class="container project-thumbnails-container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row thumbnail-items">
+						<!-- Thumbnails -->
+					</div>
+				</div>
+			</div>
+		</div>
 	</script>
 
 	<script type="text/template" id="project-info-template">
@@ -209,7 +222,8 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="gallery-template">
+	<!-- Carousel Item -->
+	<script type="text/template" id="carousel-item-template">
 		<div class="item">
 			<img class="img-responsive center-block gallery-item" src="<%= item %>">
 		</div>
@@ -237,10 +251,11 @@
 	<script src="assets/js/models/ev.js"></script>
 	<script src="assets/js/collections/ev.js"></script>
 	<script src="assets/js/ev.js"></script>
-	<script src="assets/js/views/_thumbnails.js"></script>
+	<script src="assets/js/views/child-views/thumbnails.js"></script>
+	<script src="assets/js/views/index.js"></script>
+	<script src="assets/js/views/work.js"></script>
 	<script src="assets/js/views/about.js"></script>
 	<script src="assets/js/views/contact.js"></script>
-	<script src="assets/js/views/index.js"></script>
 	<script src="assets/js/views/wrapper.js"></script>
 	<script src="assets/js/router.js"></script>
 	<!-- Custom -->

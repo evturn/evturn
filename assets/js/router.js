@@ -3,21 +3,30 @@ var ev = ev || {};
 ev.Router = Backbone.Router.extend({
   wrapper: null,
   indexView: null,
+  workView: null,
   aboutView: null,
   contactView: null,
   routes: {
     ''        : 'index',
+    'work'    : 'work',
     'about'   : 'about',
     'contact' : 'contact'
   },
   initialize: function() {
-    this.wrapper = new Rza();
+    this.wrapper = new ev.Rza();
   },
   index: function() {
     if (this.indexView === null) {
       this.indexView = new ev.IndexView();
     }
     this.wrapper.child = this.indexView;
+    this.wrapper.render();
+  },
+  work: function() {
+    if (this.workView === null) {
+      this.workView = new ev.WorkView();
+    }
+    this.wrapper.child = this.workView;
     this.wrapper.render();
   },
   about: function() {
