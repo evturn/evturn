@@ -39,7 +39,7 @@ gulp.task('compressJS', function() {
   return gulp.src(vendorJS)
     .pipe(concat('vendor.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./vendor'))
+    .pipe(gulp.dest('./build'))
     .on('error', gutil.log);
 });
 
