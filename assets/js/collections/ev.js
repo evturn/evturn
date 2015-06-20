@@ -1,13 +1,13 @@
 var ev = ev || {};
 
-var Projects = Backbone.Collection.extend({
-  model: Project,
+Projects = Backbone.Collection.extend({
+  model: ev.Project,
 });
 
-var Links = Backbone.Collection.extend({
-  model: Link,
+Links = Backbone.Collection.extend({
+  model: ev.Link,
 });
 
-var Technologies = Backbone.Collection.extend({
-  model: Technology,
+Technologies = Backbone.Collection.extend({
+  model: ev.Technology,
 });

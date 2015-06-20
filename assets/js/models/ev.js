@@ -1,7 +1,7 @@
 var ev = ev || {};
 
-var Link = Backbone.Model.extend({});
+ev.Link = Backbone.Model.extend({});
 
-var Project = Backbone.Model.extend({});
+ev.Project = Backbone.Model.extend({});
 
-var Technology = Backbone.Model.extend({});
+ev.Technology = Backbone.Model.extend({});
