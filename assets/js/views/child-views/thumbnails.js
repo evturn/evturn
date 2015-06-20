@@ -7,17 +7,10 @@ ev.Thumbnails = Backbone.View.extend({
     this.collection = ev.fetch('projects');
     this.render();
   },
-  events: {
-    'click .project-thumbnail' : 'select'
-  },
   render: function() {
     for (var i = this.collection.length - 1; i >= 0; i--) {
       this.$el.append(this.itemContainer(this.collection.models[i].toJSON()));
     }
     return this;
-  },
-  select: function(e) {
-    var id = $(e.currentTarget).data('id');
-    var carousel = new ev.WorkView.render(id);
   },
 });

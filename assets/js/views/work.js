@@ -18,11 +18,11 @@ ev.WorkView = Backbone.View.extend({
   el: '.work',
   viewContainer: _.template($('#carousel-container-template').html()),
   initialize: function() {
-    this.collection = ev.fetch('projects');
     this.render();
   },
-  render: function(id) {
-    var model = this.collection.get(id) || this.collection.get(1);
+  render: function() {
+    var collection = ev.fetch('projects');
+    var model = this.model || collection.get(1);
     this.$el.html(this.viewContainer(model.toJSON()));
     var child = new ev.Carousel({model: model});
     return this;
