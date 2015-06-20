@@ -65,11 +65,6 @@
 				</div>
 			</div>
 		</div>
-		<div id="thumbnails"></div>
-	</script>
-
-	<!-- thumbnails container -->
-	<script type="text/template" id="thumbnail-container-template">
 		<div class="container project-thumbnails-container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
@@ -81,9 +76,10 @@
 		</div>
 	</script>
 
+
 	<!-- thumbnail item -->
 	<script type="text/template" id="thumbnail-item-template">
-		<div class="col-md-3 col-sm-3 col-xs-4 project-thumbnail" data-id="<%= id %>">
+		<div class="col-md-3 col-sm-3 col-xs-4 thumbnail-item" data-id="<%= id %>">
 			<a class="project-thumbnail-anchor"><img class="img-responsive" src="<%= thumbnail %>">
 				<span><%= name %></span>
 			</a>
@@ -241,10 +237,11 @@
 	<script src="assets/js/models/ev.js"></script>
 	<script src="assets/js/collections/ev.js"></script>
 	<script src="assets/js/ev.js"></script>
-	<script src="assets/js/views/index.js"></script>
+	<script src="assets/js/views/_thumbnails.js"></script>
 	<script src="assets/js/views/about.js"></script>
 	<script src="assets/js/views/contact.js"></script>
-	<script src="assets/js/views/rza.js"></script>
+	<script src="assets/js/views/index.js"></script>
+	<script src="assets/js/views/wrapper.js"></script>
 	<script src="assets/js/router.js"></script>
 	<!-- Custom -->
 	<script src="assets/js/main.js"></script>

@@ -15,8 +15,7 @@ ev.Router = Backbone.Router.extend({
   },
   index: function() {
     if (this.indexView === null) {
-      var collection = ev.fetch('projects');
-      this.indexView = new IndexView({collection: collection});
+      this.indexView = new ev.IndexView();
     }
     this.wrapper.child = this.indexView;
     this.wrapper.render();

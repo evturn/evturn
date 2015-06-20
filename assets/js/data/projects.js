@@ -116,12 +116,12 @@ var drive =
   };
 
 var projectObjects = [
-  musicInsider, 
-  marshallz, 
-  piqueBeta,
-  drive, 
-  alculator, 
-  ramenBuffet, 
+  tictactoe,
   hangman, 
-  tictactoe
+  ramenBuffet, 
+  alculator, 
+  drive, 
+  piqueBeta,
+  marshallz, 
+  musicInsider
 ];

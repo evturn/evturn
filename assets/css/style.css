@@ -421,7 +421,7 @@ img.img-responsive.center-block {
     .home .project-thumbnails-container {
       margin-top: 30px; } }
   /* line 11, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-  .home .project-thumbnails-container .project-thumbnail {
+  .home .project-thumbnails-container .thumbnail-item {
     padding-top: 15px;
     padding-right: 7.5px;
     padding-left: 7.5px;
