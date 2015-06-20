@@ -1,26 +1,24 @@
 var Home = Backbone.View.extend({
 	el: '.home',
-	headerTemplate   		: _.template($('#home-template').html()),
+	headerTemplate : _.template($('#home-template').html()),
 	events: {
 		'click .project-thumbnail' : 'work'
 	},
 	initialize: function() {
-		this.render();
+		this.header();
+		this.thumbnails();
 	},
-	render: function() {
-		this.$el.html(this.headerTemplate());
+	header: function() {
+		this.$el.append(this.headerTemplate());
 		return this;
 	},
 	thumbnails: function() {
-		$('.projects').html(this.thumbsTemplate());
-		projects.each(function(app) {
-			$('.thumbnail-items').append(this.thumbsChildTemplate(app.toJSON()));
-		}.bind(this));
-		this.$el.append($('.projects'));
+		var view = new Thumbnails({collection: projects});
+		this.$el.append(view.el);
 	},
 	work: function(e) {
 		var id = $(e.currentTarget).data('id');
-		var project = new Work({collection: this.collection});
+		var project = new Work({collection: projects});
 		project.carousel(id);
 		router.navigate('work', {trigger: false});
 	},

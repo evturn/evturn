@@ -4,7 +4,6 @@ var Router = Backbone.Router.extend({
 	aboutView: null,
 	contactView: null,
 	workView: null,
-	thumbnails: new Thumbnails({collection: projects}),
 	routes: {
 		'' 				: 'index',
 		'about' 	: 'about',
@@ -22,7 +21,11 @@ var Router = Backbone.Router.extend({
 		this.wrapper.render();
 	},
 	about: function() {
-		var about = new About();
+		if (this.aboutView === null) {
+			this.aboutView = new Contact({collection: contactLinks});
+		}
+		this.wrapper.child = this.aboutView;
+		this.wrapper.render();
 	},
 	contact: function() {
 		if (this.contactView === null) {
