@@ -15,9 +15,9 @@ ev.Router = Backbone.Router.extend({
   about: function() {
     if (this.contactView === null) {
       var collection = ev.fetch('technologies');
-      this.contactView = new ContactView({collection: collection});
+      this.aboutView = new AboutView({collection: collection});
     }
-    this.wrapper.child = this.contactView;
+    this.wrapper.child = this.aboutView;
     this.wrapper.render();
   },
   contact: function() {
