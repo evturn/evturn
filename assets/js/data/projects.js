@@ -114,9 +114,18 @@ var drive =
         {item: 'assets/img/drive-3.png'}
       ]
   };
+var whereTO = 
+  {
+    name: 'WhereTO',
+    description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
+    id: 9,
+    thumbnail: "assets/img/whereto-tn.png",
+    lead: 'assets/img/whereto-2.png',
+    items: [{item: 'assets/img/whereto-1.png'}]
+  };
 
 var projectObjects = [
-  tictactoe,
+  whereTO,
   hangman, 
   ramenBuffet, 
   alculator, 
