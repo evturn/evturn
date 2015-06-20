@@ -17,6 +17,7 @@ ev.Router = Backbone.Router.extend({
     this.wrapper = new ev.Rza();
   },
   index: function() {
+    ev.createEl('index');
     if (this.indexView === null) {
       this.indexView = new ev.IndexView();
     }
@@ -24,7 +25,7 @@ ev.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   work: function(model) {
-    this.wrapper.work();
+    ev.createEl('work');
     if (this.workView === null) {
       this.workView = new ev.Carousel({model: model});
       this.wrapper.child = this.workView;
@@ -35,6 +36,7 @@ ev.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   about: function() {
+    ev.createEl('about');
     if (this.aboutView === null) {
       this.aboutView = new ev.AboutView();
     }
@@ -42,6 +44,7 @@ ev.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   contact: function() {
+    ev.createEl('contact');
     if (this.contactView === null) {
       this.contactView = new ev.ContactView();
     }

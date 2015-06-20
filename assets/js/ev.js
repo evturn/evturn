@@ -9,6 +9,11 @@ ev = {
     } else if (collection === 'technologies') {
       return new Technologies(technologyObjects);
     } 
+  },
+  createEl: function(string) {
+    $('.' + string).remove();
+    var element = '<div class="' + string + '"></div>';
+    $(element).insertAfter($('#rza'));
   }
 };
 
