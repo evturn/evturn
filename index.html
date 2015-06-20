@@ -33,24 +33,18 @@
 	<div id="rza"></div>
 
 	<div class="index"></div>
-	<div class="work"></div>
 	<div class="about"></div>
 	<div class="contact"></div>
 	
-
-
 	<footer>
 	  <div class="container-fluid footer-container">
 	  	<div class="row footer-row">
-		    <div class="col-md-12 col-sm-12 col-xs-12 text-center footer-col">
+		    <div class="col-lg-12 col-xs-12 text-center footer-col">
 		      <p>2015 © evturn.com | All Rights Reserved</p>
 		    </div>
 	    </div>
 	  </div>
 	</footer>
-
-
-
 
 <!-- UNDERSCORE TEMPLATES -->
 
@@ -58,7 +52,7 @@
 	<script type="text/template" id="index-container-template">
 		<div class="container wow fadeInDown">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="col-lg-12 col-xs-12">
 					<a><img class="img-responsive" src="assets/img/ev-1224.png"></a>
 					<p class="header-subhead wow fadeInUp">Evan Turner // Development</p>
 				</div>
@@ -66,21 +60,20 @@
 		</div>
 		<div class="container project-thumbnails-container">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<div class="row thumbnail-items">
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
+					<ul class="thumbnail-items">
 						<!-- Thumbnails -->
-					</div>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</script>
 
-
 	<!-- About -->
 	<script type="text/template" id="technologies-container-template">
 		<div class="container wow fadeInDown">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
 					<a><img class="img-responsive" src="assets/img/tile.png"></a>
 				</div>
 			</div>
@@ -98,7 +91,7 @@
 				</div>
 			</div>		
 			<div class="row">
-				<div class="col-xs-12 col-md-10 col-md-offset-1">
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
 					<div class="col-md-6 col-sm-6 col-xs-12">	
 						<h4 class="about-subhead">Notable Build Tools</h4>
 						<div class="about-stack stat-items">
@@ -130,11 +123,11 @@
 		</div>
 	</script>
 
-	<!-- contact -->
+	<!-- Contact -->
 	<script type="text/template" id="links-container-template">
 		<div class="container wow fadeIn">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
 					<a><img class="img-responsive" src="assets/img/city-invert.png"></a>
 					<p class="header-subhead">@evturn // evturn [@] gmail.com</p>
 				</div>
@@ -142,11 +135,41 @@
 		</div>		
 		<div class="container contact-container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 text-center">
+				<div class="col-md-10 col-md-offset-1 col-xs-12 text-center">
 					<div class="row contact-links">
 						<!-- contacts -->
 			   	</div>
 			 	</div>		
+			</div>
+		</div>
+	</script>
+
+	<!-- Carousel -->
+	<script type="text/template" id="carousel-container-template">
+		<div class="container carousel-container">	
+			<div class="row project-container">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 carousel-image-container"> 
+					<div class="carousel slide wow bounceInRight" data-ride="carousel" id="gallery">
+						<div class="carousel-inner">
+							<div class="item active">
+								<img class="img-responsive center-block" src="<%= lead %>">
+							</div>
+							<!-- Images -->
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 project-info-container">
+					<!-- Description -->
+				</div>
+			</div>
+		</div>
+		<div class="container project-thumbnails-container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
+					<ul class="thumbnail-items">
+						<!-- Thumbnails -->
+					</ul>
+				</div>
 			</div>
 		</div>
 	</script>
@@ -178,39 +201,9 @@
 		</li>
 	</script>
 
-	<script type="text/template" id="carousel-container-template">
-		<div class="container carousel-container">	
-			<div class="row project-container">
-				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 carousel-image-container"> 
-					<div class="carousel slide wow bounceInRight" data-ride="carousel" id="gallery">
-						<div class="carousel-inner">
-							<div class="item active">
-								<img class="img-responsive center-block" src="<%= lead %>">
-							</div>
 
-							<!-- gallery -->
-
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-lg-4 col-md-4 col-sm-4 col-xs-12 project-info-container">
-					<!-- project info -->
-				</div>
-			</div>
-		</div>
-
-		<div class="container project-thumbnails-container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<ul class="thumbnail-items">
-						<!-- Thumbnails -->
-					</ul>
-				</div>
-			</div>
-		</div>
-	</script>
-
-	<script type="text/template" id="carousel-text-template">
+	<!-- Carousel Panel -->
+	<script type="text/template" id="carousel-panel-template">
 		<h2 class="project-title"><%= name %></h2>
 		<div class="btn-container">
 			<a class="btn btn-white-outline" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>

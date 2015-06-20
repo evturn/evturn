@@ -4,15 +4,13 @@ ev.Carousel = Backbone.View.extend({
   el: '.work',
   viewContainer: _.template($('#carousel-container-template').html()),
   itemContainer: _.template($('#carousel-item-template').html()),
-  itemDescription: _.template($('#carousel-text-template').html()),
+  itemDescription: _.template($('#carousel-panel-template').html()),
   initialize: function() {
-    var collection = ev.fetch('projects');
-    this.model = this.model || collection.get(1);
     this.render();
+    this.setChildViews();
   },
   render: function() {
     this.$el.html(this.viewContainer(this.model.toJSON()));
-    this.setChildViews();
     this.child = new ev.Thumbnails();
     return this;
   },
@@ -22,7 +20,6 @@ ev.Carousel = Backbone.View.extend({
       $('.carousel-inner').append(this.itemContainer(images[i]));
     }
     $('.project-info-container').html(this.itemDescription(this.model.toJSON()));
-    $('html, body').animate({ scrollTop: 0 }, 500);
     return this;
   },
 });

@@ -8,11 +8,10 @@ ev.Router = Backbone.Router.extend({
   contactView: null,
   routes: {
     ''        : 'index',
-    'work'    : 'work',
-    'work/:id': 'work',
+    'work/*'  : 'project',
+    'work/:id': 'project',
     'about'   : 'about',
-    'contact' : 'contact',
-
+    'contact' : 'contact'
   },
   initialize: function() {
     this.wrapper = new ev.Rza();
@@ -24,13 +23,15 @@ ev.Router = Backbone.Router.extend({
     this.wrapper.child = this.indexView;
     this.wrapper.render();
   },
-  work: function(id) {
+  work: function(model) {
+    this.wrapper.work();
     if (this.workView === null) {
-      var collection = ev.fetch('projects');
-      var model = collection.get(id) || collection.get(1)
       this.workView = new ev.Carousel({model: model});
+      this.wrapper.child = this.workView;
+    } else {
+      var view = new ev.Carousel({model: model})
+      this.wrapper.child = view;
     }
-    this.wrapper.child = this.workView;
     this.wrapper.render();
   },
   about: function() {
@@ -47,4 +48,9 @@ ev.Router = Backbone.Router.extend({
     this.wrapper.child = this.contactView;
     this.wrapper.render();
   },
+  project: function(id) {
+    var collection = ev.fetch('projects');
+    var model = collection.get(id) || collection.get(1);
+    this.work(model);
+  }
 });

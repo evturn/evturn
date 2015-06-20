@@ -7,10 +7,17 @@ ev.Thumbnails = Backbone.View.extend({
     this.collection = ev.fetch('projects');
     this.render();
   },
+  events: {
+    'click .thumbnail-item' : 'scrollUp'
+  },
   render: function() {
+    this.$el.empty();
     for (var i = this.collection.length - 1; i >= 0; i--) {
       this.$el.append(this.itemContainer(this.collection.models[i].toJSON()));
     }
     return this;
   },
+  scrollUp: function() {
+    $('html, body').animate({ scrollTop: 0 }, 500);
+  }
 });
