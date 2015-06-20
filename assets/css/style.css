@@ -302,49 +302,52 @@ img.img-responsive.center-block {
     /* line 19, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
     .ev-navbar .nav-link:hover {
       color: #231f20; }
+    /* line 22, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    .ev-navbar .nav-link.nav-active:hover {
+      color: #ffffff; }
   @media (min-width: 320px) {
-    /* line 24, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    /* line 27, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
     .ev-navbar .nav-item {
       padding-left: 5px;
       padding-right: 5px; }
-      /* line 27, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      /* line 30, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
       .ev-navbar .nav-item .nav-text {
         line-height: 1.4em;
         font-size: 20px;
         margin-bottom: 0; } }
   @media (min-width: 480px) {
-    /* line 35, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    /* line 38, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
     .ev-navbar .nav-item {
       padding-left: 15px;
       padding-right: 15px;
       -webkit-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out; }
-      /* line 39, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      /* line 42, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
       .ev-navbar .nav-item:hover {
         -webkit-transform: scale(1.05);
         -moz-transform: scale(1.05);
         -o-transform: scale(1.05);
         transform: scale(1.05); }
-      /* line 42, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      /* line 45, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
       .ev-navbar .nav-item .nav-text {
         font-size: 24px; } }
   @media (min-width: 768px) {
-    /* line 48, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    /* line 51, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
     .ev-navbar .nav-items {
       float: right; }
-    /* line 51, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    /* line 54, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
     .ev-navbar .nav-item {
       padding-left: 5px;
       padding-right: 5px; }
-      /* line 54, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      /* line 57, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
       .ev-navbar .nav-item .nav-text {
         font-size: 18px; } }
   @media (min-width: 992px) {
-    /* line 60, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+    /* line 63, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
     .ev-navbar .nav-item {
       padding-left: 10px;
       padding-right: 10px; }
-      /* line 63, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
+      /* line 66, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_nav.scss */
       .ev-navbar .nav-item .nav-text {
         font-size: 22px; } }
 
