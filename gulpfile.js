@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    minifyCss = require('gulp-minify-css');
 
 var js = [
     './assets/js/**/*.js',
@@ -19,7 +20,14 @@ var vendorJS = [
   './vendor/js/wow.js'
 ];
 
-gulp.task('default', ['watch', 'sass', 'lint', 'compressJS', 'compressData']);
+var vendorCSS = [
+  './vendor/css/bootstrap.css',
+  './vendor/css/animate.css',
+  './vendor/css/font-awesome.comp.css',
+  './vendor/css/devicon.comp.css'
+];
+
+gulp.task('default', ['watch', 'sass', 'lint', 'compressCSS', 'compressJS', 'compressData']);
 
 gulp.task('sass', function() {
   return gulp.src('./assets/css/scss/**/*.scss')
@@ -47,6 +55,14 @@ gulp.task('compressData', function() {
   return gulp.src('./assets/js/data/**/*.js')
     .pipe(concat('data.js'))
     .pipe(uglify())
+    .pipe(gulp.dest('./build'))
+    .on('error', gutil.log);
+});
+
+gulp.task('compressCSS', function() {
+  return gulp.src(vendorCSS)
+    .pipe(concat('vendor.css'))
+    .pipe(minifyCss())
     .pipe(gulp.dest('./build'))
     .on('error', gutil.log);
 });
