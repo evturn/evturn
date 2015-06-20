@@ -5,6 +5,7 @@ ev.AboutView = Backbone.View.extend({
   viewContainer: _.template($('#technologies-container-template').html()),
   itemContainer: _.template($('#technology-item-template').html()),
   initialize: function() {
+    this.collection = ev.fetch('technologies');
     this.render();
   },
   render: function() {

@@ -5,6 +5,7 @@ ev.ContactView = Backbone.View.extend({
 	viewContainer: _.template($('#links-container-template').html()),
 	itemContainer: _.template($('#link-item-template').html()),
 	initialize: function() {
+		this.collection = ev.fetch('links');
 		this.render();
 	},
 	render: function() {
