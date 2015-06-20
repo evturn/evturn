@@ -1,78 +1,130 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,100,200,300,500,600);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
 /* line 4, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+.nav-active {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  background-color: #231f20;
+  color: #ffffff; }
+  /* line 27, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_mixins.scss */
+  .nav-active:focus {
+    color: #ffffff; }
+
+/* line 8, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 html {
   min-height: 100%;
   position: relative; }
 
-/* line 9, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 13, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 body {
   background-image: url("../img/brickwall.png");
   margin-bottom: 60px; }
 
-/* line 14, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 18, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 body, h6, h5, h4, h3, h2, h1, p, a {
   font-family: Source Sans Pro;
   font-weight: 500;
   background-color: transparent;
   font-smooth: always; }
 
-/* line 21, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 25, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 ul {
   padding-left: 0; }
 
-/* line 22, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 26, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 li {
   list-style-type: none; }
 
-/* line 24, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 28, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+.avatar {
+  border-radius: 20%;
+  max-width: 45%;
+  text-align: center;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+/* line 38, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+.contact-container {
+  margin-top: 60px; }
+
+/* line 42, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+.contact-links i:hover {
+  color: #ffffff; }
+
+/* line 46, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+/* line 52, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+.footer-col {
+  z-index: 1;
+  text-align: center;
+  color: #929497; }
+
+/* line 58, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+.footer-egg {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/egg.png"); }
+
+/* line 68, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-container {
   text-align: center; }
 
-/* line 28, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 72, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-black {
   background-color: #231f20;
   color: #ffffff;
   font-weight: bold; }
 
-/* line 34, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 78, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-white {
   background-color: #ffffff;
   color: #231f20;
   font-weight: bold; }
 
-/* line 40, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 84, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .btn-white-outline {
   background-color: #ffffff;
   color: #231f20;
   font-weight: bold;
   border: 1px solid #d0d2d3; }
 
-/* line 47, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 91, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 img.img-responsive.center-block {
   width: 100%;
   height: auto; }
 
-/* line 52, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 96, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .icon {
   background: transparent;
   color: #231f20; }
+  /* line 99, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+  .icon:hover {
+    background: transparent;
+    cursor: pointer; }
 
-/* line 57, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
-.icon:hover {
-  background: transparent;
-  cursor: pointer; }
-
-/* line 62, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 105, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .fa:focus {
   background-color: transparent;
   color: #231f20; }
 
-/* line 67, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 110, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .section-title {
   text-transform: uppercase; }
 
-/* line 71, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+/* line 114, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 .header-subhead {
   background-color: #231f20;
   color: #ffffff;
@@ -80,12 +132,12 @@ img.img-responsive.center-block {
   text-transform: uppercase;
   border-radius: 1px; }
   @media (min-width: 320px) {
-    /* line 71, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+    /* line 114, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
     .header-subhead {
       margin-bottom: 0;
       padding-left: 0; } }
   @media (min-width: 992px) {
-    /* line 71, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
+    /* line 114, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
     .header-subhead {
       text-align: left;
       font-size: 18px;
@@ -143,48 +195,6 @@ img.img-responsive.center-block {
     .about-lead {
       line-height: 1.4em; } }
 
-/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_contact.scss */
-.contact-container {
-  margin-top: 60px; }
-
-/* line 5, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_contact.scss */
-.contact-links i:hover {
-  color: #ffffff; }
-
-/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_footer.scss */
-.footer-container {
-  position: absolute;
-  bottom: 0;
-  width: 100%; }
-
-/* line 7, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_footer.scss */
-.footer-col {
-  z-index: 1;
-  text-align: center;
-  color: #a3a3a3; }
-
-/* line 13, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_footer.scss */
-.footer-egg {
-  position: absolute;
-  z-index: -1;
-  bottom: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  background-image: url("../img/egg.png"); }
-
-/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_header.scss */
-.avatar {
-  border-radius: 20%;
-  max-width: 45%;
-  text-align: center;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
-
 /* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
 #preloader {
   width: 100%;
@@ -193,7 +203,7 @@ img.img-responsive.center-block {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #fff;
+  background: #ffffff;
   z-index: 11000;
   position: fixed;
   display: block; }
