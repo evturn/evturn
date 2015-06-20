@@ -1,6 +1,6 @@
 var Home = Backbone.View.extend({
 	el: '.home',
-	homeTemplate   			: _.template($('#home-template').html()),
+	headerTemplate   			: _.template($('#home-template').html()),
 	thumbsTemplate 			: _.template($('#thumbnails-template').html()),
 	thumbsChildTemplate : _.template($('#thumbnail-child-template').html()),
 	events: {
@@ -10,7 +10,7 @@ var Home = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
-		this.$el.html(this.homeTemplate());
+		this.$el.html(this.headerTemplate());
 		this.$el.append(this.thumbsTemplate());
 		this.thumbnails();
 		return this;
