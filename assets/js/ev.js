@@ -14,6 +14,14 @@ ev = {
     $('.' + string).remove();
     var element = '<div class="' + string + '"></div>';
     $(element).insertAfter($('#rza'));
+  },
+  navActive: function(string) {
+    $('.nav-link').removeClass('nav-active');
+    $('.nav-' + string).addClass('nav-active');
+  },
+  build: function(string) {
+    this.navActive(string);
+    this.createEl(string);
   }
 };
 
