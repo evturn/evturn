@@ -1,4 +1,6 @@
-var AboutView = Backbone.View.extend({
+var ev = ev || {};
+
+ev.AboutView = Backbone.View.extend({
   el: '.about',
   viewContainer: _.template($('#technologies-container-template').html()),
   itemContainer: _.template($('#technology-item-template').html()),

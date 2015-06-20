@@ -2,20 +2,29 @@ var ev = ev || {};
 
 ev.Router = Backbone.Router.extend({
   wrapper: null,
+  indexView: null,
   aboutView: null,
   contactView: null,
   routes: {
-    ''        : 'home',
+    ''        : 'index',
     'about'   : 'about',
     'contact' : 'contact'
   },
   initialize: function() {
     this.wrapper = new Rza();
   },
+  index: function() {
+    if (this.indexView === null) {
+      var collection = ev.fetch('projects');
+      this.indexView = new IndexView({collection: collection});
+    }
+    this.wrapper.child = this.indexView;
+    this.wrapper.render();
+  },
   about: function() {
-    if (this.contactView === null) {
+    if (this.aboutView === null) {
       var collection = ev.fetch('technologies');
-      this.aboutView = new AboutView({collection: collection});
+      this.aboutView = new ev.AboutView({collection: collection});
     }
     this.wrapper.child = this.aboutView;
     this.wrapper.render();
