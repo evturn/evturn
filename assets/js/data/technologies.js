@@ -103,10 +103,18 @@ var mongodb =
     color: 'devicon-mongodb-plain colored',
     id: 15
   };  
+var gulp =
+  {
+    technology: 'Gulp.js',
+    icon: 'devicon-gulp-plain',
+    color: 'devicon-gulp-plain',
+    id: 16
+  };
 
 var technologyObjects = [
-  node,
   backbone,
+  node,
+  gulp,
   sass,
   bootstrap,
   git,
