@@ -17,9 +17,7 @@ ev.IndexView = Backbone.View.extend({
   },
   select: function(e) {
     var id = $(e.currentTarget).data('id');
-    var model = this.collection.get(id);
-    console.log(model);
-    this.remove();
-    var carousel = new ev.WorkView({model: model});
+    var model = this.collection.get(id) || this.collection.get(1);
+    var carousel = new ev.Carousel({model: model});
   },
 });

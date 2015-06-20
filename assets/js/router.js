@@ -24,7 +24,7 @@ ev.Router = Backbone.Router.extend({
   },
   work: function() {
     if (this.workView === null) {
-      this.workView = new ev.WorkView();
+      this.workView = new ev.Carousel();
     }
     this.wrapper.child = this.workView;
     this.wrapper.render();
