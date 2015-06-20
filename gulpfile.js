@@ -27,20 +27,22 @@ var vendorCSS = [
   './vendor/css/devicon.comp.css'
 ];
 
-gulp.task('default', ['watch', 'sass', 'lint', 'compressCSS', 'compressJS', 'compressData']);
+gulp.task('default', ['watch']);
 
 gulp.task('sass', function() {
   return gulp.src('./assets/css/scss/**/*.scss')
     .pipe(sass({sourceComments: 'map',
       sourceMap: 'sass',
       outputStyle: 'nested'}))
-    .pipe(gulp.dest('./assets/css'));
+    .pipe(gulp.dest('./assets/css'))
+    .on('error', gutil.log);
 });
 
 gulp.task('lint', function() {
   return gulp.src('./assets/js/**/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
+    .pipe(jshint.reporter(stylish))
+    .on('error', gutil.log);
 });
 
 gulp.task('compressJS', function() {
