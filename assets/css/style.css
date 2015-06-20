@@ -12,7 +12,7 @@ body {
 
 /* line 14, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_base.scss */
 body, h6, h5, h4, h3, h2, h1, p, a {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: Source Sans Pro;
   font-weight: 500;
   background-color: transparent;
   font-smooth: always; }
@@ -338,88 +338,88 @@ img.img-responsive.center-block {
       .ev-navbar .nav-item .nav-text {
         font-size: 22px; } }
 
-/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+/* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
 .work {
   background-image: url("../img/brickwall.png"); }
 
-/* line 4, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-.project-container {
+/* line 4, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+.carousel-row {
   background-color: #e6e7e8;
   color: #231f20;
   border-bottom: 1px solid #f8f8f8;
   border-right: 1px solid #f8f8f8;
   border-radius: 2px; }
 
-/* line 11, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
+/* line 11, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
 .carousel-image-container {
   padding-left: 0;
   padding-right: 0; }
 
-/* line 15, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-.project-info-container {
+/* line 15, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+.carousel-panel {
   font-family: Source Sans Pro; }
-  /* line 17, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-  .project-info-container .fa {
+  /* line 17, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+  .carousel-panel .fa {
     font-weight: bold; }
-  /* line 18, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-  .project-info-container .project-text {
+  /* line 18, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+  .carousel-panel .project-text {
     padding: 15px; }
-    /* line 20, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-    .project-info-container .project-text p {
+    /* line 20, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+    .carousel-panel .project-text p {
       font-size: 15px;
       padding-top: 10px;
       font-weight: normal;
       text-align: center; }
-    /* line 26, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-    .project-info-container .project-text a {
+    /* line 26, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+    .carousel-panel .project-text a {
       text-decoration: none;
       color: #00b2e2;
       font-family: Source Sans Pro; }
-      /* line 30, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-      .project-info-container .project-text a:hover {
+      /* line 30, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+      .carousel-panel .project-text a:hover {
         color: #00cfff; }
   @media (min-width: 320px) {
-    /* line 37, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-    .project-info-container .project-title {
+    /* line 37, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+    .carousel-panel .project-title {
       text-transform: uppercase;
       color: #ffffff;
       background-color: #231f20;
       text-align: center; } }
   @media (min-width: 480px) {
-    /* line 15, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_project.scss */
-    .project-info-container {
+    /* line 15, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_work.scss */
+    .carousel-panel {
       padding-top: 7%; } }
 
 /* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-.project-thumbnails-container {
+.thumbnails-container {
   margin-bottom: 80px;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   @media (min-width: 320px) {
     /* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-    .project-thumbnails-container {
+    .thumbnails-container {
       margin-top: 0; }
       /* line 7, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-      .project-thumbnails-container .thumbnail-item {
+      .thumbnails-container .thumbnail-item {
         cursor: pointer;
         -webkit-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out; }
         /* line 10, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-        .project-thumbnails-container .thumbnail-item:hover {
+        .thumbnails-container .thumbnail-item:hover {
           -webkit-transform: scale(1.05);
           -moz-transform: scale(1.05);
           -o-transform: scale(1.05);
           transform: scale(1.05); }
         /* line 13, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-        .project-thumbnails-container .thumbnail-item img {
+        .thumbnails-container .thumbnail-item img {
           border-radius: 3px; } }
   @media (min-width: 992px) {
     /* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-    .project-thumbnails-container {
+    .thumbnails-container {
       margin-top: 30px; } }
   /* line 22, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-  .project-thumbnails-container .thumbnail-item {
+  .thumbnails-container .thumbnail-item {
     padding-top: 15px;
     padding-right: 7.5px;
     padding-left: 7.5px; }

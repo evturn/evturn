@@ -19,7 +19,7 @@ ev.Carousel = Backbone.View.extend({
     for (var i = 0; i < images.length; i++) {
       $('.carousel-inner').append(this.itemContainer(images[i]));
     }
-    $('.project-info-container').html(this.itemDescription(this.model.toJSON()));
+    $('.carousel-panel').html(this.itemDescription(this.model.toJSON()));
     return this;
   },
 });
