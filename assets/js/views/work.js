@@ -22,7 +22,7 @@ var Work = Backbone.View.extend({
     this.thumbnails();
   },
   thumbnails: function() {
-    portfolio.each(function(app) {
+    projects.each(function(app) {
       $('.thumbnail-items').append(this.thumbsChildTemplate(app.toJSON()));
     }.bind(this));
   },

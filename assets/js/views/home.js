@@ -1,6 +1,6 @@
 var Home = Backbone.View.extend({
 	el: '.home',
-	headerTemplate   			: _.template($('#home-template').html()),
+	headerTemplate   		: _.template($('#home-template').html()),
 	thumbsTemplate 			: _.template($('#thumbnails-template').html()),
 	thumbsChildTemplate : _.template($('#thumbnail-child-template').html()),
 	events: {
@@ -16,7 +16,7 @@ var Home = Backbone.View.extend({
 		return this;
 	},
 	thumbnails: function() {
-		portfolio.each(function(app) {
+		projects.each(function(app) {
 			$('.thumbnail-items').append(this.thumbsChildTemplate(app.toJSON()));
 		}.bind(this));
 	},

@@ -1,4 +1,4 @@
-var Portfolio = Backbone.Collection.extend({
+var Projects = Backbone.Collection.extend({
 	model: Project,
 });
 
@@ -15,4 +15,4 @@ var featuredProjects = [
 	tictactoe
 ];
 
-var portfolio  = new Portfolio(featuredProjects);
+var projects  = new Projects(featuredProjects);

@@ -1,16 +1,21 @@
 var Router = Backbone.Router.extend({
+	wrapper: null,
+	home: null,
 	routes: {
-		'' 				: 'home',
+		'' 				: 'index',
 		'about' 	: 'about',
 		'contact' : 'contact',
 		'work'		: 'work'
 	},
-	home: function() {
-		$('.about').hide();
-		$('.contact').hide();
-		$('.work').hide();
-		var home = new Home({collection: portfolio});
-		$('.home').show();
+	initialize: function() {
+		this.wrapper = new Main();
+	},
+	index: function() {
+		if (this.home == null) {
+			this.home = new Home({collection: projects});
+		}
+		this.wrapper.child = this.home;
+		this.wrapper.render();
 	},
 	about: function() {
 		$('.home').hide();
@@ -30,7 +35,7 @@ var Router = Backbone.Router.extend({
 		$('.home').hide();
 		$('.about').hide();
 		$('.contact').hide();
-		var work = new Work({collection: portfolio});
+		var work = new Work({collection: projects});
 		$('.work').show();
 	}
 });
