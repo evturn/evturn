@@ -10,7 +10,7 @@ var allLinks = function() {
   var value = function() {
     var data = linkData();
     return new Links(data);
-  }
+  };
 
   return value();
 };

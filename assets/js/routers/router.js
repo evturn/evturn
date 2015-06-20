@@ -1,6 +1,10 @@
 var Router = Backbone.Router.extend({
 	wrapper: null,
-	home: null,
+	homeView: null,
+	aboutView: null,
+	contactView: null,
+	workView: null,
+	thumbnails: new Thumbnails({collection: projects}),
 	routes: {
 		'' 				: 'index',
 		'about' 	: 'about',
@@ -11,31 +15,27 @@ var Router = Backbone.Router.extend({
 		this.wrapper = new Main();
 	},
 	index: function() {
-		if (this.home == null) {
-			this.home = new Home({collection: projects});
+		if (this.homeView === null) {
+			this.homeView = new Home({collection: projects});
 		}
-		this.wrapper.child = this.home;
+		this.wrapper.child = this.homeView;
 		this.wrapper.render();
 	},
 	about: function() {
-		$('.home').hide();
-		$('.contact').hide();
-		$('.work').hide();
 		var about = new About();
-		$('.about').show();
 	},
 	contact: function() {
-		$('.home').hide();
-		$('.about').hide();
-		$('.work').hide();
-		var contact = new Contact();
-		$('.contact').show();
+		if (this.contactView === null) {
+			this.contactView = new Contact({collection: contactLinks});
+		}
+		this.wrapper.child = this.contactView;
+		this.wrapper.render();
 	},
 	work: function() {
-		$('.home').hide();
-		$('.about').hide();
-		$('.contact').hide();
-		var work = new Work({collection: projects});
-		$('.work').show();
+		if (this.workView === null) {
+			this.workView = new Work({collection: projects});
+		}
+		this.wrapper.child = this.workView;
+		this.wrapper.render();
 	}
 });

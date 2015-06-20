@@ -3,11 +3,10 @@ var Work = Backbone.View.extend({
   carouselTpl         : _.template($('#carousel-template').html()),
   infoTemplate        : _.template($('#project-info-template').html()),
   galleryTpl          : _.template($('#gallery-template').html()),
-  thumbsTemplate      : _.template($('#thumbnails-template').html()),
-  thumbsChildTemplate : _.template($('#thumbnail-child-template').html()),
 	initialize: function() {
     this.carousel();
-    $("html, body").animate({ scrollTop: 0 }, 500);
+    this.thumbnails();
+    $('html, body').animate({ scrollTop: 0 }, 500);
 	},
   events: {
     'click .project-thumbnail' : 'select'
@@ -17,14 +16,14 @@ var Work = Backbone.View.extend({
     this.$el.html(this.carouselTpl(project.toJSON()));
     $('.project-info-container').html(this.infoTemplate(project.toJSON()));
     this.gallery(project);
-    this.$el.append(this.thumbsTemplate());
 		$('.carousel').carousel({interval: 3500});
-    this.thumbnails();
   },
   thumbnails: function() {
+    $('.projects').html(this.thumbsTemplate());
     projects.each(function(app) {
       $('.thumbnail-items').append(this.thumbsChildTemplate(app.toJSON()));
     }.bind(this));
+    this.$el.append($('.projects'));
   },
   gallery: function(model) {
     var gallery = model.get('items');
