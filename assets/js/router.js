@@ -30,7 +30,7 @@ ev.Router = Backbone.Router.extend({
       this.workView = new ev.Carousel({model: model});
       this.wrapper.child = this.workView;
     } else {
-      var view = new ev.Carousel({model: model})
+      var view = new ev.Carousel({model: model});
       this.wrapper.child = view;
     }
     this.wrapper.render();
