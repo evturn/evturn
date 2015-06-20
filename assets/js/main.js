@@ -1,4 +1,6 @@
-var router = new Router();
+var ev = ev || {};
+
+var router = new ev.Router();
 Backbone.history.start();
 
 function count($this){

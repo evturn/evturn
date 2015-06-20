@@ -103,3 +103,15 @@ var mongodb =
     color: 'devicon-mongodb-plain colored',
     id: 15
   };  
+
+var technologyObjects = [
+  node,
+  backbone,
+  sass,
+  bootstrap,
+  git,
+  photoshop,
+  mongodb,
+  digitalOcean,
+  express
+];

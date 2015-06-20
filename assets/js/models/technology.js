@@ -1,1 +1,0 @@
-var Technology = Backbone.Model.extend({});

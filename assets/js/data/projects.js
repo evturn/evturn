@@ -114,3 +114,14 @@ var drive =
         {item: 'assets/img/drive-3.png'}
       ]
   };
+
+var projectObjects = [
+  musicInsider, 
+  marshallz, 
+  piqueBeta,
+  drive, 
+  alculator, 
+  ramenBuffet, 
+  hangman, 
+  tictactoe
+];

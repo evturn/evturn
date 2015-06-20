@@ -1,4 +1,6 @@
-var Home = Backbone.View.extend({
+var ev = ev || {};
+
+ev.Home = Backbone.View.extend({
 	el: '.home',
 	headerTemplate : _.template($('#home-template').html()),
 	events: {

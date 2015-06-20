@@ -1,4 +1,6 @@
-var Main = Backbone.View.extend({
+var ev = ev || {};
+
+var Rza = Backbone.View.extend({
   el: '#rza',
   child: null,
   render: function() {
