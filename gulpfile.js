@@ -19,7 +19,7 @@ var vendorJS = [
   './vendor/js/wow.js'
 ];
 
-gulp.task('default', ['watch', 'sass', 'lint', 'compressJS']);
+gulp.task('default', ['watch', 'sass', 'lint', 'compressJS', 'compressData']);
 
 gulp.task('sass', function() {
   return gulp.src('./assets/css/scss/**/*.scss')
@@ -43,7 +43,16 @@ gulp.task('compressJS', function() {
     .on('error', gutil.log);
 });
 
+gulp.task('compressData', function() {
+  return gulp.src('./assets/js/data/**/*.js')
+    .pipe(concat('data.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build'))
+    .on('error', gutil.log);
+});
+
 gulp.task('watch', function() {
   gulp.watch('./assets/css/scss/**/*.scss', ['sass']);
   gulp.watch(js, ['lint']);
+  gulp.watch('./assets/js/data/**/*.js', ['compressData']);
 });
