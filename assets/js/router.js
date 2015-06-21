@@ -1,17 +1,17 @@
 var ev = ev || {};
 
 ev.Router = Backbone.Router.extend({
-  wrapper: null,
-  indexView: null,
-  workView: null,
-  aboutView: null,
-  contactView: null,
+  wrapper      : null,
+  indexView    : null,
+  workView     : null,
+  aboutView    : null,
+  contactView  : null,
   routes: {
-    ''        : 'index',
-    'work/*'  : 'project',
-    'work/:id': 'project',
-    'about'   : 'about',
-    'contact' : 'contact'
+    ''         : 'index',
+    'work/*'   : 'project',
+    'work/:id' : 'project',
+    'about'    : 'about',
+    'contact'  : 'contact'
   },
   initialize: function() {
     this.wrapper = new ev.Rza();

@@ -2,10 +2,10 @@ var ev = ev || {};
 
 ev.Carousel = Backbone.View.extend({
   el: '.work',
-  viewContainer: _.template($('#carousel-container-template').html()),
-  itemContainer: _.template($('#carousel-item-template').html()),
-  itemDescription: _.template($('#carousel-panel-template').html()),
-  itemPreloader: _.template($('#carousel-preloader-template').html()),
+  viewContainer   : _.template($('#carousel-container-template').html()),
+  itemContainer   : _.template($('#carousel-item-template').html()),
+  itemDescription : _.template($('#carousel-panel-template').html()),
+  itemPreloader   : _.template($('#carousel-preloader-template').html()),
   initialize: function() {
     this.render();
     this.setChildViews();
