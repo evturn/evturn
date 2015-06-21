@@ -38,7 +38,6 @@ gulp.task('compileSass', function() {
       outputStyle: 'nested'}))
     .pipe(gulp.dest('./assets/css'))
     .pipe(size())
-    .pipe(notify('SCSS compilled'))
     .on('error', gutil.log);
 });
 
@@ -76,7 +75,6 @@ gulp.task('compressData', function() {
     .pipe(uglify())
     .pipe(gulp.dest('./dist'))
     .pipe(size())
-    .pipe(notify('data.js compressed'))
     .on('error', gutil.log);
 });
 

@@ -1,0 +1,90 @@
+{
+  "technology": "Node.js",
+  "icon": "devicon-nodejs-plain-wordmark",
+  "color": "devicon-nodejs-plain-wordmark colored",
+  "id": 1
+},
+{
+  "technology": "AngularJS",
+  "icon": "devicon-angularjs-plain",
+  "color": "devicon-angularjs-plain colored",
+  "id": 2
+},
+{
+  "technology": "Backbone.js",
+  "icon": "devicon-backbonejs-plain",
+  "color": "devicon-backbonejs-plain colored",
+  "id": 3
+},
+{
+  "technology": "jQuery",
+  "icon": "devicon-jquery-plain",
+  "color": "devicon-jquery-plain colored",
+  "id": 4
+},
+{
+  "technology": "Bootstrap",
+  "icon": "devicon-bootstrap-plain",
+  "color": "devicon-bootstrap-plain colored",
+  "id": 5
+},
+{
+  "technology": "git",
+  "icon": "devicon-git-plain",
+  "color": "devicon-git-plain colored",
+  "id": 6
+},
+{
+  "technology": "Photoshop",
+  "icon": "devicon-photoshop-plain",
+  "color": "devicon-photoshop-plain colored",
+  "id": 7
+},
+{
+  "technology": "Droplet",
+  "icon": "devicon-ubuntu-plain",
+  "color": "devicon-ubuntu-plain colored",
+  "id": 8
+},
+{
+  "technology": "Firebase",
+  "icon": "fa fa-database fa-2x",
+  "color": "fa fa-database fa-2x",
+  "id": 9
+},
+{
+  "technology": "MongoDB",
+  "icon": "devicon-mongodb-plain",
+  "color": "devicon-mongodb-plain colored",
+  "id": 10
+},
+{
+  "technology": "Underscore.js",
+  "icon": "fa fa-minus fa-2x",
+  "color": "fa fa-minus fa-2x",
+  "id": 11
+},
+{
+  "technology": "Express.js",
+  "icon": "devicon-nodejs-plain",
+  "color": "devicon-nodejs-plain colored",
+  "id": 12  
+},
+{
+  "technology": "MongoDB",
+  "icon": "devicon-mongodb-plain",
+  "color": "devicon-nodejs-plain colored",
+  "id": 13  
+},
+{
+  "technology": "Sass",
+  "icon": "devicon-sass-original",
+  "color": "devicon-sass-original colored",
+  "id": 14
+},
+{
+  "technology": "Gulp.js",
+  "icon": "devicon-gulp-plain",
+  "color": "devicon-gulp-plain",
+  "id": 15
+}
