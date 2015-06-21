@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     minifyCss = require('gulp-minify-css'),
-    size = require('gulp-filesize');
+    size = require('gulp-filesize'),
+    notify = require('gulp-notify');
 
 var js = [
     './assets/js/**/*.js',
@@ -37,14 +38,24 @@ gulp.task('compileSass', function() {
       outputStyle: 'nested'}))
     .pipe(gulp.dest('./assets/css'))
     .pipe(size())
+    .pipe(notify('SCSS compilled'))
     .on('error', gutil.log);
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./assets/js/**/*.js')
+  gulp.src('./assets/js/**/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter(stylish))
-    .on('error', gutil.log);
+    .pipe(notify(function(file) {
+      if (file.jshint.success) {
+        return false;
+      }
+      var errors = file.jshint.results.map(function(data) {
+        if (data.error) {
+          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+        }
+      }).join("\n");
+      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+    }));
 });
 
 gulp.task('compressJS', function() {
@@ -54,6 +65,7 @@ gulp.task('compressJS', function() {
     .pipe(uglify())
     .pipe(gulp.dest('./build'))
     .pipe(size())
+    .pipe(notify('vendor.js compressed'))
     .on('error', gutil.log);
 });
 
@@ -64,6 +76,7 @@ gulp.task('compressData', function() {
     .pipe(uglify())
     .pipe(gulp.dest('./build'))
     .pipe(size())
+    .pipe(notify('data.js compressed'))
     .on('error', gutil.log);
 });
 
@@ -74,6 +87,7 @@ gulp.task('compressCSS', function() {
     .pipe(minifyCss())
     .pipe(gulp.dest('./build'))
     .pipe(size())
+    .pipe(notify('vendor.css compressed'))
     .on('error', gutil.log);
 });
 
