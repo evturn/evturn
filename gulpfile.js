@@ -27,9 +27,9 @@ var vendorCSS = [
   './vendor/css/devicon.comp.css'
 ];
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'compileSass']);
 
-gulp.task('sass', function() {
+gulp.task('compileSass', function() {
   return gulp.src('./assets/css/scss/**/*.scss')
     .pipe(sass({sourceComments: 'map',
       sourceMap: 'sass',
@@ -70,7 +70,7 @@ gulp.task('compressCSS', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./assets/css/scss/**/*.scss', ['sass']);
+  gulp.watch('./assets/css/scss/**/*.scss', ['compileSass']);
   gulp.watch(js, ['lint']);
   gulp.watch('./assets/js/data/**/*.js', ['compressData']);
 });

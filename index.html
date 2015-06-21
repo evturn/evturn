@@ -59,7 +59,7 @@
 		</div>
 		<div class="container thumbnails-container">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1 col-xs-12">
+				<div class="col-md-10 col-md-offset-1 col-xs-12 grid">
 					<ul class="thumbnail-items">
 						<!-- Thumbnails -->
 					</ul>
@@ -192,9 +192,14 @@
 
 	<!-- Thumbnail Item -->
 	<script type="text/template" id="thumbnail-item-template">
-		<li class="col-md-3 col-sm-3 col-xs-4 thumbnail-item" data-id="<%= id %>">
+		<li class="col-md-3 col-sm-3 col-xs-4 thumbnail-item">
 			<a href="#work/<%= id %>">
-				<img class="img-responsive" src="<%= thumbnail %>">
+				<figure class="effect-ev">
+					<img class="img-responsive" src="<%= thumbnail %>">
+					<figcaption>
+					<p><%= name %></p>
+					</figcaption>			
+				</figure>
 			</a>
 		</li>
 	</script>
