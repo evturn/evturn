@@ -1,0 +1,50 @@
+.work {
+  background-image: url('../img/brickwall.png');
+}
+.carousel-row {
+  background-color: $primarygreydark;
+  color: $white;
+  border-bottom: 1px solid $primarygreylight;
+  border-right: 1px solid $primarygreylight;
+  border-radius: 3px;
+}
+.carousel-image-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.carousel-panel {
+  font-family: $primaryserif;
+  .fa { font-weight: bold; }
+  .project-text {
+    padding: 15px;
+    p {
+      font-size: 15px;
+      padding-top: 10px;
+      font-weight: normal;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+      color: $primarylight;
+      font-family: $primaryserif;
+      &:hover {
+        color: $primarylighthover;
+      }
+    }
+  }
+
+  @media (min-width: $screen-xxs) {
+    .project-title {
+      text-transform: uppercase;
+      color: $white;
+      background-color: $black;
+      text-align: center;
+    }
+  }
+  @media (min-width: $screen-xs) {
+    padding-top: 7%;
+    .project-title {
+      
+    }
+  }
+}

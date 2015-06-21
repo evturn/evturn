@@ -1,0 +1,30 @@
+@mixin ease-all() {
+  -webkit-transition: all 0.3 ease;
+  -moz-transition: all 0.3 ease;
+  -o-transition: all 0.3 ease;
+  -ms-transition: all 0.3 ease;
+  transition: all 0.3s ease;
+}
+
+@mixin ease-in-out() {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+@mixin scale() {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+@mixin nav-active() {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  background-color: $black;
+  color: $white;
+  &:focus {
+    color: $white;
+  }
+}

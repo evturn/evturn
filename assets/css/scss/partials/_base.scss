@@ -1,0 +1,121 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,400,100,200,300,500,600);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+
+.nav-active {
+  @include nav-active();
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  background-image: url('../img/brickwall.png');
+  margin-bottom: 60px;
+}
+
+body, h6, h5, h4, h3, h2, h1, p, a {
+  font-family: $primaryserif;
+  font-weight: 500;
+  background-color: transparent;
+  font-smooth: always;
+}
+
+ul { padding-left: 0; }
+li { list-style-type: none; }
+
+.avatar {
+  border-radius: 20%;
+  max-width: 45%;
+  text-align: center;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  @include transition(all 0.3s ease);
+}
+
+.fa.fa-skype:hover {
+  color: $black;
+  cursor: default;
+}
+.contact-container {
+  margin-top: 60px;
+}
+
+.contact-links i:hover {
+  color: $white;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .footer-container {
+    z-index: 1;
+    text-align: center;
+    color: $black50;
+  }
+}
+.btn-container {
+  text-align: center;
+}
+
+.btn-black {
+  background-color: $black;
+  color: $white;
+  font-weight: bold;
+}
+
+.btn-white {
+  background-color: $white;
+  color: $black;
+  font-weight: bold;
+}
+
+.btn-white-outline {
+  background-color: $white;
+  color: $black;
+  font-weight: bold;
+  border: 1px solid $black20;
+}
+
+img.img-responsive.center-block {
+  width: 100%;
+  height: auto;
+}
+
+.icon {
+  background: transparent;
+  color: $black;
+  &:hover {
+   background: transparent;
+   cursor: pointer;
+  }
+}
+
+.fa:focus {
+   background-color: transparent;
+   color: $black;
+}
+
+.section-title {
+  text-transform: uppercase;
+}
+
+.header-subhead {
+  background-color: $black;
+  color: $white;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 1px;
+  @media (min-width: $screen-xxs) {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  @media (min-width: $screen-md) {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 15px;
+  }
+}

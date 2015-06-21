@@ -1,0 +1,48 @@
+.about {
+  font-family: "Raleway";
+  font-weight: 500;
+  text-align: justify;
+  line-height: 1.8;
+  color: #0c0c0c;
+  .section-title {
+    text-align: center;
+  }
+  .about-subhead {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  .stat-icon {
+    display: block;
+    .fa {
+      font-size: 2em;
+    }
+  }
+  .stat-items {
+    text-align: center;
+    @media (min-width: $screen-xxs) {
+      padding-top: 15px;
+    }
+    .stat-item {
+      display: inline-block;
+      text-align: center;
+      @media (min-width: $screen-xxs) {
+        width: 30%;
+      }
+      @media (min-width: $screen-xs) {
+        width: 20%;
+      }
+    }
+  }
+  
+}
+
+.about-lead {
+  font-size: 18px;
+  line-height: 2;
+  color: #4a4a4a;
+  text-align: left;
+  @media (max-width: $screen-md-max) {
+    line-height: 1.4em;
+  }
+}
