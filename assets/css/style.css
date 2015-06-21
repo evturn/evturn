@@ -190,7 +190,7 @@ img.img-responsive.center-block {
       line-height: 1.4em; } }
 
 /* line 1, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
-#preloader {
+#preloader, #carousel-preloader {
   width: 100%;
   height: 100%;
   top: 0;
@@ -203,6 +203,11 @@ img.img-responsive.center-block {
   display: block; }
 
 /* line 14, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
+#carousel-preloader {
+  background: none; }
+
+/* line 20, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
+.carousel-preloader,
 .preloader {
   position: absolute;
   margin: 0 auto;
@@ -219,7 +224,8 @@ img.img-responsive.center-block {
   -o-border-radius: 50%;
   border-radius: 50%; }
 
-/* line 31, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
+/* line 38, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
+#carousel-spinner,
 #spinner {
   position: relative;
   height: 95px;
@@ -233,7 +239,8 @@ img.img-responsive.center-block {
   -o-animation: rotation 0.75s infinite linear;
   animation: rotation 0.75s infinite linear; }
 
-/* line 45, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
+/* line 53, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_loader.scss */
+#carousel-spinner:before,
 #spinner:before {
   content: "";
   display: block;
