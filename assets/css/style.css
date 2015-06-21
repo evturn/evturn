@@ -432,33 +432,15 @@ img.img-responsive.center-block {
     padding-right: 7.5px;
     padding-left: 7.5px; }
 
-/* line 30, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-*,
-*:after,
-*:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-
-/* line 35, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-.clearfix:before,
-.clearfix:after {
-  content: '';
-  display: table; }
-
-/* line 39, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
-.clearfix:after {
-  clear: both; }
-
-/* line 41, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 28, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid {
-  overflow: hidden;
   margin: 0;
   padding: 3em 0 0 0;
   width: 100%;
   list-style: none;
   text-align: center; }
 
-/* line 50, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 36, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure {
   position: relative;
   z-index: 1;
@@ -469,26 +451,25 @@ img.img-responsive.center-block {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease; }
-  /* line 58, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+  /* line 44, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
   .grid figure:hover {
     background: #231f20;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
 
-/* line 65, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 51, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure img {
   position: relative;
   display: block;
-  min-height: 100%;
   opacity: 0.9; }
 
-/* line 72, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 57, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure figcaption {
   padding: 2em;
   text-transform: uppercase;
   font-size: 1.25em; }
 
-/* line 80, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 65, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure figcaption,
 .grid figure a {
   position: absolute;
@@ -496,32 +477,32 @@ img.img-responsive.center-block {
   left: 0;
   width: 100%;
   height: 100%; }
-  /* line 86, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+  /* line 71, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
   .grid figure figcaption:hover,
   .grid figure a:hover {
     background: #231f20; }
 
-/* line 92, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 77, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure a {
   z-index: 1000;
   font-size: 0;
   opacity: 1; }
 
-/* line 99, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 84, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure h2,
 .grid figure p {
   margin: 0; }
 
-/* line 103, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 88, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure p {
   letter-spacing: 1px;
   font-size: 12px; }
 
-/* line 108, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 93, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev:hover img {
   opacity: 0.2; }
 
-/* line 112, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 97, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev figcaption::after {
   position: absolute;
   right: 30px;
@@ -529,23 +510,17 @@ figure.effect-ev figcaption::after {
   left: 30px;
   height: 40px;
   height: 40px;
-  content: '';
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0); }
+  content: ''; }
 
-/* line 126, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 107, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev:hover figcaption::after {
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
+  opacity: 1; }
 
-/* line 132, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 112, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev figcaption {
   text-align: left; }
 
-/* line 136, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 116, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev p {
   position: absolute;
   right: 60px;
@@ -558,7 +533,7 @@ figure.effect-ev p {
   -webkit-transform: translate3d(0, -100px, 0);
   transform: translate3d(0, -100px, 0); }
 
-/* line 149, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 129, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev:hover p {
   opacity: 1;
   z-index: 1001;
