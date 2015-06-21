@@ -504,25 +504,24 @@ img.img-responsive.center-block {
 /* line 92, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure a {
   z-index: 1000;
-  white-space: nowrap;
   font-size: 0;
   opacity: 1; }
 
-/* line 100, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 99, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure h2,
 .grid figure p {
   margin: 0; }
 
-/* line 104, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 103, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 .grid figure p {
   letter-spacing: 1px;
-  font-size: 68.5%; }
+  font-size: 12px; }
 
-/* line 109, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 108, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev:hover img {
   opacity: 0.2; }
 
-/* line 113, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 112, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev figcaption::after {
   position: absolute;
   right: 30px;
@@ -536,17 +535,17 @@ figure.effect-ev figcaption::after {
   -webkit-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0); }
 
-/* line 127, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 126, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev:hover figcaption::after {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
-/* line 133, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 132, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev figcaption {
   text-align: left; }
 
-/* line 137, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 136, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev p {
   position: absolute;
   right: 60px;
@@ -559,7 +558,7 @@ figure.effect-ev p {
   -webkit-transform: translate3d(0, -100px, 0);
   transform: translate3d(0, -100px, 0); }
 
-/* line 150, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
+/* line 149, /Users/evanturner/src/projects/evturn.github.io/assets/css/scss/partials/_thumbnails.scss */
 figure.effect-ev:hover p {
   opacity: 1;
   z-index: 1001;
