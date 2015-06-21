@@ -63,7 +63,7 @@ gulp.task('compressJS', function() {
     .pipe(concat('vendor.js'))
     .pipe(size())
     .pipe(uglify())
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./dist'))
     .pipe(size())
     .pipe(notify('vendor.js compressed'))
     .on('error', gutil.log);
@@ -74,7 +74,7 @@ gulp.task('compressData', function() {
     .pipe(concat('data.js'))
     .pipe(size())
     .pipe(uglify())
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./dist'))
     .pipe(size())
     .pipe(notify('data.js compressed'))
     .on('error', gutil.log);
@@ -85,7 +85,7 @@ gulp.task('compressCSS', function() {
     .pipe(concat('vendor.css'))
     .pipe(size())
     .pipe(minifyCss())
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./dist'))
     .pipe(size())
     .pipe(notify('vendor.css compressed'))
     .on('error', gutil.log);
