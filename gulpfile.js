@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
-    minifyCss = require('gulp-minify-css');
+    minifyCss = require('gulp-minify-css'),
+    size = require('gulp-filesize');
 
 var js = [
     './assets/js/**/*.js',
@@ -27,7 +28,7 @@ var vendorCSS = [
   './vendor/css/devicon.comp.css'
 ];
 
-gulp.task('default', ['watch', 'compileSass']);
+gulp.task('default', ['watch', 'compileSass', 'lint']);
 
 gulp.task('compileSass', function() {
   return gulp.src('./assets/css/scss/**/*.scss')
@@ -35,6 +36,7 @@ gulp.task('compileSass', function() {
       sourceMap: 'sass',
       outputStyle: 'nested'}))
     .pipe(gulp.dest('./assets/css'))
+    .pipe(size())
     .on('error', gutil.log);
 });
 
@@ -48,24 +50,30 @@ gulp.task('lint', function() {
 gulp.task('compressJS', function() {
   return gulp.src(vendorJS)
     .pipe(concat('vendor.js'))
+    .pipe(size())
     .pipe(uglify())
     .pipe(gulp.dest('./build'))
+    .pipe(size())
     .on('error', gutil.log);
 });
 
 gulp.task('compressData', function() {
   return gulp.src('./assets/js/data/**/*.js')
     .pipe(concat('data.js'))
+    .pipe(size())
     .pipe(uglify())
     .pipe(gulp.dest('./build'))
+    .pipe(size())
     .on('error', gutil.log);
 });
 
 gulp.task('compressCSS', function() {
   return gulp.src(vendorCSS)
     .pipe(concat('vendor.css'))
+    .pipe(size())
     .pipe(minifyCss())
     .pipe(gulp.dest('./build'))
+    .pipe(size())
     .on('error', gutil.log);
 });
 

@@ -11,7 +11,7 @@ ev.AboutView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.viewContainer());
     for (var i = this.collection.length - 1; i >= 0; i--) {
-      $('.about-stack').append(this.itemContainer(this.collection.models[i].toJSON()));
+      $('.technology-items').append(this.itemContainer(this.collection.models[i].toJSON()));
     }
     this.statCount();
     return this;
