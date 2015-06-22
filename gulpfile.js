@@ -9,18 +9,9 @@ var gulp = require('gulp'),
     size = require('gulp-filesize'),
     notify = require('gulp-notify');
 
-var js = [
-    './assets/js/**/*.js',
-    './gulpfile.js'
-];
+var js = require('./build/config').js;
 
-var vendorJS = [
-  './vendor/js/jquery.js',
-  './vendor/js/underscore.js',
-  './vendor/js/backbone.js',
-  './vendor/js/bootstrap.js',
-  './vendor/js/wow.js'
-];
+
 
 var vendorCSS = [
   './vendor/css/bootstrap.css',
@@ -42,7 +33,7 @@ gulp.task('scss', function() {
 });
 
 gulp.task('lint', function() {
-  gulp.src('assets/js/**/*.js')
+  gulp.src(js.build)
     .pipe(jshint())
     .pipe(notify(function(file) {
       if (file.jshint.success) {
@@ -58,13 +49,13 @@ gulp.task('lint', function() {
 });
 
 gulp.task('uglifyJS-vendor', function() {
-  return gulp.src(vendorJS)
+  return gulp.src(js.vendor)
     .pipe(concat('vendor.min.js'))
     .pipe(size())
     .pipe(uglify())
     .pipe(gulp.dest('dist'))
     .pipe(size())
-    .pipe(notify('vendor.js compressed'))
+    .pipe(notify('vendor.min.js created'))
     .on('error', gutil.log);
 });
 
@@ -99,7 +90,7 @@ gulp.task('minifyCSS-assets', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(js, ['lint']);
+  gulp.watch(js.build, ['lint']);
   gulp.watch('assets/css/scss/**/*.scss', ['scss']);
   gulp.watch('assets/js/data/**/*.js', ['uglifyJS-data']);
 });

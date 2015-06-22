@@ -17,7 +17,7 @@ ev.AboutView = Backbone.View.extend({
     return this;
   },
   statCount: function() {
-    $(".stat-count").each(function() {
+    $('.stat-count').each(function() {
       $(this).data('count', parseInt($(this).html(), 10));
       $(this).html('0');
       count($(this));
