@@ -1,5 +1,5 @@
 {
   "camelcase": true,
-  "curly": true,
+  "unused": true,
   "node": true
 }

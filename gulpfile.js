@@ -13,7 +13,6 @@ var js = require('./build/config').js;
 var css = require('./build/config').css;
 var scss = require('./build/config').scss;
 
-
 gulp.task('default', ['watch', 'scss', 'lint']);
 
 gulp.task('scss', function() {
@@ -60,6 +59,7 @@ gulp.task('uglify-data', function() {
     .pipe(uglify())
     .pipe(gulp.dest(js.dest))
     .pipe(size())
+    .pipe(notify('data.min.css created'))
     .on('error', gutil.log);
 });
 
