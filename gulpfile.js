@@ -47,7 +47,7 @@ gulp.task('uglify-vendor', function() {
     .pipe(concat('vendor.min.js'))
     .pipe(size())
     .pipe(uglify())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(js.dest))
     .pipe(size())
     .pipe(notify('vendor.min.js created'))
     .on('error', gutil.log);
@@ -58,7 +58,7 @@ gulp.task('uglify-data', function() {
     .pipe(concat('data.min.js'))
     .pipe(size())
     .pipe(uglify())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(js.dest))
     .pipe(size())
     .on('error', gutil.log);
 });
@@ -68,7 +68,7 @@ gulp.task('minifyCSS-vendor', function() {
     .pipe(concat('vendor.min.css'))
     .pipe(size())
     .pipe(minifyCss())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(css.dest))
     .pipe(size())
     .pipe(notify('vendor.min.css created'));
 });
@@ -78,7 +78,7 @@ gulp.task('minifyCSS-build', function() {
     .pipe(concat('style.min.css'))
     .pipe(size())
     .pipe(minifyCss())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(js.dest))
     .pipe(size())
     .pipe(notify('style.min.css created'));
 });

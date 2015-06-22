@@ -6,11 +6,13 @@ module.exports = {
   js: {
     build: js.build,
     vendor: js.vendor,
-    vdb: js.vdb
+    vdb: js.vdb,
+    dest: js.dest
   },
   css: {
     build: css.build,
-    vendor: css.vendor
+    vendor: css.vendor,
+    dest: css.dest
   },
   scss: {
     build: scss.build,

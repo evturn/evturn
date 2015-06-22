@@ -12,7 +12,8 @@ module.exports = {
       'vendor/js/bootstrap.js',
       'vendor/js/wow.js'
     ],
-    vdb: 'assets/js/data/**/*.js'
+    vdb: 'assets/js/data/**/*.js',
+    dest: 'dist'
   },
   css: {
     build: 'assets/css/**/*.css',
@@ -21,11 +22,11 @@ module.exports = {
       'vendor/css/animate.css',
       'vendor/css/font-awesome.comp.css',
       'vendor/css/devicon.comp.css'
-    ]
+    ],
+    dest: 'dist'
   },
   scss: {
     build: 'assets/css/scss/**/*.scss',
     dest: 'assets/css'
-
   }
 };
