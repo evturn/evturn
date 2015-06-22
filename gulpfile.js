@@ -29,20 +29,20 @@ var vendorCSS = [
   './vendor/css/devicon.comp.css'
 ];
 
-gulp.task('default', ['watch', 'compileSass', 'lint']);
+gulp.task('default', ['watch', 'scss', 'lint']);
 
-gulp.task('compileSass', function() {
-  return gulp.src('./assets/css/scss/**/*.scss')
+gulp.task('scss', function() {
+  return gulp.src('assets/css/scss/**/*.scss')
     .pipe(sass({sourceComments: 'map',
       sourceMap: 'sass',
       outputStyle: 'nested'}))
-    .pipe(gulp.dest('./assets/css'))
+    .pipe(gulp.dest('assets/css'))
     .pipe(size())
     .on('error', gutil.log);
 });
 
 gulp.task('lint', function() {
-  gulp.src('./assets/js/**/*.js')
+  gulp.src('assets/js/**/*.js')
     .pipe(jshint())
     .pipe(notify(function(file) {
       if (file.jshint.success) {
@@ -57,40 +57,49 @@ gulp.task('lint', function() {
     }));
 });
 
-gulp.task('compressJS', function() {
+gulp.task('uglifyJS-vendor', function() {
   return gulp.src(vendorJS)
-    .pipe(concat('vendor.js'))
+    .pipe(concat('vendor.min.js'))
     .pipe(size())
     .pipe(uglify())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('dist'))
     .pipe(size())
     .pipe(notify('vendor.js compressed'))
     .on('error', gutil.log);
 });
 
-gulp.task('compressData', function() {
-  return gulp.src('./assets/js/data/**/*.js')
-    .pipe(concat('data.js'))
+gulp.task('uglifyJS-data', function() {
+  return gulp.src('assets/js/data/**/*.js')
+    .pipe(concat('data.min.js'))
     .pipe(size())
     .pipe(uglify())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('dist'))
     .pipe(size())
     .on('error', gutil.log);
 });
 
-gulp.task('compressCSS', function() {
-  return gulp.src(vendorCSS)
-    .pipe(concat('vendor.css'))
+gulp.task('minifyCSS-vendor', function() {
+  return gulp.src('vendor/css/**/*.css')
+    .pipe(concat('vendor.min.css'))
     .pipe(size())
     .pipe(minifyCss())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('dist'))
     .pipe(size())
-    .pipe(notify('vendor.css compressed'))
-    .on('error', gutil.log);
+    .pipe(notify('vendor/css minification complete'));
+});
+
+gulp.task('minifyCSS-assets', function() {
+  return gulp.src('assets/css/**/*.css')
+    .pipe(concat('assets.min.css'))
+    .pipe(size())
+    .pipe(minifyCss())
+    .pipe(gulp.dest('dist'))
+    .pipe(size())
+    .pipe(notify('assets/css minification complete'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./assets/css/scss/**/*.scss', ['compileSass']);
   gulp.watch(js, ['lint']);
-  gulp.watch('./assets/js/data/**/*.js', ['compressData']);
+  gulp.watch('assets/css/scss/**/*.scss', ['scss']);
+  gulp.watch('assets/js/data/**/*.js', ['uglifyJS-data']);
 });
