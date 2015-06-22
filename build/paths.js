@@ -22,5 +22,10 @@ module.exports = {
       'vendor/css/font-awesome.comp.css',
       'vendor/css/devicon.comp.css'
     ]
+  },
+  scss: {
+    build: 'assets/css/scss/**/*.scss',
+    dest: 'assets/css'
+
   }
 };

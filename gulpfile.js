@@ -11,16 +11,17 @@ var gulp = require('gulp'),
 
 var js = require('./build/config').js;
 var css = require('./build/config').css;
+var scss = require('./build/config').scss;
 
 
 gulp.task('default', ['watch', 'scss', 'lint']);
 
 gulp.task('scss', function() {
-  return gulp.src('assets/css/scss/**/*.scss')
+  return gulp.src(scss.build)
     .pipe(sass({sourceComments: 'map',
       sourceMap: 'sass',
       outputStyle: 'nested'}))
-    .pipe(gulp.dest('assets/css'))
+    .pipe(gulp.dest(scss.dest))
     .pipe(size())
     .on('error', gutil.log);
 });
@@ -84,6 +85,6 @@ gulp.task('minifyCSS-build', function() {
 
 gulp.task('watch', function() {
   gulp.watch(js.build, ['lint']);
-  gulp.watch('assets/css/scss/**/*.scss', ['scss']);
+  gulp.watch(scss.build, ['scss']);
   gulp.watch(js.vdb, ['uglify-data']);
 });
