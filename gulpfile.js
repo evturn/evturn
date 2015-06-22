@@ -10,15 +10,8 @@ var gulp = require('gulp'),
     notify = require('gulp-notify');
 
 var js = require('./build/config').js;
+var css = require('./build/config').css;
 
-
-
-var vendorCSS = [
-  './vendor/css/bootstrap.css',
-  './vendor/css/animate.css',
-  './vendor/css/font-awesome.comp.css',
-  './vendor/css/devicon.comp.css'
-];
 
 gulp.task('default', ['watch', 'scss', 'lint']);
 
@@ -48,7 +41,7 @@ gulp.task('lint', function() {
     }));
 });
 
-gulp.task('uglifyJS-vendor', function() {
+gulp.task('uglify-vendor', function() {
   return gulp.src(js.vendor)
     .pipe(concat('vendor.min.js'))
     .pipe(size())
@@ -59,8 +52,8 @@ gulp.task('uglifyJS-vendor', function() {
     .on('error', gutil.log);
 });
 
-gulp.task('uglifyJS-data', function() {
-  return gulp.src('assets/js/data/**/*.js')
+gulp.task('uglify-data', function() {
+  return gulp.src(js.vdb)
     .pipe(concat('data.min.js'))
     .pipe(size())
     .pipe(uglify())
@@ -70,27 +63,27 @@ gulp.task('uglifyJS-data', function() {
 });
 
 gulp.task('minifyCSS-vendor', function() {
-  return gulp.src('vendor/css/**/*.css')
+  return gulp.src(css.vendor)
     .pipe(concat('vendor.min.css'))
     .pipe(size())
     .pipe(minifyCss())
     .pipe(gulp.dest('dist'))
     .pipe(size())
-    .pipe(notify('vendor/css minification complete'));
+    .pipe(notify('vendor.min.css created'));
 });
 
-gulp.task('minifyCSS-assets', function() {
-  return gulp.src('assets/css/**/*.css')
-    .pipe(concat('assets.min.css'))
+gulp.task('minifyCSS-build', function() {
+  return gulp.src(css.build)
+    .pipe(concat('style.min.css'))
     .pipe(size())
     .pipe(minifyCss())
     .pipe(gulp.dest('dist'))
     .pipe(size())
-    .pipe(notify('assets/css minification complete'));
+    .pipe(notify('style.min.css created'));
 });
 
 gulp.task('watch', function() {
   gulp.watch(js.build, ['lint']);
   gulp.watch('assets/css/scss/**/*.scss', ['scss']);
-  gulp.watch('assets/js/data/**/*.js', ['uglifyJS-data']);
+  gulp.watch(js.vdb, ['uglify-data']);
 });
