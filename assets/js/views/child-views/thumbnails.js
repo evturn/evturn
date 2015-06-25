@@ -12,10 +12,7 @@ ev.Thumbnails = Backbone.View.extend({
   },
   render: function() {
     this.$el.empty();
-    for (var i = this.collection.length - 1; i >= 0; i--) {
-      this.$el.append(this.itemContainer(this.collection.models[i].toJSON()));
-    }
-    return this;
+    ev.appendModels('thumbnail-items', this.collection, this.itemContainer);
   },
   scrollUp: function() {
     $('html, body').animate({ scrollTop: 0 }, 500);
