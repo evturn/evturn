@@ -1,5 +1,6 @@
 var ev = ev || {};
 
+
 ev = {
   fetch: function(collection) {
     if (collection === 'projects') {
@@ -33,6 +34,12 @@ ev = {
       }
     }
     return a;
+  },
+  appendEach: function(className, collection, template) {
+    $elem = $('.' + className);
+    for (var i = collection.length - 1; i >= 0; i--) {
+      $elem.append(template(collection.models[i].toJSON()));  
+    }
   },
   createEl: function(string) {
     $('.' + string).remove();
