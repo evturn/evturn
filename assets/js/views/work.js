@@ -13,7 +13,6 @@ ev.Carousel = Backbone.View.extend({
   render: function() {
     this.$el.html(this.viewContainer(this.model.toJSON()));
     this.preloader();
-    this.child = new ev.Thumbnails('work');
     return this;
   },
   setChildViews: function() {
@@ -22,6 +21,8 @@ ev.Carousel = Backbone.View.extend({
     for (var i = 0; i < images.length; i++) {
       $('.carousel-inner').append(this.itemContainer(images[i]));
     }
+    var tn = new ev.Thumbnails('work');
+    $('html, body').animate({ scrollTop: 0 }, 500);
     return this;
   },
   preloader: function() {

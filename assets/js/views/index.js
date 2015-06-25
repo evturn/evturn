@@ -8,7 +8,7 @@ ev.IndexView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer());
-    this.child = new ev.Thumbnails();
+    var tn = new ev.Thumbnails('index');
     return this;
   },
 });

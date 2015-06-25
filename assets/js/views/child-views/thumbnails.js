@@ -12,6 +12,7 @@ ev.Thumbnails = Backbone.View.extend({
     'click .thumbnail-item' : 'scrollUp'
   },
   render: function(elem) {
+    this.$el.empty();
     $('.' + elem).append(this.viewContainer());
     ev.appendModels('thumbnail-items', this.collection, this.itemContainer);
   },
