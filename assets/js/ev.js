@@ -1,15 +1,17 @@
 var ev = ev || {};
 
-
 ev = {
-  fetch: function(collection) {
-    if (collection === 'projects') {
-      return this.work();
-    } else if (collection === 'links') {
-      return this.links();  
-    } else if (collection === 'technologies') {
-      return this.tech();
-    } 
+  objects: function(array) {
+    var p = array;
+    var a = [];
+    for (var i = 0; i < p.length; i++) {
+      var m = p[i];
+      if (m.featured === true ) {
+        a.push(m);
+      }
+    }
+    a.reverse();
+    return a;
   },
   work: function() {
     var a = this.objects(projObj);
@@ -23,25 +25,12 @@ ev = {
     var a = this.objects(techsObj);
     return new Technologies(a);
   },
-  objects: function(array) {
-    var p = array;
-    var a = [];
-    for (var i = 0; i < p.length; i++) {
-      var m = p[i];
-      if (m.featured === true ) {
-        a.push(m);
-      }
-    }
-    a.reverse();
-    return a;
-  },
   appendModels: function(className, collection, template) {
     $elem = $('.' + className);
     for (var i = collection.length - 1; i >= 0; i--) {
       $elem.append(template(collection.models[i].toJSON()));  
     }
   },
-
   createEl: function(string) {
     $('.' + string).remove();
     var element = '<div class="' + string + '"></div>';

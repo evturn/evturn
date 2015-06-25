@@ -56,5 +56,5 @@ ev.Router = Backbone.Router.extend({
     var collection = ev.work();
     var model = collection.get(id) || collection.get(1);
     this.work(model);
-  }
+  },
 });

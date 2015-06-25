@@ -1,10 +1,5 @@
 var ev = ev || {};
 
-var router = new ev.Router();
-Backbone.history.start();
-
-new WOW().init();
-
 function statCount() {
   $('.stat-count').each(function() {
     $(this).data('count', parseInt($(this).html(), 10));
@@ -32,3 +27,8 @@ $(function() {
     $('.preloader').delay(600).fadeOut('slow');
   });
 });
+
+var router = new ev.Router();
+Backbone.history.start();
+
+new WOW().init();
