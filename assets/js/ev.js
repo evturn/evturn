@@ -1,8 +1,5 @@
 var ev = ev || {};
 
-
-
-
 ev = {
   fetch: function(collection) {
     if (collection === 'projects') {

@@ -4,7 +4,7 @@ ev.Thumbnails = Backbone.View.extend({
   el: '.thumbnail-items',
   itemContainer: _.template($('#thumbnail-item-template').html()),
   initialize: function() {
-    this.collection = ev.fetch('projects');
+    this.collection = ev.work();
     this.render();
   },
   events: {
