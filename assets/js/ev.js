@@ -6,7 +6,7 @@ ev = {
     if (collection === 'projects') {
       return this.work();
     } else if (collection === 'links') {
-      return new Links(linkObjects);  
+      return this.links();  
     } else if (collection === 'technologies') {
       return new Technologies(technologyObjects);
     } 
@@ -21,6 +21,17 @@ ev = {
       }
     }
     return new Projects(a);
+  },
+  links: function() {
+    var p = linkObj;
+    var a = [];
+    for (var i = 0; i < p.length; i++) {
+      var m = p[i];
+      if (m.featured === true ) {
+        a.push(m);
+      }
+    }
+    return new Links(a);
   },
   createEl: function(string) {
     $('.' + string).remove();
