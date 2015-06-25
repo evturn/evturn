@@ -13,12 +13,10 @@ ev = {
   },
   work: function() {
     var a = this.objects(projObj);
-    a.reverse();
     return new Projects(a);
   },
   links: function() {
     var a = this.objects(linksObj);
-    a.reverse();
     return new Links(a);
   },
   tech: function() {
@@ -34,14 +32,16 @@ ev = {
         a.push(m);
       }
     }
+    a.reverse();
     return a;
   },
-  appendEach: function(className, collection, template) {
+  appendModels: function(className, collection, template) {
     $elem = $('.' + className);
     for (var i = collection.length - 1; i >= 0; i--) {
       $elem.append(template(collection.models[i].toJSON()));  
     }
   },
+
   createEl: function(string) {
     $('.' + string).remove();
     var element = '<div class="' + string + '"></div>';

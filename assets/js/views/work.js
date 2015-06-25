@@ -17,11 +17,11 @@ ev.Carousel = Backbone.View.extend({
     return this;
   },
   setChildViews: function() {
+    $('.carousel-panel').html(this.itemDescription(this.model.toJSON()));
     var images = this.model.get('items');
     for (var i = 0; i < images.length; i++) {
       $('.carousel-inner').append(this.itemContainer(images[i]));
     }
-    $('.carousel-panel').html(this.itemDescription(this.model.toJSON()));
     return this;
   },
   preloader: function() {

@@ -10,7 +10,7 @@ ev.AboutView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer());
-    ev.appendEach('technology-items', this.collection, this.itemContainer);
+    ev.appendModels('technology-items', this.collection, this.itemContainer);
     this.statCount();
     return this;
   },

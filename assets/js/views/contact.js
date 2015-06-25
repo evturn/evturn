@@ -10,6 +10,6 @@ ev.ContactView = Backbone.View.extend({
 	},
 	render: function() {
 		this.$el.html(this.viewContainer());
-		ev.appendEach('contact-links', this.collection, this.itemContainer);
+		ev.appendModels('contact-links', this.collection, this.itemContainer);
 	},
 });
