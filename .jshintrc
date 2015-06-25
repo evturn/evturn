@@ -1,5 +1,6 @@
 {
   "camelcase": true,
-  "unused": true,
-  "node": true
+  "unused": false,
+  "node": true,
+  "moz": true
 }

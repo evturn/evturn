@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
-    stylish = require('jshint-stylish'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
@@ -9,9 +8,10 @@ var gulp = require('gulp'),
     size = require('gulp-filesize'),
     notify = require('gulp-notify');
 
-var js = require('./build/config').js;
-var css = require('./build/config').css;
-var scss = require('./build/config').scss;
+var paths = require('./build/paths'),
+    js = paths.js,
+    css = paths.css,
+    scss = paths.scss;
 
 gulp.task('default', ['watch', 'scss', 'lint']);
 
