@@ -1,4 +1,5 @@
-function projObj() = return [
+var projObj = (function() { 
+  return [
     {
       name: 'Music Insider',
       description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
@@ -116,4 +117,5 @@ function projObj() = return [
       items: [{item: 'assets/img/whereto-1.png'}],
       featured: true
     }
-];
+  ]
+})();
