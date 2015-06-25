@@ -15,6 +15,7 @@ ev = {
   },
   work: function() {
     var a = this.objects(projObj);
+    a.reverse();
     return new Projects(a);
   },
   links: function() {

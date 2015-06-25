@@ -46,9 +46,21 @@ var projObj = (function() {
       featured: true
     },
     {
+      name: 'Drive Publishing',
+      description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
+      id: 4,
+      thumbnail: "assets/img/drive-tn.png",
+      lead: 'assets/img/drive-1.png',
+      items: [
+        {item: 'assets/img/drive-2.png'},
+        {item: 'assets/img/drive-3.png'}
+      ],
+      featured: true
+    },
+    {
       name: 'Alculator',
       description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
-      id: 4,
+      id: 5,
       url: 'http://alculator.co',
       thumbnail: "assets/img/alculator-tn.png",
       lead: "assets/img/alculator-3.png",
@@ -62,7 +74,7 @@ var projObj = (function() {
     {
       name: 'Ramen Buffet',
       description: "Ramen Buffet manages a list of small tasks or todos. These tasks can be of any importance or priority. A clock is provided as timer which can be used to time breaks or time the user may want to set aside to dedicate to a particular task.",
-      id: 5,
+      id: 6,
       url: 'http://ramenbuffet.com',
       thumbnail: "assets/img/ramen-tn.png",
       lead: 'assets/img/ramen-1.jpg',
@@ -75,7 +87,7 @@ var projObj = (function() {
     {
       name: 'Hangman',
       description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
-      id: 6,
+      id: 7,
       thumbnail: "assets/img/hangman-tn.png",
       lead: "assets/img/hangman-1.jpg",
       items: [
@@ -88,25 +100,13 @@ var projObj = (function() {
     {
       name: 'Tic Tac Toe',
       description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
-      id: 7,
+      id: 8,
       thumbnail: "assets/img/ttt-tn.png",
       lead: 'assets/img/ttt-1.jpg',
       items: [
         {item: 'assets/img/ttt-2.jpg'}
       ],
       featured: false
-    },
-    {
-      name: 'Drive Publishing',
-      description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
-      id: 8,
-      thumbnail: "assets/img/drive-tn.png",
-      lead: 'assets/img/drive-1.png',
-      items: [
-        {item: 'assets/img/drive-2.png'},
-        {item: 'assets/img/drive-3.png'}
-      ],
-      featured: true
     },
     {
       name: 'WhereTO',
