@@ -1,4 +1,4 @@
-var linkObj = (function() { 
+var linksObj = (function() { 
     return [
     {
       name: 'email',

@@ -1,4 +1,4 @@
-var techObj = (function() {
+var techsObj = (function() {
   return [
     {
       technology: 'Node.js',
