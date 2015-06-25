@@ -18,6 +18,7 @@ ev = {
   },
   links: function() {
     var a = this.objects(linksObj);
+    a.reverse();
     return new Links(a);
   },
   tech: function() {
