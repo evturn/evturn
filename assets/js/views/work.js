@@ -13,7 +13,7 @@ ev.Carousel = Backbone.View.extend({
   render: function() {
     this.$el.html(this.viewContainer(this.model.toJSON()));
     this.preloader();
-    this.child = new ev.Thumbnails();
+    this.child = new ev.Thumbnails('work');
     return this;
   },
   setChildViews: function() {

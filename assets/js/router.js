@@ -53,7 +53,7 @@ ev.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   project: function(id) {
-    var collection = ev.fetch('projects');
+    var collection = ev.work();
     var model = collection.get(id) || collection.get(1);
     this.work(model);
   }

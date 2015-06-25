@@ -54,5 +54,5 @@ ev = {
   build: function(string) {
     this.navActive(string);
     this.createEl(string);
-  }
+  },
 };
