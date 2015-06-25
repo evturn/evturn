@@ -59,7 +59,18 @@ gulp.task('uglify-data', function() {
     .pipe(uglify())
     .pipe(gulp.dest(js.dest))
     .pipe(size())
-    .pipe(notify('data.min.css created'))
+    .pipe(notify('data.min.jss created'))
+    .on('error', gutil.log);
+});
+
+gulp.task('uglify-build', function() {
+  return gulp.src(js.build)
+    .pipe(concat('ev.min.js'))
+    .pipe(size())
+    .pipe(uglify())
+    .pipe(gulp.dest(js.dest))
+    .pipe(size())
+    .pipe(notify('ev.min.js created'))
     .on('error', gutil.log);
 });
 

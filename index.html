@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Evan Turner | Developer</title>
 	<link rel="icon" type="image/png" href="assets/img/ev-winter-yellow-200.jpg">
-	<link rel="stylesheet" href="dist/vendor.css">
+	<link rel="stylesheet" href="dist/vendor.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -208,7 +208,12 @@
 	  ga('create', 'UA-58635966-1', 'auto');
 	  ga('send', 'pageview');
 	</script>
-	<script src="dist/vendor.js"></script>
+	
+	<!-- Production -->
+	<script src="dist/vendor.min.js"></script>
+	<script src="dist/ev.min.js"></script>
+	<!-- Development -->
+	<!--	
 	<script src="dist/data.min.js"></script>
 	<script src="assets/js/models/ev.js"></script>
 	<script src="assets/js/ev.js"></script>
@@ -219,6 +224,7 @@
 	<script src="assets/js/views/contact.js"></script>
 	<script src="assets/js/views/wrapper.js"></script>
 	<script src="assets/js/router.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/main.js"></script> 
+	-->
 </body>
 </html>
