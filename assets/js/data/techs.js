@@ -84,26 +84,19 @@ var techsObj = (function() {
       color: 'devicon-nodejs-plain colored',
       id: 12,
       featured: true 
-    },    
-    {
-      technology: 'MongoDB',
-      icon: 'devicon-mongodb-plain',
-      color: 'devicon-nodejs-plain colored',
-      id: 13,
-      featured: true 
-    },    
+    },      
     {
       technology: 'Sass',
       icon: 'devicon-sass-original',
       color: 'devicon-sass-original colored',
-      id: 14,
+      id: 13,
       featured: true
     },    
     {
       technology: 'Gulp.js',
       icon: 'devicon-gulp-plain',
       color: 'devicon-gulp-plain',
-      id: 15,
+      id: 14,
       featured: true
     }
   ];

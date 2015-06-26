@@ -18,7 +18,6 @@ var paths = require('./build/paths'),
 
 gulp.task('default', ['watch', 'scss', 'lint']);
 
-
 gulp.task('watch', function() {
   gulp.watch(js.build, ['lint']);
   gulp.watch(scss.build, ['scss']);
