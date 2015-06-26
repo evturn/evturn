@@ -41,5 +41,9 @@ module.exports = {
   scss: {
     build: 'assets/css/scss/**/*.scss',
     dest: 'assets/css'
+  },
+  img: {
+    build: 'assets/img/**/*',
+    dest: 'dist/img'
   }
 };

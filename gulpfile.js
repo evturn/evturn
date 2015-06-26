@@ -6,14 +6,30 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     minifyCss = require('gulp-minify-css'),
     size = require('gulp-filesize'),
-    notify = require('gulp-notify');
+    notify = require('gulp-notify'),
+    imagemin = require('gulp-imagemin'),
+    clean = require('gulp-clean');
 
 var paths = require('./build/paths'),
     js = paths.js,
     css = paths.css,
-    scss = paths.scss;
+    scss = paths.scss,
+    img = paths.img;
 
 gulp.task('default', ['watch', 'scss', 'lint']);
+
+
+gulp.task('watch', function() {
+  gulp.watch(js.build, ['lint']);
+  gulp.watch(scss.build, ['scss']);
+  gulp.watch(js.vdb, ['uglify-data']);
+});
+
+gulp.task('img', function() {
+  return gulp.src(img.build)
+  .pipe(imagemin({ progressive: true }))
+  .pipe(gulp.dest(img.dest));
+});
 
 gulp.task('scss', function() {
   return gulp.src(scss.build)
@@ -23,22 +39,6 @@ gulp.task('scss', function() {
     .pipe(gulp.dest(scss.dest))
     .pipe(size())
     .on('error', gutil.log);
-});
-
-gulp.task('lint', function() {
-  gulp.src(js.build)
-    .pipe(jshint())
-    .pipe(notify(function(file) {
-      if (file.jshint.success) {
-        return false;
-      }
-      var errors = file.jshint.results.map(function(data) {
-        if (data.error) {
-          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
-        }
-      }).join("\n");
-      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
-    }));
 });
 
 gulp.task('uglify-vendor', function() {
@@ -94,8 +94,18 @@ gulp.task('minifyCSS-build', function() {
     .pipe(notify('style.min.css created'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch(js.build, ['lint']);
-  gulp.watch(scss.build, ['scss']);
-  gulp.watch(js.vdb, ['uglify-data']);
+gulp.task('lint', function() {
+  gulp.src(js.build)
+    .pipe(jshint())
+    .pipe(notify(function(file) {
+      if (file.jshint.success) {
+        return false;
+      }
+      var errors = file.jshint.results.map(function(data) {
+        if (data.error) {
+          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+        }
+      }).join("\n");
+      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+    }));
 });
