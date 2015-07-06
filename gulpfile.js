@@ -26,9 +26,8 @@ gulp.task('build', ['scss', 'css', 'js', 'jslib', 'img']);
 
 gulp.task('scss', function() {
   return gulp.src(paths.scss.src)
-    .pipe(sass({sourceComments: 'map',
-      sourceMap: 'sass',
-      outputStyle: 'nested'}))
+    .pipe(sass())
+    .pipe(G.rename(paths.scss.filename))
     .pipe(gulp.dest(paths.scss.dest))
     .pipe(size())
     .on('error', gutil.log);
@@ -47,10 +46,7 @@ gulp.task('jslib', function() {
 gulp.task('js', function() {
   return gulp.src(paths.js.src)
     .pipe(concat(paths.js.filename))
-    .pipe(size())
-    .pipe(uglify())
     .pipe(gulp.dest(paths.js.dest))
-    .pipe(size())
     .on('error', gutil.log);
 });
 
@@ -61,7 +57,7 @@ gulp.task('css', function() {
     .pipe(minifyCss())
     .pipe(gulp.dest(paths.css.vendor.dest))
     .pipe(size())
-    .pipe(notify('vendor.min.css created'));
+    .pipe(notify('vendor.css created'));
 });
 
 gulp.task('img', function() {
@@ -73,15 +69,5 @@ gulp.task('img', function() {
 gulp.task('lint', function() {
   gulp.src(paths.jshint.src)
     .pipe(jshint())
-    .pipe(notify(function(file) {
-      if (file.jshint.success) {
-        return false;
-      }
-      var errors = file.jshint.results.map(function(data) {
-        if (data.error) {
-          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
-        }
-      }).join("\n");
-      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
-    }));
+    .pipe(G.notify(options.notify.jshint));
 });

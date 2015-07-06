@@ -8,6 +8,11 @@ var gulp = require('gulp'),
     G = require('gulp-load-plugins')();
 
 module.exports = {
+  sass: {
+    sourceComments: 'map',
+    sourceMap: 'sass',
+    outputStyle: 'nested'
+  },
   autoprefixer: {
     browsers: [
       '> 1%',

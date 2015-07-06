@@ -1,5 +1,6 @@
 var ev = ev || {};
 
+var dude = 'me love it';
 ev = {
   objects: function(array) {
     var p = array;
