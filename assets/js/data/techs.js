@@ -51,7 +51,7 @@ var techsObj = (function() {
       featured: true
     },  
     {
-      technology: 'Droplet',
+      technology: 'Ubuntu',
       icon: 'devicon-ubuntu-plain',
       color: 'devicon-ubuntu-plain colored',
       id: 8,
@@ -97,6 +97,13 @@ var techsObj = (function() {
       icon: 'devicon-gulp-plain',
       color: 'devicon-gulp-plain',
       id: 14,
+      featured: true
+    },
+    {
+      technology: 'Less',
+      icon: 'devicon-less-plain-wordmark',
+      color: 'devicon-less-plain-wordmark',
+      id: 15,
       featured: true
     }
   ];
