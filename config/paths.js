@@ -1,11 +1,11 @@
 module.exports = {
+  scss: {
+    src: 'assets/scss/**/*.scss',
+    watch: 'assets/scss/**/*.scss',
+    dest: 'dist/css',
+    filename: 'scss.css'
+  },
   js: {
-    scss: {
-      src: 'assets/scss/**/*.scss',
-      watch: 'assets/scss/**/*.scss',
-      dest: 'dist/css',
-      filename: 'scss.css'
-    },
     src: [
       'assets/js/data/**/*.js',
       'assets/js/models/ev.js',
@@ -19,18 +19,28 @@ module.exports = {
       'assets/js/router.js',
       'assets/js/main.js'
     ],
-    watch: {
-
-    },
+    watch: [
+      'assets/js/data/**/*.js',
+      'assets/js/models/ev.js',
+      'assets/js/ev.js',
+      'assets/js/views/child-views/thumbnails.js',
+      'assets/js/views/index.js',
+      'assets/js/views/work.js',
+      'assets/js/views/about.js',
+      'assets/js/views/contact.js',
+      'assets/js/views/wrapper.js',
+      'assets/js/router.js',
+      'assets/js/main.js'
+    ],
     dest: 'dist/js',
     filename: 'scripts.js',
     vendor: {
       src: [
-        'vendor/js/jquery.js',
-        'vendor/js/underscore.js',
-        'vendor/js/backbone.js',
-        'vendor/js/bootstrap.js',
-        'vendor/js/wow.js'
+        'assets/js/lib/jquery.js',
+        'assets/js/lib/underscore.js',
+        'assets/js/lib/backbone.js',
+        'assets/js/lib/bootstrap.js',
+        'assets/js/lib/wow.js'
       ],
       dest: 'dist/js',
       filename: 'vendor.js'
@@ -39,10 +49,10 @@ module.exports = {
   css: {
     vendor: {
       src: [
-        'vendor/css/bootstrap.css',
-        'vendor/css/animate.css',
-        'vendor/css/font-awesome.comp.css',
-        'vendor/css/devicon.comp.css'
+        'assets/css/lib/bootstrap.css',
+        'assets/css/lib/animate.css',
+        'assets/css/lib/font-awesome.comp.css',
+        'assets/css/lib/devicon.comp.css'
       ],
       dest: 'dist/css',
       filename: 'vendor.css'  
@@ -51,7 +61,7 @@ module.exports = {
   img: {
     src: 'assets/img/**/*',
     dest: 'dist/img'
-  }
+  },
   jshint: { 
     src: [
       'assets/js/**/*.js',
@@ -65,6 +75,5 @@ module.exports = {
       'config/**/*.js',
       'gulpfile.js'
     ]
-  },
-  
+  }
 };

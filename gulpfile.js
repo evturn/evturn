@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    G = require('gulp-load-plugins')(),
     jshint = require('gulp-jshint'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
@@ -11,21 +12,17 @@ var gulp = require('gulp'),
     clean = require('gulp-clean');
 
 var paths = require('./config/paths');
-var options = require('./config/options');
+var options = require('./config/gulp-options');
 
 gulp.task('default', ['scss', 'lint', 'watch']);
 
 gulp.task('watch', function() {
   gulp.watch(paths.jshint.watch, ['lint']);
   gulp.watch(paths.scss.watch, ['scss']);
-  gulp.watch(paths.js.watch, ['uglify-data']);
+  gulp.watch(paths.js.watch, ['js']);
 });
 
-gulp.task('img', function() {
-  return gulp.src(paths.img.src)
-  .pipe(imagemin({ progressive: true }))
-  .pipe(gulp.dest(paths.img.dest));
-});
+gulp.task('build', ['scss', 'css', 'js', 'jslib', 'img']);
 
 gulp.task('scss', function() {
   return gulp.src(paths.scss.src)
@@ -65,6 +62,12 @@ gulp.task('css', function() {
     .pipe(gulp.dest(paths.css.vendor.dest))
     .pipe(size())
     .pipe(notify('vendor.min.css created'));
+});
+
+gulp.task('img', function() {
+  return gulp.src(paths.img.src)
+  .pipe(imagemin({ progressive: true }))
+  .pipe(gulp.dest(paths.img.dest));
 });
 
 gulp.task('lint', function() {
