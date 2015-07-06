@@ -13,6 +13,9 @@ module.exports = {
     sourceMap: 'sass',
     outputStyle: 'nested'
   },
+  imagemin: {
+    progressive: true 
+  },
   autoprefixer: {
     browsers: [
       '> 1%',
