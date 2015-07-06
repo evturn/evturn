@@ -51,8 +51,8 @@ module.exports = {
       src: [
         'assets/css/lib/bootstrap.css',
         'assets/css/lib/animate.css',
-        'assets/css/lib/font-awesome.comp.css',
-        'assets/css/lib/devicon.comp.css'
+        'assets/css/lib/font-awesome.css',
+        'assets/css/lib/devicon.css'
       ],
       dest: 'dist/css',
       filename: 'vendor.css'  
