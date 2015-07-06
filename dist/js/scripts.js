@@ -114,14 +114,13 @@ var projObj = (function() {
     },
     {
       name: 'Ramen Buffet',
-      description: "Ramen Buffet manages a list of small tasks or todos. These tasks can be of any importance or priority. A clock is provided as timer which can be used to time breaks or time the user may want to set aside to dedicate to a particular task.",
+      description: "Ramen Buffet manages a multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
       id: 6,
       url: 'http://ramenbuffet.com',
       thumbnail: "assets/img/ramen-tn.png",
-      lead: 'assets/img/ramen-1.jpg',
+      lead: 'assets/img/ramen-1.png',
       items: [
-        {item: "assets/img/ramen-3.jpg"},
-        {item: "assets/img/ramen-2.jpg"}
+        {item: "assets/img/ramen-2.png"}
       ],
       featured: true
     },
