@@ -2,11 +2,10 @@
   background-image: url('../img/brickwall.png');
 }
 .carousel-row {
-  background-color: $primarygreydark;
+  background-color: $primarygrey;
   color: $white;
-  border-bottom: 1px solid $primarygreylight;
-  border-right: 1px solid $primarygreylight;
   border-radius: 3px;
+  @include box-shadow(0px 0px 22px -4px rgba(0,0,0,0.75));
 }
 .carousel-image-container {
   padding-left: 0;
