@@ -20,3 +20,7 @@
   font-weight: bold;
   border: 1px solid $black20;
 }
+
+.btn-container>a.btn.btn-white-outline:first-child {
+  background-color: $black10;
+}

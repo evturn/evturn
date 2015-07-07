@@ -452,3 +452,6 @@ figure.effect-ev:hover p {
   color: #231f20;
   font-weight: bold;
   border: 1px solid #d0d2d3; }
+
+.btn-container > a.btn.btn-white-outline:first-child {
+  background-color: #e6e7e8; }
