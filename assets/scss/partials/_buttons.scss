@@ -1,0 +1,22 @@
+.btn-container {
+  text-align: center;
+}
+
+.btn-black {
+  background-color: $black;
+  color: $white;
+  font-weight: bold;
+}
+
+.btn-white {
+  background-color: $white;
+  color: $black;
+  font-weight: bold;
+}
+
+.btn-white-outline {
+  background-color: $white;
+  color: $black;
+  font-weight: bold;
+  border: 1px solid $black20;
+}

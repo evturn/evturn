@@ -28,3 +28,7 @@
     color: $white;
   }
 }
+
+.nav-active {
+  @include nav-active();
+}

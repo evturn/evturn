@@ -1,2 +1,11 @@
 @import "vendor/bootstrap";
-@import "partials/style";
+
+@import "partials/globals";
+@import "partials/mixins";
+@import "partials/about";
+@import "partials/loader";
+@import "partials/nav";
+@import "partials/work";
+@import "partials/thumbnails";
+@import "partials/contact";
+@import "partials/buttons";

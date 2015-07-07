@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,400,100,200,300,500,600);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+
 $primarysans: Raleway;
 $primaryserif: Source Sans Pro;
 
@@ -32,3 +35,72 @@ $primarylight: #00b2e2;
 $primarylighthover: #00cfff;
 $primarygrey: #c9c8c7;
 $primarygreyhover: #dddddd;
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  background-image: url('../img/brickwall.png');
+  margin-bottom: 60px;
+}
+
+body, h6, h5, h4, h3, h2, h1, p, a {
+  font-family: $primaryserif;
+  font-weight: 500;
+  background-color: transparent;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul { padding-left: 0; }
+li { list-style-type: none; }
+
+.section-title {
+  text-transform: uppercase;
+}
+
+.header-subhead {
+  background-color: $black;
+  color: $white;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 1px;
+  @media (min-width: $screen-xxs) {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+  @media (min-width: $screen-md) {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 15px;
+  }
+}
+
+.avatar {
+  border-radius: 20%;
+  max-width: 45%;
+  text-align: center;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  @include transition(all 0.3s ease);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .footer-container {
+    z-index: 1;
+    text-align: center;
+    color: $black50;
+  }
+}
+
+
+img.img-responsive.center-block {
+  width: 100%;
+  height: auto;
+}

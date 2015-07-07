@@ -1,14 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,100,200,300,500,600);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
-.nav-active {
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 3px;
-  background-color: #231f20;
-  color: #ffffff; }
-  .nav-active:focus {
-    color: #ffffff; }
-
 html {
   min-height: 100%;
   position: relative; }
@@ -21,77 +12,14 @@ body, h6, h5, h4, h3, h2, h1, p, a {
   font-family: Source Sans Pro;
   font-weight: 500;
   background-color: transparent;
-  font-smooth: always; }
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased; }
 
 ul {
   padding-left: 0; }
 
 li {
   list-style-type: none; }
-
-.avatar {
-  border-radius: 20%;
-  max-width: 45%;
-  text-align: center;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
-
-.fa.fa-skype:hover {
-  color: #231f20;
-  cursor: default; }
-
-.contact-container {
-  margin-top: 60px; }
-
-.contact-links i:hover {
-  color: #ffffff; }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%; }
-  .footer .footer-container {
-    z-index: 1;
-    text-align: center;
-    color: #929497; }
-
-.btn-container {
-  text-align: center; }
-
-.btn-black {
-  background-color: #231f20;
-  color: #ffffff;
-  font-weight: bold; }
-
-.btn-white {
-  background-color: #ffffff;
-  color: #231f20;
-  font-weight: bold; }
-
-.btn-white-outline {
-  background-color: #ffffff;
-  color: #231f20;
-  font-weight: bold;
-  border: 1px solid #d0d2d3; }
-
-img.img-responsive.center-block {
-  width: 100%;
-  height: auto; }
-
-.icon {
-  background: transparent;
-  color: #231f20; }
-  .icon:hover {
-    background: transparent;
-    cursor: pointer; }
-
-.fa:focus {
-  background-color: transparent;
-  color: #231f20; }
 
 .section-title {
   text-transform: uppercase; }
@@ -111,6 +39,39 @@ img.img-responsive.center-block {
       text-align: left;
       font-size: 18px;
       padding-left: 15px; } }
+
+.avatar {
+  border-radius: 20%;
+  max-width: 45%;
+  text-align: center;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .footer .footer-container {
+    z-index: 1;
+    text-align: center;
+    color: #929497; }
+
+img.img-responsive.center-block {
+  width: 100%;
+  height: auto; }
+
+.nav-active {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  background-color: #231f20;
+  color: #ffffff; }
+  .nav-active:focus {
+    color: #ffffff; }
 
 .about {
   font-family: "Raleway";
@@ -447,3 +408,44 @@ figure.effect-ev:hover p {
   z-index: 1001;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
+
+.fa.fa-skype:hover {
+  color: #231f20;
+  cursor: default; }
+
+.contact-container {
+  margin-top: 60px; }
+
+.contact-links .fa {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  .contact-links .fa:hover {
+    color: #ffffff;
+    background-color: #231f20;
+    padding: 25px;
+    border-radius: 50%;
+    margin-top: -20px; }
+
+.fa:focus {
+  background-color: transparent;
+  color: #231f20; }
+
+.btn-container {
+  text-align: center; }
+
+.btn-black {
+  background-color: #231f20;
+  color: #ffffff;
+  font-weight: bold; }
+
+.btn-white {
+  background-color: #ffffff;
+  color: #231f20;
+  font-weight: bold; }
+
+.btn-white-outline {
+  background-color: #ffffff;
+  color: #231f20;
+  font-weight: bold;
+  border: 1px solid #d0d2d3; }
