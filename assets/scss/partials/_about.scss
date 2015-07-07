@@ -1,9 +1,9 @@
 .about {
-  font-family: "Raleway";
+  font-family: $primarysans;
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
-  color: #0c0c0c;
+  color: $black90;
   .section-title {
     text-align: center;
   }
@@ -40,7 +40,7 @@
 .about-lead {
   font-size: 18px;
   line-height: 2;
-  color: #4a4a4a;
+  color: $primarygreydark;
   text-align: left;
   @media (max-width: $screen-md-max) {
     line-height: 1.4em;

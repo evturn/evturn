@@ -73,20 +73,6 @@ var projObj = (function() {
       featured: true
     },
     {
-      name: 'Pique',
-      description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
-      id: 3,
-      url: 'http://piqueapp.github.io',
-      thumbnail: "assets/img/pique-tn.png",
-      lead: "assets/img/pique-1.jpg",
-      items: [
-        {item: 'assets/img/pique-2.png'}, 
-        {item: 'assets/img/pique-3.png'}, 
-        {item: 'assets/img/pique-4.png'}
-      ],
-      featured: true
-    },
-    {
       name: 'Drive Publishing',
       description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
       id: 4,
@@ -96,6 +82,18 @@ var projObj = (function() {
       items: [
         {item: 'assets/img/drive-2.png'},
         {item: 'assets/img/drive-3.png'}
+      ],
+      featured: true
+    },
+    {
+      name: 'Ramen Buffet',
+      description: "Ramen Buffet manages a multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
+      id: 6,
+      url: 'http://ramenbuffet.com',
+      thumbnail: "assets/img/ramen-tn.png",
+      lead: 'assets/img/ramen-1.png',
+      items: [
+        {item: "assets/img/ramen-2.png"}
       ],
       featured: true
     },
@@ -113,14 +111,16 @@ var projObj = (function() {
       featured: true
     },
     {
-      name: 'Ramen Buffet',
-      description: "Ramen Buffet manages a multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
-      id: 6,
-      url: 'http://ramenbuffet.com',
-      thumbnail: "assets/img/ramen-tn.png",
-      lead: 'assets/img/ramen-1.png',
+      name: 'Pique',
+      description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
+      id: 3,
+      url: 'http://piqueapp.github.io',
+      thumbnail: "assets/img/pique-tn.png",
+      lead: "assets/img/pique-1.jpg",
       items: [
-        {item: "assets/img/ramen-2.png"}
+        {item: 'assets/img/pique-2.png'}, 
+        {item: 'assets/img/pique-3.png'}, 
+        {item: 'assets/img/pique-4.png'}
       ],
       featured: true
     },
