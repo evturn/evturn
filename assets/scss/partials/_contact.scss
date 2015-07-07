@@ -6,14 +6,17 @@
   margin-top: 60px;
 }
 
-.contact-links .fa {
-  @include transition(all 0.3s ease);
-  &:hover {
-    color: $white;
-    background-color: $black;
-    padding: 25px;
-    border-radius: 50%;
-    margin-top: -20px;
+.contact-links {
+  a:focus { color: $black; }
+  .fa {
+    @include transition(all 0.3s ease);
+    &:hover {
+      color: $white;
+      background-color: $black;
+      padding: 25px;
+      border-radius: 50%;
+      margin-top: -20px;
+    }
   }
 }
 

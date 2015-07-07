@@ -416,6 +416,9 @@ figure.effect-ev:hover p {
 .contact-container {
   margin-top: 60px; }
 
+.contact-links a:focus {
+  color: #231f20; }
+
 .contact-links .fa {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
