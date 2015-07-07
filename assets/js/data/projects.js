@@ -90,9 +90,7 @@ var projObj = (function() {
       thumbnail: "assets/img/hangman-tn.png",
       lead: "assets/img/hangman-1.jpg",
       items: [
-        {item: "assets/img/hangman-2.jpg"},
-        {item: "assets/img/hangman-3.jpg"},
-        {item: "assets/img/hangman-4.jpg"}
+        {item: "assets/img/hangman-2.jpg"}
       ],
       featured: true
     },

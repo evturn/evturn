@@ -258,9 +258,12 @@ img.img-responsive.center-block {
   background-image: url("../img/brickwall.png"); }
 
 .carousel-row {
-  background-color: #c9c8c7;
+  background-color: #bbbdbf;
   color: #ffffff;
   border-radius: 3px;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
   -webkit-box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75); }
 
@@ -440,7 +443,13 @@ figure.effect-ev:hover p {
 .btn-black {
   background-color: #231f20;
   color: #ffffff;
-  font-weight: bold; }
+  font-weight: bold;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  .btn-black:hover {
+    color: #ffffff;
+    background-color: #404041; }
 
 .btn-white {
   background-color: #ffffff;
@@ -453,5 +462,5 @@ figure.effect-ev:hover p {
   font-weight: bold;
   border: 1px solid #d0d2d3; }
 
-.btn-container > a.btn.btn-white-outline:first-child {
-  background-color: #e6e7e8; }
+.btn-container > a.btn.btn-black:first-child {
+  background-color: #404041; }

@@ -6,6 +6,11 @@
   background-color: $black;
   color: $white;
   font-weight: bold;
+  @include transition(all 0.3s ease);
+  &:hover {
+    color: $white;
+    background-color: $black90;
+  }
 }
 
 .btn-white {
@@ -21,6 +26,6 @@
   border: 1px solid $black20;
 }
 
-.btn-container>a.btn.btn-white-outline:first-child {
-  background-color: $black10;
+.btn-container>a.btn.btn-black:first-child {
+  background-color: $black90;
 }
