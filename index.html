@@ -187,6 +187,10 @@
 		<div class="project-text">
 			<p><%= description %></p>
 		</div>
+		<div class="project-stats">
+		<% var url = url ? '<p class="pull-right"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>
+		<%= url %>
+		</div>
 	</script>
 	<!-- Carousel Item -->
 	<script type="text/template" id="carousel-item-template">

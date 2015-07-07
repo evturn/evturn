@@ -49,6 +49,7 @@ var projObj = (function() {
       name: 'Drive Publishing',
       description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
       id: 4,
+      url: 'http://drivepublishing.com',
       thumbnail: "assets/img/drive-tn.png",
       lead: 'assets/img/drive-1.png',
       items: [
@@ -61,7 +62,6 @@ var projObj = (function() {
       name: 'Alculator',
       description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
       id: 5,
-      url: 'http://alculator.co',
       thumbnail: "assets/img/alculator-tn.png",
       lead: "assets/img/alculator-3.png",
       items: [
