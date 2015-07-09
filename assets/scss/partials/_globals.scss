@@ -33,9 +33,10 @@ $primarygreymed:     #bbbdbf;
 $primarygreydark:    #6c6d6f;
 $marshallzgrey:      #D0D0D0;
 
+#rza                 { padding-top: 15px; }
+.section-title       { text-transform: uppercase; }
 ul                   { padding-left: 0; }
 li                   { list-style-type: none; }
-.section-title       { text-transform: uppercase; }
 
 html {
   min-height: 100%;
@@ -47,18 +48,14 @@ body {
   margin-bottom: 60px;
 }
 
-#rza {
-  padding-top: 15px;
-}
-
-body, 
-a, 
-p, 
-h6, 
-h5, 
-h4, 
-h3, 
-h2, 
+body,
+a,
+p,
+h6,
+h5,
+h4,
+h3,
+h2,
 h1 {
   font-family: $primaryserif;
   font-weight: 500;
@@ -74,10 +71,12 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   border-radius: 1px;
+
   @media (min-width: $screen-xxs) {
     margin-bottom: 0;
     padding-left: 0;
   }
+
   @media (min-width: $screen-md) {
     text-align: left;
     font-size: 18px;
@@ -99,6 +98,7 @@ h1 {
   position: absolute;
   bottom: 0;
   width: 100%;
+
   .footer-container {
     z-index: 1;
     text-align: center;

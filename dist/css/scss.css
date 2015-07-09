@@ -1,13 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,100,200,300,500,600);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+#rza {
+  padding-top: 15px; }
+
+.section-title {
+  text-transform: uppercase; }
+
 ul {
   padding-left: 0; }
 
 li {
   list-style-type: none; }
-
-.section-title {
-  text-transform: uppercase; }
 
 html {
   min-height: 100%;
@@ -16,9 +19,6 @@ html {
 body {
   background-image: url("../img/brickwall.png");
   margin-bottom: 60px; }
-
-#rza {
-  padding-top: 15px; }
 
 body,
 a,
