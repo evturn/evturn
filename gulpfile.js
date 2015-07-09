@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
-    G = require('gulp-load-plugins')();
+    $ = require('gulp-load-plugins')();
 
 var paths = require('./config/paths');
 var options = require('./config/gulp-options');
@@ -17,46 +17,46 @@ gulp.task('build', ['scss', 'css', 'js', 'jslib', 'img']);
 
 gulp.task('scss', function() {
   return gulp.src(paths.scss.src)
-    .pipe(G.plumber(options.plumber))
-    .pipe(G.sass())
-    .pipe(G.rename(paths.scss.filename))
+    .pipe($.plumber(options.plumber))
+    .pipe($.sass())
+    .pipe($.rename(paths.scss.filename))
     .pipe(gulp.dest(paths.scss.dest)).on('error', options.plumber.errorHandler);
 });
 
 gulp.task('jslib', function() {
   return gulp.src(paths.js.vendor.src)
-    .pipe(G.plumber(options.plumber))
-    .pipe(G.concat(paths.js.vendor.filename))
-    .pipe(G.uglify())
+    .pipe($.plumber(options.plumber))
+    .pipe($.concat(paths.js.vendor.filename))
+    .pipe($.uglify())
     .pipe(gulp.dest(paths.js.vendor.dest))
     .on('error', gutil.log);
 });
 
 gulp.task('js', function() {
   return gulp.src(paths.js.src)
-    .pipe(G.plumber(options.plumber))
-    .pipe(G.concat(paths.js.filename))
+    .pipe($.plumber(options.plumber))
+    .pipe($.concat(paths.js.filename))
     .pipe(gulp.dest(paths.js.dest))
     .on('error', gutil.log);
 });
 
 gulp.task('css', function() {
   return gulp.src(paths.css.vendor.src)
-    .pipe(G.plumber(options.plumber))
-    .pipe(G.concat(paths.css.vendor.filename))
-    .pipe(G.minify-css())
+    .pipe($.plumber(options.plumber))
+    .pipe($.concat(paths.css.vendor.filename))
+    .pipe($.minify-css())
     .pipe(gulp.dest(paths.css.vendor.dest));
 });
 
 gulp.task('img', function() {
   return gulp.src(paths.img.src)
-  .pipe(G.imagemin(options.imagemin))
+  .pipe($.imagemin(options.imagemin))
   .pipe(gulp.dest(paths.img.dest));
 });
 
 gulp.task('lint', function() {
   gulp.src(paths.jshint.src)
-    .pipe(G.plumber(options.plumber))
-    .pipe(G.jshint())
-    .pipe(G.notify(options.notify.jshint));
+    .pipe($.plumber(options.plumber))
+    .pipe($.jshint())
+    .pipe($.notify(options.notify.jshint));
 });

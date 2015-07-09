@@ -5,7 +5,7 @@ gulp-notify
 */
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
-    G = require('gulp-load-plugins')();
+    $ = require('gulp-load-plugins')();
 
 module.exports = {
   sass: {
@@ -34,7 +34,7 @@ module.exports = {
     errorHandler: function(err) {
       gutil.beep();
       console.log(err);
-      G.notify(err);
+      $.notify(err);
       this.emit('end');
     }
   },
