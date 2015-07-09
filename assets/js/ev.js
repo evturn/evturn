@@ -3,8 +3,11 @@ var ev = ev || {};
 ev = {
   init: function() {
     ev.animations.preloader();
+    var wow = new WOW().init();
+    var router = new ev.Router();
+    Backbone.history.start();
   },
-  objects: function(array) {
+  featured: function(array) {
     var p = array;
     var a = [];
     for (var i = 0; i < p.length; i++) {
@@ -17,15 +20,15 @@ ev = {
     return a;
   },
   work: function() {
-    var a = this.objects(projObj);
+    var a = this.featured(projObj);
     return new Projects(a);
   },
   links: function() {
-    var a = this.objects(linksObj);
+    var a = this.featured(linksObj);
     return new Links(a);
   },
   tech: function() {
-    var a = this.objects(techsObj);
+    var a = this.featured(techsObj);
     return new Technologies(a);
   },
   appendModels: function(className, collection, template) {
@@ -34,7 +37,7 @@ ev = {
       $elem.append(template(collection.models[i].toJSON()));  
     }
   },
-  createEl: function(string) {
+  createElement: function(string) {
     $('.' + string).remove();
     var element = '<div class="' + string + '"></div>';
     $(element).insertAfter($('#rza'));
@@ -45,7 +48,7 @@ ev = {
   },
   build: function(string) {
     this.navActive(string);
-    this.createEl(string);
+    this.createElement(string);
   },
   animations: {
     preloader: function() {
