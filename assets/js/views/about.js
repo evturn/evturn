@@ -11,7 +11,7 @@ ev.AboutView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.viewContainer());
     ev.appendModels('technology-items', this.collection, this.itemContainer);
-    statCount();
+    ev.animations.statCount();
     return this;
   },
 

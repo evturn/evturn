@@ -282,6 +282,9 @@ Technologies = Backbone.Collection.extend({
 var ev = ev || {};
 
 ev = {
+  init: function() {
+    ev.animations.preloader();
+  },
   objects: function(array) {
     var p = array;
     var a = [];
@@ -325,6 +328,33 @@ ev = {
     this.navActive(string);
     this.createEl(string);
   },
+  animations: {
+    preloader: function() {
+      $(window).load(function() {
+        $('#preloader').delay(500).fadeOut();
+        $('.preloader').delay(600).fadeOut('slow');
+      });
+    },
+    statCount: function() {
+      $('.stat-count').each(function() {
+        $(this).data('count', parseInt($(this).html(), 10));
+        $(this).html('0');
+        ev.animations.count($(this));
+      });
+    },
+    count: function($this){
+      var current = parseInt($this.html(), 10);
+      current = current + 50;
+      $this.html(++current);
+      if (current > $this.data('count')) {
+        $this.html($this.data('count'));
+      } else {    
+        setTimeout(function() {
+          ev.animations.count($this);
+          }, 50);
+      }
+    }
+  }
 };
 var ev = ev || {};
 
@@ -361,7 +391,7 @@ ev.AboutView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.viewContainer());
     ev.appendModels('technology-items', this.collection, this.itemContainer);
-    statCount();
+    ev.animations.statCount();
     return this;
   },
 
@@ -500,32 +530,9 @@ ev.Router = Backbone.Router.extend({
 });
 var ev = ev || {};
 
-function statCount() {
-  $('.stat-count').each(function() {
-    $(this).data('count', parseInt($(this).html(), 10));
-    $(this).html('0');
-    count($(this));
-  });
-}
-
-function count($this){
-  var current = parseInt($this.html(), 10);
-  current = current + 50;
-  $this.html(++current);
-  if (current > $this.data('count')) {
-    $this.html($this.data('count'));
-  } else {    
-    setTimeout(function() {
-      count($this);
-      }, 50);
-  }
-}
 
 $(function() {
-  $(window).load(function() {
-    $('#preloader').delay(500).fadeOut();
-    $('.preloader').delay(600).fadeOut('slow');
-  });
+  ev.init();
 });
 
 var router = new ev.Router();
