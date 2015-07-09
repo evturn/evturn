@@ -212,12 +212,12 @@ img.img-responsive.center-block {
 .ev-navbar {
   text-align: center;
   background-color: #ffffff; }
-  .ev-navbar ul.nav-items li {
-    text-align: center;
-    display: inline-block; }
   .ev-navbar .nav-items {
     margin-bottom: 0;
     padding: 10px; }
+  .ev-navbar .nav-item {
+    text-align: center;
+    display: inline-block; }
   .ev-navbar .nav-item .nav-text {
     font-family: Raleway;
     text-transform: uppercase; }
