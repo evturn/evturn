@@ -244,11 +244,6 @@ img.img-responsive.center-block {
       padding-right: 15px;
       -webkit-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out; }
-      .ev-navbar .nav-item:hover {
-        -webkit-transform: scale(1.05);
-        -moz-transform: scale(1.05);
-        -o-transform: scale(1.05);
-        transform: scale(1.05); }
       .ev-navbar .nav-item .nav-text {
         font-size: 24px; } }
   @media (min-width: 768px) {

@@ -1,7 +1,6 @@
 .ev-navbar {
   text-align: center; 
   background-color: $white;
-  .navbar-content {}
   ul.nav-items li {
     text-align: center; 
     display: inline-block;
@@ -40,9 +39,6 @@
       padding-left: 15px;
       padding-right: 15px;
       @include ease-in-out;
-      &:hover {
-        @include scale;
-      }
       .nav-text {
         font-size: 24px;
       }
