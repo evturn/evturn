@@ -1,41 +1,3 @@
-var linksObj = [
-  {
-    name: 'email',
-    url: 'mailto:evturn@gmail.com',
-    icon: 'fa fa-envelope',
-    featured: true
-  },
-  {
-    name: 'github',
-    url: 'http://github.com/evturn',
-    icon: 'fa fa-github-square',
-    featured: true
-  },
-  {
-    name: 'linkedin',
-    url: 'http://www.linkedin.com/in/evturn/',
-    icon: 'fa fa-linkedin-square',
-    featured: true
-  },
-  {
-    name: 'general assembly',
-    url: 'https://profiles.generalassemb.ly/ev',
-    icon: 'fa fa-certificate',
-    featured: true
-  },
-  {
-    name: 'twitter',
-    url: 'http://twitter.com/evturn',
-    icon: 'fa fa-twitter',
-    featured: true
-  },
-  {
-    name: 'skype: @evturn',
-    url: 'javaScript:void(0);', // jshint ignore:line
-    icon: 'fa fa-skype',
-    featured: true
-  }
-];
 var projObj = [
   {
     name: 'Music Insider',
@@ -45,13 +7,13 @@ var projObj = [
     thumbnail: "assets/img/mi-tn.png",
     lead: "assets/img/mi-1.png",
     items: [
-      {item: 'assets/img/mi-2.png'}, 
-      {item: 'assets/img/mi-3.png'}, 
+      {item: 'assets/img/mi-2.png'},
+      {item: 'assets/img/mi-3.png'},
       {item: 'assets/img/mi-4.png'},
       {item: 'assets/img/mi-5.png'}
     ],
     featured: true
-  },    
+  },
   {
     name: 'Marshallz Blog',
     description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
@@ -60,10 +22,10 @@ var projObj = [
     thumbnail: "assets/img/marshallz-tn.png",
     lead: "assets/img/marshallz-1.png",
     items: [
-      {item: 'assets/img/marshallz-2.png'}, 
+      {item: 'assets/img/marshallz-2.png'},
       {item: 'assets/img/marshallz-6.png'},
       {item: 'assets/img/marshallz-3.jpg'},
-      {item: 'assets/img/marshallz-5.png'}, 
+      {item: 'assets/img/marshallz-5.png'},
       {item: 'assets/img/marshallz-4.jpg'}
     ],
     featured: true
@@ -114,8 +76,8 @@ var projObj = [
     thumbnail: "assets/img/pique-tn.png",
     lead: "assets/img/pique-1.jpg",
     items: [
-      {item: 'assets/img/pique-2.png'}, 
-      {item: 'assets/img/pique-3.png'}, 
+      {item: 'assets/img/pique-2.png'},
+      {item: 'assets/img/pique-3.png'},
       {item: 'assets/img/pique-4.png'}
     ],
     featured: true
@@ -149,114 +111,6 @@ var projObj = [
     thumbnail: "assets/img/whereto-tn.png",
     lead: 'assets/img/whereto-2.png',
     items: [{item: 'assets/img/whereto-1.png'}],
-    featured: true
-  }
-  ];
-var techsObj = [
-  {
-    technology: 'Node.js',
-    icon: 'devicon-nodejs-plain-wordmark',
-    color: 'devicon-nodejs-plain-wordmark colored',
-    id: 1,
-    featured: true
-  },
-  {
-    technology: 'AngularJS',
-    icon: 'devicon-angularjs-plain',
-    color: 'devicon-angularjs-plain colored',
-    id: 2,
-    featured: false
-  },
-  {
-    technology: 'Backbone.js',
-    icon: 'devicon-backbonejs-plain',
-    color: 'devicon-backbonejs-plain colored',
-    id: 3,
-    featured: true
-  },
-  {
-    technology: 'jQuery',
-    icon: 'devicon-jquery-plain',
-    color: 'devicon-jquery-plain colored',
-    id: 4,
-    featured: false
-  },
-  
-  {
-    technology: 'Bootstrap',
-    icon: 'devicon-bootstrap-plain',
-    color: 'devicon-bootstrap-plain colored',
-    id: 5,
-    featured: true
-  },  
-  {
-    technology: 'git',
-    icon: 'devicon-git-plain',
-    color: 'devicon-git-plain colored',
-    id: 6,
-    featured: true
-  },
-  {
-    technology: 'Photoshop',
-    icon: 'devicon-photoshop-plain',
-    color: 'devicon-photoshop-plain colored',
-    id: 7,
-    featured: true
-  },  
-  {
-    technology: 'Ubuntu',
-    icon: 'devicon-ubuntu-plain',
-    color: 'devicon-ubuntu-plain colored',
-    id: 8,
-    featured: true
-  },    
-  {
-    technology: 'Firebase',
-    icon: 'fa fa-database fa-2x',
-    color: this.icon,
-    id: 9,
-    featured: false
-  },    
-  {
-    technology: 'MongoDB',
-    icon: 'devicon-mongodb-plain',
-    color: 'devicon-mongodb-plain colored',
-    id: 10,
-    featured: true
-  },  
-  {
-    technology: 'Underscore.js',
-    icon: 'fa fa-minus fa-2x',
-    color: this.icon,
-    id: 11,
-    featured: false
-  },    
-  {
-    technology: 'Express.js',
-    icon: 'devicon-nodejs-plain',
-    color: 'devicon-nodejs-plain colored',
-    id: 12,
-    featured: true 
-  },      
-  {
-    technology: 'Sass',
-    icon: 'devicon-sass-original',
-    color: 'devicon-sass-original colored',
-    id: 13,
-    featured: true
-  },    
-  {
-    technology: 'Gulp.js',
-    icon: 'devicon-gulp-plain',
-    color: 'devicon-gulp-plain',
-    id: 14,
-    featured: true
-  },
-  {
-    technology: 'Less',
-    icon: 'devicon-less-plain-wordmark',
-    color: 'devicon-less-plain-wordmark',
-    id: 15,
     featured: true
   }
 ];
@@ -305,17 +159,17 @@ ev = {
     return new Projects(a);
   },
   links: function() {
-    var a = this.featured(linksObj);
+    var a = this.featured(ev.data.links);
     return new Links(a);
   },
   tech: function() {
-    var a = this.featured(techsObj);
+    var a = ev.featured(ev.data.technologies);
     return new Technologies(a);
   },
   appendModels: function(className, collection, template) {
     $elem = $('.' + className);
     for (var i = collection.length - 1; i >= 0; i--) {
-      $elem.append(template(collection.models[i].toJSON()));  
+      $elem.append(template(collection.models[i].toJSON()));
     }
   },
   createElement: function(string) {
@@ -351,12 +205,166 @@ ev = {
       $this.html(++current);
       if (current > $this.data('count')) {
         $this.html($this.data('count'));
-      } else {    
+      } else {
         setTimeout(function() {
           ev.animations.count($this);
           }, 50);
       }
     }
+  },
+  data: {
+    links: (function() {
+      var array = [
+        {
+          name: 'email',
+          url: 'mailto:evturn@gmail.com',
+          icon: 'fa fa-envelope',
+          featured: true
+        },
+        {
+          name: 'github',
+          url: 'http://github.com/evturn',
+          icon: 'fa fa-github-square',
+          featured: true
+        },
+        {
+          name: 'linkedin',
+          url: 'http://www.linkedin.com/in/evturn/',
+          icon: 'fa fa-linkedin-square',
+          featured: true
+        },
+        {
+          name: 'general assembly',
+          url: 'https://profiles.generalassemb.ly/ev',
+          icon: 'fa fa-certificate',
+          featured: true
+        },
+        {
+          name: 'twitter',
+          url: 'http://twitter.com/evturn',
+          icon: 'fa fa-twitter',
+          featured: true
+        },
+        {
+          name: 'skype: @evturn',
+          url: 'javaScript:void(0);', // jshint ignore:line
+          icon: 'fa fa-skype',
+          featured: true
+        }
+      ];
+      return array;
+    })(),
+    technologies: (function() {
+      var array = [
+        {
+          technology: 'Node.js',
+          icon: 'devicon-nodejs-plain-wordmark',
+          color: 'devicon-nodejs-plain-wordmark colored',
+          id: 1,
+          featured: true
+        },
+        {
+          technology: 'AngularJS',
+          icon: 'devicon-angularjs-plain',
+          color: 'devicon-angularjs-plain colored',
+          id: 2,
+          featured: false
+        },
+        {
+          technology: 'Backbone.js',
+          icon: 'devicon-backbonejs-plain',
+          color: 'devicon-backbonejs-plain colored',
+          id: 3,
+          featured: true
+        },
+        {
+          technology: 'jQuery',
+          icon: 'devicon-jquery-plain',
+          color: 'devicon-jquery-plain colored',
+          id: 4,
+          featured: false
+        },
+
+        {
+          technology: 'Bootstrap',
+          icon: 'devicon-bootstrap-plain',
+          color: 'devicon-bootstrap-plain colored',
+          id: 5,
+          featured: true
+        },
+        {
+          technology: 'git',
+          icon: 'devicon-git-plain',
+          color: 'devicon-git-plain colored',
+          id: 6,
+          featured: true
+        },
+        {
+          technology: 'Photoshop',
+          icon: 'devicon-photoshop-plain',
+          color: 'devicon-photoshop-plain colored',
+          id: 7,
+          featured: true
+        },
+        {
+          technology: 'Ubuntu',
+          icon: 'devicon-ubuntu-plain',
+          color: 'devicon-ubuntu-plain colored',
+          id: 8,
+          featured: true
+        },
+        {
+          technology: 'Firebase',
+          icon: 'fa fa-database fa-2x',
+          color: this.icon,
+          id: 9,
+          featured: false
+        },
+        {
+          technology: 'MongoDB',
+          icon: 'devicon-mongodb-plain',
+          color: 'devicon-mongodb-plain colored',
+          id: 10,
+          featured: true
+        },
+        {
+          technology: 'Underscore.js',
+          icon: 'fa fa-minus fa-2x',
+          color: this.icon,
+          id: 11,
+          featured: false
+        },
+        {
+          technology: 'Express.js',
+          icon: 'devicon-nodejs-plain',
+          color: 'devicon-nodejs-plain colored',
+          id: 12,
+          featured: true
+        },
+        {
+          technology: 'Sass',
+          icon: 'devicon-sass-original',
+          color: 'devicon-sass-original colored',
+          id: 13,
+          featured: true
+        },
+        {
+          technology: 'Gulp.js',
+          icon: 'devicon-gulp-plain',
+          color: 'devicon-gulp-plain',
+          id: 14,
+          featured: true
+        },
+        {
+          technology: 'Less',
+          icon: 'devicon-less-plain-wordmark',
+          color: 'devicon-less-plain-wordmark',
+          id: 15,
+          featured: true
+        }
+      ];
+      return array;
+    })()
   }
 };
 var ev = ev || {};

@@ -7,13 +7,13 @@ var projObj = [
     thumbnail: "assets/img/mi-tn.png",
     lead: "assets/img/mi-1.png",
     items: [
-      {item: 'assets/img/mi-2.png'}, 
-      {item: 'assets/img/mi-3.png'}, 
+      {item: 'assets/img/mi-2.png'},
+      {item: 'assets/img/mi-3.png'},
       {item: 'assets/img/mi-4.png'},
       {item: 'assets/img/mi-5.png'}
     ],
     featured: true
-  },    
+  },
   {
     name: 'Marshallz Blog',
     description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
@@ -22,10 +22,10 @@ var projObj = [
     thumbnail: "assets/img/marshallz-tn.png",
     lead: "assets/img/marshallz-1.png",
     items: [
-      {item: 'assets/img/marshallz-2.png'}, 
+      {item: 'assets/img/marshallz-2.png'},
       {item: 'assets/img/marshallz-6.png'},
       {item: 'assets/img/marshallz-3.jpg'},
-      {item: 'assets/img/marshallz-5.png'}, 
+      {item: 'assets/img/marshallz-5.png'},
       {item: 'assets/img/marshallz-4.jpg'}
     ],
     featured: true
@@ -76,8 +76,8 @@ var projObj = [
     thumbnail: "assets/img/pique-tn.png",
     lead: "assets/img/pique-1.jpg",
     items: [
-      {item: 'assets/img/pique-2.png'}, 
-      {item: 'assets/img/pique-3.png'}, 
+      {item: 'assets/img/pique-2.png'},
+      {item: 'assets/img/pique-3.png'},
       {item: 'assets/img/pique-4.png'}
     ],
     featured: true
@@ -113,4 +113,4 @@ var projObj = [
     items: [{item: 'assets/img/whereto-1.png'}],
     featured: true
   }
-  ];
+];
