@@ -423,15 +423,15 @@ figure.effect-ev:hover p {
   color: #231f20; }
 
 .contact-links .fa {
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease; }
   .contact-links .fa:hover {
     color: #ffffff;
     background-color: #231f20;
     padding: 25px;
     border-radius: 50%;
-    margin-top: -20px; }
+    margin-top: -25px; }
 
 .fa:focus {
   background-color: transparent;

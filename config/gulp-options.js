@@ -1,4 +1,6 @@
 /* 
+gulp-sass
+gulp-imagemin
 gulp-autoprefixer
 gulp-plumbler
 gulp-notify
