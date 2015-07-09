@@ -357,6 +357,39 @@ ev.Thumbnails = Backbone.View.extend({
 });
 var ev = ev || {};
 
+ev.AboutView = Backbone.View.extend({
+  el: '.about',
+  viewContainer: _.template($('#technologies-container-template').html()),
+  itemContainer: _.template($('#technology-item-template').html()),
+  initialize: function() {
+    this.collection = ev.tech();
+    this.render();
+  },
+  render: function() {
+    this.$el.html(this.viewContainer());
+    ev.appendModels('technology-items', this.collection, this.itemContainer);
+    statCount();
+    return this;
+  },
+
+});
+var ev = ev || {};
+
+ev.ContactView = Backbone.View.extend({
+	el: '.contact',
+	viewContainer: _.template($('#links-container-template').html()),
+	itemContainer: _.template($('#link-item-template').html()),
+	initialize: function() {
+		this.collection = ev.links();
+		this.render();
+	},
+	render: function() {
+		this.$el.html(this.viewContainer());
+		ev.appendModels('contact-links', this.collection, this.itemContainer);
+	},
+});
+var ev = ev || {};
+
 ev.IndexView = Backbone.View.extend({
   el: '.index',
   viewContainer: _.template($('#index-container-template').html()),
@@ -401,39 +434,6 @@ ev.Carousel = Backbone.View.extend({
     $('#carousel-preloader').delay(500).fadeOut();
     $('.carousel-preloader').delay(600).fadeOut('slow');
   }
-});
-var ev = ev || {};
-
-ev.AboutView = Backbone.View.extend({
-  el: '.about',
-  viewContainer: _.template($('#technologies-container-template').html()),
-  itemContainer: _.template($('#technology-item-template').html()),
-  initialize: function() {
-    this.collection = ev.tech();
-    this.render();
-  },
-  render: function() {
-    this.$el.html(this.viewContainer());
-    ev.appendModels('technology-items', this.collection, this.itemContainer);
-    statCount();
-    return this;
-  },
-
-});
-var ev = ev || {};
-
-ev.ContactView = Backbone.View.extend({
-	el: '.contact',
-	viewContainer: _.template($('#links-container-template').html()),
-	itemContainer: _.template($('#link-item-template').html()),
-	initialize: function() {
-		this.collection = ev.links();
-		this.render();
-	},
-	render: function() {
-		this.$el.html(this.viewContainer());
-		ev.appendModels('contact-links', this.collection, this.itemContainer);
-	},
 });
 var ev = ev || {};
 
