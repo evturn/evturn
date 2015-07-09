@@ -7,7 +7,6 @@ module.exports = {
   },
   js: {
     src: [
-      'assets/js/data/**/*.js',
       'assets/js/models/ev.js',
       'assets/js/ev.js',
       'assets/js/views/**/*.js',
@@ -15,7 +14,6 @@ module.exports = {
       'assets/js/main.js'
     ],
     watch: [
-      'assets/js/data/**/*.js',
       'assets/js/models/ev.js',
       'assets/js/ev.js',
       'assets/js/views/**/*.js',
