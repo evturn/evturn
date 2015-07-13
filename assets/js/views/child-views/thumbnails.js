@@ -9,9 +9,9 @@ EVTURN.Thumbnails = Backbone.View.extend({
   events: {
     'click .thumbnail-item' : 'scrollUp'
   },
-  render: function(elem) {
+  render: function($selector) {
     this.$el.empty();
-    $('.' + elem).append(this.viewContainer());
+    $selector.append(this.viewContainer());
     EVTURN.fn.appendModels('thumbnail-items', this.collection, this.itemContainer);
   },
   scrollUp: function() {

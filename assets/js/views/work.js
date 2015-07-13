@@ -14,12 +14,11 @@ EVTURN.Carousel = Backbone.View.extend({
     return this;
   },
   setChildViews: function() {
-    $('.carousel-panel').html(this.itemDescription(this.model.toJSON()));
+    var $carouselPanel = $('.carousel-panel');
+    $carouselPanel.html(this.itemDescription(this.model.toJSON()));
     var images = this.model.get('items');
-    for (var i = 0; i < images.length; i++) {
-      $('.carousel-inner').append(this.itemContainer(images[i]));
-    }
-    var tn = new EVTURN.Thumbnails('work');
+    EVTURN.fn.appendPropArray('carousel-inner', images, this.itemContainer);
+    var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
     return this;
   },

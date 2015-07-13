@@ -5,7 +5,7 @@ EVTURN.animations = {
   preloader: function() {
     $(window).load(function() {
       $('#preloader').delay(500).fadeOut();
-      $('.preloader').delay(600).fadeOut('slow');
+      $('.preloader').delay(600).fadeOut(600);
     });
   },
   statCount: function() {
@@ -33,6 +33,6 @@ EVTURN.animations = {
   carouselPreloader: function(template) {
     $('.carousel-image-container').append(template());
     $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut('slow');
+    $('.carousel-preloader').delay(600).fadeOut(600);
   }
 };

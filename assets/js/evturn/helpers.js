@@ -12,6 +12,13 @@ EVTURN.fn = {
       $selector.append(template(collection.models[i].toJSON()));
     }
   },
+  appendPropArray: function(className, array, template) {
+    $selector = $(document.getElementsByClassName(className));
+    for (var i = 0; i < array.length; i++) {
+      var value = array[i];
+      $selector.append(template({item: value}));
+    }
+  },
   createElement: function(string) {
     var $selector = $(document.getElementsByClassName(string));
     $selector.remove();

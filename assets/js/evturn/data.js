@@ -116,10 +116,10 @@ EVTURN.data = {
       thumbnail: "assets/img/mi-tn.png",
       lead: "assets/img/mi-1.png",
       items: [
-        {item: 'assets/img/mi-2.png'},
-        {item: 'assets/img/mi-3.png'},
-        {item: 'assets/img/mi-4.png'},
-        {item: 'assets/img/mi-5.png'}
+        'assets/img/mi-2.png',
+        'assets/img/mi-3.png',
+        'assets/img/mi-4.png',
+        'assets/img/mi-5.png'
       ],
       featured: true
     },
@@ -131,11 +131,11 @@ EVTURN.data = {
       thumbnail: "assets/img/marshallz-tn.png",
       lead: "assets/img/marshallz-1.png",
       items: [
-        {item: 'assets/img/marshallz-2.png'},
-        {item: 'assets/img/marshallz-6.png'},
-        {item: 'assets/img/marshallz-3.jpg'},
-        {item: 'assets/img/marshallz-5.png'},
-        {item: 'assets/img/marshallz-4.jpg'}
+        'assets/img/marshallz-2.png',
+        'assets/img/marshallz-6.png',
+        'assets/img/marshallz-3.jpg',
+        'assets/img/marshallz-5.png',
+        'assets/img/marshallz-4.jpg'
       ],
       featured: true
     },
@@ -147,8 +147,8 @@ EVTURN.data = {
       thumbnail: "assets/img/drive-tn.png",
       lead: 'assets/img/drive-1.png',
       items: [
-        {item: 'assets/img/drive-2.png'},
-        {item: 'assets/img/drive-3.png'}
+        'assets/img/drive-2.png',
+        'assets/img/drive-3.png'
       ],
       featured: true
     },
@@ -160,7 +160,7 @@ EVTURN.data = {
       thumbnail: "assets/img/ramen-tn.png",
       lead: 'assets/img/ramen-1.png',
       items: [
-        {item: "assets/img/ramen-2.png"}
+        'assets/img/ramen-2.png'
       ],
       featured: true
     },
@@ -171,9 +171,9 @@ EVTURN.data = {
       thumbnail: "assets/img/alculator-tn.png",
       lead: "assets/img/alculator-3.png",
       items: [
-        {item: "assets/img/alculator-2.png"},
-        {item: "assets/img/alculator-1.png"},
-        {item: "assets/img/alculator-4.png"}
+        'assets/img/alculator-2.png',
+        'assets/img/alculator-1.png',
+        'assets/img/alculator-4.png'
       ],
       featured: true
     },
@@ -185,9 +185,9 @@ EVTURN.data = {
       thumbnail: "assets/img/pique-tn.png",
       lead: "assets/img/pique-1.jpg",
       items: [
-        {item: 'assets/img/pique-2.png'},
-        {item: 'assets/img/pique-3.png'},
-        {item: 'assets/img/pique-4.png'}
+        'assets/img/pique-2.png',
+        'assets/img/pique-3.png',
+        'assets/img/pique-4.png'
       ],
       featured: true
     },
@@ -198,7 +198,7 @@ EVTURN.data = {
       thumbnail: "assets/img/hangman-tn.png",
       lead: "assets/img/hangman-1.jpg",
       items: [
-        {item: "assets/img/hangman-2.jpg"}
+        'assets/img/hangman-2.jpg'
       ],
       featured: true
     },
@@ -209,7 +209,7 @@ EVTURN.data = {
       thumbnail: "assets/img/ttt-tn.png",
       lead: 'assets/img/ttt-1.jpg',
       items: [
-        {item: 'assets/img/ttt-2.jpg'}
+        'assets/img/ttt-2.jpg'
       ],
       featured: false
     },
@@ -219,7 +219,9 @@ EVTURN.data = {
       id: 9,
       thumbnail: "assets/img/whereto-tn.png",
       lead: 'assets/img/whereto-2.png',
-      items: [{item: 'assets/img/whereto-1.png'}],
+      items: [
+        'assets/img/whereto-1.png'
+      ],
       featured: true
     }
   ],
