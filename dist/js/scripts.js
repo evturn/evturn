@@ -281,6 +281,23 @@ EVTURN.data = {
       icon: 'fa fa-skype',
       featured: true
     }
+  ],
+  stats: [
+    {
+      text: 'Quesadillas Eaten',
+      number: 777074,
+      icon: 'fa fa-check'
+    },
+    {
+      text: 'Weekly Commits',
+      number: 276,
+      icon: 'fa fa-terminal'
+    },
+    {
+      text: 'Github Contributions',
+      number: 6000,
+      icon: 'fa fa-code'
+    }
   ]
 };
 EVTURN.fn = {
@@ -292,21 +309,22 @@ EVTURN.fn = {
     return new EVTURN[capitalize](models.reverse());
   },
   appendModels: function(className, collection, template) {
-    var $selector;
-    if (className.charAt(0) === '.') {
-      $selector = $(className);
-    } else {
-      $selector = $(document.getElementsByClassName(className));
-    }
+    $selector = EVTURN.fn.isSignified(className);
     for (var i = collection.length - 1; i >= 0; i--) {
       $selector.append(template(collection.models[i].toJSON()));
     }
   },
   appendPropArray: function(className, array, template) {
-    $selector = $(document.getElementsByClassName(className));
+    $selector = EVTURN.fn.isSignified(className);
     for (var i = 0; i < array.length; i++) {
       var value = array[i];
       $selector.append(template({item: value}));
+    }
+  },
+  appendObjectsArray: function(className, array, template) {
+    $selector = EVTURN.fn.isSignified(className);
+    for (var i = 0; i < array.length; i++) {
+      $selector.append(template(array[i]));
     }
   },
   createElement: function(string) {
@@ -315,6 +333,15 @@ EVTURN.fn = {
     var element = document.createElement('div');
     element.className = string;
     $(element).insertAfter(new EVTURN.Rza().$el);
+  },
+  isSignified: function(string) {
+    var $selector;
+    if (string.charAt(0) === '.') {
+      $selector = $(string);
+    } else {
+      $selector = $(document.getElementsByClassName(string));
+    }
+    return $selector;
   },
   navActive: function(string) {
     $('.nav-link').removeClass('nav-active');
@@ -367,6 +394,7 @@ EVTURN.AboutView = Backbone.View.extend({
   el: '.about',
   viewContainer: _.template($('#technologies-container-template').html()),
   itemContainer: _.template($('#technology-item-template').html()),
+  statItem: _.template($('#stat-item-template').html()),
   initialize: function() {
     this.collection = EVTURN.fn.get('technologies');
     this.render();
@@ -374,6 +402,7 @@ EVTURN.AboutView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.viewContainer());
     EVTURN.fn.appendModels('.technology-items', this.collection, this.itemContainer);
+    EVTURN.fn.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
     EVTURN.animations.statCount();
     return this;
   },

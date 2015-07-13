@@ -7,21 +7,22 @@ EVTURN.fn = {
     return new EVTURN[capitalize](models.reverse());
   },
   appendModels: function(className, collection, template) {
-    var $selector;
-    if (className.charAt(0) === '.') {
-      $selector = $(className);
-    } else {
-      $selector = $(document.getElementsByClassName(className));
-    }
+    $selector = EVTURN.fn.isSignified(className);
     for (var i = collection.length - 1; i >= 0; i--) {
       $selector.append(template(collection.models[i].toJSON()));
     }
   },
   appendPropArray: function(className, array, template) {
-    $selector = $(document.getElementsByClassName(className));
+    $selector = EVTURN.fn.isSignified(className);
     for (var i = 0; i < array.length; i++) {
       var value = array[i];
       $selector.append(template({item: value}));
+    }
+  },
+  appendObjectsArray: function(className, array, template) {
+    $selector = EVTURN.fn.isSignified(className);
+    for (var i = 0; i < array.length; i++) {
+      $selector.append(template(array[i]));
     }
   },
   createElement: function(string) {
@@ -30,6 +31,15 @@ EVTURN.fn = {
     var element = document.createElement('div');
     element.className = string;
     $(element).insertAfter(new EVTURN.Rza().$el);
+  },
+  isSignified: function(string) {
+    var $selector;
+    if (string.charAt(0) === '.') {
+      $selector = $(string);
+    } else {
+      $selector = $(document.getElementsByClassName(string));
+    }
+    return $selector;
   },
   navActive: function(string) {
     $('.nav-link').removeClass('nav-active');

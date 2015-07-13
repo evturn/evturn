@@ -76,22 +76,8 @@
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <h4 class="about-subhead">Stats</h4>
-            <div class="stat-items">
-              <div class="stat-item">
-                <span class="stat-icon"><i class="fa fa-check"></i></span>
-                <h4 class="stat-count">777074</h4>
-                <p>Quesadillas Eaten</p>
-              </div>
-              <div class="stat-item">
-                <span class="stat-icon"><i class="fa fa-terminal"></i></span>
-                <h4 class="stat-count">276</h4>
-                <p>Weekly Commits</p>
-              </div>
-              <div class="stat-item">
-                <span class="stat-icon"><i class="fa fa-code"></i></span>
-                <h4 class="stat-count">5000</h4>
-                <p>Github Contributions</p>
-              </div>
+            <div class="statistics stat-items">
+              <!-- Stats -->
             </div>
           </div>
         </div>
@@ -139,6 +125,14 @@
     </div>
   </script>
   <!-- CHILD VIEWS -->
+  <!-- Stat Items -->
+  <script type="text/template" id="stat-item-template">
+    <div class="stat-item">
+      <span class="stat-icon"><i class="<%= icon %>"></i></span>
+      <h4 class="stat-count"><%= number %></h4>
+      <p><%= text %></p>
+    </div>
+  </script>
   <!-- Technology Item-->
   <script type="text/template" id="technology-item-template">
     <div class="stat-item">
@@ -214,6 +208,6 @@
     ga('send', 'pageview');
   </script>
   <script src="dist/js/vendor.js"></script>
-  <script src="dist/js/scripts.min.js"></script>
+  <script src="dist/js/scripts.js"></script>
 </body>
 </html>
