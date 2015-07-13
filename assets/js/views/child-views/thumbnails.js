@@ -1,20 +1,18 @@
 EVTURN.Thumbnails = Backbone.View.extend({
   el: '.thumbnail-items',
-  viewContainer: _.template($('#thumbnails-container-template').html()),
-  itemContainer: _.template($('#thumbnail-item-template').html()),
-  initialize: function(elem) {
+  viewContainer : _.template($('#thumbnails-container-template').html()),
+  itemContainer : _.template($('#thumbnail-item-template').html()),
+  initialize: function(selector) {
     this.collection = EVTURN.fn.get('projects');
-    this.render(elem);
+    this.render(selector);
   },
   events: {
-    'click .thumbnail-item' : 'scrollUp'
+    'click .thumbnail-item' : 'EVTURN.animations.scrollUp'
   },
   render: function($selector) {
     this.$el.empty();
     $selector.append(this.viewContainer());
-    EVTURN.fn.appendModels('thumbnail-items', this.collection, this.itemContainer);
-  },
-  scrollUp: function() {
-    EVTURN.animations.scrollUp();
+    EVTURN.fn.appendModels('.thumbnail-items', this.collection, this.itemContainer);
+    return this;
   },
 });

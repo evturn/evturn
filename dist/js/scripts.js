@@ -292,7 +292,12 @@ EVTURN.fn = {
     return new EVTURN[capitalize](models.reverse());
   },
   appendModels: function(className, collection, template) {
-    $selector = $(document.getElementsByClassName(className));
+    var $selector;
+    if (className.charAt(0) === '.') {
+      $selector = $(className);
+    } else {
+      $selector = $(document.getElementsByClassName(className));
+    }
     for (var i = collection.length - 1; i >= 0; i--) {
       $selector.append(template(collection.models[i].toJSON()));
     }
@@ -368,7 +373,7 @@ EVTURN.AboutView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer());
-    EVTURN.fn.appendModels('technology-items', this.collection, this.itemContainer);
+    EVTURN.fn.appendModels('.technology-items', this.collection, this.itemContainer);
     EVTURN.animations.statCount();
     return this;
   },
@@ -384,7 +389,7 @@ EVTURN.ContactView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer());
-    EVTURN.fn.appendModels('contact-links', this.collection, this.itemContainer);
+    EVTURN.fn.appendModels('.contact-links', this.collection, this.itemContainer);
   },
 });
 EVTURN.IndexView = Backbone.View.extend({
@@ -416,9 +421,9 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   setChildViews: function() {
     var $carouselPanel = $('.carousel-panel');
-    $carouselPanel.html(this.itemDescription(this.model.toJSON()));
     var images = this.model.get('items');
-    EVTURN.fn.appendPropArray('carousel-inner', images, this.itemContainer);
+    $carouselPanel.html(this.itemDescription(this.model.toJSON()));
+    EVTURN.fn.appendPropArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
     return this;
@@ -434,22 +439,20 @@ EVTURN.Rza = Backbone.View.extend({
 });
 EVTURN.Thumbnails = Backbone.View.extend({
   el: '.thumbnail-items',
-  viewContainer: _.template($('#thumbnails-container-template').html()),
-  itemContainer: _.template($('#thumbnail-item-template').html()),
-  initialize: function(elem) {
+  viewContainer : _.template($('#thumbnails-container-template').html()),
+  itemContainer : _.template($('#thumbnail-item-template').html()),
+  initialize: function(selector) {
     this.collection = EVTURN.fn.get('projects');
-    this.render(elem);
+    this.render(selector);
   },
   events: {
-    'click .thumbnail-item' : 'scrollUp'
+    'click .thumbnail-item' : 'EVTURN.animations.scrollUp'
   },
   render: function($selector) {
     this.$el.empty();
     $selector.append(this.viewContainer());
-    EVTURN.fn.appendModels('thumbnail-items', this.collection, this.itemContainer);
-  },
-  scrollUp: function() {
-    EVTURN.animations.scrollUp();
+    EVTURN.fn.appendModels('.thumbnail-items', this.collection, this.itemContainer);
+    return this;
   },
 });
 EVTURN.Router = Backbone.Router.extend({

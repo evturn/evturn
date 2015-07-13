@@ -8,7 +8,7 @@ EVTURN.AboutView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer());
-    EVTURN.fn.appendModels('technology-items', this.collection, this.itemContainer);
+    EVTURN.fn.appendModels('.technology-items', this.collection, this.itemContainer);
     EVTURN.animations.statCount();
     return this;
   },

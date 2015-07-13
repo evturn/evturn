@@ -7,7 +7,12 @@ EVTURN.fn = {
     return new EVTURN[capitalize](models.reverse());
   },
   appendModels: function(className, collection, template) {
-    $selector = $(document.getElementsByClassName(className));
+    var $selector;
+    if (className.charAt(0) === '.') {
+      $selector = $(className);
+    } else {
+      $selector = $(document.getElementsByClassName(className));
+    }
     for (var i = collection.length - 1; i >= 0; i--) {
       $selector.append(template(collection.models[i].toJSON()));
     }

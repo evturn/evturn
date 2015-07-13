@@ -15,9 +15,9 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   setChildViews: function() {
     var $carouselPanel = $('.carousel-panel');
-    $carouselPanel.html(this.itemDescription(this.model.toJSON()));
     var images = this.model.get('items');
-    EVTURN.fn.appendPropArray('carousel-inner', images, this.itemContainer);
+    $carouselPanel.html(this.itemDescription(this.model.toJSON()));
+    EVTURN.fn.appendPropArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
     return this;
