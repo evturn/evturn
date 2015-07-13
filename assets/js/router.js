@@ -15,7 +15,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper = new EVTURN.Rza();
   },
   index: function() {
-    EVTURN.fn.build('index');
+    EVTURN.fn.changeState('index');
     if (this.indexView === null) {
       this.indexView = new EVTURN.IndexView();
     }
@@ -24,7 +24,7 @@ EVTURN.Router = Backbone.Router.extend({
 
   },
   work: function(model) {
-    EVTURN.fn.build('work');
+    EVTURN.fn.changeState('work');
     if (this.workView === null) {
       this.workView = new EVTURN.Carousel({model: model});
       this.wrapper.child = this.workView;
@@ -35,7 +35,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   about: function() {
-    EVTURN.fn.build('about');
+    EVTURN.fn.changeState('about');
     if (this.aboutView === null) {
       this.aboutView = new EVTURN.AboutView();
     }
@@ -43,7 +43,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   contact: function() {
-    EVTURN.fn.build('contact');
+    EVTURN.fn.changeState('contact');
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();
     }
