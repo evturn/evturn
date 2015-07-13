@@ -12,5 +12,4 @@ EVTURN.AboutView = Backbone.View.extend({
     EVTURN.animations.statCount();
     return this;
   },
-
 });

@@ -377,7 +377,6 @@ EVTURN.AboutView = Backbone.View.extend({
     EVTURN.animations.statCount();
     return this;
   },
-
 });
 EVTURN.ContactView = Backbone.View.extend({
   el: '.contact',

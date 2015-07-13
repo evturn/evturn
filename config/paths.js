@@ -3,7 +3,8 @@ module.exports = {
     src: 'assets/scss/**/*.scss',
     watch: 'assets/scss/**/*.scss',
     dest: 'dist/css',
-    filename: 'scss.css'
+    filename: 'scss.css',
+    min: 'scss.min.css'
   },
   js: {
     src: [
@@ -24,6 +25,7 @@ module.exports = {
     ],
     dest: 'dist/js',
     filename: 'scripts.js',
+    min: 'scripts.min.js',
     vendor: {
       src: [
         'assets/js/lib/jquery.js',

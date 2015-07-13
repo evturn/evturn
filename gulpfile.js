@@ -38,6 +38,9 @@ gulp.task('js', function() {
     .pipe($.plumber(options.plumber))
     .pipe($.concat(paths.js.filename))
     .pipe(gulp.dest(paths.js.dest))
+    .pipe($.uglify(paths.js.src))
+    .pipe($.rename(paths.js.min))
+    .pipe(gulp.dest(paths.js.dest))
     .on('error', gutil.log);
 });
 
