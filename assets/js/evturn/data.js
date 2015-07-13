@@ -279,5 +279,9 @@ EVTURN.data = {
       number: 6000,
       icon: 'fa fa-code'
     }
+  ],
+  bio : [
+    'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on disting responsive web applications that optimize scalability through RESTful APIs.',
+    'While I enjoy building in a Node.js runtime environment, having studied Rails and the MVC architectural pattern the framework implements, I find integrating libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'
   ]
 };
