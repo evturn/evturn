@@ -3,7 +3,7 @@ EVTURN.AboutView = Backbone.View.extend({
   viewContainer: _.template($('#technologies-container-template').html()),
   itemContainer: _.template($('#technology-item-template').html()),
   initialize: function() {
-    this.collection = EVTURN.fn.tech();
+    this.collection = EVTURN.fn.get('technologies');
     this.render();
   },
   render: function() {

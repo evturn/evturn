@@ -1,27 +1,11 @@
 EVTURN.fn = {
-  featured: function(array) {
-    var p = array;
-    var a = [];
-    for (var i = 0; i < p.length; i++) {
-      var m = p[i];
-      if (m.featured === true ) {
-        a.push(m);
-      }
-    }
-    a.reverse();
-    return a;
-  },
-  work: function() {
-    var a = EVTURN.fn.featured(EVTURN.data.projects);
-    return new EVTURN.Projects(a);
-  },
-  links: function() {
-    var a = EVTURN.fn.featured(EVTURN.data.links);
-    return new EVTURN.Links(a);
-  },
-  tech: function() {
-    var a = EVTURN.fn.featured(EVTURN.data.technologies);
-    return new EVTURN.Technologies(a);
+  get: function(string) {
+    var name = string;
+    var data = EVTURN.data[name];
+    var capitalized = (name.charAt(0).toUpperCase() + name.substring(1));
+    var collection = new EVTURN[capitalized](data);
+    var models = collection.where({featured: true});
+    return new EVTURN[capitalized](models.reverse());
   },
   appendModels: function(className, collection, template) {
     $elem = $('.' + className);

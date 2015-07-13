@@ -304,6 +304,12 @@ img.img-responsive.center-block {
   @media (min-width: 480px) {
     .carousel-panel {
       padding-top: 7%; } }
+  @media (min-width: 768px) {
+    .carousel-panel {
+      padding-top: 0px; } }
+  @media (min-width: 992px) {
+    .carousel-panel {
+      padding-top: 7%; } }
 
 .thumbnails-container {
   margin-bottom: 80px;
