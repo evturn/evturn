@@ -43,8 +43,11 @@
   }
   @media (min-width: $screen-xs) {
     padding-top: 7%;
-    .project-title {
-      
-    }
+  }
+  @media (min-width: $screen-sm) {
+    padding-top: 0px;
+  }
+  @media (min-width: $screen-md) {
+    padding-top: 7%;
   }
 }

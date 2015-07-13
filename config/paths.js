@@ -8,14 +8,16 @@ module.exports = {
   js: {
     src: [
       'assets/js/models/ev.js',
-      'assets/js/ev.js',
+      'assets/js/evturn/data.js',
+      'assets/js/evturn/helpers.js',
+      'assets/js/evturn/animations.js',
       'assets/js/views/**/*.js',
       'assets/js/router.js',
       'assets/js/main.js'
     ],
     watch: [
       'assets/js/models/ev.js',
-      'assets/js/ev.js',
+      'assets/js/evturn/**/*.js',
       'assets/js/views/**/*.js',
       'assets/js/router.js',
       'assets/js/main.js'
@@ -43,14 +45,14 @@ module.exports = {
         'assets/css/lib/devicon.css'
       ],
       dest: 'dist/css',
-      filename: 'vendor.css'  
+      filename: 'vendor.css'
     }
   },
   img: {
     src: 'assets/img/**/*',
     dest: 'dist/img'
   },
-  jshint: { 
+  jshint: {
     src: [
       'assets/js/**/*.js',
       '!assets/js/lib/**/*.js',

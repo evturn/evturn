@@ -1,6 +1,4 @@
-var ev = ev || {};
-
-ev.Router = Backbone.Router.extend({
+EVTURN.Router = Backbone.Router.extend({
   wrapper      : null,
   indexView    : null,
   workView     : null,
@@ -14,46 +12,46 @@ ev.Router = Backbone.Router.extend({
     'contact'  : 'contact'
   },
   initialize: function() {
-    this.wrapper = new ev.Rza();
+    this.wrapper = new EVTURN.Rza();
   },
   index: function() {
-    ev.build('index');
+    EVTURN.fn.build('index');
     if (this.indexView === null) {
-      this.indexView = new ev.IndexView();
+      this.indexView = new EVTURN.IndexView();
     }
     this.wrapper.child = this.indexView;
     this.wrapper.render();
-    
+
   },
   work: function(model) {
-    ev.build('work');
+    EVTURN.fn.build('work');
     if (this.workView === null) {
-      this.workView = new ev.Carousel({model: model});
+      this.workView = new EVTURN.Carousel({model: model});
       this.wrapper.child = this.workView;
     } else {
-      var view = new ev.Carousel({model: model});
+      var view = new EVTURN.Carousel({model: model});
       this.wrapper.child = view;
     }
     this.wrapper.render();
   },
   about: function() {
-    ev.build('about');
+    EVTURN.fn.build('about');
     if (this.aboutView === null) {
-      this.aboutView = new ev.AboutView();
+      this.aboutView = new EVTURN.AboutView();
     }
     this.wrapper.child = this.aboutView;
     this.wrapper.render();
   },
   contact: function() {
-    ev.build('contact');
+    EVTURN.fn.build('contact');
     if (this.contactView === null) {
-      this.contactView = new ev.ContactView();
+      this.contactView = new EVTURN.ContactView();
     }
     this.wrapper.child = this.contactView;
     this.wrapper.render();
   },
   project: function(id) {
-    var collection = ev.work();
+    var collection = EVTURN.fn.get('projects');
     var model = collection.get(id) || collection.get(1);
     this.work(model);
   },

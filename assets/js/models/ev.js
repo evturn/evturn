@@ -1,19 +1,19 @@
-var ev = ev || {};
+var EVTURN = {};
 
-ev.Link = Backbone.Model.extend({});
+EVTURN.Link = Backbone.Model.extend({});
 
-ev.Project = Backbone.Model.extend({});
+EVTURN.Project = Backbone.Model.extend({});
 
-ev.Technology = Backbone.Model.extend({});
+EVTURN.Technology = Backbone.Model.extend({});
 
-Projects = Backbone.Collection.extend({
-  model: ev.Project,
+EVTURN.Projects = Backbone.Collection.extend({
+  model: EVTURN.Project,
 });
 
-Links = Backbone.Collection.extend({
-  model: ev.Link,
+EVTURN.Links = Backbone.Collection.extend({
+  model: EVTURN.Link,
 });
 
-Technologies = Backbone.Collection.extend({
-  model: ev.Technology,
+EVTURN.Technologies = Backbone.Collection.extend({
+  model: EVTURN.Technology,
 });

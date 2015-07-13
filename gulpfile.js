@@ -20,7 +20,8 @@ gulp.task('scss', function() {
     .pipe($.plumber(options.plumber))
     .pipe($.sass())
     .pipe($.rename(paths.scss.filename))
-    .pipe(gulp.dest(paths.scss.dest)).on('error', options.plumber.errorHandler);
+    .pipe(gulp.dest(paths.scss.dest))
+    .on('error', options.plumber.errorHandler);
 });
 
 gulp.task('jslib', function() {

@@ -1,6 +1,4 @@
-var ev = ev || {};
-
-ev.IndexView = Backbone.View.extend({
+EVTURN.IndexView = Backbone.View.extend({
   el: '.index',
   viewContainer: _.template($('#index-container-template').html()),
   initialize: function() {
@@ -8,7 +6,7 @@ ev.IndexView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer());
-    var tn = new ev.Thumbnails('index');
+    var tn = new EVTURN.Thumbnails('index');
     return this;
   },
 });
