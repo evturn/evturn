@@ -19,9 +19,8 @@
 }
 
 @mixin nav-active() {
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 3px;
+  padding: 11px;
+  border-radius: 2px;
   background-color: $black;
   color: $white;
   &:focus {

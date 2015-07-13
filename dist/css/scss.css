@@ -76,9 +76,8 @@ img.img-responsive.center-block {
   height: auto; }
 
 .nav-active {
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 3px;
+  padding: 11px;
+  border-radius: 2px;
   background-color: #231f20;
   color: #ffffff; }
   .nav-active:focus {
@@ -223,9 +222,9 @@ img.img-responsive.center-block {
     text-transform: uppercase; }
   .ev-navbar .nav-link {
     text-decoration: none;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
     .ev-navbar .nav-link:hover {
       color: #231f20; }
     .ev-navbar .nav-link.nav-active:hover {

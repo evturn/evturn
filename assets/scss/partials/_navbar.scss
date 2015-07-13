@@ -19,7 +19,7 @@
 
   .nav-link {
     text-decoration: none;
-    @include transition(all 0.3s ease);
+    @include transition(all 0.2s ease);
 
     &:hover {
       color: $black;
