@@ -1,6 +1,4 @@
-var ev = ev || {};
-
-ev.Rza = Backbone.View.extend({
+EVTURN.Rza = Backbone.View.extend({
   el: '#rza',
   child: null,
   render: function() {

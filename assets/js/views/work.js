@@ -1,6 +1,4 @@
-var ev = ev || {};
-
-ev.Carousel = Backbone.View.extend({
+EVTURN.Carousel = Backbone.View.extend({
   el: '.work',
   viewContainer   : _.template($('#carousel-container-template').html()),
   itemContainer   : _.template($('#carousel-item-template').html()),
@@ -21,8 +19,8 @@ ev.Carousel = Backbone.View.extend({
     for (var i = 0; i < images.length; i++) {
       $('.carousel-inner').append(this.itemContainer(images[i]));
     }
-    var tn = new ev.Thumbnails('work');
-    $('html, body').animate({ scrollTop: 0 }, 500);
+    var tn = new EVTURN.Thumbnails('work');
+    EVTURN.animations.scrollUp();
     return this;
   },
   preloader: function() {

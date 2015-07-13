@@ -1,4 +1,4 @@
-/* 
+/*
 gulp-sass
 gulp-imagemin
 gulp-autoprefixer
@@ -16,7 +16,7 @@ module.exports = {
     outputStyle: 'nested'
   },
   imagemin: {
-    progressive: true 
+    progressive: true
   },
   autoprefixer: {
     browsers: [
