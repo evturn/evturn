@@ -53,6 +53,6 @@ EVTURN.Router = Backbone.Router.extend({
   project: function(id) {
     var collection = EVTURN.fn.work();
     var model = collection.get(id) || collection.get(1);
-    EVTURN.fn.work(model);
+    this.work(model);
   },
 });

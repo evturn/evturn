@@ -70,7 +70,7 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer(this.model.toJSON()));
-    this.preloader();
+    EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },
   setChildViews: function() {
@@ -83,11 +83,6 @@ EVTURN.Carousel = Backbone.View.extend({
     EVTURN.animations.scrollUp();
     return this;
   },
-  preloader: function() {
-    $('.carousel-image-container').append(this.itemPreloader());
-    $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut('slow');
-  }
 });
 EVTURN.Rza = Backbone.View.extend({
   el: '#rza',
@@ -172,7 +167,7 @@ EVTURN.Router = Backbone.Router.extend({
   project: function(id) {
     var collection = EVTURN.fn.work();
     var model = collection.get(id) || collection.get(1);
-    EVTURN.fn.work(model);
+    this.work(model);
   },
 });
 EVTURN.animations = {
@@ -207,6 +202,11 @@ EVTURN.animations = {
   scrollUp: function() {
     $('html, body').animate({scrollTop: 0 }, 500);
   },
+  carouselPreloader: function(template) {
+    $('.carousel-image-container').append(template());
+    $('#carousel-preloader').delay(500).fadeOut();
+    $('.carousel-preloader').delay(600).fadeOut('slow');
+  }
 };
 EVTURN.data = {
   technologies: [

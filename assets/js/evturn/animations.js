@@ -30,4 +30,9 @@ EVTURN.animations = {
   scrollUp: function() {
     $('html, body').animate({scrollTop: 0 }, 500);
   },
+  carouselPreloader: function(template) {
+    $('.carousel-image-container').append(template());
+    $('#carousel-preloader').delay(500).fadeOut();
+    $('.carousel-preloader').delay(600).fadeOut('slow');
+  }
 };
