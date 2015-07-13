@@ -34,7 +34,7 @@ EVTURN.data = {
       icon: 'devicon-bootstrap-plain',
       color: 'devicon-bootstrap-plain colored',
       id: 5,
-      featured: true
+      featured: false
     },
     {
       technology: 'git',
