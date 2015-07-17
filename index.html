@@ -44,33 +44,30 @@
   </script>
   <!-- About -->
   <script type="text/template" id="technologies-container-template">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 col-xs-12 animated fadeInDown">
+    <div class="wrapper about">
+      <div class="about-wrapper">
+
+        <div class="image-container animated fadeInDown">
           <a><img class="img-scale" src="dist/img/tile.png"></a>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 col-xs-12">
-          <h2 class="section-title">Web Developer</h2>
+
+        <div class="bio-container">
+          <p class="section-title">Web Developer</p>
           <div class="about-paragraphs">
             <!-- Bio -->
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 col-xs-12">
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <h4 class="about-subhead">Notable Build Tools</h4>
-            <div class="technology-items stat-items">
-            <!-- Technologies -->
-            </div>
+
+        <div class="stats-container">
+          <h4 class="about-subhead">Notable Build Tools</h4>
+          <div class="technology-items stat-items">
+          <!-- Technologies -->
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <h4 class="about-subhead">Stats</h4>
-            <div class="statistics stat-items">
-              <!-- Stats -->
-            </div>
+        </div>
+        <div class="stats-container">
+          <h4 class="about-subhead">Stats</h4>
+          <div class="statistics stat-items">
+            <!-- Stats -->
           </div>
         </div>
       </div>
@@ -114,9 +111,10 @@
   </script>
   <!-- CHILD VIEWS -->
   <!-- Bio -->
-  <script type="text/template" id="bio-paragraph-template"><div class="col-md-6 col-sm-6 col-xs-12">
-      <p class="about-lead"><%= item %></p>
-    </div>
+  <script type="text/template" id="bio-paragraph-template">
+      <div class="paragraph">
+        <p><%= item %></p>
+      </div>
   </script>
   <!-- Stat Items -->
   <script type="text/template" id="stat-item-template">

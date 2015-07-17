@@ -6,13 +6,42 @@
   color: $black;
 
   .section-title {
+    padding-top: 15px;
     text-align: center;
+    font-size: 30px;
   }
 
   .about-subhead {
     margin-bottom: 10px;
     text-transform: uppercase;
     text-align: left;
+  }
+
+  .paragraph {
+    width: 100%;
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 2;
+    color: $black;
+    text-align: left;
+    @media (min-width: $sm) {
+      width: 49%;
+    }
+  }
+
+  .stats-container {
+    padding-top: 25px;
+    width: 100%;
+    vertical-align: top;
+
+    @media (min-width: $sm) {
+      width: 49%;
+      display: inline-block;
+    }
   }
 
   .stat-icon {
@@ -29,22 +58,9 @@
 
     .stat-item {
       display: inline-block;
-      text-align: center;
-      width: 30%;
-      @media (min-width: $xs) {
-        width: 20%;
-      }
+      width: 80px;
+
     }
   }
 
-}
-
-.about-lead {
-  font-size: 18px;
-  line-height: 2;
-  color: $black;
-  text-align: left;
-  @media (max-width: $screen-md-max) {
-    line-height: 1.4em;
-  }
 }

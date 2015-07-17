@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400,100,200,300,500,600);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
 #rza {
-  padding-top: 15px; }
+  padding-top: 30px; }
 
 .section-title {
   text-transform: uppercase; }
@@ -78,11 +78,35 @@ h1 {
   line-height: 1.8;
   color: #231f20; }
   .about .section-title {
-    text-align: center; }
+    padding-top: 15px;
+    text-align: center;
+    font-size: 30px; }
   .about .about-subhead {
     margin-bottom: 10px;
     text-transform: uppercase;
     text-align: left; }
+  .about .paragraph {
+    width: 100%;
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 2;
+    color: #231f20;
+    text-align: left; }
+    @media (min-width: 600px) {
+      .about .paragraph {
+        width: 49%; } }
+  .about .stats-container {
+    padding-top: 25px;
+    width: 100%;
+    vertical-align: top; }
+    @media (min-width: 600px) {
+      .about .stats-container {
+        width: 49%;
+        display: inline-block; } }
   .about .stat-icon {
     display: block; }
     .about .stat-icon .fa {
@@ -92,20 +116,7 @@ h1 {
     padding-top: 15px; }
     .about .stat-items .stat-item {
       display: inline-block;
-      text-align: center;
-      width: 30%; }
-      @media (min-width: 400px) {
-        .about .stat-items .stat-item {
-          width: 20%; } }
-
-.about-lead {
-  font-size: 18px;
-  line-height: 2;
-  color: #231f20;
-  text-align: left; }
-  @media (max-width: 1199px) {
-    .about-lead {
-      line-height: 1.4em; } }
+      width: 80px; }
 
 #preloader, #carousel-preloader {
   width: 100%;
