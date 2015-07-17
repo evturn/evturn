@@ -486,22 +486,23 @@ h1 {
     .ev-navbar .nav-active:hover,
     .ev-navbar .nav-active:visited {
       color: #ffffff; }
-  .ev-navbar .nav-text {
-    font-family: Raleway;
-    text-transform: uppercase; }
   .ev-navbar .nav-link {
     -webkit-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
     text-decoration: none; }
-  .ev-navbar .nav-text {
+  .ev-navbar .nav-text,
+  .ev-navbar .nav-text a {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
     line-height: 1.4em;
     margin-bottom: 0;
-    font-size: 14px; }
+    font-size: 14px;
+    color: #231f20; }
     @media (min-width: 600px) {
-      .ev-navbar .nav-text {
+      .ev-navbar .nav-text,
+      .ev-navbar .nav-text a {
         font-size: 24px; } }
 
 .carousel-wrapper {

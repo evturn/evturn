@@ -23,22 +23,20 @@
     @include nav-active($primary, $white);
   }
 
-  .nav-text {
-    font-family: $primarysans;
-    text-transform: uppercase;
-  }
-
   .nav-link {
     @include transition(all 0.2s ease);
     text-decoration: none;
 
   }
 
-  .nav-text {
+  .nav-text,
+  .nav-text a {
     @include ease-in-out;
+    text-transform: uppercase;
     line-height: 1.4em;
     margin-bottom: 0;
     font-size: 14px;
+    color: $black;
     @media (min-width: $sm) {
       font-size: 24px;
 
