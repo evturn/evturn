@@ -30,6 +30,8 @@
 
       @media (min-width: $md) {
         .shadow {
+          @include box-shadow(inset 0px -176px 178px -62px rgba(0,0,0,0.75));
+          @include transition(all 0.7s ease);
           display: block;
           position: absolute;
           z-index: 1;
@@ -37,12 +39,11 @@
           left: 0;
           height: 100%;
           width: 100%;
-          @include box-shadow(inset 0px -176px 178px -62px rgba(0,0,0,0.75));
         }
 
         &:hover .shadow {
-          opacity: 0.4;
           @include transition(all 0.7s ease);
+          opacity: 0.3;
 
           }
         }

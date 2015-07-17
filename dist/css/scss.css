@@ -594,20 +594,23 @@ h1 {
       cursor: pointer; }
       @media (min-width: 900px) {
         .thumbnails .thumbnail-item .image-container .shadow {
+          -webkit-box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75);
+          box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75);
+          -webkit-transition: all 0.7s ease;
+          -o-transition: all 0.7s ease;
+          transition: all 0.7s ease;
           display: block;
           position: absolute;
           z-index: 1;
           top: 0;
           left: 0;
           height: 100%;
-          width: 100%;
-          -webkit-box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75);
-          box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75); }
+          width: 100%; }
         .thumbnails .thumbnail-item .image-container:hover .shadow {
-          opacity: 0.4;
           -webkit-transition: all 0.7s ease;
           -o-transition: all 0.7s ease;
-          transition: all 0.7s ease; } }
+          transition: all 0.7s ease;
+          opacity: 0.3; } }
 
 .contact .link-items {
   padding-top: 25px;
