@@ -13,7 +13,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.js.watch, ['js']);
 });
 
-gulp.task('build', ['scss', 'css', 'js', 'jslib', 'img']);
+gulp.task('build', ['scss', 'css', 'less', 'js', 'jslib', 'img']);
 
 gulp.task('scss', function() {
   return gulp.src(paths.scss.src)
@@ -22,6 +22,17 @@ gulp.task('scss', function() {
     .pipe($.rename(paths.scss.filename))
     .pipe(gulp.dest(paths.scss.dest))
     .on('error', options.plumber.errorHandler);
+});
+
+gulp.task('less', function() {
+  return gulp.src(paths.less.src)
+    .pipe($.plumber(options.plumber))
+    .pipe($.less())
+    .pipe($.rename(paths.less.filename))
+    .on('error', options.plumber.errorHandler)
+    .pipe($.autoprefixer(options.autoprefixer))
+    .pipe($.cssmin())
+    .pipe(gulp.dest(paths.less.dest)).on('error', gutil.log);
 });
 
 gulp.task('jslib', function() {

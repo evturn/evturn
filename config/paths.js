@@ -6,6 +6,12 @@ module.exports = {
     filename: 'scss.css',
     min: 'scss.min.css'
   },
+  less: {
+    src: 'assets/less/*.less',
+    watch: 'assets/less/**/*.less',
+    dest: 'dist/css',
+    filename: 'less.css'
+  },
   js: {
     src: [
       'assets/js/models/ev.js',
