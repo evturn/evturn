@@ -1,0 +1,12 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  .footer-container {
+    z-index: 1;
+    text-align: center;
+    color: $white;
+    padding-bottom: 10px;
+  }
+}

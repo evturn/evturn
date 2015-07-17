@@ -55,26 +55,6 @@ h1 {
       font-size: 18px;
       padding-left: 15px; } }
 
-.avatar {
-  border-radius: 20%;
-  max-width: 45%;
-  text-align: center;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%; }
-  .footer .footer-container {
-    z-index: 1;
-    text-align: center;
-    color: #929497; }
-
 img.img-responsive.center-block {
   width: 100%;
   height: auto; }
@@ -474,3 +454,13 @@ figure.effect-ev:hover p {
 
 .btn-container > a.btn.btn-black:first-child {
   background-color: #404041; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .footer .footer-container {
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+    padding-bottom: 10px; }
