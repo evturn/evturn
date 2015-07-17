@@ -2,7 +2,7 @@
   margin-bottom: 80px;
   @include transition(all 0.3s ease);
 
-  @media (min-width: $screen-xxs) {
+  @media (min-width: $xs) {
     margin-top: 0;
     .thumbnail-item {
       cursor: pointer;
@@ -15,7 +15,7 @@
     }
   }
 
-  @media (min-width: $screen-md) {
+  @media (min-width: $sm) {
     margin-top: 30px;
   }
   .thumbnail-item {

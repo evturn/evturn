@@ -1,5 +1,5 @@
 .ev-navbar {
-  @include box-shadow(0px -3px 19px -4px rgba(0,0,0,0.75));
+  @include img-shadow;
   background-color: $white;
   overflow: auto;
 

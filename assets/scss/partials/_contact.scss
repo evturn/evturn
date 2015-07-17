@@ -19,12 +19,12 @@
       color: $black;
     }
     .fa {
-      margin-left: 10px;
+      margin-left: 0;
       margin-top: 15px;
       @include transition(all 0.1s ease);
       font-size: 2em;
+      color: $white;
       &:hover {
-        color: $white;
         background-color: $black;
         padding: 10px;
         border-radius: 50%;

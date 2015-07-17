@@ -61,7 +61,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  max-width: 1200px; }
+  max-width: 1000px; }
 
 .inner-wrapper {
   margin-left: auto;
@@ -285,7 +285,7 @@ h1 {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease; }
-  @media (min-width: 320px) {
+  @media (min-width: 400px) {
     .thumbnails-container {
       margin-top: 0; }
       .thumbnails-container .thumbnail-item {
@@ -294,7 +294,7 @@ h1 {
         transition: all 0.3s ease-in-out; }
         .thumbnails-container .thumbnail-item img {
           border-radius: 3px; } }
-  @media (min-width: 992px) {
+  @media (min-width: 600px) {
     .thumbnails-container {
       margin-top: 30px; } }
   .thumbnails-container .thumbnail-item {
@@ -410,14 +410,14 @@ figure.effect-ev:hover p {
   .contact .link-item a:focus {
     color: #231f20; }
   .contact .link-item .fa {
-    margin-left: 10px;
+    margin-left: 0;
     margin-top: 15px;
     -webkit-transition: all 0.1s ease;
     -o-transition: all 0.1s ease;
     transition: all 0.1s ease;
-    font-size: 2em; }
+    font-size: 2em;
+    color: #ffffff; }
     .contact .link-item .fa:hover {
-      color: #ffffff;
       background-color: #231f20;
       padding: 10px;
       border-radius: 50%;
