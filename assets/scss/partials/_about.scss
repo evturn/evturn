@@ -3,7 +3,7 @@
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
-  color: $black90;
+  color: $black;
   .section-title {
     text-align: center;
   }
@@ -34,13 +34,13 @@
       }
     }
   }
-  
+
 }
 
 .about-lead {
   font-size: 18px;
   line-height: 2;
-  color: $primarygreydark;
+  color: $black;
   text-align: left;
   @media (max-width: $screen-md-max) {
     line-height: 1.4em;

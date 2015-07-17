@@ -1,7 +1,10 @@
 @import "vendor/bootstrap";
 
-@import "partials/globals";
-@import "partials/mixins";
+@import "base/variables";
+@import "base/fonts";
+@import "base/globals";
+@import "base/mixins";
+
 @import "partials/about";
 @import "partials/loader";
 @import "partials/navbar";

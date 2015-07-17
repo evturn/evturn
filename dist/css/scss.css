@@ -17,10 +17,9 @@ html {
   position: relative; }
 
 body {
-  background-image: url("../img/brickwall.png");
+  background-color: #5FA3C0;
   margin-bottom: 60px; }
 
-body,
 a,
 p,
 h6,
@@ -34,6 +33,11 @@ h1 {
   background-color: transparent;
   font-smooth: always;
   -webkit-font-smoothing: antialiased; }
+
+.img-scale {
+  width: 100%;
+  height: auto;
+  display: block; }
 
 .header-subhead {
   background-color: #231f20;
@@ -88,7 +92,7 @@ img.img-responsive.center-block {
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
-  color: #404041; }
+  color: #231f20; }
   .about .section-title {
     text-align: center; }
   .about .about-subhead {
@@ -117,7 +121,7 @@ img.img-responsive.center-block {
 .about-lead {
   font-size: 18px;
   line-height: 2;
-  color: #6c6d6f;
+  color: #231f20;
   text-align: left; }
   @media (max-width: 1199px) {
     .about-lead {
@@ -259,9 +263,6 @@ img.img-responsive.center-block {
       padding-right: 10px; }
       .ev-navbar .nav-item .nav-text {
         font-size: 22px; } }
-
-.work {
-  background-image: url("../img/brickwall.png"); }
 
 .carousel-row {
   background-color: #bbbdbf;
