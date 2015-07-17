@@ -140,7 +140,8 @@ EVTURN.data = {
         'assets/img/mi-4.png',
         'assets/img/mi-5.png'
       ],
-      featured: true
+      featured: true,
+      technologies: [1, 14, 12, 10]
     },
     {
       name: 'Marshallz Blog',
@@ -156,7 +157,8 @@ EVTURN.data = {
         'assets/img/marshallz-5.png',
         'assets/img/marshallz-4.jpg'
       ],
-      featured: true
+      featured: true,
+      technologies: [1, 14, 12, 10]
     },
     {
       name: 'Drive Publishing',
@@ -181,7 +183,8 @@ EVTURN.data = {
       items: [
         'assets/img/ramen-2.png'
       ],
-      featured: true
+      featured: true,
+      technologies: [1, 14, 12, 10]
     },
     {
       name: 'Alculator',
@@ -241,7 +244,8 @@ EVTURN.data = {
       items: [
         'assets/img/whereto-1.png'
       ],
-      featured: true
+      featured: true,
+      technologies: [1, 14, 12, 10]
     }
   ],
   links: [
