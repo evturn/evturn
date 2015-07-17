@@ -260,6 +260,8 @@ h1 {
 
 .carousel-panel {
   font-family: Source Sans Pro; }
+  .carousel-panel .btn-container {
+    margin-top: 10px; }
   .carousel-panel .fa {
     font-weight: bold; }
   .carousel-panel .project-text {
@@ -295,7 +297,8 @@ h1 {
   margin-bottom: 80px;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease;
+  overflow: auto; }
   @media (min-width: 400px) {
     .thumbnails-container {
       margin-top: 0; }

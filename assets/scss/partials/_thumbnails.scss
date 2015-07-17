@@ -1,6 +1,7 @@
 .thumbnails-container {
   margin-bottom: 80px;
   @include transition(all 0.3s ease);
+  overflow: auto;
 
   @media (min-width: $xs) {
     margin-top: 0;

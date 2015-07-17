@@ -12,6 +12,9 @@
 }
 .carousel-panel {
   font-family: $primaryserif;
+  .btn-container {
+    margin-top: 10px;
+  }
   .fa { font-weight: bold; }
   .project-text {
     padding: 15px;
