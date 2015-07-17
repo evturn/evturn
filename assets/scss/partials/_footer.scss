@@ -1,13 +1,12 @@
 .site-footer {
   position: absolute;
   left: 0;
+  right: 0;
   bottom: 0;
-  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
 
   .footer-container {
-    z-index: 1;
-    text-align: center;
-    color: $white;
-    padding-bottom: 10px;
+    color: $black5;
   }
 }
