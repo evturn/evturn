@@ -221,6 +221,8 @@ img.img-responsive.center-block {
     transform: rotate(359deg); } }
 
 .ev-navbar {
+  -webkit-box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
   background-color: #ffffff;
   overflow: auto; }
   .ev-navbar .nav-items {
