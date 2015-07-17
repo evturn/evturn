@@ -78,18 +78,14 @@
   </script>
   <!-- Contact -->
   <script type="text/template" id="links-container-template">
-    <div class="container wow fadeIn">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 col-xs-12">
-          <a><img class="img-scale" src="assets/img/city-invert.png"></a>
+    <div class="wrapper contact animated fadeIn">
+      <div class="contact-wrapper">
+        <div class="image-container">
+          <img class="img-scale" src="assets/img/city-invert.png">
           <p class="header-subhead">@evturn // evturn [@] gmail [dot] com</p>
         </div>
-      </div>
-    </div>
-    <div class="container contact-container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 col-xs-12 text-center">
-          <div class="row contact-links">
+        <div class="links-container">
+          <ul class="link-items">
             <!-- Links -->
           </div>
         </div>
@@ -139,10 +135,9 @@
   </script>
   <!-- Link Item -->
   <script type="text/template" id="link-item-template">
-    <div class="col-xs-4 col-sm-4 col-md-2 text-center">
-      <a target="_blank" href="<%= url %>"><i class="<%= icon %> fa-3x"></i></a>
-      <p><%= name %></p>
-    </div>
+    <li class="link-item">
+      <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>
+    </li>
   </script>
   <!-- Thumbnail Container -->
   <script type="text/template" id="thumbnails-container-template">

@@ -31,7 +31,6 @@ h1 {
   font-family: Source Sans Pro;
   font-weight: 500;
   background-color: transparent;
-  font-smooth: always;
   -webkit-font-smoothing: antialiased; }
 
 .img-scale {
@@ -44,20 +43,13 @@ h1 {
   color: #ffffff;
   text-align: center;
   text-transform: uppercase;
-  border-radius: 1px; }
-  @media (min-width: 320px) {
-    .header-subhead {
-      margin-bottom: 0;
-      padding-left: 0; } }
-  @media (min-width: 992px) {
+  border-radius: 1px;
+  margin-bottom: 0; }
+  @media (min-width: 600px) {
     .header-subhead {
       text-align: left;
       font-size: 18px;
       padding-left: 15px; } }
-
-img.img-responsive.center-block {
-  width: 100%;
-  height: auto; }
 
 .wrapper {
   margin-left: auto;
@@ -402,28 +394,33 @@ figure.effect-ev:hover p {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
-.fa.fa-skype:hover {
-  color: #231f20;
-  cursor: default; }
+.contact .link-items {
+  float: right;
+  padding-top: 25px; }
 
-.contact-container {
-  margin-top: 60px; }
+.contact .link-item {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  overflow: auto; }
+  .contact .link-item a:focus {
+    color: #231f20; }
+  .contact .link-item .fa {
+    margin-left: 10px;
+    margin-top: 15px;
+    -webkit-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+    font-size: 2em; }
+    .contact .link-item .fa:hover {
+      color: #ffffff;
+      background-color: #231f20;
+      padding: 10px;
+      border-radius: 50%;
+      margin-top: 5px;
+      margin-left: 0; }
 
-.contact-links a:focus {
-  color: #231f20; }
-
-.contact-links .fa {
-  -webkit-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease; }
-  .contact-links .fa:hover {
-    color: #ffffff;
-    background-color: #231f20;
-    padding: 25px;
-    border-radius: 50%;
-    margin-top: -25px; }
-
-.fa:focus {
+.contact .fa:focus {
   background-color: transparent;
   color: #231f20; }
 

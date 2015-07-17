@@ -267,7 +267,7 @@ EVTURN.data = {
       name: 'general assembly',
       url: 'https://profiles.generalassemb.ly/ev',
       icon: 'fa fa-certificate',
-      featured: true
+      featured: false
     },
     {
       name: 'twitter',
@@ -279,7 +279,7 @@ EVTURN.data = {
       name: 'skype: @evturn',
       url: 'javaScript:void(0);', // jshint ignore:line
       icon: 'fa fa-skype',
-      featured: true
+      featured: false
     }
   ],
   stats: [
@@ -423,7 +423,7 @@ EVTURN.ContactView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.viewContainer());
-    EVTURN.fn.appendModels('.contact-links', this.collection, this.itemContainer);
+    EVTURN.fn.appendModels('.link-items', this.collection, this.itemContainer);
   },
 });
 EVTURN.IndexView = Backbone.View.extend({
