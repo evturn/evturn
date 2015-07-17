@@ -642,12 +642,12 @@ h1 {
   background-color: transparent;
   color: #231f20; }
 
-.footer-wrapper {
+.site-footer {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%; }
-  .footer-wrapper .footer-container {
+  .site-footer .footer-container {
     z-index: 1;
     text-align: center;
     color: #ffffff;
