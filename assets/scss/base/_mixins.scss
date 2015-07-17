@@ -125,3 +125,17 @@
 @mixin img-shadow {
   @include box-shadow(0px -3px 19px -4px rgba(0,0,0,0.75));
 }
+
+@mixin button($bgColor, $txtColor, $bgColorAlt) {
+
+  .btn-generic {
+    background-color: $bgColor;
+    color: $txtColor;
+    font-weight: bold;
+  }
+  .btn-container>a.btn.btn-generic:first-child {
+    background-color: $bgColorAlt;
+
+  }
+
+}

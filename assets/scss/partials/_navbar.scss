@@ -37,8 +37,12 @@
   .nav-text {
     @include ease-in-out;
     line-height: 1.4em;
-    font-size: 24px;
     margin-bottom: 0;
+    font-size: 14px;
+    @media (min-width: $sm) {
+      font-size: 24px;
+
+    }
   }
 
 

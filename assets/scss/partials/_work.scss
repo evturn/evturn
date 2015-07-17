@@ -9,24 +9,25 @@
 .carousel-image-container {
   padding: 10px 10px 10px;
   display: inline-block;
-  @media (min-width: $sm) {
+  @media (min-width: $md) {
     width: 66%;
   }
 }
 .carousel-panel {
   display: inline-block;
   font-family: $primaryserif;
-  padding-top: 50px;
   width: 100%;
   vertical-align: top;
 
-  @media (min-width: $sm) {
-    width: 33%;
+  @media (min-width: $md) {
+    padding-top: 50px;
+    width: 30%;
   }
 
-
+  @include button($white, $primary, $black10);
   .btn-container {
     margin-top: 10px;
+    text-align: center;
   }
 
   .fa {
@@ -37,7 +38,18 @@
   .project-text {
     padding: 15px;
 
-    p {
+    .section-title {
+      font-size: 5vw;
+      text-transform: uppercase;
+      color: $black;
+      background-color: $white;
+      text-align: center;
+      @media (min-width: $md) {
+        font-size: 2vw;
+      }
+    }
+
+    .meta {
       font-size: 15px;
       padding-top: 10px;
       font-weight: normal;
@@ -55,12 +67,5 @@
     }
   }
 
-  .section-title {
-    font-size: 28px;
-    text-transform: uppercase;
-    color: $black;
-    background-color: $white;
-    text-align: center;
-  }
 
 }

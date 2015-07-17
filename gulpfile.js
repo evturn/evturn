@@ -11,6 +11,8 @@ gulp.task('watch', function() {
   gulp.watch(paths.jshint.watch, ['lint']);
   gulp.watch(paths.scss.watch, ['scss']);
   gulp.watch(paths.js.watch, ['js']);
+  gulp.watch(paths.js.vendor.watch, ['jslib']);
+  gulp.watch(paths.css.vendor.watch, ['css']);
 });
 
 gulp.task('build', ['scss', 'css', 'less', 'js', 'jslib', 'img']);

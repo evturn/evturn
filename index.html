@@ -25,9 +25,9 @@
     </div>
   </div>
   <div id="rza"></div>
-  <footer class="wrapper footer">
-    <div class="row">
-      <div class="col-lg-12 col-xs-12 text-center footer-container">
+  <footer class="wrapper">
+    <div class="footer-wrapper">
+      <div class="footer-container">
         <p>2015 © evturn.com | All Rights Reserved</p>
       </div>
     </div>
@@ -139,38 +139,29 @@
   </script>
   <!-- Thumbnail Container -->
   <script type="text/template" id="thumbnails-container-template">
-    <div class="wrapper thumbnails-container">
+    <div class="wrapper thumbnails">
       <div class="thumbnails-wrapper">
-        <div class="grid">
-          <ul class="thumbnail-items">
-            <!-- Thumbnails Items-->
-          </ul>
-        </div>
+          <!-- Thumbnails Items-->
       </div>
     </div>
   </script>
   <!-- Thumbnail Item -->
   <script type="text/template" id="thumbnail-item-template">
-    <li class="thumbnail-item">
-      <a href="#work/<%= id %>">
-        <figure class="effect-ev">
-          <img class="img-scale" src="<%= thumbnail %>">
-          <figcaption>
-            <p><%= name %></p>
-          </figcaption>
-        </figure>
-      </a>
-    </li>
+    <div class="thumbnail-item">
+      <div class="thumbnail-inner">
+        <a href="#work/<%= id %>"><img class="img-scale" src="<%= thumbnail %>"></a>
+      </div>
+    </div>
   </script>
   <!-- Carousel Panel -->
   <script type="text/template" id="carousel-panel-template">
-    <p class="section-title"><%= name %></p>
     <div class="btn-container">
-      <a class="btn btn-black" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-      <a class="btn btn-black" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+      <a class="btn btn-generic" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+      <a class="btn btn-generic" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
     </div>
     <div class="project-text">
-      <p><%= description %></p>
+      <p class="section-title"><%= name %></p>
+      <p class="meta"><%= description %></p>
     </div>
     <div class="project-stats">
     <% var url = url ? '<p class="pull-right"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>

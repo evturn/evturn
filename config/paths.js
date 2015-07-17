@@ -40,6 +40,7 @@ module.exports = {
         'assets/js/lib/bootstrap.js',
         'assets/js/lib/wow.js'
       ],
+      watch: 'assets/js/lib/**/*.js',
       dest: 'dist/js',
       filename: 'vendor.js'
     }
@@ -53,6 +54,7 @@ module.exports = {
         'assets/css/lib/devicon.css',
         'assets/css/reset.css'
       ],
+      watch: 'assets/css/**/*.css',
       dest: 'dist/css',
       filename: 'vendor.css'
     }
