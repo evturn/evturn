@@ -5,34 +5,48 @@
   overflow: auto;
 
   .thumbnails-wrapper {
-    height: 100%;
-    width: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .thumbnail-item {
     @include transition(0.3s);
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
-    margin:0;
-
     display: inline-block;
-    .thumbnail-inner {
-
-    }
-    @media (min-width: $sm) {
-
-    }
-
+    text-align: center;
+    padding-top: 15px;
+    margin:0;
+    width: 23.5%;
     cursor: pointer;
 
-     &:hover {
+    .thumbnail-inner {
+      padding: 2.5px;
+      @media (min-width: $sm) {
+        padding: 10px;
+
+      }
     }
 
-    .img-scale {
-      border-radius: 3px;
-    }
+    .image-container {
+      position: relative;
+
+      @media (min-width: $md) {
+        .shadow {
+          display: block;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          @include box-shadow(inset 0px -176px 178px -62px rgba(0,0,0,0.75));
+        }
+
+        &:hover .shadow {
+          opacity: 0.4;
+          @include transition(all 0.7s ease);
+
+          }
+        }
+      }
+
   }
 }

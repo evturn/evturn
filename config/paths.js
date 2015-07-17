@@ -48,7 +48,6 @@ module.exports = {
   css: {
     vendor: {
       src: [
-        'assets/css/lib/bootstrap.css',
         'assets/css/lib/animate.css',
         'assets/css/lib/font-awesome.css',
         'assets/css/lib/devicon.css',

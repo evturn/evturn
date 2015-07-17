@@ -573,22 +573,40 @@ h1 {
   margin-top: 50px;
   overflow: auto; }
   .thumbnails .thumbnails-wrapper {
-    height: 100%;
-    width: 100%;
-    text-align: left; }
+    text-align: center; }
   .thumbnails .thumbnail-item {
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
-    margin: 0;
     display: inline-block;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0;
+    width: 23.5%;
     cursor: pointer; }
-    .thumbnails .thumbnail-item .img-scale {
-      border-radius: 3px; }
+    .thumbnails .thumbnail-item .thumbnail-inner {
+      padding: 2.5px; }
+      @media (min-width: 600px) {
+        .thumbnails .thumbnail-item .thumbnail-inner {
+          padding: 10px; } }
+    .thumbnails .thumbnail-item .image-container {
+      position: relative; }
+      @media (min-width: 900px) {
+        .thumbnails .thumbnail-item .image-container .shadow {
+          display: block;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          -webkit-box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75);
+          box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75); }
+        .thumbnails .thumbnail-item .image-container:hover .shadow {
+          opacity: 0.4;
+          -webkit-transition: all 0.7s ease;
+          -o-transition: all 0.7s ease;
+          transition: all 0.7s ease; } }
 
 .contact .link-items {
   padding-top: 25px;
@@ -624,11 +642,12 @@ h1 {
   background-color: transparent;
   color: #231f20; }
 
-.footer {
+.footer-wrapper {
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%; }
-  .footer .footer-container {
+  .footer-wrapper .footer-container {
     z-index: 1;
     text-align: center;
     color: #ffffff;
