@@ -1,87 +1,44 @@
 .ev-navbar {
-  text-align: center;
   background-color: $white;
+  overflow: auto;
 
   .nav-items {
-    margin-bottom: 0;
-    padding: 10px;
+    padding: 10px 0 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    @media (min-width: $sm) {
+      text-align: right;
+    }
   }
 
   .nav-item {
-    text-align: center;
+    text-align: left;
     display: inline-block;
+    margin-left: 10px;
   }
 
-  .nav-item .nav-text {
+  .nav-active {
+    @include nav-active($primary, $white);
+  }
+
+  .nav-text {
     font-family: $primarysans;
     text-transform: uppercase;
   }
 
   .nav-link {
-    text-decoration: none;
     @include transition(all 0.2s ease);
+    text-decoration: none;
 
-    &:hover {
-      color: $black;
-    }
-
-    &.nav-active:hover {
-      color: $white;
-    }
   }
 
-  @media (min-width: $screen-xxs) {
-
-    .nav-item {
-      padding-left: 5px;
-      padding-right: 5px;
-
-      .nav-text {
-        line-height: 1.4em;
-        font-size: 18px;
-        margin-bottom: 0;
-      }
-    }
+  .nav-text {
+    @include ease-in-out;
+    line-height: 1.4em;
+    font-size: 24px;
+    margin-bottom: 0;
   }
 
-  @media (min-width: $screen-xs) {
 
-    .nav-item {
-      padding-left: 15px;
-      padding-right: 15px;
-      @include ease-in-out;
-
-      .nav-text {
-        font-size: 24px;
-      }
-    }
-  }
-
-  @media (min-width: $screen-sm) {
-
-    .nav-items {
-      float: right;
-    }
-
-    .nav-item {
-      padding-left: 5px;
-      padding-right: 5px;
-
-      .nav-text {
-        font-size: 18px;
-      }
-    }
-  }
-
-  @media (min-width: $screen-md) {
-
-    .nav-item {
-      padding-left: 10px;
-      padding-right: 10px;
-
-      .nav-text {
-        font-size: 22px;
-      }
-    }
-  }
 }

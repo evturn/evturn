@@ -4,32 +4,34 @@
   text-align: justify;
   line-height: 1.8;
   color: $black;
+
   .section-title {
     text-align: center;
   }
+
   .about-subhead {
     margin-bottom: 10px;
     text-transform: uppercase;
     text-align: left;
   }
+
   .stat-icon {
     display: block;
+
     .fa {
       font-size: 2em;
     }
   }
+
   .stat-items {
     text-align: center;
-    @media (min-width: $screen-xxs) {
-      padding-top: 15px;
-    }
+    padding-top: 15px;
+
     .stat-item {
       display: inline-block;
       text-align: center;
-      @media (min-width: $screen-xxs) {
-        width: 30%;
-      }
-      @media (min-width: $screen-xs) {
+      width: 30%;
+      @media (min-width: $xs) {
         width: 20%;
       }
     }

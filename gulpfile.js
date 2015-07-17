@@ -48,7 +48,7 @@ gulp.task('css', function() {
   return gulp.src(paths.css.vendor.src)
     .pipe($.plumber(options.plumber))
     .pipe($.concat(paths.css.vendor.filename))
-    .pipe($.minify-css())
+    .pipe($.cssmin())
     .pipe(gulp.dest(paths.css.vendor.dest));
 });
 
