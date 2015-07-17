@@ -317,19 +317,22 @@ EVTURN.fn = {
     for (var i = collection.length - 1; i >= 0; i--) {
       $selector.append(template(collection.models[i].toJSON()));
     }
+    return this;
   },
-  appendPropArray: function(className, array, template) {
+  appendArray: function(className, array, template) {
     $selector = EVTURN.fn.isNode(className);
     for (var i = 0; i < array.length; i++) {
       var value = array[i];
       $selector.append(template({item: value}));
     }
+    return this;
   },
   appendObjectsArray: function(className, array, template) {
     $selector = EVTURN.fn.isNode(className);
     for (var i = 0; i < array.length; i++) {
       $selector.append(template(array[i]));
     }
+    return this;
   },
   createElement: function(string) {
     var $selector = $(document.getElementsByClassName(string));
@@ -408,7 +411,7 @@ EVTURN.AboutView = Backbone.View.extend({
     this.$el.html(this.viewContainer());
     EVTURN.fn.appendModels('.technology-items', this.collection, this.itemContainer);
     EVTURN.fn.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
-    EVTURN.fn.appendPropArray('.about-paragraphs', EVTURN.data.bio, this.bioItem);
+    EVTURN.fn.appendArray('.about-paragraphs', EVTURN.data.bio, this.bioItem);
     EVTURN.animations.statCount();
     return this;
   },
@@ -457,7 +460,7 @@ EVTURN.Carousel = Backbone.View.extend({
     var $carouselPanel = $('.carousel-panel');
     var images = this.model.get('items');
     $carouselPanel.html(this.itemDescription(this.model.toJSON()));
-    EVTURN.fn.appendPropArray('.carousel-inner', images, this.itemContainer);
+    EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
     return this;
