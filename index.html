@@ -148,12 +148,14 @@
   <!-- Thumbnail Item -->
   <script type="text/template" id="thumbnail-item-template">
     <div class="thumbnail-item">
+      <a href="#work/<%= id %>">
       <div class="thumbnail-inner">
         <div class="image-container">
-          <a href="#work/<%= id %>"><img class="img-scale" src="<%= thumbnail %>"></a>
+          <img class="img-scale" src="<%= thumbnail %>">
           <div class="shadow"></div>
         </div>
       </div>
+      </a>
     </div>
   </script>
   <!-- Carousel Panel -->

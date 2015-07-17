@@ -475,7 +475,7 @@ EVTURN.Rza = Backbone.View.extend({
   },
 });
 EVTURN.Thumbnails = Backbone.View.extend({
-  el: '.thumbnail-items',
+  el: '.thumbnails',
   viewContainer : _.template($('#thumbnails-container-template').html()),
   itemContainer : _.template($('#thumbnail-item-template').html()),
   initialize: function(selector) {

@@ -15,7 +15,6 @@
     padding-top: 15px;
     margin:0;
     width: 23.5%;
-    cursor: pointer;
 
     .thumbnail-inner {
       padding: 2.5px;
@@ -27,6 +26,7 @@
 
     .image-container {
       position: relative;
+      cursor: pointer;
 
       @media (min-width: $md) {
         .shadow {

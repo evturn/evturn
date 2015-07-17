@@ -14,6 +14,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.js.watch, ['js', 'reloader']);
   gulp.watch(paths.js.vendor.watch, ['jslib']);
   gulp.watch(paths.css.vendor.watch, ['css']);
+  gulp.watch('index.html').on('change', browserSync.reload);
 });
 
 gulp.task('build', ['scss', 'css', 'less', 'js', 'jslib', 'img']);
@@ -84,10 +85,5 @@ gulp.task('reloader', ['scss', 'js'], function() {
 });
 
 gulp.task('browsersync', function() {
-    browserSync.init({
-      server: {
-        baseDir: './'
-      }
-    });
-    gulp.watch('index.html').on('change', browserSync.reload);
+  browserSync.init(options.browserSync);
 });

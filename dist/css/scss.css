@@ -582,15 +582,15 @@ h1 {
     text-align: center;
     padding-top: 15px;
     margin: 0;
-    width: 23.5%;
-    cursor: pointer; }
+    width: 23.5%; }
     .thumbnails .thumbnail-item .thumbnail-inner {
       padding: 2.5px; }
       @media (min-width: 600px) {
         .thumbnails .thumbnail-item .thumbnail-inner {
           padding: 10px; } }
     .thumbnails .thumbnail-item .image-container {
-      position: relative; }
+      position: relative;
+      cursor: pointer; }
       @media (min-width: 900px) {
         .thumbnails .thumbnail-item .image-container .shadow {
           display: block;

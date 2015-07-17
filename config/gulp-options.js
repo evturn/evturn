@@ -18,6 +18,11 @@ module.exports = {
   imagemin: {
     progressive: true
   },
+  browserSync: {
+    server: {
+      baseDir: './'
+    }
+  },
   autoprefixer: {
     browsers: [
       '> 1%',
