@@ -80,7 +80,8 @@ h1 {
   .about .section-title {
     padding-top: 15px;
     text-align: center;
-    font-size: 30px; }
+    font-size: 30px;
+    color: #ffffff; }
   .about .about-subhead {
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -244,26 +245,37 @@ h1 {
     font-size: 24px;
     margin-bottom: 0; }
 
-.carousel-row {
-  background-color: #bbbdbf;
-  color: #ffffff;
-  border-radius: 3px;
+.carousel-wrapper {
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
   -webkit-box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75); }
+  box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
+  background-color: #231f20;
+  color: #ffffff;
+  border-radius: 3px; }
 
 .carousel-image-container {
-  padding-left: 0;
-  padding-right: 0; }
+  padding: 10px 10px 10px;
+  display: inline-block; }
+  @media (min-width: 600px) {
+    .carousel-image-container {
+      width: 66%; } }
 
 .carousel-panel {
-  font-family: Source Sans Pro; }
+  display: inline-block;
+  font-family: Source Sans Pro;
+  padding-top: 50px;
+  width: 100%;
+  vertical-align: top; }
+  @media (min-width: 600px) {
+    .carousel-panel {
+      width: 33%; } }
   .carousel-panel .btn-container {
     margin-top: 10px; }
   .carousel-panel .fa {
-    font-weight: bold; }
+    font-weight: bold;
+    color: #5FA3C0; }
   .carousel-panel .project-text {
     padding: 15px; }
     .carousel-panel .project-text p {
@@ -277,44 +289,38 @@ h1 {
       font-family: Source Sans Pro; }
       .carousel-panel .project-text a:hover {
         color: #00cfff; }
-  @media (min-width: 320px) {
-    .carousel-panel .project-title {
-      text-transform: uppercase;
-      color: #ffffff;
-      background-color: #231f20;
-      text-align: center; } }
-  @media (min-width: 480px) {
-    .carousel-panel {
-      padding-top: 7%; } }
-  @media (min-width: 768px) {
-    .carousel-panel {
-      padding-top: 0px; } }
-  @media (min-width: 992px) {
-    .carousel-panel {
-      padding-top: 7%; } }
+  .carousel-panel .section-title {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #231f20;
+    background-color: #ffffff;
+    text-align: center; }
 
 .thumbnails-container {
-  margin-bottom: 80px;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  overflow: auto; }
-  @media (min-width: 400px) {
-    .thumbnails-container {
-      margin-top: 0; }
-      .thumbnails-container .thumbnail-item {
-        cursor: pointer;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out; }
-        .thumbnails-container .thumbnail-item img {
-          border-radius: 3px; } }
+  margin-bottom: 80px;
+  overflow: auto;
+  margin-top: 0; }
+  .thumbnails-container .thumbnail-item {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer; }
+    .thumbnails-container .thumbnail-item img {
+      border-radius: 3px; }
   @media (min-width: 600px) {
     .thumbnails-container {
       margin-top: 30px; } }
   .thumbnails-container .thumbnail-item {
     padding-top: 15px;
     padding-right: 7.5px;
-    padding-left: 7.5px; }
+    padding-left: 7.5px;
+    width: 32%;
+    display: inline-block; }
+    @media (min-width: 600px) {
+      .thumbnails-container .thumbnail-item {
+        width: 24%; } }
 
 .grid {
   margin: 0;

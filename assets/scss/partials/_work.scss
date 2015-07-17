@@ -1,54 +1,66 @@
 
-.carousel-row {
-  background-color: $primarygreymed;
-  color: $white;
-  border-radius: 3px;
+.carousel-wrapper {
   @include transition(all 1s ease);
   @include box-shadow(0px 0px 22px -4px rgba(0,0,0,0.75));
+  background-color: $black;
+  color: $white;
+  border-radius: 3px;
 }
 .carousel-image-container {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 10px 10px 10px;
+  display: inline-block;
+  @media (min-width: $sm) {
+    width: 66%;
+  }
 }
 .carousel-panel {
+  display: inline-block;
   font-family: $primaryserif;
+  padding-top: 50px;
+  width: 100%;
+  vertical-align: top;
+
+  @media (min-width: $sm) {
+    width: 33%;
+  }
+
+
   .btn-container {
     margin-top: 10px;
   }
-  .fa { font-weight: bold; }
+
+  .fa {
+    font-weight: bold;
+    color: $primary;
+  }
+
   .project-text {
     padding: 15px;
+
     p {
       font-size: 15px;
       padding-top: 10px;
       font-weight: normal;
       text-align: center;
     }
+
     a {
       text-decoration: none;
       color: $primarylight;
       font-family: $primaryserif;
+
       &:hover {
         color: $primarylighthover;
       }
     }
   }
 
-  @media (min-width: $screen-xxs) {
-    .project-title {
-      text-transform: uppercase;
-      color: $white;
-      background-color: $black;
-      text-align: center;
-    }
+  .section-title {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: $black;
+    background-color: $white;
+    text-align: center;
   }
-  @media (min-width: $screen-xs) {
-    padding-top: 7%;
-  }
-  @media (min-width: $screen-sm) {
-    padding-top: 0px;
-  }
-  @media (min-width: $screen-md) {
-    padding-top: 7%;
-  }
+
 }

@@ -1,19 +1,19 @@
 .thumbnails-container {
-  margin-bottom: 80px;
   @include transition(all 0.3s ease);
+  margin-bottom: 80px;
   overflow: auto;
+  margin-top: 0;
+  .thumbnail-item {
+    @include ease-in-out;
+    cursor: pointer;
 
-  @media (min-width: $xs) {
-    margin-top: 0;
-    .thumbnail-item {
-      cursor: pointer;
-      @include ease-in-out;
-       &:hover {
-      }
-      img {
-        border-radius: 3px;
-      }
+     &:hover {
     }
+
+    img {
+      border-radius: 3px;
+    }
+
   }
 
   @media (min-width: $sm) {
@@ -23,6 +23,11 @@
     padding-top: 15px;
     padding-right: 7.5px;
     padding-left: 7.5px;
+    width: 32%;
+    display: inline-block;
+    @media (min-width: $sm) {
+      width: 24%;
+    }
   }
 }
 
