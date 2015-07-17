@@ -23,6 +23,7 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
+    "browser-sync": "^2.7.13",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-cssmin": "^0.1.7",
@@ -36,7 +37,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
     "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.5",
-    "jshint-stylish": "^2.0.0"
+    "gulp-util": "^3.0.5"
   }
 }

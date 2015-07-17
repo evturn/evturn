@@ -1,16 +1,17 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    browserSync = require('browser-sync').create(),
     $ = require('gulp-load-plugins')();
 
 var paths = require('./config/paths');
 var options = require('./config/gulp-options');
 
-gulp.task('default', ['scss', 'lint', 'watch']);
+gulp.task('default', ['scss', 'lint', 'watch', 'browsersync']);
 
 gulp.task('watch', function() {
   gulp.watch(paths.jshint.watch, ['lint']);
-  gulp.watch(paths.scss.watch, ['scss']);
-  gulp.watch(paths.js.watch, ['js']);
+  gulp.watch(paths.scss.watch, ['scss', 'reloader']);
+  gulp.watch(paths.js.watch, ['js', 'reloader']);
   gulp.watch(paths.js.vendor.watch, ['jslib']);
   gulp.watch(paths.css.vendor.watch, ['css']);
 });
@@ -76,4 +77,17 @@ gulp.task('lint', function() {
     .pipe($.plumber(options.plumber))
     .pipe($.jshint())
     .pipe($.notify(options.notify.jshint));
+});
+
+gulp.task('reloader', ['scss', 'js'], function() {
+  browserSync.reload();
+});
+
+gulp.task('browsersync', function() {
+    browserSync.init({
+      server: {
+        baseDir: './'
+      }
+    });
+    gulp.watch('index.html').on('change', browserSync.reload);
 });
