@@ -395,8 +395,12 @@ figure.effect-ev:hover p {
   transform: translate3d(0, 0, 0); }
 
 .contact .link-items {
-  float: right;
-  padding-top: 25px; }
+  padding-top: 25px;
+  float: none;
+  text-align: center; }
+  @media (min-width: 600px) {
+    .contact .link-items {
+      float: right; } }
 
 .contact .link-item {
   display: inline-block;

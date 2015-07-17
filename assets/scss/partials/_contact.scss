@@ -1,8 +1,12 @@
 .contact {
 
   .link-items {
-    float: right;
     padding-top: 25px;
+    float: none;
+    text-align: center;
+    @media (min-width: $sm) {
+      float: right;
+    }
   }
 
 
