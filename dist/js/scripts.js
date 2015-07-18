@@ -175,7 +175,7 @@ EVTURN.data = {
     },
     {
       name: 'Ramen Buffet',
-      description: "Ramen Buffet manages a multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
+      description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
       id: 6,
       url: 'http://ramenbuffet.com',
       thumbnail: "assets/img/ramen-tn.png",
