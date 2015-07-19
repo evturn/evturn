@@ -568,6 +568,8 @@ h1 {
       font-family: Source Sans Pro; }
       .carousel-panel .project-text a:hover {
         color: #00cfff; }
+  .carousel-panel .project-stats {
+    padding: 15px; }
   .carousel-panel .project-technologies {
     text-align: left;
     padding: 15px; }
