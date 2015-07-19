@@ -333,6 +333,7 @@ EVTURN.data = {
   ]
 };
 EVTURN.fn = {
+
   get: function(string) {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
@@ -340,6 +341,7 @@ EVTURN.fn = {
     var models = collection.where({featured: true});
     return new EVTURN[capitalize](models.reverse());
   },
+
   getByIds: function(string, array) {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
@@ -351,38 +353,50 @@ EVTURN.fn = {
     }
     return new EVTURN[capitalize](models.reverse());
   },
-  setModel: function(className, model, template) {
-    $selector = EVTURN.fn.isNode(className);
+
+  setModel: function(selector, model, template) {
+    $selector = EVTURN.fn.isNode(selector);
     $selector.html(template(model.toJSON()));
     return this;
   },
-  appendModel: function(className, model, template) {
-    $selector = EVTURN.fn.isNode(className);
+
+  setView: function(selector, template) {
+    $selector = EVTURN.fn.isNode(selector);
+    $selector.html(template());
+    return this;
+  },
+
+  appendModel: function(selector, model, template) {
+    $selector = EVTURN.fn.isNode(selector);
     $selector.append(template(model.toJSON()));
     return this;
   },
-  appendModels: function(className, collection, template) {
-    $selector = EVTURN.fn.isNode(className);
+
+  appendModels: function(selector, collection, template) {
+    $selector = EVTURN.fn.isNode(selector);
     for (var i = collection.length - 1; i >= 0; i--) {
       $selector.append(template(collection.models[i].toJSON()));
     }
     return this;
   },
-  appendArray: function(className, array, template) {
-    $selector = EVTURN.fn.isNode(className);
+
+  appendArray: function(selector, array, template) {
+    $selector = EVTURN.fn.isNode(selector);
     for (var i = 0; i < array.length; i++) {
       var value = array[i];
       $selector.append(template({item: value}));
     }
     return this;
   },
-  appendObjectsArray: function(className, array, template) {
-    $selector = EVTURN.fn.isNode(className);
+
+  appendObjectsArray: function(selector, array, template) {
+    $selector = EVTURN.fn.isNode(selector);
     for (var i = 0; i < array.length; i++) {
       $selector.append(template(array[i]));
     }
     return this;
   },
+
   createElement: function(string) {
     var $selector = $(document.getElementsByClassName(string));
     $selector.remove();
@@ -390,8 +404,8 @@ EVTURN.fn = {
     element.className = string;
     $(element).insertAfter(new EVTURN.Rza().$el);
   },
+
   isNode: function(element) {
-    console.log(typeof element);
     switch (typeof element) {
       case "object":
         if (element instanceof jQuery) {
@@ -408,14 +422,17 @@ EVTURN.fn = {
         }
     }
   },
+
   navActive: function(string) {
     $('.nav-link').removeClass('nav-active');
     $('.nav-' + string).addClass('nav-active');
   },
+
   changeState: function(string) {
     EVTURN.fn.navActive(string);
     EVTURN.fn.createElement(string);
   },
+
 };
 EVTURN.animations = {
   init: function() {
@@ -456,90 +473,112 @@ EVTURN.animations = {
   }
 };
 EVTURN.AboutView = Backbone.View.extend({
+
   el: '.about',
+
   viewContainer: _.template($('#technologies-container-template').html()),
   itemContainer: _.template($('#technology-item-template').html()),
   statItem: _.template($('#stat-item-template').html()),
   bioItem: _.template($('#bio-paragraph-template').html()),
+
   initialize: function() {
     this.collection = EVTURN.fn.get('technologies');
     this.render();
   },
+
   render: function() {
-    this.$el.html(this.viewContainer());
+    EVTURN.fn.setView(this.$el, this.viewContainer);
     EVTURN.fn.appendModels('.technology-items', this.collection, this.itemContainer);
     EVTURN.fn.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
     EVTURN.fn.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
     EVTURN.animations.statCount();
     return this;
   },
+
 });
 EVTURN.ContactView = Backbone.View.extend({
+
   el: '.contact',
+
   viewContainer: _.template($('#links-container-template').html()),
   itemContainer: _.template($('#link-item-template').html()),
+
   initialize: function() {
     this.collection = EVTURN.fn.get('links');
     this.render();
   },
+
   render: function() {
-    this.$el.html(this.viewContainer());
+    EVTURN.fn.setView(this.$el, this.viewContainer);
     EVTURN.fn.appendModels('.link-items', this.collection, this.itemContainer);
   },
+
 });
 EVTURN.IndexView = Backbone.View.extend({
+
   el: '.index',
+
   viewContainer: _.template($('#index-container-template').html()),
+
   initialize: function() {
     this.render();
   },
+
   render: function() {
-    this.$el.html(this.viewContainer());
+    EVTURN.fn.setView(this.$el, this.viewContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     return this;
   },
+
 });
 EVTURN.Carousel = Backbone.View.extend({
+
   el: '.work',
+
   viewContainer    : _.template($('#carousel-container-template').html()),
   itemContainer    : _.template($('#carousel-item-template').html()),
   itemDescription  : _.template($('#carousel-panel-template').html()),
   itemPreloader    : _.template($('#carousel-preloader-template').html()),
   itemTechnologies : _.template($('#project-technologies-template').html()),
   itemLinks        :  _.template($('#project-links-template').html()),
+
   initialize: function() {
     this.render();
-    this.setChildViews();
-    this.getProjectTechnologies();
+    this.setChildren();
   },
+
   render: function() {
     EVTURN.fn.setModel(this.$el, this.model, this.viewContainer);
     EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },
-  setChildViews: function() {
+
+  setChildren: function() {
     var images = this.model.get('items');
+    var techIds = this.model.get('technologies');
+    var technologies = EVTURN.fn.getByIds('technologies', techIds);
+
     EVTURN.fn.appendModel('.carousel-panel', this.model, this.itemDescription);
     EVTURN.fn.appendModel('.project-links', this.model, this.itemLinks);
+    EVTURN.fn.appendModels('.project-technologies', technologies, this.itemTechnologies);
     EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
     return this;
   },
-  getProjectTechnologies: function() {
-    var techIds = this.model.get('technologies');
-    var technologies = EVTURN.fn.getByIds('technologies', techIds);
-    EVTURN.fn.appendModels('.project-technologies', technologies, this.itemTechnologies);
-    return this;
-  },
+
 });
 EVTURN.Rza = Backbone.View.extend({
+
   el: '#rza',
+
   child: null,
+
   render: function() {
     this.$el.html(this.child.$el);
     return this;
   },
+
 });
 EVTURN.Thumbnails = Backbone.View.extend({
   el: '.thumbnails-wrapper',

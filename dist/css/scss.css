@@ -490,39 +490,39 @@ h1 {
   to {
     transform: rotate(359deg); } }
 
-.ev-navbar {
+.navbar {
   -webkit-box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
   background-color: #ffffff;
   overflow: auto; }
-  .ev-navbar .nav-items {
+  .navbar .nav-items {
     padding: 10px 0 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center; }
     @media (min-width: 600px) {
-      .ev-navbar .nav-items {
+      .navbar .nav-items {
         text-align: right; } }
-  .ev-navbar .nav-item {
+  .navbar .nav-item {
     text-align: left;
     display: inline-block;
     margin-left: 10px; }
-  .ev-navbar .nav-active {
+  .navbar .nav-active {
     padding: 11px;
     border-radius: 2px;
     background-color: #5FA3C0;
     color: #ffffff; }
-    .ev-navbar .nav-active:focus,
-    .ev-navbar .nav-active:hover,
-    .ev-navbar .nav-active:visited {
+    .navbar .nav-active:focus,
+    .navbar .nav-active:hover,
+    .navbar .nav-active:visited {
       color: #ffffff; }
-  .ev-navbar .nav-link {
+  .navbar .nav-link {
     -webkit-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
     text-decoration: none; }
-  .ev-navbar .nav-text,
-  .ev-navbar .nav-text a {
+  .navbar .nav-text,
+  .navbar .nav-text a {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     text-transform: uppercase;
@@ -531,8 +531,8 @@ h1 {
     font-size: 14px;
     color: #231f20; }
     @media (min-width: 600px) {
-      .ev-navbar .nav-text,
-      .ev-navbar .nav-text a {
+      .navbar .nav-text,
+      .navbar .nav-text a {
         font-size: 24px; } }
 
 .carousel-wrapper {
