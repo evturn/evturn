@@ -51,6 +51,9 @@ h1 {
       font-size: 18px;
       padding-left: 15px; } }
 
+.caption {
+  font-size: 10px; }
+
 .wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -565,8 +568,27 @@ h1 {
       font-family: Source Sans Pro; }
       .carousel-panel .project-text a:hover {
         color: #00cfff; }
-  .carousel-panel .project-technologies .technologies-item {
-    display: inline-block; }
+  .carousel-panel .project-technologies {
+    text-align: left;
+    padding: 15px; }
+    @media (min-width: 600px) {
+      .carousel-panel .project-technologies {
+        text-align: center; } }
+    @media (min-width: 900px) {
+      .carousel-panel .project-technologies {
+        text-align: left; } }
+    .carousel-panel .project-technologies .meta {
+      margin-bottom: 15px; }
+    .carousel-panel .project-technologies .technologies-item {
+      text-align: center;
+      display: inline-block;
+      width: 24%; }
+      @media (min-width: 600px) {
+        .carousel-panel .project-technologies .technologies-item {
+          width: 12%; } }
+      @media (min-width: 900px) {
+        .carousel-panel .project-technologies .technologies-item {
+          width: 24%; } }
 
 .thumbnails {
   -webkit-transition: all 0.3s ease;

@@ -67,9 +67,27 @@
   }
 
   .project-technologies {
-
+    text-align: left;
+    padding: 15px;
+    @media (min-width: $sm) {
+      text-align: center;
+    }
+    @media (min-width: $md) {
+      text-align: left;
+    }
+    .meta {
+      margin-bottom: 15px;
+    }
     .technologies-item {
+      text-align: center;
       display: inline-block;
+      width: 24%;
+      @media (min-width: $sm) {
+        width: 12%;
+      }
+      @media (min-width: $md) {
+        width: 24%;
+      }
     }
   }
 
