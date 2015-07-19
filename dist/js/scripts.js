@@ -146,6 +146,7 @@ EVTURN.data = {
       description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
       id: 1,
       url: 'http://musicinsider.co',
+      repo: 'https://github.com/evturn/musicinsider.co',
       thumbnail: "assets/img/mi-tn.png",
       lead: "assets/img/mi-1.png",
       items: [
@@ -487,6 +488,7 @@ EVTURN.Carousel = Backbone.View.extend({
   itemDescription  : _.template($('#carousel-panel-template').html()),
   itemPreloader    : _.template($('#carousel-preloader-template').html()),
   itemTechnologies : _.template($('#project-technologies-template').html()),
+  itemLinks        :  _.template($('#project-links-template').html()),
   initialize: function() {
     this.render();
     this.setChildViews();
@@ -500,6 +502,7 @@ EVTURN.Carousel = Backbone.View.extend({
   setChildViews: function() {
     var images = this.model.get('items');
     EVTURN.fn.appendModel('.carousel-panel', this.model, this.itemDescription);
+    EVTURN.fn.appendModel('.project-links', this.model, this.itemLinks);
     EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();

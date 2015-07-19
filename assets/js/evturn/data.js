@@ -127,6 +127,7 @@ EVTURN.data = {
       description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
       id: 1,
       url: 'http://musicinsider.co',
+      repo: 'https://github.com/evturn/musicinsider.co',
       thumbnail: "assets/img/mi-tn.png",
       lead: "assets/img/mi-1.png",
       items: [

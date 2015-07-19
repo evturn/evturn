@@ -170,11 +170,10 @@
     </div>
     <div class="project-technologies">
       <p class="meta">Built with</p>
-
+      <!-- Technology-items -->
     </div>
-    <div class="project-stats">
-    <% var url = url ? '<p class="pull-right"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>
-    <%= url %>
+    <div class="project-links">
+
     </div>
   </script>
   <!-- Project Technologies -->
@@ -183,6 +182,12 @@
       <i class="<%= icon %>"></i>
       <p class="caption"><%= technology %></p>
     </div>
+  </script>
+  <script type="text/template" id="project-links-template">
+    <% var url = url ? '<p class="meta"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>
+    <%= url %>
+    <% var repo = repo ? '<p class="meta"><a href="' + repo + '" target="_blank"><i class="fa fa-github"></i></a></p>' : '' %>
+    <%= repo %>
   </script>
   <!-- Carousel Item -->
   <script type="text/template" id="carousel-item-template">

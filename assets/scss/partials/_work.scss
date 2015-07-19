@@ -65,8 +65,18 @@
     }
   }
 
-  .project-stats {
+  .project-links {
     padding: 15px;
+    text-align: right;
+
+    .meta .fa {
+      @include transition(0.3s);
+      display: inline-block;
+      color: $primary;
+      &:hover {
+        color: $white;
+      }
+    }
   }
 
   .project-technologies {
