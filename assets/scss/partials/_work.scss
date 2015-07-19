@@ -19,7 +19,6 @@
   vertical-align: top;
 
   @media (min-width: $md) {
-    padding-top: 50px;
     width: 30%;
   }
 
@@ -91,6 +90,7 @@
       }
       @media (min-width: $md) {
         width: 24%;
+        margin-bottom: 15px;
       }
       i {
         color: $white;
