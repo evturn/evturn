@@ -6,6 +6,18 @@ EVTURN.fn = {
     var models = collection.where({featured: true});
     return new EVTURN[capitalize](models.reverse());
   },
+  getById: function(string, array) {
+    var data = EVTURN.data[string];
+    var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+    var collection = new EVTURN[capitalize](data);
+    var models = []
+    for (var i = 0; i < array.length; i++) {
+      var model = collection.findWhere({id: array[i]})
+      models.push(model);
+    };
+
+    return new EVTURN[capitalize](models);
+  },
   appendModels: function(className, collection, template) {
     $selector = EVTURN.fn.isNode(className);
     for (var i = collection.length - 1; i >= 0; i--) {

@@ -1,12 +1,14 @@
 EVTURN.Carousel = Backbone.View.extend({
   el: '.work',
-  viewContainer   : _.template($('#carousel-container-template').html()),
-  itemContainer   : _.template($('#carousel-item-template').html()),
-  itemDescription : _.template($('#carousel-panel-template').html()),
-  itemPreloader   : _.template($('#carousel-preloader-template').html()),
+  viewContainer    : _.template($('#carousel-container-template').html()),
+  itemContainer    : _.template($('#carousel-item-template').html()),
+  itemDescription  : _.template($('#carousel-panel-template').html()),
+  itemPreloader    : _.template($('#carousel-preloader-template').html()),
+  itemTechnologies : _.template($('#project-technologies-template').html()),
   initialize: function() {
     this.render();
     this.setChildViews();
+    this.getProjectTechnologies();
   },
   render: function() {
     this.$el.html(this.viewContainer(this.model.toJSON()));
@@ -20,6 +22,12 @@ EVTURN.Carousel = Backbone.View.extend({
     EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
+    return this;
+  },
+  getProjectTechnologies: function() {
+    var techIds = this.model.get('technologies');
+    var technologies = EVTURN.fn.getById('technologies', techIds);
+    EVTURN.fn.appendModels('.project-stats', technologies, this.itemTechnologies);
     return this;
   },
 });

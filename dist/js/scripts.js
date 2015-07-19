@@ -335,6 +335,18 @@ EVTURN.fn = {
     var models = collection.where({featured: true});
     return new EVTURN[capitalize](models.reverse());
   },
+  getById: function(string, array) {
+    var data = EVTURN.data[string];
+    var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+    var collection = new EVTURN[capitalize](data);
+    var models = []
+    for (var i = 0; i < array.length; i++) {
+      var model = collection.findWhere({id: array[i]})
+      models.push(model);
+    };
+
+    return new EVTURN[capitalize](models);
+  },
   appendModels: function(className, collection, template) {
     $selector = EVTURN.fn.isNode(className);
     for (var i = collection.length - 1; i >= 0; i--) {
@@ -466,13 +478,15 @@ EVTURN.IndexView = Backbone.View.extend({
 });
 EVTURN.Carousel = Backbone.View.extend({
   el: '.work',
-  viewContainer   : _.template($('#carousel-container-template').html()),
-  itemContainer   : _.template($('#carousel-item-template').html()),
-  itemDescription : _.template($('#carousel-panel-template').html()),
-  itemPreloader   : _.template($('#carousel-preloader-template').html()),
+  viewContainer    : _.template($('#carousel-container-template').html()),
+  itemContainer    : _.template($('#carousel-item-template').html()),
+  itemDescription  : _.template($('#carousel-panel-template').html()),
+  itemPreloader    : _.template($('#carousel-preloader-template').html()),
+  itemTechnologies : _.template($('#project-technologies-template').html()),
   initialize: function() {
     this.render();
     this.setChildViews();
+    this.getProjectTechnologies();
   },
   render: function() {
     this.$el.html(this.viewContainer(this.model.toJSON()));
@@ -486,6 +500,12 @@ EVTURN.Carousel = Backbone.View.extend({
     EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
+    return this;
+  },
+  getProjectTechnologies: function() {
+    var techIds = this.model.get('technologies');
+    var technologies = EVTURN.fn.getById('technologies', techIds);
+    EVTURN.fn.appendModels('.project-stats', technologies, this.itemTechnologies);
     return this;
   },
 });
