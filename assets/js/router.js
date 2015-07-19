@@ -1,9 +1,11 @@
 EVTURN.Router = Backbone.Router.extend({
+
   wrapper      : null,
   indexView    : null,
   workView     : null,
   aboutView    : null,
   contactView  : null,
+
   routes: {
     ''         : 'index',
     'work/*'   : 'project',
@@ -11,9 +13,11 @@ EVTURN.Router = Backbone.Router.extend({
     'about'    : 'about',
     'contact'  : 'contact'
   },
+
   initialize: function() {
     this.wrapper = new EVTURN.Rza();
   },
+
   index: function() {
     EVTURN.fn.changeState('index');
     if (this.indexView === null) {
@@ -23,6 +27,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
 
   },
+
   work: function(model) {
     EVTURN.fn.changeState('work');
     if (this.workView === null) {
@@ -34,6 +39,7 @@ EVTURN.Router = Backbone.Router.extend({
     }
     this.wrapper.render();
   },
+
   about: function() {
     EVTURN.fn.changeState('about');
     if (this.aboutView === null) {
@@ -42,6 +48,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.child = this.aboutView;
     this.wrapper.render();
   },
+
   contact: function() {
     EVTURN.fn.changeState('contact');
     if (this.contactView === null) {
@@ -50,9 +57,11 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.child = this.contactView;
     this.wrapper.render();
   },
+
   project: function(id) {
     var collection = EVTURN.fn.get('projects');
     var model = collection.get(id) || collection.get(1);
     this.work(model);
   },
+
 });

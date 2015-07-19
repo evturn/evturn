@@ -1,5 +1,11 @@
 EVTURN.fn = {
 
+  init: function() {
+    EVTURN.animations.init();
+    var route = new EVTURN.Router();
+    Backbone.history.start();
+  },
+
   get: function(string) {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));

@@ -1,3 +1,1 @@
-EVTURN.animations.init();
-var router = new EVTURN.Router();
-Backbone.history.start();
+EVTURN.fn.init();
