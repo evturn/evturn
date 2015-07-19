@@ -19,8 +19,8 @@ module.exports = {
   js: {
     src: [
       'assets/js/models/ev.js',
-      'assets/js/evturn/data.js',
       'assets/js/evturn/helpers.js',
+      'assets/js/evturn/data.js',
       'assets/js/evturn/animations.js',
       'assets/js/evturn/init.js',
       'assets/js/views/**/*.js',

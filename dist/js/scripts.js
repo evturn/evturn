@@ -17,6 +17,121 @@ EVTURN.Links = Backbone.Collection.extend({
 EVTURN.Technologies = Backbone.Collection.extend({
   model: EVTURN.Technology,
 });
+EVTURN.fn = {
+
+  get: function(string) {
+    var data = EVTURN.data[string];
+    var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+    var collection = new EVTURN[capitalize](data);
+    var models = collection.where({featured: true});
+
+    return new EVTURN[capitalize](models.reverse());
+  },
+
+  getModelsById: function(string, array) {
+    var data = EVTURN.data[string];
+    var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+    var collection = new EVTURN[capitalize](data);
+    var models = [];
+
+    for (var i = 0; i < array.length; i++) {
+      var model = collection.findWhere({id: array[i]});
+      models.push(model);
+    }
+
+    return new EVTURN[capitalize](models.reverse());
+  },
+
+  setModel: function(selector, model, template) {
+    $selector = EVTURN.fn.tojquery(selector);
+    $selector.html(template(model.toJSON()));
+
+    return this;
+  },
+
+  setView: function(selector, template) {
+    $selector = EVTURN.fn.tojquery(selector);
+    $selector.html(template());
+
+    return this;
+  },
+
+  appendModel: function(selector, model, template) {
+    $selector = EVTURN.fn.tojquery(selector);
+    $selector.append(template(model.toJSON()));
+
+    return this;
+  },
+
+  appendModels: function(selector, collection, template) {
+    $selector = EVTURN.fn.tojquery(selector);
+
+    for (var i = collection.length - 1; i >= 0; i--) {
+      $selector.append(template(collection.models[i].toJSON()));
+    }
+
+    return this;
+  },
+
+  appendArray: function(selector, array, template) {
+    $selector = EVTURN.fn.tojquery(selector);
+
+    for (var i = 0; i < array.length; i++) {
+      var value = array[i];
+      $selector.append(template({item: value}));
+    }
+
+    return this;
+  },
+
+  appendObjectsArray: function(selector, array, template) {
+    $selector = EVTURN.fn.tojquery(selector);
+
+    for (var i = 0; i < array.length; i++) {
+      $selector.append(template(array[i]));
+    }
+
+    return this;
+  },
+
+  createElement: function(string) {
+    var $selector = $(document.getElementsByClassName(string));
+    var element = document.createElement('div');
+    element.className = string;
+
+    $selector.remove();
+    $(element).insertAfter(new EVTURN.Rza().$el);
+  },
+
+  tojquery: function(element) {
+    switch (typeof element) {
+      case "object":
+        if (element instanceof jQuery) {
+          return element;
+        }
+      break;
+
+      case "string":
+        if (element.charAt(0) === '.') {
+          return $(element);
+        }
+        else {
+          return $(document.getElementsByClassName(element));
+        }
+    }
+  },
+
+  navActive: function(string) {
+    $('.nav-link').removeClass('nav-active');
+    $('.nav-' + string).addClass('nav-active');
+  },
+
+  changeState: function(string) {
+    EVTURN.fn.navActive(string);
+    EVTURN.fn.createElement(string);
+  },
+
+};
 EVTURN.data = {
   technologies: [
     {
@@ -331,121 +446,6 @@ EVTURN.data = {
     'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on disting responsive web applications that optimize scalability through RESTful APIs.',
     'While I enjoy building in a Node.js runtime environment, having studied Rails and the MVC architectural pattern the framework implements, I find integrating libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'
   ]
-};
-EVTURN.fn = {
-
-  get: function(string) {
-    var data = EVTURN.data[string];
-    var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-    var collection = new EVTURN[capitalize](data);
-    var models = collection.where({featured: true});
-
-    return new EVTURN[capitalize](models.reverse());
-  },
-
-  getModelsById: function(string, array) {
-    var data = EVTURN.data[string];
-    var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-    var collection = new EVTURN[capitalize](data);
-    var models = [];
-
-    for (var i = 0; i < array.length; i++) {
-      var model = collection.findWhere({id: array[i]});
-      models.push(model);
-    }
-
-    return new EVTURN[capitalize](models.reverse());
-  },
-
-  setModel: function(selector, model, template) {
-    $selector = EVTURN.fn.tojquery(selector);
-    $selector.html(template(model.toJSON()));
-
-    return this;
-  },
-
-  setView: function(selector, template) {
-    $selector = EVTURN.fn.tojquery(selector);
-    $selector.html(template());
-
-    return this;
-  },
-
-  appendModel: function(selector, model, template) {
-    $selector = EVTURN.fn.tojquery(selector);
-    $selector.append(template(model.toJSON()));
-
-    return this;
-  },
-
-  appendModels: function(selector, collection, template) {
-    $selector = EVTURN.fn.tojquery(selector);
-
-    for (var i = collection.length - 1; i >= 0; i--) {
-      $selector.append(template(collection.models[i].toJSON()));
-    }
-
-    return this;
-  },
-
-  appendArray: function(selector, array, template) {
-    $selector = EVTURN.fn.tojquery(selector);
-
-    for (var i = 0; i < array.length; i++) {
-      var value = array[i];
-      $selector.append(template({item: value}));
-    }
-
-    return this;
-  },
-
-  appendObjectsArray: function(selector, array, template) {
-    $selector = EVTURN.fn.tojquery(selector);
-
-    for (var i = 0; i < array.length; i++) {
-      $selector.append(template(array[i]));
-    }
-
-    return this;
-  },
-
-  createElement: function(string) {
-    var $selector = $(document.getElementsByClassName(string));
-    var element = document.createElement('div');
-    element.className = string;
-
-    $selector.remove();
-    $(element).insertAfter(new EVTURN.Rza().$el);
-  },
-
-  tojquery: function(element) {
-    switch (typeof element) {
-      case "object":
-        if (element instanceof jQuery) {
-          return element;
-        }
-      break;
-
-      case "string":
-        if (element.charAt(0) === '.') {
-          return $(element);
-        }
-        else {
-          return $(document.getElementsByClassName(element));
-        }
-    }
-  },
-
-  navActive: function(string) {
-    $('.nav-link').removeClass('nav-active');
-    $('.nav-' + string).addClass('nav-active');
-  },
-
-  changeState: function(string) {
-    EVTURN.fn.navActive(string);
-    EVTURN.fn.createElement(string);
-  },
-
 };
 EVTURN.animations = {
   init: function() {
