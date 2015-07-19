@@ -16,7 +16,6 @@ EVTURN.Carousel = Backbone.View.extend({
     return this;
   },
   setChildViews: function() {
-    var $carouselPanel = $('.carousel-panel');
     var images = this.model.get('items');
     EVTURN.fn.appendModel('.carousel-panel', this.model, this.itemDescription);
     EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);

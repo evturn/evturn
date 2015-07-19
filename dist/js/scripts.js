@@ -78,7 +78,7 @@ EVTURN.data = {
     },
     {
       technology: 'Firebase',
-      icon: 'fa fa-database fa-2x',
+      icon: 'fa fa-database one-half-em',
       color: this.icon,
       id: 9,
       featured: false
@@ -92,7 +92,7 @@ EVTURN.data = {
     },
     {
       technology: 'Underscore.js',
-      icon: 'fa fa-minus fa-2x',
+      icon: 'fa fa-minus one-half-em',
       color: this.icon,
       id: 11,
       featured: false
@@ -498,7 +498,6 @@ EVTURN.Carousel = Backbone.View.extend({
     return this;
   },
   setChildViews: function() {
-    var $carouselPanel = $('.carousel-panel');
     var images = this.model.get('items');
     EVTURN.fn.appendModel('.carousel-panel', this.model, this.itemDescription);
     EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);

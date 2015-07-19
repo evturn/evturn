@@ -59,7 +59,7 @@ EVTURN.data = {
     },
     {
       technology: 'Firebase',
-      icon: 'fa fa-database fa-2x',
+      icon: 'fa fa-database one-half-em',
       color: this.icon,
       id: 9,
       featured: false
@@ -73,7 +73,7 @@ EVTURN.data = {
     },
     {
       technology: 'Underscore.js',
-      icon: 'fa fa-minus fa-2x',
+      icon: 'fa fa-minus one-half-em',
       color: this.icon,
       id: 11,
       featured: false
