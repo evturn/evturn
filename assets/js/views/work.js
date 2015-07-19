@@ -12,7 +12,7 @@ EVTURN.Carousel = Backbone.View.extend({
     this.getProjectTechnologies();
   },
   render: function() {
-    this.$el.html(this.viewContainer(this.model.toJSON()));
+    EVTURN.fn.setModel('.work', this.model, this.viewContainer);
     EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },

@@ -351,6 +351,11 @@ EVTURN.fn = {
     }
     return new EVTURN[capitalize](models.reverse());
   },
+  setModel: function(className, model, template) {
+    $selector = EVTURN.fn.isNode(className);
+    $selector.html(template(model.toJSON()));
+    return this;
+  },
   appendModel: function(className, model, template) {
     $selector = EVTURN.fn.isNode(className);
     $selector.append(template(model.toJSON()));
@@ -385,14 +390,19 @@ EVTURN.fn = {
     element.className = string;
     $(element).insertAfter(new EVTURN.Rza().$el);
   },
-  isNode: function(string) {
-    var $selector;
-    if (string.charAt(0) === '.') {
-      $selector = $(string);
-    } else {
-      $selector = $(document.getElementsByClassName(string));
+  isNode: function(element) {
+    switch (typeof element) {
+      case "jquery":
+        return element;
+
+      case "string":
+        if (element.charAt(0) === '.') {
+          return $(element);
+        }
+        else {
+          return $(document.getElementsByClassName(element));
+        }
     }
-    return $selector;
   },
   navActive: function(string) {
     $('.nav-link').removeClass('nav-active');
@@ -499,7 +509,7 @@ EVTURN.Carousel = Backbone.View.extend({
     this.getProjectTechnologies();
   },
   render: function() {
-    this.$el.html(this.viewContainer(this.model.toJSON()));
+    EVTURN.fn.setModel('.work', this.model, this.viewContainer);
     EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },
