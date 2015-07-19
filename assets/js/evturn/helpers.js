@@ -24,28 +24,28 @@ EVTURN.fn = {
   },
 
   setModel: function(selector, model, template) {
-    $selector = EVTURN.fn.isNode(selector);
+    $selector = EVTURN.fn.tojquery(selector);
     $selector.html(template(model.toJSON()));
 
     return this;
   },
 
   setView: function(selector, template) {
-    $selector = EVTURN.fn.isNode(selector);
+    $selector = EVTURN.fn.tojquery(selector);
     $selector.html(template());
 
     return this;
   },
 
   appendModel: function(selector, model, template) {
-    $selector = EVTURN.fn.isNode(selector);
+    $selector = EVTURN.fn.tojquery(selector);
     $selector.append(template(model.toJSON()));
 
     return this;
   },
 
   appendModels: function(selector, collection, template) {
-    $selector = EVTURN.fn.isNode(selector);
+    $selector = EVTURN.fn.tojquery(selector);
 
     for (var i = collection.length - 1; i >= 0; i--) {
       $selector.append(template(collection.models[i].toJSON()));
@@ -55,7 +55,7 @@ EVTURN.fn = {
   },
 
   appendArray: function(selector, array, template) {
-    $selector = EVTURN.fn.isNode(selector);
+    $selector = EVTURN.fn.tojquery(selector);
 
     for (var i = 0; i < array.length; i++) {
       var value = array[i];
@@ -66,7 +66,7 @@ EVTURN.fn = {
   },
 
   appendObjectsArray: function(selector, array, template) {
-    $selector = EVTURN.fn.isNode(selector);
+    $selector = EVTURN.fn.tojquery(selector);
 
     for (var i = 0; i < array.length; i++) {
       $selector.append(template(array[i]));
@@ -84,7 +84,7 @@ EVTURN.fn = {
     $(element).insertAfter(new EVTURN.Rza().$el);
   },
 
-  isNode: function(element) {
+  tojquery: function(element) {
     switch (typeof element) {
       case "object":
         if (element instanceof jQuery) {
