@@ -340,7 +340,7 @@ EVTURN.fn = {
     var models = collection.where({featured: true});
     return new EVTURN[capitalize](models.reverse());
   },
-  getById: function(string, array) {
+  getByIds: function(string, array) {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
     var collection = new EVTURN[capitalize](data);
@@ -391,9 +391,13 @@ EVTURN.fn = {
     $(element).insertAfter(new EVTURN.Rza().$el);
   },
   isNode: function(element) {
+    console.log(typeof element);
     switch (typeof element) {
-      case "jquery":
-        return element;
+      case "object":
+        if (element instanceof jQuery) {
+          return element;
+        }
+      break;
 
       case "string":
         if (element.charAt(0) === '.') {
@@ -509,7 +513,7 @@ EVTURN.Carousel = Backbone.View.extend({
     this.getProjectTechnologies();
   },
   render: function() {
-    EVTURN.fn.setModel('.work', this.model, this.viewContainer);
+    EVTURN.fn.setModel(this.$el, this.model, this.viewContainer);
     EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },
@@ -524,7 +528,7 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   getProjectTechnologies: function() {
     var techIds = this.model.get('technologies');
-    var technologies = EVTURN.fn.getById('technologies', techIds);
+    var technologies = EVTURN.fn.getByIds('technologies', techIds);
     EVTURN.fn.appendModels('.project-technologies', technologies, this.itemTechnologies);
     return this;
   },
