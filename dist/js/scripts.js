@@ -124,6 +124,20 @@ EVTURN.data = {
       color: 'devicon-less-plain-wordmark',
       id: 15,
       featured: true
+    },
+    {
+      technology: 'Rails',
+      icon: 'devicon-rails-plain-wordmark',
+      color: 'devicon-rails-plain-wordmark',
+      id: 16,
+      featured: false
+    },
+    {
+      technology: 'PostgreSQL',
+      icon: 'devicon-postgresql-plain-wordmark',
+      color: 'devicon-postgresql-plain-wordmark',
+      id: 17,
+      featured: false
     }
   ],
   projects: [
@@ -141,7 +155,7 @@ EVTURN.data = {
         'assets/img/mi-5.png'
       ],
       featured: true,
-      technologies: [1, 14, 12, 10]
+      technologies: [1, 14, 12, 10, 11, 13]
     },
     {
       name: 'Marshallz Blog',
@@ -158,7 +172,7 @@ EVTURN.data = {
         'assets/img/marshallz-4.jpg'
       ],
       featured: true,
-      technologies: [1, 14, 12, 10]
+      technologies: [1, 14, 12, 10, 11]
     },
     {
       name: 'Drive Publishing',
@@ -171,7 +185,8 @@ EVTURN.data = {
         'assets/img/drive-2.png',
         'assets/img/drive-3.png'
       ],
-      featured: true
+      featured: true,
+      technologies: [13, 11, 14]
     },
     {
       name: 'Ramen Buffet',
@@ -184,7 +199,7 @@ EVTURN.data = {
         'assets/img/ramen-2.png'
       ],
       featured: true,
-      technologies: [1, 14, 12, 10]
+      technologies: [1, 14, 12, 10, 11, 15]
     },
     {
       name: 'Alculator',
@@ -197,7 +212,8 @@ EVTURN.data = {
         'assets/img/alculator-1.png',
         'assets/img/alculator-4.png'
       ],
-      featured: true
+      featured: true,
+      technologies: [1, 12, 3, 11]
     },
     {
       name: 'Pique',
@@ -211,7 +227,8 @@ EVTURN.data = {
         'assets/img/pique-3.png',
         'assets/img/pique-4.png'
       ],
-      featured: true
+      featured: true,
+      technologies : [16, 17, 11]
     },
     {
       name: 'Hangman',
@@ -222,7 +239,8 @@ EVTURN.data = {
       items: [
         'assets/img/hangman-2.jpg'
       ],
-      featured: true
+      featured: true,
+      technologies: [1, 12, 3, 11]
     },
     {
       name: 'Tic Tac Toe',
@@ -233,7 +251,8 @@ EVTURN.data = {
       items: [
         'assets/img/ttt-2.jpg'
       ],
-      featured: false
+      featured: false,
+      technologies: [3, 11]
     },
     {
       name: 'WhereTO',
@@ -245,7 +264,7 @@ EVTURN.data = {
         'assets/img/whereto-1.png'
       ],
       featured: true,
-      technologies: [1, 14, 12, 10]
+      technologies: [1, 14, 12, 10, 13]
     }
   ],
   links: [
