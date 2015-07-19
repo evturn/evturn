@@ -168,6 +168,9 @@
       <p class="section-title"><%= name %></p>
       <p class="meta"><%= description %></p>
     </div>
+    <div class="project-technologies">
+
+    </div>
     <div class="project-stats">
     <% var url = url ? '<p class="pull-right"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>
     <%= url %>
@@ -175,7 +178,7 @@
   </script>
   <!-- Project Technologies -->
   <script type="text/template" id="project-technologies-template">
-    <div class="technologies-container">
+    <div class="technologies-item">
       <p class="meta">Built with</p>
       <i class="<%= icon %>"></i>
       <p class="specs"><%= technology %></p>

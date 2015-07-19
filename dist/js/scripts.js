@@ -339,12 +339,11 @@ EVTURN.fn = {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
     var collection = new EVTURN[capitalize](data);
-    var models = []
+    var models = [];
     for (var i = 0; i < array.length; i++) {
-      var model = collection.findWhere({id: array[i]})
+      var model = collection.findWhere({id: array[i]});
       models.push(model);
-    };
-
+    }
     return new EVTURN[capitalize](models);
   },
   appendModels: function(className, collection, template) {
@@ -505,7 +504,7 @@ EVTURN.Carousel = Backbone.View.extend({
   getProjectTechnologies: function() {
     var techIds = this.model.get('technologies');
     var technologies = EVTURN.fn.getById('technologies', techIds);
-    EVTURN.fn.appendModels('.project-stats', technologies, this.itemTechnologies);
+    EVTURN.fn.appendModels('.project-technologies', technologies, this.itemTechnologies);
     return this;
   },
 });

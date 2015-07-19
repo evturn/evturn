@@ -565,6 +565,8 @@ h1 {
       font-family: Source Sans Pro; }
       .carousel-panel .project-text a:hover {
         color: #00cfff; }
+  .carousel-panel .project-technologies .technologies-item {
+    display: inline-block; }
 
 .thumbnails {
   -webkit-transition: all 0.3s ease;

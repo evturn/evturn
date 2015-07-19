@@ -27,7 +27,7 @@ EVTURN.Carousel = Backbone.View.extend({
   getProjectTechnologies: function() {
     var techIds = this.model.get('technologies');
     var technologies = EVTURN.fn.getById('technologies', techIds);
-    EVTURN.fn.appendModels('.project-stats', technologies, this.itemTechnologies);
+    EVTURN.fn.appendModels('.project-technologies', technologies, this.itemTechnologies);
     return this;
   },
 });
