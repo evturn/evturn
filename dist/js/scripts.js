@@ -172,7 +172,7 @@ EVTURN.data = {
         'assets/img/marshallz-4.jpg'
       ],
       featured: true,
-      technologies: [1, 14, 12, 10, 11]
+      technologies: [1, 3, 14, 12, 15, 9, 11]
     },
     {
       name: 'Drive Publishing',
@@ -344,7 +344,7 @@ EVTURN.fn = {
       var model = collection.findWhere({id: array[i]});
       models.push(model);
     }
-    return new EVTURN[capitalize](models);
+    return new EVTURN[capitalize](models.reverse());
   },
   appendModels: function(className, collection, template) {
     $selector = EVTURN.fn.isNode(className);

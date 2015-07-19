@@ -15,7 +15,7 @@ EVTURN.fn = {
       var model = collection.findWhere({id: array[i]});
       models.push(model);
     }
-    return new EVTURN[capitalize](models);
+    return new EVTURN[capitalize](models.reverse());
   },
   appendModels: function(className, collection, template) {
     $selector = EVTURN.fn.isNode(className);

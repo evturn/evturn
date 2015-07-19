@@ -589,6 +589,8 @@ h1 {
       @media (min-width: 900px) {
         .carousel-panel .project-technologies .technologies-item {
           width: 24%; } }
+      .carousel-panel .project-technologies .technologies-item i {
+        color: #ffffff; }
 
 .thumbnails {
   -webkit-transition: all 0.3s ease;

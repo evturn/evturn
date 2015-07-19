@@ -153,7 +153,7 @@ EVTURN.data = {
         'assets/img/marshallz-4.jpg'
       ],
       featured: true,
-      technologies: [1, 14, 12, 10, 11]
+      technologies: [1, 3, 14, 12, 15, 9, 11]
     },
     {
       name: 'Drive Publishing',
