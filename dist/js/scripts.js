@@ -343,7 +343,7 @@ EVTURN.fn = {
     return new EVTURN[capitalize](models.reverse());
   },
 
-  getByIds: function(string, array) {
+  getModelsById: function(string, array) {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
     var collection = new EVTURN[capitalize](data);
@@ -575,7 +575,7 @@ EVTURN.Carousel = Backbone.View.extend({
   setChildren: function() {
     var images = this.model.get('items');
     var techIds = this.model.get('technologies');
-    var technologies = EVTURN.fn.getByIds('technologies', techIds);
+    var technologies = EVTURN.fn.getModelsById('technologies', techIds);
 
     EVTURN.fn.appendModel('.carousel-panel', this.model, this.itemDescription);
     EVTURN.fn.appendModel('.project-links', this.model, this.itemLinks);

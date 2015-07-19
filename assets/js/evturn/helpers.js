@@ -9,7 +9,7 @@ EVTURN.fn = {
     return new EVTURN[capitalize](models.reverse());
   },
 
-  getByIds: function(string, array) {
+  getModelsById: function(string, array) {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
     var collection = new EVTURN[capitalize](data);
