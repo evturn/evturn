@@ -69,12 +69,16 @@
     padding: 15px;
     text-align: right;
 
-    .meta .fa {
-      @include transition(0.3s);
+    .meta {
       display: inline-block;
-      color: $primary;
-      &:hover {
-        color: $white;
+
+      .fa {
+        margin-left: 10px;
+        @include transition(0.3s);
+        color: $primary;
+        &:hover {
+          color: $white;
+        }
       }
     }
   }

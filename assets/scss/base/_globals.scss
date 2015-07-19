@@ -33,21 +33,3 @@ h1 {
   height: auto;
   display: block;
 }
-
-.header-subhead {
-  background-color: $black;
-  color: $white;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 1px;
-  margin-bottom: 0;
-
-  @media (min-width: $xs) {
-  }
-
-  @media (min-width: $sm) {
-    text-align: left;
-    font-size: 18px;
-    padding-left: 15px;
-  }
-}

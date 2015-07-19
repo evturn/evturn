@@ -144,6 +144,7 @@ EVTURN.data = {
       description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
       id: 2,
       url: 'http://marshallz.com',
+      repo: 'https://github.com/evturn/marshallz',
       thumbnail: "assets/img/marshallz-tn.png",
       lead: "assets/img/marshallz-1.png",
       items: [
@@ -161,6 +162,7 @@ EVTURN.data = {
       description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
       id: 4,
       url: 'http://drivepublishing.com',
+      repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
       thumbnail: "assets/img/drive-tn.png",
       lead: 'assets/img/drive-1.png',
       items: [
@@ -175,6 +177,7 @@ EVTURN.data = {
       description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
       id: 6,
       url: 'http://ramenbuffet.com',
+      repo: 'https://github.com/evturn/ramen-buffet',
       thumbnail: "assets/img/ramen-tn.png",
       lead: 'assets/img/ramen-1.png',
       items: [
@@ -201,7 +204,7 @@ EVTURN.data = {
       name: 'Pique',
       description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
       id: 3,
-      url: 'http://piqueapp.github.io',
+      repo: 'https://github.com/piqueapp/piqueapp.github.io',
       thumbnail: "assets/img/pique-tn.png",
       lead: "assets/img/pique-1.jpg",
       items: [
@@ -240,6 +243,7 @@ EVTURN.data = {
       name: 'WhereTO',
       description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
       id: 9,
+      repo: 'https://github.com/evturn/WhereTO',
       thumbnail: "assets/img/whereto-tn.png",
       lead: 'assets/img/whereto-2.png',
       items: [
