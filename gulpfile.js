@@ -25,6 +25,11 @@ gulp.task('scss', function() {
     .pipe($.sass())
     .pipe($.rename(paths.scss.filename))
     .pipe(gulp.dest(paths.scss.dest))
+    .on('error', options.plumber.errorHandler)
+    .pipe($.autoprefixer(options.autoprefixer))
+    .pipe($.cssmin())
+    .pipe($.rename(paths.scss.min))
+    .pipe(gulp.dest(paths.scss.dest))
     .on('error', options.plumber.errorHandler);
 });
 
@@ -33,16 +38,18 @@ gulp.task('less', function() {
     .pipe($.plumber(options.plumber))
     .pipe($.less())
     .pipe($.rename(paths.less.filename))
+    .pipe(gulp.dest(paths.less.dest))
     .on('error', options.plumber.errorHandler)
     .pipe($.autoprefixer(options.autoprefixer))
     .pipe($.cssmin())
+    .pipe($.rename(paths.less.min))
     .pipe(gulp.dest(paths.less.dest)).on('error', gutil.log);
 });
 
 gulp.task('jslib', function() {
   return gulp.src(paths.js.vendor.src)
     .pipe($.plumber(options.plumber))
-    .pipe($.concat(paths.js.vendor.filename))
+    .pipe($.concat(paths.js.vendor.min))
     .pipe($.uglify())
     .pipe(gulp.dest(paths.js.vendor.dest))
     .on('error', gutil.log);
@@ -63,8 +70,10 @@ gulp.task('css', function() {
   return gulp.src(paths.css.vendor.src)
     .pipe($.plumber(options.plumber))
     .pipe($.concat(paths.css.vendor.filename))
+    .pipe(gulp.dest(paths.css.dest))
     .pipe($.cssmin())
-    .pipe(gulp.dest(paths.css.vendor.dest));
+    .pipe($.rename(paths.css.vendor.min))
+    .pipe(gulp.dest(paths.css.dest));
 });
 
 gulp.task('img', function() {

@@ -1,4 +1,5 @@
 module.exports = {
+
   scss: {
     src: 'assets/scss/**/*.scss',
     watch: 'assets/scss/**/*.scss',
@@ -6,12 +7,15 @@ module.exports = {
     filename: 'scss.css',
     min: 'scss.min.css'
   },
+
   less: {
     src: 'assets/less/*.less',
     watch: 'assets/less/**/*.less',
     dest: 'dist/css',
-    filename: 'less.css'
+    filename: 'less.css',
+    min: 'less.min.css'
   },
+
   js: {
     src: [
       'assets/js/models/ev.js',
@@ -42,9 +46,12 @@ module.exports = {
       ],
       watch: 'assets/js/lib/**/*.js',
       dest: 'dist/js',
-      filename: 'vendor.js'
+      filename: 'vendor.js',
+      min: 'vendor.min.js'
     }
+
   },
+
   css: {
     vendor: {
       src: [
@@ -54,14 +61,17 @@ module.exports = {
         'assets/css/reset.css'
       ],
       watch: 'assets/css/**/*.css',
-      dest: 'dist/css',
-      filename: 'vendor.css'
-    }
+      filename: 'vendor.css',
+      min: 'vendor.min.css'
+    },
+    dest: 'dist/css'
   },
+
   img: {
     src: 'assets/img/**/*',
     dest: 'dist/img'
   },
+
   jshint: {
     src: [
       'assets/js/**/*.js',
@@ -76,4 +86,5 @@ module.exports = {
       'gulpfile.js'
     ]
   }
+
 };
