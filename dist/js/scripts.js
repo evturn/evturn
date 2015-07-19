@@ -346,6 +346,11 @@ EVTURN.fn = {
     }
     return new EVTURN[capitalize](models.reverse());
   },
+  appendModel: function(className, model, template) {
+    $selector = EVTURN.fn.isNode(className);
+    $selector.append(template(model.toJSON()));
+    return this;
+  },
   appendModels: function(className, collection, template) {
     $selector = EVTURN.fn.isNode(className);
     for (var i = collection.length - 1; i >= 0; i--) {
@@ -495,7 +500,7 @@ EVTURN.Carousel = Backbone.View.extend({
   setChildViews: function() {
     var $carouselPanel = $('.carousel-panel');
     var images = this.model.get('items');
-    $carouselPanel.html(this.itemDescription(this.model.toJSON()));
+    EVTURN.fn.appendModel('.carousel-panel', this.model, this.itemDescription);
     EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();

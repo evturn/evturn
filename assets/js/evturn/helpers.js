@@ -17,6 +17,11 @@ EVTURN.fn = {
     }
     return new EVTURN[capitalize](models.reverse());
   },
+  appendModel: function(className, model, template) {
+    $selector = EVTURN.fn.isNode(className);
+    $selector.append(template(model.toJSON()));
+    return this;
+  },
   appendModels: function(className, collection, template) {
     $selector = EVTURN.fn.isNode(className);
     for (var i = collection.length - 1; i >= 0; i--) {
