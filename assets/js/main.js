@@ -1,1 +1,1 @@
-EVTURN.fn.init();
+EVTURN.init();

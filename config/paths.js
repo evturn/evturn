@@ -22,7 +22,7 @@ module.exports = {
       'assets/js/evturn/data.js',
       'assets/js/evturn/helpers.js',
       'assets/js/evturn/animations.js',
-      'assets/js/evturn/initialize.js',
+      'assets/js/evturn/init.js',
       'assets/js/views/**/*.js',
       'assets/js/router.js',
       'assets/js/main.js'

@@ -334,13 +334,6 @@ EVTURN.data = {
 };
 EVTURN.fn = {
 
-  init: function() {
-    var route = new EVTURN.Router();
-
-    EVTURN.animations.init();
-    Backbone.history.start();
-  },
-
   get: function(string) {
     var data = EVTURN.data[string];
     var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
@@ -491,6 +484,12 @@ EVTURN.animations = {
     $('#carousel-preloader').delay(500).fadeOut();
     $('.carousel-preloader').delay(600).fadeOut(600);
   }
+};
+EVTURN.init = function() {
+  var router = new EVTURN.Router();
+
+  EVTURN.animations.init();
+  Backbone.history.start();
 };
 EVTURN.AboutView = Backbone.View.extend({
 
@@ -694,4 +693,4 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
 });
-EVTURN.fn.init();
+EVTURN.init();
