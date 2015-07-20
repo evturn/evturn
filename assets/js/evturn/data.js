@@ -137,7 +137,7 @@ EVTURN.data = {
         'assets/img/mi-5.png'
       ],
       featured: true,
-      technologies: [1, 14, 12, 10, 11, 13]
+      technologies: [1, 3, 14, 12, 10, 11, 13]
     },
     {
       name: 'Marshallz Blog',
