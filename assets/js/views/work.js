@@ -15,7 +15,7 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   render: function() {
-    EVTURN.fn.setModel(this.$el, this.model, this.viewContainer);
+    EVTURN.setModel(this.$el, this.model, this.viewContainer);
     EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },
@@ -23,12 +23,12 @@ EVTURN.Carousel = Backbone.View.extend({
   setChildren: function() {
     var images = this.model.get('items');
     var techIds = this.model.get('technologies');
-    var technologies = EVTURN.fn.getModelsById('technologies', techIds);
+    var technologies = EVTURN.getModelsById('technologies', techIds);
 
-    EVTURN.fn.appendModel('.carousel-panel', this.model, this.itemDescription);
-    EVTURN.fn.appendModel('.project-links', this.model, this.itemLinks);
-    EVTURN.fn.appendModels('.project-technologies', technologies, this.itemTechnologies);
-    EVTURN.fn.appendArray('.carousel-inner', images, this.itemContainer);
+    EVTURN.appendModel('.carousel-panel', this.model, this.itemDescription);
+    EVTURN.appendModel('.project-links', this.model, this.itemLinks);
+    EVTURN.appendModels('.project-technologies', technologies, this.itemTechnologies);
+    EVTURN.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
     return this;

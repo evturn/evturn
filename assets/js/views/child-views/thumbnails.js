@@ -3,7 +3,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
   viewContainer : _.template($('#thumbnails-container-template').html()),
   itemContainer : _.template($('#thumbnail-item-template').html()),
   initialize: function(selector) {
-    this.collection = EVTURN.fn.get('projects');
+    this.collection = EVTURN.get('projects');
     this.render(selector);
   },
   events: {
@@ -12,7 +12,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
   render: function($selector) {
     this.$el.empty();
     $selector.append(this.viewContainer());
-    EVTURN.fn.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
+    EVTURN.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
     return this;
   },
 });

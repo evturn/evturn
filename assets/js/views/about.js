@@ -8,15 +8,15 @@ EVTURN.AboutView = Backbone.View.extend({
   bioItem: _.template($('#bio-paragraph-template').html()),
 
   initialize: function() {
-    this.collection = EVTURN.fn.get('technologies');
+    this.collection = EVTURN.get('technologies');
     this.render();
   },
 
   render: function() {
-    EVTURN.fn.setView(this.$el, this.viewContainer);
-    EVTURN.fn.appendModels('.technology-items', this.collection, this.itemContainer);
-    EVTURN.fn.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
-    EVTURN.fn.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
+    EVTURN.setView(this.$el, this.viewContainer);
+    EVTURN.appendModels('.technology-items', this.collection, this.itemContainer);
+    EVTURN.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
+    EVTURN.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
     EVTURN.animations.statCount();
     return this;
   },

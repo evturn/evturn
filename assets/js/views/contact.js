@@ -6,13 +6,13 @@ EVTURN.ContactView = Backbone.View.extend({
   itemContainer: _.template($('#link-item-template').html()),
 
   initialize: function() {
-    this.collection = EVTURN.fn.get('links');
+    this.collection = EVTURN.get('links');
     this.render();
   },
 
   render: function() {
-    EVTURN.fn.setView(this.$el, this.viewContainer);
-    EVTURN.fn.appendModels('.link-items', this.collection, this.itemContainer);
+    EVTURN.setView(this.$el, this.viewContainer);
+    EVTURN.appendModels('.link-items', this.collection, this.itemContainer);
   },
 
 });

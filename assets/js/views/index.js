@@ -9,7 +9,7 @@ EVTURN.IndexView = Backbone.View.extend({
   },
 
   render: function() {
-    EVTURN.fn.setView(this.$el, this.viewContainer);
+    EVTURN.setView(this.$el, this.viewContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     return this;
   },
