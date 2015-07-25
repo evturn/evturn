@@ -128,13 +128,13 @@ EVTURN.data = {
       id: 1,
       url: 'http://musicinsider.co',
       repo: 'https://github.com/evturn/musicinsider.co',
-      thumbnail: "assets/img/mi-tn.png",
-      lead: "assets/img/mi-1.png",
+      thumbnail: "dist/img/mi-tn.png",
+      lead: "dist/img/mi-1.png",
       items: [
-        'assets/img/mi-2.png',
-        'assets/img/mi-3.png',
-        'assets/img/mi-4.png',
-        'assets/img/mi-5.png'
+        'dist/img/mi-2.png',
+        'dist/img/mi-3.png',
+        'dist/img/mi-4.png',
+        'dist/img/mi-5.png'
       ],
       featured: true,
       technologies: [1, 3, 14, 12, 10, 11, 13]
@@ -145,14 +145,14 @@ EVTURN.data = {
       id: 2,
       url: 'http://marshallz.com',
       repo: 'https://github.com/evturn/marshallz',
-      thumbnail: "assets/img/marshallz-tn.png",
-      lead: "assets/img/marshallz-1.png",
+      thumbnail: "dist/img/marshallz-tn.png",
+      lead: "dist/img/marshallz-1.png",
       items: [
-        'assets/img/marshallz-2.png',
-        'assets/img/marshallz-6.png',
-        'assets/img/marshallz-3.jpg',
-        'assets/img/marshallz-5.png',
-        'assets/img/marshallz-4.jpg'
+        'dist/img/marshallz-2.png',
+        'dist/img/marshallz-6.png',
+        'dist/img/marshallz-3.jpg',
+        'dist/img/marshallz-5.png',
+        'dist/img/marshallz-4.jpg'
       ],
       featured: true,
       technologies: [1, 3, 14, 12, 15, 9, 11]
@@ -163,11 +163,11 @@ EVTURN.data = {
       id: 4,
       url: 'http://drivepublishing.com',
       repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
-      thumbnail: "assets/img/drive-tn.png",
-      lead: 'assets/img/drive-1.png',
+      thumbnail: "dist/img/drive-tn.png",
+      lead: 'dist/img/drive-1.png',
       items: [
-        'assets/img/drive-2.png',
-        'assets/img/drive-3.png'
+        'dist/img/drive-2.png',
+        'dist/img/drive-3.png'
       ],
       featured: true,
       technologies: [13, 11, 14]
@@ -178,10 +178,10 @@ EVTURN.data = {
       id: 6,
       url: 'http://ramenbuffet.com',
       repo: 'https://github.com/evturn/ramen-buffet',
-      thumbnail: "assets/img/ramen-tn.png",
-      lead: 'assets/img/ramen-1.png',
+      thumbnail: "dist/img/ramen-tn.png",
+      lead: 'dist/img/ramen-1.png',
       items: [
-        'assets/img/ramen-2.png'
+        'dist/img/ramen-2.png'
       ],
       featured: true,
       technologies: [1, 3, 14, 12, 10, 11, 15]
@@ -190,12 +190,12 @@ EVTURN.data = {
       name: 'Alculator',
       description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
       id: 5,
-      thumbnail: "assets/img/alculator-tn.png",
-      lead: "assets/img/alculator-3.png",
+      thumbnail: "dist/img/alculator-tn.png",
+      lead: "dist/img/alculator-3.png",
       items: [
-        'assets/img/alculator-2.png',
-        'assets/img/alculator-1.png',
-        'assets/img/alculator-4.png'
+        'dist/img/alculator-2.png',
+        'dist/img/alculator-1.png',
+        'dist/img/alculator-4.png'
       ],
       featured: true,
       technologies: [1, 12, 3, 11]
@@ -205,12 +205,12 @@ EVTURN.data = {
       description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
       id: 3,
       repo: 'https://github.com/piqueapp/piqueapp.github.io',
-      thumbnail: "assets/img/pique-tn.png",
-      lead: "assets/img/pique-1.jpg",
+      thumbnail: "dist/img/pique-tn.png",
+      lead: "dist/img/pique-1.jpg",
       items: [
-        'assets/img/pique-2.png',
-        'assets/img/pique-3.png',
-        'assets/img/pique-4.png'
+        'dist/img/pique-2.png',
+        'dist/img/pique-3.png',
+        'dist/img/pique-4.png'
       ],
       featured: true,
       technologies : [16, 17, 11]
@@ -219,10 +219,10 @@ EVTURN.data = {
       name: 'Hangman',
       description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
       id: 7,
-      thumbnail: "assets/img/hangman-tn.png",
-      lead: "assets/img/hangman-1.jpg",
+      thumbnail: "dist/img/hangman-tn.png",
+      lead: "dist/img/hangman-1.jpg",
       items: [
-        'assets/img/hangman-2.jpg'
+        'dist/img/hangman-2.jpg'
       ],
       featured: true,
       technologies: [1, 12, 3, 11]
@@ -231,10 +231,10 @@ EVTURN.data = {
       name: 'Tic Tac Toe',
       description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
       id: 8,
-      thumbnail: "assets/img/ttt-tn.png",
-      lead: 'assets/img/ttt-1.jpg',
+      thumbnail: "dist/img/ttt-tn.png",
+      lead: 'dist/img/ttt-1.jpg',
       items: [
-        'assets/img/ttt-2.jpg'
+        'dist/img/ttt-2.jpg'
       ],
       featured: false,
       technologies: [3, 11]
@@ -244,10 +244,10 @@ EVTURN.data = {
       description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
       id: 9,
       repo: 'https://github.com/evturn/WhereTO',
-      thumbnail: "assets/img/whereto-tn.png",
-      lead: 'assets/img/whereto-2.png',
+      thumbnail: "dist/img/whereto-tn.png",
+      lead: 'dist/img/whereto-2.png',
       items: [
-        'assets/img/whereto-1.png'
+        'dist/img/whereto-1.png'
       ],
       featured: true,
       technologies: [1, 14, 12, 10, 13]

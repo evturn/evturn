@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 var paths = require('./config/paths');
 var options = require('./config/gulp-options');
 
-gulp.task('default', ['less', 'scss', 'lint', 'watch', 'browsersync']);
+gulp.task('default', ['less', 'lint', 'watch', 'browsersync']);
 
 gulp.task('watch', function() {
   gulp.watch(paths.jshint.watch, ['lint']);
@@ -18,7 +18,7 @@ gulp.task('watch', function() {
   gulp.watch('index.html').on('change', browserSync.reload);
 });
 
-gulp.task('build', ['scss', 'css', 'less', 'js', 'jslib', 'img']);
+gulp.task('build', ['less', 'css', 'less', 'js', 'jslib', 'img']);
 
 gulp.task('scss', function() {
   return gulp.src(paths.scss.src)
@@ -90,7 +90,7 @@ gulp.task('lint', function() {
     .pipe($.notify(options.notify.jshint));
 });
 
-gulp.task('reloader', ['scss', 'less', 'js'], function() {
+gulp.task('reloader', ['less', 'js'], function() {
   browserSync.reload();
 });
 
