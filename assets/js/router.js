@@ -37,7 +37,7 @@ EVTURN.Router = Backbone.Router.extend({
       this.wrapper.child = this.workView;
     }
     else {
-      var view = new EVTURN.Carousel({model: model});
+      let view = new EVTURN.Carousel({model: model});
       this.wrapper.child = view;
     }
 
@@ -67,8 +67,8 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   project: function(id) {
-    var collection = EVTURN.get('projects');
-    var model = collection.get(id) || collection.get(1);
+    let collection = EVTURN.get('projects');
+    let model = collection.get(id) || collection.get(1);
 
     this.work(model);
   },

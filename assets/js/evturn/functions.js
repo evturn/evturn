@@ -1,20 +1,20 @@
 EVTURN.get = function(string) {
-  var data = EVTURN.data[string];
-  var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-  var collection = new EVTURN[capitalize](data);
-  var models = collection.where({featured: true});
+  let data = EVTURN.data[string];
+  let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+  let collection = new EVTURN[capitalize](data);
+  let models = collection.where({featured: true});
 
   return new EVTURN[capitalize](models.reverse());
 };
 
 EVTURN.getModelsById = function(string, array) {
-  var data = EVTURN.data[string];
-  var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-  var collection = new EVTURN[capitalize](data);
-  var models = [];
+  let data = EVTURN.data[string];
+  let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+  let collection = new EVTURN[capitalize](data);
+  let models = [];
 
-  for (var i = 0; i < array.length; i++) {
-    var model = collection.findWhere({id: array[i]});
+  for (let i = 0; i < array.length; i++) {
+    let model = collection.findWhere({id: array[i]});
     models.push(model);
   }
 
@@ -22,30 +22,30 @@ EVTURN.getModelsById = function(string, array) {
 };
 
 EVTURN.setModel = function(selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
+  let $selector = EVTURN.tojquery(selector);
   $selector.html(template(model.toJSON()));
 
   return this;
 };
 
 EVTURN.setView = function(selector, template) {
-  var $selector = EVTURN.tojquery(selector);
+  let $selector = EVTURN.tojquery(selector);
   $selector.html(template());
 
   return this;
 };
 
 EVTURN.appendModel = function(selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
+  let $selector = EVTURN.tojquery(selector);
   $selector.append(template(model.toJSON()));
 
   return this;
 };
 
 EVTURN.appendModels = function(selector, collection, template) {
-  var $selector = EVTURN.tojquery(selector);
+  let $selector = EVTURN.tojquery(selector);
 
-  for (var i = collection.length - 1; i >= 0; i--) {
+  for (let i = collection.length - 1; i >= 0; i--) {
     $selector.append(template(collection.models[i].toJSON()));
   }
 
@@ -53,10 +53,10 @@ EVTURN.appendModels = function(selector, collection, template) {
 };
 
 EVTURN.appendArray = function(selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
+  let $selector = EVTURN.tojquery(selector);
 
-  for (var i = 0; i < array.length; i++) {
-    var value = array[i];
+  for (let i = 0; i < array.length; i++) {
+    let value = array[i];
     $selector.append(template({item: value}));
   }
 
@@ -64,9 +64,9 @@ EVTURN.appendArray = function(selector, array, template) {
 };
 
 EVTURN.appendObjectsArray = function(selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
+  let $selector = EVTURN.tojquery(selector);
 
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     $selector.append(template(array[i]));
   }
 
@@ -74,8 +74,8 @@ EVTURN.appendObjectsArray = function(selector, array, template) {
 };
 
 EVTURN.createElement = function(string) {
-  var $selector = $(document.getElementsByClassName(string));
-  var element = document.createElement('div');
+  let $selector = $(document.getElementsByClassName(string));
+  let element = document.createElement('div');
   element.className = string;
   element.dataset.view = string;
 

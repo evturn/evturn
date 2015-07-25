@@ -18,6 +18,7 @@ EVTURN.AboutView = Backbone.View.extend({
     EVTURN.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
     EVTURN.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
     EVTURN.animations.statCount();
+
     return this;
   },
 

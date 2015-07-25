@@ -8,8 +8,8 @@ EVTURN.animations = {
   preloader: function() {
 
     $(window).load(function() {
-      $container = $('#preloader');
-      $image = $('.preloader');
+      let $container = $('#preloader');
+      let $image = $('.preloader');
 
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
@@ -27,7 +27,7 @@ EVTURN.animations = {
 
   },
   count: function($this){
-    var current = parseInt($this.html(), 10);
+    let current = parseInt($this.html(), 10);
 
     current = current + 50;
     $this.html(++current);
