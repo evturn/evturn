@@ -1891,6 +1891,12 @@ h1 {
   height: auto;
   display: block;
 }
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
 .wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -2245,6 +2251,21 @@ h1 {
   background-color: transparent;
   color: #231f20;
 }
+.index .img-scale {
+  -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+}
+.site-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.site-footer .footer-container {
+  color: #f1f1f2;
+}
 .thumbnails {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -2299,21 +2320,6 @@ h1 {
     transition: all 0.7s ease;
     opacity: 0.3;
   }
-}
-.index .img-scale {
-  -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
-}
-.site-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  padding-bottom: 10px;
-}
-.site-footer .footer-container {
-  color: #f1f1f2;
 }
 #preloader {
   width: 100vw;
