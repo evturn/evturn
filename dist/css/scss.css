@@ -357,12 +357,19 @@ h1 {
   .carousel-indicators {
     bottom: 20px; } }
 
+.index .img-scale {
+  -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75); }
+
 .about {
   font-family: Raleway;
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
   color: #231f20; }
+  .about .img-scale {
+    -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75); }
   .about .section-title {
     padding-top: 15px;
     text-align: center;
