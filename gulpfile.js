@@ -6,11 +6,12 @@ var gulp = require('gulp'),
 var paths = require('./config/paths');
 var options = require('./config/gulp-options');
 
-gulp.task('default', ['scss', 'lint', 'watch', 'browsersync']);
+gulp.task('default', ['less', 'scss', 'lint', 'watch', 'browsersync']);
 
 gulp.task('watch', function() {
   gulp.watch(paths.jshint.watch, ['lint']);
   gulp.watch(paths.scss.watch, ['scss', 'reloader']);
+  gulp.watch(paths.less.watch, ['less', 'reloader']);
   gulp.watch(paths.js.watch, ['js', 'reloader']);
   gulp.watch(paths.js.vendor.watch, ['jslib']);
   gulp.watch(paths.css.vendor.watch, ['css']);
@@ -89,7 +90,7 @@ gulp.task('lint', function() {
     .pipe($.notify(options.notify.jshint));
 });
 
-gulp.task('reloader', ['scss', 'js'], function() {
+gulp.task('reloader', ['scss', 'less', 'js'], function() {
   browserSync.reload();
 });
 
