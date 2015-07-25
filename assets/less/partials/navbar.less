@@ -1,0 +1,46 @@
+.navbar {
+  .img-shadow;
+  background-color: @white;
+  overflow: auto;
+
+  .nav-items {
+    padding: 10px 0 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    @media (min-width: @sm) {
+      text-align: right;
+    }
+  }
+
+  .nav-item {
+    text-align: left;
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .nav-active {
+    .nav-active(@primary, @white);
+  }
+
+  .nav-link {
+    .transition(all 0.2s ease);
+    text-decoration: none;
+
+  }
+
+  .nav-text,
+  .nav-text a {
+    .ease-in-out;
+    text-transform: uppercase;
+    line-height: 1.4em;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: @black;
+    @media (min-width: @sm) {
+      font-size: 24px;
+
+    }
+  }
+
+}
