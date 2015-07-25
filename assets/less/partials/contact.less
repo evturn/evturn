@@ -1,0 +1,50 @@
+.contact {
+
+.img-scale {
+  .box-shadow( 0px 0px 13px -1px rgba(0,0,0,0.75));
+}
+
+  .link-items {
+    padding-top: 25px;
+    float: none;
+    text-align: center;
+
+    @media (min-width: @sm) {
+      float: right;
+    }
+  }
+
+
+  .link-item {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    overflow: auto;
+
+    a:focus {
+      color: @black;
+    }
+
+    .fa {
+      .transition(all 0.1s ease);
+      margin-left: 0;
+      margin-top: 15px;
+      font-size: 2em;
+      color: @white;
+
+      &:hover {
+        background-color: @black;
+        padding: 10px;
+        border-radius: 50%;
+        margin-top: 5px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .fa:focus {
+     background-color: transparent;
+     color: @black;
+  }
+
+}
