@@ -1,1 +1,1 @@
-EVTURN.init();
+var evturn = new EVTURN();

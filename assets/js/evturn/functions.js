@@ -1,112 +1,144 @@
-EVTURN.get = function(string) {
-  var data = EVTURN.data[string];
-  var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-  var collection = new EVTURN[capitalize](data);
-  var models = collection.where({featured: true});
+class EVTURN {
 
-  return new EVTURN[capitalize](models.reverse());
-};
+  constructor() {
+    this.Link = Backbone.Model.extend({});
+    this.Project = Backbone.Model.extend({});
+    this.Technology = Backbone.Model.extend({});
+    this.Projects = Backbone.Collection.extend({
+      model: this.Project,
+    });
+    this.Links = Backbone.Collection.extend({
+      model: this.Link,
+    });
 
-EVTURN.getModelsById = function(string, array) {
-  var data = EVTURN.data[string];
-  var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-  var collection = new EVTURN[capitalize](data);
-  var models = [];
-
-  for (let i = 0; i < array.length; i++) {
-    var model = collection.findWhere({id: array[i]});
-    models.push(model);
+    this.Technologies = Backbone.Collection.extend({
+      model: this.Technology,
+    });
   }
 
-  return new EVTURN[capitalize](models.reverse());
-};
+  init() {
+    var router = new this.Router();
 
-EVTURN.setModel = function(selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template(model.toJSON()));
-
-  return this;
-};
-
-EVTURN.setView = function(selector, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template());
-
-  return this;
-};
-
-EVTURN.appendModel = function(selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.append(template(model.toJSON()));
-
-  return this;
-};
-
-EVTURN.appendModels = function(selector, collection, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (let i = collection.length - 1; i >= 0; i--) {
-    $selector.append(template(collection.models[i].toJSON()));
+    this.animations.init();
+    Backbone.history.start();
   }
 
-  return this;
-};
 
-EVTURN.appendArray = function(selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
+  get(string) {
+    var data = this.data[string];
+    var key = this.capitalize(string);
+    var collection = new this[key](data);
+    var models = collection.where({featured: true});
 
-  for (let i = 0; i < array.length; i++) {
-    var value = array[i];
-    $selector.append(template({item: value}));
+    return new this[key](models.reverse());
   }
 
-  return this;
-};
+  getModelsById(string, array) {
+    var data = this.data[string];
+    var key = this.capitalize(string);
+    var collection = new this[key](data);
+    var models = [];
 
-EVTURN.appendObjectsArray = function(selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
+    for (let i = 0; i < array.length; i++) {
+      var model = collection.findWhere({id: array[i]});
+      models.push(model);
+    }
 
-  for (let i = 0; i < array.length; i++) {
-    $selector.append(template(array[i]));
+    return new this[key](models.reverse());
   }
 
-  return this;
-};
-
-EVTURN.createElement = function(string) {
-  var $selector = $(document.getElementsByClassName(string));
-  var element = document.createElement('div');
-  element.className = string;
-  element.dataset.view = string;
-
-  $selector.remove();
-  $(element).insertAfter(new EVTURN.Rza().$el);
-};
-
-EVTURN.tojquery = function(element) {
-  switch (typeof element) {
-    case "object":
-      if (element instanceof jQuery) {
-        return element;
-      }
-    break;
-
-    case "string":
-      if (element.charAt(0) === '.') {
-        return $(element);
-      }
-      else {
-        return $(document.getElementsByClassName(element));
-      }
+  capitalize(string) {
+     return (string.charAt(0).toUpperCase() + string.substring(1));
   }
-};
 
-EVTURN.navActive = function(string) {
-  $('.nav-link').removeClass('nav-active');
-  $('.nav-' + string).addClass('nav-active');
-};
+  setModel(selector, model, template) {
+    var $selector = this.tojquery(selector);
+    $selector.html(template(model.toJSON()));
 
-EVTURN.changeState = function(string) {
-  EVTURN.navActive(string);
-  EVTURN.createElement(string);
-};
+    return this;
+  }
+
+  setView(selector, template) {
+    var $selector = this.tojquery(selector);
+    $selector.html(template());
+
+    return this;
+  }
+
+  appendModel(selector, model, template) {
+    var $selector = this.tojquery(selector);
+    $selector.append(template(model.toJSON()));
+
+    return this;
+  }
+
+  appendModels(selector, collection, template) {
+    var $selector = this.tojquery(selector);
+
+    for (let i = collection.length - 1; i >= 0; i--) {
+      $selector.append(template(collection.models[i].toJSON()));
+    }
+
+    return this;
+  }
+
+  appendArray(selector, array, template) {
+    var $selector = this.tojquery(selector);
+
+    for (let i = 0; i < array.length; i++) {
+      var value = array[i];
+      $selector.append(template({item: value}));
+    }
+
+    return this;
+  }
+
+  appendObjectsArray(selector, array, template) {
+    var $selector = this.tojquery(selector);
+
+    for (let i = 0; i < array.length; i++) {
+      $selector.append(template(array[i]));
+    }
+
+    return this;
+  }
+
+  createElement(string) {
+    var $selector = $(document.getElementsByClassName(string));
+    var element = document.createElement('div');
+    element.className = string;
+    element.dataset.view = string;
+
+    $selector.remove();
+    $(element).insertAfter(new this.Rza().$el);
+  }
+
+  tojquery(element) {
+    switch (typeof element) {
+      case "object":
+        if (element instanceof jQuery) {
+          return element;
+        }
+      break;
+
+      case "string":
+        if (element.charAt(0) === '.') {
+          return $(element);
+        }
+        else {
+          return $(document.getElementsByClassName(element));
+        }
+    }
+  }
+
+  navActive(string) {
+    $('.nav-link').removeClass('nav-active');
+    $('.nav-' + string).addClass('nav-active');
+  }
+
+  changeState(string) {
+    this.navActive(string);
+    this.createElement(string);
+  }
+
+}

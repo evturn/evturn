@@ -1,137 +1,170 @@
 "use strict";
-
-var EVTURN = {};
-
-EVTURN.Link = Backbone.Model.extend({});
-
-EVTURN.Project = Backbone.Model.extend({});
-
-EVTURN.Technology = Backbone.Model.extend({});
-
-EVTURN.Projects = Backbone.Collection.extend({
-  model: EVTURN.Project
-});
-
-EVTURN.Links = Backbone.Collection.extend({
-  model: EVTURN.Link
-});
-
-EVTURN.Technologies = Backbone.Collection.extend({
-  model: EVTURN.Technology
-});
 "use strict";
 
-EVTURN.get = function (string) {
-  var data = EVTURN.data[string];
-  var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
-  var collection = new EVTURN[capitalize](data);
-  var models = collection.where({ featured: true });
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-  return new EVTURN[capitalize](models.reverse());
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-EVTURN.getModelsById = function (string, array) {
-  var data = EVTURN.data[string];
-  var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
-  var collection = new EVTURN[capitalize](data);
-  var models = [];
+var EVTURN = (function () {
+  function EVTURN() {
+    _classCallCheck(this, EVTURN);
 
-  for (var i = 0; i < array.length; i++) {
-    var model = collection.findWhere({ id: array[i] });
-    models.push(model);
+    this.Link = Backbone.Model.extend({});
+    this.Project = Backbone.Model.extend({});
+    this.Technology = Backbone.Model.extend({});
+    this.Projects = Backbone.Collection.extend({
+      model: this.Project
+    });
+    this.Links = Backbone.Collection.extend({
+      model: this.Link
+    });
+
+    this.Technologies = Backbone.Collection.extend({
+      model: this.Technology
+    });
   }
 
-  return new EVTURN[capitalize](models.reverse());
-};
+  _createClass(EVTURN, [{
+    key: "init",
+    value: function init() {
+      var router = new this.Router();
 
-EVTURN.setModel = function (selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template(model.toJSON()));
+      this.animations.init();
+      Backbone.history.start();
+    }
+  }, {
+    key: "get",
+    value: function get(string) {
+      var data = this.data[string];
+      var key = this.capitalize(string);
+      var collection = new this[key](data);
+      var models = collection.where({ featured: true });
 
-  return this;
-};
+      return new this[key](models.reverse());
+    }
+  }, {
+    key: "getModelsById",
+    value: function getModelsById(string, array) {
+      var data = this.data[string];
+      var key = this.capitalize(string);
+      var collection = new this[key](data);
+      var models = [];
 
-EVTURN.setView = function (selector, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template());
-
-  return this;
-};
-
-EVTURN.appendModel = function (selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.append(template(model.toJSON()));
-
-  return this;
-};
-
-EVTURN.appendModels = function (selector, collection, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = collection.length - 1; i >= 0; i--) {
-    $selector.append(template(collection.models[i].toJSON()));
-  }
-
-  return this;
-};
-
-EVTURN.appendArray = function (selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = 0; i < array.length; i++) {
-    var value = array[i];
-    $selector.append(template({ item: value }));
-  }
-
-  return this;
-};
-
-EVTURN.appendObjectsArray = function (selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = 0; i < array.length; i++) {
-    $selector.append(template(array[i]));
-  }
-
-  return this;
-};
-
-EVTURN.createElement = function (string) {
-  var $selector = $(document.getElementsByClassName(string));
-  var element = document.createElement('div');
-  element.className = string;
-  element.dataset.view = string;
-
-  $selector.remove();
-  $(element).insertAfter(new EVTURN.Rza().$el);
-};
-
-EVTURN.tojquery = function (element) {
-  switch (typeof element) {
-    case "object":
-      if (element instanceof jQuery) {
-        return element;
+      for (var i = 0; i < array.length; i++) {
+        var model = collection.findWhere({ id: array[i] });
+        models.push(model);
       }
-      break;
 
-    case "string":
-      if (element.charAt(0) === '.') {
-        return $(element);
-      } else {
-        return $(document.getElementsByClassName(element));
+      return new this[key](models.reverse());
+    }
+  }, {
+    key: "capitalize",
+    value: function capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.substring(1);
+    }
+  }, {
+    key: "setModel",
+    value: function setModel(selector, model, template) {
+      var $selector = this.tojquery(selector);
+      $selector.html(template(model.toJSON()));
+
+      return this;
+    }
+  }, {
+    key: "setView",
+    value: function setView(selector, template) {
+      var $selector = this.tojquery(selector);
+      $selector.html(template());
+
+      return this;
+    }
+  }, {
+    key: "appendModel",
+    value: function appendModel(selector, model, template) {
+      var $selector = this.tojquery(selector);
+      $selector.append(template(model.toJSON()));
+
+      return this;
+    }
+  }, {
+    key: "appendModels",
+    value: function appendModels(selector, collection, template) {
+      var $selector = this.tojquery(selector);
+
+      for (var i = collection.length - 1; i >= 0; i--) {
+        $selector.append(template(collection.models[i].toJSON()));
       }
-  }
-};
 
-EVTURN.navActive = function (string) {
-  $('.nav-link').removeClass('nav-active');
-  $('.nav-' + string).addClass('nav-active');
-};
+      return this;
+    }
+  }, {
+    key: "appendArray",
+    value: function appendArray(selector, array, template) {
+      var $selector = this.tojquery(selector);
 
-EVTURN.changeState = function (string) {
-  EVTURN.navActive(string);
-  EVTURN.createElement(string);
-};
+      for (var i = 0; i < array.length; i++) {
+        var value = array[i];
+        $selector.append(template({ item: value }));
+      }
+
+      return this;
+    }
+  }, {
+    key: "appendObjectsArray",
+    value: function appendObjectsArray(selector, array, template) {
+      var $selector = this.tojquery(selector);
+
+      for (var i = 0; i < array.length; i++) {
+        $selector.append(template(array[i]));
+      }
+
+      return this;
+    }
+  }, {
+    key: "createElement",
+    value: function createElement(string) {
+      var $selector = $(document.getElementsByClassName(string));
+      var element = document.createElement('div');
+      element.className = string;
+      element.dataset.view = string;
+
+      $selector.remove();
+      $(element).insertAfter(new this.Rza().$el);
+    }
+  }, {
+    key: "tojquery",
+    value: function tojquery(element) {
+      switch (typeof element) {
+        case "object":
+          if (element instanceof jQuery) {
+            return element;
+          }
+          break;
+
+        case "string":
+          if (element.charAt(0) === '.') {
+            return $(element);
+          } else {
+            return $(document.getElementsByClassName(element));
+          }
+      }
+    }
+  }, {
+    key: "navActive",
+    value: function navActive(string) {
+      $('.nav-link').removeClass('nav-active');
+      $('.nav-' + string).addClass('nav-active');
+    }
+  }, {
+    key: "changeState",
+    value: function changeState(string) {
+      this.navActive(string);
+      this.createElement(string);
+    }
+  }]);
+
+  return EVTURN;
+})();
 'use strict';
 
 EVTURN.data = {
@@ -378,64 +411,81 @@ EVTURN.data = {
 };
 'use strict';
 
-EVTURN.animations = {
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-  init: function init() {
-    this.preloader();
-  },
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-  preloader: function preloader() {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-    $(window).load(function () {
-      var $container = $('#preloader');
-      var $image = $('.preloader');
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-      $container.delay(500).fadeOut();
-      $image.delay(600).fadeOut(600);
-    });
-  },
+var animations = (function (_EVTURN) {
+  _inherits(animations, _EVTURN);
 
-  statCount: function statCount() {
-    $('.stat-count').each(function () {
-      $(this).data('count', parseInt($(this).html(), 10));
-      $(this).html('0');
+  function animations() {
+    _classCallCheck(this, animations);
 
-      EVTURN.animations.count($(this));
-    });
-  },
-  count: function count($this) {
-    var current = parseInt($this.html(), 10);
-
-    current = current + 50;
-    $this.html(++current);
-    if (current > $this.data('count')) {
-      $this.html($this.data('count'));
-    } else {
-      setTimeout(function () {
-        EVTURN.animations.count($this);
-      }, 50);
-    }
-  },
-
-  scrollUp: function scrollUp() {
-    $('html, body').animate({ scrollTop: 0 }, 500);
-  },
-
-  carouselPreloader: function carouselPreloader(template) {
-    $('.carousel-image-container').append(template());
-    $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut(600);
+    _get(Object.getPrototypeOf(animations.prototype), 'constructor', this).apply(this, arguments);
   }
 
-};
-"use strict";
+  _createClass(animations, [{
+    key: 'init',
+    value: function init() {
+      this.preloader();
+    }
+  }, {
+    key: 'preloader',
+    value: function preloader() {
 
-EVTURN.init = function () {
-  var router = new EVTURN.Router();
+      $(window).load(function () {
+        var $container = $('#preloader');
+        var $image = $('.preloader');
 
-  EVTURN.animations.init();
-  Backbone.history.start();
-};
+        $container.delay(500).fadeOut();
+        $image.delay(600).fadeOut(600);
+      });
+    }
+  }, {
+    key: 'statCount',
+    value: function statCount() {
+      $('.stat-count').each(function () {
+        $(this).data('count', parseInt($(this).html(), 10));
+        $(this).html('0');
+
+        EVTURN.animations.count($(this));
+      });
+    }
+  }, {
+    key: 'count',
+    value: function count($this) {
+      var current = parseInt($this.html(), 10);
+
+      current = current + 50;
+      $this.html(++current);
+      if (current > $this.data('count')) {
+        $this.html($this.data('count'));
+      } else {
+        setTimeout(function () {
+          EVTURN.animations.count($this);
+        }, 50);
+      }
+    }
+  }, {
+    key: 'scrollUp',
+    value: function scrollUp() {
+      $('html, body').animate({ scrollTop: 0 }, 500);
+    }
+  }, {
+    key: 'carouselPreloader',
+    value: function carouselPreloader(template) {
+      $('.carousel-image-container').append(template());
+      $('#carousel-preloader').delay(500).fadeOut();
+      $('.carousel-preloader').delay(600).fadeOut(600);
+    }
+  }]);
+
+  return animations;
+})(EVTURN);
 'use strict';
 
 EVTURN.AboutView = Backbone.View.extend({
@@ -653,4 +703,4 @@ EVTURN.Router = Backbone.Router.extend({
 });
 "use strict";
 
-EVTURN.init();
+var evturn = new EVTURN();
