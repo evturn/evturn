@@ -2080,7 +2080,7 @@ h1 {
   display: inline-block;
   width: 80px;
 }
-.carousel-wrapper {
+.carousel .wrapper {
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
