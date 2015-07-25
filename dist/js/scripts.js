@@ -41,28 +41,28 @@ EVTURN.getModelsById = function(string, array) {
 };
 
 EVTURN.setModel = function(selector, model, template) {
-  $selector = EVTURN.tojquery(selector);
+  var $selector = EVTURN.tojquery(selector);
   $selector.html(template(model.toJSON()));
 
   return this;
 };
 
 EVTURN.setView = function(selector, template) {
-  $selector = EVTURN.tojquery(selector);
+  var $selector = EVTURN.tojquery(selector);
   $selector.html(template());
 
   return this;
 };
 
 EVTURN.appendModel = function(selector, model, template) {
-  $selector = EVTURN.tojquery(selector);
+  var $selector = EVTURN.tojquery(selector);
   $selector.append(template(model.toJSON()));
 
   return this;
 };
 
 EVTURN.appendModels = function(selector, collection, template) {
-  $selector = EVTURN.tojquery(selector);
+  var $selector = EVTURN.tojquery(selector);
 
   for (var i = collection.length - 1; i >= 0; i--) {
     $selector.append(template(collection.models[i].toJSON()));
@@ -72,7 +72,7 @@ EVTURN.appendModels = function(selector, collection, template) {
 };
 
 EVTURN.appendArray = function(selector, array, template) {
-  $selector = EVTURN.tojquery(selector);
+  var $selector = EVTURN.tojquery(selector);
 
   for (var i = 0; i < array.length; i++) {
     var value = array[i];
@@ -83,7 +83,7 @@ EVTURN.appendArray = function(selector, array, template) {
 };
 
 EVTURN.appendObjectsArray = function(selector, array, template) {
-  $selector = EVTURN.tojquery(selector);
+  var $selector = EVTURN.tojquery(selector);
 
   for (var i = 0; i < array.length; i++) {
     $selector.append(template(array[i]));
