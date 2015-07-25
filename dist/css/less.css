@@ -1969,3 +1969,131 @@
   display: inline-block;
   width: 80px;
 }
+.carousel-wrapper {
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
+  background-color: #231f20;
+  color: #ffffff;
+  border-radius: 3px;
+}
+.carousel-image-container {
+  padding: 10px 10px 10px;
+  display: inline-block;
+}
+@media (min-width: 900px) {
+  .carousel-image-container {
+    width: 66%;
+  }
+}
+.carousel-panel {
+  display: inline-block;
+  font-family: Source Sans Pro;
+  width: 100%;
+  vertical-align: top;
+}
+@media (min-width: 900px) {
+  .carousel-panel {
+    width: 30%;
+  }
+}
+.carousel-panel .btn-generic {
+  background-color: #ffffff;
+  color: #5fa3c0;
+  font-weight: bold;
+}
+.carousel-panel .btn-container > a.btn.btn-generic:first-child {
+  background-color: #e6e7e8;
+}
+.carousel-panel .btn-container {
+  margin-top: 10px;
+  text-align: center;
+}
+.carousel-panel .fa {
+  font-weight: bold;
+  color: #5fa3c0;
+}
+.carousel-panel .project-text {
+  padding: 15px;
+}
+.carousel-panel .project-text .section-title {
+  font-size: 5vw;
+  text-transform: uppercase;
+  color: #231f20;
+  background-color: #ffffff;
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .carousel-panel .project-text .section-title {
+    font-size: 2vw;
+  }
+}
+.carousel-panel .project-text .meta {
+  font-size: 15px;
+  padding-top: 10px;
+  font-weight: normal;
+  text-align: center;
+}
+.carousel-panel .project-text a {
+  text-decoration: none;
+  color: #00b2e2;
+  font-family: Source Sans Pro;
+}
+.carousel-panel .project-text a:hover {
+  color: #00cfff;
+}
+.carousel-panel .project-links {
+  padding: 15px;
+  text-align: right;
+}
+.carousel-panel .project-links .meta {
+  display: inline-block;
+}
+.carousel-panel .project-links .meta .fa {
+  margin-left: 10px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  color: #5fa3c0;
+}
+.carousel-panel .project-links .meta .fa:hover {
+  color: #ffffff;
+}
+.carousel-panel .project-technologies {
+  text-align: left;
+  padding: 15px;
+}
+@media (min-width: 600px) {
+  .carousel-panel .project-technologies {
+    text-align: center;
+  }
+}
+@media (min-width: 900px) {
+  .carousel-panel .project-technologies {
+    text-align: left;
+  }
+}
+.carousel-panel .project-technologies .meta {
+  margin-bottom: 15px;
+}
+.carousel-panel .project-technologies .technologies-item {
+  text-align: center;
+  display: inline-block;
+  width: 24%;
+}
+@media (min-width: 600px) {
+  .carousel-panel .project-technologies .technologies-item {
+    width: 12%;
+  }
+}
+@media (min-width: 900px) {
+  .carousel-panel .project-technologies .technologies-item {
+    width: 24%;
+    margin-bottom: 15px;
+  }
+}
+.carousel-panel .project-technologies .technologies-item i {
+  color: #ffffff;
+}
