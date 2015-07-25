@@ -4,6 +4,8 @@
  */
 /* FONT PATH
  * -------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,400,100,200,300,500,600);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
 @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
@@ -1803,6 +1805,51 @@
   -webkit-box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
 }
+.caption {
+  font-size: 10px;
+}
+.one-em {
+  font-size: 1em;
+}
+.two-em {
+  font-size: 2em;
+}
+.three-em {
+  font-size: 3em;
+}
+.four-em {
+  font-size: 4em;
+}
+.five-em {
+  font-size: 5em;
+}
+.one-half-em {
+  font-size: 1.5em;
+}
+.two-half-em {
+  font-size: 2.5em;
+}
+.three-half-em {
+  font-size: 3.5em;
+}
+.four-half-em {
+  font-size: 4.5em;
+}
+.header-subhead {
+  background-color: #231f20;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 1px;
+  margin-bottom: 0;
+}
+@media (min-width: 600px) {
+  .header-subhead {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 15px;
+  }
+}
 .navbar {
   -webkit-box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
@@ -1857,4 +1904,68 @@
   .navbar .nav-text a {
     font-size: 24px;
   }
+}
+.about {
+  font-family: Raleway;
+  font-weight: 500;
+  text-align: justify;
+  line-height: 1.8;
+  color: #231f20;
+}
+.about .img-scale {
+  -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+}
+.about .section-title {
+  padding-top: 15px;
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+}
+.about .about-subhead {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: left;
+}
+.about .paragraph {
+  width: 100%;
+  padding-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 2;
+  color: #ffffff;
+  text-align: left;
+}
+@media (min-width: 600px) {
+  .about .paragraph {
+    width: 49%;
+  }
+}
+.about .stats-container {
+  padding-top: 25px;
+  width: 100%;
+  vertical-align: top;
+}
+@media (min-width: 600px) {
+  .about .stats-container {
+    width: 49%;
+    display: inline-block;
+  }
+}
+.about .stat-icon {
+  display: block;
+}
+.about .stat-icon .fa {
+  font-size: 2em;
+}
+.about .stat-items {
+  text-align: center;
+  padding-top: 15px;
+}
+.about .stat-items .stat-item {
+  display: inline-block;
+  width: 80px;
 }
