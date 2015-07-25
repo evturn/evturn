@@ -1808,6 +1808,11 @@
 .no-scrollbar ::-webkit-scrollbar {
   display: none;
 }
+.img-scale {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .caption {
   font-size: 10px;
 }
@@ -1870,7 +1875,7 @@ html {
   position: relative;
 }
 body {
-  background-color: #5FA3C0;
+  background-color: #5fa3c0;
   margin-bottom: 60px;
 }
 a,
@@ -1886,11 +1891,6 @@ h1 {
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
 }
-.img-scale {
-  width: 100%;
-  height: auto;
-  display: block;
-}
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -1902,20 +1902,6 @@ h1 {
   margin-right: auto;
   position: relative;
   max-width: 1000px;
-}
-[class$="-wrapper"] {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  max-width: 1000px;
-}
-.inner-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  position: relative;
-  max-width: 1200px;
 }
 .btn {
   display: inline-block;
