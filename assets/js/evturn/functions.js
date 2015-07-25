@@ -77,6 +77,7 @@ EVTURN.createElement = function(string) {
   var $selector = $(document.getElementsByClassName(string));
   var element = document.createElement('div');
   element.className = string;
+  element.dataset.view = string;
 
   $selector.remove();
   $(element).insertAfter(new EVTURN.Rza().$el);

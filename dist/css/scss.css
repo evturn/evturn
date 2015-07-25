@@ -705,11 +705,11 @@ h1 {
   .contact .link-item a:focus {
     color: #231f20; }
   .contact .link-item .fa {
-    margin-left: 0;
-    margin-top: 15px;
     -webkit-transition: all 0.1s ease;
     -o-transition: all 0.1s ease;
     transition: all 0.1s ease;
+    margin-left: 0;
+    margin-top: 15px;
     font-size: 2em;
     color: #ffffff; }
     .contact .link-item .fa:hover {

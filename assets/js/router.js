@@ -9,7 +9,7 @@ EVTURN.Router = Backbone.Router.extend({
   routes: {
     ''         : 'index',
     'work/*'   : 'project',
-    'work/:id' : 'project',
+    'work/apps/:id' : 'project',
     'about'    : 'about',
     'contact'  : 'contact'
   },
