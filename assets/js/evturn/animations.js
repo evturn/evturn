@@ -1,22 +1,23 @@
-class animations extends EVTURN {
+EVTURN.animations = {
 
-  init() {
+  init: function() {
     this.preloader();
-  }
 
-  preloader() {
+  },
+
+  preloader: function() {
 
     $(window).load(function() {
-      var $container = $('#preloader');
-      var $image = $('.preloader');
+      $container = $('#preloader');
+      $image = $('.preloader');
 
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
     });
 
-  }
+  },
 
-  statCount() {
+  statCount: function() {
     $('.stat-count').each(function() {
       $(this).data('count', parseInt($(this).html(), 10));
       $(this).html('0');
@@ -24,9 +25,8 @@ class animations extends EVTURN {
       EVTURN.animations.count($(this));
     });
 
-  }
-
-  count($this) {
+  },
+  count: function($this){
     var current = parseInt($this.html(), 10);
 
     current = current + 50;
@@ -41,18 +41,18 @@ class animations extends EVTURN {
         }, 50);
 
     }
-  }
+  },
 
-  scrollUp() {
+  scrollUp: function() {
     $('html, body').animate({scrollTop: 0 }, 500);
 
-  }
+  },
 
-  carouselPreloader(template) {
+  carouselPreloader: function(template) {
     $('.carousel-image-container').append(template());
     $('#carousel-preloader').delay(500).fadeOut();
     $('.carousel-preloader').delay(600).fadeOut(600);
 
-  }
+  },
 
-}
+};
