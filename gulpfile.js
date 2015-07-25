@@ -18,7 +18,7 @@ gulp.task('watch', function() {
   gulp.watch('index.html').on('change', browserSync.reload);
 });
 
-gulp.task('build', ['less', 'css', 'less', 'js', 'jslib', 'img']);
+gulp.task('build', ['less', 'css', 'js', 'jslib', 'img']);
 
 gulp.task('scss', function() {
   return gulp.src(paths.scss.src)
