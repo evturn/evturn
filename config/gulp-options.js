@@ -10,19 +10,23 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')();
 
 module.exports = {
+
   sass: {
     sourceComments: 'map',
     sourceMap: 'sass',
     outputStyle: 'nested'
   },
+
   imagemin: {
     progressive: true
   },
+
   browserSync: {
     server: {
       baseDir: './'
     }
   },
+
   autoprefixer: {
     browsers: [
       '> 1%',
@@ -37,6 +41,7 @@ module.exports = {
     ],
     cascade: false
   },
+
   plumber: {
     errorHandler: function(err) {
       gutil.beep();
@@ -45,6 +50,7 @@ module.exports = {
       this.emit('end');
     }
   },
+
   notify: {
     jshint: function(file) {
       if (file.jshint.success) {
@@ -58,4 +64,5 @@ module.exports = {
       return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
     }
   }
+
 };

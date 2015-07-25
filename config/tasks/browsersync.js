@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 var paths = require('../paths');
 var options = require('../gulp-options');
 
-gulp.task('reloader', ['less', 'js'], function() {
+gulp.task('reloader', function() {
   browserSync.reload();
 });
 

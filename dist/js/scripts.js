@@ -32,7 +32,7 @@ EVTURN.getModelsById = function(string, array) {
   var collection = new EVTURN[capitalize](data);
   var models = [];
 
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     var model = collection.findWhere({id: array[i]});
     models.push(model);
   }

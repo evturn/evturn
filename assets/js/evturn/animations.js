@@ -8,8 +8,8 @@ EVTURN.animations = {
   preloader: function() {
 
     $(window).load(function() {
-      $container = $('#preloader');
-      $image = $('.preloader');
+      var $container = $('#preloader');
+      var $image = $('.preloader');
 
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);

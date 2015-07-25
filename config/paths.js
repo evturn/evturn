@@ -1,5 +1,11 @@
 module.exports = {
 
+  babel: {
+    filename: 'es6.js',
+    min: 'es6.min.js',
+    dest: 'dist/js'
+  },
+
   scss: {
     src: 'assets/scss/**/*.scss',
     watch: 'assets/scss/**/*.scss',
