@@ -2014,22 +2014,30 @@ h1 {
   -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
 }
+.about .info-container,
+.about .bio-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .about .section-title {
   padding-top: 15px;
   text-align: center;
   font-size: 30px;
   color: #ffffff;
 }
-.about .about-subhead {
+.about .subhead {
   margin-bottom: 10px;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .about .subhead {
+    text-align: left;
+  }
 }
 .about .paragraph {
   width: 100%;
   padding-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
   vertical-align: top;
   display: inline-block;
   font-size: 18px;
@@ -2037,14 +2045,33 @@ h1 {
   color: #ffffff;
   text-align: left;
 }
-@media (min-width: 600px) {
-  .about .paragraph {
-    width: 49%;
-  }
-}
 @media (min-width: 800px) {
   .about .paragraph {
-    line-height: 2em;
+    line-height: 1.7em;
+  }
+  .about .paragraph:first-child {
+    width: 48%;
+    margin-right: 4%;
+  }
+  .about .paragraph:nth-child(2) {
+    width: 45%;
+  }
+}
+.about .bio-container,
+.about .info-container {
+  overflow: auto;
+}
+@media (min-width: 600px) {
+  .about .stats-container:first-child {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+  }
+}
+@media (min-width: 600px) {
+  .about .stats-container:nth-child(2) {
+    text-align: left;
+    width: inherit;
   }
 }
 .about .stats-container {
@@ -2054,7 +2081,6 @@ h1 {
 }
 @media (min-width: 600px) {
   .about .stats-container {
-    width: 49%;
     display: inline-block;
   }
 }
@@ -2065,13 +2091,25 @@ h1 {
   font-size: 2em;
 }
 .about .stat-items {
-  text-align: center;
   padding-top: 15px;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .about .stat-items {
+    text-align: left;
+  }
+}
+@media (min-width: 800px) {
+  .about .stat-items {
+    text-align: left;
+  }
 }
 .about .stat-items .stat-item {
   display: inline-block;
   width: 80px;
   margin-top: 15px;
+  text-align: center;
+  line-height: 1.5em;
 }
 .about .stat-items .stat-item i {
   color: #231f20;
