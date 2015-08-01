@@ -14,8 +14,8 @@ EVTURN.AboutView = Backbone.View.extend({
   render() {
     this.setView(this.$el, this.viewContainer);
     this.appendModels('.technology-items', this.collection, this.itemContainer);
-    this.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
-    this.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
+    this.appendObjectsArray('.statistics.stat-items', EVTURN._stats, this.statItem);
+    this.appendArray('.paragraphs', EVTURN._bio, this.bioItem);
     this.statCount();
 
     return this;

@@ -50,17 +50,21 @@ EVTURN = {
   },
 
   getModelsById: function getModelsById(string, array) {
-    var data = EVTURN.data[string];
-    var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
-    var collection = new EVTURN[capitalize](data);
+    var ids = array;
+    var key = this.getKeyByName(string);
+    var name = this.getNameByKey(key);
+    var data = EVTURN[key];
+    var collection = this.createCollection(name, data);
     var models = [];
 
-    for (var i = 0; i < array.length; i++) {
-      var model = collection.findWhere({ id: array[i] });
+    for (var i = 0; i < ids.length; i++) {
+      var model = collection.findWhere({ id: ids[i] });
       models.push(model);
     }
 
-    return new EVTURN[capitalize](models.reverse());
+    models.reverse();
+
+    return new EVTURN[name](models);
   },
 
   setModel: function setModel(selector, model, template) {
@@ -483,8 +487,8 @@ EVTURN.AboutView = Backbone.View.extend({
   render: function render() {
     this.setView(this.$el, this.viewContainer);
     this.appendModels('.technology-items', this.collection, this.itemContainer);
-    this.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
-    this.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
+    this.appendObjectsArray('.statistics.stat-items', EVTURN._stats, this.statItem);
+    this.appendArray('.paragraphs', EVTURN._bio, this.bioItem);
     this.statCount();
 
     return this;

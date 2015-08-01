@@ -45,17 +45,21 @@ EVTURN = {
   },
 
   getModelsById(string, array) {
-    let data = EVTURN.data[string];
-    let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-    let collection = new EVTURN[capitalize](data);
-    let models = [];
+    let ids        = array;
+    let key        = this.getKeyByName(string);
+    let name       = this.getNameByKey(key);
+    let data       = EVTURN[key];
+    let collection = this.createCollection(name, data);
+    let models     = [];
 
-    for (let i = 0; i < array.length; i++) {
-      let model = collection.findWhere({id: array[i]});
+    for (let i = 0; i < ids.length; i++) {
+      let model = collection.findWhere({id: ids[i]});
       models.push(model);
     }
 
-    return new EVTURN[capitalize](models.reverse());
+    models.reverse();
+
+    return new EVTURN[name](models);
   },
 
   setModel(selector, model, template) {
