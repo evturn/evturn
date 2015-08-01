@@ -2007,7 +2007,7 @@ h1 {
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
-  color: #231f20;
+  color: #ffffff;
 }
 .about .img-scale {
   -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
@@ -2070,6 +2070,10 @@ h1 {
 .about .stat-items .stat-item {
   display: inline-block;
   width: 80px;
+  margin-top: 15px;
+}
+.about .stat-items .stat-item i {
+  color: #231f20;
 }
 @media (min-width: 900px) {
   .container.carousel {
