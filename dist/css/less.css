@@ -2215,8 +2215,8 @@ h1 {
 }
 .contact .link-item {
   display: inline-block;
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
   overflow: auto;
 }
 .contact .link-item a:focus {
