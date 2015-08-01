@@ -24,33 +24,32 @@ module.exports = {
 
   js: {
     src: [
-      'assets/js/models/ev.js',
-      'assets/js/evturn/functions.js',
-      'assets/js/evturn/data.js',
-      'assets/js/evturn/animations.js',
-      'assets/js/evturn/init.js',
+      'assets/js/EVTURN.js',
+      'assets/js/prototype.js',
+      'assets/js/models/evturn.js',
+      'assets/js/functions.js',
+      'assets/js/data.js',
+      'assets/js/animations.js',
+      'assets/js/init.js',
       'assets/js/views/**/*.js',
       'assets/js/router.js',
       'assets/js/main.js'
     ],
     watch: [
-      'assets/js/models/ev.js',
-      'assets/js/evturn/**/*.js',
-      'assets/js/views/**/*.js',
-      'assets/js/router.js',
-      'assets/js/main.js'
+      'assets/js/**/*.js',
+      '!assets/js/vendor/**/*.js'
     ],
     dest: 'dist/js',
     filename: 'scripts.js',
     min: 'scripts.min.js',
     vendor: {
       src: [
-        'assets/js/lib/jquery.js',
-        'assets/js/lib/underscore.js',
-        'assets/js/lib/backbone.js',
-        'assets/js/lib/bootstrap.js'
+        'assets/js/vendor/jquery.js',
+        'assets/js/vendor/underscore.js',
+        'assets/js/vendor/backbone.js',
+        'assets/js/vendor/bootstrap.js'
       ],
-      watch: 'assets/js/lib/**/*.js',
+      watch: 'assets/js/vendor/**/*.js',
       dest: 'dist/js',
       filename: 'vendor.js',
       min: 'vendor.min.js'
@@ -81,13 +80,13 @@ module.exports = {
   jshint: {
     src: [
       'assets/js/**/*.js',
-      '!assets/js/lib/**/*.js',
+      '!assets/js/vendor/**/*.js',
       'config/**/*.js',
       'gulpfile.js'
     ],
     watch: [
       'assets/js/**/*.js',
-      '!assets/js/lib/**/*.js',
+      '!assets/js/vendor/**/*.js',
       'config/**/*.js',
       'gulpfile.js'
     ]

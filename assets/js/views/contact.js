@@ -6,7 +6,7 @@ EVTURN.ContactView = Backbone.View.extend({
   itemContainer: _.template($('#link-item-template').html()),
 
   initialize: function() {
-    this.collection = EVTURN.get('links');
+    this.collection = this.get('links');
     this.render();
   },
 

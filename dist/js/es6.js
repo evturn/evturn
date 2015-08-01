@@ -1,6 +1,124 @@
 "use strict";
 
 var EVTURN = {};
+"use strict";
+
+_.extend(Backbone.View.prototype, {
+
+  get: function get(string) {
+    var data = EVTURN.data[string];
+    var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
+    var collection = new EVTURN[capitalize](data);
+    var models = collection.where({ featured: true });
+
+    return new EVTURN[capitalize](models.reverse());
+  },
+
+  getModelsById: function getModelsById(string, array) {
+    var data = EVTURN.data[string];
+    var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
+    var collection = new EVTURN[capitalize](data);
+    var models = [];
+
+    for (var i = 0; i < array.length; i++) {
+      var model = collection.findWhere({ id: array[i] });
+      models.push(model);
+    }
+
+    return new EVTURN[capitalize](models.reverse());
+  },
+
+  setModel: function setModel(selector, model, template) {
+    var $selector = this.tojquery(selector);
+    $selector.html(template(model.toJSON()));
+
+    return this;
+  },
+
+  setView: function setView(selector, template) {
+    var $selector = this.tojquery(selector);
+    $selector.html(template());
+
+    return this;
+  },
+
+  appendModel: function appendModel(selector, model, template) {
+    var $selector = this.tojquery(selector);
+    $selector.append(template(model.toJSON()));
+
+    return this;
+  },
+
+  appendModels: function appendModels(selector, collection, template) {
+    var $selector = this.tojquery(selector);
+
+    for (var i = collection.length - 1; i >= 0; i--) {
+      $selector.append(template(collection.models[i].toJSON()));
+    }
+
+    return this;
+  },
+
+  appendArray: function appendArray(selector, array, template) {
+    var $selector = this.tojquery(selector);
+
+    for (var i = 0; i < array.length; i++) {
+      var value = array[i];
+      $selector.append(template({ item: value }));
+    }
+
+    return this;
+  },
+
+  appendObjectsArray: function appendObjectsArray(selector, array, template) {
+    var $selector = this.tojquery(selector);
+
+    for (var i = 0; i < array.length; i++) {
+      $selector.append(template(array[i]));
+    }
+
+    return this;
+  },
+
+  createElement: function createElement(string) {
+    var $selector = $(document.getElementsByClassName(string));
+    var element = document.createElement('div');
+    element.className = string;
+    element.dataset.view = string;
+
+    $selector.remove();
+    $(element).insertAfter(new EVTURN.Rza().$el);
+  },
+
+  tojquery: function tojquery(element) {
+    switch (typeof element) {
+      case "object":
+        if (element instanceof jQuery) {
+          return element;
+        }
+        break;
+
+      case "string":
+        if (element.charAt(0) === '.') {
+          return $(element);
+        } else {
+          return $(document.getElementsByClassName(element));
+        }
+    }
+  },
+
+  navActive: function navActive(string) {
+    $('.nav-link').removeClass('nav-active');
+    $('.nav-' + string).addClass('nav-active');
+  },
+
+  changeState: function changeState(string) {
+    this.navActive(string);
+    this.createElement(string);
+  }
+
+});
+"use strict";
 
 EVTURN.Link = Backbone.Model.extend({});
 
@@ -19,16 +137,16 @@ EVTURN.Links = Backbone.Collection.extend({
 EVTURN.Technologies = Backbone.Collection.extend({
   model: EVTURN.Technology
 });
+// EVTURN.get = function(string) {
+//   let data = EVTURN.data[string];
+//   let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+//   let collection = new EVTURN[capitalize](data);
+//   let models = collection.where({featured: true});
+
+//   return new EVTURN[capitalize](models.reverse());
+// };
+
 "use strict";
-
-EVTURN.get = function (string) {
-  var data = EVTURN.data[string];
-  var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
-  var collection = new EVTURN[capitalize](data);
-  var models = collection.where({ featured: true });
-
-  return new EVTURN[capitalize](models.reverse());
-};
 
 EVTURN.getModelsById = function (string, array) {
   var data = EVTURN.data[string];
@@ -448,7 +566,7 @@ EVTURN.AboutView = Backbone.View.extend({
   bioItem: _.template($('#bio-paragraph-template').html()),
 
   initialize: function initialize() {
-    this.collection = EVTURN.get('technologies');
+    this.collection = this.get('technologies');
     this.render();
   },
 
@@ -473,7 +591,7 @@ EVTURN.ContactView = Backbone.View.extend({
   itemContainer: _.template($('#link-item-template').html()),
 
   initialize: function initialize() {
-    this.collection = EVTURN.get('links');
+    this.collection = this.get('links');
     this.render();
   },
 
@@ -502,6 +620,31 @@ EVTURN.IndexView = Backbone.View.extend({
     return this;
   }
 
+});
+'use strict';
+
+EVTURN.Thumbnails = Backbone.View.extend({
+
+  el: '.thumbnails-wrapper',
+  viewContainer: _.template($('#thumbnails-container-template').html()),
+  itemContainer: _.template($('#thumbnail-item-template').html()),
+
+  initialize: function initialize(selector) {
+    this.collection = this.get('projects');
+    this.render(selector);
+  },
+
+  events: {
+    'click .thumbnail-item': 'EVTURN.animations.scrollUp'
+  },
+
+  render: function render($selector) {
+    this.$el.empty();
+    $selector.append(this.viewContainer());
+    EVTURN.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
+
+    return this;
+  }
 });
 'use strict';
 
@@ -556,31 +699,6 @@ EVTURN.Rza = Backbone.View.extend({
     return this;
   }
 
-});
-'use strict';
-
-EVTURN.Thumbnails = Backbone.View.extend({
-
-  el: '.thumbnails-wrapper',
-  viewContainer: _.template($('#thumbnails-container-template').html()),
-  itemContainer: _.template($('#thumbnail-item-template').html()),
-
-  initialize: function initialize(selector) {
-    this.collection = EVTURN.get('projects');
-    this.render(selector);
-  },
-
-  events: {
-    'click .thumbnail-item': 'EVTURN.animations.scrollUp'
-  },
-
-  render: function render($selector) {
-    this.$el.empty();
-    $selector.append(this.viewContainer());
-    EVTURN.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
-
-    return this;
-  }
 });
 'use strict';
 
@@ -652,7 +770,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   project: function project(id) {
-    var collection = EVTURN.get('projects');
+    var collection = this.get('projects');
     var model = collection.get(id) || collection.get(1);
 
     this.work(model);

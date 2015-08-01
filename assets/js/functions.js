@@ -1,11 +1,11 @@
-EVTURN.get = function(string) {
-  let data = EVTURN.data[string];
-  let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-  let collection = new EVTURN[capitalize](data);
-  let models = collection.where({featured: true});
+// EVTURN.get = function(string) {
+//   let data = EVTURN.data[string];
+//   let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+//   let collection = new EVTURN[capitalize](data);
+//   let models = collection.where({featured: true});
 
-  return new EVTURN[capitalize](models.reverse());
-};
+//   return new EVTURN[capitalize](models.reverse());
+// };
 
 EVTURN.getModelsById = function(string, array) {
   let data = EVTURN.data[string];

@@ -1,5 +1,3 @@
-var EVTURN = {};
-
 EVTURN.Link = Backbone.Model.extend({});
 
 EVTURN.Project = Backbone.Model.extend({});
