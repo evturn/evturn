@@ -27,8 +27,12 @@
     .technologies-item {
       text-align: center;
       display: inline-block;
-      width: 12.5%;
       margin: -3px;
+      width: 25%;
+
+      @media (min-width: 500px) {
+        width: 12.5%;
+      }
 
       @media (min-width: @md) {
         width: 25%;

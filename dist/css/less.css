@@ -2547,8 +2547,13 @@ h1 {
 .project-technologies .technologies-item {
   text-align: center;
   display: inline-block;
-  width: 12.5%;
   margin: -3px;
+  width: 25%;
+}
+@media (min-width: 500px) {
+  .project-technologies .technologies-item {
+    width: 12.5%;
+  }
 }
 @media (min-width: 800px) {
   .project-technologies .technologies-item {
