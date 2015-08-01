@@ -283,9 +283,9 @@ EVTURN.Technologies = Backbone.Collection.extend({
     id: 6,
     url: 'http://ramenbuffet.com',
     repo: 'https://github.com/evturn/ramen-buffet',
-    thumbnail: "dist/img/ramen-tn.png",
-    lead: 'dist/img/ramen-1.png',
-    items: ['dist/img/ramen-2.png'],
+    thumbnail: "dist/img/ramen-buffet-tn.png",
+    lead: 'dist/img/ramen-buffet-1.png',
+    items: ['dist/img/ramen-buffet-2.png', 'dist/img/ramen-buffet-3.png'],
     featured: true,
     technologies: [1, 3, 14, 12, 10, 11, 15]
   }, {
