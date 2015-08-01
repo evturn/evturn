@@ -104,7 +104,7 @@ EVTURN = {
     return this;
   },
 
-  appendObjectsArray(selector, array, template) {
+  appendObjects(selector, array, template) {
     let $selector = this.tojquery(selector);
 
     for (let i = 0; i < array.length; i++) {

@@ -109,7 +109,7 @@ EVTURN = {
     return this;
   },
 
-  appendObjectsArray: function appendObjectsArray(selector, array, template) {
+  appendObjects: function appendObjects(selector, array, template) {
     var $selector = this.tojquery(selector);
 
     for (var i = 0; i < array.length; i++) {
@@ -503,7 +503,7 @@ EVTURN.AboutView = Backbone.View.extend({
     var objects = EVTURN._stats;
     var template = this.statItem;
 
-    this.appendObjectsArray(selector, objects, template);
+    this.appendObjects(selector, objects, template);
 
     return this;
   },

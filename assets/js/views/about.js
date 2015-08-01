@@ -30,7 +30,7 @@ EVTURN.AboutView = Backbone.View.extend({
     let objects  = EVTURN._stats;
     let template = this.statItem;
 
-    this.appendObjectsArray(selector, objects, template);
+    this.appendObjects(selector, objects, template);
 
     return this;
   },
