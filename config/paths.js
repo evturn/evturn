@@ -28,7 +28,6 @@ module.exports = {
       'assets/js/prototype.js',
       'assets/js/models/evturn.js',
       'assets/js/data.js',
-      'assets/js/animations.js',
       'assets/js/init.js',
       'assets/js/views/**/*.js',
       'assets/js/router.js',
