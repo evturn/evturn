@@ -2419,6 +2419,19 @@ h1 {
   height: 100%;
   width: 100%;
 }
+@media (min-width: 500px) {
+  .carousel-wrapper {
+    width: 470px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 800px) {
+  .carousel-wrapper {
+    height: 100%;
+    width: 100%;
+  }
+}
 .carousel-image-container {
   background-color: #231f20;
   display: inline-block;
@@ -2444,7 +2457,12 @@ h1 {
   }
 }
 .carousel-panel .panel-inner {
-  padding: 10px;
+  padding: 25px;
+}
+@media (min-width: 800px) {
+  .carousel-panel .panel-inner {
+    padding: 10px;
+  }
 }
 .carousel-panel .btn-generic {
   background-color: #ffffff;
