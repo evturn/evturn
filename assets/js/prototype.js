@@ -8,12 +8,40 @@ EVTURN = {
   },
 
   get(string) {
-    let data = EVTURN.data[string];
-    let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-    let collection = new EVTURN[capitalize](data);
-    let models = collection.where({featured: true});
+    let key  = this.getKeyByName(string);
+    let name = this.getNameByKey(key);
+    let data = EVTURN[key];
+    let collection = this.createCollection(name, data);
+    let fetchedCollection = this.fetchCollection(name, collection);
 
-    return new EVTURN[capitalize](models.reverse());
+    return fetchedCollection;
+  },
+
+  getKeyByName(string) {
+    return '_' + string;
+  },
+
+  getNameByKey(string) {
+    let name  = string.substr(1);
+    let toCap = (name.charAt(0).toUpperCase() + name.substring(1));
+
+    return toCap;
+  },
+
+  createCollection(name, array) {
+    let data           = array;
+    let collectionName = name;
+
+    return new EVTURN[collectionName](data);
+  },
+
+  fetchCollection(name, collection) {
+    let models         = collection.where({featured: true});
+    let collectionName = name;
+
+    models.reverse();
+
+    return new EVTURN[collectionName](models);
   },
 
   getModelsById(string, array) {

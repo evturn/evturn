@@ -1,7 +1,7 @@
 "use strict";
 
 var EVTURN = {};
-"use strict";
+'use strict';
 
 EVTURN = {
 
@@ -13,12 +13,40 @@ EVTURN = {
   },
 
   get: function get(string) {
-    var data = EVTURN.data[string];
-    var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
-    var collection = new EVTURN[capitalize](data);
-    var models = collection.where({ featured: true });
+    var key = this.getKeyByName(string);
+    var name = this.getNameByKey(key);
+    var data = EVTURN[key];
+    var collection = this.createCollection(name, data);
+    var fetchedCollection = this.fetchCollection(name, collection);
 
-    return new EVTURN[capitalize](models.reverse());
+    return fetchedCollection;
+  },
+
+  getKeyByName: function getKeyByName(string) {
+    return '_' + string;
+  },
+
+  getNameByKey: function getNameByKey(string) {
+    var name = string.substr(1);
+    var toCap = name.charAt(0).toUpperCase() + name.substring(1);
+
+    return toCap;
+  },
+
+  createCollection: function createCollection(name, array) {
+    var data = array;
+    var collectionName = name;
+
+    return new EVTURN[collectionName](data);
+  },
+
+  fetchCollection: function fetchCollection(name, collection) {
+    var models = collection.where({ featured: true });
+    var collectionName = name;
+
+    models.reverse();
+
+    return new EVTURN[collectionName](models);
   },
 
   getModelsById: function getModelsById(string, array) {
@@ -164,8 +192,174 @@ EVTURN.Technologies = Backbone.Collection.extend({
 });
 'use strict';
 
-EVTURN.data = {
-  technologies: [{
+(function () {
+
+  EVTURN._bio = ['As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.', 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'];
+
+  return EVTURN;
+})();
+'use strict';
+
+(function () {
+
+  EVTURN._links = [{
+    name: 'email',
+    url: 'mailto:evturn@gmail.com',
+    icon: 'fa fa-envelope',
+    featured: true
+  }, {
+    name: 'github',
+    url: 'http://github.com/evturn',
+    icon: 'fa fa-github-square',
+    featured: true
+  }, {
+    name: 'linkedin',
+    url: 'http://www.linkedin.com/in/evturn/',
+    icon: 'fa fa-linkedin-square',
+    featured: true
+  }, {
+    name: 'general assembly',
+    url: 'https://profiles.generalassemb.ly/ev',
+    icon: 'fa fa-certificate',
+    featured: false
+  }, {
+    name: 'twitter',
+    url: 'http://twitter.com/evturn',
+    icon: 'fa fa-twitter',
+    featured: true
+  }, {
+    name: 'skype: @evturn',
+    url: 'javaScript:void(0);', // jshint ignore:line
+    icon: 'fa fa-skype',
+    featured: false
+  }];
+
+  return EVTURN;
+})();
+'use strict';
+
+(function () {
+
+  EVTURN._projects = [{
+    name: 'Music Insider',
+    description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
+    id: 1,
+    url: 'http://musicinsider.co',
+    repo: 'https://github.com/evturn/musicinsider.co',
+    thumbnail: "dist/img/mi-tn.png",
+    lead: "dist/img/mi-1.png",
+    items: ['dist/img/mi-2.png', 'dist/img/mi-3.png', 'dist/img/mi-4.png', 'dist/img/mi-5.png'],
+    featured: true,
+    technologies: [1, 3, 14, 12, 10, 11, 13]
+  }, {
+    name: 'Marshallz Blog',
+    description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
+    id: 2,
+    url: 'http://marshallz.com',
+    repo: 'https://github.com/evturn/marshallz',
+    thumbnail: "dist/img/marshallz-tn.png",
+    lead: "dist/img/marshallz-1.png",
+    items: ['dist/img/marshallz-2.png', 'dist/img/marshallz-6.png', 'dist/img/marshallz-3.jpg', 'dist/img/marshallz-5.png', 'dist/img/marshallz-4.jpg'],
+    featured: true,
+    technologies: [1, 3, 14, 12, 15, 9, 11]
+  }, {
+    name: 'Drive Publishing',
+    description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
+    id: 4,
+    url: 'http://drivepublishing.com',
+    repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
+    thumbnail: "dist/img/drive-tn.png",
+    lead: 'dist/img/drive-1.png',
+    items: ['dist/img/drive-2.png', 'dist/img/drive-3.png'],
+    featured: true,
+    technologies: [13, 11, 14]
+  }, {
+    name: 'Ramen Buffet',
+    description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
+    id: 6,
+    url: 'http://ramenbuffet.com',
+    repo: 'https://github.com/evturn/ramen-buffet',
+    thumbnail: "dist/img/ramen-tn.png",
+    lead: 'dist/img/ramen-1.png',
+    items: ['dist/img/ramen-2.png'],
+    featured: true,
+    technologies: [1, 3, 14, 12, 10, 11, 15]
+  }, {
+    name: 'Alculator',
+    description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
+    id: 5,
+    thumbnail: "dist/img/alculator-tn.png",
+    lead: "dist/img/alculator-3.png",
+    items: ['dist/img/alculator-2.png', 'dist/img/alculator-1.png', 'dist/img/alculator-4.png'],
+    featured: true,
+    technologies: [1, 12, 3, 11]
+  }, {
+    name: 'Pique',
+    description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
+    id: 3,
+    repo: 'https://github.com/piqueapp/piqueapp.github.io',
+    thumbnail: "dist/img/pique-tn.png",
+    lead: "dist/img/pique-1.jpg",
+    items: ['dist/img/pique-2.png', 'dist/img/pique-3.png', 'dist/img/pique-4.png'],
+    featured: true,
+    technologies: [16, 17, 11]
+  }, {
+    name: 'Hangman',
+    description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
+    id: 7,
+    thumbnail: "dist/img/hangman-tn.png",
+    lead: "dist/img/hangman-1.jpg",
+    items: ['dist/img/hangman-2.jpg'],
+    featured: true,
+    technologies: [1, 12, 3, 11]
+  }, {
+    name: 'Tic Tac Toe',
+    description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
+    id: 8,
+    thumbnail: "dist/img/ttt-tn.png",
+    lead: 'dist/img/ttt-1.jpg',
+    items: ['dist/img/ttt-2.jpg'],
+    featured: false,
+    technologies: [3, 11]
+  }, {
+    name: 'WhereTO',
+    description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
+    id: 9,
+    repo: 'https://github.com/evturn/WhereTO',
+    thumbnail: "dist/img/whereto-tn.png",
+    lead: 'dist/img/whereto-2.png',
+    items: ['dist/img/whereto-1.png'],
+    featured: true,
+    technologies: [1, 14, 12, 10, 13]
+  }];
+
+  return EVTURN;
+})();
+'use strict';
+
+(function () {
+
+  EVTURN._stats = [{
+    text: 'Quesadillas Eaten',
+    number: 777074,
+    icon: 'fa fa-check'
+  }, {
+    text: 'Weekly Commits',
+    number: 276,
+    icon: 'fa fa-terminal'
+  }, {
+    text: 'Github Contributions',
+    number: 6000,
+    icon: 'fa fa-code'
+  }];
+
+  return EVTURN;
+})();
+'use strict';
+
+(function () {
+
+  EVTURN._technologies = [{
     technology: 'Node.js',
     icon: 'devicon-nodejs-plain-wordmark',
     color: 'devicon-nodejs-plain-wordmark colored',
@@ -267,145 +461,10 @@ EVTURN.data = {
     color: 'devicon-postgresql-plain-wordmark',
     id: 17,
     featured: false
-  }],
-  projects: [{
-    name: 'Music Insider',
-    description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
-    id: 1,
-    url: 'http://musicinsider.co',
-    repo: 'https://github.com/evturn/musicinsider.co',
-    thumbnail: "dist/img/mi-tn.png",
-    lead: "dist/img/mi-1.png",
-    items: ['dist/img/mi-2.png', 'dist/img/mi-3.png', 'dist/img/mi-4.png', 'dist/img/mi-5.png'],
-    featured: true,
-    technologies: [1, 3, 14, 12, 10, 11, 13]
-  }, {
-    name: 'Marshallz Blog',
-    description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
-    id: 2,
-    url: 'http://marshallz.com',
-    repo: 'https://github.com/evturn/marshallz',
-    thumbnail: "dist/img/marshallz-tn.png",
-    lead: "dist/img/marshallz-1.png",
-    items: ['dist/img/marshallz-2.png', 'dist/img/marshallz-6.png', 'dist/img/marshallz-3.jpg', 'dist/img/marshallz-5.png', 'dist/img/marshallz-4.jpg'],
-    featured: true,
-    technologies: [1, 3, 14, 12, 15, 9, 11]
-  }, {
-    name: 'Drive Publishing',
-    description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
-    id: 4,
-    url: 'http://drivepublishing.com',
-    repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
-    thumbnail: "dist/img/drive-tn.png",
-    lead: 'dist/img/drive-1.png',
-    items: ['dist/img/drive-2.png', 'dist/img/drive-3.png'],
-    featured: true,
-    technologies: [13, 11, 14]
-  }, {
-    name: 'Ramen Buffet',
-    description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
-    id: 6,
-    url: 'http://ramenbuffet.com',
-    repo: 'https://github.com/evturn/ramen-buffet',
-    thumbnail: "dist/img/ramen-tn.png",
-    lead: 'dist/img/ramen-1.png',
-    items: ['dist/img/ramen-2.png'],
-    featured: true,
-    technologies: [1, 3, 14, 12, 10, 11, 15]
-  }, {
-    name: 'Alculator',
-    description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
-    id: 5,
-    thumbnail: "dist/img/alculator-tn.png",
-    lead: "dist/img/alculator-3.png",
-    items: ['dist/img/alculator-2.png', 'dist/img/alculator-1.png', 'dist/img/alculator-4.png'],
-    featured: true,
-    technologies: [1, 12, 3, 11]
-  }, {
-    name: 'Pique',
-    description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
-    id: 3,
-    repo: 'https://github.com/piqueapp/piqueapp.github.io',
-    thumbnail: "dist/img/pique-tn.png",
-    lead: "dist/img/pique-1.jpg",
-    items: ['dist/img/pique-2.png', 'dist/img/pique-3.png', 'dist/img/pique-4.png'],
-    featured: true,
-    technologies: [16, 17, 11]
-  }, {
-    name: 'Hangman',
-    description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
-    id: 7,
-    thumbnail: "dist/img/hangman-tn.png",
-    lead: "dist/img/hangman-1.jpg",
-    items: ['dist/img/hangman-2.jpg'],
-    featured: true,
-    technologies: [1, 12, 3, 11]
-  }, {
-    name: 'Tic Tac Toe',
-    description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
-    id: 8,
-    thumbnail: "dist/img/ttt-tn.png",
-    lead: 'dist/img/ttt-1.jpg',
-    items: ['dist/img/ttt-2.jpg'],
-    featured: false,
-    technologies: [3, 11]
-  }, {
-    name: 'WhereTO',
-    description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
-    id: 9,
-    repo: 'https://github.com/evturn/WhereTO',
-    thumbnail: "dist/img/whereto-tn.png",
-    lead: 'dist/img/whereto-2.png',
-    items: ['dist/img/whereto-1.png'],
-    featured: true,
-    technologies: [1, 14, 12, 10, 13]
-  }],
-  links: [{
-    name: 'email',
-    url: 'mailto:evturn@gmail.com',
-    icon: 'fa fa-envelope',
-    featured: true
-  }, {
-    name: 'github',
-    url: 'http://github.com/evturn',
-    icon: 'fa fa-github-square',
-    featured: true
-  }, {
-    name: 'linkedin',
-    url: 'http://www.linkedin.com/in/evturn/',
-    icon: 'fa fa-linkedin-square',
-    featured: true
-  }, {
-    name: 'general assembly',
-    url: 'https://profiles.generalassemb.ly/ev',
-    icon: 'fa fa-certificate',
-    featured: false
-  }, {
-    name: 'twitter',
-    url: 'http://twitter.com/evturn',
-    icon: 'fa fa-twitter',
-    featured: true
-  }, {
-    name: 'skype: @evturn',
-    url: 'javaScript:void(0);', // jshint ignore:line
-    icon: 'fa fa-skype',
-    featured: false
-  }],
-  stats: [{
-    text: 'Quesadillas Eaten',
-    number: 777074,
-    icon: 'fa fa-check'
-  }, {
-    text: 'Weekly Commits',
-    number: 276,
-    icon: 'fa fa-terminal'
-  }, {
-    text: 'Github Contributions',
-    number: 6000,
-    icon: 'fa fa-code'
-  }],
-  bio: ['As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.', 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.']
-};
+  }];
+
+  return EVTURN;
+})();
 'use strict';
 
 EVTURN.AboutView = Backbone.View.extend({
