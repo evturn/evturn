@@ -6,10 +6,14 @@ var gulp = require('gulp'),
 var paths = require('../paths');
 var options = require('../gulp-options');
 
-gulp.task('reloader', function() {
+gulp.task('browsersync', function() {
+  browserSync.init(options.browserSync);
+});
+
+gulp.task('babel:watch', ['babel'], function() {
   browserSync.reload();
 });
 
-gulp.task('browsersync', function() {
-  browserSync.init(options.browserSync);
+gulp.task('less:watch', ['less'], function() {
+  browserSync.reload();
 });

@@ -8,8 +8,8 @@ var options = require('../gulp-options');
 
 gulp.task('watch', function() {
   gulp.watch(paths.jshint.watch, ['lint']);
-  gulp.watch(paths.less.watch, ['less', 'reloader']);
-  gulp.watch(paths.js.watch, ['babel', 'reloader']);
+  gulp.watch(paths.less.watch, ['less:watch']);
+  gulp.watch(paths.js.watch, ['babel:watch']);
   gulp.watch(paths.js.vendor.watch, ['jslib']);
   gulp.watch(paths.css.vendor.watch, ['css']);
   gulp.watch('index.html').on('change', browserSync.reload);

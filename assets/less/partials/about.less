@@ -30,13 +30,18 @@
     vertical-align: top;
     display: inline-block;
     font-size: 18px;
-    line-height: 2;
+    line-height: 1.4em;
     color: @white;
     text-align: left;
 
     @media (min-width: @sm) {
       width: 49%;
     }
+
+    @media (min-width: @md) {
+      line-height: 2em;
+    }
+
   }
 
   .stats-container {
