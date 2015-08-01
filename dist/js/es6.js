@@ -505,16 +505,20 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   count: function count($this) {
-    var self = this;
+    var _this = this;
+
     var current = parseInt($this.html(), 10);
 
     current = current + 50;
     $this.html(++current);
+
     if (current > $this.data('count')) {
       $this.html($this.data('count'));
     } else {
+
       setTimeout(function () {
-        self.count($this);
+
+        _this.count($this);
       }, 50);
     }
   }
