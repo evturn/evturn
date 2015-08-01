@@ -19,14 +19,17 @@
 }
 
 .nav-active(@background-color, @color) {
-  padding: 11px;
   border-radius: 2px;
+  z-index: 2;
   background-color: @background-color;
-  color: @color;
-  &:focus,
-  &:hover,
-  &:visited {
+  a {
     color: @color;
+
+    &:focus,
+    &:hover,
+    &:visited {
+      color: @color;
+    }
   }
 }
 

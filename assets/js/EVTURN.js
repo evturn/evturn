@@ -143,7 +143,7 @@ EVTURN = {
   },
 
   navActive(string) {
-    $('.nav-link').removeClass('nav-active');
+    $('.nav-item').removeClass('nav-active');
     $('.nav-' + string).addClass('nav-active');
   },
 
