@@ -56,7 +56,8 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   animateStats() {
-    var self = this;
+    let self = this;
+
     $('.stat-count').each(function() {
       $(this).data('count', parseInt($(this).html(), 10));
       $(this).html('0');

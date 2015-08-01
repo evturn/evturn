@@ -10,6 +10,7 @@ EVTURN.Carousel = Backbone.View.extend({
 
   initialize() {
     this.render();
+    this.carouselPreloader();
     this.appendCarouselPanel();
     this.appendProjectLinks();
     this.appendProjectTechnologies();
@@ -18,37 +19,53 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   render() {
-    this.setModel(this.$el, this.model, this.viewContainer);
-    this.carouselPreloader(this.itemPreloader);
+    let selector = this.$el;
+    let model    = this.model;
+    let template = this.viewContainer;
+
+    this.setModel(selector, model, template);
+
     return this;
   },
 
 
   appendCarouselPanel() {
-    this.appendModel('.carousel-panel', this.model, this.itemDescription);
+    let selector = '.carousel-panel';
+    let model    = this.model;
+    let template = this.itemDescription;
+
+    this.appendModel(selector, model, template);
 
     return this;
   },
 
   appendProjectLinks() {
-    this.appendModel('.project-links', this.model, this.itemLinks);
+    let selector = '.project-links';
+    let model    = this.model;
+    let template = this.itemLinks;
+
+    this.appendModel(selector, model, template);
 
     return this;
   },
 
   appendProjectTechnologies() {
-    let techIds = this.model.get('technologies');
+    let selector     = '.project-technologies';
+    let techIds      = this.model.get('technologies');
     let technologies = this.getModelsById('technologies', techIds);
+    let template     = this.itemTechnologies;
 
-    this.appendModels('.project-technologies', technologies, this.itemTechnologies);
+    this.appendModels(selector, technologies, template);
 
     return this;
   },
 
   appendCarouselImages() {
-    let images = this.model.get('items');
+    let selector = '.carousel-inner';
+    let images   = this.model.get('items');
+    let template = this.itemContainer;
 
-    this.appendArray('.carousel-inner', images, this.itemContainer);
+    this.appendArray(selector, images, template);
 
     return this;
   },
@@ -59,7 +76,9 @@ EVTURN.Carousel = Backbone.View.extend({
     this.scrollUp();
   },
 
-  carouselPreloader(template) {
+  carouselPreloader() {
+    let template = this.itemPreloader;
+
     $('.carousel-image-container').append(template());
     $('#carousel-preloader').delay(500).fadeOut();
     $('.carousel-preloader').delay(600).fadeOut(600);

@@ -530,6 +530,7 @@ EVTURN.AboutView = Backbone.View.extend({
 
   animateStats: function animateStats() {
     var self = this;
+
     $('.stat-count').each(function () {
       $(this).data('count', parseInt($(this).html(), 10));
       $(this).html('0');
@@ -635,6 +636,7 @@ EVTURN.Carousel = Backbone.View.extend({
 
   initialize: function initialize() {
     this.render();
+    this.carouselPreloader();
     this.appendCarouselPanel();
     this.appendProjectLinks();
     this.appendProjectTechnologies();
@@ -643,36 +645,52 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   render: function render() {
-    this.setModel(this.$el, this.model, this.viewContainer);
-    this.carouselPreloader(this.itemPreloader);
+    var selector = this.$el;
+    var model = this.model;
+    var template = this.viewContainer;
+
+    this.setModel(selector, model, template);
+
     return this;
   },
 
   appendCarouselPanel: function appendCarouselPanel() {
-    this.appendModel('.carousel-panel', this.model, this.itemDescription);
+    var selector = '.carousel-panel';
+    var model = this.model;
+    var template = this.itemDescription;
+
+    this.appendModel(selector, model, template);
 
     return this;
   },
 
   appendProjectLinks: function appendProjectLinks() {
-    this.appendModel('.project-links', this.model, this.itemLinks);
+    var selector = '.project-links';
+    var model = this.model;
+    var template = this.itemLinks;
+
+    this.appendModel(selector, model, template);
 
     return this;
   },
 
   appendProjectTechnologies: function appendProjectTechnologies() {
+    var selector = '.project-technologies';
     var techIds = this.model.get('technologies');
     var technologies = this.getModelsById('technologies', techIds);
+    var template = this.itemTechnologies;
 
-    this.appendModels('.project-technologies', technologies, this.itemTechnologies);
+    this.appendModels(selector, technologies, template);
 
     return this;
   },
 
   appendCarouselImages: function appendCarouselImages() {
+    var selector = '.carousel-inner';
     var images = this.model.get('items');
+    var template = this.itemContainer;
 
-    this.appendArray('.carousel-inner', images, this.itemContainer);
+    this.appendArray(selector, images, template);
 
     return this;
   },
@@ -683,7 +701,9 @@ EVTURN.Carousel = Backbone.View.extend({
     this.scrollUp();
   },
 
-  carouselPreloader: function carouselPreloader(template) {
+  carouselPreloader: function carouselPreloader() {
+    var template = this.itemPreloader;
+
     $('.carousel-image-container').append(template());
     $('#carousel-preloader').delay(500).fadeOut();
     $('.carousel-preloader').delay(600).fadeOut(600);
