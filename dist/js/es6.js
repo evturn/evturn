@@ -137,119 +137,6 @@ EVTURN.Links = Backbone.Collection.extend({
 EVTURN.Technologies = Backbone.Collection.extend({
   model: EVTURN.Technology
 });
-// EVTURN.get = function(string) {
-//   let data = EVTURN.data[string];
-//   let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-//   let collection = new EVTURN[capitalize](data);
-//   let models = collection.where({featured: true});
-
-//   return new EVTURN[capitalize](models.reverse());
-// };
-
-"use strict";
-
-EVTURN.getModelsById = function (string, array) {
-  var data = EVTURN.data[string];
-  var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
-  var collection = new EVTURN[capitalize](data);
-  var models = [];
-
-  for (var i = 0; i < array.length; i++) {
-    var model = collection.findWhere({ id: array[i] });
-    models.push(model);
-  }
-
-  return new EVTURN[capitalize](models.reverse());
-};
-
-EVTURN.setModel = function (selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template(model.toJSON()));
-
-  return this;
-};
-
-EVTURN.setView = function (selector, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template());
-
-  return this;
-};
-
-EVTURN.appendModel = function (selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.append(template(model.toJSON()));
-
-  return this;
-};
-
-EVTURN.appendModels = function (selector, collection, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = collection.length - 1; i >= 0; i--) {
-    $selector.append(template(collection.models[i].toJSON()));
-  }
-
-  return this;
-};
-
-EVTURN.appendArray = function (selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = 0; i < array.length; i++) {
-    var value = array[i];
-    $selector.append(template({ item: value }));
-  }
-
-  return this;
-};
-
-EVTURN.appendObjectsArray = function (selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = 0; i < array.length; i++) {
-    $selector.append(template(array[i]));
-  }
-
-  return this;
-};
-
-EVTURN.createElement = function (string) {
-  var $selector = $(document.getElementsByClassName(string));
-  var element = document.createElement('div');
-  element.className = string;
-  element.dataset.view = string;
-
-  $selector.remove();
-  $(element).insertAfter(new EVTURN.Rza().$el);
-};
-
-EVTURN.tojquery = function (element) {
-  switch (typeof element) {
-    case "object":
-      if (element instanceof jQuery) {
-        return element;
-      }
-      break;
-
-    case "string":
-      if (element.charAt(0) === '.') {
-        return $(element);
-      } else {
-        return $(document.getElementsByClassName(element));
-      }
-  }
-};
-
-EVTURN.navActive = function (string) {
-  $('.nav-link').removeClass('nav-active');
-  $('.nav-' + string).addClass('nav-active');
-};
-
-EVTURN.changeState = function (string) {
-  EVTURN.navActive(string);
-  EVTURN.createElement(string);
-};
 'use strict';
 
 EVTURN.data = {
@@ -571,10 +458,10 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   render: function render() {
-    EVTURN.setView(this.$el, this.viewContainer);
-    EVTURN.appendModels('.technology-items', this.collection, this.itemContainer);
-    EVTURN.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
-    EVTURN.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
+    this.setView(this.$el, this.viewContainer);
+    this.appendModels('.technology-items', this.collection, this.itemContainer);
+    this.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
+    this.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
     EVTURN.animations.statCount();
 
     return this;
@@ -596,8 +483,8 @@ EVTURN.ContactView = Backbone.View.extend({
   },
 
   render: function render() {
-    EVTURN.setView(this.$el, this.viewContainer);
-    EVTURN.appendModels('.link-items', this.collection, this.itemContainer);
+    this.setView(this.$el, this.viewContainer);
+    this.appendModels('.link-items', this.collection, this.itemContainer);
   }
 
 });
@@ -614,7 +501,7 @@ EVTURN.IndexView = Backbone.View.extend({
   },
 
   render: function render() {
-    EVTURN.setView(this.$el, this.viewContainer);
+    this.setView(this.$el, this.viewContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
 
     return this;
@@ -641,7 +528,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
   render: function render($selector) {
     this.$el.empty();
     $selector.append(this.viewContainer());
-    EVTURN.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
+    this.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
 
     return this;
   }
@@ -665,7 +552,7 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   render: function render() {
-    EVTURN.setModel(this.$el, this.model, this.viewContainer);
+    this.setModel(this.$el, this.model, this.viewContainer);
     EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },
@@ -673,12 +560,12 @@ EVTURN.Carousel = Backbone.View.extend({
   setChildren: function setChildren() {
     var images = this.model.get('items');
     var techIds = this.model.get('technologies');
-    var technologies = EVTURN.getModelsById('technologies', techIds);
+    var technologies = this.getModelsById('technologies', techIds);
 
-    EVTURN.appendModel('.carousel-panel', this.model, this.itemDescription);
-    EVTURN.appendModel('.project-links', this.model, this.itemLinks);
-    EVTURN.appendModels('.project-technologies', technologies, this.itemTechnologies);
-    EVTURN.appendArray('.carousel-inner', images, this.itemContainer);
+    this.appendModel('.carousel-panel', this.model, this.itemDescription);
+    this.appendModel('.project-links', this.model, this.itemLinks);
+    this.appendModels('.project-technologies', technologies, this.itemTechnologies);
+    this.appendArray('.carousel-inner', images, this.itemContainer);
     var tn = new EVTURN.Thumbnails(this.$el);
     EVTURN.animations.scrollUp();
 
@@ -723,7 +610,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   index: function index() {
-    EVTURN.changeState('index');
+    this.changeState('index');
 
     if (this.indexView === null) {
       this.indexView = new EVTURN.IndexView();
@@ -734,7 +621,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   work: function work(model) {
-    EVTURN.changeState('work');
+    this.changeState('work');
 
     if (this.workView === null) {
       this.workView = new EVTURN.Carousel({ model: model });
@@ -748,7 +635,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   about: function about() {
-    EVTURN.changeState('about');
+    this.changeState('about');
 
     if (this.aboutView === null) {
       this.aboutView = new EVTURN.AboutView();
@@ -759,7 +646,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   contact: function contact() {
-    EVTURN.changeState('contact');
+    this.changeState('contact');
 
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();
@@ -774,6 +661,52 @@ EVTURN.Router = Backbone.Router.extend({
     var model = collection.get(id) || collection.get(1);
 
     this.work(model);
+  },
+
+  get: function get(string) {
+    var data = EVTURN.data[string];
+    var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
+    var collection = new EVTURN[capitalize](data);
+    var models = collection.where({ featured: true });
+
+    return new EVTURN[capitalize](models.reverse());
+  },
+
+  createElement: function createElement(string) {
+    var $selector = $(document.getElementsByClassName(string));
+    var element = document.createElement('div');
+    element.className = string;
+    element.dataset.view = string;
+
+    $selector.remove();
+    $(element).insertAfter(new EVTURN.Rza().$el);
+  },
+
+  tojquery: function tojquery(element) {
+    switch (typeof element) {
+      case "object":
+        if (element instanceof jQuery) {
+          return element;
+        }
+        break;
+
+      case "string":
+        if (element.charAt(0) === '.') {
+          return $(element);
+        } else {
+          return $(document.getElementsByClassName(element));
+        }
+    }
+  },
+
+  navActive: function navActive(string) {
+    $('.nav-link').removeClass('nav-active');
+    $('.nav-' + string).addClass('nav-active');
+  },
+
+  changeState: function changeState(string) {
+    this.navActive(string);
+    this.createElement(string);
   }
 
 });

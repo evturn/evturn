@@ -11,8 +11,8 @@ EVTURN.ContactView = Backbone.View.extend({
   },
 
   render: function() {
-    EVTURN.setView(this.$el, this.viewContainer);
-    EVTURN.appendModels('.link-items', this.collection, this.itemContainer);
+    this.setView(this.$el, this.viewContainer);
+    this.appendModels('.link-items', this.collection, this.itemContainer);
   },
 
 });

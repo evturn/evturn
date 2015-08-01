@@ -16,7 +16,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
   render: function($selector) {
     this.$el.empty();
     $selector.append(this.viewContainer());
-    EVTURN.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
+    this.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
 
     return this;
   },

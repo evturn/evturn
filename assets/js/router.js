@@ -19,7 +19,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   index: function() {
-    EVTURN.changeState('index');
+    this.changeState('index');
 
     if (this.indexView === null) {
       this.indexView = new EVTURN.IndexView();
@@ -30,7 +30,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   work: function(model) {
-    EVTURN.changeState('work');
+    this.changeState('work');
 
     if (this.workView === null) {
       this.workView = new EVTURN.Carousel({model: model});
@@ -45,7 +45,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   about: function() {
-    EVTURN.changeState('about');
+    this.changeState('about');
 
     if (this.aboutView === null) {
       this.aboutView = new EVTURN.AboutView();
@@ -56,7 +56,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   contact: function() {
-    EVTURN.changeState('contact');
+    this.changeState('contact');
 
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();
@@ -71,6 +71,53 @@ EVTURN.Router = Backbone.Router.extend({
     let model = collection.get(id) || collection.get(1);
 
     this.work(model);
+  },
+
+  get(string) {
+    let data = EVTURN.data[string];
+    let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
+    let collection = new EVTURN[capitalize](data);
+    let models = collection.where({featured: true});
+
+    return new EVTURN[capitalize](models.reverse());
+  },
+
+  createElement(string) {
+    let $selector = $(document.getElementsByClassName(string));
+    let element = document.createElement('div');
+    element.className = string;
+    element.dataset.view = string;
+
+    $selector.remove();
+    $(element).insertAfter(new EVTURN.Rza().$el);
+  },
+
+  tojquery(element) {
+    switch (typeof element) {
+      case "object":
+        if (element instanceof jQuery) {
+          return element;
+        }
+      break;
+
+      case "string":
+        if (element.charAt(0) === '.') {
+          return $(element);
+        }
+        else {
+          return $(document.getElementsByClassName(element));
+        }
+    }
+  },
+
+  navActive(string) {
+    $('.nav-link').removeClass('nav-active');
+    $('.nav-' + string).addClass('nav-active');
+  },
+
+  changeState(string) {
+    this.navActive(string);
+    this.createElement(string);
   },
 
 });
