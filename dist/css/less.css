@@ -2165,6 +2165,11 @@ h1 {
     height: 321px;
   }
 }
+@media (min-width: 900px) {
+  .index .container.animated {
+    height: 365px;
+  }
+}
 @media (min-width: 1000px) {
   .index .container.animated {
     height: 404px;
@@ -2192,6 +2197,11 @@ h1 {
 @media (min-width: 800px) {
   .thumbnails-offset {
     height: 321px;
+  }
+}
+@media (min-width: 900px) {
+  .thumbnails-offset {
+    height: 365px;
   }
 }
 @media (min-width: 1000px) {
@@ -2439,6 +2449,11 @@ h1 {
 @media (min-width: 800px) {
   .container.carousel {
     height: 321px;
+  }
+}
+@media (min-width: 900px) {
+  .container.carousel {
+    height: 365px;
   }
 }
 @media (min-width: 1000px) {
