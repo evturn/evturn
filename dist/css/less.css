@@ -2121,7 +2121,12 @@ h1 {
 }
 @media (min-width: 800px) {
   .index .container.animated {
-    height: 435px;
+    height: 321px;
+  }
+}
+@media (min-width: 1000px) {
+  .index .container.animated {
+    height: 404px;
   }
 }
 .index .img-scale {
@@ -2142,6 +2147,16 @@ h1 {
 .footer .footer-container {
   color: #f1f1f2;
   font-size: 11px;
+}
+@media (min-width: 800px) {
+  .thumbnails-offset {
+    height: 321px;
+  }
+}
+@media (min-width: 1000px) {
+  .thumbnails-offset {
+    height: 404px;
+  }
 }
 .thumbnails {
   -webkit-transition: all 0.3s ease;
@@ -2173,7 +2188,7 @@ h1 {
   position: relative;
   cursor: pointer;
 }
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .thumbnails .thumbnail-item .image-container .shadow {
     -webkit-box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75);
     box-shadow: inset 0px -176px 178px -62px rgba(0, 0, 0, 0.75);
@@ -2380,7 +2395,17 @@ h1 {
 .carousel-inner > .active.right {
   left: 100%;
 }
-.carousel .carousel-wrapper {
+@media (min-width: 800px) {
+  .container.carousel {
+    height: 321px;
+  }
+}
+@media (min-width: 1000px) {
+  .container.carousel {
+    height: 404px;
+  }
+}
+.carousel-wrapper {
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
@@ -2388,16 +2413,15 @@ h1 {
   box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
   color: #ffffff;
   border-radius: 3px;
-}
-@media (min-width: 800px) {
-  .carousel .carousel-wrapper {
-    overflow: auto;
-  }
+  background-color: #231f20;
+  overflow: auto;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 .carousel-image-container {
   background-color: #231f20;
   display: inline-block;
-  height: 417px;
 }
 @media (min-width: 800px) {
   .carousel-image-container {
@@ -2410,12 +2434,8 @@ h1 {
   font-family: 'Source Sans Pro', sans;
   vertical-align: top;
   width: 100%;
+  height: 100%;
   position: relative;
-  overflow: hidden;
-  float: right;
-  width: 33.3333333333%;
-  height: 417px;
-  background-color: black;
 }
 @media (min-width: 800px) {
   .carousel-panel {
