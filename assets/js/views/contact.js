@@ -6,12 +6,28 @@ EVTURN.ContactView = Backbone.View.extend({
 
   initialize() {
     this.collection = this.get('links');
+
     this.render();
+    this.appendLinks();
   },
 
   render() {
-    this.setView(this.$el, this.viewContainer);
-    this.appendModels('.link-items', this.collection, this.itemContainer);
+    let selector = this.$el;
+    let template = this.viewContainer;
+
+    this.setView(selector, template);
+
+    return this;
   },
+
+  appendLinks() {
+    let selector = '.link-items';
+    let collection = this.collection;
+    let template = this.itemContainer;
+
+    this.appendModels(selector, collection, template);
+
+    return this;
+  }
 
 });

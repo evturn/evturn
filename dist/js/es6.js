@@ -568,12 +568,28 @@ EVTURN.ContactView = Backbone.View.extend({
 
   initialize: function initialize() {
     this.collection = this.get('links');
+
     this.render();
+    this.appendLinks();
   },
 
   render: function render() {
-    this.setView(this.$el, this.viewContainer);
-    this.appendModels('.link-items', this.collection, this.itemContainer);
+    var selector = this.$el;
+    var template = this.viewContainer;
+
+    this.setView(selector, template);
+
+    return this;
+  },
+
+  appendLinks: function appendLinks() {
+    var selector = '.link-items';
+    var collection = this.collection;
+    var template = this.itemContainer;
+
+    this.appendModels(selector, collection, template);
+
+    return this;
   }
 
 });
@@ -587,10 +603,19 @@ EVTURN.IndexView = Backbone.View.extend({
 
   initialize: function initialize() {
     this.render();
+    this.appendProjectThumbnails();
   },
 
   render: function render() {
-    this.setView(this.$el, this.viewContainer);
+    var selector = this.$el;
+    var template = this.viewContainer;
+
+    this.setView(selector, template);
+
+    return this;
+  },
+
+  appendProjectThumbnails: function appendProjectThumbnails() {
     var tn = new EVTURN.Thumbnails(this.$el);
 
     return this;
