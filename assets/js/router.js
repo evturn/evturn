@@ -14,11 +14,11 @@ EVTURN.Router = Backbone.Router.extend({
     'contact'  : 'contact'
   },
 
-  initialize: function() {
+  initialize() {
     this.wrapper = new EVTURN.Rza();
   },
 
-  index: function() {
+  index() {
     this.changeState('index');
 
     if (this.indexView === null) {
@@ -29,7 +29,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
 
-  work: function(model) {
+  work(model) {
     this.changeState('work');
 
     if (this.workView === null) {
@@ -44,7 +44,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
 
-  about: function() {
+  about() {
     this.changeState('about');
 
     if (this.aboutView === null) {
@@ -55,7 +55,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
 
-  contact: function() {
+  contact() {
     this.changeState('contact');
 
     if (this.contactView === null) {
@@ -66,7 +66,7 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
 
-  project: function(id) {
+  project(id) {
     let collection = this.get('projects');
     let model = collection.get(id) || collection.get(1);
 
@@ -90,24 +90,6 @@ EVTURN.Router = Backbone.Router.extend({
 
     $selector.remove();
     $(element).insertAfter(new EVTURN.Rza().$el);
-  },
-
-  tojquery(element) {
-    switch (typeof element) {
-      case "object":
-        if (element instanceof jQuery) {
-          return element;
-        }
-      break;
-
-      case "string":
-        if (element.charAt(0) === '.') {
-          return $(element);
-        }
-        else {
-          return $(document.getElementsByClassName(element));
-        }
-    }
   },
 
   navActive(string) {

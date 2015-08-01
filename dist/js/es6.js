@@ -682,23 +682,6 @@ EVTURN.Router = Backbone.Router.extend({
     $(element).insertAfter(new EVTURN.Rza().$el);
   },
 
-  tojquery: function tojquery(element) {
-    switch (typeof element) {
-      case "object":
-        if (element instanceof jQuery) {
-          return element;
-        }
-        break;
-
-      case "string":
-        if (element.charAt(0) === '.') {
-          return $(element);
-        } else {
-          return $(document.getElementsByClassName(element));
-        }
-    }
-  },
-
   navActive: function navActive(string) {
     $('.nav-link').removeClass('nav-active');
     $('.nav-' + string).addClass('nav-active');
