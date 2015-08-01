@@ -2,5 +2,6 @@
   "camelcase": true,
   "unused": false,
   "node": true,
-  "moz": true
+  "moz": true,
+  "esnext": true
 }
