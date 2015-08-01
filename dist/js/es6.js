@@ -3,7 +3,14 @@
 var EVTURN = {};
 "use strict";
 
-_.extend(Backbone.View.prototype, {
+EVTURN = {
+
+  init: function init() {
+    var router = new EVTURN.Router();
+
+    this.preloader();
+    Backbone.history.start();
+  },
 
   get: function get(string) {
     var data = EVTURN.data[string];
@@ -119,9 +126,23 @@ _.extend(Backbone.View.prototype, {
 
   scrollUp: function scrollUp() {
     $('html, body').animate({ scrollTop: 0 }, 500);
+  },
+
+  preloader: function preloader() {
+
+    $(window).load(function () {
+      var $container = $('#preloader');
+      var $image = $('.preloader');
+
+      $container.delay(500).fadeOut();
+      $image.delay(600).fadeOut(600);
+    });
   }
 
-});
+};
+
+_.extend(Backbone.View.prototype, EVTURN);
+_.extend(Backbone.Router.prototype, EVTURN);
 "use strict";
 
 EVTURN.Link = Backbone.Model.extend({});
@@ -384,24 +405,6 @@ EVTURN.data = {
     icon: 'fa fa-code'
   }],
   bio: ['As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.', 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.']
-};
-'use strict';
-
-EVTURN.init = function () {
-  var router = new EVTURN.Router();
-  EVTURN.preloader();
-  Backbone.history.start();
-};
-
-EVTURN.preloader = function () {
-
-  $(window).load(function () {
-    var $container = $('#preloader');
-    var $image = $('.preloader');
-
-    $container.delay(500).fadeOut();
-    $image.delay(600).fadeOut(600);
-  });
 };
 'use strict';
 
@@ -675,35 +678,6 @@ EVTURN.Router = Backbone.Router.extend({
     var model = collection.get(id) || collection.get(1);
 
     this.work(model);
-  },
-
-  get: function get(string) {
-    var data = EVTURN.data[string];
-    var capitalize = string.charAt(0).toUpperCase() + string.substring(1);
-    var collection = new EVTURN[capitalize](data);
-    var models = collection.where({ featured: true });
-
-    return new EVTURN[capitalize](models.reverse());
-  },
-
-  createElement: function createElement(string) {
-    var $selector = $(document.getElementsByClassName(string));
-    var element = document.createElement('div');
-    element.className = string;
-    element.dataset.view = string;
-
-    $selector.remove();
-    $(element).insertAfter(new EVTURN.Rza().$el);
-  },
-
-  navActive: function navActive(string) {
-    $('.nav-link').removeClass('nav-active');
-    $('.nav-' + string).addClass('nav-active');
-  },
-
-  changeState: function changeState(string) {
-    this.navActive(string);
-    this.createElement(string);
   }
 
 });

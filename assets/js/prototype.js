@@ -1,4 +1,11 @@
-_.extend(Backbone.View.prototype, {
+EVTURN = {
+
+  init() {
+    let router = new EVTURN.Router();
+
+    this.preloader();
+    Backbone.history.start();
+  },
 
   get(string) {
     let data = EVTURN.data[string];
@@ -118,4 +125,19 @@ _.extend(Backbone.View.prototype, {
 
   },
 
-});
+  preloader() {
+
+    $(window).load(function() {
+      let $container = $('#preloader');
+      let $image = $('.preloader');
+
+      $container.delay(500).fadeOut();
+      $image.delay(600).fadeOut(600);
+    });
+
+  }
+
+};
+
+_.extend(Backbone.View.prototype, EVTURN);
+_.extend(Backbone.Router.prototype, EVTURN);

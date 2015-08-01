@@ -73,33 +73,4 @@ EVTURN.Router = Backbone.Router.extend({
     this.work(model);
   },
 
-  get(string) {
-    let data = EVTURN.data[string];
-    let capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-    let collection = new EVTURN[capitalize](data);
-    let models = collection.where({featured: true});
-
-    return new EVTURN[capitalize](models.reverse());
-  },
-
-  createElement(string) {
-    let $selector = $(document.getElementsByClassName(string));
-    let element = document.createElement('div');
-    element.className = string;
-    element.dataset.view = string;
-
-    $selector.remove();
-    $(element).insertAfter(new EVTURN.Rza().$el);
-  },
-
-  navActive(string) {
-    $('.nav-link').removeClass('nav-active');
-    $('.nav-' + string).addClass('nav-active');
-  },
-
-  changeState(string) {
-    this.navActive(string);
-    this.createElement(string);
-  },
-
 });
