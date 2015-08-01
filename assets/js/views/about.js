@@ -8,20 +8,54 @@ EVTURN.AboutView = Backbone.View.extend({
 
   initialize() {
     this.collection = this.get('technologies');
+
     this.render();
+    this.appendStats();
+    this.appendTechnologies();
+    this.appendBio();
+    this.animateStats();
   },
 
   render() {
-    this.setView(this.$el, this.viewContainer);
-    this.appendModels('.technology-items', this.collection, this.itemContainer);
-    this.appendObjectsArray('.statistics.stat-items', EVTURN._stats, this.statItem);
-    this.appendArray('.paragraphs', EVTURN._bio, this.bioItem);
-    this.statCount();
+    let selector = this.$el;
+    let template = this.viewContainer;
+
+    this.setView(selector, template);
 
     return this;
   },
 
-  statCount() {
+  appendStats() {
+    let selector = '.statistics.stat-items';
+    let objects  = EVTURN._stats;
+    let template = this.statItem;
+
+    this.appendObjectsArray(selector, objects, template);
+
+    return this;
+  },
+
+  appendTechnologies() {
+    let selector   = '.technology-items';
+    let collection = this.collection;
+    let template   = this.itemContainer;
+
+    this.appendModels(selector, collection, template);
+
+    return this;
+  },
+
+  appendBio() {
+    let selector = '.paragraphs';
+    let array    = EVTURN._bio;
+    let template = this.bioItem;
+
+    this.appendArray(selector, array, template);
+
+    return this;
+  },
+
+  animateStats() {
     var self = this;
     $('.stat-count').each(function() {
       $(this).data('count', parseInt($(this).html(), 10));
@@ -43,13 +77,11 @@ EVTURN.AboutView = Backbone.View.extend({
 
     }
     else {
-
       setTimeout(() => {
 
         this.count($this);
 
       }, 50);
-
     }
   },
 
