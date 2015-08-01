@@ -9,18 +9,18 @@ EVTURN.Carousel = Backbone.View.extend({
   itemTechnologies : _.template($('#project-technologies-template').html()),
   itemLinks        :  _.template($('#project-links-template').html()),
 
-  initialize: function() {
+  initialize() {
     this.render();
     this.setChildren();
   },
 
-  render: function() {
+  render() {
     this.setModel(this.$el, this.model, this.viewContainer);
     EVTURN.animations.carouselPreloader(this.itemPreloader);
     return this;
   },
 
-  setChildren: function() {
+  setChildren() {
     let images = this.model.get('items');
     let techIds = this.model.get('technologies');
     let technologies = this.getModelsById('technologies', techIds);

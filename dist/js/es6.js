@@ -516,13 +516,13 @@ EVTURN.Thumbnails = Backbone.View.extend({
   viewContainer: _.template($('#thumbnails-container-template').html()),
   itemContainer: _.template($('#thumbnail-item-template').html()),
 
+  events: {
+    'click .thumbnail-item': 'EVTURN.animations.scrollUp'
+  },
+
   initialize: function initialize(selector) {
     this.collection = this.get('projects');
     this.render(selector);
-  },
-
-  events: {
-    'click .thumbnail-item': 'EVTURN.animations.scrollUp'
   },
 
   render: function render($selector) {
