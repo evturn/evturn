@@ -722,7 +722,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
   appendProjectThumbnails: function appendProjectThumbnails() {
     var tn = new EVTURN.Thumbnails(this.$el);
-
     this.scrollUp();
   },
 

@@ -1,9 +1,17 @@
-.carousel .wrapper {
+.container.carousel {
+
+  @media (min-width: @md) {
+    height: 435px;
+  }
+}
+
+.carousel .carousel-wrapper {
   .transition(all 1s ease);
   .box-shadow(0px 0px 22px -4px rgba(0,0,0,0.75));
   background-color: @black;
   color: @white;
   border-radius: 3px;
+
 }
 .carousel-image-container {
   padding: 10px 10px 10px;

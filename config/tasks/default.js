@@ -5,4 +5,4 @@ var gulp = require('gulp'),
 var paths = require('../paths');
 var options = require('../gulp-options');
 
-gulp.task('default', ['babel', 'watch', 'browsersync']);
+gulp.task('default', ['watch', 'browsersync']);

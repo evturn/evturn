@@ -93,7 +93,7 @@
 
   <script type="text/template" id="carousel-container-template">
     <div class="container carousel">
-      <div class="wrapper">
+      <div class="wrapper carousel-wrapper">
 
         <div class="carousel-image-container">
           <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">
@@ -162,20 +162,24 @@
   </script>
 
   <script type="text/template" id="carousel-panel-template">
-    <div class="btn-container">
-      <a class="btn btn-generic" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-      <a class="btn btn-generic" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-    </div>
-    <div class="project-text">
-      <p class="section-title"><%= name %></p>
-      <p class="meta"><%= description %></p>
-    </div>
-    <div class="project-technologies">
-      <p class="meta">Built with</p>
-      <!-- Technology-items -->
-    </div>
-    <div class="project-links">
-      <!-- Link items -->
+    <div class="wrapper">
+      <div class="panel-inner">
+        <div class="btn-container">
+          <a class="btn btn-generic" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+          <a class="btn btn-generic" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+        </div>
+        <div class="project-text">
+          <p class="section-title"><%= name %></p>
+          <p class="meta"><%= description %></p>
+        </div>
+        <div class="project-technologies">
+          <p class="meta">Built with</p>
+          <!-- Technology-items -->
+        </div>
+        <div class="project-links">
+          <!-- Link items -->
+        </div>
+      </div>
     </div>
   </script>
 
