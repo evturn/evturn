@@ -115,6 +115,10 @@ _.extend(Backbone.View.prototype, {
   changeState: function changeState(string) {
     this.navActive(string);
     this.createElement(string);
+  },
+
+  scrollUp: function scrollUp() {
+    $('html, body').animate({ scrollTop: 0 }, 500);
   }
 
 });
@@ -381,72 +385,32 @@ EVTURN.data = {
   }],
   bio: ['As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.', 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.']
 };
-'use strict';
-
-EVTURN.animations = {
-
-  init: function init() {
-    this.preloader();
-  },
-
-  preloader: function preloader() {
-
-    $(window).load(function () {
-      var $container = $('#preloader');
-      var $image = $('.preloader');
-
-      $container.delay(500).fadeOut();
-      $image.delay(600).fadeOut(600);
-    });
-  },
-
-  statCount: function statCount() {
-    $('.stat-count').each(function () {
-      $(this).data('count', parseInt($(this).html(), 10));
-      $(this).html('0');
-
-      EVTURN.animations.count($(this));
-    });
-  },
-  count: function count($this) {
-    var current = parseInt($this.html(), 10);
-
-    current = current + 50;
-    $this.html(++current);
-    if (current > $this.data('count')) {
-      $this.html($this.data('count'));
-    } else {
-      setTimeout(function () {
-        EVTURN.animations.count($this);
-      }, 50);
-    }
-  },
-
-  scrollUp: function scrollUp() {
-    $('html, body').animate({ scrollTop: 0 }, 500);
-  },
-
-  carouselPreloader: function carouselPreloader(template) {
-    $('.carousel-image-container').append(template());
-    $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut(600);
-  }
-
-};
 "use strict";
+
+EVTURN.animations = {};
+'use strict';
 
 EVTURN.init = function () {
   var router = new EVTURN.Router();
-
-  EVTURN.animations.init();
+  EVTURN.preloader();
   Backbone.history.start();
+};
+
+EVTURN.preloader = function () {
+
+  $(window).load(function () {
+    var $container = $('#preloader');
+    var $image = $('.preloader');
+
+    $container.delay(500).fadeOut();
+    $image.delay(600).fadeOut(600);
+  });
 };
 'use strict';
 
 EVTURN.AboutView = Backbone.View.extend({
 
   el: '.about',
-
   viewContainer: _.template($('#technologies-container-template').html()),
   itemContainer: _.template($('#technology-item-template').html()),
   statItem: _.template($('#stat-item-template').html()),
@@ -462,9 +426,34 @@ EVTURN.AboutView = Backbone.View.extend({
     this.appendModels('.technology-items', this.collection, this.itemContainer);
     this.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
     this.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
-    EVTURN.animations.statCount();
+    this.statCount();
 
     return this;
+  },
+
+  statCount: function statCount() {
+    var self = this;
+    $('.stat-count').each(function () {
+      $(this).data('count', parseInt($(this).html(), 10));
+      $(this).html('0');
+
+      self.count($(this));
+    });
+  },
+
+  count: function count($this) {
+    var self = this;
+    var current = parseInt($this.html(), 10);
+
+    current = current + 50;
+    $this.html(++current);
+    if (current > $this.data('count')) {
+      $this.html($this.data('count'));
+    } else {
+      setTimeout(function () {
+        self.count($this);
+      }, 50);
+    }
   }
 
 });
@@ -473,7 +462,6 @@ EVTURN.AboutView = Backbone.View.extend({
 EVTURN.ContactView = Backbone.View.extend({
 
   el: '.contact',
-
   viewContainer: _.template($('#links-container-template').html()),
   itemContainer: _.template($('#link-item-template').html()),
 
@@ -517,7 +505,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
   itemContainer: _.template($('#thumbnail-item-template').html()),
 
   events: {
-    'click .thumbnail-item': 'EVTURN.animations.scrollUp'
+    'click .thumbnail-item': 'scrollUp'
   },
 
   initialize: function initialize(selector) {
@@ -538,7 +526,6 @@ EVTURN.Thumbnails = Backbone.View.extend({
 EVTURN.Carousel = Backbone.View.extend({
 
   el: '.work',
-
   viewContainer: _.template($('#carousel-container-template').html()),
   itemContainer: _.template($('#carousel-item-template').html()),
   itemDescription: _.template($('#carousel-panel-template').html()),
@@ -548,28 +535,58 @@ EVTURN.Carousel = Backbone.View.extend({
 
   initialize: function initialize() {
     this.render();
-    this.setChildren();
+    this.appendCarouselPanel();
+    this.appendProjectLinks();
+    this.appendProjectTechnologies();
+    this.appendCarouselImages();
+    this.appendProjectThumbnails();
   },
 
   render: function render() {
     this.setModel(this.$el, this.model, this.viewContainer);
-    EVTURN.animations.carouselPreloader(this.itemPreloader);
+    this.carouselPreloader(this.itemPreloader);
     return this;
   },
 
-  setChildren: function setChildren() {
-    var images = this.model.get('items');
+  appendCarouselPanel: function appendCarouselPanel() {
+    this.appendModel('.carousel-panel', this.model, this.itemDescription);
+
+    return this;
+  },
+
+  appendProjectLinks: function appendProjectLinks() {
+    this.appendModel('.project-links', this.model, this.itemLinks);
+
+    return this;
+  },
+
+  appendProjectTechnologies: function appendProjectTechnologies() {
     var techIds = this.model.get('technologies');
     var technologies = this.getModelsById('technologies', techIds);
 
-    this.appendModel('.carousel-panel', this.model, this.itemDescription);
-    this.appendModel('.project-links', this.model, this.itemLinks);
     this.appendModels('.project-technologies', technologies, this.itemTechnologies);
-    this.appendArray('.carousel-inner', images, this.itemContainer);
-    var tn = new EVTURN.Thumbnails(this.$el);
-    EVTURN.animations.scrollUp();
 
     return this;
+  },
+
+  appendCarouselImages: function appendCarouselImages() {
+    var images = this.model.get('items');
+
+    this.appendArray('.carousel-inner', images, this.itemContainer);
+
+    return this;
+  },
+
+  appendProjectThumbnails: function appendProjectThumbnails() {
+    var tn = new EVTURN.Thumbnails(this.$el);
+
+    this.scrollUp();
+  },
+
+  carouselPreloader: function carouselPreloader(template) {
+    $('.carousel-image-container').append(template());
+    $('#carousel-preloader').delay(500).fadeOut();
+    $('.carousel-preloader').delay(600).fadeOut(600);
   }
 
 });
@@ -578,11 +595,11 @@ EVTURN.Carousel = Backbone.View.extend({
 EVTURN.Rza = Backbone.View.extend({
 
   el: '#rza',
-
   child: null,
 
   render: function render() {
     this.$el.html(this.child.$el);
+
     return this;
   }
 

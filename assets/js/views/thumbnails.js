@@ -5,7 +5,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
   itemContainer : _.template($('#thumbnail-item-template').html()),
 
   events: {
-    'click .thumbnail-item' : 'EVTURN.animations.scrollUp'
+    'click .thumbnail-item' : 'scrollUp'
   },
 
   initialize(selector) {

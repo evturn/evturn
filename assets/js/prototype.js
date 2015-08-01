@@ -113,4 +113,9 @@ _.extend(Backbone.View.prototype, {
     this.createElement(string);
   },
 
+  scrollUp() {
+    $('html, body').animate({scrollTop: 0 }, 500);
+
+  },
+
 });
