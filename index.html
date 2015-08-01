@@ -6,7 +6,7 @@
   <title>Evan Turner | Developer</title>
   <link rel="icon" type="image/png" href="dist/img/evturn.jpg">
   <link rel="stylesheet" href="dist/css/vendor.min.css">
-  <link rel="stylesheet" href="dist/css/less.min.css">
+  <link rel="stylesheet" href="dist/css/less.css">
 </head>
 <body>
 
@@ -162,23 +162,21 @@
   </script>
 
   <script type="text/template" id="carousel-panel-template">
-    <div class="wrapper">
-      <div class="panel-inner">
-        <div class="btn-container">
-          <a class="btn btn-generic" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-          <a class="btn btn-generic" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-        </div>
-        <div class="project-text">
-          <p class="section-title"><%= name %></p>
-          <p class="meta"><%= description %></p>
-        </div>
-        <div class="project-technologies">
-          <p class="meta">Built with</p>
-          <!-- Technology-items -->
-        </div>
-        <div class="project-links">
-          <!-- Link items -->
-        </div>
+    <div class="panel-inner">
+      <div class="btn-container">
+        <a class="btn btn-generic" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+        <a class="btn btn-generic" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+      </div>
+      <div class="project-text">
+        <p class="section-title"><%= name %></p>
+        <p class="meta"><%= description %></p>
+      </div>
+      <div class="project-technologies">
+        <p class="meta">Built with</p>
+        <!-- Technology-items -->
+      </div>
+      <div class="project-links">
+        <!-- Link items -->
       </div>
     </div>
   </script>
