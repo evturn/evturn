@@ -24,22 +24,22 @@ var EVTURN = {
   },
 
   getNameByKey: function getNameByKey(string) {
-    var name = string.substr(1);
-    var toCap = name.charAt(0).toUpperCase() + name.substring(1);
+    var name = string.substr(1),
+        toCap = name.charAt(0).toUpperCase() + name.substring(1);
 
     return toCap;
   },
 
   createCollection: function createCollection(name, array) {
-    var data = array;
-    var collectionName = name;
+    var data = array,
+        collectionName = name;
 
     return new EVTURN[collectionName](data);
   },
 
   fetchCollection: function fetchCollection(name, collection) {
-    var models = collection.where({ featured: true });
-    var collectionName = name;
+    var models = collection.where({ featured: true }),
+        collectionName = name;
 
     models.reverse();
 
@@ -47,15 +47,16 @@ var EVTURN = {
   },
 
   getModelsById: function getModelsById(string, array) {
-    var ids = array;
-    var key = this.getKeyByName(string);
-    var name = this.getNameByKey(key);
-    var data = EVTURN[key];
-    var collection = this.createCollection(name, data);
-    var models = [];
+    var ids = array,
+        key = this.getKeyByName(string),
+        name = this.getNameByKey(key),
+        data = EVTURN[key],
+        collection = this.createCollection(name, data),
+        models = [];
 
     for (var i = 0; i < ids.length; i++) {
       var model = collection.findWhere({ id: ids[i] });
+
       models.push(model);
     }
 
@@ -66,6 +67,7 @@ var EVTURN = {
 
   setModel: function setModel(selector, model, template) {
     var $selector = this.tojquery(selector);
+
     $selector.html(template(model.toJSON()));
 
     return this;
@@ -73,6 +75,7 @@ var EVTURN = {
 
   setView: function setView(selector, template) {
     var $selector = this.tojquery(selector);
+
     $selector.html(template());
 
     return this;
@@ -80,6 +83,7 @@ var EVTURN = {
 
   appendModel: function appendModel(selector, model, template) {
     var $selector = this.tojquery(selector);
+
     $selector.append(template(model.toJSON()));
 
     return this;
@@ -100,6 +104,7 @@ var EVTURN = {
 
     for (var i = 0; i < array.length; i++) {
       var value = array[i];
+
       $selector.append(template({ item: value }));
     }
 
@@ -117,11 +122,11 @@ var EVTURN = {
   },
 
   createElement: function createElement(string) {
-    var $selector = $(document.getElementsByClassName(string));
-    var element = document.createElement('div');
+    var $selector = $(document.getElementsByClassName(string)),
+        element = document.createElement('div');
+
     element.className = string;
     element.dataset.view = string;
-
     $selector.remove();
     $(element).insertAfter(new EVTURN.Rza().$el);
   },
@@ -160,8 +165,8 @@ var EVTURN = {
   preloader: function preloader() {
 
     $(window).load(function () {
-      var $container = $('#preloader');
-      var $image = $('.preloader');
+      var $container = $('#preloader'),
+          $image = $('.preloader');
 
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
