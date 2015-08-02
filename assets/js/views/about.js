@@ -17,8 +17,8 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   render() {
-    let selector = this.$el;
-    let template = this.viewContainer;
+    let selector = this.$el,
+        template = this.viewContainer;
 
     this.setView(selector, template);
 
@@ -26,9 +26,9 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   appendStats() {
-    let selector = '.statistics.stat-items';
-    let objects  = EVTURN._stats;
-    let template = this.statItem;
+    let selector = '.statistics.stat-items',
+        objects  = EVTURN._stats,
+        template = this.statItem;
 
     this.appendObjects(selector, objects, template);
 
@@ -36,9 +36,9 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   appendTechnologies() {
-    let selector   = '.technology-items';
-    let collection = this.collection;
-    let template   = this.itemContainer;
+    let selector   = '.technology-items',
+        collection = this.collection,
+        template   = this.itemContainer;
 
     this.appendModels(selector, collection, template);
 
@@ -46,9 +46,9 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   appendBio() {
-    let selector = '.paragraphs';
-    let array    = EVTURN._bio;
-    let template = this.bioItem;
+    let selector = '.paragraphs',
+        array    = EVTURN._bio,
+        template = this.bioItem;
 
     this.appendArray(selector, array, template);
 
@@ -68,8 +68,8 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   count($this){
-    let self = this;
-    let current = parseInt($this.html(), 10);
+    let self = this,
+        current = parseInt($this.html(), 10);
 
     current = current + 50;
     $this.html(++current);
