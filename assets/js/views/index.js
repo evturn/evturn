@@ -10,8 +10,8 @@ EVTURN.IndexView = Backbone.View.extend({
   },
 
   render() {
-    let selector = this.$el;
-    let template = this.viewContainer;
+    let selector = this.$el,
+        template = this.viewContainer;
 
     this.setView(selector, template);
 

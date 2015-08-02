@@ -647,8 +647,8 @@ EVTURN.ContactView = Backbone.View.extend({
   },
 
   render() {
-    let selector = this.$el;
-    let template = this.viewContainer;
+    let selector = this.$el,
+        template = this.viewContainer;
 
     this.setView(selector, template);
 
@@ -656,9 +656,9 @@ EVTURN.ContactView = Backbone.View.extend({
   },
 
   appendLinks() {
-    let selector = '.link-items';
-    let collection = this.collection;
-    let template = this.itemContainer;
+    let selector = '.link-items',
+        collection = this.collection,
+        template = this.itemContainer;
 
     this.appendModels(selector, collection, template);
 
@@ -678,8 +678,8 @@ EVTURN.IndexView = Backbone.View.extend({
   },
 
   render() {
-    let selector = this.$el;
-    let template = this.viewContainer;
+    let selector = this.$el,
+        template = this.viewContainer;
 
     this.setView(selector, template);
 
@@ -884,8 +884,8 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   project(id) {
-    let collection = this.get('projects');
-    let model = collection.get(id) || collection.get(1);
+    let collection = this.get('projects'),
+        model = collection.get(id) || collection.get(1);
 
     this.work(model);
   },
