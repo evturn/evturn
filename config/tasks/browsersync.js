@@ -10,7 +10,7 @@ gulp.task('browsersync', function() {
   browserSync.init(options.browserSync);
 });
 
-gulp.task('babel:watch', ['babel'], function() {
+gulp.task('babel:watch', ['babel', 'js'], function() {
   browserSync.reload();
 });
 

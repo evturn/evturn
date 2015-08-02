@@ -1,4 +1,6 @@
-EVTURN = {
+"use strict";
+
+const EVTURN = {
 
   init() {
     let router = new EVTURN.Router();
@@ -8,11 +10,11 @@ EVTURN = {
   },
 
   get(string) {
-    let key  = this.getKeyByName(string);
-    let name = this.getNameByKey(key);
-    let data = EVTURN[key];
-    let collection = this.createCollection(name, data);
-    let fetchedCollection = this.fetchCollection(name, collection);
+    let key  = this.getKeyByName(string),
+        name = this.getNameByKey(key),
+        data = EVTURN[key],
+        collection = this.createCollection(name, data),
+        fetchedCollection = this.fetchCollection(name, collection);
 
     return fetchedCollection;
   },

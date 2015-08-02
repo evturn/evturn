@@ -3,5 +3,13 @@
   "unused": false,
   "node": true,
   "moz": true,
-  "esnext": true
+  "esnext": true,
+  "browser": true,
+  "eqeqeq": true,
+  "globals": {
+    "Backbone": true,
+    "$": true,
+    "_": true,
+    "jQuery": true
+  }
 }

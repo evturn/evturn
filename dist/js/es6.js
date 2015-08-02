@@ -1,9 +1,6 @@
 "use strict";
 
-var EVTURN = {};
-'use strict';
-
-EVTURN = {
+var EVTURN = {
 
   init: function init() {
     var router = new EVTURN.Router();
@@ -13,11 +10,11 @@ EVTURN = {
   },
 
   get: function get(string) {
-    var key = this.getKeyByName(string);
-    var name = this.getNameByKey(key);
-    var data = EVTURN[key];
-    var collection = this.createCollection(name, data);
-    var fetchedCollection = this.fetchCollection(name, collection);
+    var key = this.getKeyByName(string),
+        name = this.getNameByKey(key),
+        data = EVTURN[key],
+        collection = this.createCollection(name, data),
+        fetchedCollection = this.fetchCollection(name, collection);
 
     return fetchedCollection;
   },
@@ -540,8 +537,7 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   count: function count($this) {
-    var _this = this;
-
+    var self = this;
     var current = parseInt($this.html(), 10);
 
     current = current + 50;
@@ -552,7 +548,7 @@ EVTURN.AboutView = Backbone.View.extend({
     } else {
       setTimeout(function () {
 
-        _this.count($this);
+        self.count($this);
       }, 50);
     }
   }

@@ -1,1 +1,1 @@
-var EVTURN = {};
+"use strict";

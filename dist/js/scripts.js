@@ -1,5 +1,180 @@
-var EVTURN = {};
+"use strict";
 
+const EVTURN = {
+
+  init() {
+    let router = new EVTURN.Router();
+
+    this.preloader();
+    Backbone.history.start();
+  },
+
+  get(string) {
+    let key  = this.getKeyByName(string),
+        name = this.getNameByKey(key),
+        data = EVTURN[key],
+        collection = this.createCollection(name, data),
+        fetchedCollection = this.fetchCollection(name, collection);
+
+    return fetchedCollection;
+  },
+
+  getKeyByName(string) {
+    return '_' + string;
+  },
+
+  getNameByKey(string) {
+    let name  = string.substr(1);
+    let toCap = (name.charAt(0).toUpperCase() + name.substring(1));
+
+    return toCap;
+  },
+
+  createCollection(name, array) {
+    let data           = array;
+    let collectionName = name;
+
+    return new EVTURN[collectionName](data);
+  },
+
+  fetchCollection(name, collection) {
+    let models         = collection.where({featured: true});
+    let collectionName = name;
+
+    models.reverse();
+
+    return new EVTURN[collectionName](models);
+  },
+
+  getModelsById(string, array) {
+    let ids        = array;
+    let key        = this.getKeyByName(string);
+    let name       = this.getNameByKey(key);
+    let data       = EVTURN[key];
+    let collection = this.createCollection(name, data);
+    let models     = [];
+
+    for (let i = 0; i < ids.length; i++) {
+      let model = collection.findWhere({id: ids[i]});
+      models.push(model);
+    }
+
+    models.reverse();
+
+    return new EVTURN[name](models);
+  },
+
+  setModel(selector, model, template) {
+    let $selector = this.tojquery(selector);
+    $selector.html(template(model.toJSON()));
+
+    return this;
+  },
+
+  setView(selector, template) {
+    let $selector = this.tojquery(selector);
+    $selector.html(template());
+
+    return this;
+  },
+
+  appendModel(selector, model, template) {
+    let $selector = this.tojquery(selector);
+    $selector.append(template(model.toJSON()));
+
+    return this;
+  },
+
+  appendModels(selector, collection, template) {
+    let $selector = this.tojquery(selector);
+
+    for (let i = collection.length - 1; i >= 0; i--) {
+      $selector.append(template(collection.models[i].toJSON()));
+    }
+
+    return this;
+  },
+
+  appendArray(selector, array, template) {
+    let $selector = this.tojquery(selector);
+
+    for (let i = 0; i < array.length; i++) {
+      let value = array[i];
+      $selector.append(template({item: value}));
+    }
+
+    return this;
+  },
+
+  appendObjects(selector, array, template) {
+    let $selector = this.tojquery(selector);
+
+    for (let i = 0; i < array.length; i++) {
+      $selector.append(template(array[i]));
+    }
+
+    return this;
+  },
+
+  createElement(string) {
+    let $selector = $(document.getElementsByClassName(string));
+    let element = document.createElement('div');
+    element.className = string;
+    element.dataset.view = string;
+
+    $selector.remove();
+    $(element).insertAfter(new EVTURN.Rza().$el);
+  },
+
+  tojquery(element) {
+    switch (typeof element) {
+      case "object":
+        if (element instanceof jQuery) {
+          return element;
+        }
+      break;
+
+      case "string":
+        if (element.charAt(0) === '.') {
+          return $(element);
+        }
+        else {
+          return $(document.getElementsByClassName(element));
+        }
+    }
+  },
+
+  navActive(string) {
+    $('.nav-item').removeClass('nav-active');
+    $('.nav-' + string).addClass('nav-active');
+  },
+
+  changeState(string) {
+    this.navActive(string);
+    this.createElement(string);
+  },
+
+  scrollUp() {
+    $('html, body').animate({scrollTop: 0 }, 500);
+
+  },
+
+  preloader() {
+
+    $(window).load(function() {
+      let $container = $('#preloader');
+      let $image = $('.preloader');
+
+      $container.delay(500).fadeOut();
+      $image.delay(600).fadeOut(600);
+    });
+
+  }
+
+};
+
+_.extend(Backbone.View.prototype, EVTURN);
+_.extend(Backbone.Router.prototype, EVTURN);
 EVTURN.Link = Backbone.Model.extend({});
 
 EVTURN.Project = Backbone.Model.extend({});
@@ -17,242 +192,65 @@ EVTURN.Links = Backbone.Collection.extend({
 EVTURN.Technologies = Backbone.Collection.extend({
   model: EVTURN.Technology,
 });
-EVTURN.get = function(string) {
-  var data = EVTURN.data[string];
-  var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-  var collection = new EVTURN[capitalize](data);
-  var models = collection.where({featured: true});
+(function() {
 
-  return new EVTURN[capitalize](models.reverse());
-};
+  EVTURN._bio = [
 
-EVTURN.getModelsById = function(string, array) {
-  var data = EVTURN.data[string];
-  var capitalize = (string.charAt(0).toUpperCase() + string.substring(1));
-  var collection = new EVTURN[capitalize](data);
-  var models = [];
+      'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.',
+      'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'
 
-  for (var i = 0; i < array.length; i++) {
-    var model = collection.findWhere({id: array[i]});
-    models.push(model);
-  }
+    ];
 
-  return new EVTURN[capitalize](models.reverse());
-};
+  return EVTURN;
 
-EVTURN.setModel = function(selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template(model.toJSON()));
+})();
+(function() {
 
-  return this;
-};
-
-EVTURN.setView = function(selector, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.html(template());
-
-  return this;
-};
-
-EVTURN.appendModel = function(selector, model, template) {
-  var $selector = EVTURN.tojquery(selector);
-  $selector.append(template(model.toJSON()));
-
-  return this;
-};
-
-EVTURN.appendModels = function(selector, collection, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = collection.length - 1; i >= 0; i--) {
-    $selector.append(template(collection.models[i].toJSON()));
-  }
-
-  return this;
-};
-
-EVTURN.appendArray = function(selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = 0; i < array.length; i++) {
-    var value = array[i];
-    $selector.append(template({item: value}));
-  }
-
-  return this;
-};
-
-EVTURN.appendObjectsArray = function(selector, array, template) {
-  var $selector = EVTURN.tojquery(selector);
-
-  for (var i = 0; i < array.length; i++) {
-    $selector.append(template(array[i]));
-  }
-
-  return this;
-};
-
-EVTURN.createElement = function(string) {
-  var $selector = $(document.getElementsByClassName(string));
-  var element = document.createElement('div');
-  element.className = string;
-  element.dataset.view = string;
-
-  $selector.remove();
-  $(element).insertAfter(new EVTURN.Rza().$el);
-};
-
-EVTURN.tojquery = function(element) {
-  switch (typeof element) {
-    case "object":
-      if (element instanceof jQuery) {
-        return element;
-      }
-    break;
-
-    case "string":
-      if (element.charAt(0) === '.') {
-        return $(element);
-      }
-      else {
-        return $(document.getElementsByClassName(element));
-      }
-  }
-};
-
-EVTURN.navActive = function(string) {
-  $('.nav-link').removeClass('nav-active');
-  $('.nav-' + string).addClass('nav-active');
-};
-
-EVTURN.changeState = function(string) {
-  EVTURN.navActive(string);
-  EVTURN.createElement(string);
-};
-EVTURN.data = {
-  technologies: [
+  EVTURN._links = [
     {
-      technology: 'Node.js',
-      icon: 'devicon-nodejs-plain-wordmark',
-      color: 'devicon-nodejs-plain-wordmark colored',
-      id: 1,
+      name: 'email',
+      url: 'mailto:evturn@gmail.com',
+      icon: 'fa fa-envelope',
       featured: true
     },
     {
-      technology: 'AngularJS',
-      icon: 'devicon-angularjs-plain',
-      color: 'devicon-angularjs-plain colored',
-      id: 2,
+      name: 'github',
+      url: 'http://github.com/evturn',
+      icon: 'fa fa-github-square',
+      featured: true
+    },
+    {
+      name: 'linkedin',
+      url: 'http://www.linkedin.com/in/evturn/',
+      icon: 'fa fa-linkedin-square',
+      featured: true
+    },
+    {
+      name: 'general assembly',
+      url: 'https://profiles.generalassemb.ly/ev',
+      icon: 'fa fa-certificate',
       featured: false
     },
     {
-      technology: 'Backbone.js',
-      icon: 'devicon-backbonejs-plain',
-      color: 'devicon-backbonejs-plain colored',
-      id: 3,
+      name: 'twitter',
+      url: 'http://twitter.com/evturn',
+      icon: 'fa fa-twitter',
       featured: true
     },
     {
-      technology: 'jQuery',
-      icon: 'devicon-jquery-plain',
-      color: 'devicon-jquery-plain colored',
-      id: 4,
-      featured: false
-    },
-
-    {
-      technology: 'Bootstrap',
-      icon: 'devicon-bootstrap-plain',
-      color: 'devicon-bootstrap-plain colored',
-      id: 5,
-      featured: false
-    },
-    {
-      technology: 'git',
-      icon: 'devicon-git-plain',
-      color: 'devicon-git-plain colored',
-      id: 6,
-      featured: true
-    },
-    {
-      technology: 'Photoshop',
-      icon: 'devicon-photoshop-plain',
-      color: 'devicon-photoshop-plain colored',
-      id: 7,
-      featured: true
-    },
-    {
-      technology: 'Ubuntu',
-      icon: 'devicon-ubuntu-plain',
-      color: 'devicon-ubuntu-plain colored',
-      id: 8,
-      featured: true
-    },
-    {
-      technology: 'Firebase',
-      icon: 'fa fa-database one-half-em',
-      color: this.icon,
-      id: 9,
-      featured: false
-    },
-    {
-      technology: 'MongoDB',
-      icon: 'devicon-mongodb-plain',
-      color: 'devicon-mongodb-plain colored',
-      id: 10,
-      featured: true
-    },
-    {
-      technology: 'Underscore.js',
-      icon: 'fa fa-minus one-half-em',
-      color: this.icon,
-      id: 11,
-      featured: false
-    },
-    {
-      technology: 'Express.js',
-      icon: 'devicon-nodejs-plain',
-      color: 'devicon-nodejs-plain colored',
-      id: 12,
-      featured: true
-    },
-    {
-      technology: 'Sass',
-      icon: 'devicon-sass-original',
-      color: 'devicon-sass-original colored',
-      id: 13,
-      featured: true
-    },
-    {
-      technology: 'Gulp.js',
-      icon: 'devicon-gulp-plain',
-      color: 'devicon-gulp-plain',
-      id: 14,
-      featured: true
-    },
-    {
-      technology: 'Less',
-      icon: 'devicon-less-plain-wordmark',
-      color: 'devicon-less-plain-wordmark',
-      id: 15,
-      featured: true
-    },
-    {
-      technology: 'Rails',
-      icon: 'devicon-rails-plain-wordmark',
-      color: 'devicon-rails-plain-wordmark',
-      id: 16,
-      featured: false
-    },
-    {
-      technology: 'PostgreSQL',
-      icon: 'devicon-postgresql-plain-wordmark',
-      color: 'devicon-postgresql-plain-wordmark',
-      id: 17,
+      name: 'skype: @evturn',
+      url: 'javaScript:void(0);', // jshint ignore:line
+      icon: 'fa fa-skype',
       featured: false
     }
-  ],
-  projects: [
+  ];
+
+  return EVTURN;
+
+})();
+(function() {
+
+  EVTURN._projects = [
     {
       name: 'Music Insider',
       description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
@@ -309,10 +307,11 @@ EVTURN.data = {
       id: 6,
       url: 'http://ramenbuffet.com',
       repo: 'https://github.com/evturn/ramen-buffet',
-      thumbnail: "dist/img/ramen-tn.png",
-      lead: 'dist/img/ramen-1.png',
+      thumbnail: "dist/img/ramen-buffet-tn.png",
+      lead: 'dist/img/ramen-buffet-1.png',
       items: [
-        'dist/img/ramen-2.png'
+        'dist/img/ramen-buffet-2.png',
+        'dist/img/ramen-buffet-3.png'
       ],
       featured: true,
       technologies: [1, 3, 14, 12, 10, 11, 15]
@@ -383,46 +382,14 @@ EVTURN.data = {
       featured: true,
       technologies: [1, 14, 12, 10, 13]
     }
-  ],
-  links: [
-    {
-      name: 'email',
-      url: 'mailto:evturn@gmail.com',
-      icon: 'fa fa-envelope',
-      featured: true
-    },
-    {
-      name: 'github',
-      url: 'http://github.com/evturn',
-      icon: 'fa fa-github-square',
-      featured: true
-    },
-    {
-      name: 'linkedin',
-      url: 'http://www.linkedin.com/in/evturn/',
-      icon: 'fa fa-linkedin-square',
-      featured: true
-    },
-    {
-      name: 'general assembly',
-      url: 'https://profiles.generalassemb.ly/ev',
-      icon: 'fa fa-certificate',
-      featured: false
-    },
-    {
-      name: 'twitter',
-      url: 'http://twitter.com/evturn',
-      icon: 'fa fa-twitter',
-      featured: true
-    },
-    {
-      name: 'skype: @evturn',
-      url: 'javaScript:void(0);', // jshint ignore:line
-      icon: 'fa fa-skype',
-      featured: false
-    }
-  ],
-  stats: [
+  ];
+
+  return EVTURN;
+
+})();
+(function() {
+
+  EVTURN._stats = [
     {
       text: 'Quesadillas Eaten',
       number: 777074,
@@ -438,116 +405,260 @@ EVTURN.data = {
       number: 6000,
       icon: 'fa fa-code'
     }
-  ],
-  bio : [
-    'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.',
-    'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'
-  ]
-};
-EVTURN.animations = {
+  ];
 
-  init: function() {
-    this.preloader();
+  return EVTURN;
 
+})();
+(function() {
+
+  EVTURN._technologies = [
+    {
+      technology: 'Node.js',
+      icon: 'devicon-nodejs-plain-wordmark',
+      color: 'devicon-nodejs-plain-wordmark colored',
+      id: 1,
+      featured: true
+    },
+    {
+      technology: 'AngularJS',
+      icon: 'devicon-angularjs-plain',
+      color: 'devicon-angularjs-plain colored',
+      id: 2,
+      featured: false
+    },
+    {
+      technology: 'Backbone.js',
+      icon: 'devicon-backbonejs-plain',
+      color: 'devicon-backbonejs-plain colored',
+      id: 3,
+      featured: true
+    },
+    {
+      technology: 'jQuery',
+      icon: 'devicon-jquery-plain',
+      color: 'devicon-jquery-plain colored',
+      id: 4,
+      featured: false
+    },
+
+    {
+      technology: 'Bootstrap',
+      icon: 'devicon-bootstrap-plain',
+      color: 'devicon-bootstrap-plain colored',
+      id: 5,
+      featured: false
+    },
+    {
+      technology: 'git',
+      icon: 'devicon-git-plain',
+      color: 'devicon-git-plain colored',
+      id: 6,
+      featured: true
+    },
+    {
+      technology: 'Photoshop',
+      icon: 'devicon-photoshop-plain',
+      color: 'devicon-photoshop-plain colored',
+      id: 7,
+      featured: true
+    },
+    {
+      technology: 'Ubuntu',
+      icon: 'devicon-ubuntu-plain',
+      color: 'devicon-ubuntu-plain colored',
+      id: 8,
+      featured: true
+    },
+    {
+      technology: 'Firebase',
+      icon: 'fa fa-database one-half-em',
+      color: 'fa fa-database one-half-em',
+      id: 9,
+      featured: false
+    },
+    {
+      technology: 'MongoDB',
+      icon: 'devicon-mongodb-plain',
+      color: 'devicon-mongodb-plain colored',
+      id: 10,
+      featured: true
+    },
+    {
+      technology: 'Underscore.js',
+      icon: 'fa fa-minus one-half-em',
+      color: 'fa fa-minus one-half-em',
+      id: 11,
+      featured: false
+    },
+    {
+      technology: 'Express.js',
+      icon: 'devicon-nodejs-plain',
+      color: 'devicon-nodejs-plain colored',
+      id: 12,
+      featured: true
+    },
+    {
+      technology: 'Sass',
+      icon: 'devicon-sass-original',
+      color: 'devicon-sass-original colored',
+      id: 13,
+      featured: true
+    },
+    {
+      technology: 'Gulp.js',
+      icon: 'devicon-gulp-plain',
+      color: 'devicon-gulp-plain',
+      id: 14,
+      featured: true
+    },
+    {
+      technology: 'Less',
+      icon: 'devicon-less-plain-wordmark',
+      color: 'devicon-less-plain-wordmark',
+      id: 15,
+      featured: true
+    },
+    {
+      technology: 'Rails',
+      icon: 'devicon-rails-plain-wordmark',
+      color: 'devicon-rails-plain-wordmark',
+      id: 16,
+      featured: false
+    },
+    {
+      technology: 'PostgreSQL',
+      icon: 'devicon-postgresql-plain-wordmark',
+      color: 'devicon-postgresql-plain-wordmark',
+      id: 17,
+      featured: false
+    }
+  ];
+
+  return EVTURN;
+
+})();
+EVTURN.AboutView = Backbone.View.extend({
+
+  el: '.about',
+  viewContainer : _.template($('#technologies-container-template').html()),
+  itemContainer : _.template($('#technology-item-template').html()),
+  statItem      : _.template($('#stat-item-template').html()),
+  bioItem       : _.template($('#bio-paragraph-template').html()),
+
+  initialize() {
+    this.collection = this.get('technologies');
+
+    this.render();
+    this.appendStats();
+    this.appendTechnologies();
+    this.appendBio();
+    this.animateStats();
   },
 
-  preloader: function() {
+  render() {
+    let selector = this.$el;
+    let template = this.viewContainer;
 
-    $(window).load(function() {
-      $container = $('#preloader');
-      $image = $('.preloader');
+    this.setView(selector, template);
 
-      $container.delay(500).fadeOut();
-      $image.delay(600).fadeOut(600);
-    });
-
+    return this;
   },
 
-  statCount: function() {
+  appendStats() {
+    let selector = '.statistics.stat-items';
+    let objects  = EVTURN._stats;
+    let template = this.statItem;
+
+    this.appendObjects(selector, objects, template);
+
+    return this;
+  },
+
+  appendTechnologies() {
+    let selector   = '.technology-items';
+    let collection = this.collection;
+    let template   = this.itemContainer;
+
+    this.appendModels(selector, collection, template);
+
+    return this;
+  },
+
+  appendBio() {
+    let selector = '.paragraphs';
+    let array    = EVTURN._bio;
+    let template = this.bioItem;
+
+    this.appendArray(selector, array, template);
+
+    return this;
+  },
+
+  animateStats() {
+    let self = this;
+
     $('.stat-count').each(function() {
       $(this).data('count', parseInt($(this).html(), 10));
       $(this).html('0');
 
-      EVTURN.animations.count($(this));
+      self.count($(this));
     });
 
   },
-  count: function($this){
-    var current = parseInt($this.html(), 10);
+
+  count($this){
+    let self = this;
+    let current = parseInt($this.html(), 10);
 
     current = current + 50;
     $this.html(++current);
+
     if (current > $this.data('count')) {
       $this.html($this.data('count'));
 
     }
     else {
       setTimeout(function() {
-        EVTURN.animations.count($this);
-        }, 50);
 
+        self.count($this);
+
+      }, 50);
     }
-  },
-
-  scrollUp: function() {
-    $('html, body').animate({scrollTop: 0 }, 500);
-
-  },
-
-  carouselPreloader: function(template) {
-    $('.carousel-image-container').append(template());
-    $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut(600);
-
-  },
-
-};
-EVTURN.init = function() {
-  var router = new EVTURN.Router();
-
-  EVTURN.animations.init();
-  Backbone.history.start();
-};
-EVTURN.AboutView = Backbone.View.extend({
-
-  el: '.about',
-
-  viewContainer: _.template($('#technologies-container-template').html()),
-  itemContainer: _.template($('#technology-item-template').html()),
-  statItem: _.template($('#stat-item-template').html()),
-  bioItem: _.template($('#bio-paragraph-template').html()),
-
-  initialize: function() {
-    this.collection = EVTURN.get('technologies');
-    this.render();
-  },
-
-  render: function() {
-    EVTURN.setView(this.$el, this.viewContainer);
-    EVTURN.appendModels('.technology-items', this.collection, this.itemContainer);
-    EVTURN.appendObjectsArray('.statistics.stat-items', EVTURN.data.stats, this.statItem);
-    EVTURN.appendArray('.paragraphs', EVTURN.data.bio, this.bioItem);
-    EVTURN.animations.statCount();
-    return this;
   },
 
 });
 EVTURN.ContactView = Backbone.View.extend({
 
   el: '.contact',
+  viewContainer : _.template($('#links-container-template').html()),
+  itemContainer : _.template($('#link-item-template').html()),
 
-  viewContainer: _.template($('#links-container-template').html()),
-  itemContainer: _.template($('#link-item-template').html()),
+  initialize() {
+    this.collection = this.get('links');
 
-  initialize: function() {
-    this.collection = EVTURN.get('links');
     this.render();
+    this.appendLinks();
   },
 
-  render: function() {
-    EVTURN.setView(this.$el, this.viewContainer);
-    EVTURN.appendModels('.link-items', this.collection, this.itemContainer);
+  render() {
+    let selector = this.$el;
+    let template = this.viewContainer;
+
+    this.setView(selector, template);
+
+    return this;
   },
+
+  appendLinks() {
+    let selector = '.link-items';
+    let collection = this.collection;
+    let template = this.itemContainer;
+
+    this.appendModels(selector, collection, template);
+
+    return this;
+  }
 
 });
 EVTURN.IndexView = Backbone.View.extend({
@@ -556,83 +667,148 @@ EVTURN.IndexView = Backbone.View.extend({
 
   viewContainer: _.template($('#index-container-template').html()),
 
-  initialize: function() {
+  initialize() {
     this.render();
+    this.appendProjectThumbnails();
   },
 
-  render: function() {
-    EVTURN.setView(this.$el, this.viewContainer);
-    var tn = new EVTURN.Thumbnails(this.$el);
+  render() {
+    let selector = this.$el;
+    let template = this.viewContainer;
+
+    this.setView(selector, template);
+
     return this;
   },
 
+  appendProjectThumbnails() {
+    let tn = new EVTURN.Thumbnails(this.$el);
+
+    return this;
+  }
+
+});
+EVTURN.Thumbnails = Backbone.View.extend({
+
+  el: '.thumbnails-wrapper',
+  viewContainer : _.template($('#thumbnails-container-template').html()),
+  itemContainer : _.template($('#thumbnail-item-template').html()),
+
+  events: {
+    'click .thumbnail-item' : 'scrollUp'
+  },
+
+  initialize(selector) {
+    this.collection = this.get('projects');
+    this.render(selector);
+  },
+
+  render($selector) {
+    this.$el.empty();
+    $selector.append(this.viewContainer());
+    this.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
+
+    return this;
+  },
 });
 EVTURN.Carousel = Backbone.View.extend({
 
   el: '.work',
-
   viewContainer    : _.template($('#carousel-container-template').html()),
   itemContainer    : _.template($('#carousel-item-template').html()),
   itemDescription  : _.template($('#carousel-panel-template').html()),
   itemPreloader    : _.template($('#carousel-preloader-template').html()),
   itemTechnologies : _.template($('#project-technologies-template').html()),
-  itemLinks        :  _.template($('#project-links-template').html()),
+  itemLinks        : _.template($('#project-links-template').html()),
 
-  initialize: function() {
+  initialize() {
     this.render();
-    this.setChildren();
+    this.carouselPreloader();
+    this.appendCarouselPanel();
+    this.appendProjectLinks();
+    this.appendProjectTechnologies();
+    this.appendCarouselImages();
+    this.appendProjectThumbnails();
   },
 
-  render: function() {
-    EVTURN.setModel(this.$el, this.model, this.viewContainer);
-    EVTURN.animations.carouselPreloader(this.itemPreloader);
+  render() {
+    let selector = this.$el;
+    let model    = this.model;
+    let template = this.viewContainer;
+
+    this.setModel(selector, model, template);
+
     return this;
   },
 
-  setChildren: function() {
-    var images = this.model.get('items');
-    var techIds = this.model.get('technologies');
-    var technologies = EVTURN.getModelsById('technologies', techIds);
 
-    EVTURN.appendModel('.carousel-panel', this.model, this.itemDescription);
-    EVTURN.appendModel('.project-links', this.model, this.itemLinks);
-    EVTURN.appendModels('.project-technologies', technologies, this.itemTechnologies);
-    EVTURN.appendArray('.carousel-inner', images, this.itemContainer);
-    var tn = new EVTURN.Thumbnails(this.$el);
-    EVTURN.animations.scrollUp();
+  appendCarouselPanel() {
+    let selector = '.carousel-panel';
+    let model    = this.model;
+    let template = this.itemDescription;
+
+    this.appendModel(selector, model, template);
+
     return this;
+  },
+
+  appendProjectLinks() {
+    let selector = '.project-links';
+    let model    = this.model;
+    let template = this.itemLinks;
+
+    this.appendModel(selector, model, template);
+
+    return this;
+  },
+
+  appendProjectTechnologies() {
+    let selector     = '.project-technologies';
+    let techIds      = this.model.get('technologies');
+    let technologies = this.getModelsById('technologies', techIds);
+    let template     = this.itemTechnologies;
+
+    this.appendModels(selector, technologies, template);
+
+    return this;
+  },
+
+  appendCarouselImages() {
+    let selector = '.carousel-inner';
+    let images   = this.model.get('items');
+    let template = this.itemContainer;
+
+    this.appendArray(selector, images, template);
+
+    return this;
+  },
+
+  appendProjectThumbnails() {
+    let tn = new EVTURN.Thumbnails(this.$el);
+    this.scrollUp();
+  },
+
+  carouselPreloader() {
+    let template = this.itemPreloader;
+
+    $('.carousel-image-container').append(template());
+    $('#carousel-preloader').delay(500).fadeOut();
+    $('.carousel-preloader').delay(600).fadeOut(600);
+
   },
 
 });
 EVTURN.Rza = Backbone.View.extend({
 
   el: '#rza',
-
   child: null,
 
-  render: function() {
+  render() {
     this.$el.html(this.child.$el);
+
     return this;
   },
 
-});
-EVTURN.Thumbnails = Backbone.View.extend({
-  el: '.thumbnails-wrapper',
-  viewContainer : _.template($('#thumbnails-container-template').html()),
-  itemContainer : _.template($('#thumbnail-item-template').html()),
-  initialize: function(selector) {
-    this.collection = EVTURN.get('projects');
-    this.render(selector);
-  },
-  events: {
-    'click .thumbnail-item' : 'EVTURN.animations.scrollUp'
-  },
-  render: function($selector) {
-    this.$el.empty();
-    $selector.append(this.viewContainer());
-    EVTURN.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
-    return this;
-  },
 });
 EVTURN.Router = Backbone.Router.extend({
 
@@ -650,12 +826,12 @@ EVTURN.Router = Backbone.Router.extend({
     'contact'  : 'contact'
   },
 
-  initialize: function() {
+  initialize() {
     this.wrapper = new EVTURN.Rza();
   },
 
-  index: function() {
-    EVTURN.changeState('index');
+  index() {
+    this.changeState('index');
 
     if (this.indexView === null) {
       this.indexView = new EVTURN.IndexView();
@@ -665,23 +841,23 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
 
-  work: function(model) {
-    EVTURN.changeState('work');
+  work(model) {
+    this.changeState('work');
 
     if (this.workView === null) {
       this.workView = new EVTURN.Carousel({model: model});
       this.wrapper.child = this.workView;
     }
     else {
-      var view = new EVTURN.Carousel({model: model});
+      let view = new EVTURN.Carousel({model: model});
       this.wrapper.child = view;
     }
 
     this.wrapper.render();
   },
 
-  about: function() {
-    EVTURN.changeState('about');
+  about() {
+    this.changeState('about');
 
     if (this.aboutView === null) {
       this.aboutView = new EVTURN.AboutView();
@@ -691,8 +867,8 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
 
-  contact: function() {
-    EVTURN.changeState('contact');
+  contact() {
+    this.changeState('contact');
 
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();
@@ -702,9 +878,9 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.render();
   },
 
-  project: function(id) {
-    var collection = EVTURN.get('projects');
-    var model = collection.get(id) || collection.get(1);
+  project(id) {
+    let collection = this.get('projects');
+    let model = collection.get(id) || collection.get(1);
 
     this.work(model);
   },

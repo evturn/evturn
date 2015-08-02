@@ -68,6 +68,7 @@ EVTURN.AboutView = Backbone.View.extend({
   },
 
   count($this){
+    let self = this;
     let current = parseInt($this.html(), 10);
 
     current = current + 50;
@@ -78,9 +79,9 @@ EVTURN.AboutView = Backbone.View.extend({
 
     }
     else {
-      setTimeout(() => {
+      setTimeout(function() {
 
-        this.count($this);
+        self.count($this);
 
       }, 50);
     }

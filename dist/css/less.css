@@ -2592,6 +2592,11 @@ h1 {
   text-align: left;
   margin-bottom: 10px;
 }
+@media (min-width: 800px) {
+  .project-technologies .meta {
+    margin-left: 5px;
+  }
+}
 .project-technologies i {
   color: #ffffff;
   height: 30px;
