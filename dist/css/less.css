@@ -1802,8 +1802,8 @@
   content: "\f23a";
 }
 .img-shadow {
-  -webkit-box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px -3px 19px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
 }
 .no-scrollbar ::-webkit-scrollbar {
   display: none;
@@ -2014,8 +2014,8 @@ h1 {
   color: #ffffff;
 }
 .about .img-scale {
-  -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
 }
 .about .info-container,
 .about .bio-container {
@@ -2118,8 +2118,8 @@ h1 {
   color: #231f20;
 }
 .contact .img-scale {
-  -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
 }
 .contact .link-items {
   padding-top: 25px;
@@ -2465,8 +2465,8 @@ h1 {
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
-  -webkit-box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 22px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
   color: #ffffff;
   border-radius: 3px;
   background-color: #231f20;
