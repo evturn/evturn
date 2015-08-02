@@ -19,9 +19,9 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   render() {
-    let selector = this.$el;
-    let model    = this.model;
-    let template = this.viewContainer;
+    let selector = this.$el,
+        model    = this.model,
+        template = this.viewContainer;
 
     this.setModel(selector, model, template);
 
@@ -30,9 +30,9 @@ EVTURN.Carousel = Backbone.View.extend({
 
 
   appendCarouselPanel() {
-    let selector = '.carousel-panel';
-    let model    = this.model;
-    let template = this.itemDescription;
+    let selector = '.carousel-panel',
+        model    = this.model,
+        template = this.itemDescription;
 
     this.appendModel(selector, model, template);
 
@@ -40,9 +40,9 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   appendProjectLinks() {
-    let selector = '.project-links';
-    let model    = this.model;
-    let template = this.itemLinks;
+    let selector = '.project-links',
+        model    = this.model,
+        template = this.itemLinks;
 
     this.appendModel(selector, model, template);
 
@@ -50,10 +50,10 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   appendProjectTechnologies() {
-    let selector     = '.project-technologies';
-    let techIds      = this.model.get('technologies');
-    let technologies = this.getModelsById('technologies', techIds);
-    let template     = this.itemTechnologies;
+    let selector     = '.project-technologies',
+        techIds      = this.model.get('technologies'),
+        technologies = this.getModelsById('technologies', techIds),
+        template     = this.itemTechnologies;
 
     this.appendModels(selector, technologies, template);
 
@@ -61,9 +61,9 @@ EVTURN.Carousel = Backbone.View.extend({
   },
 
   appendCarouselImages() {
-    let selector = '.carousel-inner';
-    let images   = this.model.get('items');
-    let template = this.itemContainer;
+    let selector = '.carousel-inner',
+        images   = this.model.get('items'),
+        template = this.itemContainer;
 
     this.appendArray(selector, images, template);
 
@@ -72,6 +72,7 @@ EVTURN.Carousel = Backbone.View.extend({
 
   appendProjectThumbnails() {
     let tn = new EVTURN.Thumbnails(this.$el);
+
     this.scrollUp();
   },
 
