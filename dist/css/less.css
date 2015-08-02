@@ -2486,6 +2486,7 @@ h1 {
   .carousel-wrapper {
     height: 100%;
     width: 100%;
+    overflow: hidden;
   }
 }
 .carousel-image-container {
