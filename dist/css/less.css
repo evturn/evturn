@@ -1989,6 +1989,7 @@ h1 {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   text-decoration: none;
+  color: #231f20;
 }
 .navbar .nav-text,
 .navbar .nav-text a {

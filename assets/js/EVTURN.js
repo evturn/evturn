@@ -137,7 +137,7 @@ const EVTURN = {
         if (element instanceof jQuery) {
           return element;
         }
-      break;
+        break;
 
       case "string":
         if (element.charAt(0) === '.') {
