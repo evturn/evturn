@@ -2,21 +2,19 @@
 
   EVTURN._projects = [
     {
-      name: 'Music Insider',
-      description: "Music Insider is a Los Angeles based podcast in which this website hosts along with a blog.",
+      name: 'Made In Music',
+      description: "This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.",
       id: 1,
-      url: 'http://musicinsider.co',
-      repo: 'https://github.com/evturn/musicinsider.co',
-      thumbnail: "dist/img/mi-tn.png",
-      lead: "dist/img/mi-1.png",
+      url: 'http://madeinmusic.co',
+      repo: 'https://github.com/evturn/madeinmusic.co',
+      thumbnail: "dist/img/mim-tn.png",
+      lead: "dist/img/mim-1.png",
       items: [
-        'dist/img/mi-2.png',
-        'dist/img/mi-3.png',
-        'dist/img/mi-4.png',
-        'dist/img/mi-5.png'
+        'dist/img/mim-2.png',
+        'dist/img/mim-3.png'
       ],
       featured: true,
-      technologies: [1, 3, 14, 12, 10, 11, 13]
+      technologies: [1, 3, 14, 12, 10, 11, 15]
     },
     {
       name: 'Marshallz Blog',
