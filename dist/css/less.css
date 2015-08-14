@@ -2166,6 +2166,11 @@ h1 {
     height: 321px;
   }
 }
+@media (min-width: 850px) {
+  .index .container.animated {
+    height: 341px;
+  }
+}
 @media (min-width: 900px) {
   .index .container.animated {
     height: 365px;
@@ -2198,6 +2203,11 @@ h1 {
 @media (min-width: 800px) {
   .thumbnails-offset {
     height: 321px;
+  }
+}
+@media (min-width: 850px) {
+  .thumbnails-offset {
+    height: 341px;
   }
 }
 @media (min-width: 900px) {
@@ -2452,6 +2462,11 @@ h1 {
     height: 321px;
   }
 }
+@media (min-width: 850px) {
+  .container.carousel {
+    height: 341px;
+  }
+}
 @media (min-width: 900px) {
   .container.carousel {
     height: 365px;
@@ -2552,6 +2567,16 @@ h1 {
   margin-bottom: 10px;
   font-weight: normal;
   text-align: center;
+}
+@media (min-width: 800px) {
+  .project-text .meta {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1000px) {
+  .project-text .meta {
+    font-size: 15px;
+  }
 }
 .project-text a {
   text-decoration: none;
