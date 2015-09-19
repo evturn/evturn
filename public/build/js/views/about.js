@@ -1,60 +1,55 @@
 EVTURN.AboutView = Backbone.View.extend({
 
   el: '.about',
-  viewContainer : _.template($('#technologies-container-template').html()),
-  itemContainer : _.template($('#technology-item-template').html()),
-  statItem      : _.template($('#stat-item-template').html()),
-  bioItem       : _.template($('#bio-paragraph-template').html()),
-
   initialize() {
-    this.collection = EVTURN.get('tech');
-
     this.render();
     this.appendStats();
     this.appendTechnologies();
     this.appendBio();
     this.animateStats();
   },
-
   render() {
-    let selector = this.$el,
-        template = this.viewContainer;
-
-    this.setView(selector, template);
+    this.$el.html(EVTURN.techViewTemplate());
 
     return this;
   },
-
   appendStats() {
-    let selector = '.statistics.stat-items',
-        objects  = EVTURN._stats,
-        template = this.statItem;
+    let $sel = $('.statistics.stat-items'),
+        collection = EVTURN.get('stats');
 
-    this.appendObjects(selector, objects, template);
+    for (let i = 0; i < collection.models.length; i++) {
+      let model = collection.models[i].toJSON();
+
+      $sel.append(EVTURN.statItemTemplate(model));
+    }
 
     return this;
   },
-
   appendTechnologies() {
-    let selector   = '.technology-items',
-        collection = this.collection,
-        template   = this.itemContainer;
+    let $sel = $('.technology-items'),
+        collection = EVTURN.get('tech');
 
-    this.appendModels(selector, collection, template);
+    for (let i = 0; i < collection.models.length; i++) {
+      let model = collection.models[i].toJSON();
+
+      $sel.append(EVTURN.techItemTemplate(model));
+    }
 
     return this;
   },
-
   appendBio() {
-    let selector = '.paragraphs',
-        array    = EVTURN._bio,
-        template = this.bioItem;
+    let $sel = $('.paragraphs'),
+        collection = EVTURN.get('bio');
 
-    this.appendArray(selector, array, template);
+
+    for (let i = 0; i < collection.models.length; i++) {
+      let model = collection.models[i].toJSON();
+
+      $sel.append(EVTURN.bioTemplate(model));
+    }
 
     return this;
   },
-
   animateStats() {
     let self = this;
 
@@ -66,7 +61,6 @@ EVTURN.AboutView = Backbone.View.extend({
     });
 
   },
-
   count($this){
     let self = this,
         current = parseInt($this.html(), 10);
@@ -75,16 +69,12 @@ EVTURN.AboutView = Backbone.View.extend({
     $this.html(++current);
 
     if (current > $this.data('count')) {
-      $this.html($this.data('count'));
-
+        $this.html($this.data('count'));
     }
     else {
-      setTimeout(function() {
-
-        self.count($this);
-
-      }, 50);
+        setTimeout(function() {
+          self.count($this);
+        }, 50);
     }
-  },
-
+  }
 });

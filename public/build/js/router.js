@@ -67,7 +67,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   project(id) {
-    let collection = EVTURN.get('projects'),
+    let collection = EVTURN.get('apps'),
         model = collection.get(id) || collection.get(1);
 
     this.work(model);

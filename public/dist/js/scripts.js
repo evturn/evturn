@@ -48,12 +48,12 @@ var EVTURN = window.EVTURN || {};
         break;
     };
 
-    var models = _.where(data, { featured: true });
+    var featured = _.where(data, { featured: true }),
+        models = featured.length ? featured : data;
+
     models.reverse();
 
-    var collection = new EVTURN.Collection(models);
-
-    return collection;
+    return new EVTURN.Collection(models);
   };
 
   EVTURN.getModelsById = function (string, array) {
@@ -437,7 +437,11 @@ var EVTURN = window.EVTURN || {};
   };
 
   Get.bio = function () {
-    return ['As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.', 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'];
+    return [{
+      paragraph: 'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.'
+    }, {
+      paragraph: 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'
+    }];
   };
 
   return _.extend(app, Get);
@@ -450,9 +454,45 @@ var EVTURN = window.EVTURN || {};
   EVTURN.contactViewTemplate;
   EVTURN.linkItemTemplate;
 
+  EVTURN.techViewTemplate;
+  EVTURN.techItemTemplate;
+
+  EVTURN.statItemTemplate;
+  EVTURN.bioTemplate;
+
   Compiler.init = function () {
     Compiler.contactViewCompiler();
     Compiler.linkItemCompiler();
+
+    Compiler.techViewCompiler();
+    Compiler.techItemCompiler();
+
+    Compiler.statItemCompiler();
+    Compiler.bioCompiler();
+  };
+
+  Compiler.techViewCompiler = function () {
+    var html = "\n          <div class=\"container about\">\n            <div class=\"wrapper\">\n              <div class=\"image-container animated fadeInUp\">\n                <img class=\"img-scale\" src=\"public/dist/img/tile.png\">\n              </div>\n              <div class=\"bio-container\">\n                <p class=\"section-title\">Web Developer</p>\n                <div class=\"paragraphs\">\n                  <!-- Bio -->\n                </div>\n              </div>\n              <div class=\"info-container\">\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Notable Build Tools</p>\n                  <div class=\"technology-items stat-items\">\n                    <!-- Technologies -->\n                  </div>\n                </div>\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Statistics</p>\n                  <div class=\"statistics stat-items\">\n                    <!-- Stats -->\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>";
+
+    return EVTURN.techViewTemplate = _.template(html);
+  };
+
+  Compiler.techItemCompiler = function () {
+    var html = "\n          <div class=\"stat-item\">\n            <i class=\"<%= icon %>\"></i>\n            <p class=\"specs\"><%= technology %></p>\n          </div>";
+
+    return EVTURN.techItemTemplate = _.template(html);
+  };
+
+  Compiler.statItemCompiler = function () {
+    var html = "\n          <div class=\"stat-item\">\n            <span class=\"stat-icon\"><i class=\"<%= icon %>\"></i></span>\n            <h4 class=\"stat-count\"><%= number %></h4>\n            <p><%= text %></p>\n          </div>";
+
+    return EVTURN.statItemTemplate = _.template(html);
+  };
+
+  Compiler.bioCompiler = function () {
+    var html = "\n          <div class=\"paragraph\">\n            <p><%= paragraph %></p>\n          </div>";
+
+    return EVTURN.bioTemplate = _.template(html);
   };
 
   Compiler.contactViewCompiler = function () {
@@ -476,60 +516,54 @@ var EVTURN = window.EVTURN || {};
 EVTURN.AboutView = Backbone.View.extend({
 
   el: '.about',
-  viewContainer: _.template($('#technologies-container-template').html()),
-  itemContainer: _.template($('#technology-item-template').html()),
-  statItem: _.template($('#stat-item-template').html()),
-  bioItem: _.template($('#bio-paragraph-template').html()),
-
   initialize: function initialize() {
-    this.collection = EVTURN.get('tech');
-
     this.render();
     this.appendStats();
     this.appendTechnologies();
     this.appendBio();
     this.animateStats();
   },
-
   render: function render() {
-    var selector = this.$el,
-        template = this.viewContainer;
-
-    this.setView(selector, template);
+    this.$el.html(EVTURN.techViewTemplate());
 
     return this;
   },
-
   appendStats: function appendStats() {
-    var selector = '.statistics.stat-items',
-        objects = EVTURN._stats,
-        template = this.statItem;
+    var $sel = $('.statistics.stat-items'),
+        collection = EVTURN.get('stats');
 
-    this.appendObjects(selector, objects, template);
+    for (var i = 0; i < collection.models.length; i++) {
+      var model = collection.models[i].toJSON();
+
+      $sel.append(EVTURN.statItemTemplate(model));
+    }
 
     return this;
   },
-
   appendTechnologies: function appendTechnologies() {
-    var selector = '.technology-items',
-        collection = this.collection,
-        template = this.itemContainer;
+    var $sel = $('.technology-items'),
+        collection = EVTURN.get('tech');
 
-    this.appendModels(selector, collection, template);
+    for (var i = 0; i < collection.models.length; i++) {
+      var model = collection.models[i].toJSON();
+
+      $sel.append(EVTURN.techItemTemplate(model));
+    }
 
     return this;
   },
-
   appendBio: function appendBio() {
-    var selector = '.paragraphs',
-        array = EVTURN._bio,
-        template = this.bioItem;
+    var $sel = $('.paragraphs'),
+        collection = EVTURN.get('bio');
 
-    this.appendArray(selector, array, template);
+    for (var i = 0; i < collection.models.length; i++) {
+      var model = collection.models[i].toJSON();
+
+      $sel.append(EVTURN.bioTemplate(model));
+    }
 
     return this;
   },
-
   animateStats: function animateStats() {
     var self = this;
 
@@ -540,7 +574,6 @@ EVTURN.AboutView = Backbone.View.extend({
       self.count($(this));
     });
   },
-
   count: function count($this) {
     var self = this,
         current = parseInt($this.html(), 10);
@@ -552,12 +585,10 @@ EVTURN.AboutView = Backbone.View.extend({
       $this.html($this.data('count'));
     } else {
       setTimeout(function () {
-
         self.count($this);
       }, 50);
     }
   }
-
 });
 'use strict';
 
@@ -812,7 +843,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   project: function project(id) {
-    var collection = EVTURN.get('projects'),
+    var collection = EVTURN.get('apps'),
         model = collection.get(id) || collection.get(1);
 
     this.work(model);
