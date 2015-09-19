@@ -58,7 +58,7 @@ EVTURN.Carousel = Backbone.View.extend({
 
       $sel.append(EVTURN.carouselImageTemplate(model));
       if (i === 0) {
-        $sel.children().first().addClass('active');
+          $sel.children().first().addClass('active');
       }
     }
 

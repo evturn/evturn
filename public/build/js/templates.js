@@ -4,46 +4,36 @@
     let Compiler = {};
 
     EVTURN.heroTemplate;
-
     EVTURN.carouselViewTemplate;
     EVTURN.carouselPanelTemplate;
     EVTURN.carouselTechTemplate;
     EVTURN.carouselLinkTemplate;
     EVTURN.carouselImageTemplate;
     EVTURN.carouselPreloaderTemplate;
-
     EVTURN.thumbnailViewTemplate;
     EVTURN.thumbnailItemTemplate;
-
     EVTURN.contactViewTemplate;
     EVTURN.linkItemTemplate;
-
     EVTURN.techViewTemplate;
     EVTURN.techItemTemplate;
-
     EVTURN.statItemTemplate;
     EVTURN.bioTemplate;
 
     Compiler.init = function() {
       Compiler.heroCompiler();
-
       Compiler.carouselViewCompiler();
       Compiler.carouselPanelCompiler();
       Compiler.carouselTechCompiler();
       Compiler.carouselLinkCompiler();
       Compiler.carouselImageCompiler();
       Compiler.carouselPreloaderCompiler();
-
       Compiler.thumbnailViewCompiler();
       Compiler.thumbnailItemCompiler();
       Compiler.carouselLinkCompiler();
-
       Compiler.contactViewCompiler();
       Compiler.linkItemCompiler();
-
       Compiler.techViewCompiler();
       Compiler.techItemCompiler();
-
       Compiler.statItemCompiler();
       Compiler.bioCompiler();
     };

@@ -354,46 +354,36 @@ var EVTURN = window.EVTURN || {};
   var Compiler = {};
 
   EVTURN.heroTemplate;
-
   EVTURN.carouselViewTemplate;
   EVTURN.carouselPanelTemplate;
   EVTURN.carouselTechTemplate;
   EVTURN.carouselLinkTemplate;
   EVTURN.carouselImageTemplate;
   EVTURN.carouselPreloaderTemplate;
-
   EVTURN.thumbnailViewTemplate;
   EVTURN.thumbnailItemTemplate;
-
   EVTURN.contactViewTemplate;
   EVTURN.linkItemTemplate;
-
   EVTURN.techViewTemplate;
   EVTURN.techItemTemplate;
-
   EVTURN.statItemTemplate;
   EVTURN.bioTemplate;
 
   Compiler.init = function () {
     Compiler.heroCompiler();
-
     Compiler.carouselViewCompiler();
     Compiler.carouselPanelCompiler();
     Compiler.carouselTechCompiler();
     Compiler.carouselLinkCompiler();
     Compiler.carouselImageCompiler();
     Compiler.carouselPreloaderCompiler();
-
     Compiler.thumbnailViewCompiler();
     Compiler.thumbnailItemCompiler();
     Compiler.carouselLinkCompiler();
-
     Compiler.contactViewCompiler();
     Compiler.linkItemCompiler();
-
     Compiler.techViewCompiler();
     Compiler.techItemCompiler();
-
     Compiler.statItemCompiler();
     Compiler.bioCompiler();
   };
@@ -745,7 +735,6 @@ EVTURN.Router = Backbone.Router.extend({
   workView: null,
   aboutView: null,
   contactView: null,
-
   routes: {
     '': 'index',
     'work/*': 'project',
@@ -753,11 +742,9 @@ EVTURN.Router = Backbone.Router.extend({
     'about': 'about',
     'contact': 'contact'
   },
-
   initialize: function initialize() {
     this.wrapper = new EVTURN.Rza();
   },
-
   index: function index() {
     EVTURN.changeState('index');
 
@@ -768,7 +755,6 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.child = this.indexView;
     this.wrapper.render();
   },
-
   work: function work(model) {
     EVTURN.changeState('work');
 
@@ -782,7 +768,6 @@ EVTURN.Router = Backbone.Router.extend({
 
     this.wrapper.render();
   },
-
   about: function about() {
     EVTURN.changeState('about');
 
@@ -793,7 +778,6 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.child = this.aboutView;
     this.wrapper.render();
   },
-
   contact: function contact() {
     EVTURN.changeState('contact');
 
@@ -804,14 +788,12 @@ EVTURN.Router = Backbone.Router.extend({
     this.wrapper.child = this.contactView;
     this.wrapper.render();
   },
-
   project: function project(id) {
     var collection = EVTURN.get('apps'),
         model = collection.get(id) || collection.get(1);
 
     this.work(model);
   }
-
 });
 
 EVTURN.init();

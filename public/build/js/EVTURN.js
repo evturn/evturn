@@ -40,12 +40,12 @@ let EVTURN = window.EVTURN || {};
     };
 
     if (options) {
-      models = _.has(data, 'id') ? _.sortBy(data, 'id') : data;
+        models = _.has(data, 'id') ? _.sortBy(data, 'id') : data;
     }
     else {
-      let featured = _.has(_.first(data), 'featured') ? _.where(data, {featured: true}) : data;
+        let featured = _.has(_.first(data), 'featured') ? _.where(data, {featured: true}) : data;
 
-      models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
+        models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
     }
 
     return new EVTURN.Collection(models);
