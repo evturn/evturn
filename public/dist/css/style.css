@@ -5182,15 +5182,21 @@ a {
 .container {
   margin-left: auto;
   margin-right: auto;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+@media (min-width: 400px) {
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 .inner,
 .wrapper {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 .btn {
   display: inline-block;
@@ -5238,31 +5244,66 @@ a {
 }
 .ev-navbar {
   position: absolute;
-  height: 50px;
-  padding-top: 25px;
+  padding-top: 20px;
   right: 0;
   left: 0;
   top: 0;
   display: inline-block;
   z-index: 3;
 }
-.ev-navbar .header-container img {
-  width: 95px;
-  position: absolute;
-  top: -10px;
-  right: 0;
-  left: 0;
-  z-index: 2;
-  padding: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 5px solid #ffffff;
-  border-radius: 50%;
+@media (min-width: 600px) {
+  .ev-navbar {
+    padding-top: 60px;
+  }
 }
 .ev-navbar .burger-container {
   color: #ffffff;
   float: right;
-  font-size: 4rem;
+  font-size: 3rem;
+  cursor: pointer;
+}
+@media (min-width: 600px) {
+  .ev-navbar .burger-container .fa {
+    vertical-align: -webkit-baseline-middle;
+  }
+}
+.ev-navbar .header-container {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 70px;
+  z-index: 2;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #ffffff;
+}
+@media (min-width: 400px) {
+  .ev-navbar .header-container {
+    top: -25px;
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+  }
+}
+.ev-navbar .header-container img {
+  z-index: 3;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.ev-navbar .header-container .image-overlay {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  background-color: #c9c8c7;
+  opacity: 0.5;
+  height: 100%;
 }
 .ev-nav {
   display: none;
@@ -5422,21 +5463,33 @@ a {
   color: #231f20;
 }
 .index-header {
-  height: 320px;
+  height: 100vh;
   position: relative;
   display: block;
   overflow: hidden;
 }
-@media (min-width: 600px) {
+@media (min-width: 400px) {
   .index-header {
-    height: 600px;
+    height: 400px;
   }
 }
+@media (min-width: 600px) {
+  .index-header {
+    height: 450px;
+  }
+}
+.index-header video {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  right: 0;
+  height: 100vh;
+  width: auto;
+  z-index: 1;
+}
 .index-header .carousel-index {
-  background-image: url('../img/apps/ramen-buffet-2.png');
   background-size: cover;
-  background-position-x: 50%;
-  background-position-y: 0%;
+  background-image: url('http://media.giphy.com/media/LmWnCBTOGUmw8/giphy.gif');
   position: absolute;
   top: 0;
   right: 0;
@@ -5445,11 +5498,27 @@ a {
   background-repeat: no-repeat;
   display: block;
 }
-.index-header video {
-  margin-top: -25px;
+.index-header .curtain {
   position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.4;
   z-index: 1;
+  height: 100%;
+}
+.landing .headline-container {
+  background-color: #ffffff;
+  text-align: center;
+  margin-top: -100%;
+  position: relative;
+  z-index: 5;
+}
+.landing .subhead {
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', sans;
+  font-size: 3rem;
+  color: #231f20;
 }
 .footer {
   position: absolute;

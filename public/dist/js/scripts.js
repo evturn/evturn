@@ -427,7 +427,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.heroCompiler = function () {
-    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n          </section>";
+    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n          </section>\n          <div class=\"container landing\">\n            <div class=\"inner\">\n              <div class=\"headline-container\">\n              <h3 class=\"subhead\">Evan Turner</h3>\n                <h3 class=\"subhead\">Web Developer</h3>\n              </div>\n            </div>\n          </div>";
 
     return EVTURN.heroTemplate = _.template(html);
   };
@@ -683,7 +683,7 @@ EVTURN.IndexView = Backbone.View.extend({
   el: '.index',
   initialize: function initialize() {
     this.render();
-    this.appendProjectThumbnails();
+    // this.appendProjectThumbnails();
     this.setVideo();
   },
   render: function render() {
@@ -698,7 +698,6 @@ EVTURN.IndexView = Backbone.View.extend({
       EVTURN.Vid(video);
     });
   },
-
   appendProjectThumbnails: function appendProjectThumbnails() {
     var tn = new EVTURN.Thumbnails(this.$el);
 
@@ -712,7 +711,7 @@ EVTURN.Vid = function (video) {
 
   Player.initialized = false;
   Player.playCount = null;
-  Player.playlist = ['public/build/vid-1.mov', 'public/build/vid-3.mov', 'public/build/vid-2.mov', 'public/build/vid-4.mov', 'public/build/vid-5.mov'];
+  Player.playlist = ['public/build/vid-12.mov', 'public/build/vid-7.mov', 'public/build/vid-8.mov', 'public/build/vid-6.mov', 'public/build/vid-11.mov', 'public/build/vid-10.mov', 'public/build/vid-3.mov', 'public/build/vid-1.mov', 'public/build/vid-2.mov', 'public/build/vid-4.mov'];
 
   Player.timekeeper = function () {
     var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
@@ -730,17 +729,31 @@ EVTURN.Vid = function (video) {
     video.muted = true;
     video.autoplay = true;
     video.preload = 'auto';
-    video.style.width = '100%';
     video.src = Player.playlist[Player.playCount];
     video.addEventListener('ended', Player.callback);
+    video.addEventListener('loadedmetadata', Player.reposition);
     video.play;
+    video.playbackRate = 0.5;
     Player.initialized = true;
   };
 
   Player.callback = function () {
     Player.timekeeper();
     video.setAttribute('src', Player.playlist[Player.playCount]);
+    Player.reposition();
     video.play;
+    video.playbackRate = 0.5;
+  };
+
+  Player.reposition = function (e) {
+    var width = video.videoWidth,
+        height = video.videoHeight;
+
+    if (height > width) {
+      video.style.left = 0;
+    } else {
+      video.style.left = 'inherit';
+    }
   };
 
   Player.init();

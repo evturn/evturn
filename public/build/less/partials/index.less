@@ -1,17 +1,29 @@
 .index-header {
-  height: 320px;
+  height: 100vh;
   position: relative;
   display: block;
   overflow: hidden;
 
+  @media (min-width: @xs) {
+    height: 400px;
+  }
+
   @media (min-width: @sm) {
-    height: 600px;
+    height: 450px;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    right: 0;
+    height: 100vh;
+    width: auto;
+    z-index: 1
   }
   .carousel-index {
-    background-image: url('../img/apps/ramen-buffet-2.png');
     background-size: cover;
-    background-position-x: 50%;
-    background-position-y: 0%;
+    background-image: url('http://media.giphy.com/media/LmWnCBTOGUmw8/giphy.gif');
     position: absolute;
     top: 0;
     right: 0;
@@ -20,23 +32,31 @@
     background-repeat: no-repeat;
     display: block;
   }
-  // .curtain {
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   left: 0;
-  //   background-color: @black;
-  //   opacity: 0.3;
-  //   z-index: 1;
-  //   height: 100%;
-  // }
-
-video {
-  margin-top: -25px;
-  position: absolute;
-  top: 0;
-  z-index: 1
+  .curtain {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    // background-color: @black;
+    opacity: 0.4;
+    z-index: 1;
+    height: 100%;
+  }
 }
 
+.landing {
+  .headline-container {
+    background-color: @color-bg-white;
+    text-align: center;
+    margin-top: -100%;
+    position: relative;
+    z-index: 5;
+  }
+  .subhead {
+    text-transform: uppercase;
+    font-family: @font-sans;
+    font-size: 3rem;
+    color: @color-tx-black;
+  }
 }
 

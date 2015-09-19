@@ -3,7 +3,7 @@ EVTURN.IndexView = Backbone.View.extend({
   el: '.index',
   initialize() {
     this.render();
-    this.appendProjectThumbnails();
+    // this.appendProjectThumbnails();
     this.setVideo();
   },
   render() {
@@ -18,7 +18,6 @@ EVTURN.IndexView = Backbone.View.extend({
       EVTURN.Vid(video);
     });
   },
-
   appendProjectThumbnails() {
     let tn = new EVTURN.Thumbnails(this.$el);
 
@@ -33,11 +32,16 @@ EVTURN.Vid = function(video) {
   Player.initialized = false;
   Player.playCount = null;
   Player.playlist = [
-        'public/build/vid-1.mov',
+        'public/build/vid-12.mov',
+        'public/build/vid-7.mov',
+        'public/build/vid-8.mov',
+        'public/build/vid-6.mov',
+        'public/build/vid-11.mov',
+        'public/build/vid-10.mov',
         'public/build/vid-3.mov',
+        'public/build/vid-1.mov',
         'public/build/vid-2.mov',
-        'public/build/vid-4.mov',
-        'public/build/vid-5.mov'
+        'public/build/vid-4.mov'
   ];
 
   Player.timekeeper = function() {
@@ -57,17 +61,32 @@ EVTURN.Vid = function(video) {
     video.muted = true;
     video.autoplay = true;
     video.preload = 'auto';
-    video.style.width = '100%';
     video.src = Player.playlist[Player.playCount];
     video.addEventListener('ended', Player.callback);
+    video.addEventListener('loadedmetadata', Player.reposition);
     video.play;
+    video.playbackRate = 0.5;
     Player.initialized = true;
   };
 
   Player.callback = function() {
     Player.timekeeper();
     video.setAttribute('src', Player.playlist[Player.playCount]);
+    Player.reposition();
     video.play;
+    video.playbackRate = 0.5;
+  };
+
+  Player.reposition = function(e) {
+    let width = video.videoWidth,
+        height = video.videoHeight;
+
+    if (height > width) {
+        video.style.left = 0;
+    }
+    else {
+        video.style.left = 'inherit';
+    }
   };
 
   Player.init();
