@@ -451,6 +451,8 @@ var EVTURN = window.EVTURN || {};
 (function (app) {
   var Compiler = {};
 
+  EVTURN.heroTemplate;
+
   EVTURN.contactViewTemplate;
   EVTURN.linkItemTemplate;
 
@@ -461,6 +463,8 @@ var EVTURN = window.EVTURN || {};
   EVTURN.bioTemplate;
 
   Compiler.init = function () {
+    Compiler.heroCompiler();
+
     Compiler.contactViewCompiler();
     Compiler.linkItemCompiler();
 
@@ -469,6 +473,12 @@ var EVTURN = window.EVTURN || {};
 
     Compiler.statItemCompiler();
     Compiler.bioCompiler();
+  };
+
+  Compiler.heroCompiler = function () {
+    var html = "\n          <div class=\"container animated fadeInUp\">\n            <div class=\"wrapper\">\n              <img class=\"img-scale\" src=\"public/dist/img/hero-avatar.png\">\n              <p class=\"header-subhead\">Evan Turner // Development</p>\n            </div>\n          </div>";
+
+    return EVTURN.heroTemplate = _.template(html);
   };
 
   Compiler.techViewCompiler = function () {
@@ -622,29 +632,20 @@ EVTURN.ContactView = Backbone.View.extend({
 EVTURN.IndexView = Backbone.View.extend({
 
   el: '.index',
-
-  viewContainer: _.template($('#index-container-template').html()),
-
   initialize: function initialize() {
     this.render();
     this.appendProjectThumbnails();
   },
-
   render: function render() {
-    var selector = this.$el,
-        template = this.viewContainer;
-
-    this.setView(selector, template);
+    this.$el.html(EVTURN.heroTemplate());
 
     return this;
   },
-
   appendProjectThumbnails: function appendProjectThumbnails() {
     var tn = new EVTURN.Thumbnails(this.$el);
 
     return this;
   }
-
 });
 'use strict';
 

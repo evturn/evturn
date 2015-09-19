@@ -1,27 +1,18 @@
 EVTURN.IndexView = Backbone.View.extend({
 
   el: '.index',
-
-  viewContainer: _.template($('#index-container-template').html()),
-
   initialize() {
     this.render();
     this.appendProjectThumbnails();
   },
-
   render() {
-    let selector = this.$el,
-        template = this.viewContainer;
-
-    this.setView(selector, template);
+    this.$el.html(EVTURN.heroTemplate());
 
     return this;
   },
-
   appendProjectThumbnails() {
     let tn = new EVTURN.Thumbnails(this.$el);
 
     return this;
   }
-
 });

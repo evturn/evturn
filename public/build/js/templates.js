@@ -3,6 +3,8 @@
 (function(app) {
     let Compiler = {};
 
+    EVTURN.heroTemplate;
+
     EVTURN.contactViewTemplate;
     EVTURN.linkItemTemplate;
 
@@ -13,6 +15,8 @@
     EVTURN.bioTemplate;
 
     Compiler.init = function() {
+      Compiler.heroCompiler();
+
       Compiler.contactViewCompiler();
       Compiler.linkItemCompiler();
 
@@ -21,6 +25,18 @@
 
       Compiler.statItemCompiler();
       Compiler.bioCompiler();
+    };
+
+    Compiler.heroCompiler = function() {
+      let html = `
+          <div class="container animated fadeInUp">
+            <div class="wrapper">
+              <img class="img-scale" src="public/dist/img/hero-avatar.png">
+              <p class="header-subhead">Evan Turner // Development</p>
+            </div>
+          </div>`;
+
+      return EVTURN.heroTemplate = _.template(html);
     };
 
     Compiler.techViewCompiler = function() {
