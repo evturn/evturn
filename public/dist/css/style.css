@@ -5242,21 +5242,27 @@ a {
 .ev-navbar {
   position: relative;
   height: 50px;
+  padding-top: 20px;
 }
 .ev-navbar .header-container img {
-  width: 90px;
+  width: 100px;
   position: absolute;
-  top: 0;
+  top: -10px;
   right: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
+  padding: 15px;
   margin-left: auto;
   margin-right: auto;
+  border: 8px solid #ffffff;
+  border-radius: 50%;
 }
 .ev-navbar .burger-container {
+  color: #ffffff;
   float: right;
+  font-size: 4rem;
 }
-.ev-navbar .ev-nav {
+.ev-nav {
   display: none;
 }
 .about {
