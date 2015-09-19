@@ -1,1 +1,0 @@
-EVTURN.init();

@@ -1,14 +1,24 @@
 "use strict";
 
 var EVTURN = {
-
+  Link: Backbone.Model.extend({}),
+  Project: Backbone.Model.extend({}),
+  Technology: Backbone.Model.extend({}),
+  Projects: Backbone.Collection.extend({}),
+  Links: Backbone.Collection.extend({}),
+  Technologies: Backbone.Collection.extend({}),
+  assignModels: function assignModels() {
+    EVTURN.Project.model = EVTURN.Project;
+    EVTURN.Link.model = EVTURN.Link;
+    EVTURN.Technology.model = EVTURN.Technology;
+  },
   init: function init() {
     var router = new EVTURN.Router();
 
+    EVTURN.assignModels();
     this.preloader();
     Backbone.history.start();
   },
-
   get: function get(string) {
     var key = this.getKeyByName(string),
         name = this.getNameByKey(key),
@@ -18,25 +28,21 @@ var EVTURN = {
 
     return fetchedCollection;
   },
-
   getKeyByName: function getKeyByName(string) {
     return '_' + string;
   },
-
   getNameByKey: function getNameByKey(string) {
     var name = string.substr(1),
         toCap = name.charAt(0).toUpperCase() + name.substring(1);
 
     return toCap;
   },
-
   createCollection: function createCollection(name, array) {
     var data = array,
         collectionName = name;
 
     return new EVTURN[collectionName](data);
   },
-
   fetchCollection: function fetchCollection(name, collection) {
     var models = collection.where({ featured: true }),
         collectionName = name;
@@ -45,7 +51,6 @@ var EVTURN = {
 
     return new EVTURN[collectionName](models);
   },
-
   getModelsById: function getModelsById(string, array) {
     var ids = array,
         key = this.getKeyByName(string),
@@ -64,7 +69,6 @@ var EVTURN = {
 
     return new EVTURN[name](models);
   },
-
   setModel: function setModel(selector, model, template) {
     var $selector = this.tojquery(selector);
 
@@ -72,7 +76,6 @@ var EVTURN = {
 
     return this;
   },
-
   setView: function setView(selector, template) {
     var $selector = this.tojquery(selector);
 
@@ -80,7 +83,6 @@ var EVTURN = {
 
     return this;
   },
-
   appendModel: function appendModel(selector, model, template) {
     var $selector = this.tojquery(selector);
 
@@ -88,7 +90,6 @@ var EVTURN = {
 
     return this;
   },
-
   appendModels: function appendModels(selector, collection, template) {
     var $selector = this.tojquery(selector);
 
@@ -98,7 +99,6 @@ var EVTURN = {
 
     return this;
   },
-
   appendArray: function appendArray(selector, array, template) {
     var $selector = this.tojquery(selector);
 
@@ -110,7 +110,6 @@ var EVTURN = {
 
     return this;
   },
-
   appendObjects: function appendObjects(selector, array, template) {
     var $selector = this.tojquery(selector);
 
@@ -120,7 +119,6 @@ var EVTURN = {
 
     return this;
   },
-
   createElement: function createElement(string) {
     var $selector = $(document.getElementsByClassName(string)),
         element = document.createElement('div');
@@ -130,7 +128,6 @@ var EVTURN = {
     $selector.remove();
     $(element).insertAfter(new EVTURN.Rza().$el);
   },
-
   tojquery: function tojquery(element) {
     switch (typeof element) {
       case "object":
@@ -147,23 +144,18 @@ var EVTURN = {
         }
     }
   },
-
   navActive: function navActive(string) {
     $('.nav-item').removeClass('nav-active');
     $('.nav-' + string).addClass('nav-active');
   },
-
   changeState: function changeState(string) {
     this.navActive(string);
     this.createElement(string);
   },
-
   scrollUp: function scrollUp() {
     $('html, body').animate({ scrollTop: 0 }, 500);
   },
-
   preloader: function preloader() {
-
     $(window).load(function () {
       var $container = $('#preloader'),
           $image = $('.preloader');
@@ -172,30 +164,9 @@ var EVTURN = {
       $image.delay(600).fadeOut(600);
     });
   }
-
 };
 
 _.extend(Backbone.View.prototype, EVTURN);
-_.extend(Backbone.Router.prototype, EVTURN);
-"use strict";
-
-EVTURN.Link = Backbone.Model.extend({});
-
-EVTURN.Project = Backbone.Model.extend({});
-
-EVTURN.Technology = Backbone.Model.extend({});
-
-EVTURN.Projects = Backbone.Collection.extend({
-  model: EVTURN.Project
-});
-
-EVTURN.Links = Backbone.Collection.extend({
-  model: EVTURN.Link
-});
-
-EVTURN.Technologies = Backbone.Collection.extend({
-  model: EVTURN.Technology
-});
 'use strict';
 
 (function () {
@@ -773,7 +744,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   index: function index() {
-    this.changeState('index');
+    EVTURN.changeState('index');
 
     if (this.indexView === null) {
       this.indexView = new EVTURN.IndexView();
@@ -784,7 +755,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   work: function work(model) {
-    this.changeState('work');
+    EVTURN.changeState('work');
 
     if (this.workView === null) {
       this.workView = new EVTURN.Carousel({ model: model });
@@ -798,7 +769,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   about: function about() {
-    this.changeState('about');
+    EVTURN.changeState('about');
 
     if (this.aboutView === null) {
       this.aboutView = new EVTURN.AboutView();
@@ -809,7 +780,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   contact: function contact() {
-    this.changeState('contact');
+    EVTURN.changeState('contact');
 
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();
@@ -820,13 +791,12 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   project: function project(id) {
-    var collection = this.get('projects'),
+    var collection = EVTURN.get('projects'),
         model = collection.get(id) || collection.get(1);
 
     this.work(model);
   }
 
 });
-"use strict";
 
 EVTURN.init();

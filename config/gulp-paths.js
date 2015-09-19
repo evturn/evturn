@@ -28,11 +28,9 @@ module.exports = {
   js: {
     src: [
       'public/build/js/EVTURN.js',
-      'public/build/js/models/evturn.js',
       'public/build/js/data/**/*.js',
       'public/build/js/views/**/*.js',
-      'public/build/js/router.js',
-      'public/build/js/main.js'
+      'public/build/js/router.js'
     ],
     watch: [
       'public/build/js/**/*.js',
