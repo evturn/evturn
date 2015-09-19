@@ -3,30 +3,20 @@
 var EVTURN = window.EVTURN || {};
 
 (function (EVTURN) {
+
   EVTURN.Model = Backbone.Model.extend({});
   EVTURN.Collection = Backbone.Collection.extend({
     model: EVTURN.Model
-  });
-  EVTURN.Link = Backbone.Model.extend({});
-  EVTURN.Project = Backbone.Model.extend({});
-  EVTURN.Technology = Backbone.Model.extend({});
-  EVTURN.Projects = Backbone.Collection.extend({
-    model: EVTURN.Project
-  });
-  EVTURN.Links = Backbone.Collection.extend({
-    model: EVTURN.Link
-  });
-  EVTURN.Technologies = Backbone.Collection.extend({
-    model: EVTURN.Technology
   });
 
   EVTURN.init = function () {
     EVTURN.compile();
     var router = new EVTURN.Router();
 
-    this.preloader();
+    EVTURN.preloader();
     Backbone.history.start();
   };
+
   EVTURN.get = function (value) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
 
@@ -62,74 +52,6 @@ var EVTURN = window.EVTURN || {};
     return new EVTURN.Collection(models);
   };
 
-  EVTURN.getModelsById = function (string, array) {
-    var ids = array,
-        key = this.getKeyByName(string),
-        name = this.getNameByKey(key),
-        data = EVTURN[key],
-        collection = this.createCollection(name, data),
-        models = [];
-
-    for (var i = 0; i < ids.length; i++) {
-      var model = collection.findWhere({ id: ids[i] });
-
-      models.push(model);
-    }
-
-    models.reverse();
-
-    return new EVTURN[name](models);
-  };
-  EVTURN.setModel = function (selector, model, template) {
-    var $selector = this.tojquery(selector);
-
-    $selector.html(template(model.toJSON()));
-
-    return this;
-  };
-  EVTURN.setView = function (selector, template) {
-    var $selector = this.tojquery(selector);
-
-    $selector.html(template());
-
-    return this;
-  };
-  EVTURN.appendModel = function (selector, model, template) {
-    var $selector = this.tojquery(selector);
-
-    $selector.append(template(model.toJSON()));
-
-    return this;
-  };
-  EVTURN.appendModels = function (selector, collection, template) {
-    var $selector = this.tojquery(selector);
-
-    for (var i = collection.length - 1; i >= 0; i--) {
-      $selector.append(template(collection.models[i].toJSON()));
-    }
-
-    return this;
-  };
-  EVTURN.appendArray = function (selector, array, template) {
-    var $selector = this.tojquery(selector);
-
-    for (var i = 0; i < array.length; i++) {
-      var value = array[i];
-
-      $selector.append(template({ item: value }));
-    }
-
-    return this;
-  };
-  EVTURN.appendObjects = function (selector, array, template) {
-    var $selector = this.tojquery(selector);
-
-    for (var i = 0; i < array.length; i++) {
-      $selector.append(template(array[i]));
-    }
-
-    return this;
-  };
   EVTURN.createElement = function (string) {
     var $selector = $(document.getElementsByClassName(string)),
         element = document.createElement('div');
@@ -139,33 +61,21 @@ var EVTURN = window.EVTURN || {};
     $selector.remove();
     $(element).insertAfter(new EVTURN.Rza().$el);
   };
-  EVTURN.tojquery = function (element) {
-    switch (typeof element) {
-      case "object":
-        if (element instanceof jQuery) {
-          return element;
-        }
-        break;
 
-      case "string":
-        if (element.charAt(0) === '.') {
-          return $(element);
-        } else {
-          return $(document.getElementsByClassName(element));
-        }
-    }
-  };
   EVTURN.navActive = function (string) {
     $('.nav-item').removeClass('nav-active');
     $('.nav-' + string).addClass('nav-active');
   };
+
   EVTURN.changeState = function (string) {
     this.navActive(string);
     this.createElement(string);
   };
+
   EVTURN.scrollUp = function () {
     $('html, body').animate({ scrollTop: 0 }, 500);
   };
+
   EVTURN.preloader = function () {
     $(window).load(function () {
       var $container = $('#preloader'),
@@ -174,11 +84,6 @@ var EVTURN = window.EVTURN || {};
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
     });
-  };
-  EVTURN.clear = function () {
-    var el = document.querySelector('#rza');
-
-    el.innerHTML = '';
   };
 
   _.extend(Backbone.View.prototype, EVTURN);
