@@ -5,6 +5,13 @@
 
     EVTURN.heroTemplate;
 
+    EVTURN.carouselViewTemplate;
+    EVTURN.carouselPanelTemplate;
+    EVTURN.carouselTechTemplate;
+    EVTURN.carouselLinkTemplate;
+    EVTURN.carouselImageTemplate;
+    EVTURN.carouselPreloaderTemplate;
+
     EVTURN.thumbnailViewTemplate;
     EVTURN.thumbnailItemTemplate;
 
@@ -20,8 +27,16 @@
     Compiler.init = function() {
       Compiler.heroCompiler();
 
+      Compiler.carouselViewCompiler();
+      Compiler.carouselPanelCompiler();
+      Compiler.carouselTechCompiler();
+      Compiler.carouselLinkCompiler();
+      Compiler.carouselImageCompiler();
+      Compiler.carouselPreloaderCompiler();
+
       Compiler.thumbnailViewCompiler();
       Compiler.thumbnailItemCompiler();
+      Compiler.carouselLinkCompiler();
 
       Compiler.contactViewCompiler();
       Compiler.linkItemCompiler();
@@ -31,6 +46,89 @@
 
       Compiler.statItemCompiler();
       Compiler.bioCompiler();
+    };
+
+    Compiler.carouselViewCompiler = function() {
+      let html = `
+          <div class="container carousel">
+            <div class="wrapper carousel-wrapper">
+              <div class="carousel-wrapper">
+                <div class="carousel-image-container">
+                  <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">
+                    <div class="carousel-inner">
+                      <!-- Images -->
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-panel">
+                  <!-- Description -->
+                </div>
+              </div>
+            </div>
+          </div>`;
+
+      return EVTURN.carouselViewTemplate = _.template(html);
+    };
+
+    Compiler.carouselImageCompiler = function() {
+      let html = `
+          <div class="item">
+            <img class="img-scale gallery-item" src="<%= image %>">
+          </div>`;
+
+      return EVTURN.carouselImageTemplate = _.template(html);
+    };
+
+    Compiler.carouselPanelCompiler = function() {
+      let html = `<div class="panel-inner">
+          <div class="btn-container">
+            <a class="btn btn-generic" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+            <a class="btn btn-generic" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+          </div>
+          <div class="project-text">
+            <p class="section-title"><%= name %></p>
+            <p class="meta"><%= description %></p>
+          </div>
+          <div class="project-technologies">
+            <p class="meta">Built with</p>
+            <!-- Technology-items -->
+          </div>
+          <div class="project-links">
+            <!-- Link items -->
+          </div>
+        </div>`;
+
+        return EVTURN.carouselPanelTemplate = _.template(html);
+    };
+
+    Compiler.carouselTechCompiler = function() {
+      let html = `
+          <div class="technologies-item">
+            <i class="<%= icon %>"></i>
+            <p class="caption"><%= technology %></p>
+          </div>`;
+
+      return EVTURN.carouselTechTemplate = _.template(html);
+    };
+
+    Compiler.carouselLinkCompiler = function() {
+      let html = `
+          <% var url = url ? '<p class="meta"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>
+            <%= url %>
+          <% var repo = repo ? '<p class="meta"><a href="' + repo + '" target="_blank"><i class="fa fa-github"></i></a></p>' : '' %>
+          <%= repo %>`;
+
+      return EVTURN.carouselLinkTemplate = _.template(html);
+    };
+
+    Compiler.carouselPreloaderCompiler = function() {
+      let html = `
+          <div id="carousel-preloader">
+            <div id="carousel-spinner"></div>
+          <img class="carousel-preloader" src="public/dist/img/evturn.jpg">
+        </div>`;
+
+      return EVTURN.carouselPreloaderTemplate = _.template(html);
     };
 
     Compiler.heroCompiler = function() {

@@ -28,7 +28,10 @@ var EVTURN = window.EVTURN || {};
     Backbone.history.start();
   };
   EVTURN.get = function (value) {
-    var data = undefined;
+    var options = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+
+    var data = undefined,
+        models = undefined;
 
     switch (value) {
       case 'links':
@@ -48,10 +51,15 @@ var EVTURN = window.EVTURN || {};
         break;
     };
 
-    var filtered = _.has(_.first(data), 'featured') ? _.where(data, { featured: true }) : data,
-        sorted = _.has(filtered, 'id') ? _.sortBy(filtered, 'id') : filtered;
+    if (options) {
+      models = _.has(data, 'id') ? _.sortBy(data, 'id') : data;
+    } else {
+      var featured = _.has(_.first(data), 'featured') ? _.where(data, { featured: true }) : data;
 
-    return new EVTURN.Collection(sorted);
+      models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
+    }
+
+    return new EVTURN.Collection(models);
   };
 
   EVTURN.getModelsById = function (string, array) {
@@ -347,8 +355,7 @@ var EVTURN = window.EVTURN || {};
       url: 'http://madeinmusic.co',
       repo: 'https://github.com/evturn/madeinmusic.co',
       thumbnail: "public/dist/img/mim-tn.png",
-      lead: "public/dist/img/mim-1.png",
-      items: ['public/dist/img/mim-2.png', 'public/dist/img/mim-3.png'],
+      items: [{ image: 'public/dist/img/mim-1.png' }, { image: 'public/dist/img/mim-2.png' }, { image: 'public/dist/img/mim-3.png' }],
       featured: true,
       technologies: [1, 3, 14, 12, 10, 11, 15]
     }, {
@@ -358,8 +365,7 @@ var EVTURN = window.EVTURN || {};
       url: 'http://marshallz.com',
       repo: 'https://github.com/evturn/marshallz',
       thumbnail: "public/dist/img/marshallz-tn.png",
-      lead: "public/dist/img/marshallz-1.png",
-      items: ['public/dist/img/marshallz-2.png', 'public/dist/img/marshallz-6.png', 'public/dist/img/marshallz-3.jpg', 'public/dist/img/marshallz-5.png', 'public/dist/img/marshallz-4.jpg'],
+      items: [{ image: 'public/dist/img/marshallz-1.png' }, { image: 'public/dist/img/marshallz-2.png' }, { image: 'public/dist/img/marshallz-6.png' }, { image: 'public/dist/img/marshallz-3.jpg' }, { image: 'public/dist/img/marshallz-5.png' }, { image: 'public/dist/img/marshallz-4.jpg' }],
       featured: true,
       technologies: [1, 3, 14, 12, 15, 9, 11]
     }, {
@@ -369,8 +375,7 @@ var EVTURN = window.EVTURN || {};
       url: 'http://drivepublishing.com',
       repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
       thumbnail: "public/dist/img/drive-tn.png",
-      lead: 'public/dist/img/drive-1.png',
-      items: ['public/dist/img/drive-2.png', 'public/dist/img/drive-3.png'],
+      items: [{ image: 'public/dist/img/drive-1.png' }, { image: 'public/dist/img/drive-2.png' }, { image: 'public/dist/img/drive-3.png' }],
       featured: true,
       technologies: [13, 11, 14]
     }, {
@@ -380,8 +385,7 @@ var EVTURN = window.EVTURN || {};
       url: 'http://ramenbuffet.com',
       repo: 'https://github.com/evturn/ramen-buffet',
       thumbnail: "public/dist/img/ramen-buffet-tn.png",
-      lead: 'public/dist/img/ramen-buffet-1.png',
-      items: ['public/dist/img/ramen-buffet-2.png', 'public/dist/img/ramen-buffet-3.png'],
+      items: [{ image: 'public/dist/img/ramen-buffet-1.png' }, { image: 'public/dist/img/ramen-buffet-2.png' }, { image: 'public/dist/img/ramen-buffet-3.png' }],
       featured: true,
       technologies: [1, 3, 14, 12, 10, 11, 15]
     }, {
@@ -389,8 +393,7 @@ var EVTURN = window.EVTURN || {};
       description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
       id: 5,
       thumbnail: "public/dist/img/alculator-tn.png",
-      lead: "public/dist/img/alculator-3.png",
-      items: ['public/dist/img/alculator-2.png', 'public/dist/img/alculator-1.png', 'public/dist/img/alculator-4.png'],
+      items: [{ image: 'public/dist/img/alculator-3.png' }, { image: 'public/dist/img/alculator-2.png' }, { image: 'public/dist/img/alculator-1.png' }, { image: 'public/dist/img/alculator-4.png' }],
       featured: true,
       technologies: [1, 12, 3, 11]
     }, {
@@ -399,8 +402,7 @@ var EVTURN = window.EVTURN || {};
       id: 3,
       repo: 'https://github.com/piqueapp/piqueapp.github.io',
       thumbnail: "public/dist/img/pique-tn.png",
-      lead: "public/dist/img/pique-1.jpg",
-      items: ['public/dist/img/pique-2.png', 'public/dist/img/pique-3.png', 'public/dist/img/pique-4.png'],
+      items: [{ image: 'public/dist/img/pique-1.jpg' }, { image: 'public/dist/img/pique-2.png' }, { image: 'public/dist/img/pique-3.png' }, { image: 'public/dist/img/pique-4.png' }],
       featured: true,
       technologies: [16, 17, 11]
     }, {
@@ -408,8 +410,7 @@ var EVTURN = window.EVTURN || {};
       description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
       id: 7,
       thumbnail: "public/dist/img/hangman-tn.png",
-      lead: "public/dist/img/hangman-1.jpg",
-      items: ['public/dist/img/hangman-2.jpg'],
+      items: [{ image: 'public/dist/img/hangman-1.jpg' }, { image: 'public/dist/img/hangman-2.jpg' }],
       featured: true,
       technologies: [1, 12, 3, 11]
     }, {
@@ -417,8 +418,7 @@ var EVTURN = window.EVTURN || {};
       description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
       id: 8,
       thumbnail: "public/dist/img/ttt-tn.png",
-      lead: 'public/dist/img/ttt-1.jpg',
-      items: ['public/dist/img/ttt-2.jpg'],
+      items: [{ lead: 'public/dist/img/ttt-1.jpg' }, { image: 'public/dist/img/ttt-2.jpg' }],
       featured: false,
       technologies: [3, 11]
     }, {
@@ -427,8 +427,7 @@ var EVTURN = window.EVTURN || {};
       id: 9,
       repo: 'https://github.com/evturn/WhereTO',
       thumbnail: "public/dist/img/whereto-tn.png",
-      lead: 'public/dist/img/whereto-2.png',
-      items: ['public/dist/img/whereto-1.png'],
+      items: [{ image: 'public/dist/img/whereto-2.png' }, { image: 'public/dist/img/whereto-1.png' }],
       featured: true,
       technologies: [1, 14, 12, 10, 13]
     }];
@@ -451,6 +450,13 @@ var EVTURN = window.EVTURN || {};
 
   EVTURN.heroTemplate;
 
+  EVTURN.carouselViewTemplate;
+  EVTURN.carouselPanelTemplate;
+  EVTURN.carouselTechTemplate;
+  EVTURN.carouselLinkTemplate;
+  EVTURN.carouselImageTemplate;
+  EVTURN.carouselPreloaderTemplate;
+
   EVTURN.thumbnailViewTemplate;
   EVTURN.thumbnailItemTemplate;
 
@@ -466,8 +472,16 @@ var EVTURN = window.EVTURN || {};
   Compiler.init = function () {
     Compiler.heroCompiler();
 
+    Compiler.carouselViewCompiler();
+    Compiler.carouselPanelCompiler();
+    Compiler.carouselTechCompiler();
+    Compiler.carouselLinkCompiler();
+    Compiler.carouselImageCompiler();
+    Compiler.carouselPreloaderCompiler();
+
     Compiler.thumbnailViewCompiler();
     Compiler.thumbnailItemCompiler();
+    Compiler.carouselLinkCompiler();
 
     Compiler.contactViewCompiler();
     Compiler.linkItemCompiler();
@@ -477,6 +491,42 @@ var EVTURN = window.EVTURN || {};
 
     Compiler.statItemCompiler();
     Compiler.bioCompiler();
+  };
+
+  Compiler.carouselViewCompiler = function () {
+    var html = "\n          <div class=\"container carousel\">\n            <div class=\"wrapper carousel-wrapper\">\n              <div class=\"carousel-wrapper\">\n                <div class=\"carousel-image-container\">\n                  <div class=\"carousel slide animated bounceInLeft\" data-ride=\"carousel\" id=\"gallery\">\n                    <div class=\"carousel-inner\">\n                      <!-- Images -->\n                    </div>\n                  </div>\n                </div>\n                <div class=\"carousel-panel\">\n                  <!-- Description -->\n                </div>\n              </div>\n            </div>\n          </div>";
+
+    return EVTURN.carouselViewTemplate = _.template(html);
+  };
+
+  Compiler.carouselImageCompiler = function () {
+    var html = "\n          <div class=\"item\">\n            <img class=\"img-scale gallery-item\" src=\"<%= image %>\">\n          </div>";
+
+    return EVTURN.carouselImageTemplate = _.template(html);
+  };
+
+  Compiler.carouselPanelCompiler = function () {
+    var html = "<div class=\"panel-inner\">\n          <div class=\"btn-container\">\n            <a class=\"btn btn-generic\" href=\"#gallery\" role=\"button\" data-slide=\"prev\"><i class=\"fa fa-angle-left\"></i></a>\n            <a class=\"btn btn-generic\" href=\"#gallery\" role=\"button\" data-slide=\"next\"><i class=\"fa fa-angle-right\"></i></a>\n          </div>\n          <div class=\"project-text\">\n            <p class=\"section-title\"><%= name %></p>\n            <p class=\"meta\"><%= description %></p>\n          </div>\n          <div class=\"project-technologies\">\n            <p class=\"meta\">Built with</p>\n            <!-- Technology-items -->\n          </div>\n          <div class=\"project-links\">\n            <!-- Link items -->\n          </div>\n        </div>";
+
+    return EVTURN.carouselPanelTemplate = _.template(html);
+  };
+
+  Compiler.carouselTechCompiler = function () {
+    var html = "\n          <div class=\"technologies-item\">\n            <i class=\"<%= icon %>\"></i>\n            <p class=\"caption\"><%= technology %></p>\n          </div>";
+
+    return EVTURN.carouselTechTemplate = _.template(html);
+  };
+
+  Compiler.carouselLinkCompiler = function () {
+    var html = "\n          <% var url = url ? '<p class=\"meta\"><a href=\"' + url + '\" target=\"_blank\"><i class=\"fa fa-link\"></i></a></p>' : '' %>\n            <%= url %>\n          <% var repo = repo ? '<p class=\"meta\"><a href=\"' + repo + '\" target=\"_blank\"><i class=\"fa fa-github\"></i></a></p>' : '' %>\n          <%= repo %>";
+
+    return EVTURN.carouselLinkTemplate = _.template(html);
+  };
+
+  Compiler.carouselPreloaderCompiler = function () {
+    var html = "\n          <div id=\"carousel-preloader\">\n            <div id=\"carousel-spinner\"></div>\n          <img class=\"carousel-preloader\" src=\"public/dist/img/evturn.jpg\">\n        </div>";
+
+    return EVTURN.carouselPreloaderTemplate = _.template(html);
   };
 
   Compiler.heroCompiler = function () {
@@ -618,6 +668,99 @@ EVTURN.AboutView = Backbone.View.extend({
 });
 'use strict';
 
+EVTURN.Carousel = Backbone.View.extend({
+
+  el: '.work',
+  itemContainer: _.template($('#carousel-item-template').html()),
+  itemDescription: _.template($('#carousel-panel-template').html()),
+  itemPreloader: _.template($('#carousel-preloader-template').html()),
+  itemLinks: _.template($('#project-links-template').html()),
+
+  initialize: function initialize() {
+    this.render();
+    this.carouselPreloader();
+    this.appendCarouselPanel();
+    this.appendProjectLinks();
+    this.appendProjectTechnologies();
+    this.appendCarouselImages();
+    this.appendProjectThumbnails();
+  },
+  render: function render() {
+    var model = this.model.toJSON();
+
+    this.$el.html(EVTURN.carouselViewTemplate(model));
+
+    return this;
+  },
+
+  appendCarouselPanel: function appendCarouselPanel() {
+    var $sel = $('.carousel-panel'),
+        model = this.model.toJSON();
+
+    $sel.append(EVTURN.carouselPanelTemplate(model));
+
+    return this;
+  },
+
+  appendProjectLinks: function appendProjectLinks() {
+    var $sel = $('.project-links'),
+        model = this.model.toJSON();
+
+    $sel.append(EVTURN.carouselLinkTemplate(model));
+
+    return this;
+  },
+
+  appendProjectTechnologies: function appendProjectTechnologies() {
+    var $sel = $('.project-technologies'),
+        collection = EVTURN.get('tech', true),
+        ids = this.model.get('technologies'),
+        models = _.map(ids, function (id) {
+      return collection.get(id);
+    });
+
+    for (var i = 0; i < models.length; i++) {
+      var model = models[i].toJSON();
+
+      $sel.append(EVTURN.carouselTechTemplate(model));
+    }
+
+    return this;
+  },
+
+  appendCarouselImages: function appendCarouselImages() {
+    var $sel = $('.carousel-inner'),
+        models = this.model.get('items');
+
+    for (var i = 0; i < models.length; i++) {
+      var model = models[i];
+
+      $sel.append(EVTURN.carouselImageTemplate(model));
+      if (i === 0) {
+        $sel.children().first().addClass('active');
+      }
+    }
+
+    return this;
+  },
+
+  appendProjectThumbnails: function appendProjectThumbnails() {
+    var tn = new EVTURN.Thumbnails(this.$el);
+
+    this.scrollUp();
+  },
+
+  carouselPreloader: function carouselPreloader() {
+    var template = this.itemPreloader;
+
+    $('.carousel-image-container').append(template());
+    $('#carousel-preloader').delay(500).fadeOut();
+    $('.carousel-preloader').delay(600).fadeOut(600);
+  }
+
+});
+'use strict';
+
 EVTURN.ContactView = Backbone.View.extend({
 
   el: '.contact',
@@ -688,94 +831,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
     return this;
   }
 });
-'use strict';
-
-EVTURN.Carousel = Backbone.View.extend({
-
-  el: '.work',
-  viewContainer: _.template($('#carousel-container-template').html()),
-  itemContainer: _.template($('#carousel-item-template').html()),
-  itemDescription: _.template($('#carousel-panel-template').html()),
-  itemPreloader: _.template($('#carousel-preloader-template').html()),
-  itemTechnologies: _.template($('#project-technologies-template').html()),
-  itemLinks: _.template($('#project-links-template').html()),
-
-  initialize: function initialize() {
-    this.render();
-    this.carouselPreloader();
-    this.appendCarouselPanel();
-    this.appendProjectLinks();
-    this.appendProjectTechnologies();
-    this.appendCarouselImages();
-    this.appendProjectThumbnails();
-  },
-
-  render: function render() {
-    var selector = this.$el,
-        model = this.model,
-        template = this.viewContainer;
-
-    this.setModel(selector, model, template);
-
-    return this;
-  },
-
-  appendCarouselPanel: function appendCarouselPanel() {
-    var selector = '.carousel-panel',
-        model = this.model,
-        template = this.itemDescription;
-
-    this.appendModel(selector, model, template);
-
-    return this;
-  },
-
-  appendProjectLinks: function appendProjectLinks() {
-    var selector = '.project-links',
-        model = this.model,
-        template = this.itemLinks;
-
-    this.appendModel(selector, model, template);
-
-    return this;
-  },
-
-  appendProjectTechnologies: function appendProjectTechnologies() {
-    var selector = '.project-technologies',
-        techIds = this.model.get('technologies'),
-        technologies = this.getModelsById('technologies', techIds),
-        template = this.itemTechnologies;
-
-    this.appendModels(selector, technologies, template);
-
-    return this;
-  },
-
-  appendCarouselImages: function appendCarouselImages() {
-    var selector = '.carousel-inner',
-        images = this.model.get('items'),
-        template = this.itemContainer;
-
-    this.appendArray(selector, images, template);
-
-    return this;
-  },
-
-  appendProjectThumbnails: function appendProjectThumbnails() {
-    var tn = new EVTURN.Thumbnails(this.$el);
-
-    this.scrollUp();
-  },
-
-  carouselPreloader: function carouselPreloader() {
-    var template = this.itemPreloader;
-
-    $('.carousel-image-container').append(template());
-    $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut(600);
-  }
-
-});
+"use strict";
 'use strict';
 
 EVTURN.Rza = Backbone.View.extend({

@@ -27,8 +27,9 @@ let EVTURN = window.EVTURN || {};
     this.preloader();
     Backbone.history.start();
   };
-  EVTURN.get = function(value) {
-    let data;
+  EVTURN.get = function(value, options=false) {
+    let data,
+        models;
 
     switch (value) {
       case 'links':
@@ -48,10 +49,17 @@ let EVTURN = window.EVTURN || {};
         break;
     };
 
-    let filtered = _.has(_.first(data), 'featured') ? _.where(data, {featured: true}) : data,
-        sorted = _.has(filtered, 'id') ? _.sortBy(filtered, 'id') : filtered;
 
-    return new EVTURN.Collection(sorted);
+    if (options) {
+      models = _.has(data, 'id') ? _.sortBy(data, 'id') : data;
+    }
+    else {
+      let featured = _.has(_.first(data), 'featured') ? _.where(data, {featured: true}) : data;
+
+      models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
+    }
+
+    return new EVTURN.Collection(models);
   };
 
 
