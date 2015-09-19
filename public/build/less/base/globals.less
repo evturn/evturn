@@ -2,7 +2,6 @@
 .section-title       { text-transform: uppercase; }
 ul                   { padding-left: 0; }
 li                   { list-style-type: none; }
-
 html {
   min-height: 100%;
   position: relative;
@@ -25,4 +24,24 @@ h1 {
   font-weight: 500;
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
+}
+
+.caption {
+  font-size: 10px;
+}
+
+.header-subhead {
+  background-color: @black;
+  color: @white;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 1px;
+  margin-bottom: 0;
+  font-size: 12px;
+
+  @media (min-width: @sm) {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 15px;
+  }
 }

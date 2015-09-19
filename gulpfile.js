@@ -115,10 +115,18 @@ gulp.task('eslint', function() {
 // IMAGEMIN
 //////////////////////
 
-gulp.task('img', function() {
-  return gulp.src(paths.img.src)
+gulp.task('img', ['img:site', 'img:apps']);
+
+gulp.task('img:site', function() {
+  return gulp.src(paths.img.site.src)
   .pipe($.imagemin(opts.imagemin))
-  .pipe(gulp.dest(paths.dest.img));
+  .pipe(gulp.dest(paths.dest.img.site));
+});
+
+gulp.task('img:apps', function() {
+  return gulp.src(paths.img.apps.src)
+  .pipe($.imagemin(opts.imagemin))
+  .pipe(gulp.dest(paths.dest.img.apps));
 });
 
 //////////////////////

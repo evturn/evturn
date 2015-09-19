@@ -197,11 +197,11 @@
         id: 1,
         url: 'http://madeinmusic.co',
         repo: 'https://github.com/evturn/madeinmusic.co',
-        thumbnail: "public/dist/img/mim-tn.png",
+        thumbnail: "public/dist/img/apps/mim-tn.png",
         items: [
-          {image: 'public/dist/img/mim-1.png'},
-          {image: 'public/dist/img/mim-2.png'},
-          {image: 'public/dist/img/mim-3.png'}
+          {image: 'public/dist/img/apps/mim-1.png'},
+          {image: 'public/dist/img/apps/mim-2.png'},
+          {image: 'public/dist/img/apps/mim-3.png'}
         ],
         featured: true,
         technologies: [1, 3, 14, 12, 10, 11, 15]
@@ -212,14 +212,14 @@
         id: 2,
         url: 'http://marshallz.com',
         repo: 'https://github.com/evturn/marshallz',
-        thumbnail: "public/dist/img/marshallz-tn.png",
+        thumbnail: "public/dist/img/apps/marshallz-tn.png",
         items: [
-          {image: 'public/dist/img/marshallz-1.png'},
-          {image: 'public/dist/img/marshallz-2.png'},
-          {image: 'public/dist/img/marshallz-6.png'},
-          {image: 'public/dist/img/marshallz-3.jpg'},
-          {image: 'public/dist/img/marshallz-5.png'},
-          {image: 'public/dist/img/marshallz-4.jpg'}
+          {image: 'public/dist/img/apps/marshallz-1.png'},
+          {image: 'public/dist/img/apps/marshallz-2.png'},
+          {image: 'public/dist/img/apps/marshallz-6.png'},
+          {image: 'public/dist/img/apps/marshallz-3.jpg'},
+          {image: 'public/dist/img/apps/marshallz-5.png'},
+          {image: 'public/dist/img/apps/marshallz-4.jpg'}
         ],
         featured: true,
         technologies: [1, 3, 14, 12, 15, 9, 11]
@@ -230,11 +230,11 @@
         id: 4,
         url: 'http://drivepublishing.com',
         repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
-        thumbnail: "public/dist/img/drive-tn.png",
+        thumbnail: "public/dist/img/apps/drive-tn.png",
         items: [
-          {image: 'public/dist/img/drive-1.png'},
-          {image: 'public/dist/img/drive-2.png'},
-          {image: 'public/dist/img/drive-3.png'}
+          {image: 'public/dist/img/apps/drive-1.png'},
+          {image: 'public/dist/img/apps/drive-2.png'},
+          {image: 'public/dist/img/apps/drive-3.png'}
         ],
         featured: true,
         technologies: [13, 11, 14]
@@ -245,11 +245,11 @@
         id: 6,
         url: 'http://ramenbuffet.com',
         repo: 'https://github.com/evturn/ramen-buffet',
-        thumbnail: "public/dist/img/ramen-buffet-tn.png",
+        thumbnail: "public/dist/img/apps/ramen-buffet-tn.png",
         items: [
-          {image: 'public/dist/img/ramen-buffet-1.png'},
-          {image: 'public/dist/img/ramen-buffet-2.png'},
-          {image: 'public/dist/img/ramen-buffet-3.png'}
+          {image: 'public/dist/img/apps/ramen-buffet-1.png'},
+          {image: 'public/dist/img/apps/ramen-buffet-2.png'},
+          {image: 'public/dist/img/apps/ramen-buffet-3.png'}
         ],
         featured: true,
         technologies: [1, 3, 14, 12, 10, 11, 15]
@@ -258,12 +258,12 @@
         name: 'Alculator',
         description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
         id: 5,
-        thumbnail: "public/dist/img/alculator-tn.png",
+        thumbnail: "public/dist/img/apps/alculator-tn.png",
         items: [
-          {image: 'public/dist/img/alculator-3.png'},
-          {image: 'public/dist/img/alculator-2.png'},
-          {image: 'public/dist/img/alculator-1.png'},
-          {image: 'public/dist/img/alculator-4.png'}
+          {image: 'public/dist/img/apps/alculator-3.png'},
+          {image: 'public/dist/img/apps/alculator-2.png'},
+          {image: 'public/dist/img/apps/alculator-1.png'},
+          {image: 'public/dist/img/apps/alculator-4.png'}
         ],
         featured: true,
         technologies: [1, 12, 3, 11]
@@ -273,12 +273,12 @@
         description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
         id: 3,
         repo: 'https://github.com/piqueapp/piqueapp.github.io',
-        thumbnail: "public/dist/img/pique-tn.png",
+        thumbnail: "public/dist/img/apps/pique-tn.png",
         items: [
-          {image: 'public/dist/img/pique-1.jpg'},
-          {image: 'public/dist/img/pique-2.png'},
-          {image: 'public/dist/img/pique-3.png'},
-          {image: 'public/dist/img/pique-4.png'}
+          {image: 'public/dist/img/apps/pique-1.jpg'},
+          {image: 'public/dist/img/apps/pique-2.png'},
+          {image: 'public/dist/img/apps/pique-3.png'},
+          {image: 'public/dist/img/apps/pique-4.png'}
         ],
         featured: true,
         technologies : [16, 17, 11]
@@ -287,10 +287,10 @@
         name: 'Hangman',
         description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
         id: 7,
-        thumbnail: "public/dist/img/hangman-tn.png",
+        thumbnail: "public/dist/img/apps/hangman-tn.png",
         items: [
-          {image: 'public/dist/img/hangman-1.jpg'},
-          {image: 'public/dist/img/hangman-2.jpg'}
+          {image: 'public/dist/img/apps/hangman-1.jpg'},
+          {image: 'public/dist/img/apps/hangman-2.jpg'}
         ],
         featured: true,
         technologies: [1, 12, 3, 11]
@@ -299,10 +299,10 @@
         name: 'Tic Tac Toe',
         description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
         id: 8,
-        thumbnail: "public/dist/img/ttt-tn.png",
+        thumbnail: "public/dist/img/apps/ttt-tn.png",
         items: [
-          {lead: 'public/dist/img/ttt-1.jpg'},
-          {image: 'public/dist/img/ttt-2.jpg'}
+          {lead: 'public/dist/img/apps/ttt-1.jpg'},
+          {image: 'public/dist/img/apps/ttt-2.jpg'}
         ],
         featured: false,
         technologies: [3, 11]
@@ -312,10 +312,10 @@
         description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
         id: 9,
         repo: 'https://github.com/evturn/WhereTO',
-        thumbnail: "public/dist/img/whereto-tn.png",
+        thumbnail: "public/dist/img/apps/whereto-tn.png",
         items: [
-          {image: 'public/dist/img/whereto-2.png'},
-          {image: 'public/dist/img/whereto-1.png'}
+          {image: 'public/dist/img/apps/whereto-2.png'},
+          {image: 'public/dist/img/apps/whereto-1.png'}
         ],
         featured: true,
         technologies: [1, 14, 12, 10, 13]

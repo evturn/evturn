@@ -3,7 +3,10 @@ module.exports = {
   dest: {
     css: 'public/dist/css',
     js: 'public/dist/js',
-    img: 'public/dist/img'
+    img: {
+      apps: 'public/dist/img/apps',
+      site: 'public/dist/img/site'
+    }
   },
   less: {
     src: 'public/build/less/*.less',
@@ -58,7 +61,12 @@ module.exports = {
     }
   },
   img: {
-    src: 'public/build/img/**/*'
+    apps: {
+      src: 'public/build/img/apps/**/*'
+    },
+    site: {
+      src: 'public/build/img/site/**/*'
+    }
   },
   jshint: {
     src: [

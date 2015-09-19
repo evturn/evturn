@@ -123,11 +123,8 @@
 
     Compiler.heroCompiler = function() {
       let html = `
-          <div class="container animated fadeInUp">
-            <div class="wrapper">
-              <img class="img-scale" src="public/dist/img/hero-avatar.png">
-              <p class="header-subhead">Evan Turner // Development</p>
-            </div>
+          <div class="container carousel-index">
+            <div class="curtain"></div>
           </div>`;
 
       return EVTURN.heroTemplate = _.template(html);
