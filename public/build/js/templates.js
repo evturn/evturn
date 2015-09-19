@@ -3,6 +3,7 @@
 (function(app) {
     let Compiler = {};
 
+    EVTURN.navbarTemplate;
     EVTURN.heroTemplate;
     EVTURN.carouselViewTemplate;
     EVTURN.carouselPanelTemplate;
@@ -20,6 +21,7 @@
     EVTURN.bioTemplate;
 
     Compiler.init = function() {
+      Compiler.navbarCompiler();
       Compiler.heroCompiler();
       Compiler.carouselViewCompiler();
       Compiler.carouselPanelCompiler();
@@ -123,11 +125,39 @@
 
     Compiler.heroCompiler = function() {
       let html = `
-          <div class="container carousel-index">
+          <section class="index-header">
+            <video id="ev-vid"></video>
+            <div class="carousel-index"></div>
             <div class="curtain"></div>
-          </div>`;
+            <div class="container ev-navbar">
+              <div class="inner">
+                <div class="header-container">
+                  <img src="public/dist/img/site/ev-av.png" class="img-scale">
+                </div>
+                <div class="burger-container">
+                  <i class="fa fa-bars"></i>
+                </div>
+              </div>
+            </div>
+          </section>`;
 
       return EVTURN.heroTemplate = _.template(html);
+    };
+
+    Compiler.navbarCompiler = function() {
+      let html = `
+          <div class="container ev-navbar">
+            <div class="inner">
+              <div class="header-container">
+                <img src="public/dist/img/site/ev-av.png" class="img-scale">
+              </div>
+              <div class="burger-container">
+                <i class="fa fa-bars"></i>
+              </div>
+            </div>
+          </div>`;
+
+      return EVTURN.navbarTemplate = _.template(html);
     };
 
     Compiler.thumbnailViewCompiler = function() {

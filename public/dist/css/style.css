@@ -5126,9 +5126,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   height: auto;
   display: block;
 }
-#rza {
-  padding-top: 30px;
-}
 .section-title {
   text-transform: uppercase;
 }
@@ -5240,12 +5237,17 @@ a {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 .ev-navbar {
-  position: relative;
+  position: absolute;
   height: 50px;
-  padding-top: 20px;
+  padding-top: 25px;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  z-index: 3;
 }
 .ev-navbar .header-container img {
-  width: 100px;
+  width: 95px;
   position: absolute;
   top: -10px;
   right: 0;
@@ -5254,7 +5256,7 @@ a {
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
-  border: 8px solid #ffffff;
+  border: 5px solid #ffffff;
   border-radius: 50%;
 }
 .ev-navbar .burger-container {
@@ -5419,22 +5421,35 @@ a {
   background-color: transparent;
   color: #231f20;
 }
-.carousel-index {
-  background-image: url('../img/apps/mim-1.png');
+.index-header {
   height: 320px;
-  background-size: cover;
-  background-position-y: 50%;
   position: relative;
+  display: block;
+  overflow: hidden;
 }
-.carousel-index .curtain {
+@media (min-width: 600px) {
+  .index-header {
+    height: 600px;
+  }
+}
+.index-header .carousel-index {
+  background-image: url('../img/apps/ramen-buffet-2.png');
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 0%;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  background-color: #231f20;
-  opacity: 0.1;
-  z-index: 1;
   height: 100%;
+  background-repeat: no-repeat;
+  display: block;
+}
+.index-header video {
+  margin-top: -25px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
 }
 .footer {
   position: absolute;

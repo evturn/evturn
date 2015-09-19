@@ -353,6 +353,7 @@ var EVTURN = window.EVTURN || {};
 (function (app) {
   var Compiler = {};
 
+  EVTURN.navbarTemplate;
   EVTURN.heroTemplate;
   EVTURN.carouselViewTemplate;
   EVTURN.carouselPanelTemplate;
@@ -370,6 +371,7 @@ var EVTURN = window.EVTURN || {};
   EVTURN.bioTemplate;
 
   Compiler.init = function () {
+    Compiler.navbarCompiler();
     Compiler.heroCompiler();
     Compiler.carouselViewCompiler();
     Compiler.carouselPanelCompiler();
@@ -425,9 +427,15 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.heroCompiler = function () {
-    var html = "\n          <div class=\"container carousel-index\">\n            <div class=\"curtain\"></div>\n          </div>";
+    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n          </section>";
 
     return EVTURN.heroTemplate = _.template(html);
+  };
+
+  Compiler.navbarCompiler = function () {
+    var html = "\n          <div class=\"container ev-navbar\">\n            <div class=\"inner\">\n              <div class=\"header-container\">\n                <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n              </div>\n              <div class=\"burger-container\">\n                <i class=\"fa fa-bars\"></i>\n              </div>\n            </div>\n          </div>";
+
+    return EVTURN.navbarTemplate = _.template(html);
   };
 
   Compiler.thumbnailViewCompiler = function () {
@@ -676,18 +684,67 @@ EVTURN.IndexView = Backbone.View.extend({
   initialize: function initialize() {
     this.render();
     this.appendProjectThumbnails();
+    this.setVideo();
   },
   render: function render() {
     this.$el.html(EVTURN.heroTemplate());
 
     return this;
   },
+  setVideo: function setVideo() {
+    $(document).ready(function () {
+      var video = document.getElementById('ev-vid');
+
+      EVTURN.Vid(video);
+    });
+  },
+
   appendProjectThumbnails: function appendProjectThumbnails() {
     var tn = new EVTURN.Thumbnails(this.$el);
 
     return this;
   }
 });
+
+EVTURN.Vid = function (video) {
+
+  var Player = {};
+
+  Player.initialized = false;
+  Player.playCount = null;
+  Player.playlist = ['public/build/vid-1.mov', 'public/build/vid-3.mov', 'public/build/vid-2.mov', 'public/build/vid-4.mov', 'public/build/vid-5.mov'];
+
+  Player.timekeeper = function () {
+    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
+        isInitialized = Player.initialized;
+
+    if (!isInitialized || isLastVideo) {
+      Player.playCount = 0;
+    } else {
+      Player.playCount += 1;
+    }
+  };
+
+  Player.init = function () {
+    Player.timekeeper();
+    video.muted = true;
+    video.autoplay = true;
+    video.preload = 'auto';
+    video.style.width = '100%';
+    video.src = Player.playlist[Player.playCount];
+    video.addEventListener('ended', Player.callback);
+    video.play;
+    Player.initialized = true;
+  };
+
+  Player.callback = function () {
+    Player.timekeeper();
+    video.setAttribute('src', Player.playlist[Player.playCount]);
+    video.play;
+  };
+
+  Player.init();
+};
 'use strict';
 
 EVTURN.Thumbnails = Backbone.View.extend({

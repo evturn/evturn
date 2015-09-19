@@ -1,18 +1,42 @@
-.carousel-index {
-  background-image: url('../img/apps/mim-1.png');
+.index-header {
   height: 320px;
-  background-size: cover;
-  background-position-y: 50%;
   position: relative;
+  display: block;
+  overflow: hidden;
 
-  .curtain {
+  @media (min-width: @sm) {
+    height: 600px;
+  }
+  .carousel-index {
+    background-image: url('../img/apps/ramen-buffet-2.png');
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 0%;
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
-    background-color: @black;
-    opacity: 0.1;
-    z-index: 1;
     height: 100%;
+    background-repeat: no-repeat;
+    display: block;
   }
+  // .curtain {
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   left: 0;
+  //   background-color: @black;
+  //   opacity: 0.3;
+  //   z-index: 1;
+  //   height: 100%;
+  // }
+
+video {
+  margin-top: -25px;
+  position: absolute;
+  top: 0;
+  z-index: 1
 }
+
+}
+

@@ -1,10 +1,15 @@
 .ev-navbar {
-  position: relative;
+  position: absolute;
   height: 50px;
-  padding-top: 20px;
+  padding-top: 25px;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  z-index: 3;
 
   .header-container img {
-    width: 100px;
+    width: 95px;
     position: absolute;
     top: -10px;
     right: 0;
@@ -12,7 +17,7 @@
     z-index: 2;
     padding: 15px;
     .margin-x-auto();
-    .border(8px, @color-tx-white);
+    .border(5px, @color-tx-white);
     border-radius: 50%;
   }
 
