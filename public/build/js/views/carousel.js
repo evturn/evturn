@@ -17,8 +17,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
-
   appendCarouselPanel() {
     let $sel = $('.carousel-panel'),
         model = this.model.toJSON();
@@ -27,7 +25,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendProjectLinks() {
     let $sel = $('.project-links'),
         model = this.model.toJSON();
@@ -36,7 +33,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendProjectTechnologies() {
     let $sel = $('.project-technologies'),
         collection = EVTURN.get('tech', true),
@@ -44,7 +40,6 @@ EVTURN.Carousel = Backbone.View.extend({
         models = _.map(ids, function(id) {
           return collection.get(id);
         });
-
 
     for (let i = 0; i < models.length; i++) {
       let model = models[i].toJSON();
@@ -54,7 +49,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendCarouselImages() {
     let $sel = $('.carousel-inner'),
         models   = this.model.get('items');
@@ -68,23 +62,19 @@ EVTURN.Carousel = Backbone.View.extend({
       }
     }
 
-
     return this;
   },
-
   appendProjectThumbnails() {
     let tn = new EVTURN.Thumbnails(this.$el);
 
     this.scrollUp();
   },
-
   carouselPreloader() {
-    let template = this.itemPreloader;
+    let $sel = $('.carousel-image-container');
 
-    $('.carousel-image-container').append(template());
+    $sel.append(EVTURN.carouselPreloaderTemplate());
     $('#carousel-preloader').delay(500).fadeOut();
     $('.carousel-preloader').delay(600).fadeOut(600);
 
-  },
-
+  }
 });

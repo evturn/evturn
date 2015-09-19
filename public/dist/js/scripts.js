@@ -687,7 +687,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendCarouselPanel: function appendCarouselPanel() {
     var $sel = $('.carousel-panel'),
         model = this.model.toJSON();
@@ -696,7 +695,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendProjectLinks: function appendProjectLinks() {
     var $sel = $('.project-links'),
         model = this.model.toJSON();
@@ -705,7 +703,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendProjectTechnologies: function appendProjectTechnologies() {
     var $sel = $('.project-technologies'),
         collection = EVTURN.get('tech', true),
@@ -722,7 +719,6 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendCarouselImages: function appendCarouselImages() {
     var $sel = $('.carousel-inner'),
         models = this.model.get('items');
@@ -738,21 +734,18 @@ EVTURN.Carousel = Backbone.View.extend({
 
     return this;
   },
-
   appendProjectThumbnails: function appendProjectThumbnails() {
     var tn = new EVTURN.Thumbnails(this.$el);
 
     this.scrollUp();
   },
-
   carouselPreloader: function carouselPreloader() {
-    var template = this.itemPreloader;
+    var $sel = $('.carousel-image-container');
 
-    $('.carousel-image-container').append(template());
+    $sel.append(EVTURN.carouselPreloaderTemplate());
     $('#carousel-preloader').delay(500).fadeOut();
     $('.carousel-preloader').delay(600).fadeOut(600);
   }
-
 });
 'use strict';
 
@@ -826,20 +819,17 @@ EVTURN.Thumbnails = Backbone.View.extend({
     return this;
   }
 });
-"use strict";
 'use strict';
 
 EVTURN.Rza = Backbone.View.extend({
 
   el: '#rza',
   child: null,
-
   render: function render() {
     this.$el.html(this.child.$el);
 
     return this;
   }
-
 });
 'use strict';
 
