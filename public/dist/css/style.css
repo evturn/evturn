@@ -5114,12 +5114,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-medium:before {
   content: "\f23a";
 }
+.no-scrollbar ::-webkit-scrollbar {
+  display: none;
+}
 .img-shadow {
   -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
   box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
-}
-.no-scrollbar ::-webkit-scrollbar {
-  display: none;
 }
 .img-scale {
   width: 100%;
@@ -5141,6 +5141,7 @@ li {
 html {
   min-height: 100%;
   position: relative;
+  font-size: 10px;
 }
 body {
   background-color: #5fa3c0;
@@ -5158,6 +5159,9 @@ h1 {
   font-weight: 500;
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
+}
+a {
+  text-decoration: none;
 }
 .caption {
   font-size: 10px;
