@@ -44,6 +44,7 @@ module.exports = {
     min: 'scripts.min.js',
     vendor: {
       src: [
+        'public/build/js/vendor/google-analytics.js',
         'public/build/js/vendor/jquery.js',
         'public/build/js/vendor/underscore.js',
         'public/build/js/vendor/backbone.js',

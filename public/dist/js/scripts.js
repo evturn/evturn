@@ -671,11 +671,6 @@ EVTURN.AboutView = Backbone.View.extend({
 EVTURN.Carousel = Backbone.View.extend({
 
   el: '.work',
-  itemContainer: _.template($('#carousel-item-template').html()),
-  itemDescription: _.template($('#carousel-panel-template').html()),
-  itemPreloader: _.template($('#carousel-preloader-template').html()),
-  itemLinks: _.template($('#project-links-template').html()),
-
   initialize: function initialize() {
     this.render();
     this.carouselPreloader();
