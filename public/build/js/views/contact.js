@@ -1,33 +1,35 @@
 EVTURN.ContactView = Backbone.View.extend({
 
   el: '.contact',
-  viewContainer : _.template($('#links-container-template').html()),
-  itemContainer : _.template($('#link-item-template').html()),
-
+  className: 'contact',
   initialize() {
-    this.collection = this.get('links');
+    this.collection = EVTURN.get('links');
 
     this.render();
+  },
+  render() {
+    this.setView();
     this.appendLinks();
   },
+  setView() {
+    let el = document.querySelector('#rza');
 
-  render() {
-    let selector = this.$el,
-        template = this.viewContainer;
-
-    this.setView(selector, template);
-
+    el.innerHTML = EVTURN.contactViewTemplate();
     return this;
   },
-
   appendLinks() {
-    let selector = '.link-items',
-        collection = this.collection,
-        template = this.itemContainer;
+    let selector = document.querySelector('.link-items'),
+        links = this.collection.models,
+        html = '';
 
-    this.appendModels(selector, collection, template);
+    for (var i = 0; i < links.length; i++) {
+      let model = links[i].attributes;
+
+      html = html + EVTURN.linkItemTemplate(model);
+    }
+
+    selector.innerHTML = html;
 
     return this;
   }
-
 });

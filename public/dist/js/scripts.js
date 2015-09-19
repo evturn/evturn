@@ -21,6 +21,7 @@ var EVTURN = window.EVTURN || {};
   });
 
   EVTURN.init = function () {
+    EVTURN.compile();
     var router = new EVTURN.Router();
 
     this.preloader();
@@ -167,6 +168,32 @@ var EVTURN = window.EVTURN || {};
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
     });
+  };
+
+  EVTURN.compile = function () {
+    EVTURN.contactViewTemplate;
+    EVTURN.linkItemTemplate;
+
+    var Compiler = {};
+
+    Compiler.init = function () {
+      Compiler.contactViewCompiler();
+      Compiler.linkItemCompiler();
+    };
+
+    Compiler.contactViewCompiler = function () {
+      var html = '\n          <div class="container contact animated fadeIn">\n            <div class="wrapper">\n              <div class="image-container">\n                <img class="img-scale" src="public/dist/img/city-invert.png">\n                <p class="header-subhead">@evturn // evturn [@] gmail [dot] com</p>\n              </div>\n              <div class="links-container">\n                <ul class="link-items">\n                  <!-- Links -->\n                </div>\n              </div>\n            </div>\n          </div>';
+
+      return EVTURN.contactViewTemplate = _.template(html);
+    };
+
+    Compiler.linkItemCompiler = function () {
+      var html = '\n          <li class="link-item">\n            <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>\n          </li>';
+
+      return EVTURN.linkItemTemplate = _.template(html);
+    };
+
+    return Compiler.init();
   };
 
   _.extend(Backbone.View.prototype, EVTURN);
@@ -529,35 +556,37 @@ EVTURN.AboutView = Backbone.View.extend({
 EVTURN.ContactView = Backbone.View.extend({
 
   el: '.contact',
-  viewContainer: _.template($('#links-container-template').html()),
-  itemContainer: _.template($('#link-item-template').html()),
-
+  className: 'contact',
   initialize: function initialize() {
-    this.collection = this.get('links');
+    this.collection = EVTURN.get('links');
 
     this.render();
+  },
+  render: function render() {
+    this.setView();
     this.appendLinks();
   },
+  setView: function setView() {
+    var el = document.querySelector('#rza');
 
-  render: function render() {
-    var selector = this.$el,
-        template = this.viewContainer;
-
-    this.setView(selector, template);
-
+    el.innerHTML = EVTURN.contactViewTemplate();
     return this;
   },
-
   appendLinks: function appendLinks() {
-    var selector = '.link-items',
-        collection = this.collection,
-        template = this.itemContainer;
+    var selector = document.querySelector('.link-items'),
+        links = this.collection.models,
+        html = '';
 
-    this.appendModels(selector, collection, template);
+    for (var i = 0; i < links.length; i++) {
+      var model = links[i].attributes;
+
+      html = html + EVTURN.linkItemTemplate(model);
+    }
+
+    selector.innerHTML = html;
 
     return this;
   }
-
 });
 'use strict';
 
@@ -706,14 +735,7 @@ EVTURN.Carousel = Backbone.View.extend({
 EVTURN.Rza = Backbone.View.extend({
 
   el: '#rza',
-  child: null,
-
-  render: function render() {
-    this.$el.html(this.child.$el);
-
-    return this;
-  }
-
+  child: null
 });
 'use strict';
 
@@ -774,7 +796,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   contact: function contact() {
-    EVTURN.changeState('contact');
+    EVTURN.navActive('contact');
 
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();

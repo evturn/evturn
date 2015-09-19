@@ -19,8 +19,10 @@ module.exports = {
       'gulpfile.js'
     ],
     watch: [
-      'public/js/build/**/*.js',
-      '!public/js/build/vendor/**/*.js',
+      'public/build/js/EVTURN.js',
+      'public/build/js/data.js',
+      'public/build/js/views/**/*.js',
+      'public/build/js/router.js',
       'config/**/*.js',
       'gulpfile.js'
     ]
