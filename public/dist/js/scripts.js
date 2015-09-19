@@ -622,7 +622,6 @@ EVTURN.ContactView = Backbone.View.extend({
 
   el: '.contact',
   initialize: function initialize() {
-    this.collection = EVTURN.get('links');
     this.setView();
     this.appendLinks();
   },
@@ -632,10 +631,10 @@ EVTURN.ContactView = Backbone.View.extend({
     return this;
   },
   appendLinks: function appendLinks() {
-    var models = this.collection.models;
+    var collection = EVTURN.get('links');
 
-    for (var i = 0; i < models.length; i++) {
-      var model = models[i].toJSON();
+    for (var i = 0; i < collection.models.length; i++) {
+      var model = collection.models[i].toJSON();
 
       $('.link-items').append(EVTURN.linkItemTemplate(model));
     }
@@ -668,17 +667,12 @@ EVTURN.IndexView = Backbone.View.extend({
 EVTURN.Thumbnails = Backbone.View.extend({
 
   el: '.thumbnails-wrapper',
-  viewContainer: _.template($('#thumbnails-container-template').html()),
-  itemContainer: _.template($('#thumbnail-item-template').html()),
-
   events: {
     'click .thumbnail-item': 'scrollUp'
   },
-
   initialize: function initialize(selector) {
     this.render(selector);
   },
-
   render: function render($selector) {
     var collection = EVTURN.get('apps');
 
