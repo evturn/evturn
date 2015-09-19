@@ -9,7 +9,7 @@ EVTURN.Thumbnails = Backbone.View.extend({
   },
 
   initialize(selector) {
-    this.collection = this.get('projects');
+    this.collection = EVTURN.get('apps');
     this.render(selector);
   },
 

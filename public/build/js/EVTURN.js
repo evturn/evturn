@@ -1,57 +1,62 @@
 "use strict";
 
-const EVTURN = {
-  Link: Backbone.Model.extend({}),
-  Project: Backbone.Model.extend({}),
-  Technology: Backbone.Model.extend({}),
-  Projects: Backbone.Collection.extend({}),
-  Links: Backbone.Collection.extend({}),
-  Technologies: Backbone.Collection.extend({}),
-  assignModels() {
-    EVTURN.Project.model = EVTURN.Project;
-    EVTURN.Link.model = EVTURN.Link;
-    EVTURN.Technology.model = EVTURN.Technology;
-  },
-  init() {
+let EVTURN = window.EVTURN || {};
+
+(function(EVTURN) {
+  EVTURN.Model = Backbone.Model.extend({});
+  EVTURN.Collection = Backbone.Collection.extend({
+    model: EVTURN.Model
+  });
+  EVTURN.Link         = Backbone.Model.extend({});
+  EVTURN.Project      = Backbone.Model.extend({});
+  EVTURN.Technology   = Backbone.Model.extend({});
+  EVTURN.Projects     = Backbone.Collection.extend({
+    model: EVTURN.Project
+  });
+  EVTURN.Links        = Backbone.Collection.extend({
+    model: EVTURN.Link
+  });
+  EVTURN.Technologies = Backbone.Collection.extend({
+    model: EVTURN.Technology
+  });
+
+  EVTURN.init = function() {
     let router = new EVTURN.Router();
 
-    EVTURN.assignModels();
     this.preloader();
     Backbone.history.start();
-  },
-  get(string) {
-    let key  = this.getKeyByName(string),
-        name = this.getNameByKey(key),
-        data = EVTURN[key],
-        collection = this.createCollection(name, data),
-        fetchedCollection = this.fetchCollection(name, collection);
+  };
+  EVTURN.get = function(value) {
+    let data;
 
-    return fetchedCollection;
-  },
-  getKeyByName(string) {
-    return '_' + string;
-  },
-  getNameByKey(string) {
-    let name  = string.substr(1),
-        toCap = (name.charAt(0).toUpperCase() + name.substring(1));
+    switch (value) {
+      case 'links':
+        data = EVTURN.links();
+        break;
+      case 'stats':
+        data = EVTURN.stats();
+        break;
+      case 'tech':
+        data = EVTURN.tech();
+        break;
+      case 'apps':
+        data = EVTURN.apps();
+        break;
+      case 'bio':
+        data = EVTURN.bio();
+        break;
+    };
 
-    return toCap;
-  },
-  createCollection(name, array) {
-    let data           = array,
-        collectionName = name;
-
-    return new EVTURN[collectionName](data);
-  },
-  fetchCollection(name, collection) {
-    let models         = collection.where({featured: true}),
-        collectionName = name;
-
+    let models = _.where(data, {featured: true});
     models.reverse();
 
-    return new EVTURN[collectionName](models);
-  },
-  getModelsById(string, array) {
+    let collection = new EVTURN.Collection(models);
+
+    return collection;
+  };
+
+
+  EVTURN.getModelsById = function(string, array) {
     let ids        = array,
         key        = this.getKeyByName(string),
         name       = this.getNameByKey(key),
@@ -68,29 +73,29 @@ const EVTURN = {
     models.reverse();
 
     return new EVTURN[name](models);
-  },
-  setModel(selector, model, template) {
+  };
+  EVTURN.setModel = function(selector, model, template) {
     let $selector = this.tojquery(selector);
 
     $selector.html(template(model.toJSON()));
 
     return this;
-  },
-  setView(selector, template) {
+  };
+  EVTURN.setView = function(selector, template) {
     let $selector = this.tojquery(selector);
 
     $selector.html(template());
 
     return this;
-  },
-  appendModel(selector, model, template) {
+  };
+  EVTURN.appendModel = function(selector, model, template) {
     let $selector = this.tojquery(selector);
 
     $selector.append(template(model.toJSON()));
 
     return this;
-  },
-  appendModels(selector, collection, template) {
+  };
+  EVTURN.appendModels = function(selector, collection, template) {
     let $selector = this.tojquery(selector);
 
     for (let i = collection.length - 1; i >= 0; i--) {
@@ -98,8 +103,8 @@ const EVTURN = {
     }
 
     return this;
-  },
-  appendArray(selector, array, template) {
+  };
+  EVTURN.appendArray = function(selector, array, template) {
     let $selector = this.tojquery(selector);
 
     for (let i = 0; i < array.length; i++) {
@@ -109,8 +114,8 @@ const EVTURN = {
     }
 
     return this;
-  },
-  appendObjects(selector, array, template) {
+  };
+  EVTURN.appendObjects = function(selector, array, template) {
     let $selector = this.tojquery(selector);
 
     for (let i = 0; i < array.length; i++) {
@@ -118,8 +123,8 @@ const EVTURN = {
     }
 
     return this;
-  },
-  createElement(string) {
+  };
+  EVTURN.createElement = function(string) {
     let $selector = $(document.getElementsByClassName(string)),
         element = document.createElement('div');
 
@@ -127,8 +132,8 @@ const EVTURN = {
     element.dataset.view = string;
     $selector.remove();
     $(element).insertAfter(new EVTURN.Rza().$el);
-  },
-  tojquery(element) {
+  };
+  EVTURN.tojquery = function(element) {
     switch (typeof element) {
       case "object":
         if (element instanceof jQuery) {
@@ -144,20 +149,20 @@ const EVTURN = {
           return $(document.getElementsByClassName(element));
         }
     }
-  },
-  navActive(string) {
+  };
+  EVTURN.navActive = function(string) {
     $('.nav-item').removeClass('nav-active');
     $('.nav-' + string).addClass('nav-active');
-  },
-  changeState(string) {
+  };
+  EVTURN.changeState = function(string) {
     this.navActive(string);
     this.createElement(string);
-  },
-  scrollUp() {
+  };
+  EVTURN.scrollUp = function() {
     $('html, body').animate({scrollTop: 0 }, 500);
 
-  },
-  preloader() {
+  };
+  EVTURN.preloader = function() {
     $(window).load(function() {
       let $container = $('#preloader'),
           $image = $('.preloader');
@@ -165,7 +170,10 @@ const EVTURN = {
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
     });
-  }
-};
+  };
 
-_.extend(Backbone.View.prototype, EVTURN);
+  _.extend(Backbone.View.prototype, EVTURN);
+
+  return EVTURN
+
+})(EVTURN);

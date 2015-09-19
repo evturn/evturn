@@ -7,7 +7,7 @@ EVTURN.AboutView = Backbone.View.extend({
   bioItem       : _.template($('#bio-paragraph-template').html()),
 
   initialize() {
-    this.collection = this.get('technologies');
+    this.collection = EVTURN.get('tech');
 
     this.render();
     this.appendStats();
