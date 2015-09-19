@@ -172,6 +172,11 @@ let EVTURN = window.EVTURN || {};
       $image.delay(600).fadeOut(600);
     });
   };
+  EVTURN.clear = function() {
+    let el = document.querySelector('#rza');
+
+    el.innerHTML = '';
+  };
 
   _.extend(Backbone.View.prototype, EVTURN);
 

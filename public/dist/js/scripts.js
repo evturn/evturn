@@ -169,6 +169,11 @@ var EVTURN = window.EVTURN || {};
       $image.delay(600).fadeOut(600);
     });
   };
+  EVTURN.clear = function () {
+    var el = document.querySelector('#rza');
+
+    el.innerHTML = '';
+  };
 
   _.extend(Backbone.View.prototype, EVTURN);
 
@@ -559,34 +564,24 @@ EVTURN.AboutView = Backbone.View.extend({
 EVTURN.ContactView = Backbone.View.extend({
 
   el: '.contact',
-  className: 'contact',
   initialize: function initialize() {
     this.collection = EVTURN.get('links');
-
-    this.render();
-  },
-  render: function render() {
     this.setView();
     this.appendLinks();
   },
   setView: function setView() {
-    var el = document.querySelector('#rza');
+    this.$el.html(EVTURN.contactViewTemplate());
 
-    el.innerHTML = EVTURN.contactViewTemplate();
     return this;
   },
   appendLinks: function appendLinks() {
-    var selector = document.querySelector('.link-items'),
-        links = this.collection.models,
-        html = '';
+    var models = this.collection.models;
 
-    for (var i = 0; i < links.length; i++) {
-      var model = links[i].attributes;
+    for (var i = 0; i < models.length; i++) {
+      var model = models[i].toJSON();
 
-      html = html + EVTURN.linkItemTemplate(model);
-    }
-
-    selector.innerHTML = html;
+      $('.link-items').append(EVTURN.linkItemTemplate(model));
+    };
 
     return this;
   }
@@ -738,7 +733,14 @@ EVTURN.Carousel = Backbone.View.extend({
 EVTURN.Rza = Backbone.View.extend({
 
   el: '#rza',
-  child: null
+  child: null,
+
+  render: function render() {
+    this.$el.html(this.child.$el);
+
+    return this;
+  }
+
 });
 'use strict';
 
@@ -799,7 +801,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   contact: function contact() {
-    EVTURN.navActive('contact');
+    EVTURN.changeState('contact');
 
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();

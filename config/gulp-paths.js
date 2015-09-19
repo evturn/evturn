@@ -47,6 +47,8 @@ module.exports = {
         'public/build/js/vendor/jquery.js',
         'public/build/js/vendor/underscore.js',
         'public/build/js/vendor/backbone.js',
+        'public/build/js/vendor/backbone-nativeview.js',
+        'public/build/js/vendor/backbone.js',
         'public/build/js/vendor/bootstrap.js'
       ],
       watch: 'public/build/js/vendor/**/*.js',

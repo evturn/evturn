@@ -56,7 +56,7 @@ EVTURN.Router = Backbone.Router.extend({
   },
 
   contact() {
-    EVTURN.navActive('contact');
+    EVTURN.changeState('contact');
 
     if (this.contactView === null) {
       this.contactView = new EVTURN.ContactView();
