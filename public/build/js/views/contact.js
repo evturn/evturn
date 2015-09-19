@@ -18,7 +18,7 @@ EVTURN.ContactView = Backbone.View.extend({
       let model = models[i].toJSON();
 
       $('.link-items').append(EVTURN.linkItemTemplate(model));
-    };
+    }
 
     return this;
   }

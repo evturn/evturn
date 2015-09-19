@@ -48,12 +48,10 @@ var EVTURN = window.EVTURN || {};
         break;
     };
 
-    var featured = _.where(data, { featured: true }),
-        models = featured.length ? featured : data;
+    var filtered = _.has(_.first(data), 'featured') ? _.where(data, { featured: true }) : data,
+        sorted = _.has(filtered, 'id') ? _.sortBy(filtered, 'id') : filtered;
 
-    models.reverse();
-
-    return new EVTURN.Collection(models);
+    return new EVTURN.Collection(sorted);
   };
 
   EVTURN.getModelsById = function (string, array) {
@@ -453,6 +451,9 @@ var EVTURN = window.EVTURN || {};
 
   EVTURN.heroTemplate;
 
+  EVTURN.thumbnailViewTemplate;
+  EVTURN.thumbnailItemTemplate;
+
   EVTURN.contactViewTemplate;
   EVTURN.linkItemTemplate;
 
@@ -464,6 +465,9 @@ var EVTURN = window.EVTURN || {};
 
   Compiler.init = function () {
     Compiler.heroCompiler();
+
+    Compiler.thumbnailViewCompiler();
+    Compiler.thumbnailItemCompiler();
 
     Compiler.contactViewCompiler();
     Compiler.linkItemCompiler();
@@ -479,6 +483,18 @@ var EVTURN = window.EVTURN || {};
     var html = "\n          <div class=\"container animated fadeInUp\">\n            <div class=\"wrapper\">\n              <img class=\"img-scale\" src=\"public/dist/img/hero-avatar.png\">\n              <p class=\"header-subhead\">Evan Turner // Development</p>\n            </div>\n          </div>";
 
     return EVTURN.heroTemplate = _.template(html);
+  };
+
+  Compiler.thumbnailViewCompiler = function () {
+    var html = "\n          <div class=\"container thumbnails\">\n            <div class=\"wrapper thumbnails-wrapper\">\n              <!-- Thumbnails Items-->\n            </div>\n          </div>";
+
+    return EVTURN.thumbnailViewTemplate = _.template(html);
+  };
+
+  Compiler.thumbnailItemCompiler = function () {
+    var html = "\n          <div class=\"thumbnail-item\">\n            <a href=\"#work/<%= id %>\">\n            <div class=\"thumbnail-inner\">\n              <div class=\"image-container\">\n                <img class=\"img-scale\" src=\"<%= thumbnail %>\">\n                <div class=\"shadow\"></div>\n              </div>\n            </div>\n            </a>\n          </div>";
+
+    return EVTURN.thumbnailItemTemplate = _.template(html);
   };
 
   Compiler.techViewCompiler = function () {
@@ -622,7 +638,7 @@ EVTURN.ContactView = Backbone.View.extend({
       var model = models[i].toJSON();
 
       $('.link-items').append(EVTURN.linkItemTemplate(model));
-    };
+    }
 
     return this;
   }
@@ -660,14 +676,20 @@ EVTURN.Thumbnails = Backbone.View.extend({
   },
 
   initialize: function initialize(selector) {
-    this.collection = EVTURN.get('apps');
     this.render(selector);
   },
 
   render: function render($selector) {
+    var collection = EVTURN.get('apps');
+
     this.$el.empty();
-    $selector.append(this.viewContainer());
-    this.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
+    $selector.append(EVTURN.thumbnailViewTemplate());
+
+    for (var i = 0; i < collection.models.length; i++) {
+      var model = collection.models[i].toJSON();
+
+      $('.thumbnails-wrapper').append(EVTURN.thumbnailItemTemplate(model));
+    }
 
     return this;
   }

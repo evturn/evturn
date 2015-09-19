@@ -9,14 +9,20 @@ EVTURN.Thumbnails = Backbone.View.extend({
   },
 
   initialize(selector) {
-    this.collection = EVTURN.get('apps');
     this.render(selector);
   },
 
   render($selector) {
+    let collection = EVTURN.get('apps');
+
     this.$el.empty();
-    $selector.append(this.viewContainer());
-    this.appendModels('.thumbnails-wrapper', this.collection, this.itemContainer);
+    $selector.append(EVTURN.thumbnailViewTemplate());
+
+    for (var i = 0; i < collection.models.length; i++) {
+      let model = collection.models[i].toJSON();
+
+      $('.thumbnails-wrapper').append(EVTURN.thumbnailItemTemplate(model));
+    }
 
     return this;
   },

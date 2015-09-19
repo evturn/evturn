@@ -48,12 +48,10 @@ let EVTURN = window.EVTURN || {};
         break;
     };
 
-    let featured = _.where(data, {featured: true}),
-        models = featured.length ? featured : data;
+    let filtered = _.has(_.first(data), 'featured') ? _.where(data, {featured: true}) : data,
+        sorted = _.has(filtered, 'id') ? _.sortBy(filtered, 'id') : filtered;
 
-    models.reverse();
-
-    return new EVTURN.Collection(models);
+    return new EVTURN.Collection(sorted);
   };
 
 

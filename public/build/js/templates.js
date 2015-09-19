@@ -5,6 +5,9 @@
 
     EVTURN.heroTemplate;
 
+    EVTURN.thumbnailViewTemplate;
+    EVTURN.thumbnailItemTemplate;
+
     EVTURN.contactViewTemplate;
     EVTURN.linkItemTemplate;
 
@@ -16,6 +19,9 @@
 
     Compiler.init = function() {
       Compiler.heroCompiler();
+
+      Compiler.thumbnailViewCompiler();
+      Compiler.thumbnailItemCompiler();
 
       Compiler.contactViewCompiler();
       Compiler.linkItemCompiler();
@@ -37,6 +43,33 @@
           </div>`;
 
       return EVTURN.heroTemplate = _.template(html);
+    };
+
+    Compiler.thumbnailViewCompiler = function() {
+      let html = `
+          <div class="container thumbnails">
+            <div class="wrapper thumbnails-wrapper">
+              <!-- Thumbnails Items-->
+            </div>
+          </div>`;
+
+      return EVTURN.thumbnailViewTemplate = _.template(html);
+    };
+
+    Compiler.thumbnailItemCompiler = function() {
+      let html = `
+          <div class="thumbnail-item">
+            <a href="#work/<%= id %>">
+            <div class="thumbnail-inner">
+              <div class="image-container">
+                <img class="img-scale" src="<%= thumbnail %>">
+                <div class="shadow"></div>
+              </div>
+            </div>
+            </a>
+          </div>`;
+
+      return EVTURN.thumbnailItemTemplate = _.template(html);
     };
 
     Compiler.techViewCompiler = function() {
