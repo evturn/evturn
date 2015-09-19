@@ -170,32 +170,6 @@ var EVTURN = window.EVTURN || {};
     });
   };
 
-  EVTURN.compile = function () {
-    EVTURN.contactViewTemplate;
-    EVTURN.linkItemTemplate;
-
-    var Compiler = {};
-
-    Compiler.init = function () {
-      Compiler.contactViewCompiler();
-      Compiler.linkItemCompiler();
-    };
-
-    Compiler.contactViewCompiler = function () {
-      var html = '\n          <div class="container contact animated fadeIn">\n            <div class="wrapper">\n              <div class="image-container">\n                <img class="img-scale" src="public/dist/img/city-invert.png">\n                <p class="header-subhead">@evturn // evturn [@] gmail [dot] com</p>\n              </div>\n              <div class="links-container">\n                <ul class="link-items">\n                  <!-- Links -->\n                </div>\n              </div>\n            </div>\n          </div>';
-
-      return EVTURN.contactViewTemplate = _.template(html);
-    };
-
-    Compiler.linkItemCompiler = function () {
-      var html = '\n          <li class="link-item">\n            <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>\n          </li>';
-
-      return EVTURN.linkItemTemplate = _.template(html);
-    };
-
-    return Compiler.init();
-  };
-
   _.extend(Backbone.View.prototype, EVTURN);
 
   return EVTURN;
@@ -462,6 +436,35 @@ var EVTURN = window.EVTURN || {};
   };
 
   return _.extend(app, Get);
+})(EVTURN);
+"use strict";
+
+(function (app) {
+  var Compiler = {};
+
+  EVTURN.contactViewTemplate;
+  EVTURN.linkItemTemplate;
+
+  Compiler.init = function () {
+    Compiler.contactViewCompiler();
+    Compiler.linkItemCompiler();
+  };
+
+  Compiler.contactViewCompiler = function () {
+    var html = "\n          <div class=\"container contact animated fadeIn\">\n            <div class=\"wrapper\">\n              <div class=\"image-container\">\n                <img class=\"img-scale\" src=\"public/dist/img/city-invert.png\">\n                <p class=\"header-subhead\">@evturn // evturn [@] gmail [dot] com</p>\n              </div>\n              <div class=\"links-container\">\n                <ul class=\"link-items\">\n                  <!-- Links -->\n                </div>\n              </div>\n            </div>\n          </div>";
+
+    return EVTURN.contactViewTemplate = _.template(html);
+  };
+
+  Compiler.linkItemCompiler = function () {
+    var html = "\n          <li class=\"link-item\">\n            <a target=\"_blank\" href=\"<%= url %>\"><i class=\"<%= icon %>\"></i></a>\n          </li>";
+
+    return EVTURN.linkItemTemplate = _.template(html);
+  };
+
+  EVTURN.compile = Compiler.init;
+
+  return EVTURN.compile;
 })(EVTURN);
 'use strict';
 

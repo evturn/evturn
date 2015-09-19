@@ -21,6 +21,7 @@ module.exports = {
     watch: [
       'public/build/js/EVTURN.js',
       'public/build/js/data.js',
+      'public/build/js/templates.js',
       'public/build/js/views/**/*.js',
       'public/build/js/router.js',
       'config/**/*.js',
@@ -31,6 +32,7 @@ module.exports = {
     src: [
       'public/build/js/EVTURN.js',
       'public/build/js/data.js',
+      'public/build/js/templates.js',
       'public/build/js/views/**/*.js',
       'public/build/js/router.js'
     ],
