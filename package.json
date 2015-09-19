@@ -37,6 +37,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.5"
+    "gulp-util": "^3.0.5",
+    "strict-mode": "^0.4.1"
   }
 }

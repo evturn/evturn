@@ -1,4 +1,6 @@
-var gulp = require('gulp'),
+"use strict";
+
+let gulp = require('gulp'),
     gutil = require('gulp-util'),
     $ = require('gulp-load-plugins')();
 
@@ -22,7 +24,7 @@ module.exports = {
       if (file.eslint.errorCount === 0) {
         return false;
       }
-      var errors = file.eslint.messages.map(function(data) {
+      let errors = file.eslint.messages.map(function(data) {
         return '(' + data.line + ':' + data.column + ') ' + data.message;
       }).join('\n');
 
@@ -32,7 +34,7 @@ module.exports = {
       if (file.jshint.success) {
         return false;
       }
-      var errors = file.jshint.results.map(function(data) {
+      let errors = file.jshint.results.map(function(data) {
         if (data.error) {
           return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
         }
