@@ -107,15 +107,15 @@ let EVTURN = window.EVTURN || {};
     };
 
     let events = function() {
-      $(document).on('click', '.burger-container', function() {
+      $(document).on('click touchstart', '.burger-container', function() {
         expand();
       });
 
-      $(document).on('click', '.close-container', function() {
+      $(document).on('click touchstart', '.close-container', function() {
         collapse();
       });
 
-      $(document).on('click', '.nav-item', function() {
+      $(document).on('click touchstart', '.nav-item', function() {
         collapse();
       });
     };

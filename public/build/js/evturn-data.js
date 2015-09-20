@@ -19,7 +19,7 @@
       'https://www.dropbox.com/s/nm1mnx41gjhq0ga/vid-18.mov?dl=0',
       'https://www.dropbox.com/s/f38ytb2dvyv777e/vid-14.mov?dl=0',
       'https://www.dropbox.com/s/6ttdqo2xmptpbyu/vid-17.mov?dl=0',
-      'https://www.dropbox.com/s/xvjnenj4tywu7x0/vid-2.mov?dl=0',
+      'https://www.dropbox.com/s/xvjnenj4tywu7x0/vid-2.mov?dl=0'
     ];
   };
 
