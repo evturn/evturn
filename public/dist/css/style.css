@@ -5136,7 +5136,6 @@ li {
   list-style-type: none;
 }
 html {
-  min-height: 100%;
   position: relative;
   font-size: 10px;
 }
@@ -5253,7 +5252,7 @@ a {
 }
 @media (min-width: 600px) {
   .ev-navbar {
-    padding-top: 60px;
+    padding-top: 15px;
   }
 }
 .ev-navbar .burger-container {
@@ -5284,10 +5283,10 @@ a {
 }
 @media (min-width: 400px) {
   .ev-navbar .header-container {
-    top: -25px;
-    width: 100px;
-    height: 100px;
-    padding: 20px;
+    top: 185px;
+    width: 125px;
+    height: 125px;
+    padding: 30px;
   }
 }
 .ev-navbar .header-container img {
@@ -5304,6 +5303,26 @@ a {
   background-color: #c9c8c7;
   opacity: 0.5;
   height: 100%;
+}
+.ev-navbar .headline-container {
+  background-color: #ffffff;
+  text-align: center;
+  top: 275px;
+  right: 0;
+  left: 0;
+  position: absolute;
+  z-index: 5;
+}
+@media (min-width: 400px) {
+  .ev-navbar .headline-container {
+    top: 430px;
+  }
+}
+.ev-navbar .subhead {
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', sans;
+  font-size: 3rem;
+  color: #231f20;
 }
 .ev-nav {
   display: none;
@@ -5466,26 +5485,47 @@ a {
   height: 100vh;
   position: relative;
   display: block;
-  overflow: hidden;
-}
-@media (min-width: 400px) {
-  .index-header {
-    height: 400px;
-  }
-}
-@media (min-width: 600px) {
-  .index-header {
-    height: 450px;
-  }
 }
 .index-header video {
   position: absolute;
+  z-index: 1;
+}
+.index-header video.landscape {
+  right: 0;
   top: 0;
   left: -250px;
-  right: 0;
   height: 100vh;
   width: auto;
-  z-index: 1;
+}
+@media (min-width: 1000px) {
+  .index-header video.landscape {
+    left: 0;
+    height: auto;
+    width: 100vw;
+  }
+}
+.index-header video.portrait {
+  right: 0;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: 100vh;
+}
+@media (min-width: 540px) {
+  .index-header video.portrait {
+    width: 100vw;
+    height: auto;
+  }
+}
+@media (min-width: 600px) {
+  .index-header video.portrait {
+    top: -250px;
+  }
+}
+@media (min-width: 1000px) {
+  .index-header video.portrait {
+    top: -800px;
+  }
 }
 .index-header .carousel-index {
   background-size: cover;
@@ -5506,19 +5546,6 @@ a {
   opacity: 0.4;
   z-index: 1;
   height: 100%;
-}
-.landing .headline-container {
-  background-color: #ffffff;
-  text-align: center;
-  margin-top: -100%;
-  position: relative;
-  z-index: 5;
-}
-.landing .subhead {
-  text-transform: uppercase;
-  font-family: 'Source Sans Pro', sans;
-  font-size: 3rem;
-  color: #231f20;
 }
 .footer {
   position: absolute;

@@ -2,24 +2,38 @@
   height: 100vh;
   position: relative;
   display: block;
-  overflow: hidden;
-
-  @media (min-width: @xs) {
-    height: 400px;
-  }
-
-  @media (min-width: @sm) {
-    height: 450px;
-  }
-
   video {
     position: absolute;
-    top: 0;
-    left: -250px;
-    right: 0;
-    height: 100vh;
-    width: auto;
-    z-index: 1
+    z-index: 1;
+    &.landscape {
+      right: 0;
+      top: 0;
+      left: -250px;
+      height: 100vh;
+      width: auto;
+      @media (min-width: @lg) {
+        left: 0;
+        height: auto;
+        width: 100vw;
+      }
+    }
+    &.portrait {
+      right: 0;
+      left: 0;
+      top: 0;
+      width: auto;
+      height: 100vh;
+      @media (min-width: 540px) {
+        width: 100vw;
+        height: auto;
+      }
+      @media (min-width: @sm) {
+        top: -250px;
+      }
+      @media (min-width: @lg) {
+       top: -800px;
+      }
+    }
   }
   .carousel-index {
     background-size: cover;
@@ -43,20 +57,3 @@
     height: 100%;
   }
 }
-
-.landing {
-  .headline-container {
-    background-color: @color-bg-white;
-    text-align: center;
-    margin-top: -100%;
-    position: relative;
-    z-index: 5;
-  }
-  .subhead {
-    text-transform: uppercase;
-    font-family: @font-sans;
-    font-size: 3rem;
-    color: @color-tx-black;
-  }
-}
-

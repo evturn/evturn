@@ -369,6 +369,7 @@ var EVTURN = window.EVTURN || {};
   EVTURN.techItemTemplate;
   EVTURN.statItemTemplate;
   EVTURN.bioTemplate;
+  EVTURN.footerTemplate;
 
   Compiler.init = function () {
     Compiler.navbarCompiler();
@@ -388,6 +389,7 @@ var EVTURN = window.EVTURN || {};
     Compiler.techItemCompiler();
     Compiler.statItemCompiler();
     Compiler.bioCompiler();
+    Compiler.footerCompiler();
   };
 
   Compiler.carouselViewCompiler = function () {
@@ -427,7 +429,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.heroCompiler = function () {
-    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n          </section>\n          <div class=\"container landing\">\n            <div class=\"inner\">\n              <div class=\"headline-container\">\n              <h3 class=\"subhead\">Evan Turner</h3>\n                <h3 class=\"subhead\">Web Developer</h3>\n              </div>\n            </div>\n          </div>";
+    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"headline-container\">\n                  <h3 class=\"subhead\">Evan Turner</h3>\n                  <h3 class=\"subhead\">Web Developer</h3>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n        </section>";
 
     return EVTURN.heroTemplate = _.template(html);
   };
@@ -484,6 +486,12 @@ var EVTURN = window.EVTURN || {};
     var html = "\n          <li class=\"link-item\">\n            <a target=\"_blank\" href=\"<%= url %>\"><i class=\"<%= icon %>\"></i></a>\n          </li>";
 
     return EVTURN.linkItemTemplate = _.template(html);
+  };
+
+  Compiler.footerCompiler = function () {
+    var html = "\n        <footer class=\"container footer\">\n          <div class=\"inner\">\n            <div class=\"copyright-container\">\n              <p>2015 © evturn.com | All Rights Reserved</p>\n            </div>\n          </div>\n        </footer>";
+
+    return EVTURN.footerTemplate = _.template(html);
   };
 
   EVTURN.compile = Compiler.init;
@@ -711,7 +719,7 @@ EVTURN.Vid = function (video) {
 
   Player.initialized = false;
   Player.playCount = null;
-  Player.playlist = ['public/build/vid-12.mov', 'public/build/vid-7.mov', 'public/build/vid-8.mov', 'public/build/vid-6.mov', 'public/build/vid-11.mov', 'public/build/vid-10.mov', 'public/build/vid-3.mov', 'public/build/vid-1.mov', 'public/build/vid-2.mov', 'public/build/vid-4.mov'];
+  Player.playlist = ['public/build/vid-7.mov', 'public/build/vid-12.mov', 'public/build/vid-10.mov', 'public/build/vid-15.mov', 'public/build/vid-3.mov', 'public/build/vid-16.mov', 'public/build/vid-1.mov', 'public/build/vid-8.mov', 'public/build/vid-13.mov', 'public/build/vid-17.mov', 'public/build/vid-13.mov', 'public/build/vid-6.mov', 'public/build/vid-11.mov', 'public/build/vid-18.mov', 'public/build/vid-14.mov', 'public/build/vid-2.mov'];
 
   Player.timekeeper = function () {
     var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
@@ -750,9 +758,11 @@ EVTURN.Vid = function (video) {
         height = video.videoHeight;
 
     if (height > width) {
-      video.style.left = 0;
+      video.classList.remove('landscape');
+      video.classList.add('portrait');
     } else {
-      video.style.left = 'inherit';
+      video.classList.remove('portrait');
+      video.classList.add('landscape');
     }
   };
 

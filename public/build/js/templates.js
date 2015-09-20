@@ -19,6 +19,7 @@
     EVTURN.techItemTemplate;
     EVTURN.statItemTemplate;
     EVTURN.bioTemplate;
+    EVTURN.footerTemplate;
 
     Compiler.init = function() {
       Compiler.navbarCompiler();
@@ -38,6 +39,7 @@
       Compiler.techItemCompiler();
       Compiler.statItemCompiler();
       Compiler.bioCompiler();
+      Compiler.footerCompiler();
     };
 
     Compiler.carouselViewCompiler = function() {
@@ -135,20 +137,16 @@
                   <img src="public/dist/img/site/ev-av.png" class="img-scale">
                   <div class="image-overlay"></div>
                 </div>
+                <div class="headline-container">
+                  <h3 class="subhead">Evan Turner</h3>
+                  <h3 class="subhead">Web Developer</h3>
+                </div>
                 <div class="burger-container">
                   <i class="fa fa-bars"></i>
                 </div>
               </div>
             </div>
-          </section>
-          <div class="container landing">
-            <div class="inner">
-              <div class="headline-container">
-              <h3 class="subhead">Evan Turner</h3>
-                <h3 class="subhead">Web Developer</h3>
-              </div>
-            </div>
-          </div>`;
+        </section>`;
 
       return EVTURN.heroTemplate = _.template(html);
     };
@@ -286,6 +284,19 @@
           </li>`;
 
       return EVTURN.linkItemTemplate = _.template(html);
+    };
+
+    Compiler.footerCompiler = function() {
+      let html = `
+        <footer class="container footer">
+          <div class="inner">
+            <div class="copyright-container">
+              <p>2015 © evturn.com | All Rights Reserved</p>
+            </div>
+          </div>
+        </footer>`;
+
+      return EVTURN.footerTemplate = _.template(html);
     };
 
     EVTURN.compile = Compiler.init;
