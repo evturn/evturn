@@ -119,7 +119,7 @@
       let html = `
           <div id="carousel-preloader">
             <div id="carousel-spinner"></div>
-          <img class="carousel-preloader" src="public/dist/img/evturn.jpg">
+          <img class="carousel-preloader" src="public/dist/img/site/evturn.jpg">
         </div>`;
 
       return EVTURN.carouselPreloaderTemplate = _.template(html);
@@ -199,7 +199,7 @@
           <div class="container about">
             <div class="wrapper">
               <div class="image-container animated fadeInUp">
-                <img class="img-scale" src="public/dist/img/tile.png">
+                <img class="img-scale" src="public/dist/img/site/tile.png">
               </div>
               <div class="bio-container">
                 <p class="section-title">Web Developer</p>
@@ -263,7 +263,7 @@
           <div class="container contact animated fadeIn">
             <div class="wrapper">
               <div class="image-container">
-                <img class="img-scale" src="public/dist/img/city-invert.png">
+                <img class="img-scale" src="public/dist/img/site/city-invert.png">
                 <p class="header-subhead">@evturn // evturn [@] gmail [dot] com</p>
               </div>
               <div class="links-container">

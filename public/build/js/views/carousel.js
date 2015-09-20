@@ -12,8 +12,8 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   render() {
     let model = this.model.toJSON();
-
-    this.$el.html(EVTURN.carouselViewTemplate(model));
+    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.append(EVTURN.carouselViewTemplate(model));
 
     return this;
   },

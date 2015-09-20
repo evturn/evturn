@@ -9,7 +9,8 @@ EVTURN.AboutView = Backbone.View.extend({
     this.animateStats();
   },
   render() {
-    this.$el.html(EVTURN.techViewTemplate());
+    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.append(EVTURN.techViewTemplate());
 
     return this;
   },

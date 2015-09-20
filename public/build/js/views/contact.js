@@ -6,7 +6,8 @@ EVTURN.ContactView = Backbone.View.extend({
     this.appendLinks();
   },
   setView() {
-    this.$el.html(EVTURN.contactViewTemplate());
+    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.append(EVTURN.contactViewTemplate());
 
     return this;
   },

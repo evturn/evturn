@@ -423,7 +423,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.carouselPreloaderCompiler = function () {
-    var html = "\n          <div id=\"carousel-preloader\">\n            <div id=\"carousel-spinner\"></div>\n          <img class=\"carousel-preloader\" src=\"public/dist/img/evturn.jpg\">\n        </div>";
+    var html = "\n          <div id=\"carousel-preloader\">\n            <div id=\"carousel-spinner\"></div>\n          <img class=\"carousel-preloader\" src=\"public/dist/img/site/evturn.jpg\">\n        </div>";
 
     return EVTURN.carouselPreloaderTemplate = _.template(html);
   };
@@ -453,7 +453,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.techViewCompiler = function () {
-    var html = "\n          <div class=\"container about\">\n            <div class=\"wrapper\">\n              <div class=\"image-container animated fadeInUp\">\n                <img class=\"img-scale\" src=\"public/dist/img/tile.png\">\n              </div>\n              <div class=\"bio-container\">\n                <p class=\"section-title\">Web Developer</p>\n                <div class=\"paragraphs\">\n                  <!-- Bio -->\n                </div>\n              </div>\n              <div class=\"info-container\">\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Notable Build Tools</p>\n                  <div class=\"technology-items stat-items\">\n                    <!-- Technologies -->\n                  </div>\n                </div>\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Statistics</p>\n                  <div class=\"statistics stat-items\">\n                    <!-- Stats -->\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>";
+    var html = "\n          <div class=\"container about\">\n            <div class=\"wrapper\">\n              <div class=\"image-container animated fadeInUp\">\n                <img class=\"img-scale\" src=\"public/dist/img/site/tile.png\">\n              </div>\n              <div class=\"bio-container\">\n                <p class=\"section-title\">Web Developer</p>\n                <div class=\"paragraphs\">\n                  <!-- Bio -->\n                </div>\n              </div>\n              <div class=\"info-container\">\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Notable Build Tools</p>\n                  <div class=\"technology-items stat-items\">\n                    <!-- Technologies -->\n                  </div>\n                </div>\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Statistics</p>\n                  <div class=\"statistics stat-items\">\n                    <!-- Stats -->\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>";
 
     return EVTURN.techViewTemplate = _.template(html);
   };
@@ -477,7 +477,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.contactViewCompiler = function () {
-    var html = "\n          <div class=\"container contact animated fadeIn\">\n            <div class=\"wrapper\">\n              <div class=\"image-container\">\n                <img class=\"img-scale\" src=\"public/dist/img/city-invert.png\">\n                <p class=\"header-subhead\">@evturn // evturn [@] gmail [dot] com</p>\n              </div>\n              <div class=\"links-container\">\n                <ul class=\"link-items\">\n                  <!-- Links -->\n                </div>\n              </div>\n            </div>\n          </div>";
+    var html = "\n          <div class=\"container contact animated fadeIn\">\n            <div class=\"wrapper\">\n              <div class=\"image-container\">\n                <img class=\"img-scale\" src=\"public/dist/img/site/city-invert.png\">\n                <p class=\"header-subhead\">@evturn // evturn [@] gmail [dot] com</p>\n              </div>\n              <div class=\"links-container\">\n                <ul class=\"link-items\">\n                  <!-- Links -->\n                </div>\n              </div>\n            </div>\n          </div>";
 
     return EVTURN.contactViewTemplate = _.template(html);
   };
@@ -511,7 +511,8 @@ EVTURN.AboutView = Backbone.View.extend({
     this.animateStats();
   },
   render: function render() {
-    this.$el.html(EVTURN.techViewTemplate());
+    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.append(EVTURN.techViewTemplate());
 
     return this;
   },
@@ -593,8 +594,8 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   render: function render() {
     var model = this.model.toJSON();
-
-    this.$el.html(EVTURN.carouselViewTemplate(model));
+    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.append(EVTURN.carouselViewTemplate(model));
 
     return this;
   },
@@ -668,7 +669,8 @@ EVTURN.ContactView = Backbone.View.extend({
     this.appendLinks();
   },
   setView: function setView() {
-    this.$el.html(EVTURN.contactViewTemplate());
+    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.append(EVTURN.contactViewTemplate());
 
     return this;
   },
