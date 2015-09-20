@@ -36,6 +36,7 @@
     position: relative;
     z-index: 8;
     display: inline-block;
+    .prevent-flash();
   }
   .header-container {
     position: absolute;
@@ -48,6 +49,7 @@
     height: 70px;
     padding: 10px;
     .margin-x-auto();
+    .prevent-flash();
     .border(2px, @color-tx-white);
     img {
       z-index: 3;
