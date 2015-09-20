@@ -5141,7 +5141,6 @@ html {
 }
 body {
   background-color: #5fa3c0;
-  margin-bottom: 60px;
 }
 a,
 p,
@@ -5493,15 +5492,18 @@ a {
 .index-header video.landscape {
   right: 0;
   top: 0;
-  left: -250px;
+  left: -400px;
   height: 100vh;
   width: auto;
 }
-@media (min-width: 1000px) {
+@media (min-width: 400px) {
+  .index-header video.landscape {
+    left: -250px;
+  }
+}
+@media (min-width: 600px) {
   .index-header video.landscape {
     left: 0;
-    height: auto;
-    width: 100vw;
   }
 }
 .index-header video.portrait {
@@ -5515,11 +5517,6 @@ a {
   .index-header video.portrait {
     width: 100vw;
     height: auto;
-  }
-}
-@media (min-width: 600px) {
-  .index-header video.portrait {
-    top: -250px;
   }
 }
 @media (min-width: 1000px) {

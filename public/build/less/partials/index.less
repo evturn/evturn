@@ -8,13 +8,14 @@
     &.landscape {
       right: 0;
       top: 0;
-      left: -250px;
+      left: -400px;
       height: 100vh;
       width: auto;
-      @media (min-width: @lg) {
+      @media (min-width: @xs) {
+        left: -250px;
+      }
+      @media (min-width: @sm) {
         left: 0;
-        height: auto;
-        width: 100vw;
       }
     }
     &.portrait {
@@ -26,9 +27,6 @@
       @media (min-width: 540px) {
         width: 100vw;
         height: auto;
-      }
-      @media (min-width: @sm) {
-        top: -250px;
       }
       @media (min-width: @lg) {
        top: -800px;
