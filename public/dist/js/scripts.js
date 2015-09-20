@@ -14,6 +14,7 @@ var EVTURN = window.EVTURN || {};
     var router = new EVTURN.Router();
 
     EVTURN.preloader();
+    EVTURN.renderNav();
     Backbone.history.start();
   };
 
@@ -83,6 +84,13 @@ var EVTURN = window.EVTURN || {};
 
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
+    });
+  };
+
+  EVTURN.renderNav = function () {
+    $(document).on('click', '.burger-container', function () {
+      console.log('Clikfds');
+      $('.ev-nav').html(EVTURN.navTemplate());
     });
   };
 
@@ -353,6 +361,7 @@ var EVTURN = window.EVTURN || {};
 (function (app) {
   var Compiler = {};
 
+  EVTURN.navTemplate;
   EVTURN.navbarTemplate;
   EVTURN.heroTemplate;
   EVTURN.carouselViewTemplate;
@@ -372,6 +381,7 @@ var EVTURN = window.EVTURN || {};
   EVTURN.footerTemplate;
 
   Compiler.init = function () {
+    Compiler.navCompiler();
     Compiler.navbarCompiler();
     Compiler.heroCompiler();
     Compiler.carouselViewCompiler();
@@ -426,6 +436,12 @@ var EVTURN = window.EVTURN || {};
     var html = "\n          <div id=\"carousel-preloader\">\n            <div id=\"carousel-spinner\"></div>\n          <img class=\"carousel-preloader\" src=\"public/dist/img/site/evturn.jpg\">\n        </div>";
 
     return EVTURN.carouselPreloaderTemplate = _.template(html);
+  };
+
+  Compiler.navCompiler = function () {
+    var html = "\n          <div class=\"nav-container animated slideInRight\">\n            <div data-view=\"work\" class=\"nav-item nav-work\">\n              <p class=\"nav-text\"><a class=\"nav-link\" href=\"#work\">Work</a></p>\n            </div>\n            <div data-view=\"about\" class=\"nav-item nav-about\">\n              <p class=\"nav-text\"><a class=\"nav-link\" href=\"#about\">About</a></p>\n            </div>\n            <div data-view=\"contact\" class=\"nav-item nav-contact\">\n              <p class=\"nav-text\"><a class=\"nav-link\" href=\"#contact\">Contact</a></p>\n            </div>\n          </div>";
+
+    return EVTURN.navTemplate = _.template(html);
   };
 
   Compiler.heroCompiler = function () {

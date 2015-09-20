@@ -3,6 +3,7 @@
 (function(app) {
     let Compiler = {};
 
+    EVTURN.navTemplate;
     EVTURN.navbarTemplate;
     EVTURN.heroTemplate;
     EVTURN.carouselViewTemplate;
@@ -22,6 +23,7 @@
     EVTURN.footerTemplate;
 
     Compiler.init = function() {
+      Compiler.navCompiler();
       Compiler.navbarCompiler();
       Compiler.heroCompiler();
       Compiler.carouselViewCompiler();
@@ -121,6 +123,23 @@
         </div>`;
 
       return EVTURN.carouselPreloaderTemplate = _.template(html);
+    };
+
+    Compiler.navCompiler = function() {
+      let html = `
+          <div class="nav-container animated slideInRight">
+            <div data-view="work" class="nav-item nav-work">
+              <p class="nav-text"><a class="nav-link" href="#work">Work</a></p>
+            </div>
+            <div data-view="about" class="nav-item nav-about">
+              <p class="nav-text"><a class="nav-link" href="#about">About</a></p>
+            </div>
+            <div data-view="contact" class="nav-item nav-contact">
+              <p class="nav-text"><a class="nav-link" href="#contact">Contact</a></p>
+            </div>
+          </div>`;
+
+      return EVTURN.navTemplate = _.template(html);
     };
 
     Compiler.heroCompiler = function() {

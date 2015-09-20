@@ -14,6 +14,7 @@ let EVTURN = window.EVTURN || {};
     let router = new EVTURN.Router();
 
     EVTURN.preloader();
+    EVTURN.renderNav();
     Backbone.history.start();
   };
 
@@ -83,6 +84,13 @@ let EVTURN = window.EVTURN || {};
 
       $container.delay(500).fadeOut();
       $image.delay(600).fadeOut(600);
+    });
+  };
+
+  EVTURN.renderNav = function() {
+    $(document).on('click', '.burger-container', function() {
+      console.log('Clikfds');
+      $('.ev-nav').html(EVTURN.navTemplate());
     });
   };
 
