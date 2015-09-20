@@ -22,9 +22,10 @@ module.exports = {
       'gulpfile.js'
     ],
     watch: [
-      'public/build/js/EVTURN.js',
-      'public/build/js/data.js',
-      'public/build/js/templates.js',
+      'public/build/js/evturn-view.js',
+      'public/build/js/evturn-data.js',
+      'public/build/js/evturn-video.js',
+      'public/build/js/evturn-templates.js',
       'public/build/js/views/**/*.js',
       'public/build/js/router.js',
       'config/**/*.js',
@@ -33,9 +34,10 @@ module.exports = {
   },
   js: {
     src: [
-      'public/build/js/EVTURN.js',
-      'public/build/js/data.js',
-      'public/build/js/templates.js',
+      'public/build/js/evturn-view.js',
+      'public/build/js/evturn-data.js',
+      'public/build/js/evturn-video.js',
+      'public/build/js/evturn-templates.js',
       'public/build/js/views/**/*.js',
       'public/build/js/router.js'
     ],

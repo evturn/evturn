@@ -104,6 +104,10 @@ var EVTURN = window.EVTURN || {};
 
   var Get = {};
 
+  Get.videos = function () {
+    return ['public/build/vid-7.mov', 'public/build/vid-15.mov', 'public/build/vid-3.mov', 'public/build/vid-11.mov', 'public/build/vid-10.mov', 'public/build/vid-6.mov', 'public/build/vid-8.mov', 'public/build/vid-12.mov', 'public/build/vid-1.mov', 'public/build/vid-16.mov', 'public/build/vid-18.mov', 'public/build/vid-14.mov', 'public/build/vid-17.mov', 'public/build/vid-2.mov'];
+  };
+
   Get.links = function () {
     return [{
       name: 'email',
@@ -356,6 +360,63 @@ var EVTURN = window.EVTURN || {};
 
   return _.extend(app, Get);
 })(EVTURN);
+'use strict';
+
+EVTURN.Video = function (video) {
+
+    var Player = {};
+
+    Player.initialized = false;
+    Player.playCount = null;
+    Player.playlist = EVTURN.videos();
+
+    Player.timekeeper = function () {
+        var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
+            isInitialized = Player.initialized;
+
+        if (!isInitialized || isLastVideo) {
+            Player.playCount = 0;
+        } else {
+            Player.playCount += 1;
+        }
+    };
+
+    Player.init = function () {
+        Player.timekeeper();
+        video.muted = true;
+        video.autoplay = true;
+        video.preload = 'auto';
+        video.src = Player.playlist[Player.playCount];
+        video.addEventListener('ended', Player.callback);
+        video.addEventListener('loadedmetadata', Player.reposition);
+        video.play;
+        video.playbackRate = 0.5;
+        Player.initialized = true;
+    };
+
+    Player.callback = function () {
+        Player.timekeeper();
+        video.setAttribute('src', Player.playlist[Player.playCount]);
+        Player.reposition();
+        video.play;
+        video.playbackRate = 0.5;
+    };
+
+    Player.reposition = function (e) {
+        var width = video.videoWidth,
+            height = video.videoHeight;
+
+        if (height > width) {
+            video.classList.remove('landscape');
+            video.classList.add('portrait');
+        } else {
+            video.classList.remove('portrait');
+            video.classList.add('landscape');
+        }
+    };
+
+    Player.init();
+};
 "use strict";
 
 (function (app) {
@@ -445,7 +506,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.heroCompiler = function () {
-    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <a href=\"/\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\"></a>\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"headline-container\">\n                  <h3 class=\"subhead\">Evan Turner</h3>\n                  <h3 class=\"subhead\">Web Developer</h3>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n        </section>";
+    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <a href=\"/#work\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\"></a>\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"headline-container\">\n                  <h3 class=\"subhead\">Evan Turner</h3>\n                  <h3 class=\"subhead\">Web Developer</h3>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n        </section>";
 
     return EVTURN.heroTemplate = _.template(html);
   };
@@ -721,7 +782,7 @@ EVTURN.IndexView = Backbone.View.extend({
     $(document).ready(function () {
       var video = document.getElementById('ev-vid');
 
-      EVTURN.Vid(video);
+      EVTURN.Video(video);
     });
   },
   appendProjectThumbnails: function appendProjectThumbnails() {
@@ -730,62 +791,6 @@ EVTURN.IndexView = Backbone.View.extend({
     return this;
   }
 });
-
-EVTURN.Vid = function (video) {
-
-  var Player = {};
-
-  Player.initialized = false;
-  Player.playCount = null;
-  Player.playlist = ['public/build/vid-7.mov', 'public/build/vid-15.mov', 'public/build/vid-3.mov', 'public/build/vid-11.mov', 'public/build/vid-10.mov', 'public/build/vid-6.mov', 'public/build/vid-8.mov', 'public/build/vid-12.mov', 'public/build/vid-1.mov', 'public/build/vid-16.mov', 'public/build/vid-18.mov', 'public/build/vid-14.mov', 'public/build/vid-17.mov', 'public/build/vid-2.mov'];
-
-  Player.timekeeper = function () {
-    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
-        isInitialized = Player.initialized;
-
-    if (!isInitialized || isLastVideo) {
-      Player.playCount = 0;
-    } else {
-      Player.playCount += 1;
-    }
-  };
-
-  Player.init = function () {
-    Player.timekeeper();
-    video.muted = true;
-    video.autoplay = true;
-    video.preload = 'auto';
-    video.src = Player.playlist[Player.playCount];
-    video.addEventListener('ended', Player.callback);
-    video.addEventListener('loadedmetadata', Player.reposition);
-    video.play;
-    video.playbackRate = 0.5;
-    Player.initialized = true;
-  };
-
-  Player.callback = function () {
-    Player.timekeeper();
-    video.setAttribute('src', Player.playlist[Player.playCount]);
-    Player.reposition();
-    video.play;
-    video.playbackRate = 0.5;
-  };
-
-  Player.reposition = function (e) {
-    var width = video.videoWidth,
-        height = video.videoHeight;
-
-    if (height > width) {
-      video.classList.remove('landscape');
-      video.classList.add('portrait');
-    } else {
-      video.classList.remove('portrait');
-      video.classList.add('landscape');
-    }
-  };
-
-  Player.init();
-};
 'use strict';
 
 EVTURN.Thumbnails = Backbone.View.extend({

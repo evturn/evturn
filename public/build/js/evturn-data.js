@@ -4,6 +4,25 @@
 
   let Get = {};
 
+  Get.videos = function() {
+    return [
+      'public/build/vid-7.mov',
+      'public/build/vid-15.mov',
+      'public/build/vid-3.mov',
+      'public/build/vid-11.mov',
+      'public/build/vid-10.mov',
+      'public/build/vid-6.mov',
+      'public/build/vid-8.mov',
+      'public/build/vid-12.mov',
+      'public/build/vid-1.mov',
+      'public/build/vid-16.mov',
+      'public/build/vid-18.mov',
+      'public/build/vid-14.mov',
+      'public/build/vid-17.mov',
+      'public/build/vid-2.mov'
+    ];
+  };
+
   Get.links = function() {
     return [
       {

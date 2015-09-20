@@ -151,7 +151,7 @@
             <div class="container ev-navbar">
               <div class="inner">
                 <div class="header-container">
-                  <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>
+                  <a href="/#work"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>
                   <div class="image-overlay"></div>
                 </div>
                 <div class="headline-container">
