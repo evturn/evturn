@@ -33,14 +33,13 @@ EVTURN.Vid = function(video) {
   Player.playCount = null;
   Player.playlist = [
         'public/build/vid-7.mov',
-        'public/build/vid-10.mov',
         'public/build/vid-15.mov',
         'public/build/vid-3.mov',
         'public/build/vid-11.mov',
+        'public/build/vid-10.mov',
         'public/build/vid-6.mov',
         'public/build/vid-8.mov',
         'public/build/vid-12.mov',
-        'public/build/vid-13.mov',
         'public/build/vid-1.mov',
         'public/build/vid-16.mov',
         'public/build/vid-18.mov',

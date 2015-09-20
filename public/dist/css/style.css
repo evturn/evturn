@@ -5177,6 +5177,9 @@ a {
     padding-left: 15px;
   }
 }
+video::-webkit-media-controls {
+  display: none !important;
+}
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -5484,6 +5487,7 @@ a {
   height: 100vh;
   position: relative;
   display: block;
+  overflow: hidden;
 }
 .index-header video {
   position: absolute;
@@ -5498,10 +5502,15 @@ a {
 }
 @media (min-width: 400px) {
   .index-header video.landscape {
-    left: -250px;
+    left: -325px;
   }
 }
 @media (min-width: 600px) {
+  .index-header video.landscape {
+    left: -250px;
+  }
+}
+@media (min-width: 800px) {
   .index-header video.landscape {
     left: 0;
   }

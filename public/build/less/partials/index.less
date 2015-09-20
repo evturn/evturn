@@ -2,6 +2,7 @@
   height: 100vh;
   position: relative;
   display: block;
+  overflow: hidden;
   video {
     position: absolute;
     z-index: 1;
@@ -12,9 +13,12 @@
       height: 100vh;
       width: auto;
       @media (min-width: @xs) {
-        left: -250px;
+        left: -325px;
       }
       @media (min-width: @sm) {
+        left: -250px;
+      }
+      @media (min-width: @md) {
         left: 0;
       }
     }
