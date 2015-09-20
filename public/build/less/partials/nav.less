@@ -9,12 +9,12 @@
     width: 320px;
     background-color: @color-bg-main;
     display: block;
-    .padding-x(25px);
     .box-shadow( -5px 0px 21px -8px rgba(0,0,0,0.75));
     &.slideInRight {
       .animation-duration(0.7s);
     }
     .nav-content {
+    .padding-x(25px);
       position: absolute;
       z-index: 9;
       right: 0;
@@ -37,6 +37,11 @@
     z-index: 8;
     display: inline-block;
     .prevent-flash();
+    .fa {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+    }
   }
   .header-container {
     position: absolute;
@@ -63,6 +68,7 @@
     font-size: 4rem;
     text-align: right;
     margin-top: 35px;
+    .prevent-flash();
     a {
       color: @color-tx-black;
     }
@@ -70,10 +76,13 @@
   .nav-item {
     position: relative;
     z-index: 2;
-    &:hover a {
-      .transition(0.4s);
-      color: @color-tx-white;
-    }
     margin-bottom: 10px;
+    .prevent-flash();
+    @media (min-width: @sm) {
+      &:hover a {
+        .transition(0.4s);
+        color: @color-tx-white;
+      }
+    }
   }
 }

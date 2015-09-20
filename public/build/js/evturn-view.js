@@ -97,6 +97,9 @@ let EVTURN = window.EVTURN || {};
     let collapse = function() {
       $('.ev-nav').removeClass('slideInRight');
       $('.ev-nav').addClass('slideOutRight');
+      setTimeout(function() {
+        $('.ev-nav').removeClass('on');
+      }, 500);
     };
 
     let render = function() {

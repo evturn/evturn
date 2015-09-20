@@ -9,6 +9,7 @@
     display: inline-block;
     margin:0;
     width: 49%;
+    .prevent-flash();
     @media (min-width: @xs) {
       width: 24.5%;
     }
@@ -17,17 +18,20 @@
       cursor: pointer;
       margin: 5px;
       .transition(all 0.4s ease);
-      &:hover {
-        .scale();
-      }
       &:hover .shadow {
         opacity: 0.3;
+        }
+      }
+      @media (min-width: @lg) {
+        &:hover {
+          .scale();
         }
       }
 
     img {
     }
     .shadow {
+      display: none;
       @media (min-width: @lg) {
         .box-shadow(inset 0px -176px 178px -62px rgba(0,0,0,0.75));
         .transition(all 0.7s ease);

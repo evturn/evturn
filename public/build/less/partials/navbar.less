@@ -32,6 +32,9 @@
     display: inline-block;
     .prevent-flash();
     .fa {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
       @media (min-width: @sm) {
         vertical-align: -webkit-baseline-middle;
       }
@@ -50,6 +53,7 @@
     overflow: hidden;
     .margin-x-auto();
     .border(2px, @color-tx-white);
+    .prevent-flash();
     @media (min-width: @xs) {
       top: 185px;
       width: 125px;
