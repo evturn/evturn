@@ -393,7 +393,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.carouselViewCompiler = function () {
-    var html = "\n          <div class=\"container carousel\">\n            <div class=\"wrapper carousel-wrapper\">\n              <div class=\"carousel-wrapper\">\n                <div class=\"carousel-image-container\">\n                  <div class=\"carousel slide animated bounceInLeft\" data-ride=\"carousel\" id=\"gallery\">\n                    <div class=\"carousel-inner\">\n                      <!-- Images -->\n                    </div>\n                  </div>\n                </div>\n                <div class=\"carousel-panel\">\n                  <!-- Description -->\n                </div>\n              </div>\n            </div>\n          </div>";
+    var html = "\n          <div class=\"container carousel\">\n            <div class=\"carousel-image-container\">\n              <div class=\"carousel slide animated bounceInLeft\" data-ride=\"carousel\" id=\"gallery\">\n                <div class=\"carousel-inner\">\n                  <!-- Images -->\n                </div>\n              </div>\n            </div>\n          <div class=\"container info\">\n            <div class=\"inner\">\n              <div class=\"carousel-panel\">\n                <!-- Description -->\n              </div>\n            </div>\n          </div>\n        </div>";
 
     return EVTURN.carouselViewTemplate = _.template(html);
   };
@@ -405,7 +405,7 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.carouselPanelCompiler = function () {
-    var html = "<div class=\"panel-inner\">\n          <div class=\"btn-container\">\n            <a class=\"btn btn-generic\" href=\"#gallery\" role=\"button\" data-slide=\"prev\"><i class=\"fa fa-angle-left\"></i></a>\n            <a class=\"btn btn-generic\" href=\"#gallery\" role=\"button\" data-slide=\"next\"><i class=\"fa fa-angle-right\"></i></a>\n          </div>\n          <div class=\"project-text\">\n            <p class=\"section-title\"><%= name %></p>\n            <p class=\"meta\"><%= description %></p>\n          </div>\n          <div class=\"project-technologies\">\n            <p class=\"meta\">Built with</p>\n            <!-- Technology-items -->\n          </div>\n          <div class=\"project-links\">\n            <!-- Link items -->\n          </div>\n        </div>";
+    var html = "\n          <div class=\"panel-inner\">\n            <div class=\"title-container\">\n              <p class=\"section-title\"><%= name %></p>\n            </div>\n            <div class=\"project-text\">\n              <p class=\"meta\"><%= description %></p>\n            </div>\n            <div class=\"project-technologies\">\n              <!-- Technology-items -->\n            </div>\n            <div class=\"project-links\">\n              <!-- Link items -->\n            </div>\n          </div>";
 
     return EVTURN.carouselPanelTemplate = _.template(html);
   };
@@ -429,13 +429,13 @@ var EVTURN = window.EVTURN || {};
   };
 
   Compiler.heroCompiler = function () {
-    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"headline-container\">\n                  <h3 class=\"subhead\">Evan Turner</h3>\n                  <h3 class=\"subhead\">Web Developer</h3>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n        </section>";
+    var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\"></video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <a href=\"/\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\"></a>\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"headline-container\">\n                  <h3 class=\"subhead\">Evan Turner</h3>\n                  <h3 class=\"subhead\">Web Developer</h3>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n        </section>";
 
     return EVTURN.heroTemplate = _.template(html);
   };
 
   Compiler.navbarCompiler = function () {
-    var html = "\n          <div class=\"container ev-navbar\">\n            <div class=\"inner\">\n              <div class=\"header-container\">\n                <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n              </div>\n              <div class=\"burger-container\">\n                <i class=\"fa fa-bars\"></i>\n              </div>\n            </div>\n          </div>";
+    var html = "\n          <div class=\"container ev-navbar\">\n            <div class=\"inner\">\n              <div class=\"header-container\">\n                <a href=\"/\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\"></a>\n                <div class=\"image-overlay\"></div>\n              </div>\n              <div class=\"burger-container\">\n                <i class=\"fa fa-bars\"></i>\n              </div>\n            </div>\n          </div>";
 
     return EVTURN.navbarTemplate = _.template(html);
   };

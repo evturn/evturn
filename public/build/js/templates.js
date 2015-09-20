@@ -45,21 +45,21 @@
     Compiler.carouselViewCompiler = function() {
       let html = `
           <div class="container carousel">
-            <div class="wrapper carousel-wrapper">
-              <div class="carousel-wrapper">
-                <div class="carousel-image-container">
-                  <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">
-                    <div class="carousel-inner">
-                      <!-- Images -->
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-panel">
-                  <!-- Description -->
+            <div class="carousel-image-container">
+              <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">
+                <div class="carousel-inner">
+                  <!-- Images -->
                 </div>
               </div>
             </div>
-          </div>`;
+          <div class="container info">
+            <div class="inner">
+              <div class="carousel-panel">
+                <!-- Description -->
+              </div>
+            </div>
+          </div>
+        </div>`;
 
       return EVTURN.carouselViewTemplate = _.template(html);
     };
@@ -74,23 +74,21 @@
     };
 
     Compiler.carouselPanelCompiler = function() {
-      let html = `<div class="panel-inner">
-          <div class="btn-container">
-            <a class="btn btn-generic" href="#gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-            <a class="btn btn-generic" href="#gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-          </div>
-          <div class="project-text">
-            <p class="section-title"><%= name %></p>
-            <p class="meta"><%= description %></p>
-          </div>
-          <div class="project-technologies">
-            <p class="meta">Built with</p>
-            <!-- Technology-items -->
-          </div>
-          <div class="project-links">
-            <!-- Link items -->
-          </div>
-        </div>`;
+      let html = `
+          <div class="panel-inner">
+            <div class="title-container">
+              <p class="section-title"><%= name %></p>
+            </div>
+            <div class="project-text">
+              <p class="meta"><%= description %></p>
+            </div>
+            <div class="project-technologies">
+              <!-- Technology-items -->
+            </div>
+            <div class="project-links">
+              <!-- Link items -->
+            </div>
+          </div>`;
 
         return EVTURN.carouselPanelTemplate = _.template(html);
     };
@@ -134,7 +132,7 @@
             <div class="container ev-navbar">
               <div class="inner">
                 <div class="header-container">
-                  <img src="public/dist/img/site/ev-av.png" class="img-scale">
+                  <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>
                   <div class="image-overlay"></div>
                 </div>
                 <div class="headline-container">
@@ -156,7 +154,8 @@
           <div class="container ev-navbar">
             <div class="inner">
               <div class="header-container">
-                <img src="public/dist/img/site/ev-av.png" class="img-scale">
+                <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>
+                <div class="image-overlay"></div>
               </div>
               <div class="burger-container">
                 <i class="fa fa-bars"></i>
