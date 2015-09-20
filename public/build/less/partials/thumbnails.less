@@ -1,50 +1,44 @@
 .thumbnails {
-  .transition(all 0.3s ease);
   margin-bottom: 80px;
   overflow: auto;
   text-align: center;
-
+  .transition(all 0.3s ease);
   .thumbnail-item {
     .transition(0.3s);
+    .margin-x(-12.5px);
     display: inline-block;
-    text-align: center;
-    padding-top: 15px;
     margin:0;
-    width: 23.5%;
-
-    .thumbnail-inner {
-      padding: 2.5px;
-
-      @media (min-width: @sm) {
-        padding: 10px;
-
-      }
+    width: 49%;
+    @media (min-width: @xs) {
+      width: 24.5%;
     }
-
     .image-container {
       position: relative;
       cursor: pointer;
-
-      @media (min-width: @lg) {
-        .shadow {
-          .box-shadow(inset 0px -176px 178px -62px rgba(0,0,0,0.75));
-          .transition(all 0.7s ease);
-          display: block;
-          position: absolute;
-          z-index: 1;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-        }
-
-        &:hover .shadow {
-          .transition(all 0.7s ease);
-          opacity: 0.3;
-
-          }
+      margin: 5px;
+      .transition(all 0.4s ease);
+      &:hover {
+        .scale();
+      }
+      &:hover .shadow {
+        opacity: 0.3;
         }
       }
 
+    img {
+    }
+    .shadow {
+      @media (min-width: @lg) {
+        .box-shadow(inset 0px -176px 178px -62px rgba(0,0,0,0.75));
+        .transition(all 0.7s ease);
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }

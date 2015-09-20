@@ -127,7 +127,7 @@
 
     Compiler.navCompiler = function() {
       let html = `
-          <div class="container nav-content animated">
+          <div class="container nav-content">
             <div class="inner">
               <div class="nav-container">
                 <div class="nav-inner">

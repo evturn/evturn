@@ -1,21 +1,25 @@
 .ev-nav {
-  .nav-content {
-    display: none;
-  }
-  &.on .nav-content {
-    display: block;
-    width: 320px;
-    position: absolute;
-    height: 100%;
-    z-index: 9;
+  position: absolute;
+  z-index: 20;
+  display: none;
+  &.on {
+    top:0;
     right: 0;
-    top: 0;
+    height: 100%;
+    width: 320px;
     background-color: @color-bg-main;
+    display: block;
+    .padding-x(25px);
     .box-shadow( -5px 0px 21px -8px rgba(0,0,0,0.75));
-    .padding-x(0);
-
     &.slideInRight {
       .animation-duration(0.7s);
+    }
+    .nav-content {
+      position: absolute;
+      z-index: 9;
+      right: 0;
+      top: 0;
+      left: 0;
     }
   }
   .nav-container {
@@ -23,7 +27,6 @@
     position: relative;
     display: block;
     height: 100px;
-    .padding-x(25px);
   }
   .close-container {
     color: @color-tx-white;
@@ -54,7 +57,6 @@
     }
   }
   .links-container {
-    .padding-x(25px);
     text-transform: uppercase;
     font-size: 4rem;
     text-align: right;

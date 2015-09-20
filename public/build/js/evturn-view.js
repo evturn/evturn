@@ -89,14 +89,14 @@ let EVTURN = window.EVTURN || {};
 
   EVTURN.Nav = function() {
     let expand = function() {
-      $('.nav-content').removeClass('slideOutRight');
+      $('.ev-nav').removeClass('slideOutRight');
       $('.ev-nav').addClass('on');
-      $('.nav-content').addClass('slideInRight');
+      $('.ev-nav').addClass('slideInRight');
     };
 
     let collapse = function() {
-      $('.nav-content').removeClass('slideInRight');
-      $('.nav-content').addClass('slideOutRight');
+      $('.ev-nav').removeClass('slideInRight');
+      $('.ev-nav').addClass('slideOutRight');
     };
 
     let render = function() {
