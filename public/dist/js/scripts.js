@@ -88,9 +88,17 @@ var EVTURN = window.EVTURN || {};
   };
 
   EVTURN.renderNav = function () {
+    $('.ev-nav').html(EVTURN.navTemplate());
+
     $(document).on('click', '.burger-container', function () {
-      console.log('Clikfds');
-      $('.ev-nav').html(EVTURN.navTemplate());
+      $('.nav-content').removeClass('slideOutRight');
+      $('.ev-nav').addClass('on');
+      $('.nav-content').addClass('slideInRight');
+    });
+
+    $(document).on('click', '.close-container', function () {
+      $('.nav-content').removeClass('slideInRight');
+      $('.nav-content').addClass('slideOutRight');
     });
   };
 
@@ -500,7 +508,7 @@ EVTURN.Video = function (video) {
   };
 
   Compiler.navCompiler = function () {
-    var html = "\n          <div class=\"container nav-content animated slideInRight\">\n            <div class=\"inner\">\n              <div class=\"nav-container\">\n                <div class=\"nav-inner\">\n                  <div class=\"header-container\">\n                    <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                  </div>\n                  <div class=\"links-container\">\n                    <div data-view=\"work\" class=\"nav-item nav-work\">\n                      <h4><a class=\"nav-link\" href=\"#work\">Work</a></h4>\n                    </div>\n                    <div data-view=\"about\" class=\"nav-item nav-about\">\n                      <h4><a class=\"nav-link\" href=\"#about\">About</a></h4>\n                    </div>\n                    <div data-view=\"contact\" class=\"nav-item nav-contact\">\n                      <h4><a class=\"nav-link\" href=\"#contact\">Contact</a></h4>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>";
+    var html = "\n          <div class=\"container nav-content animated\">\n            <div class=\"inner\">\n              <div class=\"nav-container\">\n                <div class=\"nav-inner\">\n                  <div class=\"header-container\">\n                    <img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\">\n                    <div class=\"image-overlay\"></div>\n                  </div>\n                  <div class=\"close-container\">\n                    <i class=\"fa fa-times\"></i>\n                  </div>\n                </div>\n              </div>\n              <div class=\"links-container\">\n                <div data-view=\"work\" class=\"nav-item nav-work\">\n                  <h4><a class=\"nav-link\" href=\"#work\">Work</a></h4>\n                </div>\n                <div data-view=\"about\" class=\"nav-item nav-about\">\n                  <h4><a class=\"nav-link\" href=\"#about\">About</a></h4>\n                </div>\n                <div data-view=\"contact\" class=\"nav-item nav-contact\">\n                  <h4><a class=\"nav-link\" href=\"#contact\">Contact</a></h4>\n                </div>\n              </div>\n            </div>\n          </div>";
 
     return EVTURN.navTemplate = _.template(html);
   };

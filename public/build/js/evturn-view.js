@@ -88,9 +88,17 @@ let EVTURN = window.EVTURN || {};
   };
 
   EVTURN.renderNav = function() {
+    $('.ev-nav').html(EVTURN.navTemplate());
+
     $(document).on('click', '.burger-container', function() {
-      console.log('Clikfds');
-      $('.ev-nav').html(EVTURN.navTemplate());
+      $('.nav-content').removeClass('slideOutRight');
+      $('.ev-nav').addClass('on');
+      $('.nav-content').addClass('slideInRight');
+    });
+
+    $(document).on('click', '.close-container', function() {
+      $('.nav-content').removeClass('slideInRight');
+      $('.nav-content').addClass('slideOutRight');
     });
   };
 

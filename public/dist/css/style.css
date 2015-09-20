@@ -5345,6 +5345,10 @@ video::-webkit-media-controls {
   color: #231f20;
 }
 .ev-nav .nav-content {
+  display: none;
+}
+.ev-nav.on .nav-content {
+  display: block;
   width: 320px;
   position: absolute;
   height: 100%;
@@ -5355,13 +5359,34 @@ video::-webkit-media-controls {
   padding-left: 0;
   padding-right: 0;
 }
+.ev-nav.on .nav-content.slideInRight {
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+}
 .ev-nav .nav-container {
   padding-top: 20px;
+  position: relative;
+  display: block;
+  height: 100px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.ev-nav .close-container {
+  color: #ffffff;
+  float: right;
+  font-size: 3rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 8;
+  display: inline-block;
 }
 .ev-nav .header-container {
+  position: absolute;
   z-index: 2;
   border-radius: 50%;
-  top: -5px;
+  right: 0;
+  left: 0;
+  top: 15px;
   width: 70px;
   height: 70px;
   padding: 10px;
@@ -5392,6 +5417,9 @@ video::-webkit-media-controls {
 }
 .ev-nav .links-container a {
   color: #231f20;
+}
+.ev-nav .nav-item {
+  margin-bottom: 10px;
 }
 .about {
   font-family: 'Raleway', sans-serif;

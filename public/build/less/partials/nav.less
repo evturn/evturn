@@ -1,5 +1,9 @@
 .ev-nav {
   .nav-content {
+    display: none;
+  }
+  &.on .nav-content {
+    display: block;
     width: 320px;
     position: absolute;
     height: 100%;
@@ -8,14 +12,34 @@
     top: 0;
     background-color: @color-bg-main;
     .padding-x(0);
+
+    &.slideInRight {
+      .animation-duration(0.7s);
+    }
   }
   .nav-container {
     padding-top: 20px;
+    position: relative;
+    display: block;
+    height: 100px;
+    .padding-x(25px);
+  }
+  .close-container {
+    color: @color-tx-white;
+    float: right;
+    font-size: 3rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 8;
+    display: inline-block;
   }
   .header-container {
+    position: absolute;
     z-index: 2;
     border-radius: 50%;
-    top: -5px;
+    right: 0;
+    left: 0;
+    top: 15px;
     width: 70px;
     height: 70px;
     padding: 10px;
@@ -42,5 +66,9 @@
     a {
       color: @color-tx-black;
     }
+  }
+
+  .nav-item {
+    margin-bottom: 10px;
   }
 }
