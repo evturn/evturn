@@ -127,15 +127,26 @@
 
     Compiler.navCompiler = function() {
       let html = `
-          <div class="nav-container animated slideInRight">
-            <div data-view="work" class="nav-item nav-work">
-              <p class="nav-text"><a class="nav-link" href="#work">Work</a></p>
-            </div>
-            <div data-view="about" class="nav-item nav-about">
-              <p class="nav-text"><a class="nav-link" href="#about">About</a></p>
-            </div>
-            <div data-view="contact" class="nav-item nav-contact">
-              <p class="nav-text"><a class="nav-link" href="#contact">Contact</a></p>
+          <div class="container nav-content animated slideInRight">
+            <div class="inner">
+              <div class="nav-container">
+                <div class="nav-inner">
+                  <div class="header-container">
+                    <img src="public/dist/img/site/ev-av.png" class="img-scale">
+                  </div>
+                  <div class="links-container">
+                    <div data-view="work" class="nav-item nav-work">
+                      <h4><a class="nav-link" href="#work">Work</a></h4>
+                    </div>
+                    <div data-view="about" class="nav-item nav-about">
+                      <h4><a class="nav-link" href="#about">About</a></h4>
+                    </div>
+                    <div data-view="contact" class="nav-item nav-contact">
+                      <h4><a class="nav-link" href="#contact">Contact</a></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>`;
 

@@ -5344,16 +5344,54 @@ video::-webkit-media-controls {
   font-size: 3rem;
   color: #231f20;
 }
-.ev-nav .nav-container {
+.ev-nav .nav-content {
+  width: 320px;
   position: absolute;
   height: 100%;
-  width: 320px;
   z-index: 9;
   right: 0;
   top: 0;
-  background-color: #ffffff;
+  background-color: #5fa3c0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.ev-nav .nav-container {
+  padding-top: 20px;
+}
+.ev-nav .header-container {
+  z-index: 2;
+  border-radius: 50%;
+  top: -5px;
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #ffffff;
+}
+@media (min-width: 400px) {
+  .ev-nav .header-container {
+    top: 185px;
+    width: 125px;
+    height: 125px;
+    padding: 30px;
+  }
+}
+.ev-nav .header-container img {
+  z-index: 3;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.ev-nav .links-container {
+  padding-left: 25px;
+  padding-right: 25px;
   text-transform: uppercase;
   font-size: 3rem;
+  text-align: right;
+}
+.ev-nav .links-container a {
+  color: #231f20;
 }
 .about {
   font-family: 'Raleway', sans-serif;

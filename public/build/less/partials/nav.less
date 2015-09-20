@@ -1,13 +1,46 @@
 .ev-nav {
-  .nav-container {
+  .nav-content {
+    width: 320px;
     position: absolute;
     height: 100%;
-    width: 320px;
     z-index: 9;
     right: 0;
     top: 0;
-    background-color: @color-bg-white;
+    background-color: @color-bg-main;
+    .padding-x(0);
+  }
+  .nav-container {
+    padding-top: 20px;
+  }
+  .header-container {
+    z-index: 2;
+    border-radius: 50%;
+    top: -5px;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    .margin-x-auto();
+    .border(2px, @color-tx-white);
+    @media (min-width: @xs) {
+      top: 185px;
+      width: 125px;
+      height: 125px;
+      padding: 30px;
+    }
+    img {
+      z-index: 3;
+      position: relative;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+  .links-container {
+    .padding-x(25px);
     text-transform: uppercase;
     font-size: 3rem;
+    text-align: right;
+    a {
+      color: @color-tx-black;
+    }
   }
 }
