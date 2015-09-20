@@ -5441,6 +5441,8 @@ video::-webkit-media-controls {
   color: #231f20;
 }
 .ev-nav .nav-item {
+  position: relative;
+  z-index: 2;
   margin-bottom: 10px;
 }
 .ev-nav .nav-item:hover a {
