@@ -14,7 +14,7 @@ var EVTURN = window.EVTURN || {};
     var router = new EVTURN.Router();
 
     EVTURN.preloader();
-    EVTURN.renderNav();
+    EVTURN.Nav();
     Backbone.history.start();
   };
 
@@ -87,19 +87,42 @@ var EVTURN = window.EVTURN || {};
     });
   };
 
-  EVTURN.renderNav = function () {
-    $('.ev-nav').html(EVTURN.navTemplate());
-
-    $(document).on('click', '.burger-container', function () {
+  EVTURN.Nav = function () {
+    var expand = function expand() {
       $('.nav-content').removeClass('slideOutRight');
       $('.ev-nav').addClass('on');
       $('.nav-content').addClass('slideInRight');
-    });
+    };
 
-    $(document).on('click', '.close-container', function () {
+    var collapse = function collapse() {
       $('.nav-content').removeClass('slideInRight');
       $('.nav-content').addClass('slideOutRight');
-    });
+    };
+
+    var render = function render() {
+      $('.ev-nav').html(EVTURN.navTemplate());
+    };
+
+    var events = function events() {
+      $(document).on('click', '.burger-container', function () {
+        expand();
+      });
+
+      $(document).on('click', '.close-container', function () {
+        collapse();
+      });
+
+      $(document).on('click', '.nav-item', function () {
+        collapse();
+      });
+    };
+
+    var init = function init() {
+      render();
+      events();
+    };
+
+    return init();
   };
 
   _.extend(Backbone.View.prototype, EVTURN);
