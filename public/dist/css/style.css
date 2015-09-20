@@ -5356,6 +5356,8 @@ video::-webkit-media-controls {
   right: 0;
   top: 0;
   background-color: #5fa3c0;
+  -webkit-box-shadow: -5px 0px 21px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: -5px 0px 21px -8px rgba(0, 0, 0, 0.75);
   padding-left: 0;
   padding-right: 0;
 }
@@ -5393,14 +5395,6 @@ video::-webkit-media-controls {
   margin-left: auto;
   margin-right: auto;
   border: 2px solid #ffffff;
-}
-@media (min-width: 400px) {
-  .ev-nav .header-container {
-    top: 185px;
-    width: 125px;
-    height: 125px;
-    padding: 30px;
-  }
 }
 .ev-nav .header-container img {
   z-index: 3;

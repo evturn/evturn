@@ -11,6 +11,7 @@
     right: 0;
     top: 0;
     background-color: @color-bg-main;
+    .box-shadow( -5px 0px 21px -8px rgba(0,0,0,0.75));
     .padding-x(0);
 
     &.slideInRight {
@@ -45,12 +46,6 @@
     padding: 10px;
     .margin-x-auto();
     .border(2px, @color-tx-white);
-    @media (min-width: @xs) {
-      top: 185px;
-      width: 125px;
-      height: 125px;
-      padding: 30px;
-    }
     img {
       z-index: 3;
       position: relative;
