@@ -13,7 +13,7 @@
   display: block;
   font-family: @primaryserif;
   width: 100%;
-  height: 200px;
+  overflow: auto;
 }
 
 .title-container {
@@ -51,8 +51,9 @@
   }
 }
 .project-technologies {
-  text-align: right;
+  text-align: center;
   @media(min-width: @sm) {
+    text-align: right;
     width: 50%;
     float: right;
     display: block;
@@ -67,6 +68,9 @@
     height: 30px;
     width: 30px;
     font-size: 3rem;
+    @media (min-width: @xs) {
+      font-size: 4rem;
+    }
   }
   .caption {
     font-size: 1rem;

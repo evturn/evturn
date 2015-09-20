@@ -105,7 +105,7 @@ let EVTURN = window.EVTURN || {};
 
     let events = function() {
       $(document).on('click', '.burger-container', function() {
-        expand()
+        expand();
       });
 
       $(document).on('click', '.close-container', function() {

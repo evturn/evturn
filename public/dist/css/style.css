@@ -5416,6 +5416,12 @@ video::-webkit-media-controls {
 .ev-nav .nav-item {
   margin-bottom: 10px;
 }
+.ev-nav .nav-item:hover a {
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  color: #ffffff;
+}
 .about {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
@@ -5862,7 +5868,7 @@ video::-webkit-media-controls {
   display: block;
   font-family: 'Source Sans Pro', sans;
   width: 100%;
-  height: 200px;
+  overflow: auto;
 }
 .title-container .section-title {
   margin-top: 10px;
@@ -5895,12 +5901,13 @@ video::-webkit-media-controls {
   color: #00cfff;
 }
 .project-technologies {
-  text-align: right;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 @media (min-width: 600px) {
   .project-technologies {
+    text-align: right;
     width: 50%;
     float: right;
     display: block;
@@ -5915,6 +5922,11 @@ video::-webkit-media-controls {
   height: 30px;
   width: 30px;
   font-size: 3rem;
+}
+@media (min-width: 400px) {
+  .project-technologies i {
+    font-size: 4rem;
+  }
 }
 .project-technologies .caption {
   font-size: 1rem;

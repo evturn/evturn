@@ -132,7 +132,7 @@
               <div class="nav-container">
                 <div class="nav-inner">
                   <div class="header-container">
-                    <img src="public/dist/img/site/ev-av.png" class="img-scale">
+                    <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>
                     <div class="image-overlay"></div>
                   </div>
                   <div class="close-container">
