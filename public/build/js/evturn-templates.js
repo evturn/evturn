@@ -160,7 +160,8 @@
     Compiler.heroCompiler = function() {
       let html = `
           <section class="index-header">
-            <video id="ev-vid"></video>
+            <video id="ev-vid" poster="public/dist/img/site/vid-poster.gif" type="video/mp4">
+            </video>
             <div class="carousel-index"></div>
             <div class="curtain"></div>
             <div class="container ev-navbar">

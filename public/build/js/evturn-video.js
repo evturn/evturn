@@ -20,6 +20,7 @@ EVTURN.Video = function(video) {
 
   Player.init = function() {
     Player.timekeeper();
+    video.type = 'video/mp4';
     video.muted = true;
     video.autoplay = true;
     video.preload = 'auto';

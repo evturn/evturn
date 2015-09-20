@@ -6,20 +6,20 @@
 
   Get.videos = function() {
     return [
-      'https://www.dropbox.com/s/dorhunxhsl3b59t/vid-7.mov?dl=0',
-      'https://www.dropbox.com/s/szyn0yypqet00nc/vid-15.mov?dl=0',
-      'https://www.dropbox.com/s/qv9rxy7mjmnfb2s/vid-3.mov?dl=0',
-      'https://www.dropbox.com/s/eihm0f9js7980zc/vid-11.mov?dl=0',
-      'https://www.dropbox.com/s/twkoz9g2r9yc7ar/vid-10.mov?dl=0',
-      'https://www.dropbox.com/s/h2vajv0tt1dchzb/vid-6.mov?dl=0',
-      'https://www.dropbox.com/s/ho1a5kxus3hvhs0/vid-8.mov?dl=0',
-      'https://www.dropbox.com/s/mj3g3uktjhfafx9/vid-12.mov?dl=0',
-      'https://www.dropbox.com/s/bluwx0009qfe8ly/vid-1.mov?dl=0',
-      'https://www.dropbox.com/s/tvladnlrfpbl24z/vid-16.mov?dl=0',
-      'https://www.dropbox.com/s/nm1mnx41gjhq0ga/vid-18.mov?dl=0',
-      'https://www.dropbox.com/s/f38ytb2dvyv777e/vid-14.mov?dl=0',
-      'https://www.dropbox.com/s/6ttdqo2xmptpbyu/vid-17.mov?dl=0',
-      'https://www.dropbox.com/s/xvjnenj4tywu7x0/vid-2.mov?dl=0'
+      'https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1',
+      'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1',
+      'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1',
+      'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1',
+      'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1',
+      'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1',
+      'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1',
+      'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1',
+      'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1',
+      'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1',
+      'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1',
+      'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1',
+      'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1',
+      'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'
     ];
   };
 
