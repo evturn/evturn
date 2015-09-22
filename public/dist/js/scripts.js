@@ -565,19 +565,19 @@ EVTURN.Video = function (video) {
   };
 
   Compiler.techViewCompiler = function () {
-    var html = "\n          <div class=\"container about\">\n            <div class=\"wrapper\">\n              <div class=\"image-container animated fadeInUp\">\n                <img class=\"img-scale\" src=\"public/dist/img/site/tile.png\">\n              </div>\n              <div class=\"bio-container\">\n                <p class=\"section-title\">Web Developer</p>\n                <div class=\"paragraphs\">\n                  <!-- Bio -->\n                </div>\n              </div>\n              <div class=\"info-container\">\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Notable Build Tools</p>\n                  <div class=\"technology-items stat-items\">\n                    <!-- Technologies -->\n                  </div>\n                </div>\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Statistics</p>\n                  <div class=\"statistics stat-items\">\n                    <!-- Stats -->\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>";
+    var html = "\n          <div class=\"container about\">\n            <div class=\"wrapper\">\n              <div class=\"image-container animated fadeInUp\">\n                <img class=\"img-scale\" src=\"public/dist/img/site/tile.png\">\n              </div>\n              <div class=\"bio-container\">\n                <p class=\"section-title\">Web Development</p>\n                <div class=\"paragraphs\">\n                  <!-- Bio -->\n                </div>\n              </div>\n              <div class=\"info-container\">\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Notable Build Tools</p>\n                  <div class=\"technology-items stat-items\">\n                    <!-- Technologies -->\n                  </div>\n                </div>\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Statistics</p>\n                  <div class=\"statistics stat-items\">\n                    <!-- Stats -->\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>";
 
     return EVTURN.techViewTemplate = _.template(html);
   };
 
   Compiler.techItemCompiler = function () {
-    var html = "\n          <div class=\"stat-item\">\n            <i class=\"<%= icon %>\"></i>\n            <p class=\"specs\"><%= technology %></p>\n          </div>";
+    var html = "\n          <div class=\"stat-item\">\n            <span class=\"stat-icon\"><i class=\"<%= icon %>\"></i></span>\n            <p class=\"meta\"><%= technology %></p>\n          </div>";
 
     return EVTURN.techItemTemplate = _.template(html);
   };
 
   Compiler.statItemCompiler = function () {
-    var html = "\n          <div class=\"stat-item\">\n            <span class=\"stat-icon\"><i class=\"<%= icon %>\"></i></span>\n            <h4 class=\"stat-count\"><%= number %></h4>\n            <p><%= text %></p>\n          </div>";
+    var html = "\n          <div class=\"stat-item\">\n            <span class=\"stat-icon\"><i class=\"<%= icon %>\"></i></span>\n            <h5 class=\"stat-count\"><%= number %></h5>\n            <p class=\"meta\"><%= text %></p>\n          </div>";
 
     return EVTURN.statItemTemplate = _.template(html);
   };

@@ -1,126 +1,103 @@
 .about {
+  min-height: 100vh;
   font-family: @primarysans;
   font-weight: 500;
   text-align: justify;
   line-height: 1.8;
-  color: @white;
-
-  .img-scale {
-    .img-shadow;
-  }
-
-  .info-container,
-  .bio-container {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
+  padding-bottom: 20px;
   .section-title {
-    padding-top: 15px;
     text-align: center;
-    font-size: 30px;
-    color: @white;
+    font-size: 3rem;
+    color: @color-tx-white;
+    .margin-y(15px);
   }
-
   .subhead {
+    color: @color-tx-white;
     margin-bottom: 10px;
     text-transform: uppercase;
     text-align: center;
-
-    @media (min-width: @sm) {
-      text-align: left;
-    }
+    font-size: 2.3rem;
   }
-
+  .bio-container {
+    .margin-x-auto();
+  }
+  .paragraphs {
+    overflow: auto;
+    .margin-x-auto();
+    max-width: 1100px;
+  }
   .paragraph {
     width: 100%;
-    padding-top: 15px;
     vertical-align: top;
     display: inline-block;
-    font-size: 18px;
-    line-height: 1.4em;
-    color: @white;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    color: @color-tx-white;
     text-align: left;
-
-    @media (min-width: @md) {
-      line-height: 1.7em;
-
+    margin-bottom: 15px;
+    .margin-x-auto();
+    @media (min-width: 700px) {
       &:first-child {
+        float: left;
         width: 48%;
-        margin-right: 4%;
       }
-
       &:nth-child(2) {
-        width: 45%;
+        float: right;
+        width: 48%;
       }
     }
-
   }
-
   .bio-container,
   .info-container {
     overflow: auto;
   }
-
+  .image-container {
+    .margin-x(-25px);
+    @media (min-width: @xs) {
+      .margin-x(0);
+    }
+  }
   .stats-container:first-child {
-
     @media (min-width: @sm) {
-      float: left;
       width: 48%;
-      margin-right: 4%;
+      .margin-x-auto();
     }
   }
-
   .stats-container:nth-child(2) {
-
     @media (min-width: @sm) {
-      text-align: left;
-      width: inherit;
+      width: 48%;
+      .margin-x-auto();
     }
   }
-
   .stats-container {
+    text-align: center;
     padding-top: 25px;
     width: 100%;
     vertical-align: top;
-
     @media (min-width: @sm) {
       display: inline-block;
     }
   }
-
   .stat-icon {
     display: block;
-
-    .fa {
-      font-size: 2em;
+    margin-bottom: 10px;
+    i {
+      color: @black;
+      font-size: 3rem;
     }
   }
-
   .stat-items {
-    padding-top: 15px;
     text-align: center;
-
-    @media (min-width: @sm) {
-      text-align: left;
-    }
-
-    @media (min-width: @md) {
-      text-align: left;
-    }
-
-    .stat-item {
-      display: inline-block;
-      width: 80px;
-      margin-top: 15px;
-      text-align: center;
-      line-height: 1.5em;
-
-      i {
-        color: @black;
-      }
-
-    }
   }
-
+  .stat-item {
+    display: inline-block;
+    width: 80px;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 1.5em;
+  }
+  .meta {
+    color: @color-tx-white;
+    font-size: 1.5rem;
+  }
 }

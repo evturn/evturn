@@ -236,7 +236,7 @@
                 <img class="img-scale" src="public/dist/img/site/tile.png">
               </div>
               <div class="bio-container">
-                <p class="section-title">Web Developer</p>
+                <p class="section-title">Web Development</p>
                 <div class="paragraphs">
                   <!-- Bio -->
                 </div>
@@ -264,8 +264,8 @@
     Compiler.techItemCompiler = function() {
       let html= `
           <div class="stat-item">
-            <i class="<%= icon %>"></i>
-            <p class="specs"><%= technology %></p>
+            <span class="stat-icon"><i class="<%= icon %>"></i></span>
+            <p class="meta"><%= technology %></p>
           </div>`;
 
       return EVTURN.techItemTemplate = _.template(html);
@@ -275,8 +275,8 @@
       let html = `
           <div class="stat-item">
             <span class="stat-icon"><i class="<%= icon %>"></i></span>
-            <h4 class="stat-count"><%= number %></h4>
-            <p><%= text %></p>
+            <h5 class="stat-count"><%= number %></h5>
+            <p class="meta"><%= text %></p>
           </div>`;
 
 
