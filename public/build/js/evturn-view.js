@@ -115,7 +115,7 @@ let EVTURN = window.EVTURN || {};
         collapse();
       });
 
-      $(document).on('click touchstart', '.nav-item', function() {
+      $(document).on('click', '.nav-item a', function() {
         collapse();
       });
     };
