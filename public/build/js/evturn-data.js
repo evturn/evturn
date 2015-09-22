@@ -78,7 +78,7 @@
       },
       {
         text: 'Github Contributions',
-        number: 6000,
+        number: 7000,
         icon: 'fa fa-code'
       }
     ];
