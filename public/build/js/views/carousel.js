@@ -12,7 +12,7 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   render() {
     let model = this.model.toJSON();
-    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.html(EVTURN.carouselNavbarTemplate());
     this.$el.append(EVTURN.carouselViewTemplate(model));
 
     return this;
@@ -70,11 +70,13 @@ EVTURN.Carousel = Backbone.View.extend({
     this.scrollUp();
   },
   carouselPreloader() {
-    let $sel = $('.carousel-image-container');
+    let $img = $('#carousel-logo'),
+        $container = $('#carousel-preloader');
 
-    $sel.append(EVTURN.carouselPreloaderTemplate());
-    $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut(600);
-
+    $img.addClass('spin');
+    $container.delay(500).fadeOut();
+    setTimeout(function() {
+      $img.removeClass('spin');
+    }, 780);
   }
 });

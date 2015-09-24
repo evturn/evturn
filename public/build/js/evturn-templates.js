@@ -3,45 +3,25 @@
 (function(app) {
     let Compiler = {};
 
-    EVTURN.navTemplate;
-    EVTURN.navbarTemplate;
-    EVTURN.heroTemplate;
-    EVTURN.carouselViewTemplate;
-    EVTURN.carouselPanelTemplate;
-    EVTURN.carouselTechTemplate;
-    EVTURN.carouselLinkTemplate;
-    EVTURN.carouselImageTemplate;
-    EVTURN.carouselPreloaderTemplate;
-    EVTURN.thumbnailViewTemplate;
-    EVTURN.thumbnailItemTemplate;
-    EVTURN.contactViewTemplate;
-    EVTURN.linkItemTemplate;
-    EVTURN.techViewTemplate;
-    EVTURN.techItemTemplate;
-    EVTURN.statItemTemplate;
-    EVTURN.bioTemplate;
-    EVTURN.footerTemplate;
-
     Compiler.init = function() {
-      Compiler.navCompiler();
-      Compiler.navbarCompiler();
-      Compiler.heroCompiler();
-      Compiler.carouselViewCompiler();
-      Compiler.carouselPanelCompiler();
-      Compiler.carouselTechCompiler();
-      Compiler.carouselLinkCompiler();
-      Compiler.carouselImageCompiler();
-      Compiler.carouselPreloaderCompiler();
-      Compiler.thumbnailViewCompiler();
-      Compiler.thumbnailItemCompiler();
-      Compiler.carouselLinkCompiler();
-      Compiler.contactViewCompiler();
-      Compiler.linkItemCompiler();
-      Compiler.techViewCompiler();
-      Compiler.techItemCompiler();
-      Compiler.statItemCompiler();
-      Compiler.bioCompiler();
-      Compiler.footerCompiler();
+      EVTURN.navTemplate = Compiler.navCompiler();
+      EVTURN.navbarTemplate = Compiler.navbarCompiler();
+      EVTURN.heroTemplate = Compiler.heroCompiler();
+      EVTURN.carouselViewTemplate = Compiler.carouselViewCompiler();
+      EVTURN.carouselPanelTemplate = Compiler.carouselPanelCompiler();
+      EVTURN.carouselTechTemplate = Compiler.carouselTechCompiler();
+      EVTURN.carouselLinkTemplate = Compiler.carouselLinkCompiler();
+      EVTURN.carouselNavbarTemplate = Compiler.carouselNavbarCompiler();
+      EVTURN.carouselImageTemplate = Compiler.carouselImageCompiler();
+      EVTURN.thumbnailViewTemplate = Compiler.thumbnailViewCompiler();
+      EVTURN.thumbnailItemTemplate = Compiler.thumbnailItemCompiler();
+      EVTURN.contactViewTemplate = Compiler.contactViewCompiler();
+      EVTURN.linkItemTemplate = Compiler.linkItemCompiler();
+      EVTURN.techViewTemplate =Compiler.techViewCompiler();
+      EVTURN.techItemTemplate = Compiler.techItemCompiler();
+      EVTURN.statItemTemplate = Compiler.statItemCompiler();
+      EVTURN.bioTemplate = Compiler.bioCompiler();
+      EVTURN.footerTemplate = Compiler.footerCompiler();
     };
 
     Compiler.carouselViewCompiler = function() {
@@ -63,7 +43,7 @@
           </div>
         </div>`;
 
-      return EVTURN.carouselViewTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.carouselImageCompiler = function() {
@@ -72,7 +52,7 @@
             <img class="img-scale gallery-item" src="<%= image %>">
           </div>`;
 
-      return EVTURN.carouselImageTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.carouselPanelCompiler = function() {
@@ -92,7 +72,7 @@
             </div>
           </div>`;
 
-        return EVTURN.carouselPanelTemplate = _.template(html);
+        return _.template(html);
     };
 
     Compiler.carouselTechCompiler = function() {
@@ -102,7 +82,7 @@
             <p class="caption"><%= technology %></p>
           </div>`;
 
-      return EVTURN.carouselTechTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.carouselLinkCompiler = function() {
@@ -112,17 +92,7 @@
           <% var repo = repo ? '<p class="meta"><a href="' + repo + '" target="_blank"><i class="fa fa-github"></i></a></p>' : '' %>
           <%= repo %>`;
 
-      return EVTURN.carouselLinkTemplate = _.template(html);
-    };
-
-    Compiler.carouselPreloaderCompiler = function() {
-      let html = `
-          <div id="carousel-preloader">
-            <div id="carousel-spinner"></div>
-          <img class="carousel-preloader" src="public/dist/img/site/evturn.jpg">
-        </div>`;
-
-      return EVTURN.carouselPreloaderTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.navCompiler = function() {
@@ -154,7 +124,7 @@
             </div>
           </div>`;
 
-      return EVTURN.navTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.heroCompiler = function() {
@@ -181,7 +151,7 @@
             </div>
         </section>`;
 
-      return EVTURN.heroTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.navbarCompiler = function() {
@@ -198,7 +168,27 @@
             </div>
           </div>`;
 
-      return EVTURN.navbarTemplate = _.template(html);
+      return _.template(html);
+    };
+
+    Compiler.carouselNavbarCompiler = function() {
+      let html = `
+          <div class="container ev-navbar">
+            <div class="inner">
+              <div class="header-container">
+                <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale" id="carousel-logo"></a>
+                <div class="image-overlay"></div>
+                <div id="carousel-preloader">
+                  <div id="carousel-spinner"></div>
+                </div>
+              </div>
+              <div class="burger-container">
+                <i class="fa fa-bars"></i>
+              </div>
+            </div>
+          </div>`;
+
+      return _.template(html);
     };
 
     Compiler.thumbnailViewCompiler = function() {
@@ -209,7 +199,7 @@
             </div>
           </div>`;
 
-      return EVTURN.thumbnailViewTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.thumbnailItemCompiler = function() {
@@ -225,7 +215,7 @@
             </a>
           </div>`;
 
-      return EVTURN.thumbnailItemTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.techViewCompiler = function() {
@@ -258,7 +248,7 @@
             </div>
           </div>`;
 
-      return EVTURN.techViewTemplate = _.template(html);
+      return  _.template(html);
     };
 
     Compiler.techItemCompiler = function() {
@@ -268,7 +258,7 @@
             <p class="meta"><%= technology %></p>
           </div>`;
 
-      return EVTURN.techItemTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.statItemCompiler = function() {
@@ -280,7 +270,7 @@
           </div>`;
 
 
-      return EVTURN.statItemTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.bioCompiler = function() {
@@ -289,7 +279,7 @@
             <p><%= paragraph %></p>
           </div>`;
 
-      return EVTURN.bioTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.contactViewCompiler = function() {
@@ -308,7 +298,7 @@
             </div>
           </div>`;
 
-      return EVTURN.contactViewTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.linkItemCompiler = function() {
@@ -317,7 +307,7 @@
             <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>
           </li>`;
 
-      return EVTURN.linkItemTemplate = _.template(html);
+      return _.template(html);
     };
 
     Compiler.footerCompiler = function() {
@@ -330,7 +320,7 @@
           </div>
         </footer>`;
 
-      return EVTURN.footerTemplate = _.template(html);
+      return _.template(html);
     };
 
     EVTURN.compile = Compiler.init;

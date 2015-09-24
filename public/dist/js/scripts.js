@@ -457,153 +457,133 @@ EVTURN.Video = function (video) {
 (function (app) {
   var Compiler = {};
 
-  EVTURN.navTemplate;
-  EVTURN.navbarTemplate;
-  EVTURN.heroTemplate;
-  EVTURN.carouselViewTemplate;
-  EVTURN.carouselPanelTemplate;
-  EVTURN.carouselTechTemplate;
-  EVTURN.carouselLinkTemplate;
-  EVTURN.carouselImageTemplate;
-  EVTURN.carouselPreloaderTemplate;
-  EVTURN.thumbnailViewTemplate;
-  EVTURN.thumbnailItemTemplate;
-  EVTURN.contactViewTemplate;
-  EVTURN.linkItemTemplate;
-  EVTURN.techViewTemplate;
-  EVTURN.techItemTemplate;
-  EVTURN.statItemTemplate;
-  EVTURN.bioTemplate;
-  EVTURN.footerTemplate;
-
   Compiler.init = function () {
-    Compiler.navCompiler();
-    Compiler.navbarCompiler();
-    Compiler.heroCompiler();
-    Compiler.carouselViewCompiler();
-    Compiler.carouselPanelCompiler();
-    Compiler.carouselTechCompiler();
-    Compiler.carouselLinkCompiler();
-    Compiler.carouselImageCompiler();
-    Compiler.carouselPreloaderCompiler();
-    Compiler.thumbnailViewCompiler();
-    Compiler.thumbnailItemCompiler();
-    Compiler.carouselLinkCompiler();
-    Compiler.contactViewCompiler();
-    Compiler.linkItemCompiler();
-    Compiler.techViewCompiler();
-    Compiler.techItemCompiler();
-    Compiler.statItemCompiler();
-    Compiler.bioCompiler();
-    Compiler.footerCompiler();
+    EVTURN.navTemplate = Compiler.navCompiler();
+    EVTURN.navbarTemplate = Compiler.navbarCompiler();
+    EVTURN.heroTemplate = Compiler.heroCompiler();
+    EVTURN.carouselViewTemplate = Compiler.carouselViewCompiler();
+    EVTURN.carouselPanelTemplate = Compiler.carouselPanelCompiler();
+    EVTURN.carouselTechTemplate = Compiler.carouselTechCompiler();
+    EVTURN.carouselLinkTemplate = Compiler.carouselLinkCompiler();
+    EVTURN.carouselNavbarTemplate = Compiler.carouselNavbarCompiler();
+    EVTURN.carouselImageTemplate = Compiler.carouselImageCompiler();
+    EVTURN.thumbnailViewTemplate = Compiler.thumbnailViewCompiler();
+    EVTURN.thumbnailItemTemplate = Compiler.thumbnailItemCompiler();
+    EVTURN.contactViewTemplate = Compiler.contactViewCompiler();
+    EVTURN.linkItemTemplate = Compiler.linkItemCompiler();
+    EVTURN.techViewTemplate = Compiler.techViewCompiler();
+    EVTURN.techItemTemplate = Compiler.techItemCompiler();
+    EVTURN.statItemTemplate = Compiler.statItemCompiler();
+    EVTURN.bioTemplate = Compiler.bioCompiler();
+    EVTURN.footerTemplate = Compiler.footerCompiler();
   };
 
   Compiler.carouselViewCompiler = function () {
     var html = "\n          <div class=\"container carousel\">\n            <div class=\"carousel-image-container\">\n              <div class=\"carousel slide animated bounceInLeft\" data-ride=\"carousel\" id=\"gallery\">\n                <div class=\"carousel-inner\">\n                  <!-- Images -->\n                </div>\n              </div>\n            </div>\n          <div class=\"container info\">\n            <div class=\"inner\">\n              <div class=\"carousel-panel\">\n                <!-- Description -->\n              </div>\n            </div>\n          </div>\n        </div>";
 
-    return EVTURN.carouselViewTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.carouselImageCompiler = function () {
     var html = "\n          <div class=\"item\">\n            <img class=\"img-scale gallery-item\" src=\"<%= image %>\">\n          </div>";
 
-    return EVTURN.carouselImageTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.carouselPanelCompiler = function () {
     var html = "\n          <div class=\"panel-inner\">\n            <div class=\"title-container\">\n              <p class=\"section-title\"><%= name %></p>\n            </div>\n            <div class=\"project-text\">\n              <p class=\"meta\"><%= description %></p>\n            </div>\n            <div class=\"project-technologies\">\n              <!-- Technology-items -->\n            </div>\n            <div class=\"project-links\">\n              <!-- Link items -->\n            </div>\n          </div>";
 
-    return EVTURN.carouselPanelTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.carouselTechCompiler = function () {
     var html = "\n          <div class=\"technologies-item\">\n            <i class=\"<%= icon %>\"></i>\n            <p class=\"caption\"><%= technology %></p>\n          </div>";
 
-    return EVTURN.carouselTechTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.carouselLinkCompiler = function () {
     var html = "\n          <% var url = url ? '<p class=\"meta\"><a href=\"' + url + '\" target=\"_blank\"><i class=\"fa fa-link\"></i></a></p>' : '' %>\n            <%= url %>\n          <% var repo = repo ? '<p class=\"meta\"><a href=\"' + repo + '\" target=\"_blank\"><i class=\"fa fa-github\"></i></a></p>' : '' %>\n          <%= repo %>";
 
-    return EVTURN.carouselLinkTemplate = _.template(html);
-  };
-
-  Compiler.carouselPreloaderCompiler = function () {
-    var html = "\n          <div id=\"carousel-preloader\">\n            <div id=\"carousel-spinner\"></div>\n          <img class=\"carousel-preloader\" src=\"public/dist/img/site/evturn.jpg\">\n        </div>";
-
-    return EVTURN.carouselPreloaderTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.navCompiler = function () {
     var html = "\n          <div class=\"container nav-content\">\n            <div class=\"inner\">\n              <div class=\"nav-container\">\n                <div class=\"nav-inner\">\n                  <div class=\"header-container\">\n                    <a href=\"/\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\"></a>\n                    <div class=\"image-overlay\"></div>\n                  </div>\n                  <div class=\"close-container\">\n                    <i class=\"fa fa-times\"></i>\n                  </div>\n                </div>\n              </div>\n              <div class=\"links-container\">\n                <div data-view=\"work\" class=\"nav-item nav-work\">\n                  <h4><a class=\"nav-link\" href=\"#work\">Work</a></h4>\n                </div>\n                <div data-view=\"about\" class=\"nav-item nav-about\">\n                  <h4><a class=\"nav-link\" href=\"#about\">About</a></h4>\n                </div>\n                <div data-view=\"contact\" class=\"nav-item nav-contact\">\n                  <h4><a class=\"nav-link\" href=\"#contact\">Contact</a></h4>\n                </div>\n              </div>\n            </div>\n          </div>";
 
-    return EVTURN.navTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.heroCompiler = function () {
     var html = "\n          <section class=\"index-header\">\n            <video id=\"ev-vid\" poster=\"public/dist/img/site/vid-poster.gif\" type=\"video/mp4\">\n            </video>\n            <div class=\"carousel-index\"></div>\n            <div class=\"curtain\"></div>\n            <div class=\"container ev-navbar\">\n              <div class=\"inner\">\n                <div class=\"header-container\">\n                  <a href=\"/#work\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\"></a>\n                  <div class=\"image-overlay\"></div>\n                </div>\n                <div class=\"headline-container\">\n                  <h3 class=\"subhead\">Evan Turner</h3>\n                  <h3 class=\"subhead\">Web Developer</h3>\n                </div>\n                <div class=\"burger-container\">\n                  <i class=\"fa fa-bars\"></i>\n                </div>\n              </div>\n            </div>\n        </section>";
 
-    return EVTURN.heroTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.navbarCompiler = function () {
     var html = "\n          <div class=\"container ev-navbar\">\n            <div class=\"inner\">\n              <div class=\"header-container\">\n                <a href=\"/\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\"></a>\n                <div class=\"image-overlay\"></div>\n              </div>\n              <div class=\"burger-container\">\n                <i class=\"fa fa-bars\"></i>\n              </div>\n            </div>\n          </div>";
 
-    return EVTURN.navbarTemplate = _.template(html);
+    return _.template(html);
+  };
+
+  Compiler.carouselNavbarCompiler = function () {
+    var html = "\n          <div class=\"container ev-navbar\">\n            <div class=\"inner\">\n              <div class=\"header-container\">\n                <a href=\"/\"><img src=\"public/dist/img/site/ev-av.png\" class=\"img-scale\" id=\"carousel-logo\"></a>\n                <div class=\"image-overlay\"></div>\n                <div id=\"carousel-preloader\">\n                  <div id=\"carousel-spinner\"></div>\n                </div>\n              </div>\n              <div class=\"burger-container\">\n                <i class=\"fa fa-bars\"></i>\n              </div>\n            </div>\n          </div>";
+
+    return _.template(html);
   };
 
   Compiler.thumbnailViewCompiler = function () {
     var html = "\n          <div class=\"container thumbnails\">\n            <div class=\"wrapper thumbnails-wrapper\">\n              <!-- Thumbnails Items-->\n            </div>\n          </div>";
 
-    return EVTURN.thumbnailViewTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.thumbnailItemCompiler = function () {
     var html = "\n          <div class=\"thumbnail-item\">\n            <a href=\"#work/<%= id %>\">\n            <div class=\"thumbnail-inner\">\n              <div class=\"image-container\">\n                <img class=\"img-scale\" src=\"<%= thumbnail %>\">\n                <div class=\"shadow\"></div>\n              </div>\n            </div>\n            </a>\n          </div>";
 
-    return EVTURN.thumbnailItemTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.techViewCompiler = function () {
     var html = "\n          <div class=\"container about\">\n            <div class=\"wrapper\">\n              <div class=\"image-container animated fadeInUp\">\n                <img class=\"img-scale\" src=\"public/dist/img/site/tile.png\">\n              </div>\n              <div class=\"bio-container\">\n                <p class=\"section-title\">Web Development</p>\n                <div class=\"paragraphs\">\n                  <!-- Bio -->\n                </div>\n              </div>\n              <div class=\"info-container\">\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Notable Build Tools</p>\n                  <div class=\"technology-items stat-items\">\n                    <!-- Technologies -->\n                  </div>\n                </div>\n                <div class=\"stats-container\">\n                  <p class=\"subhead\">Statistics</p>\n                  <div class=\"statistics stat-items\">\n                    <!-- Stats -->\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>";
 
-    return EVTURN.techViewTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.techItemCompiler = function () {
     var html = "\n          <div class=\"stat-item\">\n            <span class=\"stat-icon\"><i class=\"<%= icon %>\"></i></span>\n            <p class=\"meta\"><%= technology %></p>\n          </div>";
 
-    return EVTURN.techItemTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.statItemCompiler = function () {
     var html = "\n          <div class=\"stat-item\">\n            <span class=\"stat-icon\"><i class=\"<%= icon %>\"></i></span>\n            <h5 class=\"stat-count\"><%= number %></h5>\n            <p class=\"meta\"><%= text %></p>\n          </div>";
 
-    return EVTURN.statItemTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.bioCompiler = function () {
     var html = "\n          <div class=\"paragraph\">\n            <p><%= paragraph %></p>\n          </div>";
 
-    return EVTURN.bioTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.contactViewCompiler = function () {
     var html = "\n          <div class=\"container contact animated fadeIn\">\n            <div class=\"wrapper\">\n              <div class=\"image-container\">\n                <img class=\"img-scale\" src=\"public/dist/img/site/city-invert.png\">\n                <p class=\"header-subhead\">@evturn // evturn [@] gmail [dot] com</p>\n              </div>\n              <div class=\"links-container\">\n                <ul class=\"link-items\">\n                  <!-- Links -->\n                </div>\n              </div>\n            </div>\n          </div>";
 
-    return EVTURN.contactViewTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.linkItemCompiler = function () {
     var html = "\n          <li class=\"link-item\">\n            <a target=\"_blank\" href=\"<%= url %>\"><i class=\"<%= icon %>\"></i></a>\n          </li>";
 
-    return EVTURN.linkItemTemplate = _.template(html);
+    return _.template(html);
   };
 
   Compiler.footerCompiler = function () {
     var html = "\n        <footer class=\"container footer\">\n          <div class=\"inner\">\n            <div class=\"copyright-container\">\n              <p>2015 © evturn.com | All Rights Reserved</p>\n            </div>\n          </div>\n        </footer>";
 
-    return EVTURN.footerTemplate = _.template(html);
+    return _.template(html);
   };
 
   EVTURN.compile = Compiler.init;
@@ -706,7 +686,7 @@ EVTURN.Carousel = Backbone.View.extend({
   },
   render: function render() {
     var model = this.model.toJSON();
-    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.html(EVTURN.carouselNavbarTemplate());
     this.$el.append(EVTURN.carouselViewTemplate(model));
 
     return this;
@@ -764,11 +744,14 @@ EVTURN.Carousel = Backbone.View.extend({
     this.scrollUp();
   },
   carouselPreloader: function carouselPreloader() {
-    var $sel = $('.carousel-image-container');
+    var $img = $('#carousel-logo'),
+        $container = $('#carousel-preloader');
 
-    $sel.append(EVTURN.carouselPreloaderTemplate());
-    $('#carousel-preloader').delay(500).fadeOut();
-    $('.carousel-preloader').delay(600).fadeOut(600);
+    $img.addClass('spin');
+    $container.delay(500).fadeOut();
+    setTimeout(function () {
+      $img.removeClass('spin');
+    }, 780);
   }
 });
 'use strict';

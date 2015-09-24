@@ -5758,6 +5758,48 @@ video::-webkit-media-controls {
     width: 100%;
   }
 }
+#carousel-logo.spin {
+  -webkit-animation: rotation 0.750s infinite linear;
+  -moz-animation: rotation 0.750s infinite linear;
+  -o-animation: rotation 0.750s infinite linear;
+  animation: rotation 0.750s infinite linear;
+}
+#carousel-preloader {
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  display: block;
+}
+#carousel-preloader #carousel-spinner {
+  position: absolute;
+  height: 85px;
+  width: 85px;
+  top: 2px;
+  right: 0px;
+  left: 3px;
+  z-index: 3;
+  -webkit-animation: rotation 0.750s infinite linear;
+  -moz-animation: rotation 0.750s infinite linear;
+  -o-animation: rotation 0.750s infinite linear;
+  animation: rotation 0.750s infinite linear;
+}
+#carousel-preloader #carousel-spinner:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  height: 100%;
+  width: 100%;
+  border-top: 3px solid #000000;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-radius: 100%;
+}
 #preloader {
   width: 100vw;
   height: 100vh;
@@ -5770,19 +5812,6 @@ video::-webkit-media-controls {
   position: fixed;
   display: block;
 }
-#carousel-preloader {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 11000;
-  position: fixed;
-  display: block;
-  background: none;
-}
-.carousel-preloader,
 .preloader {
   position: absolute;
   margin: 0 auto;
@@ -5799,7 +5828,6 @@ video::-webkit-media-controls {
   -o-border-radius: 50%;
   border-radius: 50%;
 }
-#carousel-spinner,
 #spinner {
   position: relative;
   height: 95px;
@@ -5813,11 +5841,9 @@ video::-webkit-media-controls {
   -o-animation: rotation 0.750s infinite linear;
   animation: rotation 0.750s infinite linear;
 }
-#carousel-spinner ::-webkit-scrollbar,
 #spinner ::-webkit-scrollbar {
   display: none;
 }
-#carousel-spinner:before,
 #spinner:before {
   content: "";
   display: block;
