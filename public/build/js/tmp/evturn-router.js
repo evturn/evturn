@@ -10,12 +10,6 @@ var $ = require('jquery'),
     Contact = require('./contact'),
     Work = require('./work');
 
-EVTURN.Rza = Rza;
-EVTURN.IndexView = Index;
-EVTURN.Work = Work;
-EVTURN.AboutView = About;
-EVTURN.ContactView = Contact;
-
 var Router = Backbone.Router.extend({
   wrapper: null,
   indexView: null,
@@ -30,13 +24,13 @@ var Router = Backbone.Router.extend({
     'contact': 'contact'
   },
   initialize: function initialize() {
-    this.wrapper = new EVTURN.Rza();
+    this.wrapper = new Rza();
   },
   index: function index() {
     EVTURN.changeState('index');
 
     if (this.indexView === null) {
-      this.indexView = new EVTURN.IndexView();
+      this.indexView = new Index();
     }
 
     this.wrapper.child = this.indexView;
@@ -46,10 +40,10 @@ var Router = Backbone.Router.extend({
     EVTURN.changeState('work');
 
     if (this.workView === null) {
-      this.workView = new EVTURN.Work({ model: model });
+      this.workView = new Work({ model: model });
       this.wrapper.child = this.workView;
     } else {
-      var view = new EVTURN.Work({ model: model });
+      var view = new Work({ model: model });
       this.wrapper.child = view;
     }
 
@@ -59,7 +53,7 @@ var Router = Backbone.Router.extend({
     EVTURN.changeState('about');
 
     if (this.aboutView === null) {
-      this.aboutView = new EVTURN.AboutView();
+      this.aboutView = new About();
     }
 
     this.wrapper.child = this.aboutView;
@@ -69,7 +63,7 @@ var Router = Backbone.Router.extend({
     EVTURN.changeState('contact');
 
     if (this.contactView === null) {
-      this.contactView = new EVTURN.ContactView();
+      this.contactView = new Contact();
     }
 
     this.wrapper.child = this.contactView;

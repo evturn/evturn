@@ -50,7 +50,7 @@
 	    _ = __webpack_require__(2),
 	    Backbone = __webpack_require__(3),
 	    EVTURN = __webpack_require__(4),
-	    Router = __webpack_require__(7);
+	    Router = __webpack_require__(8);
 
 	var router = new Router();
 	EVTURN.init();
@@ -13702,7 +13702,8 @@
 	    _ = __webpack_require__(2),
 	    Backbone = __webpack_require__(3),
 	    Compiler = __webpack_require__(5),
-	    Get = __webpack_require__(6);
+	    Get = __webpack_require__(6),
+	    Rza = __webpack_require__(7);
 
 	var EVTURN = {};
 
@@ -13758,7 +13759,7 @@
 	  element.className = string;
 	  element.dataset.view = string;
 	  $selector.remove();
-	  $(element).insertAfter(new EVTURN.Rza().$el);
+	  $(element).insertAfter(new Rza().$el);
 	};
 
 	EVTURN.navActive = function (string) {
@@ -14235,6 +14236,22 @@
 
 /***/ },
 /* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = Backbone.View.extend({
+	  el: '#rza',
+	  child: null,
+	  render: function render() {
+	    this.$el.html(this.child.$el);
+
+	    return this;
+	  }
+	});
+
+/***/ },
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14243,17 +14260,11 @@
 	    _ = __webpack_require__(2),
 	    Backbone = __webpack_require__(3),
 	    EVTURN = __webpack_require__(4),
-	    Rza = __webpack_require__(8),
+	    Rza = __webpack_require__(7),
 	    Index = __webpack_require__(9),
 	    About = __webpack_require__(11),
 	    Contact = __webpack_require__(12),
 	    Work = __webpack_require__(13);
-
-	EVTURN.Rza = Rza;
-	EVTURN.IndexView = Index;
-	EVTURN.Work = Work;
-	EVTURN.AboutView = About;
-	EVTURN.ContactView = Contact;
 
 	var Router = Backbone.Router.extend({
 	  wrapper: null,
@@ -14269,13 +14280,13 @@
 	    'contact': 'contact'
 	  },
 	  initialize: function initialize() {
-	    this.wrapper = new EVTURN.Rza();
+	    this.wrapper = new Rza();
 	  },
 	  index: function index() {
 	    EVTURN.changeState('index');
 
 	    if (this.indexView === null) {
-	      this.indexView = new EVTURN.IndexView();
+	      this.indexView = new Index();
 	    }
 
 	    this.wrapper.child = this.indexView;
@@ -14285,10 +14296,10 @@
 	    EVTURN.changeState('work');
 
 	    if (this.workView === null) {
-	      this.workView = new EVTURN.Work({ model: model });
+	      this.workView = new Work({ model: model });
 	      this.wrapper.child = this.workView;
 	    } else {
-	      var view = new EVTURN.Work({ model: model });
+	      var view = new Work({ model: model });
 	      this.wrapper.child = view;
 	    }
 
@@ -14298,7 +14309,7 @@
 	    EVTURN.changeState('about');
 
 	    if (this.aboutView === null) {
-	      this.aboutView = new EVTURN.AboutView();
+	      this.aboutView = new About();
 	    }
 
 	    this.wrapper.child = this.aboutView;
@@ -14308,7 +14319,7 @@
 	    EVTURN.changeState('contact');
 
 	    if (this.contactView === null) {
-	      this.contactView = new EVTURN.ContactView();
+	      this.contactView = new Contact();
 	    }
 
 	    this.wrapper.child = this.contactView;
@@ -14323,22 +14334,6 @@
 	});
 
 	module.exports = Router;
-
-/***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = Backbone.View.extend({
-	  el: '#rza',
-	  child: null,
-	  render: function render() {
-	    this.$el.html(this.child.$el);
-
-	    return this;
-	  }
-	});
 
 /***/ },
 /* 9 */

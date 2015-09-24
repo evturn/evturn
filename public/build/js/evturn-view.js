@@ -2,7 +2,8 @@ let $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
     Compiler = require('./evturn-templates'),
-    Get = require('./evturn-data');
+    Get = require('./evturn-data'),
+    Rza = require('./wrapper');
 
 let EVTURN = {};
 
@@ -57,7 +58,7 @@ EVTURN.createElement = function(string) {
   element.className = string;
   element.dataset.view = string;
   $selector.remove();
-  $(element).insertAfter(new EVTURN.Rza().$el);
+  $(element).insertAfter(new Rza().$el);
 };
 
 EVTURN.navActive = function(string) {
