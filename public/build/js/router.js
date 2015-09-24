@@ -29,11 +29,11 @@ EVTURN.Router = Backbone.Router.extend({
     EVTURN.changeState('work');
 
     if (this.workView === null) {
-        this.workView = new EVTURN.Carousel({model: model});
+        this.workView = new EVTURN.Work({model: model});
         this.wrapper.child = this.workView;
     }
     else {
-        let view = new EVTURN.Carousel({model: model});
+        let view = new EVTURN.Work({model: model});
         this.wrapper.child = view;
     }
 

@@ -2,6 +2,7 @@
 
 let gulp        = require('gulp'),
     gutil       = require('gulp-util'),
+    webpack     = require('webpack'),
     browserSync = require('browser-sync').create(),
     $           = require('gulp-load-plugins')(),
     paths       = require('./config/gulp-paths'),
@@ -9,6 +10,7 @@ let gulp        = require('gulp'),
 
 gulp.task('default', ['less:watch', 'js:watch', 'eslint:watch', 'browserSync']);
 gulp.task('build', ['less', 'js', 'js:vendor', 'img']);
+gulp.task('dev-webpack', ['babel-tmp:watch', 'webpack:watch', 'browserSync']);
 
 //////////////////////
 // WATCH
@@ -30,6 +32,14 @@ gulp.task('jshint:watch', function() {
   gulp.watch(paths.jshint.watch, ['lint']);
 });
 
+gulp.task('webpack:watch', function() {
+  gulp.watch(paths.webpack.watch, ['webpack:reload']);
+});
+
+gulp.task('babel-tmp:watch', function() {
+  gulp.watch(paths.js.watch, ['babel-tmp']);
+});
+
 //////////////////////
 // BROWSERSYNC
 //////////////////////
@@ -46,6 +56,41 @@ gulp.task('less:reload', ['less'], function() {
 gulp.task('js:reload', ['js'], function() {
     browserSync.reload();
 });
+
+gulp.task('webpack:reload', ['webpack'], function() {
+    browserSync.reload();
+});
+
+
+//////////////////////
+// WEBPACK
+//////////////////////
+
+gulp.task('webpack', function(callback) {
+  webpack(opts.webpack, function(err, stats) {
+      if (err) {
+        throw new gutil.PluginError('webpack', err);
+      }
+      gutil.log('[webpack]', stats.toString({
+
+      }));
+      callback();
+  });
+});
+
+gulp.task('babel-tmp', function() {
+  return gulp.src(paths.js.src)
+    .pipe($.plumber(opts.plumber))
+    .pipe($.sourcemaps.init())
+    .pipe($.babel(opts.babel))
+    .on('error', opts.plumber.errorHandler)
+    .pipe(gulp.dest(paths.dest.js))
+    .pipe($.sourcemaps.write('.'))
+    .on('error', gutil.log);
+});
+
+
+
 
 //////////////////////
 // LESS
@@ -72,7 +117,7 @@ gulp.task('js', function() {
   return gulp.src(paths.js.src)
     .pipe($.plumber(opts.plumber))
     .pipe($.sourcemaps.init())
-    .pipe($.babel())
+    .pipe($.babel(opts.babel))
     .on('error', opts.plumber.errorHandler)
     .pipe($.concat(paths.js.filename))
     .pipe(gulp.dest(paths.dest.js))

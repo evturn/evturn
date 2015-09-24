@@ -672,7 +672,88 @@ EVTURN.AboutView = Backbone.View.extend({
 });
 'use strict';
 
-EVTURN.Carousel = Backbone.View.extend({
+EVTURN.ContactView = Backbone.View.extend({
+
+  el: '.contact',
+  initialize: function initialize() {
+    this.setView();
+    this.appendLinks();
+  },
+  setView: function setView() {
+    this.$el.html(EVTURN.navbarTemplate());
+    this.$el.append(EVTURN.contactViewTemplate());
+
+    return this;
+  },
+  appendLinks: function appendLinks() {
+    var collection = EVTURN.get('links');
+
+    for (var i = 0; i < collection.models.length; i++) {
+      var model = collection.models[i].toJSON();
+
+      $('.link-items').append(EVTURN.linkItemTemplate(model));
+    }
+
+    return this;
+  }
+});
+'use strict';
+
+EVTURN.IndexView = Backbone.View.extend({
+
+  el: '.index',
+  initialize: function initialize() {
+    this.render();
+    // this.appendProjectThumbnails();
+    this.setVideo();
+  },
+  render: function render() {
+    this.$el.html(EVTURN.heroTemplate());
+
+    return this;
+  },
+  setVideo: function setVideo() {
+    $(document).ready(function () {
+      var video = document.getElementById('ev-vid');
+
+      EVTURN.Video(video);
+    });
+  },
+  appendProjectThumbnails: function appendProjectThumbnails() {
+    var tn = new EVTURN.Thumbnails(this.$el);
+
+    return this;
+  }
+});
+'use strict';
+
+EVTURN.Thumbnails = Backbone.View.extend({
+
+  el: '.thumbnails-wrapper',
+  events: {
+    'click .thumbnail-item': 'scrollUp'
+  },
+  initialize: function initialize(selector) {
+    this.render(selector);
+  },
+  render: function render($selector) {
+    var collection = EVTURN.get('apps');
+
+    this.$el.empty();
+    $selector.append(EVTURN.thumbnailViewTemplate());
+
+    for (var i = 0; i < collection.models.length; i++) {
+      var model = collection.models[i].toJSON();
+
+      $('.thumbnails-wrapper').append(EVTURN.thumbnailItemTemplate(model));
+    }
+
+    return this;
+  }
+});
+'use strict';
+
+EVTURN.Work = Backbone.View.extend({
 
   el: '.work',
   initialize: function initialize() {
@@ -756,87 +837,6 @@ EVTURN.Carousel = Backbone.View.extend({
 });
 'use strict';
 
-EVTURN.ContactView = Backbone.View.extend({
-
-  el: '.contact',
-  initialize: function initialize() {
-    this.setView();
-    this.appendLinks();
-  },
-  setView: function setView() {
-    this.$el.html(EVTURN.navbarTemplate());
-    this.$el.append(EVTURN.contactViewTemplate());
-
-    return this;
-  },
-  appendLinks: function appendLinks() {
-    var collection = EVTURN.get('links');
-
-    for (var i = 0; i < collection.models.length; i++) {
-      var model = collection.models[i].toJSON();
-
-      $('.link-items').append(EVTURN.linkItemTemplate(model));
-    }
-
-    return this;
-  }
-});
-'use strict';
-
-EVTURN.IndexView = Backbone.View.extend({
-
-  el: '.index',
-  initialize: function initialize() {
-    this.render();
-    // this.appendProjectThumbnails();
-    this.setVideo();
-  },
-  render: function render() {
-    this.$el.html(EVTURN.heroTemplate());
-
-    return this;
-  },
-  setVideo: function setVideo() {
-    $(document).ready(function () {
-      var video = document.getElementById('ev-vid');
-
-      EVTURN.Video(video);
-    });
-  },
-  appendProjectThumbnails: function appendProjectThumbnails() {
-    var tn = new EVTURN.Thumbnails(this.$el);
-
-    return this;
-  }
-});
-'use strict';
-
-EVTURN.Thumbnails = Backbone.View.extend({
-
-  el: '.thumbnails-wrapper',
-  events: {
-    'click .thumbnail-item': 'scrollUp'
-  },
-  initialize: function initialize(selector) {
-    this.render(selector);
-  },
-  render: function render($selector) {
-    var collection = EVTURN.get('apps');
-
-    this.$el.empty();
-    $selector.append(EVTURN.thumbnailViewTemplate());
-
-    for (var i = 0; i < collection.models.length; i++) {
-      var model = collection.models[i].toJSON();
-
-      $('.thumbnails-wrapper').append(EVTURN.thumbnailItemTemplate(model));
-    }
-
-    return this;
-  }
-});
-'use strict';
-
 EVTURN.Rza = Backbone.View.extend({
 
   el: '#rza',
@@ -880,10 +880,10 @@ EVTURN.Router = Backbone.Router.extend({
     EVTURN.changeState('work');
 
     if (this.workView === null) {
-      this.workView = new EVTURN.Carousel({ model: model });
+      this.workView = new EVTURN.Work({ model: model });
       this.wrapper.child = this.workView;
     } else {
-      var view = new EVTURN.Carousel({ model: model });
+      var view = new EVTURN.Work({ model: model });
       this.wrapper.child = view;
     }
 

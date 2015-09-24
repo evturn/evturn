@@ -32,6 +32,9 @@ module.exports = {
       'gulpfile.js'
     ]
   },
+  webpack: {
+    watch: 'public/build/js/tmp/**/*.js'
+  },
   js: {
     src: [
       'public/build/js/evturn-view.js',

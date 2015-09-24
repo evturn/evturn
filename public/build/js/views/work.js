@@ -1,4 +1,4 @@
-EVTURN.Carousel = Backbone.View.extend({
+EVTURN.Work = Backbone.View.extend({
 
   el: '.work',
   initialize() {
