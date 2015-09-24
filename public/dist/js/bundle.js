@@ -13838,31 +13838,9 @@
 
 	'use strict';
 
-	var _ = __webpack_require__(2),
-	    EVTURN = __webpack_require__(4);
+	var _ = __webpack_require__(2);
 
 	var Compiler = {};
-
-	Compiler.init = function () {
-	  EVTURN.navTemplate = Compiler.navCompiler();
-	  EVTURN.navbarTemplate = Compiler.navbarCompiler();
-	  EVTURN.heroTemplate = Compiler.heroCompiler();
-	  EVTURN.carouselViewTemplate = Compiler.carouselViewCompiler();
-	  EVTURN.carouselPanelTemplate = Compiler.carouselPanelCompiler();
-	  EVTURN.carouselTechTemplate = Compiler.carouselTechCompiler();
-	  EVTURN.carouselLinkTemplate = Compiler.carouselLinkCompiler();
-	  EVTURN.carouselNavbarTemplate = Compiler.carouselNavbarCompiler();
-	  EVTURN.carouselImageTemplate = Compiler.carouselImageCompiler();
-	  EVTURN.thumbnailViewTemplate = Compiler.thumbnailViewCompiler();
-	  EVTURN.thumbnailItemTemplate = Compiler.thumbnailItemCompiler();
-	  EVTURN.contactViewTemplate = Compiler.contactViewCompiler();
-	  EVTURN.linkItemTemplate = Compiler.linkItemCompiler();
-	  EVTURN.techViewTemplate = Compiler.techViewCompiler();
-	  EVTURN.techItemTemplate = Compiler.techItemCompiler();
-	  EVTURN.statItemTemplate = Compiler.statItemCompiler();
-	  EVTURN.bioTemplate = Compiler.bioCompiler();
-	  EVTURN.footerTemplate = Compiler.footerCompiler();
-	};
 
 	Compiler.carouselViewCompiler = function () {
 	  var html = '\n        <div class="container carousel">\n          <div class="carousel-image-container">\n            <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';

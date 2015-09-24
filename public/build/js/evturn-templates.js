@@ -1,29 +1,6 @@
-let _ = require('underscore'),
-    EVTURN = require('./evturn-view');
-
+let _ = require('underscore');
 
   let Compiler = {};
-
-  Compiler.init = function() {
-    EVTURN.navTemplate = Compiler.navCompiler();
-    EVTURN.navbarTemplate = Compiler.navbarCompiler();
-    EVTURN.heroTemplate = Compiler.heroCompiler();
-    EVTURN.carouselViewTemplate = Compiler.carouselViewCompiler();
-    EVTURN.carouselPanelTemplate = Compiler.carouselPanelCompiler();
-    EVTURN.carouselTechTemplate = Compiler.carouselTechCompiler();
-    EVTURN.carouselLinkTemplate = Compiler.carouselLinkCompiler();
-    EVTURN.carouselNavbarTemplate = Compiler.carouselNavbarCompiler();
-    EVTURN.carouselImageTemplate = Compiler.carouselImageCompiler();
-    EVTURN.thumbnailViewTemplate = Compiler.thumbnailViewCompiler();
-    EVTURN.thumbnailItemTemplate = Compiler.thumbnailItemCompiler();
-    EVTURN.contactViewTemplate = Compiler.contactViewCompiler();
-    EVTURN.linkItemTemplate = Compiler.linkItemCompiler();
-    EVTURN.techViewTemplate =Compiler.techViewCompiler();
-    EVTURN.techItemTemplate = Compiler.techItemCompiler();
-    EVTURN.statItemTemplate = Compiler.statItemCompiler();
-    EVTURN.bioTemplate = Compiler.bioCompiler();
-    EVTURN.footerTemplate = Compiler.footerCompiler();
-  };
 
   Compiler.carouselViewCompiler = function() {
     let html = `
