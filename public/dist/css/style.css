@@ -5377,8 +5377,8 @@ video::-webkit-media-controls {
   width: 320px;
   background-color: #5fa3c0;
   display: block;
-  -webkit-box-shadow: -5px 0px 21px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: -5px 0px 21px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -5px 0px 52px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: -5px 0px 52px 1px rgba(0, 0, 0, 0.75);
 }
 .ev-nav.on.slideInRight {
   -webkit-animation-duration: 0.7s;
@@ -5481,9 +5481,9 @@ video::-webkit-media-controls {
 }
 @media (min-width: 600px) {
   .ev-nav .nav-item:hover a {
-    -webkit-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
     color: #ffffff;
   }
 }
