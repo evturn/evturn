@@ -187,7 +187,7 @@ var EVTURN = window.EVTURN || {};
       icon: 'fa fa-terminal'
     }, {
       text: 'Github Contributions',
-      number: 6000,
+      number: 7000,
       icon: 'fa fa-code'
     }];
   };
