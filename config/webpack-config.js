@@ -5,9 +5,9 @@ let webpack = require('webpack'),
 
 module.exports = {
   cache: true,
-  entry: './public/build/js/tmp/router.js',
+  entry: './public/build/js/tmp/app.js',
   output: {
-      path: './public/dist/tmp',
+      path: './public/dist/js',
       filename: 'bundle.js'
   },
   resolve: {
@@ -17,6 +17,7 @@ module.exports = {
       'tmp',
     ],
     alias: {
+      router: 'router',
       jquery: 'jquery',
       underscore: 'underscore',
       backbone: 'backbone'

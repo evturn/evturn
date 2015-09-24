@@ -22,12 +22,13 @@ module.exports = {
       'gulpfile.js'
     ],
     watch: [
+      'public/build/js/app.js',
       'public/build/js/evturn-view.js',
       'public/build/js/evturn-data.js',
       'public/build/js/evturn-video.js',
       'public/build/js/evturn-templates.js',
       'public/build/js/views/**/*.js',
-      'public/build/js/router.js',
+      'public/build/js/evturn-router.js',
       'config/**/*.js',
       'gulpfile.js'
     ]
@@ -37,12 +38,13 @@ module.exports = {
   },
   js: {
     src: [
+      'public/build/js/app.js',
       'public/build/js/evturn-view.js',
       'public/build/js/evturn-data.js',
       'public/build/js/evturn-video.js',
       'public/build/js/evturn-templates.js',
       'public/build/js/views/**/*.js',
-      'public/build/js/router.js'
+      'public/build/js/evturn-router.js'
     ],
     watch: [
       'public/build/js/**/*.js',
@@ -55,8 +57,6 @@ module.exports = {
         'public/build/js/vendor/google-analytics.js',
         'public/build/js/vendor/jquery.js',
         'public/build/js/vendor/underscore.js',
-        'public/build/js/vendor/backbone.js',
-        'public/build/js/vendor/backbone-nativeview.js',
         'public/build/js/vendor/backbone.js',
         'public/build/js/vendor/bootstrap.js'
       ],

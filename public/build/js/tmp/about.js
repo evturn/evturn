@@ -1,7 +1,14 @@
 'use strict';
 
-EVTURN.AboutView = Backbone.View.extend({
+var EVTURN = require('./evturn-view'),
+    Compiler = require('./evturn-templates');
 
+module.exports = Backbone.View.extend({
+  navbarTemplate: Compiler.navbarCompiler(),
+  techViewTemplate: Compiler.techViewCompiler(),
+  techItemTemplate: Compiler.techItemCompiler(),
+  statItemTemplate: Compiler.statItemCompiler(),
+  bioTemplate: Compiler.bioCompiler(),
   el: '.about',
   initialize: function initialize() {
     this.render();
@@ -11,8 +18,8 @@ EVTURN.AboutView = Backbone.View.extend({
     this.animateStats();
   },
   render: function render() {
-    this.$el.html(EVTURN.navbarTemplate());
-    this.$el.append(EVTURN.techViewTemplate());
+    this.$el.html(this.navbarTemplate());
+    this.$el.append(this.techViewTemplate());
 
     return this;
   },
@@ -23,19 +30,19 @@ EVTURN.AboutView = Backbone.View.extend({
     for (var i = 0; i < collection.models.length; i++) {
       var model = collection.models[i].toJSON();
 
-      $sel.append(EVTURN.statItemTemplate(model));
+      $sel.append(this.statItemTemplate(model));
     }
 
     return this;
   },
   appendTechnologies: function appendTechnologies() {
     var $sel = $('.technology-items'),
-        collection = EVTURN.get('tech');
+        collection = this.get('tech');
 
     for (var i = 0; i < collection.models.length; i++) {
       var model = collection.models[i].toJSON();
 
-      $sel.append(EVTURN.techItemTemplate(model));
+      $sel.append(this.techItemTemplate(model));
     }
 
     return this;
@@ -47,7 +54,7 @@ EVTURN.AboutView = Backbone.View.extend({
     for (var i = 0; i < collection.models.length; i++) {
       var model = collection.models[i].toJSON();
 
-      $sel.append(EVTURN.bioTemplate(model));
+      $sel.append(this.bioTemplate(model));
     }
 
     return this;

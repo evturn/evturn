@@ -1,15 +1,20 @@
 'use strict';
 
-EVTURN.ContactView = Backbone.View.extend({
+var EVTURN = require('./evturn-view'),
+    Compiler = require('./evturn-templates');
 
+module.exports = Backbone.View.extend({
+  navbarTemplate: Compiler.navbarCompiler(),
+  contactViewTemplate: Compiler.contactViewCompiler(),
+  linkItemTemplate: Compiler.linkItemCompiler(),
   el: '.contact',
   initialize: function initialize() {
     this.setView();
     this.appendLinks();
   },
   setView: function setView() {
-    this.$el.html(EVTURN.navbarTemplate());
-    this.$el.append(EVTURN.contactViewTemplate());
+    this.$el.html(this.navbarTemplate());
+    this.$el.append(this.contactViewTemplate());
 
     return this;
   },
@@ -19,7 +24,7 @@ EVTURN.ContactView = Backbone.View.extend({
     for (var i = 0; i < collection.models.length; i++) {
       var model = collection.models[i].toJSON();
 
-      $('.link-items').append(EVTURN.linkItemTemplate(model));
+      $('.link-items').append(this.linkItemTemplate(model));
     }
 
     return this;

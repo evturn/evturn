@@ -1,5 +1,20 @@
-EVTURN.Router = Backbone.Router.extend({
+let $ = require('jquery'),
+    _ = require('underscore'),
+    Backbone = require('backbone'),
+    EVTURN = require('./evturn-view'),
+    Rza = require('./wrapper'),
+    Index = require('./index'),
+    About = require('./about'),
+    Contact = require('./contact'),
+    Work = require('./work');
 
+EVTURN.Rza = Rza;
+EVTURN.IndexView = Index;
+EVTURN.Work = Work;
+EVTURN.AboutView = About;
+EVTURN.ContactView = Contact;
+
+let Router = Backbone.Router.extend({
   wrapper      : null,
   indexView    : null,
   workView     : null,
@@ -67,4 +82,4 @@ EVTURN.Router = Backbone.Router.extend({
   }
 });
 
-EVTURN.init();
+module.exports = Router;

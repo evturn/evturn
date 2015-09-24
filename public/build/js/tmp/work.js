@@ -1,7 +1,17 @@
 'use strict';
 
-EVTURN.Work = Backbone.View.extend({
+var _ = require('underscore'),
+    Thumbnails = require('./thumbnails'),
+    EVTURN = require('./evturn-view'),
+    Compiler = require('./evturn-templates');
 
+module.exports = Backbone.View.extend({
+  carouselNavbarTemplate: Compiler.carouselNavbarCompiler(),
+  carouselViewTemplate: Compiler.carouselViewCompiler(),
+  carouselPanelTemplate: Compiler.carouselPanelCompiler(),
+  carouselLinkTemplate: Compiler.carouselLinkCompiler(),
+  carouselTechTemplate: Compiler.carouselTechCompiler(),
+  carouselImageTemplate: Compiler.carouselImageCompiler(),
   el: '.work',
   initialize: function initialize() {
     this.render();
@@ -14,8 +24,8 @@ EVTURN.Work = Backbone.View.extend({
   },
   render: function render() {
     var model = this.model.toJSON();
-    this.$el.html(EVTURN.carouselNavbarTemplate());
-    this.$el.append(EVTURN.carouselViewTemplate(model));
+    this.$el.html(this.carouselNavbarTemplate());
+    this.$el.append(this.carouselViewTemplate(model));
 
     return this;
   },
@@ -23,7 +33,7 @@ EVTURN.Work = Backbone.View.extend({
     var $sel = $('.carousel-panel'),
         model = this.model.toJSON();
 
-    $sel.append(EVTURN.carouselPanelTemplate(model));
+    $sel.append(this.carouselPanelTemplate(model));
 
     return this;
   },
@@ -31,7 +41,7 @@ EVTURN.Work = Backbone.View.extend({
     var $sel = $('.project-links'),
         model = this.model.toJSON();
 
-    $sel.append(EVTURN.carouselLinkTemplate(model));
+    $sel.append(this.carouselLinkTemplate(model));
 
     return this;
   },
@@ -46,7 +56,7 @@ EVTURN.Work = Backbone.View.extend({
     for (var i = 0; i < models.length; i++) {
       var model = models[i].toJSON();
 
-      $sel.append(EVTURN.carouselTechTemplate(model));
+      $sel.append(this.carouselTechTemplate(model));
     }
 
     return this;
@@ -58,7 +68,7 @@ EVTURN.Work = Backbone.View.extend({
     for (var i = 0; i < models.length; i++) {
       var model = models[i];
 
-      $sel.append(EVTURN.carouselImageTemplate(model));
+      $sel.append(this.carouselImageTemplate(model));
       if (i === 0) {
         $sel.children().first().addClass('active');
       }
@@ -67,7 +77,7 @@ EVTURN.Work = Backbone.View.extend({
     return this;
   },
   appendProjectThumbnails: function appendProjectThumbnails() {
-    var tn = new EVTURN.Thumbnails(this.$el);
+    var tn = new Thumbnails(this.$el);
 
     this.scrollUp();
   },

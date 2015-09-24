@@ -1,13 +1,15 @@
-EVTURN.IndexView = Backbone.View.extend({
+let Player = require('./evturn-video'),
+    Compiler = require('./evturn-templates');
 
+module.exports = Backbone.View.extend({
+  heroTemplate: Compiler.heroCompiler(),
   el: '.index',
   initialize() {
     this.render();
-    // this.appendProjectThumbnails();
     this.setVideo();
   },
   render() {
-    this.$el.html(EVTURN.heroTemplate());
+    this.$el.html(this.heroTemplate());
 
     return this;
   },
@@ -15,12 +17,7 @@ EVTURN.IndexView = Backbone.View.extend({
     $(document).ready(function() {
       let video = document.getElementById('ev-vid');
 
-      EVTURN.Video(video);
+      Player(video);
     });
-  },
-  appendProjectThumbnails() {
-    let tn = new EVTURN.Thumbnails(this.$el);
-
-    return this;
   }
 });

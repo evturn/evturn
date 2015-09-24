@@ -1,7 +1,6 @@
 'use strict';
 
-EVTURN.Rza = Backbone.View.extend({
-
+module.exports = Backbone.View.extend({
   el: '#rza',
   child: null,
   render: function render() {

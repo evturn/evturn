@@ -1,12 +1,15 @@
 'use strict';
 
-EVTURN.Video = function (video) {
+var EVTURN = require('./evturn-view'),
+    Get = require('./evturn-data');
+
+module.exports = function (video) {
 
     var Player = {};
 
     Player.initialized = false;
     Player.playCount = null;
-    Player.playlist = EVTURN.videos();
+    Player.playlist = Get.videos();
 
     Player.timekeeper = function () {
         var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),

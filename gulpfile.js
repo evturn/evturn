@@ -84,7 +84,7 @@ gulp.task('babel-tmp', function() {
     .pipe($.sourcemaps.init())
     .pipe($.babel(opts.babel))
     .on('error', opts.plumber.errorHandler)
-    .pipe(gulp.dest(paths.dest.js))
+    .pipe(gulp.dest('public/build/js/tmp'))
     .pipe($.sourcemaps.write('.'))
     .on('error', gutil.log);
 });
