@@ -14,7 +14,6 @@ module.exports = {
   babel: {
     modules: 'common'
   },
-  webpack: require('./webpack-config'),
   plumber: {
     errorHandler: function(err) {
       gutil.beep();
