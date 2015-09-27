@@ -9,7 +9,6 @@ module.exports = function(video) {
   Player.initialized = false;
   Player.playCount = null;
   Player.playlist = Get.videos();
-
   Player.timekeeper = function() {
     let isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
         isInitialized = Player.initialized;

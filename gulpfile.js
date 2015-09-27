@@ -3,6 +3,7 @@
 let gulp        = require('gulp'),
     gutil       = require('gulp-util'),
     webpack     = require('webpack'),
+    wps         = require('webpack-stream'),
     browserSync = require('browser-sync').create(),
     $           = require('gulp-load-plugins')(),
     paths       = require('./config/gulp-paths'),
@@ -13,52 +14,14 @@ gulp.task('build', ['less', 'js', 'js:vendor', 'img']);
 gulp.task('dev-webpack', ['babel-tmp:watch', 'webpack:watch', 'browserSync']);
 
 //////////////////////
-// WATCH
+// WEBPACK STREAM
 //////////////////////
 
-gulp.task('less:watch', function() {
-  gulp.watch(paths.less.watch, ['less:reload']);
-});
 
-gulp.task('js:watch', function() {
-  gulp.watch(paths.js.watch, ['js:reload']);
-});
-
-gulp.task('eslint:watch', function() {
-  gulp.watch(paths.eslint.watch, ['eslint']);
-});
-
-gulp.task('jshint:watch', function() {
-  gulp.watch(paths.jshint.watch, ['lint']);
-});
-
-gulp.task('webpack:watch', function() {
-  gulp.watch(paths.webpack.watch, ['webpack:reload']);
-});
-
-gulp.task('babel-tmp:watch', function() {
-  gulp.watch(paths.js.watch, ['babel-tmp']);
-});
-
-//////////////////////
-// BROWSERSYNC
-//////////////////////
-
-gulp.task('browserSync', function() {
-    browserSync.init(opts.browserSync);
-    gulp.watch('*.html').on('change', browserSync.reload);
-});
-
-gulp.task('less:reload', ['less'], function() {
-    browserSync.reload();
-});
-
-gulp.task('js:reload', ['js'], function() {
-    browserSync.reload();
-});
-
-gulp.task('webpack:reload', ['webpack'], function() {
-    browserSync.reload();
+gulp.task('wps', function() {
+  return gulp.src('src/entry.js')
+    .pipe(wps({}, webpack))
+    .pipe(gulp.dest('dist/'));
 });
 
 
@@ -88,9 +51,6 @@ gulp.task('babel-tmp', function() {
     .pipe($.sourcemaps.write('.'))
     .on('error', gutil.log);
 });
-
-
-
 
 //////////////////////
 // LESS
@@ -183,4 +143,53 @@ gulp.task('jshint', function() {
     .pipe($.plumber(opts.plumber))
     .pipe($.jshint())
     .pipe($.notify(opts.notify.jshint));
+});
+
+//////////////////////
+// WATCH
+//////////////////////
+
+gulp.task('less:watch', function() {
+  gulp.watch(paths.less.watch, ['less:reload']);
+});
+
+gulp.task('js:watch', function() {
+  gulp.watch(paths.js.watch, ['js:reload']);
+});
+
+gulp.task('eslint:watch', function() {
+  gulp.watch(paths.eslint.watch, ['eslint']);
+});
+
+gulp.task('jshint:watch', function() {
+  gulp.watch(paths.jshint.watch, ['lint']);
+});
+
+gulp.task('webpack:watch', function() {
+  gulp.watch(paths.webpack.watch, ['webpack:reload']);
+});
+
+gulp.task('babel-tmp:watch', function() {
+  gulp.watch(paths.js.watch, ['babel-tmp']);
+});
+
+//////////////////////
+// BROWSERSYNC
+//////////////////////
+
+gulp.task('browserSync', function() {
+    browserSync.init(opts.browserSync);
+    gulp.watch('*.html').on('change', browserSync.reload);
+});
+
+gulp.task('less:reload', ['less'], function() {
+    browserSync.reload();
+});
+
+gulp.task('js:reload', ['js'], function() {
+    browserSync.reload();
+});
+
+gulp.task('webpack:reload', ['webpack'], function() {
+    browserSync.reload();
 });

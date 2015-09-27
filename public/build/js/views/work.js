@@ -1,7 +1,7 @@
 let _ = require('underscore'),
     Thumbnails = require('./thumbnails'),
-    EVTURN = require('./evturn-view'),
-    Compiler = require('./evturn-templates');
+    EVTURN = require('../evturn-view'),
+    Compiler = require('../evturn-templates');
 
 module.exports = Backbone.View.extend({
   carouselNavbarTemplate : Compiler.carouselNavbarCompiler(),

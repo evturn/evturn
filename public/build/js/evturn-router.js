@@ -2,11 +2,11 @@ let $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
     EVTURN = require('./evturn-view'),
-    Rza = require('./wrapper'),
-    Index = require('./index'),
-    About = require('./about'),
-    Contact = require('./contact'),
-    Work = require('./work');
+    Rza = require('./views/wrapper'),
+    Index = require('./views/index'),
+    About = require('./views/about'),
+    Contact = require('./views/contact'),
+    Work = require('./views/work');
 
 let Router = Backbone.Router.extend({
   wrapper      : null,

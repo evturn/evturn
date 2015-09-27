@@ -1,5 +1,5 @@
-let Player = require('./evturn-video'),
-    Compiler = require('./evturn-templates');
+let Player = require('../evturn-video'),
+    Compiler = require('../evturn-templates');
 
 module.exports = Backbone.View.extend({
   heroTemplate: Compiler.heroCompiler(),

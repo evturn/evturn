@@ -3,7 +3,7 @@ let $ = require('jquery'),
     Backbone = require('backbone'),
     Compiler = require('./evturn-templates'),
     Get = require('./evturn-data'),
-    Rza = require('./wrapper');
+    Rza = require('./views/wrapper');
 
 let EVTURN = {};
 
