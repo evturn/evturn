@@ -5856,6 +5856,15 @@ video::-webkit-media-controls {
   max-height: 500px;
   overflow: hidden;
 }
+
+.gallery-item {
+  display: none;
+}
+
+.gallery-item.active {
+  display: block;
+}
+
 .carousel-panel {
   display: block;
   font-family: 'Source Sans Pro', sans;
