@@ -5857,11 +5857,11 @@ video::-webkit-media-controls {
   overflow: hidden;
 }
 
-.gallery-item {
+.item {
   display: none;
 }
 
-.gallery-item.active {
+.item.active {
   display: block;
 }
 
