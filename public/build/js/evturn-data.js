@@ -199,6 +199,12 @@ exports.tech = function() {
       color: 'devicon-postgresql-plain-wordmark',
       id: 17,
       featured: false
+    },
+    {
+      technology: 'Handlebars',
+      icon: 'devicon-javascript-plain',
+      color: 'devicon-javascript-plain',
+      id: 18
     }
   ];
 };
@@ -236,7 +242,7 @@ exports.apps = function() {
         {image: 'public/dist/img/apps/marshallz-4.jpg'}
       ],
       featured: true,
-      technologies: [1, 3, 14, 12, 15, 10, 11]
+      technologies: [1, 3, 14, 12, 15, 10, 18]
     },
     {
       name: 'Drive Publishing',

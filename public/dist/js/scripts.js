@@ -303,6 +303,11 @@ exports.tech = function () {
     color: 'devicon-postgresql-plain-wordmark',
     id: 17,
     featured: false
+  }, {
+    technology: 'Handlebars',
+    icon: 'devicon-javascript-plain',
+    color: 'devicon-javascript-plain',
+    id: 18
   }];
 };
 
@@ -326,7 +331,7 @@ exports.apps = function () {
     thumbnail: "public/dist/img/apps/marshallz-tn.png",
     items: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
     featured: true,
-    technologies: [1, 3, 14, 12, 15, 9, 11]
+    technologies: [1, 3, 14, 12, 15, 10, 18]
   }, {
     name: 'Drive Publishing',
     description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",

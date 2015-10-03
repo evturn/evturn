@@ -5199,6 +5199,14 @@ video::-webkit-media-controls {
   position: relative;
   max-width: 1200px;
 }
+.work .ev-navbar {
+  position: relative;
+}
+@media (min-width: 600px) {
+  .work .ev-navbar {
+    position: absolute;
+  }
+}
 .contact .ev-navbar,
 .about .ev-navbar {
   position: relative;
@@ -5901,11 +5909,11 @@ video::-webkit-media-controls {
 }
 .project-text a {
   text-decoration: none;
-  color: #00b2e2;
+  color: #ffffff;
   font-family: 'Source Sans Pro', sans;
 }
 .project-text a:hover {
-  color: #00cfff;
+  color: #ffffff;
 }
 .project-technologies {
   text-align: center;
@@ -5942,6 +5950,7 @@ video::-webkit-media-controls {
   text-align: center;
   display: inline-block;
   width: 60px;
+  height: 60px;
 }
 .container.carousel .project-links {
   text-align: right;

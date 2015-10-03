@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "public/dist/js";
+/******/ 	__webpack_require__.p = "/public/dist/js/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,20 +44,27 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
-	var $ = __webpack_require__(1),
-	    _ = __webpack_require__(2),
-	    Backbone = __webpack_require__(3),
-	    EVTURN = __webpack_require__(4),
-	    Router = __webpack_require__(8);
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(3),
+	    Backbone = __webpack_require__(4),
+	    EVTURN = __webpack_require__(5),
+	    Router = __webpack_require__(9);
 	
 	var router = new Router();
 	EVTURN.init();
 	Backbone.history.start();
 
 /***/ },
-/* 1 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -1516,7 +1523,7 @@
 	if(typeof noGlobal === strundefined){window.jQuery = window.$ = jQuery;}return jQuery;}); // Otherwise append directly
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -3086,7 +3093,7 @@
 	}).call(undefined);
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {//     Backbone.js 1.2.3
@@ -3104,7 +3111,7 @@
 	
 	  // Set up Backbone appropriately for the environment. Start with AMD.
 	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2), __webpack_require__(1), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (_, $, exports) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3), __webpack_require__(2), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (_, $, exports) {
 	      // Export global even in AMD case in case this script is loaded with
 	      // others that may still expect a global Backbone.
 	      root.Backbone = factory(root, exports, _, $);
@@ -5003,17 +5010,17 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var $ = __webpack_require__(1),
-	    _ = __webpack_require__(2),
-	    Backbone = __webpack_require__(3),
-	    Compiler = __webpack_require__(5),
-	    Get = __webpack_require__(6),
-	    Rza = __webpack_require__(7);
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(3),
+	    Backbone = __webpack_require__(4),
+	    Compiler = __webpack_require__(6),
+	    Get = __webpack_require__(7),
+	    Rza = __webpack_require__(8);
 	
 	var EVTURN = {};
 	
@@ -5143,12 +5150,12 @@
 	module.exports = EVTURN;
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _ = __webpack_require__(2);
+	var _ = __webpack_require__(3);
 	
 	var Compiler = {};
 	
@@ -5263,7 +5270,7 @@
 	module.exports = Compiler;
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5425,6 +5432,11 @@
 	    color: 'devicon-postgresql-plain-wordmark',
 	    id: 17,
 	    featured: false
+	  }, {
+	    technology: 'Handlebars',
+	    icon: 'devicon-javascript-plain',
+	    color: 'devicon-javascript-plain',
+	    id: 18
 	  }];
 	};
 	
@@ -5448,7 +5460,7 @@
 	    thumbnail: "public/dist/img/apps/marshallz-tn.png",
 	    items: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
 	    featured: true,
-	    technologies: [1, 3, 14, 12, 15, 9, 11]
+	    technologies: [1, 3, 14, 12, 15, 10, 18]
 	  }, {
 	    name: 'Drive Publishing',
 	    description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
@@ -5523,7 +5535,7 @@
 	};
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5539,20 +5551,20 @@
 	});
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var $ = __webpack_require__(1),
-	    _ = __webpack_require__(2),
-	    Backbone = __webpack_require__(3),
-	    EVTURN = __webpack_require__(4),
-	    Rza = __webpack_require__(7),
-	    Index = __webpack_require__(9),
-	    About = __webpack_require__(11),
-	    Contact = __webpack_require__(12),
-	    Work = __webpack_require__(13);
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(3),
+	    Backbone = __webpack_require__(4),
+	    EVTURN = __webpack_require__(5),
+	    Rza = __webpack_require__(8),
+	    Index = __webpack_require__(10),
+	    About = __webpack_require__(12),
+	    Contact = __webpack_require__(13),
+	    Work = __webpack_require__(14);
 	
 	var Router = Backbone.Router.extend({
 	  wrapper: null,
@@ -5624,13 +5636,13 @@
 	module.exports = Router;
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Player = __webpack_require__(10),
-	    Compiler = __webpack_require__(5);
+	var Player = __webpack_require__(11),
+	    Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  heroTemplate: Compiler.heroCompiler(),
@@ -5652,16 +5664,16 @@
 	    });
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var EVTURN = __webpack_require__(4),
-	    Get = __webpack_require__(6);
+	var EVTURN = __webpack_require__(5),
+	    Get = __webpack_require__(7);
 	
 	module.exports = function (video) {
 	
@@ -5670,7 +5682,6 @@
 	    Player.initialized = false;
 	    Player.playCount = null;
 	    Player.playlist = Get.videos();
-	
 	    Player.timekeeper = function () {
 	        var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
 	            isInitialized = Player.initialized;
@@ -5721,13 +5732,13 @@
 	};
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var EVTURN = __webpack_require__(4),
-	    Compiler = __webpack_require__(5);
+	var EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbarCompiler(),
@@ -5811,16 +5822,16 @@
 	    }
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var EVTURN = __webpack_require__(4),
-	    Compiler = __webpack_require__(5);
+	var EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbarCompiler(),
@@ -5849,18 +5860,18 @@
 	    return this;
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var _ = __webpack_require__(2),
-	    Thumbnails = __webpack_require__(14),
-	    EVTURN = __webpack_require__(4),
-	    Compiler = __webpack_require__(5);
+	var _ = __webpack_require__(3),
+	    Thumbnails = __webpack_require__(15),
+	    EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  carouselNavbarTemplate: Compiler.carouselNavbarCompiler(),
@@ -5949,16 +5960,16 @@
 	    }, 780);
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var EVTURN = __webpack_require__(4),
-	    Compiler = __webpack_require__(5);
+	var EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  thumbnailViewTemplate: Compiler.thumbnailViewCompiler(),
@@ -5985,7 +5996,7 @@
 	    return this;
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }
 /******/ ]);
