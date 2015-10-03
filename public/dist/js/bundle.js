@@ -5332,8 +5332,8 @@
 	exports.tech = function () {
 	  return [{
 	    technology: 'Node.js',
-	    icon: 'devicon-nodejs-plain-wordmark',
-	    color: 'devicon-nodejs-plain-wordmark colored',
+	    icon: 'devicon-nodejs-plain',
+	    color: 'devicon-nodejs-plain colored',
 	    id: 1,
 	    featured: true
 	  }, {
@@ -5398,8 +5398,8 @@
 	    featured: false
 	  }, {
 	    technology: 'Express.js',
-	    icon: 'devicon-nodejs-plain',
-	    color: 'devicon-nodejs-plain colored',
+	    icon: 'evcon-express',
+	    color: 'evcon-express',
 	    id: 12,
 	    featured: true
 	  }, {
@@ -5434,9 +5434,19 @@
 	    featured: false
 	  }, {
 	    technology: 'Handlebars',
-	    icon: 'devicon-javascript-plain',
-	    color: 'devicon-javascript-plain',
+	    icon: 'evcon-handlebars',
+	    color: 'evcon-handlebars',
 	    id: 18
+	  }, {
+	    technology: 'Webpack',
+	    icon: 'evcon-webpack',
+	    color: 'evcon-webpack',
+	    id: 19
+	  }, {
+	    technology: 'Babel',
+	    icon: 'evcon-babel',
+	    color: 'evcon-babel',
+	    id: 20
 	  }];
 	};
 	
@@ -5450,7 +5460,7 @@
 	    thumbnail: "public/dist/img/apps/mim-tn.png",
 	    items: [{ image: 'public/dist/img/apps/mim-1.png' }, { image: 'public/dist/img/apps/mim-2.png' }, { image: 'public/dist/img/apps/mim-3.png' }],
 	    featured: true,
-	    technologies: [1, 3, 14, 12, 10, 11, 15]
+	    technologies: [1, 3, 14, 12, 10, 11, 15, 20]
 	  }, {
 	    name: 'Marshallz Blog',
 	    description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
@@ -5460,7 +5470,7 @@
 	    thumbnail: "public/dist/img/apps/marshallz-tn.png",
 	    items: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
 	    featured: true,
-	    technologies: [1, 3, 14, 12, 15, 10, 18]
+	    technologies: [1, 14, 12, 15, 10, 18, 19, 20]
 	  }, {
 	    name: 'Drive Publishing',
 	    description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
@@ -5470,7 +5480,7 @@
 	    thumbnail: "public/dist/img/apps/drive-tn.png",
 	    items: [{ image: 'public/dist/img/apps/drive-1.png' }, { image: 'public/dist/img/apps/drive-2.png' }, { image: 'public/dist/img/apps/drive-3.png' }],
 	    featured: true,
-	    technologies: [13, 11, 14]
+	    technologies: [13, 11, 14, 20]
 	  }, {
 	    name: 'Ramen Buffet',
 	    description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
@@ -5480,7 +5490,7 @@
 	    thumbnail: "public/dist/img/apps/ramen-buffet-tn.png",
 	    items: [{ image: 'public/dist/img/apps/ramen-buffet-1.png' }, { image: 'public/dist/img/apps/ramen-buffet-2.png' }, { image: 'public/dist/img/apps/ramen-buffet-3.png' }],
 	    featured: true,
-	    technologies: [1, 3, 14, 12, 10, 11, 15]
+	    technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
 	  }, {
 	    name: 'Alculator',
 	    description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",

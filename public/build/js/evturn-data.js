@@ -83,8 +83,8 @@ exports.tech = function() {
   return [
     {
       technology: 'Node.js',
-      icon: 'devicon-nodejs-plain-wordmark',
-      color: 'devicon-nodejs-plain-wordmark colored',
+      icon: 'devicon-nodejs-plain',
+      color: 'devicon-nodejs-plain colored',
       id: 1,
       featured: true
     },
@@ -160,8 +160,8 @@ exports.tech = function() {
     },
     {
       technology: 'Express.js',
-      icon: 'devicon-nodejs-plain',
-      color: 'devicon-nodejs-plain colored',
+      icon: 'evcon-express',
+      color: 'evcon-express',
       id: 12,
       featured: true
     },
@@ -202,9 +202,21 @@ exports.tech = function() {
     },
     {
       technology: 'Handlebars',
-      icon: 'devicon-javascript-plain',
-      color: 'devicon-javascript-plain',
+      icon: 'evcon-handlebars',
+      color: 'evcon-handlebars',
       id: 18
+    },
+    {
+      technology: 'Webpack',
+      icon: 'evcon-webpack',
+      color: 'evcon-webpack',
+      id: 19
+    },
+    {
+      technology: 'Babel',
+      icon: 'evcon-babel',
+      color: 'evcon-babel',
+      id: 20
     }
   ];
 };
@@ -224,7 +236,7 @@ exports.apps = function() {
         {image: 'public/dist/img/apps/mim-3.png'}
       ],
       featured: true,
-      technologies: [1, 3, 14, 12, 10, 11, 15]
+      technologies: [1, 3, 14, 12, 10, 11, 15, 20]
     },
     {
       name: 'Marshallz Blog',
@@ -242,7 +254,7 @@ exports.apps = function() {
         {image: 'public/dist/img/apps/marshallz-4.jpg'}
       ],
       featured: true,
-      technologies: [1, 3, 14, 12, 15, 10, 18]
+      technologies: [1, 14, 12, 15, 10, 18, 19, 20]
     },
     {
       name: 'Drive Publishing',
@@ -257,7 +269,7 @@ exports.apps = function() {
         {image: 'public/dist/img/apps/drive-3.png'}
       ],
       featured: true,
-      technologies: [13, 11, 14]
+      technologies: [13, 11, 14, 20]
     },
     {
       name: 'Ramen Buffet',
@@ -272,7 +284,7 @@ exports.apps = function() {
         {image: 'public/dist/img/apps/ramen-buffet-3.png'}
       ],
       featured: true,
-      technologies: [1, 3, 14, 12, 10, 11, 15]
+      technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
     },
     {
       name: 'Alculator',
