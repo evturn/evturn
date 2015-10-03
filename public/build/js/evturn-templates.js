@@ -5,8 +5,8 @@ let _ = require('underscore');
   Compiler.carouselViewCompiler = function() {
     let html = `
         <div class="container carousel">
-          <div class="carousel-image-container">
-            <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">
+          <div class="image-container">
+            <div class="carousel animated fadeIn" id="gallery">
               <div class="carousel-inner">
                 <!-- Images -->
               </div>

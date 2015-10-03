@@ -28,6 +28,7 @@ module.exports = {
       'public/build/js/evturn-video.js',
       'public/build/js/evturn-templates.js',
       'public/build/js/views/**/*.js',
+      'public/build/js/carousel.js',
       'public/build/js/evturn-router.js',
       'config/**/*.js',
       'gulpfile.js'

@@ -5160,7 +5160,7 @@
 	var Compiler = {};
 	
 	Compiler.carouselViewCompiler = function () {
-	  var html = '\n        <div class="container carousel">\n          <div class="carousel-image-container">\n            <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';
+	  var html = '\n        <div class="container carousel">\n          <div class="image-container">\n            <div class="carousel animated fadeIn" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';
 	
 	  return _.template(html);
 	};
@@ -5895,7 +5895,8 @@
 	var _ = __webpack_require__(3),
 	    Thumbnails = __webpack_require__(15),
 	    EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6);
+	    Compiler = __webpack_require__(6),
+	    carousel = __webpack_require__(16);
 	
 	module.exports = Backbone.View.extend({
 	  carouselNavbarTemplate: Compiler.carouselNavbarCompiler(),
@@ -5961,10 +5962,9 @@
 	      var model = models[i];
 	
 	      $sel.append(this.carouselImageTemplate(model));
-	      if (i === 0) {
-	        $sel.children().first().addClass('active');
-	      }
 	    }
+	
+	    carousel();
 	
 	    return this;
 	  },
@@ -6021,6 +6021,73 @@
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(3),
+	    Backbone = __webpack_require__(4);
+	
+	var counter = undefined,
+	    next = undefined,
+	    length = undefined,
+	    timer = undefined;
+	
+	function initCarousel() {
+	    length = $('.item').length;
+	    counter = null;
+	    next = null;
+	    clearInterval(timer);
+	
+	    if (length < 2) {
+	        $('.item:nth-child(1)').addClass('active');
+	        return false;
+	    } else {
+	        nextImage();
+	        timer = setInterval(nextImage, 4000);
+	    }
+	};
+	
+	function nextImage() {
+	    var isActiveLast = !!(counter === length),
+	        isNextLast = !!(next === length),
+	        isInitializing = !!(counter === null && next === null);
+	
+	    if (isInitializing) {
+	        counter = 1;
+	        next = 2;
+	        $('.item:nth-child(' + counter + ')').addClass('active');
+	        $('.item:nth-child(' + next + ')').addClass('next');
+	        return false;
+	    } else if (isActiveLast) {
+	        counter = 1;
+	        next = 2;
+	    } else if (isNextLast) {
+	        counter += 1;
+	        next = 1;
+	    } else {
+	        counter += 1;
+	        next = counter + 1;
+	    }
+	
+	    console.log(counter);
+	    console.log(next);
+	    $('.active').fadeTo(1000, 0, function () {
+	        $('.item').removeClass('active');
+	    });
+	
+	    $('.next').fadeTo(1000, 1, function () {
+	        $('.item').removeClass('next');
+	        $('.item:nth-child(' + counter + ')').addClass('active');
+	        $('.item:nth-child(' + next + ')').addClass('next');
+	    });
+	};
+	
+	module.exports = initCarousel;
 
 /***/ }
 /******/ ]);

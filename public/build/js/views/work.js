@@ -1,7 +1,8 @@
 let _ = require('underscore'),
     Thumbnails = require('./thumbnails'),
     EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates');
+    Compiler = require('../evturn-templates'),
+    carousel = require('../carousel');
 
 module.exports = Backbone.View.extend({
   carouselNavbarTemplate : Compiler.carouselNavbarCompiler(),
@@ -67,10 +68,9 @@ module.exports = Backbone.View.extend({
       let model = models[i];
 
       $sel.append(this.carouselImageTemplate(model));
-      if (i === 0) {
-          $sel.children().first().addClass('active');
-      }
     }
+
+    carousel();
 
     return this;
   },

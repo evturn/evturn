@@ -495,7 +495,7 @@ var _ = require('underscore');
 var Compiler = {};
 
 Compiler.carouselViewCompiler = function () {
-  var html = '\n        <div class="container carousel">\n          <div class="carousel-image-container">\n            <div class="carousel slide animated bounceInLeft" data-ride="carousel" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';
+  var html = '\n        <div class="container carousel">\n          <div class="image-container">\n            <div class="carousel animated fadeIn" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';
 
   return _.template(html);
 };
@@ -782,7 +782,8 @@ module.exports = Backbone.View.extend({
 var _ = require('underscore'),
     Thumbnails = require('./thumbnails'),
     EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates');
+    Compiler = require('../evturn-templates'),
+    carousel = require('../carousel');
 
 module.exports = Backbone.View.extend({
   carouselNavbarTemplate: Compiler.carouselNavbarCompiler(),
@@ -848,10 +849,9 @@ module.exports = Backbone.View.extend({
       var model = models[i];
 
       $sel.append(this.carouselImageTemplate(model));
-      if (i === 0) {
-        $sel.children().first().addClass('active');
-      }
     }
+
+    carousel();
 
     return this;
   },
