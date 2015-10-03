@@ -5447,6 +5447,11 @@
 	    icon: 'evcon-babel',
 	    color: 'evcon-babel',
 	    id: 20
+	  }, {
+	    technology: 'Wordpress',
+	    icon: 'fa fa-wordpress',
+	    color: 'fa fa-wordpress',
+	    id: 21
 	  }];
 	};
 	
@@ -5467,7 +5472,7 @@
 	    id: 2,
 	    url: 'http://marshallz.com',
 	    repo: 'https://github.com/evturn/marshallz',
-	    thumbnail: "public/dist/img/apps/marshallz-tn.png",
+	    thumbnail: 'public/dist/img/apps/marshallz-tn.png',
 	    items: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
 	    featured: true,
 	    technologies: [1, 14, 12, 15, 10, 18, 19, 20]
@@ -5514,7 +5519,7 @@
 	    id: 7,
 	    thumbnail: "public/dist/img/apps/hangman-tn.png",
 	    items: [{ image: 'public/dist/img/apps/hangman-1.jpg' }, { image: 'public/dist/img/apps/hangman-2.jpg' }],
-	    featured: true,
+	    featured: false,
 	    technologies: [1, 12, 3, 11]
 	  }, {
 	    name: 'Tic Tac Toe',
@@ -5525,9 +5530,18 @@
 	    featured: false,
 	    technologies: [3, 11]
 	  }, {
+	    name: 'Brooklyn Friends School',
+	    description: 'I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.',
+	    id: 9,
+	    url: 'http://smkkstudios.com/work/brooklynfriendsschool',
+	    thumbnail: "public/dist/img/apps/bfs-tn.jpg",
+	    items: [{ image: 'public/dist/img/apps/bfs-1.png' }, { image: 'public/dist/img/apps/bfs-2.png' }],
+	    featured: true,
+	    technologies: [21, 13]
+	  }, {
 	    name: 'WhereTO',
 	    description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
-	    id: 9,
+	    id: 10,
 	    repo: 'https://github.com/evturn/WhereTO',
 	    thumbnail: "public/dist/img/apps/whereto-tn.png",
 	    items: [{ image: 'public/dist/img/apps/whereto-2.png' }, { image: 'public/dist/img/apps/whereto-1.png' }],
