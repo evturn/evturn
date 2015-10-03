@@ -236,7 +236,7 @@ exports.apps = function() {
         {image: 'public/dist/img/apps/marshallz-4.jpg'}
       ],
       featured: true,
-      technologies: [1, 3, 14, 12, 15, 9, 11]
+      technologies: [1, 3, 14, 12, 15, 10, 11]
     },
     {
       name: 'Drive Publishing',
