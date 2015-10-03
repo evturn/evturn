@@ -5906,7 +5906,7 @@ video::-webkit-media-controls {
   display: block;
   opacity: 1;
 }
-.image-container {
+.container.carousel .image-container {
   display: block;
   width: 100%;
   position: relative;
@@ -5914,12 +5914,12 @@ video::-webkit-media-controls {
   height: 300px;
 }
 @media (min-width: 600px) {
-  .image-container {
+  .container.carousel .image-container {
     height: 400px;
   }
 }
 @media (min-width: 800px) {
-  .image-container {
+  .container.carousel .image-container {
     height: 650px;
   }
 }
