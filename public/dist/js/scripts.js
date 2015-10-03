@@ -363,7 +363,7 @@ exports.apps = function () {
     id: 6,
     url: 'http://ramenbuffet.com',
     repo: 'https://github.com/evturn/ramen-buffet',
-    thumbnail: "public/dist/img/apps/ramen-buffet-tn.png",
+    thumbnail: "public/dist/img/apps/rb-tn.png",
     items: [{ image: 'public/dist/img/apps/ramen-buffet-1.png' }, { image: 'public/dist/img/apps/ramen-buffet-2.png' }, { image: 'public/dist/img/apps/ramen-buffet-3.png' }],
     featured: true,
     technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
