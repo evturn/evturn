@@ -1,6 +1,4 @@
-let EVTURN = require('./evturn-view'),
-    Get = require('./evturn-data');
-
+let Get = require('./evturn-data');
 
 module.exports = function(video) {
 
@@ -38,23 +36,8 @@ module.exports = function(video) {
   Player.callback = function() {
     Player.timekeeper();
     video.setAttribute('src', Player.playlist[Player.playCount]);
-    Player.reposition();
     video.play;
     video.playbackRate = 0.5;
-  };
-
-  Player.reposition = function(e) {
-    let width = video.videoWidth,
-        height = video.videoHeight;
-
-    if (height > width) {
-        video.classList.remove('landscape');
-        video.classList.add('portrait');
-    }
-    else {
-        video.classList.remove('portrait');
-        video.classList.add('landscape');
-    }
   };
 
   Player.init();

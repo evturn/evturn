@@ -5,12 +5,12 @@ let _ = require('underscore'),
     carousel = require('../carousel');
 
 module.exports = Backbone.View.extend({
-  carouselNavbarTemplate : Compiler.carouselNavbarCompiler(),
-  carouselViewTemplate   : Compiler.carouselViewCompiler(),
-  carouselPanelTemplate  : Compiler.carouselPanelCompiler(),
-  carouselLinkTemplate   : Compiler.carouselLinkCompiler(),
-  carouselTechTemplate   : Compiler.carouselTechCompiler(),
-  carouselImageTemplate  : Compiler.carouselImageCompiler(),
+  carouselNavbarTemplate : Compiler.carouselNavbar(),
+  carouselViewTemplate   : Compiler.carouselView(),
+  carouselPanelTemplate  : Compiler.carouselPanel(),
+  carouselLinkTemplate   : Compiler.carouselLink(),
+  carouselTechTemplate   : Compiler.carouselTech(),
+  carouselImageTemplate  : Compiler.carouselImage(),
   el: '.work',
   initialize() {
     this.render();

@@ -2,11 +2,11 @@ let EVTURN = require('../evturn-view'),
     Compiler = require('../evturn-templates');
 
 module.exports = Backbone.View.extend({
-  navbarTemplate   : Compiler.navbarCompiler(),
-  techViewTemplate : Compiler.techViewCompiler(),
-  techItemTemplate : Compiler.techItemCompiler(),
-  statItemTemplate : Compiler.statItemCompiler(),
-  bioTemplate      : Compiler.bioCompiler(),
+  navbarTemplate   : Compiler.navbar(),
+  techViewTemplate : Compiler.techView(),
+  techItemTemplate : Compiler.techItem(),
+  statItemTemplate : Compiler.statItem(),
+  bioTemplate      : Compiler.bio(),
   el: '.about',
   initialize() {
     this.render();

@@ -2,7 +2,7 @@ let _ = require('underscore');
 
   let Compiler = {};
 
-  Compiler.carouselViewCompiler = function() {
+  Compiler.carouselView = function() {
     let html = `
         <div class="container carousel">
           <div class="image-container">
@@ -24,7 +24,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.carouselImageCompiler = function() {
+  Compiler.carouselImage = function() {
     let html = `
         <div class="item">
           <img class="img-scale gallery-item" src="<%= image %>">
@@ -33,7 +33,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.carouselPanelCompiler = function() {
+  Compiler.carouselPanel = function() {
     let html = `
         <div class="panel-inner">
           <div class="title-container">
@@ -53,7 +53,7 @@ let _ = require('underscore');
       return _.template(html);
   };
 
-  Compiler.carouselTechCompiler = function() {
+  Compiler.carouselTech = function() {
     let html = `
         <div class="technologies-item">
           <i class="<%= icon %>"></i>
@@ -63,7 +63,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.carouselLinkCompiler = function() {
+  Compiler.carouselLink = function() {
     let html = `
         <% var url = url ? '<p class="meta"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>
           <%= url %>
@@ -73,7 +73,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.navCompiler = function() {
+  Compiler.nav = function() {
     let html = `
         <div class="container nav-content">
           <div class="inner">
@@ -105,7 +105,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.heroCompiler = function() {
+  Compiler.hero = function() {
     let html = `
         <section class="index-header">
           <video id="ev-vid" poster="public/dist/img/site/vid-poster.gif" type="video/mp4">
@@ -132,7 +132,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.navbarCompiler = function() {
+  Compiler.navbar = function() {
     let html = `
         <div class="container ev-navbar">
           <div class="inner">
@@ -149,7 +149,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.carouselNavbarCompiler = function() {
+  Compiler.carouselNavbar = function() {
     let html = `
         <div class="container ev-navbar">
           <div class="inner">
@@ -169,7 +169,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.thumbnailViewCompiler = function() {
+  Compiler.thumbnailView = function() {
     let html = `
         <div class="container thumbnails">
           <div class="wrapper thumbnails-wrapper">
@@ -180,7 +180,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.thumbnailItemCompiler = function() {
+  Compiler.thumbnailItem = function() {
     let html = `
         <div class="thumbnail-item">
           <a href="#work/<%= id %>">
@@ -196,7 +196,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.techViewCompiler = function() {
+  Compiler.techView = function() {
     let html = `
         <div class="container about">
           <div class="wrapper">
@@ -229,7 +229,7 @@ let _ = require('underscore');
     return  _.template(html);
   };
 
-  Compiler.techItemCompiler = function() {
+  Compiler.techItem = function() {
     let html= `
         <div class="stat-item">
           <span class="stat-icon"><i class="<%= icon %>"></i></span>
@@ -239,7 +239,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.statItemCompiler = function() {
+  Compiler.statItem = function() {
     let html = `
         <div class="stat-item">
           <span class="stat-icon"><i class="<%= icon %>"></i></span>
@@ -251,7 +251,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.bioCompiler = function() {
+  Compiler.bio = function() {
     let html = `
         <div class="paragraph">
           <p><%= paragraph %></p>
@@ -260,7 +260,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.contactViewCompiler = function() {
+  Compiler.contactView = function() {
     let html = `
         <div class="container contact animated fadeIn">
           <div class="wrapper">
@@ -279,7 +279,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.linkItemCompiler = function() {
+  Compiler.linkItem = function() {
     let html = `
         <li class="link-item">
           <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>
@@ -288,7 +288,7 @@ let _ = require('underscore');
     return _.template(html);
   };
 
-  Compiler.footerCompiler = function() {
+  Compiler.footer = function() {
     let html = `
       <footer class="container footer">
         <div class="inner">
@@ -302,4 +302,3 @@ let _ = require('underscore');
   };
 
 module.exports = Compiler;
-

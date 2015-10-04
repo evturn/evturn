@@ -2,7 +2,7 @@ let Player = require('../evturn-video'),
     Compiler = require('../evturn-templates');
 
 module.exports = Backbone.View.extend({
-  heroTemplate: Compiler.heroCompiler(),
+  heroTemplate: Compiler.hero(),
   el: '.index',
   initialize() {
     this.render();

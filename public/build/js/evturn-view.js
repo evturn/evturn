@@ -102,7 +102,7 @@ EVTURN.Nav = function() {
   };
 
   let render = function() {
-    let navTemplate = Compiler.navCompiler();
+    let navTemplate = Compiler.nav();
     $('.ev-nav').html(navTemplate());
   };
 

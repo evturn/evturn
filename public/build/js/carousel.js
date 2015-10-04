@@ -4,7 +4,6 @@ let $ = require('jquery'),
 
 let counter, next, length, timer;
 
-
 function initCarousel() {
   length = $('.item').length;
   counter = null;
@@ -13,7 +12,7 @@ function initCarousel() {
 
   if (length < 2) {
       $('.item:nth-child(1)').addClass('active');
-      return false
+      return false;
   }
   else {
       nextImage();
@@ -46,8 +45,6 @@ function nextImage() {
       next = counter + 1;
   }
 
-  console.log(counter);
-  console.log(next);
   $('.active').fadeTo(1000, 0, function() {
     $('.item').removeClass('active');
   });

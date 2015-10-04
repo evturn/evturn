@@ -2,9 +2,9 @@ let EVTURN = require('../evturn-view'),
     Compiler = require('../evturn-templates');
 
 module.exports = Backbone.View.extend({
-  navbarTemplate      : Compiler.navbarCompiler(),
-  contactViewTemplate : Compiler.contactViewCompiler(),
-  linkItemTemplate    : Compiler.linkItemCompiler(),
+  navbarTemplate      : Compiler.navbar(),
+  contactViewTemplate : Compiler.contactView(),
+  linkItemTemplate    : Compiler.linkItem(),
   el: '.contact',
   initialize() {
     this.setView();

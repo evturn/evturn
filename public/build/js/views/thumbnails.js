@@ -2,8 +2,8 @@ let EVTURN = require('../evturn-view'),
     Compiler = require('../evturn-templates');
 
 module.exports = Backbone.View.extend({
-  thumbnailViewTemplate: Compiler.thumbnailViewCompiler(),
-  thumbnailItemTemplate: Compiler.thumbnailItemCompiler(),
+  thumbnailViewTemplate: Compiler.thumbnailView(),
+  thumbnailItemTemplate: Compiler.thumbnailItem(),
   el: '.thumbnails-wrapper',
   events: {
     'click .thumbnail-item' : 'scrollUp'
