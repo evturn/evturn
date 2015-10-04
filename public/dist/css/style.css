@@ -5238,6 +5238,12 @@ video::-webkit-media-controls {
   .work .ev-navbar {
     position: absolute;
   }
+  .work .ev-navbar .burger-container .fa {
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.32);
+  }
+  .work .ev-navbar .header-container {
+    right: auto;
+  }
 }
 .contact .ev-navbar,
 .about .ev-navbar {
