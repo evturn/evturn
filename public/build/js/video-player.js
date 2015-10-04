@@ -1,4 +1,4 @@
-let Get = require('./evturn-data');
+let Get = require('./data');
 
 module.exports = function(video) {
 

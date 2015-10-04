@@ -1,5 +1,5 @@
 let EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates');
+    Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   navbarTemplate   : Compiler.navbar(),

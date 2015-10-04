@@ -4,7 +4,7 @@ var $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
     EVTURN = require('./evturn-view'),
-    Router = require('./evturn-router');
+    Router = require('./router');
 
 var router = new Router();
 EVTURN.init();
@@ -14,8 +14,8 @@ Backbone.history.start();
 var $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
-    Compiler = require('./evturn-templates'),
-    Get = require('./evturn-data'),
+    Compiler = require('./templates'),
+    Get = require('./data'),
     Rza = require('./views/wrapper');
 
 var EVTURN = {};
@@ -146,452 +146,8 @@ _.extend(Backbone.View.prototype, EVTURN);
 module.exports = EVTURN;
 'use strict';
 
-exports.videos = function () {
-  return ['https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1', 'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1', 'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1', 'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1', 'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1', 'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1', 'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1', 'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1', 'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1', 'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1', 'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1', 'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1', 'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1', 'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'];
-};
-
-exports.links = function () {
-  return [{
-    name: 'email',
-    url: 'mailto:evturn@gmail.com',
-    icon: 'fa fa-envelope',
-    featured: true
-  }, {
-    name: 'github',
-    url: 'http://github.com/evturn',
-    icon: 'fa fa-github-square',
-    featured: true
-  }, {
-    name: 'linkedin',
-    url: 'http://www.linkedin.com/in/evturn/',
-    icon: 'fa fa-linkedin-square',
-    featured: true
-  }, {
-    name: 'general assembly',
-    url: 'https://profiles.generalassemb.ly/ev',
-    icon: 'fa fa-certificate',
-    featured: false
-  }, {
-    name: 'twitter',
-    url: 'http://twitter.com/evturn',
-    icon: 'fa fa-twitter',
-    featured: true
-  }, {
-    name: 'skype: @evturn',
-    url: 'javaScript:void(0);', // jshint ignore:line
-    icon: 'fa fa-skype',
-    featured: false
-  }];
-};
-
-exports.stats = function () {
-  return [{
-    text: 'Quesadillas Eaten',
-    number: 777074,
-    icon: 'fa fa-check'
-  }, {
-    text: 'Weekly Commits',
-    number: 276,
-    icon: 'fa fa-terminal'
-  }, {
-    text: 'Github Contributions',
-    number: 7000,
-    icon: 'fa fa-code'
-  }];
-};
-
-exports.tech = function () {
-  return [{
-    technology: 'Node.js',
-    icon: 'devicon-nodejs-plain',
-    color: 'devicon-nodejs-plain colored',
-    id: 1,
-    featured: true
-  }, {
-    technology: 'AngularJS',
-    icon: 'devicon-angularjs-plain',
-    color: 'devicon-angularjs-plain colored',
-    id: 2,
-    featured: false
-  }, {
-    technology: 'Backbone.js',
-    icon: 'devicon-backbonejs-plain',
-    color: 'devicon-backbonejs-plain colored',
-    id: 3,
-    featured: true
-  }, {
-    technology: 'jQuery',
-    icon: 'devicon-jquery-plain',
-    color: 'devicon-jquery-plain colored',
-    id: 4,
-    featured: false
-  }, {
-    technology: 'Bootstrap',
-    icon: 'devicon-bootstrap-plain',
-    color: 'devicon-bootstrap-plain colored',
-    id: 5,
-    featured: false
-  }, {
-    technology: 'git',
-    icon: 'devicon-git-plain',
-    color: 'devicon-git-plain colored',
-    id: 6,
-    featured: true
-  }, {
-    technology: 'Photoshop',
-    icon: 'devicon-photoshop-plain',
-    color: 'devicon-photoshop-plain colored',
-    id: 7,
-    featured: true
-  }, {
-    technology: 'Ubuntu',
-    icon: 'devicon-ubuntu-plain',
-    color: 'devicon-ubuntu-plain colored',
-    id: 8,
-    featured: true
-  }, {
-    technology: 'Firebase',
-    icon: 'fa fa-database one-half-em',
-    color: 'fa fa-database one-half-em',
-    id: 9,
-    featured: false
-  }, {
-    technology: 'MongoDB',
-    icon: 'devicon-mongodb-plain',
-    color: 'devicon-mongodb-plain colored',
-    id: 10,
-    featured: true
-  }, {
-    technology: 'Underscore.js',
-    icon: 'fa fa-minus one-half-em',
-    color: 'fa fa-minus one-half-em',
-    id: 11,
-    featured: false
-  }, {
-    technology: 'Express.js',
-    icon: 'evcon-express',
-    color: 'evcon-express',
-    id: 12,
-    featured: true
-  }, {
-    technology: 'Sass',
-    icon: 'devicon-sass-original',
-    color: 'devicon-sass-original colored',
-    id: 13,
-    featured: true
-  }, {
-    technology: 'Gulp.js',
-    icon: 'devicon-gulp-plain',
-    color: 'devicon-gulp-plain',
-    id: 14,
-    featured: true
-  }, {
-    technology: 'Less',
-    icon: 'devicon-less-plain-wordmark',
-    color: 'devicon-less-plain-wordmark',
-    id: 15,
-    featured: true
-  }, {
-    technology: 'Rails',
-    icon: 'devicon-rails-plain-wordmark',
-    color: 'devicon-rails-plain-wordmark',
-    id: 16,
-    featured: false
-  }, {
-    technology: 'PostgreSQL',
-    icon: 'devicon-postgresql-plain-wordmark',
-    color: 'devicon-postgresql-plain-wordmark',
-    id: 17,
-    featured: false
-  }, {
-    technology: 'Handlebars',
-    icon: 'evcon-handlebars',
-    color: 'evcon-handlebars',
-    id: 18
-  }, {
-    technology: 'Webpack',
-    icon: 'evcon-webpack',
-    color: 'evcon-webpack',
-    id: 19
-  }, {
-    technology: 'Babel',
-    icon: 'evcon-babel',
-    color: 'evcon-babel',
-    id: 20
-  }, {
-    technology: 'Wordpress',
-    icon: 'fa fa-wordpress',
-    color: 'fa fa-wordpress',
-    id: 21
-  }];
-};
-
-exports.apps = function () {
-  return [{
-    name: 'Made In Music',
-    description: "This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.",
-    id: 1,
-    url: 'http://madeinmusic.co',
-    repo: 'https://github.com/evturn/madeinmusic.co',
-    thumbnail: "public/dist/img/apps/mim-tn.png",
-    items: [{ image: 'public/dist/img/apps/mim-1.png' }, { image: 'public/dist/img/apps/mim-2.png' }, { image: 'public/dist/img/apps/mim-3.png' }],
-    featured: true,
-    technologies: [1, 3, 14, 12, 10, 11, 15, 20]
-  }, {
-    name: 'Marshallz Blog',
-    description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
-    id: 2,
-    url: 'http://marshallz.com',
-    repo: 'https://github.com/evturn/marshallz',
-    thumbnail: 'public/dist/img/apps/marshallz-tn.png',
-    items: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
-    featured: true,
-    technologies: [1, 14, 12, 15, 10, 18, 19, 20]
-  }, {
-    name: 'Drive Publishing',
-    description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
-    id: 4,
-    url: 'http://drivepublishing.com',
-    repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
-    thumbnail: "public/dist/img/apps/drive-tn.png",
-    items: [{ image: 'public/dist/img/apps/drive-1.png' }, { image: 'public/dist/img/apps/drive-2.png' }, { image: 'public/dist/img/apps/drive-3.png' }],
-    featured: true,
-    technologies: [13, 11, 14, 20]
-  }, {
-    name: 'Ramen Buffet',
-    description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
-    id: 6,
-    url: 'http://ramenbuffet.com',
-    repo: 'https://github.com/evturn/ramen-buffet',
-    thumbnail: "public/dist/img/apps/rb-tn.png",
-    items: [{ image: 'public/dist/img/apps/ramen-buffet-1.png' }, { image: 'public/dist/img/apps/ramen-buffet-2.png' }, { image: 'public/dist/img/apps/ramen-buffet-3.png' }],
-    featured: true,
-    technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
-  }, {
-    name: 'Alculator',
-    description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
-    id: 5,
-    thumbnail: "public/dist/img/apps/alculator-tn.png",
-    items: [{ image: 'public/dist/img/apps/alculator-3.png' }, { image: 'public/dist/img/apps/alculator-2.png' }, { image: 'public/dist/img/apps/alculator-1.png' }, { image: 'public/dist/img/apps/alculator-4.png' }],
-    featured: true,
-    technologies: [1, 12, 3, 11]
-  }, {
-    name: 'Pique',
-    description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
-    id: 3,
-    repo: 'https://github.com/piqueapp/piqueapp.github.io',
-    thumbnail: "public/dist/img/apps/pique-tn.png",
-    items: [{ image: 'public/dist/img/apps/pique-1.jpg' }, { image: 'public/dist/img/apps/pique-2.png' }, { image: 'public/dist/img/apps/pique-3.png' }, { image: 'public/dist/img/apps/pique-4.png' }],
-    featured: true,
-    technologies: [16, 17, 11]
-  }, {
-    name: 'Hangman',
-    description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
-    id: 7,
-    thumbnail: "public/dist/img/apps/hangman-tn.png",
-    items: [{ image: 'public/dist/img/apps/hangman-1.jpg' }, { image: 'public/dist/img/apps/hangman-2.jpg' }],
-    featured: false,
-    technologies: [1, 12, 3, 11]
-  }, {
-    name: 'Tic Tac Toe',
-    description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
-    id: 8,
-    thumbnail: "public/dist/img/apps/ttt-tn.png",
-    items: [{ lead: 'public/dist/img/apps/ttt-1.jpg' }, { image: 'public/dist/img/apps/ttt-2.jpg' }],
-    featured: false,
-    technologies: [3, 11]
-  }, {
-    name: 'Brooklyn Friends School',
-    description: 'I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.',
-    id: 9,
-    url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-    thumbnail: "public/dist/img/apps/bfs-tn.jpg",
-    items: [{ image: 'public/dist/img/apps/bfs-1.png' }, { image: 'public/dist/img/apps/bfs-2.png' }],
-    featured: true,
-    technologies: [21, 13]
-  }, {
-    name: 'WhereTO',
-    description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
-    id: 10,
-    repo: 'https://github.com/evturn/WhereTO',
-    thumbnail: "public/dist/img/apps/whereto-tn.png",
-    items: [{ image: 'public/dist/img/apps/whereto-2.png' }, { image: 'public/dist/img/apps/whereto-1.png' }],
-    featured: true,
-    technologies: [1, 14, 12, 10, 13]
-  }];
-};
-
-exports.bio = function () {
-  return [{
-    paragraph: 'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.'
-  }, {
-    paragraph: 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'
-  }];
-};
-'use strict';
-
-var Get = require('./evturn-data');
-
-module.exports = function (video) {
-
-  var Player = {};
-
-  Player.initialized = false;
-  Player.playCount = null;
-  Player.playlist = Get.videos();
-  Player.timekeeper = function () {
-    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
-        isInitialized = Player.initialized;
-
-    if (!isInitialized || isLastVideo) {
-      Player.playCount = 0;
-    } else {
-      Player.playCount += 1;
-    }
-  };
-
-  Player.init = function () {
-    Player.timekeeper();
-    video.type = 'video/mp4';
-    video.muted = true;
-    video.autoplay = true;
-    video.preload = 'auto';
-    video.src = Player.playlist[Player.playCount];
-    video.addEventListener('ended', Player.callback);
-    video.addEventListener('loadedmetadata', Player.reposition);
-    video.play;
-    video.playbackRate = 0.5;
-    Player.initialized = true;
-  };
-
-  Player.callback = function () {
-    Player.timekeeper();
-    video.setAttribute('src', Player.playlist[Player.playCount]);
-    video.play;
-    video.playbackRate = 0.5;
-  };
-
-  Player.init();
-};
-'use strict';
-
-var _ = require('underscore');
-
-var Compiler = {};
-
-Compiler.carouselView = function () {
-  var html = '\n        <div class="container carousel">\n          <div class="image-container">\n            <div class="carousel animated fadeIn" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';
-
-  return _.template(html);
-};
-
-Compiler.carouselImage = function () {
-  var html = '\n        <div class="item">\n          <img class="img-scale gallery-item" src="<%= image %>">\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.carouselPanel = function () {
-  var html = '\n        <div class="panel-inner">\n          <div class="title-container">\n            <p class="section-title"><%= name %></p>\n          </div>\n          <div class="project-text">\n            <p class="meta"><%= description %></p>\n          </div>\n          <div class="project-technologies">\n            <!-- Technology-items -->\n          </div>\n          <div class="project-links">\n            <!-- Link items -->\n          </div>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.carouselTech = function () {
-  var html = '\n        <div class="technologies-item">\n          <i class="<%= icon %>"></i>\n          <p class="caption"><%= technology %></p>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.carouselLink = function () {
-  var html = '\n        <% var url = url ? \'<p class="meta"><a href="\' + url + \'" target="_blank"><i class="fa fa-link"></i></a></p>\' : \'\' %>\n          <%= url %>\n        <% var repo = repo ? \'<p class="meta"><a href="\' + repo + \'" target="_blank"><i class="fa fa-github"></i></a></p>\' : \'\' %>\n        <%= repo %>';
-
-  return _.template(html);
-};
-
-Compiler.nav = function () {
-  var html = '\n        <div class="container nav-content">\n          <div class="inner">\n            <div class="nav-container">\n              <div class="nav-inner">\n                <div class="header-container">\n                  <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n                  <div class="image-overlay"></div>\n                </div>\n                <div class="close-container">\n                  <i class="fa fa-times"></i>\n                </div>\n              </div>\n            </div>\n            <div class="links-container">\n              <div data-view="work" class="nav-item nav-work">\n                <h4><a class="nav-link" href="#work">Work</a></h4>\n              </div>\n              <div data-view="about" class="nav-item nav-about">\n                <h4><a class="nav-link" href="#about">About</a></h4>\n              </div>\n              <div data-view="contact" class="nav-item nav-contact">\n                <h4><a class="nav-link" href="#contact">Contact</a></h4>\n              </div>\n            </div>\n          </div>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.hero = function () {
-  var html = '\n        <section class="index-header">\n          <video id="ev-vid" poster="public/dist/img/site/vid-poster.gif" type="video/mp4">\n          </video>\n          <div class="carousel-index"></div>\n          <div class="curtain"></div>\n          <div class="container ev-navbar">\n            <div class="inner">\n              <div class="header-container">\n                <a href="/#work"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n                <div class="image-overlay"></div>\n              </div>\n              <div class="headline-container">\n                <h3 class="subhead">Evan Turner</h3>\n                <h3 class="subhead">Web Developer</h3>\n              </div>\n              <div class="burger-container">\n                <i class="fa fa-bars"></i>\n              </div>\n            </div>\n          </div>\n      </section>';
-
-  return _.template(html);
-};
-
-Compiler.navbar = function () {
-  var html = '\n        <div class="container ev-navbar">\n          <div class="inner">\n            <div class="header-container">\n              <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n              <div class="image-overlay"></div>\n            </div>\n            <div class="burger-container">\n              <i class="fa fa-bars"></i>\n            </div>\n          </div>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.carouselNavbar = function () {
-  var html = '\n        <div class="container ev-navbar">\n          <div class="inner">\n            <div class="header-container">\n              <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale" id="carousel-logo"></a>\n              <div class="image-overlay"></div>\n              <div id="carousel-preloader">\n                <div id="carousel-spinner"></div>\n              </div>\n            </div>\n            <div class="burger-container">\n              <i class="fa fa-bars"></i>\n            </div>\n          </div>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.thumbnailView = function () {
-  var html = '\n        <div class="container thumbnails">\n          <div class="wrapper thumbnails-wrapper">\n            <!-- Thumbnails Items-->\n          </div>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.thumbnailItem = function () {
-  var html = '\n        <div class="thumbnail-item">\n          <a href="#work/<%= id %>">\n          <div class="thumbnail-inner">\n            <div class="image-container">\n              <img class="img-scale" src="<%= thumbnail %>">\n              <div class="shadow"></div>\n            </div>\n          </div>\n          </a>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.techView = function () {
-  var html = '\n        <div class="container about">\n          <div class="wrapper">\n            <div class="image-container animated fadeInUp">\n              <img class="img-scale" src="public/dist/img/site/tile.png">\n            </div>\n            <div class="bio-container">\n              <p class="section-title">Web Development</p>\n              <div class="paragraphs">\n                <!-- Bio -->\n              </div>\n            </div>\n            <div class="info-container">\n              <div class="stats-container">\n                <p class="subhead">Notable Build Tools</p>\n                <div class="technology-items stat-items">\n                  <!-- Technologies -->\n                </div>\n              </div>\n              <div class="stats-container">\n                <p class="subhead">Statistics</p>\n                <div class="statistics stat-items">\n                  <!-- Stats -->\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.techItem = function () {
-  var html = '\n        <div class="stat-item">\n          <span class="stat-icon"><i class="<%= icon %>"></i></span>\n          <p class="meta"><%= technology %></p>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.statItem = function () {
-  var html = '\n        <div class="stat-item">\n          <span class="stat-icon"><i class="<%= icon %>"></i></span>\n          <h5 class="stat-count"><%= number %></h5>\n          <p class="meta"><%= text %></p>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.bio = function () {
-  var html = '\n        <div class="paragraph">\n          <p><%= paragraph %></p>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.contactView = function () {
-  var html = '\n        <div class="container contact animated fadeIn">\n          <div class="wrapper">\n            <div class="image-container">\n              <img class="img-scale" src="public/dist/img/site/city-invert.png">\n              <p class="header-subhead">@evturn // evturn [@] gmail [dot] com</p>\n            </div>\n            <div class="links-container">\n              <ul class="link-items">\n                <!-- Links -->\n              </div>\n            </div>\n          </div>\n        </div>';
-
-  return _.template(html);
-};
-
-Compiler.linkItem = function () {
-  var html = '\n        <li class="link-item">\n          <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>\n        </li>';
-
-  return _.template(html);
-};
-
-Compiler.footer = function () {
-  var html = '\n      <footer class="container footer">\n        <div class="inner">\n          <div class="copyright-container">\n            <p>2015 © evturn.com | All Rights Reserved</p>\n          </div>\n        </div>\n      </footer>';
-
-  return _.template(html);
-};
-
-module.exports = Compiler;
-'use strict';
-
 var EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates');
+    Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   navbarTemplate: Compiler.navbar(),
@@ -678,7 +234,7 @@ module.exports = Backbone.View.extend({
 'use strict';
 
 var EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates');
+    Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   navbarTemplate: Compiler.navbar(),
@@ -709,8 +265,8 @@ module.exports = Backbone.View.extend({
 });
 'use strict';
 
-var Player = require('../evturn-video'),
-    Compiler = require('../evturn-templates');
+var Player = require('../video-player'),
+    Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   heroTemplate: Compiler.hero(),
@@ -735,7 +291,7 @@ module.exports = Backbone.View.extend({
 'use strict';
 
 var EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates');
+    Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   thumbnailViewTemplate: Compiler.thumbnailView(),
@@ -767,7 +323,7 @@ module.exports = Backbone.View.extend({
 var _ = require('underscore'),
     Thumbnails = require('./thumbnails'),
     EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates'),
+    Compiler = require('../templates'),
     carousel = require('../carousel');
 
 module.exports = Backbone.View.extend({
@@ -867,83 +423,3 @@ module.exports = Backbone.View.extend({
     return this;
   }
 });
-'use strict';
-
-var $ = require('jquery'),
-    _ = require('underscore'),
-    Backbone = require('backbone'),
-    EVTURN = require('./evturn-view'),
-    Rza = require('./views/wrapper'),
-    Index = require('./views/index'),
-    About = require('./views/about'),
-    Contact = require('./views/contact'),
-    Work = require('./views/work');
-
-var Router = Backbone.Router.extend({
-  wrapper: null,
-  indexView: null,
-  workView: null,
-  aboutView: null,
-  contactView: null,
-  routes: {
-    '': 'index',
-    'work/*': 'project',
-    'work/:id': 'project',
-    'about': 'about',
-    'contact': 'contact'
-  },
-  initialize: function initialize() {
-    this.wrapper = new Rza();
-  },
-  index: function index() {
-    EVTURN.changeState('index');
-
-    if (this.indexView === null) {
-      this.indexView = new Index();
-    }
-
-    this.wrapper.child = this.indexView;
-    this.wrapper.render();
-  },
-  work: function work(model) {
-    EVTURN.changeState('work');
-
-    if (this.workView === null) {
-      this.workView = new Work({ model: model });
-      this.wrapper.child = this.workView;
-    } else {
-      var view = new Work({ model: model });
-      this.wrapper.child = view;
-    }
-
-    this.wrapper.render();
-  },
-  about: function about() {
-    EVTURN.changeState('about');
-
-    if (this.aboutView === null) {
-      this.aboutView = new About();
-    }
-
-    this.wrapper.child = this.aboutView;
-    this.wrapper.render();
-  },
-  contact: function contact() {
-    EVTURN.changeState('contact');
-
-    if (this.contactView === null) {
-      this.contactView = new Contact();
-    }
-
-    this.wrapper.child = this.contactView;
-    this.wrapper.render();
-  },
-  project: function project(id) {
-    var collection = EVTURN.get('apps'),
-        model = collection.get(id) || collection.get(1);
-
-    this.work(model);
-  }
-});
-
-module.exports = Router;

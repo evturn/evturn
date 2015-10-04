@@ -1,8 +1,8 @@
 let $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
-    Compiler = require('./evturn-templates'),
-    Get = require('./evturn-data'),
+    Compiler = require('./templates'),
+    Get = require('./data'),
     Rza = require('./views/wrapper');
 
 let EVTURN = {};

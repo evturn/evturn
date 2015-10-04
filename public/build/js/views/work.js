@@ -1,7 +1,7 @@
 let _ = require('underscore'),
     Thumbnails = require('./thumbnails'),
     EVTURN = require('../evturn-view'),
-    Compiler = require('../evturn-templates'),
+    Compiler = require('../templates'),
     carousel = require('../carousel');
 
 module.exports = Backbone.View.extend({

@@ -57,7 +57,7 @@
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
 	    EVTURN = __webpack_require__(5),
-	    Router = __webpack_require__(9);
+	    Router = __webpack_require__(20);
 	
 	var router = new Router();
 	EVTURN.init();
@@ -5018,8 +5018,8 @@
 	var $ = __webpack_require__(2),
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
-	    Compiler = __webpack_require__(6),
-	    Get = __webpack_require__(7),
+	    Compiler = __webpack_require__(17),
+	    Get = __webpack_require__(18),
 	    Rza = __webpack_require__(8);
 	
 	var EVTURN = {};
@@ -5150,7 +5150,390 @@
 	module.exports = EVTURN;
 
 /***/ },
-/* 6 */
+/* 6 */,
+/* 7 */,
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	module.exports = Backbone.View.extend({
+	  el: '#rza',
+	  child: null,
+	  render: function render() {
+	    this.$el.html(this.child.$el);
+	
+	    return this;
+	  }
+	});
+
+/***/ },
+/* 9 */,
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var Player = __webpack_require__(19),
+	    Compiler = __webpack_require__(17);
+	
+	module.exports = Backbone.View.extend({
+	  heroTemplate: Compiler.hero(),
+	  el: '.index',
+	  initialize: function initialize() {
+	    this.render();
+	    this.setVideo();
+	  },
+	  render: function render() {
+	    this.$el.html(this.heroTemplate());
+	
+	    return this;
+	  },
+	  setVideo: function setVideo() {
+	    $(document).ready(function () {
+	      var video = document.getElementById('ev-vid');
+	
+	      Player(video);
+	    });
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 11 */,
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(17);
+	
+	module.exports = Backbone.View.extend({
+	  navbarTemplate: Compiler.navbar(),
+	  techViewTemplate: Compiler.techView(),
+	  techItemTemplate: Compiler.techItem(),
+	  statItemTemplate: Compiler.statItem(),
+	  bioTemplate: Compiler.bio(),
+	  el: '.about',
+	  initialize: function initialize() {
+	    this.render();
+	    this.appendStats();
+	    this.appendTechnologies();
+	    this.appendBio();
+	    this.animateStats();
+	  },
+	  render: function render() {
+	    this.$el.html(this.navbarTemplate());
+	    this.$el.append(this.techViewTemplate());
+	
+	    return this;
+	  },
+	  appendStats: function appendStats() {
+	    var $sel = $('.statistics.stat-items'),
+	        collection = EVTURN.get('stats');
+	
+	    for (var i = 0; i < collection.models.length; i++) {
+	      var model = collection.models[i].toJSON();
+	
+	      $sel.append(this.statItemTemplate(model));
+	    }
+	
+	    return this;
+	  },
+	  appendTechnologies: function appendTechnologies() {
+	    var $sel = $('.technology-items'),
+	        collection = this.get('tech');
+	
+	    for (var i = 0; i < collection.models.length; i++) {
+	      var model = collection.models[i].toJSON();
+	
+	      $sel.append(this.techItemTemplate(model));
+	    }
+	
+	    return this;
+	  },
+	  appendBio: function appendBio() {
+	    var $sel = $('.paragraphs'),
+	        collection = EVTURN.get('bio');
+	
+	    for (var i = 0; i < collection.models.length; i++) {
+	      var model = collection.models[i].toJSON();
+	
+	      $sel.append(this.bioTemplate(model));
+	    }
+	
+	    return this;
+	  },
+	  animateStats: function animateStats() {
+	    var self = this;
+	
+	    $('.stat-count').each(function () {
+	      $(this).data('count', parseInt($(this).html(), 10));
+	      $(this).html('0');
+	
+	      self.count($(this));
+	    });
+	  },
+	  count: function count($this) {
+	    var self = this,
+	        current = parseInt($this.html(), 10);
+	
+	    current = current + 50;
+	    $this.html(++current);
+	
+	    if (current > $this.data('count')) {
+	      $this.html($this.data('count'));
+	    } else {
+	      setTimeout(function () {
+	        self.count($this);
+	      }, 50);
+	    }
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(17);
+	
+	module.exports = Backbone.View.extend({
+	  navbarTemplate: Compiler.navbar(),
+	  contactViewTemplate: Compiler.contactView(),
+	  linkItemTemplate: Compiler.linkItem(),
+	  el: '.contact',
+	  initialize: function initialize() {
+	    this.setView();
+	    this.appendLinks();
+	  },
+	  setView: function setView() {
+	    this.$el.html(this.navbarTemplate());
+	    this.$el.append(this.contactViewTemplate());
+	
+	    return this;
+	  },
+	  appendLinks: function appendLinks() {
+	    var collection = EVTURN.get('links');
+	
+	    for (var i = 0; i < collection.models.length; i++) {
+	      var model = collection.models[i].toJSON();
+	
+	      $('.link-items').append(this.linkItemTemplate(model));
+	    }
+	
+	    return this;
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var _ = __webpack_require__(3),
+	    Thumbnails = __webpack_require__(15),
+	    EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(17),
+	    carousel = __webpack_require__(16);
+	
+	module.exports = Backbone.View.extend({
+	  carouselNavbarTemplate: Compiler.carouselNavbar(),
+	  carouselViewTemplate: Compiler.carouselView(),
+	  carouselPanelTemplate: Compiler.carouselPanel(),
+	  carouselLinkTemplate: Compiler.carouselLink(),
+	  carouselTechTemplate: Compiler.carouselTech(),
+	  carouselImageTemplate: Compiler.carouselImage(),
+	  el: '.work',
+	  initialize: function initialize() {
+	    this.render();
+	    this.carouselPreloader();
+	    this.appendCarouselPanel();
+	    this.appendProjectLinks();
+	    this.appendProjectTechnologies();
+	    this.appendCarouselImages();
+	    this.appendProjectThumbnails();
+	  },
+	  render: function render() {
+	    var model = this.model.toJSON();
+	    this.$el.html(this.carouselNavbarTemplate());
+	    this.$el.append(this.carouselViewTemplate(model));
+	
+	    return this;
+	  },
+	  appendCarouselPanel: function appendCarouselPanel() {
+	    var $sel = $('.carousel-panel'),
+	        model = this.model.toJSON();
+	
+	    $sel.append(this.carouselPanelTemplate(model));
+	
+	    return this;
+	  },
+	  appendProjectLinks: function appendProjectLinks() {
+	    var $sel = $('.project-links'),
+	        model = this.model.toJSON();
+	
+	    $sel.append(this.carouselLinkTemplate(model));
+	
+	    return this;
+	  },
+	  appendProjectTechnologies: function appendProjectTechnologies() {
+	    var $sel = $('.project-technologies'),
+	        collection = EVTURN.get('tech', true),
+	        ids = this.model.get('technologies'),
+	        models = _.map(ids, function (id) {
+	      return collection.get(id);
+	    });
+	
+	    for (var i = 0; i < models.length; i++) {
+	      var model = models[i].toJSON();
+	
+	      $sel.append(this.carouselTechTemplate(model));
+	    }
+	
+	    return this;
+	  },
+	  appendCarouselImages: function appendCarouselImages() {
+	    var $sel = $('.carousel-inner'),
+	        models = this.model.get('items');
+	
+	    for (var i = 0; i < models.length; i++) {
+	      var model = models[i];
+	
+	      $sel.append(this.carouselImageTemplate(model));
+	    }
+	
+	    carousel();
+	
+	    return this;
+	  },
+	  appendProjectThumbnails: function appendProjectThumbnails() {
+	    var tn = new Thumbnails(this.$el);
+	
+	    this.scrollUp();
+	  },
+	  carouselPreloader: function carouselPreloader() {
+	    var $img = $('#carousel-logo'),
+	        $container = $('#carousel-preloader');
+	
+	    $img.addClass('spin');
+	    $container.delay(500).fadeOut();
+	    setTimeout(function () {
+	      $img.removeClass('spin');
+	    }, 780);
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var EVTURN = __webpack_require__(5),
+	    Compiler = __webpack_require__(17);
+	
+	module.exports = Backbone.View.extend({
+	  thumbnailViewTemplate: Compiler.thumbnailView(),
+	  thumbnailItemTemplate: Compiler.thumbnailItem(),
+	  el: '.thumbnails-wrapper',
+	  events: {
+	    'click .thumbnail-item': 'scrollUp'
+	  },
+	  initialize: function initialize(selector) {
+	    this.render(selector);
+	  },
+	  render: function render($selector) {
+	    var collection = EVTURN.get('apps');
+	
+	    this.$el.empty();
+	    $('.work').append(this.thumbnailViewTemplate());
+	
+	    for (var i = 0; i < collection.models.length; i++) {
+	      var model = collection.models[i].toJSON();
+	
+	      $('.thumbnails-wrapper').append(this.thumbnailItemTemplate(model));
+	    }
+	
+	    return this;
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(3),
+	    Backbone = __webpack_require__(4);
+	
+	var counter = undefined,
+	    next = undefined,
+	    length = undefined,
+	    timer = undefined;
+	
+	function initCarousel() {
+	    length = $('.item').length;
+	    counter = null;
+	    next = null;
+	    clearInterval(timer);
+	
+	    if (length < 2) {
+	        $('.item:nth-child(1)').addClass('active');
+	        return false;
+	    } else {
+	        nextImage();
+	        timer = setInterval(nextImage, 4000);
+	    }
+	};
+	
+	function nextImage() {
+	    var isActiveLast = !!(counter === length),
+	        isNextLast = !!(next === length),
+	        isInitializing = !!(counter === null && next === null);
+	
+	    if (isInitializing) {
+	        counter = 1;
+	        next = 2;
+	        $('.item:nth-child(' + counter + ')').addClass('active');
+	        $('.item:nth-child(' + next + ')').addClass('next');
+	        return false;
+	    } else if (isActiveLast) {
+	        counter = 1;
+	        next = 2;
+	    } else if (isNextLast) {
+	        counter += 1;
+	        next = 1;
+	    } else {
+	        counter += 1;
+	        next = counter + 1;
+	    }
+	
+	    $('.active').fadeTo(1000, 0, function () {
+	        $('.item').removeClass('active');
+	    });
+	
+	    $('.next').fadeTo(1000, 1, function () {
+	        $('.item').removeClass('next');
+	        $('.item:nth-child(' + counter + ')').addClass('active');
+	        $('.item:nth-child(' + next + ')').addClass('next');
+	    });
+	};
+	
+	module.exports = initCarousel;
+
+/***/ },
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5270,7 +5653,7 @@
 	module.exports = Compiler;
 
 /***/ },
-/* 7 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5559,23 +5942,57 @@
 	};
 
 /***/ },
-/* 8 */
-/***/ function(module, exports) {
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	module.exports = Backbone.View.extend({
-	  el: '#rza',
-	  child: null,
-	  render: function render() {
-	    this.$el.html(this.child.$el);
+	var Get = __webpack_require__(18);
 	
-	    return this;
-	  }
-	});
+	module.exports = function (video) {
+	
+	  var Player = {};
+	
+	  Player.initialized = false;
+	  Player.playCount = null;
+	  Player.playlist = Get.videos();
+	  Player.timekeeper = function () {
+	    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
+	        isInitialized = Player.initialized;
+	
+	    if (!isInitialized || isLastVideo) {
+	      Player.playCount = 0;
+	    } else {
+	      Player.playCount += 1;
+	    }
+	  };
+	
+	  Player.init = function () {
+	    Player.timekeeper();
+	    video.type = 'video/mp4';
+	    video.muted = true;
+	    video.autoplay = true;
+	    video.preload = 'auto';
+	    video.src = Player.playlist[Player.playCount];
+	    video.addEventListener('ended', Player.callback);
+	    video.addEventListener('loadedmetadata', Player.reposition);
+	    video.play;
+	    video.playbackRate = 0.5;
+	    Player.initialized = true;
+	  };
+	
+	  Player.callback = function () {
+	    Player.timekeeper();
+	    video.setAttribute('src', Player.playlist[Player.playCount]);
+	    video.play;
+	    video.playbackRate = 0.5;
+	  };
+	
+	  Player.init();
+	};
 
 /***/ },
-/* 9 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5658,419 +6075,6 @@
 	});
 	
 	module.exports = Router;
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var Player = __webpack_require__(11),
-	    Compiler = __webpack_require__(6);
-	
-	module.exports = Backbone.View.extend({
-	  heroTemplate: Compiler.hero(),
-	  el: '.index',
-	  initialize: function initialize() {
-	    this.render();
-	    this.setVideo();
-	  },
-	  render: function render() {
-	    this.$el.html(this.heroTemplate());
-	
-	    return this;
-	  },
-	  setVideo: function setVideo() {
-	    $(document).ready(function () {
-	      var video = document.getElementById('ev-vid');
-	
-	      Player(video);
-	    });
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var Get = __webpack_require__(7);
-	
-	module.exports = function (video) {
-	
-	  var Player = {};
-	
-	  Player.initialized = false;
-	  Player.playCount = null;
-	  Player.playlist = Get.videos();
-	  Player.timekeeper = function () {
-	    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
-	        isInitialized = Player.initialized;
-	
-	    if (!isInitialized || isLastVideo) {
-	      Player.playCount = 0;
-	    } else {
-	      Player.playCount += 1;
-	    }
-	  };
-	
-	  Player.init = function () {
-	    Player.timekeeper();
-	    video.type = 'video/mp4';
-	    video.muted = true;
-	    video.autoplay = true;
-	    video.preload = 'auto';
-	    video.src = Player.playlist[Player.playCount];
-	    video.addEventListener('ended', Player.callback);
-	    video.addEventListener('loadedmetadata', Player.reposition);
-	    video.play;
-	    video.playbackRate = 0.5;
-	    Player.initialized = true;
-	  };
-	
-	  Player.callback = function () {
-	    Player.timekeeper();
-	    video.setAttribute('src', Player.playlist[Player.playCount]);
-	    video.play;
-	    video.playbackRate = 0.5;
-	  };
-	
-	  Player.init();
-	};
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6);
-	
-	module.exports = Backbone.View.extend({
-	  navbarTemplate: Compiler.navbar(),
-	  techViewTemplate: Compiler.techView(),
-	  techItemTemplate: Compiler.techItem(),
-	  statItemTemplate: Compiler.statItem(),
-	  bioTemplate: Compiler.bio(),
-	  el: '.about',
-	  initialize: function initialize() {
-	    this.render();
-	    this.appendStats();
-	    this.appendTechnologies();
-	    this.appendBio();
-	    this.animateStats();
-	  },
-	  render: function render() {
-	    this.$el.html(this.navbarTemplate());
-	    this.$el.append(this.techViewTemplate());
-	
-	    return this;
-	  },
-	  appendStats: function appendStats() {
-	    var $sel = $('.statistics.stat-items'),
-	        collection = EVTURN.get('stats');
-	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $sel.append(this.statItemTemplate(model));
-	    }
-	
-	    return this;
-	  },
-	  appendTechnologies: function appendTechnologies() {
-	    var $sel = $('.technology-items'),
-	        collection = this.get('tech');
-	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $sel.append(this.techItemTemplate(model));
-	    }
-	
-	    return this;
-	  },
-	  appendBio: function appendBio() {
-	    var $sel = $('.paragraphs'),
-	        collection = EVTURN.get('bio');
-	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $sel.append(this.bioTemplate(model));
-	    }
-	
-	    return this;
-	  },
-	  animateStats: function animateStats() {
-	    var self = this;
-	
-	    $('.stat-count').each(function () {
-	      $(this).data('count', parseInt($(this).html(), 10));
-	      $(this).html('0');
-	
-	      self.count($(this));
-	    });
-	  },
-	  count: function count($this) {
-	    var self = this,
-	        current = parseInt($this.html(), 10);
-	
-	    current = current + 50;
-	    $this.html(++current);
-	
-	    if (current > $this.data('count')) {
-	      $this.html($this.data('count'));
-	    } else {
-	      setTimeout(function () {
-	        self.count($this);
-	      }, 50);
-	    }
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6);
-	
-	module.exports = Backbone.View.extend({
-	  navbarTemplate: Compiler.navbar(),
-	  contactViewTemplate: Compiler.contactView(),
-	  linkItemTemplate: Compiler.linkItem(),
-	  el: '.contact',
-	  initialize: function initialize() {
-	    this.setView();
-	    this.appendLinks();
-	  },
-	  setView: function setView() {
-	    this.$el.html(this.navbarTemplate());
-	    this.$el.append(this.contactViewTemplate());
-	
-	    return this;
-	  },
-	  appendLinks: function appendLinks() {
-	    var collection = EVTURN.get('links');
-	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $('.link-items').append(this.linkItemTemplate(model));
-	    }
-	
-	    return this;
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var _ = __webpack_require__(3),
-	    Thumbnails = __webpack_require__(15),
-	    EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6),
-	    carousel = __webpack_require__(16);
-	
-	module.exports = Backbone.View.extend({
-	  carouselNavbarTemplate: Compiler.carouselNavbar(),
-	  carouselViewTemplate: Compiler.carouselView(),
-	  carouselPanelTemplate: Compiler.carouselPanel(),
-	  carouselLinkTemplate: Compiler.carouselLink(),
-	  carouselTechTemplate: Compiler.carouselTech(),
-	  carouselImageTemplate: Compiler.carouselImage(),
-	  el: '.work',
-	  initialize: function initialize() {
-	    this.render();
-	    this.carouselPreloader();
-	    this.appendCarouselPanel();
-	    this.appendProjectLinks();
-	    this.appendProjectTechnologies();
-	    this.appendCarouselImages();
-	    this.appendProjectThumbnails();
-	  },
-	  render: function render() {
-	    var model = this.model.toJSON();
-	    this.$el.html(this.carouselNavbarTemplate());
-	    this.$el.append(this.carouselViewTemplate(model));
-	
-	    return this;
-	  },
-	  appendCarouselPanel: function appendCarouselPanel() {
-	    var $sel = $('.carousel-panel'),
-	        model = this.model.toJSON();
-	
-	    $sel.append(this.carouselPanelTemplate(model));
-	
-	    return this;
-	  },
-	  appendProjectLinks: function appendProjectLinks() {
-	    var $sel = $('.project-links'),
-	        model = this.model.toJSON();
-	
-	    $sel.append(this.carouselLinkTemplate(model));
-	
-	    return this;
-	  },
-	  appendProjectTechnologies: function appendProjectTechnologies() {
-	    var $sel = $('.project-technologies'),
-	        collection = EVTURN.get('tech', true),
-	        ids = this.model.get('technologies'),
-	        models = _.map(ids, function (id) {
-	      return collection.get(id);
-	    });
-	
-	    for (var i = 0; i < models.length; i++) {
-	      var model = models[i].toJSON();
-	
-	      $sel.append(this.carouselTechTemplate(model));
-	    }
-	
-	    return this;
-	  },
-	  appendCarouselImages: function appendCarouselImages() {
-	    var $sel = $('.carousel-inner'),
-	        models = this.model.get('items');
-	
-	    for (var i = 0; i < models.length; i++) {
-	      var model = models[i];
-	
-	      $sel.append(this.carouselImageTemplate(model));
-	    }
-	
-	    carousel();
-	
-	    return this;
-	  },
-	  appendProjectThumbnails: function appendProjectThumbnails() {
-	    var tn = new Thumbnails(this.$el);
-	
-	    this.scrollUp();
-	  },
-	  carouselPreloader: function carouselPreloader() {
-	    var $img = $('#carousel-logo'),
-	        $container = $('#carousel-preloader');
-	
-	    $img.addClass('spin');
-	    $container.delay(500).fadeOut();
-	    setTimeout(function () {
-	      $img.removeClass('spin');
-	    }, 780);
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6);
-	
-	module.exports = Backbone.View.extend({
-	  thumbnailViewTemplate: Compiler.thumbnailView(),
-	  thumbnailItemTemplate: Compiler.thumbnailItem(),
-	  el: '.thumbnails-wrapper',
-	  events: {
-	    'click .thumbnail-item': 'scrollUp'
-	  },
-	  initialize: function initialize(selector) {
-	    this.render(selector);
-	  },
-	  render: function render($selector) {
-	    var collection = EVTURN.get('apps');
-	
-	    this.$el.empty();
-	    $('.work').append(this.thumbnailViewTemplate());
-	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $('.thumbnails-wrapper').append(this.thumbnailItemTemplate(model));
-	    }
-	
-	    return this;
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var $ = __webpack_require__(2),
-	    _ = __webpack_require__(3),
-	    Backbone = __webpack_require__(4);
-	
-	var counter = undefined,
-	    next = undefined,
-	    length = undefined,
-	    timer = undefined;
-	
-	function initCarousel() {
-	    length = $('.item').length;
-	    counter = null;
-	    next = null;
-	    clearInterval(timer);
-	
-	    if (length < 2) {
-	        $('.item:nth-child(1)').addClass('active');
-	        return false;
-	    } else {
-	        nextImage();
-	        timer = setInterval(nextImage, 4000);
-	    }
-	};
-	
-	function nextImage() {
-	    var isActiveLast = !!(counter === length),
-	        isNextLast = !!(next === length),
-	        isInitializing = !!(counter === null && next === null);
-	
-	    if (isInitializing) {
-	        counter = 1;
-	        next = 2;
-	        $('.item:nth-child(' + counter + ')').addClass('active');
-	        $('.item:nth-child(' + next + ')').addClass('next');
-	        return false;
-	    } else if (isActiveLast) {
-	        counter = 1;
-	        next = 2;
-	    } else if (isNextLast) {
-	        counter += 1;
-	        next = 1;
-	    } else {
-	        counter += 1;
-	        next = counter + 1;
-	    }
-	
-	    $('.active').fadeTo(1000, 0, function () {
-	        $('.item').removeClass('active');
-	    });
-	
-	    $('.next').fadeTo(1000, 1, function () {
-	        $('.item').removeClass('next');
-	        $('.item:nth-child(' + counter + ')').addClass('active');
-	        $('.item:nth-child(' + next + ')').addClass('next');
-	    });
-	};
-	
-	module.exports = initCarousel;
 
 /***/ }
 /******/ ]);
