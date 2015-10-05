@@ -30,38 +30,6 @@ module.exports = {
       'gulpfile.js'
     ]
   },
-  webpack: {
-    watch: 'public/build/js/tmp/**/*.js'
-  },
-  js: {
-    src: [
-      'public/build/js/app.js',
-      'public/build/js/evturn-view.js',
-      'public/build/js/evturn-data.js',
-      'public/build/js/evturn-video.js',
-      'public/build/js/evturn-templates.js',
-      'public/build/js/views/**/*.js',
-      'public/build/js/evturn-router.js'
-    ],
-    watch: [
-      'public/build/js/**/*.js',
-      '!public/build/js/vendor/**/*.js'
-    ],
-    filename: 'scripts.js',
-    min: 'scripts.min.js',
-    vendor: {
-      src: [
-        'public/build/js/vendor/google-analytics.js',
-        'public/build/js/vendor/jquery.js',
-        'public/build/js/vendor/underscore.js',
-        'public/build/js/vendor/backbone.js',
-        'public/build/js/vendor/bootstrap.js'
-      ],
-      watch: 'public/build/js/vendor/**/*.js',
-      filename: 'vendor.js',
-      min: 'vendor.min.js'
-    }
-  },
   img: {
     apps: {
       src: 'public/build/img/apps/**/*'
@@ -69,19 +37,5 @@ module.exports = {
     site: {
       src: 'public/build/img/site/**/*'
     }
-  },
-  jshint: {
-    src: [
-      'public/build/js/**/*.js',
-      '!public/build/js/vendor/**/*.js',
-      'config/**/*.js',
-      'gulpfile.js'
-    ],
-    watch: [
-      'public/build/js/**/*.js',
-      '!public/build/js/vendor/**/*.js',
-      'config/**/*.js',
-      'gulpfile.js'
-    ]
   }
 };
