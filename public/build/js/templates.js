@@ -2,7 +2,7 @@ let Handlebars = require('handlebars');
 
   let Compiler = {};
 
-  Compiler.carouselView = function() {
+  Compiler.carouselView = () => {
     let html = `
         <div class="container carousel">
           <div class="image-container">
@@ -24,7 +24,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.carouselImage = function() {
+  Compiler.carouselImage = () => {
     let html = `
         <div class="item">
           <img class="img-scale gallery-item" src="{{ image }}">
@@ -33,7 +33,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.carouselPanel = function() {
+  Compiler.carouselPanel = () => {
     let html = `
         <div class="panel-inner">
           <div class="title-container">
@@ -53,7 +53,7 @@ let Handlebars = require('handlebars');
       return Handlebars.compile(html);
   };
 
-  Compiler.carouselTech = function() {
+  Compiler.carouselTech = () => {
     let html = `
         <div class="technologies-item">
           <i class="{{icon}}"></i>
@@ -63,7 +63,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.carouselLink = function() {
+  Compiler.carouselLink = () => {
     let html = `
         {{#if url}}
           <p class="meta"><a href="{{url}}" target="_blank"><i class="fa fa-link"></i></a></p>
@@ -75,7 +75,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.nav = function() {
+  Compiler.nav = () => {
     let html = `
         <div class="container nav-content">
           <div class="inner">
@@ -107,7 +107,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.hero = function() {
+  Compiler.hero = () => {
     let html = `
         <section class="index-header">
           <video id="ev-vid" poster="public/dist/img/site/vid-poster.gif" type="video/mp4">
@@ -134,7 +134,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.navbar = function() {
+  Compiler.navbar = () => {
     let html = `
         <div class="container ev-navbar">
           <div class="inner">
@@ -151,7 +151,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.carouselNavbar = function() {
+  Compiler.carouselNavbar = () => {
     let html = `
         <div class="container ev-navbar">
           <div class="inner">
@@ -171,7 +171,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.thumbnailView = function() {
+  Compiler.thumbnailView = () => {
     let html = `
         <div class="container thumbnails">
           <div class="wrapper thumbnails-wrapper">
@@ -182,7 +182,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.thumbnailItem = function() {
+  Compiler.thumbnailItem = () => {
     let html = `
         <div class="thumbnail-item">
           <a href="#work/{{id}}">
@@ -198,7 +198,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.techView = function() {
+  Compiler.techView = () => {
     let html = `
         <div class="container about">
           <div class="wrapper">
@@ -231,7 +231,7 @@ let Handlebars = require('handlebars');
     return  Handlebars.compile(html);
   };
 
-  Compiler.techItem = function() {
+  Compiler.techItem = () => {
     let html= `
         <div class="stat-item">
           <span class="stat-icon"><i class="{{icon}}"></i></span>
@@ -241,7 +241,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.statItem = function() {
+  Compiler.statItem = () => {
     let html = `
         <div class="stat-item">
           <span class="stat-icon"><i class="{{icon}}"></i></span>
@@ -253,7 +253,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.bio = function() {
+  Compiler.bio = () => {
     let html = `
         <div class="paragraph">
           <p>{{paragraph}}</p>
@@ -262,7 +262,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.contactView = function() {
+  Compiler.contactView = () => {
     let html = `
         <div class="container contact animated fadeIn">
           <div class="image-container">
@@ -280,7 +280,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.linkItem = function() {
+  Compiler.linkItem = () => {
     let html = `
         <li class="link-item">
           <a target="_blank" href="{{url}}"><i class="{{icon}}"></i></a>
@@ -289,7 +289,7 @@ let Handlebars = require('handlebars');
     return Handlebars.compile(html);
   };
 
-  Compiler.footer = function() {
+  Compiler.footer = () => {
     let html = `
       <footer class="container footer">
         <div class="inner">

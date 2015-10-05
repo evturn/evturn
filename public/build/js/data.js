@@ -1,5 +1,5 @@
 
-exports.videos = function() {
+exports.videos = () => {
   return [
     'https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1',
     'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1',
@@ -18,7 +18,7 @@ exports.videos = function() {
   ];
 };
 
-exports.links = function() {
+exports.links = () => {
   return [
     {
       name: 'email',
@@ -59,7 +59,7 @@ exports.links = function() {
   ];
 };
 
-exports.stats = function() {
+exports.stats = () => {
   return [
     {
       text: 'Quesadillas Eaten',
@@ -79,7 +79,7 @@ exports.stats = function() {
   ];
 };
 
-exports.tech = function() {
+exports.tech = () => {
   return [
     {
       technology: 'Node.js',
@@ -227,7 +227,7 @@ exports.tech = function() {
   ];
 };
 
-exports.apps = function() {
+exports.apps = () => {
   return [
     {
       name: 'Made In Music',
@@ -374,7 +374,7 @@ exports.apps = function() {
   ];
 };
 
-exports.bio = function() {
+exports.bio = () => {
   return [
     {
       paragraph: 'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.'

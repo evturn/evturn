@@ -7,7 +7,7 @@ module.exports = function(video) {
   Player.initialized = false;
   Player.playCount = null;
   Player.playlist = Get.videos();
-  Player.timekeeper = function() {
+  Player.timekeeper = () => {
     let isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
         isInitialized = Player.initialized;
 
@@ -19,7 +19,7 @@ module.exports = function(video) {
     }
   };
 
-  Player.init = function() {
+  Player.init = () => {
     Player.timekeeper();
     video.type = 'video/mp4';
     video.muted = true;
@@ -32,7 +32,7 @@ module.exports = function(video) {
     Player.initialized = true;
   };
 
-  Player.callback = function() {
+  Player.callback = () => {
     Player.timekeeper();
     video.setAttribute('src', Player.playlist[Player.playCount]);
     video.play;
