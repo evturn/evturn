@@ -5142,7 +5142,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -6051,4 +6050,17 @@ video::-webkit-media-controls {
 }
 .container.carousel .project-links .meta .fa:hover {
   color: #ffffff;
+}
+#curtain {
+  height: 0px;
+  opacity: 0;
+}
+#curtain.on {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: black;
+  z-index: 3;
 }
