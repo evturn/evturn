@@ -45,7 +45,7 @@ module.exports = Backbone.View.extend({
   },
   appendProjectTechnologies() {
     let $sel = $('.project-technologies'),
-        collection = EVTURN.get('tech', true),
+        collection = this.get('tech', true),
         ids      = this.model.get('technologies'),
         models = _.map(ids, function(id) {
           return collection.get(id);

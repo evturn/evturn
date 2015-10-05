@@ -22,17 +22,8 @@ let Router = Backbone.Router.extend({
   },
   initialize() {
     this.wrapper = new Rza();
+    _.extend(this, this.wrapper);
   },
-  changeState(string) {
-    let $selector = $(document.getElementsByClassName(string)),
-        element = document.createElement('div');
-
-    element.className = string;
-    element.dataset.view = string;
-    $selector.remove();
-    $(element).insertAfter(new Rza().$el);
-  },
-  get: _.extend(this, Backbone.View.prototype.get),
   index() {
     this.changeState('index');
 

@@ -11,7 +11,7 @@ module.exports = Backbone.View.extend({
     this.render(selector);
   },
   render($selector) {
-    let collection = EVTURN.get('apps');
+    let collection = this.get('apps');
 
     this.$el.empty();
     $('.work').append(this.thumbnailViewTemplate());

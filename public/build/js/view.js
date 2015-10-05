@@ -48,6 +48,15 @@ module.exports = _.extend(Backbone.View.prototype, {
 
     return new Collection(models);
   },
+  changeState(string) {
+    let $selector = $(document.getElementsByClassName(string)),
+        element = document.createElement('div');
+
+    element.className = string;
+    element.dataset.view = string;
+    $selector.remove();
+    $(element).insertAfter(new Rza().$el);
+  },
   scrollUp() {
     $('html, body').animate({scrollTop: 0 }, 500);
 

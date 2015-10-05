@@ -57,9 +57,9 @@
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
 	    Router = __webpack_require__(9),
+	    view = __webpack_require__(20).init(),
 	    googleAnalytics = __webpack_require__(18);
 	
-	__webpack_require__(20).init();
 	var router = new Router();
 	Backbone.history.start();
 
@@ -5465,17 +5465,8 @@
 	  },
 	  initialize: function initialize() {
 	    this.wrapper = new Rza();
+	    _.extend(this, this.wrapper);
 	  },
-	  changeState: function changeState(string) {
-	    var $selector = $(document.getElementsByClassName(string)),
-	        element = document.createElement('div');
-	
-	    element.className = string;
-	    element.dataset.view = string;
-	    $selector.remove();
-	    $(element).insertAfter(new Rza().$el);
-	  },
-	  get: _.extend(undefined, Backbone.View.prototype.get),
 	  index: function index() {
 	    this.changeState('index');
 	
@@ -5792,7 +5783,7 @@
 	  },
 	  appendProjectTechnologies: function appendProjectTechnologies() {
 	    var $sel = $('.project-technologies'),
-	        collection = EVTURN.get('tech', true),
+	        collection = this.get('tech', true),
 	        ids = this.model.get('technologies'),
 	        models = _.map(ids, function (id) {
 	      return collection.get(id);
@@ -5857,7 +5848,7 @@
 	    this.render(selector);
 	  },
 	  render: function render($selector) {
-	    var collection = EVTURN.get('apps');
+	    var collection = this.get('apps');
 	
 	    this.$el.empty();
 	    $('.work').append(this.thumbnailViewTemplate());
@@ -6070,6 +6061,15 @@
 	    }
 	
 	    return new Collection(models);
+	  },
+	  changeState: function changeState(string) {
+	    var $selector = $(document.getElementsByClassName(string)),
+	        element = document.createElement('div');
+	
+	    element.className = string;
+	    element.dataset.view = string;
+	    $selector.remove();
+	    $(element).insertAfter(new Rza().$el);
 	  },
 	  scrollUp: function scrollUp() {
 	    $('html, body').animate({ scrollTop: 0 }, 500);
