@@ -5705,14 +5705,10 @@
 	    return this;
 	  },
 	  appendLinks: function appendLinks() {
-	    var collection = this.get('links');
+	    var collection = this.get('links'),
+	        models = collection.models;
 	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $('.link-items').append(this.linkItemTemplate(model));
-	    }
-	
+	    this.compileAndAppend($('.link-items'), models, this.linkItemTemplate);
 	    return this;
 	  }
 	});
@@ -5825,17 +5821,12 @@
 	    this.render(selector);
 	  },
 	  render: function render($selector) {
-	    var collection = this.get('apps');
+	    var collection = this.get('apps'),
+	        models = collection.models;
 	
 	    this.$el.empty();
 	    $('.work').append(this.thumbnailViewTemplate());
-	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $('.thumbnails-wrapper').append(this.thumbnailItemTemplate(model));
-	    }
-	
+	    this.compileAndAppend($('.thumbnails-wrapper'), models, this.thumbnailItemTemplate);
 	    return this;
 	  }
 	});

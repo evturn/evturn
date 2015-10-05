@@ -16,14 +16,10 @@ module.exports = Backbone.View.extend({
     return this;
   },
   appendLinks() {
-    let collection = this.get('links');
+    let collection = this.get('links'),
+        models = collection.models;
 
-    for (var i = 0; i < collection.models.length; i++) {
-      let model = collection.models[i].toJSON();
-
-      $('.link-items').append(this.linkItemTemplate(model));
-    }
-
+    this.compileAndAppend($('.link-items'), models, this.linkItemTemplate);
     return this;
   }
 });

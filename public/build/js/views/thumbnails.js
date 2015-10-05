@@ -11,17 +11,12 @@ module.exports = Backbone.View.extend({
     this.render(selector);
   },
   render($selector) {
-    let collection = this.get('apps');
+    let collection = this.get('apps'),
+        models = collection.models;
 
     this.$el.empty();
     $('.work').append(this.thumbnailViewTemplate());
-
-    for (var i = 0; i < collection.models.length; i++) {
-      let model = collection.models[i].toJSON();
-
-      $('.thumbnails-wrapper').append(this.thumbnailItemTemplate(model));
-    }
-
+    this.compileAndAppend($('.thumbnails-wrapper'), models, this.thumbnailItemTemplate);
     return this;
   }
 });
