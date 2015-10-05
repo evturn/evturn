@@ -1,4 +1,4 @@
-let _ = require('underscore');
+let Handlebars = require('handlebars');
 
   let Compiler = {};
 
@@ -21,26 +21,26 @@ let _ = require('underscore');
         </div>
       </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.carouselImage = function() {
     let html = `
         <div class="item">
-          <img class="img-scale gallery-item" src="<%= image %>">
+          <img class="img-scale gallery-item" src="{{ image }}">
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.carouselPanel = function() {
     let html = `
         <div class="panel-inner">
           <div class="title-container">
-            <p class="section-title"><%= name %></p>
+            <p class="section-title">{{name}}</p>
           </div>
           <div class="project-text">
-            <p class="meta"><%= description %></p>
+            <p class="meta">{{{description}}}</p>
           </div>
           <div class="project-technologies">
             <!-- Technology-items -->
@@ -50,27 +50,29 @@ let _ = require('underscore');
           </div>
         </div>`;
 
-      return _.template(html);
+      return Handlebars.compile(html);
   };
 
   Compiler.carouselTech = function() {
     let html = `
         <div class="technologies-item">
-          <i class="<%= icon %>"></i>
-          <p class="caption"><%= technology %></p>
+          <i class="{{icon}}"></i>
+          <p class="caption">{{technology}}</p>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.carouselLink = function() {
     let html = `
-        <% var url = url ? '<p class="meta"><a href="' + url + '" target="_blank"><i class="fa fa-link"></i></a></p>' : '' %>
-          <%= url %>
-        <% var repo = repo ? '<p class="meta"><a href="' + repo + '" target="_blank"><i class="fa fa-github"></i></a></p>' : '' %>
-        <%= repo %>`;
+        {{#if url}}
+          <p class="meta"><a href="{{url}}" target="_blank"><i class="fa fa-link"></i></a></p>
+        {{/if}}
+        {{#if repo}}
+          <p class="meta"><a href="{{repo}}" target="_blank"><i class="fa fa-github"></i></a></p>
+        {{/if}}`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.nav = function() {
@@ -102,7 +104,7 @@ let _ = require('underscore');
           </div>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.hero = function() {
@@ -129,7 +131,7 @@ let _ = require('underscore');
           </div>
       </section>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.navbar = function() {
@@ -146,7 +148,7 @@ let _ = require('underscore');
           </div>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.carouselNavbar = function() {
@@ -166,7 +168,7 @@ let _ = require('underscore');
           </div>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.thumbnailView = function() {
@@ -177,23 +179,23 @@ let _ = require('underscore');
           </div>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.thumbnailItem = function() {
     let html = `
         <div class="thumbnail-item">
-          <a href="#work/<%= id %>">
+          <a href="#work/{{id}}">
           <div class="thumbnail-inner">
             <div class="image-container">
-              <img class="img-scale" src="<%= thumbnail %>">
+              <img class="img-scale" src="{{thumbnail}}">
               <div class="shadow"></div>
             </div>
           </div>
           </a>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.techView = function() {
@@ -226,38 +228,38 @@ let _ = require('underscore');
           </div>
         </div>`;
 
-    return  _.template(html);
+    return  Handlebars.compile(html);
   };
 
   Compiler.techItem = function() {
     let html= `
         <div class="stat-item">
-          <span class="stat-icon"><i class="<%= icon %>"></i></span>
-          <p class="meta"><%= technology %></p>
+          <span class="stat-icon"><i class="{{icon}}"></i></span>
+          <p class="meta">{{technology}}</p>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.statItem = function() {
     let html = `
         <div class="stat-item">
-          <span class="stat-icon"><i class="<%= icon %>"></i></span>
-          <h5 class="stat-count"><%= number %></h5>
-          <p class="meta"><%= text %></p>
+          <span class="stat-icon"><i class="{{icon}}"></i></span>
+          <h5 class="stat-count">{{number}}</h5>
+          <p class="meta">{{text}}</p>
         </div>`;
 
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.bio = function() {
     let html = `
         <div class="paragraph">
-          <p><%= paragraph %></p>
+          <p>{{paragraph}}</p>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.contactView = function() {
@@ -275,16 +277,16 @@ let _ = require('underscore');
           </div>
         </div>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.linkItem = function() {
     let html = `
         <li class="link-item">
-          <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>
+          <a target="_blank" href="{{url}}"><i class="{{icon}}"></i></a>
         </li>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
   Compiler.footer = function() {
@@ -297,7 +299,7 @@ let _ = require('underscore');
         </div>
       </footer>`;
 
-    return _.template(html);
+    return Handlebars.compile(html);
   };
 
 module.exports = Compiler;
