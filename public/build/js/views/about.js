@@ -9,65 +9,44 @@ module.exports = Backbone.View.extend({
   el: '.about',
   initialize() {
     this.render();
-    this.appendStats();
-    this.appendTechnologies();
-    this.appendBio();
     this.animateStats();
   },
   render() {
+    let stats = this.get('stats').models;
+    let techs = this.get('tech').models;
+    let paragraphs = this.get('bio').models;
+
     this.$el.html(this.navbarTemplate());
     this.$el.append(this.techViewTemplate());
-
-    return this;
-  },
-  appendStats() {
-    let $sel = $('.statistics.stat-items'),
-        collection = this.get('stats'),
-        models = collection.models;
-
-    this.compileAndAppend($sel, models, this.statItemTemplate);
-    return this;
-  },
-  appendTechnologies() {
-    let $sel = $('.technology-items'),
-        collection = this.get('tech'),
-        models = collection.models;
-
-    this.compileAndAppend($sel, models, this.techItemTemplate);
-    return this;
-  },
-  appendBio() {
-    let $sel = $('.paragraphs'),
-        collection = this.get('bio'),
-        models = collection.models;
-
-    this.compileAndAppend($sel, models, this.bioTemplate);
+    this.compileAndAppend($('.statistics.stat-items'), stats, this.statItemTemplate);
+    this.compileAndAppend($('.technology-items'), techs, this.techItemTemplate);
+    this.compileAndAppend($('.paragraphs'), paragraphs, this.bioTemplate);
     return this;
   },
   animateStats() {
-    let self = this;
+    let $counters = $('.stat-count');
 
-    $('.stat-count').each(function() {
-      $(this).data('count', parseInt($(this).html(), 10));
-      $(this).html('0');
+    $counters.each((index, element) => {
+      let $element = $(element);
+      $element.data('count', parseInt($element.html(), 10));
+      $element.html('0');
 
-      self.count($(this));
+      this.count($element);
     });
 
   },
-  count($this){
-    let self = this,
-        current = parseInt($this.html(), 10);
+  count($element){
+    let current = parseInt($element.html(), 10);
 
     current = current + 50;
-    $this.html(++current);
+    $element.html(++current);
 
-    if (current > $this.data('count')) {
-        $this.html($this.data('count'));
+    if (current > $element.data('count')) {
+        $element.html($element.data('count'));
     }
     else {
-        setTimeout(function() {
-          self.count($this);
+        setTimeout(() => {
+          this.count($element);
         }, 50);
     }
   }

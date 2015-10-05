@@ -68,7 +68,6 @@ module.exports = _.extend(Backbone.View.prototype, {
   },
   scrollUp() {
     $('html, body').animate({scrollTop: 0 }, 500);
-
   },
   preloader() {
     $(window).load(function() {

@@ -56,8 +56,8 @@
 	var $ = __webpack_require__(2),
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
-	    Router = __webpack_require__(9),
-	    view = __webpack_require__(20).init(),
+	    Router = __webpack_require__(5),
+	    view = __webpack_require__(16).init(),
 	    googleAnalytics = __webpack_require__(18);
 	
 	var router = new Router();
@@ -5010,128 +5010,189 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 5 */,
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _ = __webpack_require__(3);
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(3),
+	    Backbone = __webpack_require__(4),
+	    Rza = __webpack_require__(6),
+	    Index = __webpack_require__(7),
+	    About = __webpack_require__(11),
+	    Contact = __webpack_require__(12),
+	    Work = __webpack_require__(13);
 	
-	var Compiler = {};
+	var Router = Backbone.Router.extend({
+	  wrapper: null,
+	  indexView: null,
+	  workView: null,
+	  aboutView: null,
+	  contactView: null,
+	  routes: {
+	    '': 'index',
+	    'work/*': 'project',
+	    'work/:id': 'project',
+	    'about': 'about',
+	    'contact': 'contact'
+	  },
+	  initialize: function initialize() {
+	    this.wrapper = new Rza();
+	    _.extend(this, this.wrapper);
+	  },
+	  index: function index() {
+	    this.changeState('index');
 	
-	Compiler.carouselView = function () {
-	  var html = '\n        <div class="container carousel">\n          <div class="image-container">\n            <div class="carousel animated fadeIn" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';
+	    if (this.indexView === null) {
+	      this.indexView = new Index();
+	    }
 	
-	  return _.template(html);
-	};
+	    this.wrapper.child = this.indexView;
+	    this.wrapper.render();
+	  },
+	  work: function work(model) {
+	    this.changeState('work');
 	
-	Compiler.carouselImage = function () {
-	  var html = '\n        <div class="item">\n          <img class="img-scale gallery-item" src="<%= image %>">\n        </div>';
+	    if (this.workView === null) {
+	      this.workView = new Work({ model: model });
+	      this.wrapper.child = this.workView;
+	    } else {
+	      var view = new Work({ model: model });
+	      this.wrapper.child = view;
+	    }
 	
-	  return _.template(html);
-	};
+	    this.wrapper.render();
+	  },
+	  about: function about() {
+	    this.changeState('about');
 	
-	Compiler.carouselPanel = function () {
-	  var html = '\n        <div class="panel-inner">\n          <div class="title-container">\n            <p class="section-title"><%= name %></p>\n          </div>\n          <div class="project-text">\n            <p class="meta"><%= description %></p>\n          </div>\n          <div class="project-technologies">\n            <!-- Technology-items -->\n          </div>\n          <div class="project-links">\n            <!-- Link items -->\n          </div>\n        </div>';
+	    if (this.aboutView === null) {
+	      this.aboutView = new About();
+	    }
 	
-	  return _.template(html);
-	};
+	    this.wrapper.child = this.aboutView;
+	    this.wrapper.render();
+	  },
+	  contact: function contact() {
+	    this.changeState('contact');
 	
-	Compiler.carouselTech = function () {
-	  var html = '\n        <div class="technologies-item">\n          <i class="<%= icon %>"></i>\n          <p class="caption"><%= technology %></p>\n        </div>';
+	    if (this.contactView === null) {
+	      this.contactView = new Contact();
+	    }
 	
-	  return _.template(html);
-	};
+	    this.wrapper.child = this.contactView;
+	    this.wrapper.render();
+	  },
+	  project: function project(id) {
+	    var collection = this.get('apps'),
+	        model = collection.get(id) || collection.get(1);
 	
-	Compiler.carouselLink = function () {
-	  var html = '\n        <% var url = url ? \'<p class="meta"><a href="\' + url + \'" target="_blank"><i class="fa fa-link"></i></a></p>\' : \'\' %>\n          <%= url %>\n        <% var repo = repo ? \'<p class="meta"><a href="\' + repo + \'" target="_blank"><i class="fa fa-github"></i></a></p>\' : \'\' %>\n        <%= repo %>';
+	    this.work(model);
+	  }
+	});
 	
-	  return _.template(html);
-	};
+	module.exports = Router;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
 	
-	Compiler.nav = function () {
-	  var html = '\n        <div class="container nav-content">\n          <div class="inner">\n            <div class="nav-container">\n              <div class="nav-inner">\n                <div class="header-container">\n                  <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n                  <div class="image-overlay"></div>\n                </div>\n                <div class="close-container">\n                  <i class="fa fa-times"></i>\n                </div>\n              </div>\n            </div>\n            <div class="links-container">\n              <div data-view="work" class="nav-item nav-work">\n                <h4><a class="nav-link" href="#work">Work</a></h4>\n              </div>\n              <div data-view="about" class="nav-item nav-about">\n                <h4><a class="nav-link" href="#about">About</a></h4>\n              </div>\n              <div data-view="contact" class="nav-item nav-contact">\n                <h4><a class="nav-link" href="#contact">Contact</a></h4>\n              </div>\n            </div>\n          </div>\n        </div>';
+	module.exports = Backbone.View.extend({
+	  el: '#rza',
+	  child: null,
+	  render: function render() {
+	    this.$el.html(this.child.$el);
 	
-	  return _.template(html);
-	};
-	
-	Compiler.hero = function () {
-	  var html = '\n        <section class="index-header">\n          <video id="ev-vid" poster="public/dist/img/site/vid-poster.gif" type="video/mp4">\n          </video>\n          <div class="carousel-index"></div>\n          <div class="curtain"></div>\n          <div class="container ev-navbar">\n            <div class="inner">\n              <div class="header-container">\n                <a href="/#work"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n                <div class="image-overlay"></div>\n              </div>\n              <div class="headline-container">\n                <h3 class="subhead">Evan Turner</h3>\n                <h3 class="subhead">Web Developer</h3>\n              </div>\n              <div class="burger-container">\n                <i class="fa fa-bars"></i>\n              </div>\n            </div>\n          </div>\n      </section>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.navbar = function () {
-	  var html = '\n        <div class="container ev-navbar">\n          <div class="inner">\n            <div class="header-container">\n              <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n              <div class="image-overlay"></div>\n            </div>\n            <div class="burger-container">\n              <i class="fa fa-bars"></i>\n            </div>\n          </div>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.carouselNavbar = function () {
-	  var html = '\n        <div class="container ev-navbar">\n          <div class="inner">\n            <div class="header-container">\n              <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale" id="carousel-logo"></a>\n              <div class="image-overlay"></div>\n              <div id="carousel-preloader">\n                <div id="carousel-spinner"></div>\n              </div>\n            </div>\n            <div class="burger-container">\n              <i class="fa fa-bars"></i>\n            </div>\n          </div>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.thumbnailView = function () {
-	  var html = '\n        <div class="container thumbnails">\n          <div class="wrapper thumbnails-wrapper">\n            <!-- Thumbnails Items-->\n          </div>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.thumbnailItem = function () {
-	  var html = '\n        <div class="thumbnail-item">\n          <a href="#work/<%= id %>">\n          <div class="thumbnail-inner">\n            <div class="image-container">\n              <img class="img-scale" src="<%= thumbnail %>">\n              <div class="shadow"></div>\n            </div>\n          </div>\n          </a>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.techView = function () {
-	  var html = '\n        <div class="container about">\n          <div class="wrapper">\n            <div class="image-container animated fadeInUp">\n              <img class="img-scale" src="public/dist/img/site/tile.png">\n            </div>\n            <div class="bio-container">\n              <p class="section-title">Web Development</p>\n              <div class="paragraphs">\n                <!-- Bio -->\n              </div>\n            </div>\n            <div class="info-container">\n              <div class="stats-container">\n                <p class="subhead">Notable Build Tools</p>\n                <div class="technology-items stat-items">\n                  <!-- Technologies -->\n                </div>\n              </div>\n              <div class="stats-container">\n                <p class="subhead">Statistics</p>\n                <div class="statistics stat-items">\n                  <!-- Stats -->\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.techItem = function () {
-	  var html = '\n        <div class="stat-item">\n          <span class="stat-icon"><i class="<%= icon %>"></i></span>\n          <p class="meta"><%= technology %></p>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.statItem = function () {
-	  var html = '\n        <div class="stat-item">\n          <span class="stat-icon"><i class="<%= icon %>"></i></span>\n          <h5 class="stat-count"><%= number %></h5>\n          <p class="meta"><%= text %></p>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.bio = function () {
-	  var html = '\n        <div class="paragraph">\n          <p><%= paragraph %></p>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.contactView = function () {
-	  var html = '\n        <div class="container contact animated fadeIn">\n          <div class="image-container">\n            <img class="img-scale" src="public/dist/img/site/city-invert.png">\n          </div>\n          <div class="wrapper">\n            <div class="links-container">\n              <ul class="link-items">\n                <!-- Links -->\n              </div>\n            </div>\n          </div>\n        </div>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.linkItem = function () {
-	  var html = '\n        <li class="link-item">\n          <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>\n        </li>';
-	
-	  return _.template(html);
-	};
-	
-	Compiler.footer = function () {
-	  var html = '\n      <footer class="container footer">\n        <div class="inner">\n          <div class="copyright-container">\n            <p>2015 © evturn.com | All Rights Reserved</p>\n          </div>\n        </div>\n      </footer>';
-	
-	  return _.template(html);
-	};
-	
-	module.exports = Compiler;
+	    return this;
+	  }
+	});
 
 /***/ },
 /* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var Player = __webpack_require__(8),
+	    Compiler = __webpack_require__(10);
+	
+	module.exports = Backbone.View.extend({
+	  heroTemplate: Compiler.hero(),
+	  el: '.index',
+	  initialize: function initialize() {
+	    this.render();
+	    this.setVideo();
+	  },
+	  render: function render() {
+	    this.$el.html(this.heroTemplate());
+	
+	    return this;
+	  },
+	  setVideo: function setVideo() {
+	    $(document).ready(function () {
+	      var video = document.getElementById('ev-vid');
+	
+	      Player(video);
+	    });
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var Get = __webpack_require__(9);
+	
+	module.exports = function (video) {
+	
+	  var Player = {};
+	
+	  Player.initialized = false;
+	  Player.playCount = null;
+	  Player.playlist = Get.videos();
+	  Player.timekeeper = function () {
+	    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
+	        isInitialized = Player.initialized;
+	
+	    if (!isInitialized || isLastVideo) {
+	      Player.playCount = 0;
+	    } else {
+	      Player.playCount += 1;
+	    }
+	  };
+	
+	  Player.init = function () {
+	    Player.timekeeper();
+	    video.type = 'video/mp4';
+	    video.muted = true;
+	    video.autoplay = true;
+	    video.preload = 'auto';
+	    video.src = Player.playlist[Player.playCount];
+	    video.addEventListener('ended', Player.callback);
+	    video.addEventListener('loadedmetadata', Player.reposition);
+	    video.play;
+	    video.playbackRate = 0.5;
+	    Player.initialized = true;
+	  };
+	
+	  Player.callback = function () {
+	    Player.timekeeper();
+	    video.setAttribute('src', Player.playlist[Player.playCount]);
+	    video.play;
+	    video.playbackRate = 0.5;
+	  };
+	
+	  Player.init();
+	};
+
+/***/ },
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5420,194 +5481,132 @@
 	};
 
 /***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	module.exports = Backbone.View.extend({
-	  el: '#rza',
-	  child: null,
-	  render: function render() {
-	    this.$el.html(this.child.$el);
-	
-	    return this;
-	  }
-	});
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var $ = __webpack_require__(2),
-	    _ = __webpack_require__(3),
-	    Backbone = __webpack_require__(4),
-	    Rza = __webpack_require__(8),
-	    Index = __webpack_require__(10),
-	    About = __webpack_require__(12),
-	    Contact = __webpack_require__(13),
-	    Work = __webpack_require__(14);
-	
-	var Router = Backbone.Router.extend({
-	  wrapper: null,
-	  indexView: null,
-	  workView: null,
-	  aboutView: null,
-	  contactView: null,
-	  routes: {
-	    '': 'index',
-	    'work/*': 'project',
-	    'work/:id': 'project',
-	    'about': 'about',
-	    'contact': 'contact'
-	  },
-	  initialize: function initialize() {
-	    this.wrapper = new Rza();
-	    _.extend(this, this.wrapper);
-	  },
-	  index: function index() {
-	    this.changeState('index');
-	
-	    if (this.indexView === null) {
-	      this.indexView = new Index();
-	    }
-	
-	    this.wrapper.child = this.indexView;
-	    this.wrapper.render();
-	  },
-	  work: function work(model) {
-	    this.changeState('work');
-	
-	    if (this.workView === null) {
-	      this.workView = new Work({ model: model });
-	      this.wrapper.child = this.workView;
-	    } else {
-	      var view = new Work({ model: model });
-	      this.wrapper.child = view;
-	    }
-	
-	    this.wrapper.render();
-	  },
-	  about: function about() {
-	    this.changeState('about');
-	
-	    if (this.aboutView === null) {
-	      this.aboutView = new About();
-	    }
-	
-	    this.wrapper.child = this.aboutView;
-	    this.wrapper.render();
-	  },
-	  contact: function contact() {
-	    this.changeState('contact');
-	
-	    if (this.contactView === null) {
-	      this.contactView = new Contact();
-	    }
-	
-	    this.wrapper.child = this.contactView;
-	    this.wrapper.render();
-	  },
-	  project: function project(id) {
-	    var collection = this.get('apps'),
-	        model = collection.get(id) || collection.get(1);
-	
-	    this.work(model);
-	  }
-	});
-	
-	module.exports = Router;
-
-/***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	'use strict';
 	
-	var Player = __webpack_require__(11),
-	    Compiler = __webpack_require__(6);
+	var _ = __webpack_require__(3);
 	
-	module.exports = Backbone.View.extend({
-	  heroTemplate: Compiler.hero(),
-	  el: '.index',
-	  initialize: function initialize() {
-	    this.render();
-	    this.setVideo();
-	  },
-	  render: function render() {
-	    this.$el.html(this.heroTemplate());
+	var Compiler = {};
 	
-	    return this;
-	  },
-	  setVideo: function setVideo() {
-	    $(document).ready(function () {
-	      var video = document.getElementById('ev-vid');
+	Compiler.carouselView = function () {
+	  var html = '\n        <div class="container carousel">\n          <div class="image-container">\n            <div class="carousel animated fadeIn" id="gallery">\n              <div class="carousel-inner">\n                <!-- Images -->\n              </div>\n            </div>\n          </div>\n        <div class="container info">\n          <div class="inner">\n            <div class="carousel-panel">\n              <!-- Description -->\n            </div>\n          </div>\n        </div>\n      </div>';
 	
-	      Player(video);
-	    });
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	  return _.template(html);
+	};
+	
+	Compiler.carouselImage = function () {
+	  var html = '\n        <div class="item">\n          <img class="img-scale gallery-item" src="<%= image %>">\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.carouselPanel = function () {
+	  var html = '\n        <div class="panel-inner">\n          <div class="title-container">\n            <p class="section-title"><%= name %></p>\n          </div>\n          <div class="project-text">\n            <p class="meta"><%= description %></p>\n          </div>\n          <div class="project-technologies">\n            <!-- Technology-items -->\n          </div>\n          <div class="project-links">\n            <!-- Link items -->\n          </div>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.carouselTech = function () {
+	  var html = '\n        <div class="technologies-item">\n          <i class="<%= icon %>"></i>\n          <p class="caption"><%= technology %></p>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.carouselLink = function () {
+	  var html = '\n        <% var url = url ? \'<p class="meta"><a href="\' + url + \'" target="_blank"><i class="fa fa-link"></i></a></p>\' : \'\' %>\n          <%= url %>\n        <% var repo = repo ? \'<p class="meta"><a href="\' + repo + \'" target="_blank"><i class="fa fa-github"></i></a></p>\' : \'\' %>\n        <%= repo %>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.nav = function () {
+	  var html = '\n        <div class="container nav-content">\n          <div class="inner">\n            <div class="nav-container">\n              <div class="nav-inner">\n                <div class="header-container">\n                  <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n                  <div class="image-overlay"></div>\n                </div>\n                <div class="close-container">\n                  <i class="fa fa-times"></i>\n                </div>\n              </div>\n            </div>\n            <div class="links-container">\n              <div data-view="work" class="nav-item nav-work">\n                <h4><a class="nav-link" href="#work">Work</a></h4>\n              </div>\n              <div data-view="about" class="nav-item nav-about">\n                <h4><a class="nav-link" href="#about">About</a></h4>\n              </div>\n              <div data-view="contact" class="nav-item nav-contact">\n                <h4><a class="nav-link" href="#contact">Contact</a></h4>\n              </div>\n            </div>\n          </div>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.hero = function () {
+	  var html = '\n        <section class="index-header">\n          <video id="ev-vid" poster="public/dist/img/site/vid-poster.gif" type="video/mp4">\n          </video>\n          <div class="carousel-index"></div>\n          <div class="curtain"></div>\n          <div class="container ev-navbar">\n            <div class="inner">\n              <div class="header-container">\n                <a href="/#work"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n                <div class="image-overlay"></div>\n              </div>\n              <div class="headline-container">\n                <h3 class="subhead">Evan Turner</h3>\n                <h3 class="subhead">Web Developer</h3>\n              </div>\n              <div class="burger-container">\n                <i class="fa fa-bars"></i>\n              </div>\n            </div>\n          </div>\n      </section>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.navbar = function () {
+	  var html = '\n        <div class="container ev-navbar">\n          <div class="inner">\n            <div class="header-container">\n              <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale"></a>\n              <div class="image-overlay"></div>\n            </div>\n            <div class="burger-container">\n              <i class="fa fa-bars"></i>\n            </div>\n          </div>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.carouselNavbar = function () {
+	  var html = '\n        <div class="container ev-navbar">\n          <div class="inner">\n            <div class="header-container">\n              <a href="/"><img src="public/dist/img/site/ev-av.png" class="img-scale" id="carousel-logo"></a>\n              <div class="image-overlay"></div>\n              <div id="carousel-preloader">\n                <div id="carousel-spinner"></div>\n              </div>\n            </div>\n            <div class="burger-container">\n              <i class="fa fa-bars"></i>\n            </div>\n          </div>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.thumbnailView = function () {
+	  var html = '\n        <div class="container thumbnails">\n          <div class="wrapper thumbnails-wrapper">\n            <!-- Thumbnails Items-->\n          </div>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.thumbnailItem = function () {
+	  var html = '\n        <div class="thumbnail-item">\n          <a href="#work/<%= id %>">\n          <div class="thumbnail-inner">\n            <div class="image-container">\n              <img class="img-scale" src="<%= thumbnail %>">\n              <div class="shadow"></div>\n            </div>\n          </div>\n          </a>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.techView = function () {
+	  var html = '\n        <div class="container about">\n          <div class="wrapper">\n            <div class="image-container animated fadeInUp">\n              <img class="img-scale" src="public/dist/img/site/tile.png">\n            </div>\n            <div class="bio-container">\n              <p class="section-title">Web Development</p>\n              <div class="paragraphs">\n                <!-- Bio -->\n              </div>\n            </div>\n            <div class="info-container">\n              <div class="stats-container">\n                <p class="subhead">Notable Build Tools</p>\n                <div class="technology-items stat-items">\n                  <!-- Technologies -->\n                </div>\n              </div>\n              <div class="stats-container">\n                <p class="subhead">Statistics</p>\n                <div class="statistics stat-items">\n                  <!-- Stats -->\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.techItem = function () {
+	  var html = '\n        <div class="stat-item">\n          <span class="stat-icon"><i class="<%= icon %>"></i></span>\n          <p class="meta"><%= technology %></p>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.statItem = function () {
+	  var html = '\n        <div class="stat-item">\n          <span class="stat-icon"><i class="<%= icon %>"></i></span>\n          <h5 class="stat-count"><%= number %></h5>\n          <p class="meta"><%= text %></p>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.bio = function () {
+	  var html = '\n        <div class="paragraph">\n          <p><%= paragraph %></p>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.contactView = function () {
+	  var html = '\n        <div class="container contact animated fadeIn">\n          <div class="image-container">\n            <img class="img-scale" src="public/dist/img/site/city-invert.png">\n          </div>\n          <div class="wrapper">\n            <div class="links-container">\n              <ul class="link-items">\n                <!-- Links -->\n              </div>\n            </div>\n          </div>\n        </div>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.linkItem = function () {
+	  var html = '\n        <li class="link-item">\n          <a target="_blank" href="<%= url %>"><i class="<%= icon %>"></i></a>\n        </li>';
+	
+	  return _.template(html);
+	};
+	
+	Compiler.footer = function () {
+	  var html = '\n      <footer class="container footer">\n        <div class="inner">\n          <div class="copyright-container">\n            <p>2015 © evturn.com | All Rights Reserved</p>\n          </div>\n        </div>\n      </footer>';
+	
+	  return _.template(html);
+	};
+	
+	module.exports = Compiler;
 
 /***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	var Get = __webpack_require__(7);
-	
-	module.exports = function (video) {
-	
-	  var Player = {};
-	
-	  Player.initialized = false;
-	  Player.playCount = null;
-	  Player.playlist = Get.videos();
-	  Player.timekeeper = function () {
-	    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
-	        isInitialized = Player.initialized;
-	
-	    if (!isInitialized || isLastVideo) {
-	      Player.playCount = 0;
-	    } else {
-	      Player.playCount += 1;
-	    }
-	  };
-	
-	  Player.init = function () {
-	    Player.timekeeper();
-	    video.type = 'video/mp4';
-	    video.muted = true;
-	    video.autoplay = true;
-	    video.preload = 'auto';
-	    video.src = Player.playlist[Player.playCount];
-	    video.addEventListener('ended', Player.callback);
-	    video.addEventListener('loadedmetadata', Player.reposition);
-	    video.play;
-	    video.playbackRate = 0.5;
-	    Player.initialized = true;
-	  };
-	
-	  Player.callback = function () {
-	    Player.timekeeper();
-	    video.setAttribute('src', Player.playlist[Player.playCount]);
-	    video.play;
-	    video.playbackRate = 0.5;
-	  };
-	
-	  Player.init();
-	};
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Compiler = __webpack_require__(6);
+	var Compiler = __webpack_require__(10);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbar(),
@@ -5618,63 +5617,46 @@
 	  el: '.about',
 	  initialize: function initialize() {
 	    this.render();
-	    this.appendStats();
-	    this.appendTechnologies();
-	    this.appendBio();
 	    this.animateStats();
 	  },
 	  render: function render() {
+	    var stats = this.get('stats').models;
+	    var techs = this.get('tech').models;
+	    var paragraphs = this.get('bio').models;
+	
 	    this.$el.html(this.navbarTemplate());
 	    this.$el.append(this.techViewTemplate());
-	
-	    return this;
-	  },
-	  appendStats: function appendStats() {
-	    var $sel = $('.statistics.stat-items'),
-	        collection = this.get('stats'),
-	        models = collection.models;
-	
-	    this.compileAndAppend($sel, models, this.statItemTemplate);
-	    return this;
-	  },
-	  appendTechnologies: function appendTechnologies() {
-	    var $sel = $('.technology-items'),
-	        collection = this.get('tech'),
-	        models = collection.models;
-	
-	    this.compileAndAppend($sel, models, this.techItemTemplate);
-	    return this;
-	  },
-	  appendBio: function appendBio() {
-	    var $sel = $('.paragraphs'),
-	        collection = this.get('bio'),
-	        models = collection.models;
-	
-	    this.compileAndAppend($sel, models, this.bioTemplate);
+	    this.compileAndAppend($('.statistics.stat-items'), stats, this.statItemTemplate);
+	    this.compileAndAppend($('.technology-items'), techs, this.techItemTemplate);
+	    this.compileAndAppend($('.paragraphs'), paragraphs, this.bioTemplate);
 	    return this;
 	  },
 	  animateStats: function animateStats() {
-	    var self = this;
+	    var _this = this;
 	
-	    $('.stat-count').each(function () {
-	      $(this).data('count', parseInt($(this).html(), 10));
-	      $(this).html('0');
+	    var $counters = $('.stat-count');
 	
-	      self.count($(this));
+	    $counters.each(function (index, element) {
+	      var $element = $(element);
+	      $element.data('count', parseInt($element.html(), 10));
+	      $element.html('0');
+	
+	      _this.count($element);
 	    });
 	  },
-	  count: function count($this) {
-	    var self = this,
-	        current = parseInt($this.html(), 10);
+	  count: function count($element) {
+	    var _this2 = this;
+	
+	    var current = parseInt($element.html(), 10);
 	
 	    current = current + 50;
-	    $this.html(++current);
+	    $element.html(++current);
 	
-	    if (current > $this.data('count')) {
-	      $this.html($this.data('count'));
+	    if (current > $element.data('count')) {
+	      $element.html($element.data('count'));
 	    } else {
 	      setTimeout(function () {
-	        self.count($this);
+	        _this2.count($element);
 	      }, 50);
 	    }
 	  }
@@ -5682,12 +5664,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Compiler = __webpack_require__(6);
+	var Compiler = __webpack_require__(10);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbar(),
@@ -5701,7 +5683,6 @@
 	  setView: function setView() {
 	    this.$el.html(this.navbarTemplate());
 	    this.$el.append(this.contactViewTemplate());
-	
 	    return this;
 	  },
 	  appendLinks: function appendLinks() {
@@ -5715,15 +5696,15 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
 	var _ = __webpack_require__(3),
-	    Thumbnails = __webpack_require__(15),
-	    Compiler = __webpack_require__(6),
-	    carousel = __webpack_require__(16);
+	    Thumbnails = __webpack_require__(14),
+	    Compiler = __webpack_require__(10),
+	    carousel = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  carouselNavbarTemplate: Compiler.carouselNavbar(),
@@ -5746,7 +5727,6 @@
 	    var model = this.model.toJSON();
 	    this.$el.html(this.carouselNavbarTemplate());
 	    this.$el.append(this.carouselViewTemplate(model));
-	
 	    return this;
 	  },
 	  appendCarouselPanel: function appendCarouselPanel() {
@@ -5754,7 +5734,6 @@
 	        model = this.model.toJSON();
 	
 	    $sel.append(this.carouselPanelTemplate(model));
-	
 	    return this;
 	  },
 	  appendProjectLinks: function appendProjectLinks() {
@@ -5762,25 +5741,22 @@
 	        model = this.model.toJSON();
 	
 	    $sel.append(this.carouselLinkTemplate(model));
-	
 	    return this;
 	  },
 	  appendProjectTechnologies: function appendProjectTechnologies() {
-	    var $sel = $('.project-technologies'),
-	        collection = this.get('tech', true),
+	    var collection = this.get('tech', true),
 	        ids = this.model.get('technologies'),
 	        models = _.map(ids, function (id) {
 	      return collection.get(id);
 	    });
 	
-	    this.compileAndAppend($sel, models, this.carouselTechTemplate);
+	    this.compileAndAppend($('.project-technologies'), models, this.carouselTechTemplate);
 	    return this;
 	  },
 	  appendCarouselImages: function appendCarouselImages() {
-	    var $sel = $('.carousel-inner'),
-	        models = this.model.get('items');
+	    var models = this.model.get('items');
 	
-	    this.compileAndAppend($sel, models, this.carouselImageTemplate, false);
+	    this.compileAndAppend($('.carousel-inner'), models, this.carouselImageTemplate, false);
 	    carousel();
 	    return this;
 	  },
@@ -5803,12 +5779,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Compiler = __webpack_require__(6);
+	var Compiler = __webpack_require__(10);
 	
 	module.exports = Backbone.View.extend({
 	  thumbnailViewTemplate: Compiler.thumbnailView(),
@@ -5833,7 +5809,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5898,82 +5874,7 @@
 	module.exports = initCarousel;
 
 /***/ },
-/* 17 */,
-/* 18 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	module.exports = (function (i, s, o, g, r, a, m) {
-	  i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
-	    (i[r].q = i[r].q || []).push(arguments);
-	  }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
-	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-	
-	ga('create', 'UA-58635966-1', 'auto');
-	ga('send', 'pageview');
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var Compiler = __webpack_require__(6);
-	
-	module.exports = function () {
-	  var expand = function expand() {
-	    $('.ev-nav').removeClass('slideOutRight');
-	    $('.ev-nav').addClass('on');
-	    $('.ev-nav').addClass('slideInRight');
-	    $('#curtain').addClass('on');
-	    $('#curtain').fadeTo(1000, 0.3);
-	  };
-	
-	  var collapse = function collapse() {
-	    $('.ev-nav').removeClass('slideInRight');
-	    $('.ev-nav').addClass('slideOutRight');
-	    $('#curtain').fadeTo(500, 0);
-	    setTimeout(function () {
-	      $('#curtain').removeClass('on');
-	      $('.ev-nav').removeClass('on');
-	    }, 500);
-	  };
-	
-	  var render = function render() {
-	    var navTemplate = Compiler.nav();
-	    $('.ev-nav').html(navTemplate());
-	  };
-	
-	  var events = function events() {
-	    $(document).on('click', '.burger-container', function () {
-	      expand();
-	    });
-	
-	    $(document).on('click', '.close-container', function () {
-	      collapse();
-	    });
-	
-	    $(document).on('click', '#curtain.on', function () {
-	      collapse();
-	    });
-	
-	    $(document).on('click', '.nav-item a', function () {
-	      collapse();
-	    });
-	  };
-	
-	  var init = function init() {
-	    render();
-	    events();
-	  };
-	
-	  return init();
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 20 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5981,10 +5882,10 @@
 	var $ = __webpack_require__(2),
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
-	    Compiler = __webpack_require__(6),
-	    Get = __webpack_require__(7),
-	    nav = __webpack_require__(19),
-	    Rza = __webpack_require__(8);
+	    Compiler = __webpack_require__(10),
+	    Get = __webpack_require__(9),
+	    nav = __webpack_require__(17),
+	    Rza = __webpack_require__(6);
 	
 	var Model = Backbone.Model.extend({});
 	var Collection = Backbone.Collection.extend({
@@ -6083,6 +5984,80 @@
 	    });
 	  }
 	});
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var Compiler = __webpack_require__(10);
+	
+	module.exports = function () {
+	  var expand = function expand() {
+	    $('.ev-nav').removeClass('slideOutRight');
+	    $('.ev-nav').addClass('on');
+	    $('.ev-nav').addClass('slideInRight');
+	    $('#curtain').addClass('on');
+	    $('#curtain').fadeTo(1000, 0.3);
+	  };
+	
+	  var collapse = function collapse() {
+	    $('.ev-nav').removeClass('slideInRight');
+	    $('.ev-nav').addClass('slideOutRight');
+	    $('#curtain').fadeTo(500, 0);
+	    setTimeout(function () {
+	      $('#curtain').removeClass('on');
+	      $('.ev-nav').removeClass('on');
+	    }, 500);
+	  };
+	
+	  var render = function render() {
+	    var navTemplate = Compiler.nav();
+	    $('.ev-nav').html(navTemplate());
+	  };
+	
+	  var events = function events() {
+	    $(document).on('click', '.burger-container', function () {
+	      expand();
+	    });
+	
+	    $(document).on('click', '.close-container', function () {
+	      collapse();
+	    });
+	
+	    $(document).on('click', '#curtain.on', function () {
+	      collapse();
+	    });
+	
+	    $(document).on('click', '.nav-item a', function () {
+	      collapse();
+	    });
+	  };
+	
+	  var init = function init() {
+	    render();
+	    events();
+	  };
+	
+	  return init();
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	module.exports = (function (i, s, o, g, r, a, m) {
+	  i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
+	    (i[r].q = i[r].q || []).push(arguments);
+	  }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	
+	ga('create', 'UA-58635966-1', 'auto');
+	ga('send', 'pageview');
 
 /***/ }
 /******/ ]);

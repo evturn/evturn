@@ -12,7 +12,6 @@ module.exports = Backbone.View.extend({
   setView() {
     this.$el.html(this.navbarTemplate());
     this.$el.append(this.contactViewTemplate());
-
     return this;
   },
   appendLinks() {

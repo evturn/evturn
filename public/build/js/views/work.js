@@ -24,7 +24,6 @@ module.exports = Backbone.View.extend({
     let model = this.model.toJSON();
     this.$el.html(this.carouselNavbarTemplate());
     this.$el.append(this.carouselViewTemplate(model));
-
     return this;
   },
   appendCarouselPanel() {
@@ -32,7 +31,6 @@ module.exports = Backbone.View.extend({
         model = this.model.toJSON();
 
     $sel.append(this.carouselPanelTemplate(model));
-
     return this;
   },
   appendProjectLinks() {
@@ -40,25 +38,22 @@ module.exports = Backbone.View.extend({
         model = this.model.toJSON();
 
     $sel.append(this.carouselLinkTemplate(model));
-
     return this;
   },
   appendProjectTechnologies() {
-    let $sel = $('.project-technologies'),
-        collection = this.get('tech', true),
+    let collection = this.get('tech', true),
         ids      = this.model.get('technologies'),
         models = _.map(ids, function(id) {
           return collection.get(id);
         });
 
-    this.compileAndAppend($sel, models, this.carouselTechTemplate);
+    this.compileAndAppend($('.project-technologies'), models, this.carouselTechTemplate);
     return this;
   },
   appendCarouselImages() {
-    let $sel = $('.carousel-inner'),
-        models = this.model.get('items');
+    let models = this.model.get('items');
 
-    this.compileAndAppend($sel, models, this.carouselImageTemplate, false);
+    this.compileAndAppend($('.carousel-inner'), models, this.carouselImageTemplate, false);
     carousel();
     return this;
   },
