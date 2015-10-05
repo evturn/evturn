@@ -7,7 +7,7 @@
     right: 0;
     height: 100%;
     width: 320px;
-    background-color: @color-bg-main;
+    background-color: @color-bg-white;
     display: block;
     .box-shadow(-5px 0px 52px 1px rgba(0,0,0,0.75));
     &.slideInRight {
@@ -29,7 +29,7 @@
     height: 100px;
   }
   .close-container {
-    color: @color-tx-white;
+    color: @color-tx-black;
     float: right;
     font-size: 3rem;
     cursor: pointer;
@@ -78,10 +78,14 @@
     z-index: 2;
     margin-bottom: 10px;
     .prevent-flash();
+  }
+
+  .nav-item a,
+  .close-container {
     @media (min-width: @sm) {
-      &:hover a {
+      &:hover {
         .transition(0.2s);
-        color: @color-tx-white;
+        color: @color-tx-main;
       }
     }
   }
