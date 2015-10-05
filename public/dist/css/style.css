@@ -5459,6 +5459,12 @@ video::-webkit-media-controls {
     height: auto;
     padding: auto;
     opacity: 0.1;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .ev-nav .header-container:hover {
+    opacity: 0.4;
   }
 }
 .ev-nav .header-container img {
