@@ -22,39 +22,26 @@ module.exports = Backbone.View.extend({
   },
   appendStats() {
     let $sel = $('.statistics.stat-items'),
-        collection = this.get('stats');
+        collection = this.get('stats'),
+        models = collection.models;
 
-    for (let i = 0; i < collection.models.length; i++) {
-      let model = collection.models[i].toJSON();
-
-      $sel.append(this.statItemTemplate(model));
-    }
-
+    this.compileAndAppend($sel, models, this.statItemTemplate);
     return this;
   },
   appendTechnologies() {
     let $sel = $('.technology-items'),
-        collection = this.get('tech');
+        collection = this.get('tech'),
+        models = collection.models;
 
-    for (let i = 0; i < collection.models.length; i++) {
-      let model = collection.models[i].toJSON();
-
-      $sel.append(this.techItemTemplate(model));
-    }
-
+    this.compileAndAppend($sel, models, this.techItemTemplate);
     return this;
   },
   appendBio() {
     let $sel = $('.paragraphs'),
-        collection = this.get('bio');
+        collection = this.get('bio'),
+        models = collection.models;
 
-
-    for (let i = 0; i < collection.models.length; i++) {
-      let model = collection.models[i].toJSON();
-
-      $sel.append(this.bioTemplate(model));
-    }
-
+    this.compileAndAppend($sel, models, this.bioTemplate);
     return this;
   },
   animateStats() {

@@ -48,6 +48,15 @@ module.exports = _.extend(Backbone.View.prototype, {
 
     return new Collection(models);
   },
+  // default true, `.toJSON` will be applied on iteratee
+  // pass `false` to prevent`.toJSON` from being called on iteratee
+  compileAndAppend($element, models, template, json=true) {
+    for (let m of models) {
+      let model = json ? m.toJSON() : m;
+
+      $element.append(template(model));
+    }
+  },
   changeState(string) {
     let $selector = $(document.getElementsByClassName(string)),
         element = document.createElement('div');

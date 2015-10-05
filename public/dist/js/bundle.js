@@ -5631,38 +5631,26 @@
 	  },
 	  appendStats: function appendStats() {
 	    var $sel = $('.statistics.stat-items'),
-	        collection = this.get('stats');
+	        collection = this.get('stats'),
+	        models = collection.models;
 	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $sel.append(this.statItemTemplate(model));
-	    }
-	
+	    this.compileAndAppend($sel, models, this.statItemTemplate);
 	    return this;
 	  },
 	  appendTechnologies: function appendTechnologies() {
 	    var $sel = $('.technology-items'),
-	        collection = this.get('tech');
+	        collection = this.get('tech'),
+	        models = collection.models;
 	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $sel.append(this.techItemTemplate(model));
-	    }
-	
+	    this.compileAndAppend($sel, models, this.techItemTemplate);
 	    return this;
 	  },
 	  appendBio: function appendBio() {
 	    var $sel = $('.paragraphs'),
-	        collection = this.get('bio');
+	        collection = this.get('bio'),
+	        models = collection.models;
 	
-	    for (var i = 0; i < collection.models.length; i++) {
-	      var model = collection.models[i].toJSON();
-	
-	      $sel.append(this.bioTemplate(model));
-	    }
-	
+	    this.compileAndAppend($sel, models, this.bioTemplate);
 	    return this;
 	  },
 	  animateStats: function animateStats() {
@@ -5789,26 +5777,15 @@
 	      return collection.get(id);
 	    });
 	
-	    for (var i = 0; i < models.length; i++) {
-	      var model = models[i].toJSON();
-	
-	      $sel.append(this.carouselTechTemplate(model));
-	    }
-	
+	    this.compileAndAppend($sel, models, this.carouselTechTemplate);
 	    return this;
 	  },
 	  appendCarouselImages: function appendCarouselImages() {
 	    var $sel = $('.carousel-inner'),
 	        models = this.model.get('items');
 	
-	    for (var i = 0; i < models.length; i++) {
-	      var model = models[i];
-	
-	      $sel.append(this.carouselImageTemplate(model));
-	    }
-	
+	    this.compileAndAppend($sel, models, this.carouselImageTemplate, false);
 	    carousel();
-	
 	    return this;
 	  },
 	  appendProjectThumbnails: function appendProjectThumbnails() {
@@ -6061,6 +6038,37 @@
 	    }
 	
 	    return new Collection(models);
+	  },
+	  // default true, `.toJSON` will be applied on iteratee
+	  // pass `false` to prevent`.toJSON` from being called on iteratee
+	  compileAndAppend: function compileAndAppend($element, models, template) {
+	    var json = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+	
+	    try {
+	      for (var _iterator = models[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var m = _step.value;
+	
+	        var model = json ? m.toJSON() : m;
+	
+	        $element.append(template(model));
+	      }
+	    } catch (err) {
+	      _didIteratorError = true;
+	      _iteratorError = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion && _iterator['return']) {
+	          _iterator['return']();
+	        }
+	      } finally {
+	        if (_didIteratorError) {
+	          throw _iteratorError;
+	        }
+	      }
+	    }
 	  },
 	  changeState: function changeState(string) {
 	    var $selector = $(document.getElementsByClassName(string)),

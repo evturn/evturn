@@ -51,26 +51,15 @@ module.exports = Backbone.View.extend({
           return collection.get(id);
         });
 
-    for (let i = 0; i < models.length; i++) {
-      let model = models[i].toJSON();
-
-      $sel.append(this.carouselTechTemplate(model));
-    }
-
+    this.compileAndAppend($sel, models, this.carouselTechTemplate);
     return this;
   },
   appendCarouselImages() {
     let $sel = $('.carousel-inner'),
-        models   = this.model.get('items');
+        models = this.model.get('items');
 
-    for (let i = 0; i < models.length; i++) {
-      let model = models[i];
-
-      $sel.append(this.carouselImageTemplate(model));
-    }
-
+    this.compileAndAppend($sel, models, this.carouselImageTemplate, false);
     carousel();
-
     return this;
   },
   appendProjectThumbnails() {
