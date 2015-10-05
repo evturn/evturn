@@ -5175,7 +5175,6 @@
 	    video.preload = 'auto';
 	    video.src = Player.playlist[Player.playCount];
 	    video.addEventListener('ended', Player.callback);
-	    video.addEventListener('loadedmetadata', Player.reposition);
 	    video.play;
 	    video.playbackRate = 0.5;
 	    Player.initialized = true;
@@ -5725,6 +5724,7 @@
 	  },
 	  render: function render() {
 	    var model = this.model.toJSON();
+	
 	    this.$el.html(this.carouselNavbarTemplate());
 	    this.$el.append(this.carouselViewTemplate(model));
 	    return this;

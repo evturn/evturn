@@ -70,7 +70,7 @@ module.exports = _.extend(Backbone.View.prototype, {
     $('html, body').animate({scrollTop: 0 }, 500);
   },
   preloader() {
-    $(window).load(function() {
+    $(window).load(() => {
       let $container = $('#preloader'),
           $image = $('.preloader');
 

@@ -22,6 +22,7 @@ module.exports = Backbone.View.extend({
   },
   render() {
     let model = this.model.toJSON();
+
     this.$el.html(this.carouselNavbarTemplate());
     this.$el.append(this.carouselViewTemplate(model));
     return this;
@@ -68,7 +69,7 @@ module.exports = Backbone.View.extend({
 
     $img.addClass('spin');
     $container.delay(500).fadeOut();
-    setTimeout(function() {
+    setTimeout(() => {
       $img.removeClass('spin');
     }, 780);
   }

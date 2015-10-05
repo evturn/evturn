@@ -27,7 +27,6 @@ module.exports = function(video) {
     video.preload = 'auto';
     video.src = Player.playlist[Player.playCount];
     video.addEventListener('ended', Player.callback);
-    video.addEventListener('loadedmetadata', Player.reposition);
     video.play;
     video.playbackRate = 0.5;
     Player.initialized = true;

@@ -45,11 +45,11 @@ function nextImage() {
       next = counter + 1;
   }
 
-  $('.active').fadeTo(1000, 0, function() {
+  $('.active').fadeTo(1000, 0, () => {
     $('.item').removeClass('active');
   });
 
-  $('.next').fadeTo(1000, 1, function() {
+  $('.next').fadeTo(1000, 1, () => {
     $('.item').removeClass('next');
     $('.item:nth-child(' + counter + ')').addClass('active');
     $('.item:nth-child(' + next + ')').addClass('next');

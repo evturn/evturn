@@ -13,7 +13,7 @@ module.exports = function() {
     $('.ev-nav').removeClass('slideInRight');
     $('.ev-nav').addClass('slideOutRight');
     $('#curtain').fadeTo(500, 0);
-    setTimeout(function() {
+    setTimeout(() => {
       $('#curtain').removeClass('on');
       $('.ev-nav').removeClass('on');
     }, 500);
@@ -25,19 +25,19 @@ module.exports = function() {
   };
 
   let events = function() {
-    $(document).on('click', '.burger-container', function() {
+    $(document).on('click', '.burger-container', () => {
       expand();
     });
 
-    $(document).on('click', '.close-container', function() {
+    $(document).on('click', '.close-container', () => {
       collapse();
     });
 
-    $(document).on('click', '#curtain.on', function() {
+    $(document).on('click', '#curtain.on', () => {
       collapse();
     });
 
-    $(document).on('click', '.nav-item a', function() {
+    $(document).on('click', '.nav-item a', () => {
       collapse();
     });
   };
