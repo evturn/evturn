@@ -56,12 +56,11 @@
 	var $ = __webpack_require__(2),
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
-	    EVTURN = __webpack_require__(5),
 	    Router = __webpack_require__(9),
 	    googleAnalytics = __webpack_require__(18);
 	
+	__webpack_require__(20).init();
 	var router = new Router();
-	EVTURN.init();
 	Backbone.history.start();
 
 /***/ },
@@ -5011,154 +5010,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var $ = __webpack_require__(2),
-	    _ = __webpack_require__(3),
-	    Backbone = __webpack_require__(4),
-	    Compiler = __webpack_require__(6),
-	    Get = __webpack_require__(7),
-	    Rza = __webpack_require__(8);
-	
-	var EVTURN = {};
-	
-	EVTURN.Model = Backbone.Model.extend({});
-	EVTURN.Collection = Backbone.Collection.extend({
-	  model: EVTURN.Model
-	});
-	
-	EVTURN.init = function () {
-	  EVTURN.preloader();
-	  EVTURN.Nav();
-	};
-	
-	EVTURN.get = function (value) {
-	  var options = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
-	
-	  var data = undefined,
-	      models = undefined;
-	
-	  switch (value) {
-	    case 'links':
-	      data = Get.links();
-	      break;
-	    case 'stats':
-	      data = Get.stats();
-	      break;
-	    case 'tech':
-	      data = Get.tech();
-	      break;
-	    case 'apps':
-	      data = Get.apps();
-	      break;
-	    case 'bio':
-	      data = Get.bio();
-	      break;
-	  };
-	
-	  if (options) {
-	    models = _.has(data, 'id') ? _.sortBy(data, 'id') : data;
-	  } else {
-	    var featured = _.has(_.first(data), 'featured') ? _.where(data, { featured: true }) : data;
-	
-	    models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
-	  }
-	
-	  return new EVTURN.Collection(models);
-	};
-	
-	EVTURN.createElement = function (string) {
-	  var $selector = $(document.getElementsByClassName(string)),
-	      element = document.createElement('div');
-	
-	  element.className = string;
-	  element.dataset.view = string;
-	  $selector.remove();
-	  $(element).insertAfter(new Rza().$el);
-	};
-	
-	EVTURN.navActive = function (string) {
-	  $('.nav-item').removeClass('nav-active');
-	  $('.nav-' + string).addClass('nav-active');
-	};
-	
-	EVTURN.changeState = function (string) {
-	  this.navActive(string);
-	  this.createElement(string);
-	};
-	
-	EVTURN.scrollUp = function () {
-	  $('html, body').animate({ scrollTop: 0 }, 500);
-	};
-	
-	EVTURN.preloader = function () {
-	  $(window).load(function () {
-	    var $container = $('#preloader'),
-	        $image = $('.preloader');
-	
-	    $container.delay(500).fadeOut();
-	    $image.delay(600).fadeOut(600);
-	  });
-	};
-	
-	EVTURN.Nav = function () {
-	  var expand = function expand() {
-	    $('.ev-nav').removeClass('slideOutRight');
-	    $('.ev-nav').addClass('on');
-	    $('.ev-nav').addClass('slideInRight');
-	    $('#curtain').addClass('on');
-	    $('#curtain').fadeTo(1000, 0.3);
-	  };
-	
-	  var collapse = function collapse() {
-	    $('.ev-nav').removeClass('slideInRight');
-	    $('.ev-nav').addClass('slideOutRight');
-	    $('#curtain').fadeTo(500, 0);
-	    setTimeout(function () {
-	      $('#curtain').removeClass('on');
-	      $('.ev-nav').removeClass('on');
-	    }, 500);
-	  };
-	
-	  var render = function render() {
-	    var navTemplate = Compiler.nav();
-	    $('.ev-nav').html(navTemplate());
-	  };
-	
-	  var events = function events() {
-	    $(document).on('click touchstart', '.burger-container', function () {
-	      expand();
-	    });
-	
-	    $(document).on('click touchstart', '.close-container', function () {
-	      collapse();
-	    });
-	
-	    $(document).on('click touchstart', '#curtain.on', function () {
-	      collapse();
-	    });
-	
-	    $(document).on('click', '.nav-item a', function () {
-	      collapse();
-	    });
-	  };
-	
-	  var init = function init() {
-	    render();
-	    events();
-	  };
-	
-	  return init();
-	};
-	
-	_.extend(Backbone.View.prototype, EVTURN);
-	
-	module.exports = EVTURN;
-
-/***/ },
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -5592,7 +5444,6 @@
 	var $ = __webpack_require__(2),
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
-	    EVTURN = __webpack_require__(5),
 	    Rza = __webpack_require__(8),
 	    Index = __webpack_require__(10),
 	    About = __webpack_require__(12),
@@ -5615,8 +5466,18 @@
 	  initialize: function initialize() {
 	    this.wrapper = new Rza();
 	  },
+	  changeState: function changeState(string) {
+	    var $selector = $(document.getElementsByClassName(string)),
+	        element = document.createElement('div');
+	
+	    element.className = string;
+	    element.dataset.view = string;
+	    $selector.remove();
+	    $(element).insertAfter(new Rza().$el);
+	  },
+	  get: _.extend(undefined, Backbone.View.prototype.get),
 	  index: function index() {
-	    EVTURN.changeState('index');
+	    this.changeState('index');
 	
 	    if (this.indexView === null) {
 	      this.indexView = new Index();
@@ -5626,7 +5487,7 @@
 	    this.wrapper.render();
 	  },
 	  work: function work(model) {
-	    EVTURN.changeState('work');
+	    this.changeState('work');
 	
 	    if (this.workView === null) {
 	      this.workView = new Work({ model: model });
@@ -5639,7 +5500,7 @@
 	    this.wrapper.render();
 	  },
 	  about: function about() {
-	    EVTURN.changeState('about');
+	    this.changeState('about');
 	
 	    if (this.aboutView === null) {
 	      this.aboutView = new About();
@@ -5649,7 +5510,7 @@
 	    this.wrapper.render();
 	  },
 	  contact: function contact() {
-	    EVTURN.changeState('contact');
+	    this.changeState('contact');
 	
 	    if (this.contactView === null) {
 	      this.contactView = new Contact();
@@ -5659,7 +5520,7 @@
 	    this.wrapper.render();
 	  },
 	  project: function project(id) {
-	    var collection = EVTURN.get('apps'),
+	    var collection = this.get('apps'),
 	        model = collection.get(id) || collection.get(1);
 	
 	    this.work(model);
@@ -5755,8 +5616,7 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6);
+	var Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbar(),
@@ -5780,7 +5640,7 @@
 	  },
 	  appendStats: function appendStats() {
 	    var $sel = $('.statistics.stat-items'),
-	        collection = EVTURN.get('stats');
+	        collection = this.get('stats');
 	
 	    for (var i = 0; i < collection.models.length; i++) {
 	      var model = collection.models[i].toJSON();
@@ -5804,7 +5664,7 @@
 	  },
 	  appendBio: function appendBio() {
 	    var $sel = $('.paragraphs'),
-	        collection = EVTURN.get('bio');
+	        collection = this.get('bio');
 	
 	    for (var i = 0; i < collection.models.length; i++) {
 	      var model = collection.models[i].toJSON();
@@ -5848,8 +5708,7 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6);
+	var Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbar(),
@@ -5867,7 +5726,7 @@
 	    return this;
 	  },
 	  appendLinks: function appendLinks() {
-	    var collection = EVTURN.get('links');
+	    var collection = this.get('links');
 	
 	    for (var i = 0; i < collection.models.length; i++) {
 	      var model = collection.models[i].toJSON();
@@ -5888,7 +5747,6 @@
 	
 	var _ = __webpack_require__(3),
 	    Thumbnails = __webpack_require__(15),
-	    EVTURN = __webpack_require__(5),
 	    Compiler = __webpack_require__(6),
 	    carousel = __webpack_require__(16);
 	
@@ -5986,8 +5844,7 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var EVTURN = __webpack_require__(5),
-	    Compiler = __webpack_require__(6);
+	var Compiler = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  thumbnailViewTemplate: Compiler.thumbnailView(),
@@ -6096,6 +5953,137 @@
 	
 	ga('create', 'UA-58635966-1', 'auto');
 	ga('send', 'pageview');
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var Compiler = __webpack_require__(6);
+	
+	module.exports = function () {
+	  var expand = function expand() {
+	    $('.ev-nav').removeClass('slideOutRight');
+	    $('.ev-nav').addClass('on');
+	    $('.ev-nav').addClass('slideInRight');
+	    $('#curtain').addClass('on');
+	    $('#curtain').fadeTo(1000, 0.3);
+	  };
+	
+	  var collapse = function collapse() {
+	    $('.ev-nav').removeClass('slideInRight');
+	    $('.ev-nav').addClass('slideOutRight');
+	    $('#curtain').fadeTo(500, 0);
+	    setTimeout(function () {
+	      $('#curtain').removeClass('on');
+	      $('.ev-nav').removeClass('on');
+	    }, 500);
+	  };
+	
+	  var render = function render() {
+	    var navTemplate = Compiler.nav();
+	    $('.ev-nav').html(navTemplate());
+	  };
+	
+	  var events = function events() {
+	    $(document).on('click touchstart', '.burger-container', function () {
+	      expand();
+	    });
+	
+	    $(document).on('click touchstart', '.close-container', function () {
+	      collapse();
+	    });
+	
+	    $(document).on('click touchstart', '#curtain.on', function () {
+	      collapse();
+	    });
+	
+	    $(document).on('click', '.nav-item a', function () {
+	      collapse();
+	    });
+	  };
+	
+	  var init = function init() {
+	    render();
+	    events();
+	  };
+	
+	  return init();
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(3),
+	    Backbone = __webpack_require__(4),
+	    Compiler = __webpack_require__(6),
+	    Get = __webpack_require__(7),
+	    nav = __webpack_require__(19),
+	    Rza = __webpack_require__(8);
+	
+	var Model = Backbone.Model.extend({});
+	var Collection = Backbone.Collection.extend({
+	  model: Model
+	});
+	
+	module.exports = _.extend(Backbone.View.prototype, {
+	  init: function init() {
+	    this.preloader();
+	    nav();
+	  },
+	  get: function get(value) {
+	    var options = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+	
+	    var data = undefined,
+	        models = undefined;
+	
+	    switch (value) {
+	      case 'links':
+	        data = Get.links();
+	        break;
+	      case 'stats':
+	        data = Get.stats();
+	        break;
+	      case 'tech':
+	        data = Get.tech();
+	        break;
+	      case 'apps':
+	        data = Get.apps();
+	        break;
+	      case 'bio':
+	        data = Get.bio();
+	        break;
+	    };
+	
+	    if (options) {
+	      models = _.has(data, 'id') ? _.sortBy(data, 'id') : data;
+	    } else {
+	      var featured = _.has(_.first(data), 'featured') ? _.where(data, { featured: true }) : data;
+	
+	      models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
+	    }
+	
+	    return new Collection(models);
+	  },
+	  scrollUp: function scrollUp() {
+	    $('html, body').animate({ scrollTop: 0 }, 500);
+	  },
+	  preloader: function preloader() {
+	    $(window).load(function () {
+	      var $container = $('#preloader'),
+	          $image = $('.preloader');
+	
+	      $container.delay(500).fadeOut();
+	      $image.delay(600).fadeOut(600);
+	    });
+	  }
+	});
 
 /***/ }
 /******/ ]);

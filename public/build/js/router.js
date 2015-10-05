@@ -1,7 +1,6 @@
 let $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
-    EVTURN = require('./evturn-view'),
     Rza = require('./views/wrapper'),
     Index = require('./views/index'),
     About = require('./views/about'),
@@ -24,8 +23,18 @@ let Router = Backbone.Router.extend({
   initialize() {
     this.wrapper = new Rza();
   },
+  changeState(string) {
+    let $selector = $(document.getElementsByClassName(string)),
+        element = document.createElement('div');
+
+    element.className = string;
+    element.dataset.view = string;
+    $selector.remove();
+    $(element).insertAfter(new Rza().$el);
+  },
+  get: _.extend(this, Backbone.View.prototype.get),
   index() {
-    EVTURN.changeState('index');
+    this.changeState('index');
 
     if (this.indexView === null) {
         this.indexView = new Index();
@@ -35,7 +44,7 @@ let Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   work(model) {
-    EVTURN.changeState('work');
+    this.changeState('work');
 
     if (this.workView === null) {
         this.workView = new Work({model: model});
@@ -49,7 +58,7 @@ let Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   about() {
-    EVTURN.changeState('about');
+    this.changeState('about');
 
     if (this.aboutView === null) {
         this.aboutView = new About();
@@ -59,7 +68,7 @@ let Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   contact() {
-    EVTURN.changeState('contact');
+    this.changeState('contact');
 
     if (this.contactView === null) {
         this.contactView = new Contact();
@@ -69,7 +78,7 @@ let Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   project(id) {
-    let collection = EVTURN.get('apps'),
+    let collection = this.get('apps'),
         model = collection.get(id) || collection.get(1);
 
     this.work(model);

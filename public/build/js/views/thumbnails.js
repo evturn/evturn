@@ -1,5 +1,4 @@
-let EVTURN = require('../evturn-view'),
-    Compiler = require('../templates');
+let Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   thumbnailViewTemplate: Compiler.thumbnailView(),

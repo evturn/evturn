@@ -1,6 +1,5 @@
 let _ = require('underscore'),
     Thumbnails = require('./thumbnails'),
-    EVTURN = require('../evturn-view'),
     Compiler = require('../templates'),
     carousel = require('../carousel');
 

@@ -1,5 +1,4 @@
-let EVTURN = require('../evturn-view'),
-    Compiler = require('../templates');
+let Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   navbarTemplate      : Compiler.navbar(),
@@ -17,7 +16,7 @@ module.exports = Backbone.View.extend({
     return this;
   },
   appendLinks() {
-    let collection = EVTURN.get('links');
+    let collection = this.get('links');
 
     for (var i = 0; i < collection.models.length; i++) {
       let model = collection.models[i].toJSON();

@@ -1,5 +1,4 @@
-let EVTURN = require('../evturn-view'),
-    Compiler = require('../templates');
+let Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   navbarTemplate   : Compiler.navbar(),
@@ -23,7 +22,7 @@ module.exports = Backbone.View.extend({
   },
   appendStats() {
     let $sel = $('.statistics.stat-items'),
-        collection = EVTURN.get('stats');
+        collection = this.get('stats');
 
     for (let i = 0; i < collection.models.length; i++) {
       let model = collection.models[i].toJSON();
@@ -47,7 +46,7 @@ module.exports = Backbone.View.extend({
   },
   appendBio() {
     let $sel = $('.paragraphs'),
-        collection = EVTURN.get('bio');
+        collection = this.get('bio');
 
 
     for (let i = 0; i < collection.models.length; i++) {
