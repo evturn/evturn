@@ -1,7 +1,6 @@
 "use strict";
 
 let webpack = require('webpack'),
-    webpackDevServer = require('webpack-dev-server'),
     path = require('path');
 
 module.exports = {
@@ -21,6 +20,16 @@ module.exports = {
     ]
   },
   resolve: {
+    root: [
+      'web_modules',
+      'node_modules',
+      'views'
+    ],
+    moduleDirectories: [
+      'web_modules',
+      'node_modules',
+      'shared'
+    ],
     extension: [
     '.js'
     ],

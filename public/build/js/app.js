@@ -3,7 +3,7 @@ let $ = require('jquery'),
     Backbone = require('backbone'),
     EVTURN = require('./evturn-view'),
     Router = require('./router'),
-    googleAnalytics = require('./vendor/google-analytics');
+    googleAnalytics = require('google-analytics');
 
 let router = new Router();
 EVTURN.init();

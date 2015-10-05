@@ -58,7 +58,7 @@
 	    Backbone = __webpack_require__(4),
 	    EVTURN = __webpack_require__(5),
 	    Router = __webpack_require__(9),
-	    googleAnalytics = __webpack_require__(17);
+	    googleAnalytics = __webpack_require__(18);
 	
 	var router = new Router();
 	EVTURN.init();
@@ -6074,7 +6074,8 @@
 	module.exports = initCarousel;
 
 /***/ },
-/* 17 */
+/* 17 */,
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';

@@ -17,19 +17,15 @@ module.exports = {
   eslint: {
     src: [
       'public/build/js/**/*.js',
-      '!public/build/js/vendor/**/*.js',
+      '!public/build/js/web_modules/**/*.js',
+      'public/build/js/views/**/*.js',
       'config/**/*.js',
       'gulpfile.js'
     ],
     watch: [
-      'public/build/js/app.js',
-      'public/build/js/evturn-view.js',
-      'public/build/js/evturn-data.js',
-      'public/build/js/evturn-video.js',
-      'public/build/js/evturn-templates.js',
+      'public/build/js/**/*.js',
+      '!public/build/js/web_modules/**/*.js',
       'public/build/js/views/**/*.js',
-      'public/build/js/carousel.js',
-      'public/build/js/evturn-router.js',
       'config/**/*.js',
       'gulpfile.js'
     ]
