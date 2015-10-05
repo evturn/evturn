@@ -9,7 +9,7 @@ let gulp        = require('gulp'),
     paths       = require('./config/gulp-paths'),
     opts        = require('./config/gulp-options');
 
-gulp.task('default', ['less:watch', 'js:watch', 'eslint:watch', 'browserSync']);
+gulp.task('default', ['less:watch', 'eslint:watch', 'browserSync']);
 gulp.task('build', ['less', 'js', 'js:vendor', 'img']);
 gulp.task('dev-webpack', ['babel-tmp:watch', 'webpack:watch', 'browserSync']);
 

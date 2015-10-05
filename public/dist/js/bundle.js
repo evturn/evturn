@@ -57,7 +57,8 @@
 	    _ = __webpack_require__(3),
 	    Backbone = __webpack_require__(4),
 	    EVTURN = __webpack_require__(5),
-	    Router = __webpack_require__(9);
+	    Router = __webpack_require__(9),
+	    googleAnalytics = __webpack_require__(17);
 	
 	var router = new Router();
 	EVTURN.init();
@@ -6071,6 +6072,21 @@
 	};
 	
 	module.exports = initCarousel;
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	module.exports = (function (i, s, o, g, r, a, m) {
+	  i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
+	    (i[r].q = i[r].q || []).push(arguments);
+	  }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	
+	ga('create', 'UA-58635966-1', 'auto');
+	ga('send', 'pageview');
 
 /***/ }
 /******/ ]);
