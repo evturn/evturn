@@ -5926,7 +5926,12 @@ video::-webkit-media-controls {
 }
 @media (min-width: 800px) {
   .container.carousel .image-container {
-    height: 650px;
+    height: 500px;
+  }
+}
+@media (min-width: 1000px) {
+  .container.carousel .image-container {
+    height: 600px;
   }
 }
 .carousel-panel {
