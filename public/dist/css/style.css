@@ -5448,6 +5448,19 @@ video::-webkit-media-controls {
   -ms-user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
+@media (min-width: 600px) {
+  .ev-nav .header-container {
+    position: absolute;
+    z-index: 2;
+    left: -10px;
+    top: 20px;
+    width: 160px;
+    right: auto;
+    height: auto;
+    padding: auto;
+    opacity: 0.1;
+  }
+}
 .ev-nav .header-container img {
   z-index: 3;
   position: relative;

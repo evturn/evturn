@@ -56,6 +56,17 @@
     .margin-x-auto();
     .prevent-flash();
     .border(2px, @color-tx-white);
+    @media (min-width: @sm) {
+      position: absolute;
+      z-index: 2;
+      left: -10px;
+      top: 20px;
+      width: 160px;
+      right: auto;
+      height: auto;
+      padding: auto;
+      opacity: 0.1;
+    }
     img {
       z-index: 3;
       position: relative;
