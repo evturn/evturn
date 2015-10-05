@@ -1,36 +1,32 @@
 .contact {
   min-height: 100vh;
-  .img-scale {
-    .img-shadow;
+  .image-container {
+    .margin-x(-25px);
+    @media (min-width: @xs) {
+      .margin-x(-15px);
+    }
   }
-
   .link-items {
     padding-top: 25px;
     float: none;
     text-align: center;
-
     @media (min-width: @sm) {
       float: right;
     }
   }
-
   .link-item {
     display: inline-block;
     width: 60px;
     height: 60px;
     overflow: auto;
-
     a:focus {
-      color: @black;
+      color: @color-tx-black;
     }
-
     .fa {
-      .transition(all 0.1s ease);
       margin-left: 0;
-      margin-top: 15px;
-      font-size: 2em;
-      color: @white;
-
+      font-size: 3em;
+      color: @color-tx-white;
+      .transition(all 0.1s ease);
       &:hover {
         background-color: @black;
         padding: 10px;
@@ -38,12 +34,10 @@
         margin-top: 5px;
         margin-left: 0;
       }
+      &:focus {
+        background-color: transparent;
+        color: @color-tx-black;
+      }
     }
   }
-
-  .fa:focus {
-     background-color: transparent;
-     color: @black;
-  }
-
 }

@@ -5629,9 +5629,15 @@ video::-webkit-media-controls {
 .contact {
   min-height: 100vh;
 }
-.contact .img-scale {
-  -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
+.contact .image-container {
+  margin-left: -25px;
+  margin-right: -25px;
+}
+@media (min-width: 400px) {
+  .contact .image-container {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 }
 .contact .link-items {
   padding-top: 25px;
@@ -5653,13 +5659,12 @@ video::-webkit-media-controls {
   color: #231f20;
 }
 .contact .link-item .fa {
+  margin-left: 0;
+  font-size: 3em;
+  color: #ffffff;
   -webkit-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  margin-left: 0;
-  margin-top: 15px;
-  font-size: 2em;
-  color: #ffffff;
 }
 .contact .link-item .fa:hover {
   background-color: #231f20;
@@ -5668,7 +5673,7 @@ video::-webkit-media-controls {
   margin-top: 5px;
   margin-left: 0;
 }
-.contact .fa:focus {
+.contact .link-item .fa:focus {
   background-color: transparent;
   color: #231f20;
 }

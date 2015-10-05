@@ -5111,7 +5111,7 @@
 	};
 	
 	Compiler.contactView = function () {
-	  var html = '\n        <div class="container contact animated fadeIn">\n          <div class="wrapper">\n            <div class="image-container">\n              <img class="img-scale" src="public/dist/img/site/city-invert.png">\n              <p class="header-subhead">@evturn // evturn [@] gmail [dot] com</p>\n            </div>\n            <div class="links-container">\n              <ul class="link-items">\n                <!-- Links -->\n              </div>\n            </div>\n          </div>\n        </div>';
+	  var html = '\n        <div class="container contact animated fadeIn">\n          <div class="image-container">\n            <img class="img-scale" src="public/dist/img/site/city-invert.png">\n          </div>\n          <div class="wrapper">\n            <div class="links-container">\n              <ul class="link-items">\n                <!-- Links -->\n              </div>\n            </div>\n          </div>\n        </div>';
 	
 	  return _.template(html);
 	};
@@ -5978,15 +5978,15 @@
 	  };
 	
 	  var events = function events() {
-	    $(document).on('click touchstart', '.burger-container', function () {
+	    $(document).on('click', '.burger-container', function () {
 	      expand();
 	    });
 	
-	    $(document).on('click touchstart', '.close-container', function () {
+	    $(document).on('click', '.close-container', function () {
 	      collapse();
 	    });
 	
-	    $(document).on('click touchstart', '#curtain.on', function () {
+	    $(document).on('click', '#curtain.on', function () {
 	      collapse();
 	    });
 	

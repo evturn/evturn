@@ -263,11 +263,10 @@ let _ = require('underscore');
   Compiler.contactView = function() {
     let html = `
         <div class="container contact animated fadeIn">
+          <div class="image-container">
+            <img class="img-scale" src="public/dist/img/site/city-invert.png">
+          </div>
           <div class="wrapper">
-            <div class="image-container">
-              <img class="img-scale" src="public/dist/img/site/city-invert.png">
-              <p class="header-subhead">@evturn // evturn [@] gmail [dot] com</p>
-            </div>
             <div class="links-container">
               <ul class="link-items">
                 <!-- Links -->

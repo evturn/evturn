@@ -25,15 +25,15 @@ module.exports = function() {
   };
 
   let events = function() {
-    $(document).on('click touchstart', '.burger-container', function() {
+    $(document).on('click', '.burger-container', function() {
       expand();
     });
 
-    $(document).on('click touchstart', '.close-container', function() {
+    $(document).on('click', '.close-container', function() {
       collapse();
     });
 
-    $(document).on('click touchstart', '#curtain.on', function() {
+    $(document).on('click', '#curtain.on', function() {
       collapse();
     });
 
