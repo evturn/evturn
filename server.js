@@ -2,8 +2,7 @@
 
 let webpackDevServer = require('webpack-dev-server'),
     config = require('./webpack.config'),
-    webpack = require('webpack'),
-    path = require('path');
+    webpack = require('webpack');
 
 let compiler = webpack(config);
 let server = new webpackDevServer(compiler, {
