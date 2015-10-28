@@ -6200,7 +6200,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
 	var $ = __webpack_require__(2);
 	var _ = __webpack_require__(3);
 	var Backbone = __webpack_require__(4);
@@ -6306,34 +6305,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
 	var Compiler = __webpack_require__(10);
 	
 	module.exports = function () {
-	  var expand = function expand() {
-	    $('.ev-nav').removeClass('slideOutRight');
-	    $('.ev-nav').addClass('on');
-	    $('.ev-nav').addClass('slideInRight');
-	    $('#curtain').addClass('on');
-	    $('#curtain').fadeTo(1000, 0.3);
-	  };
+	  var $nav = $('.ev-nav');
+	  var $curtain = $('#curtain');
 	
-	  var collapse = function collapse() {
-	    $('.ev-nav').removeClass('slideInRight');
-	    $('.ev-nav').addClass('slideOutRight');
-	    $('#curtain').fadeTo(500, 0);
-	    setTimeout(function () {
-	      $('#curtain').removeClass('on');
-	      $('.ev-nav').removeClass('on');
-	    }, 500);
-	  };
+	  var init = function init() {
+	    render();
 	
-	  var render = function render() {
-	    var navTemplate = Compiler.nav();
-	    $('.ev-nav').html(navTemplate());
-	  };
-	
-	  var events = function events() {
 	    $(document).on('click', '.burger-container', function () {
 	      expand();
 	    });
@@ -6351,9 +6331,27 @@
 	    });
 	  };
 	
-	  var init = function init() {
-	    render();
-	    events();
+	  var expand = function expand() {
+	    $nav.removeClass('slideOutRight');
+	    $nav.addClass('on');
+	    $nav.addClass('slideInRight');
+	    $curtain.addClass('on');
+	    $curtain.fadeTo(1000, 0.3);
+	  };
+	
+	  var collapse = function collapse() {
+	    $nav.removeClass('slideInRight');
+	    $nav.addClass('slideOutRight');
+	    $curtain.fadeTo(500, 0);
+	    setTimeout(function () {
+	      $curtain.removeClass('on');
+	      $nav.removeClass('on');
+	    }, 500);
+	  };
+	
+	  var render = function render() {
+	    var navTemplate = Compiler.nav();
+	    $nav.html(navTemplate());
 	  };
 	
 	  return init();

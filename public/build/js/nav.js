@@ -1,30 +1,13 @@
-let Compiler = require('./templates');
+'use strict';
+const Compiler = require('./templates');
 
 module.exports = function() {
-  let expand = function() {
-    $('.ev-nav').removeClass('slideOutRight');
-    $('.ev-nav').addClass('on');
-    $('.ev-nav').addClass('slideInRight');
-    $('#curtain').addClass('on');
-    $('#curtain').fadeTo(1000, 0.3);
-  };
+  let $nav = $('.ev-nav');
+  let $curtain = $('#curtain');
 
-  let collapse = function() {
-    $('.ev-nav').removeClass('slideInRight');
-    $('.ev-nav').addClass('slideOutRight');
-    $('#curtain').fadeTo(500, 0);
-    setTimeout(() => {
-      $('#curtain').removeClass('on');
-      $('.ev-nav').removeClass('on');
-    }, 500);
-  };
+  const init = () => {
+    render();
 
-  let render = function() {
-    let navTemplate = Compiler.nav();
-    $('.ev-nav').html(navTemplate());
-  };
-
-  let events = function() {
     $(document).on('click', '.burger-container', () => {
       expand();
     });
@@ -42,9 +25,27 @@ module.exports = function() {
     });
   };
 
-  let init = function() {
-    render();
-    events();
+  const expand = () => {
+    $nav.removeClass('slideOutRight');
+    $nav.addClass('on');
+    $nav.addClass('slideInRight');
+    $curtain.addClass('on');
+    $curtain.fadeTo(1000, 0.3);
+  };
+
+  const collapse = () => {
+    $nav.removeClass('slideInRight');
+    $nav.addClass('slideOutRight');
+    $curtain.fadeTo(500, 0);
+    setTimeout(() => {
+      $curtain.removeClass('on');
+      $nav.removeClass('on');
+    }, 500);
+  };
+
+  const render = () => {
+    let navTemplate = Compiler.nav();
+    $nav.html(navTemplate());
   };
 
   return init();
