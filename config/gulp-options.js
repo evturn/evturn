@@ -21,26 +21,18 @@ module.exports = {
     }
   },
   notify: {
-    eslint: function(file) {
+    eslint: (file) => {
       if (file.eslint.errorCount === 0) {
-        return false;
+        return;
       }
-      let errors = file.eslint.messages.map(function(data) {
-        return '(' + data.line + ':' + data.column + ') ' + data.message;
-      }).join('\n');
 
-      return file.relative + ' (' + file.eslint.errorCount + ' errors)\n' + errors;
-    },
-    jshint: function(file) {
-      if (file.jshint.success) {
-        return false;
-      }
-      let errors = file.jshint.results.map(function(data) {
-        if (data.error) {
-          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
-        }
-      }).join("\n");
-      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+      let errors = file.eslint.messages.map((data) => {
+        let location = `Line: ${data.line}:${data.column} |\n${data.message}`;
+        return location
+      });
+
+      let message = `File: ${file.relative} (${file.eslint.errorCount} errors)\n${errors}\n`;
+      return message;
     }
   },
   imagemin: {
@@ -59,10 +51,5 @@ module.exports = {
       'IE 11'
     ],
     cascade: false
-  },
-    sass: {
-    sourceComments: 'map',
-    sourceMap: 'sass',
-    outputStyle: 'nested'
   }
 };
