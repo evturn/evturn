@@ -1,15 +1,21 @@
 "use strict";
-const gulp        = require('gulp');
-const gutil       = require('gulp-util');
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const $ = require('gulp-load-plugins')();
 const browserSync = require('browser-sync').create();
-const $           = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
-const paths       = require('./config/gulp-paths');
-const opts        = require('./config/gulp-options');
-const cb = () => { console.log('Finished with that.'); };
+const config = require('./config/gulp.config');
+const opts = config.opts;
+const paths = config.paths;
 
+////
+// `$ npm run watch`
+////////////////////////
 gulp.task('watch', ['webpack:watch', 'gulp:watch', 'browser:init']);
 
+////
+// Gulp Watch
+////////////////////////
 gulp.task('gulp:watch', () => {
   gulp.watch(paths.js.src, ['browser:reload']),
   gulp.watch(paths.less.watch, ['run:less']);
@@ -17,12 +23,12 @@ gulp.task('gulp:watch', () => {
   gulp.watch(paths.views.src, ['browser:reload']);
 });
 
-////////////////////////
+////
 // Shell Scripts
 ////////////////////////
 gulp.task('webpack:watch',  $.shell.task('webpack --watch &'));
 
-////////////////////////
+////
 // Browser Sync
 ////////////////////////
 gulp.task('browser:init', () => {
@@ -36,9 +42,10 @@ gulp.task('browser:reload', () => {
   browserSync.reload();
 });
 
-//////////////////////
+////
 // LESS
 //////////////////////
+const cb = () => { console.log('Finished with that.'); };
 gulp.task('run:less', (cb) => {
   runSequence('less', 'browser:reload', () => {
     cb();
@@ -58,7 +65,7 @@ gulp.task('less', () => {
     .pipe(gulp.dest(paths.dest.css)).on('error', gutil.log);
 });
 
-//////////////////////
+////
 // ESLint
 //////////////////////
 gulp.task('eslint', () => {
@@ -70,7 +77,7 @@ gulp.task('eslint', () => {
     .pipe($.notify(opts.notify.eslint));
 });
 
-//////////////////////
+////
 // Imagemin
 //////////////////////
 gulp.task('img', ['img:site', 'img:apps']);
