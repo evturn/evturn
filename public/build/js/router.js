@@ -7,13 +7,13 @@ const About = require('./views/about');
 const Contact = require('./views/contact');
 const Work = require('./views/work');
 
-const Router = Backbone.Router.extend({
+module.exports = Backbone.Router.extend({
   wrapper      : null,
   indexView    : null,
   workView     : null,
   aboutView    : null,
   contactView  : null,
-  routes       : {
+  routes: {
     ''         : 'index',
     'work/*'   : 'project',
     'work/:id' : 'project',
@@ -72,5 +72,3 @@ const Router = Backbone.Router.extend({
     this.work(model);
   }
 });
-
-module.exports = Router;

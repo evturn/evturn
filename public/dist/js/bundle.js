@@ -5023,7 +5023,7 @@
 	var Contact = __webpack_require__(13);
 	var Work = __webpack_require__(14);
 	
-	var Router = Backbone.Router.extend({
+	module.exports = Backbone.Router.extend({
 	  wrapper: null,
 	  indexView: null,
 	  workView: null,
@@ -5088,8 +5088,6 @@
 	    this.work(model);
 	  }
 	});
-	
-	module.exports = Router;
 
 /***/ },
 /* 6 */
