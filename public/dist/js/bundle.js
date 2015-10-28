@@ -5117,47 +5117,50 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var Get = __webpack_require__(9);
+	var playlist = __webpack_require__(9).videos();
 	
 	module.exports = function (video) {
+	  var initialized = undefined,
+	      playCount = undefined;
 	
-	  var Player = {};
+	  var init = function init() {
+	    initialized = false;
+	    playCount = null;
+	    timekeeper();
+	    startPlayback();
+	  };
 	
-	  Player.initialized = false;
-	  Player.playCount = null;
-	  Player.playlist = Get.videos();
-	  Player.timekeeper = function () {
-	    var isLastVideo = !!(Player.playCount === Player.playlist.length - 1),
-	        isInitialized = Player.initialized;
+	  var timekeeper = function timekeeper() {
+	    var isLastVideo = !!(playCount === playlist.length - 1);
+	    var isInitialized = initialized;
 	
 	    if (!isInitialized || isLastVideo) {
-	      Player.playCount = 0;
+	      playCount = 0;
 	    } else {
-	      Player.playCount += 1;
+	      playCount += 1;
 	    }
 	  };
 	
-	  Player.init = function () {
-	    Player.timekeeper();
+	  var startPlayback = function startPlayback() {
 	    video.type = 'video/mp4';
 	    video.muted = true;
 	    video.autoplay = true;
 	    video.preload = 'auto';
-	    video.src = Player.playlist[Player.playCount];
-	    video.addEventListener('ended', Player.callback);
+	    video.src = playlist[playCount];
+	    video.addEventListener('ended', nextVideo);
 	    video.play;
 	    video.playbackRate = 0.5;
-	    Player.initialized = true;
+	    initialized = true;
 	  };
 	
-	  Player.callback = function () {
-	    Player.timekeeper();
-	    video.setAttribute('src', Player.playlist[Player.playCount]);
+	  var nextVideo = function nextVideo() {
+	    timekeeper();
+	    video.setAttribute('src', playlist[playCount]);
 	    video.play;
 	    video.playbackRate = 0.5;
 	  };
 	
-	  Player.init();
+	  return init();
 	};
 
 /***/ },
