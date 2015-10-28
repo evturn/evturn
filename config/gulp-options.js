@@ -1,11 +1,9 @@
 "use strict";
-
-let gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    $ = require('gulp-load-plugins')();
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const $ = require('gulp-load-plugins')();
 
 module.exports = {
-
   browserSync: {
     server: {
       baseDir: './'

@@ -53,12 +53,12 @@
 
 	'use strict';
 	
-	var $ = __webpack_require__(2),
-	    _ = __webpack_require__(3),
-	    Backbone = __webpack_require__(4),
-	    Router = __webpack_require__(5),
-	    view = __webpack_require__(17).init(),
-	    googleAnalytics = __webpack_require__(19);
+	var $ = __webpack_require__(2);
+	var _ = __webpack_require__(3);
+	var Backbone = __webpack_require__(4);
+	var Router = __webpack_require__(5);
+	var view = __webpack_require__(17).init();
+	var googleAnalytics = __webpack_require__(19);
 	
 	var router = new Router();
 	Backbone.history.start();

@@ -1,20 +1,51 @@
 "use strict";
+const gulp        = require('gulp');
+const gutil       = require('gulp-util');
+const browserSync = require('browser-sync').create();
+const $           = require('gulp-load-plugins')();
+const runSequence = require('run-sequence');
+const paths       = require('./config/gulp-paths');
+const opts        = require('./config/gulp-options');
+const cb = () => { console.log('Finished with that.'); };
 
-let gulp        = require('gulp'),
-    gutil       = require('gulp-util'),
-    browserSync = require('browser-sync').create(),
-    $           = require('gulp-load-plugins')(),
-    paths       = require('./config/gulp-paths'),
-    opts        = require('./config/gulp-options');
+gulp.task('watch', ['webpack:watch', 'gulp:watch', 'browser:init']);
 
-gulp.task('default', ['less:watch', 'eslint:watch', 'browserSync']);
-gulp.task('build', ['less', 'js', 'js:vendor', 'img']);
+gulp.task('gulp:watch', () => {
+  gulp.watch(paths.js.src, ['browser:reload']),
+  gulp.watch(paths.less.watch, ['run:less']);
+  gulp.watch(paths.eslint.src, ['eslint']);
+  gulp.watch(paths.views.src, ['browser:reload']);
+});
+
+////////////////////////
+// Shell Scripts
+////////////////////////
+gulp.task('webpack:watch',  $.shell.task('webpack --watch &'));
+
+////////////////////////
+// Browser Sync
+////////////////////////
+gulp.task('browser:init', () => {
+  setTimeout(() => {
+    console.log('Browser Sync initialized');
+    browserSync.init(opts.browserSync);
+  }, 9000); // Timeout allows webpack to finish initial bundle
+});
+
+gulp.task('browser:reload', () => {
+  browserSync.reload();
+});
 
 //////////////////////
 // LESS
 //////////////////////
+gulp.task('run:less', (cb) => {
+  runSequence('less', 'browser:reload', () => {
+    cb();
+  });
+});
 
-gulp.task('less', function() {
+gulp.task('less', () => {
   return gulp.src(paths.less.src)
     .pipe($.plumber(opts.plumber))
     .pipe($.less())
@@ -28,29 +59,9 @@ gulp.task('less', function() {
 });
 
 //////////////////////
-// BABEL
+// ESLint
 //////////////////////
-
-gulp.task('js', function() {
-  return gulp.src(paths.js.src)
-    .pipe($.plumber(opts.plumber))
-    .pipe($.sourcemaps.init())
-    .pipe($.babel(opts.babel))
-    .on('error', opts.plumber.errorHandler)
-    .pipe($.concat(paths.js.filename))
-    .pipe(gulp.dest(paths.dest.js))
-    .pipe($.uglify())
-    .pipe($.rename(paths.js.min))
-    .pipe(gulp.dest(paths.dest.js))
-    .pipe($.sourcemaps.write('.'))
-    .on('error', gutil.log);
-});
-
-//////////////////////
-// ESLINT
-//////////////////////
-
-gulp.task('eslint', function() {
+gulp.task('eslint', () => {
   return gulp.src(paths.eslint.src)
     .pipe($.plumber(opts.plumber))
     .pipe($.eslint())
@@ -60,52 +71,18 @@ gulp.task('eslint', function() {
 });
 
 //////////////////////
-// IMAGEMIN
+// Imagemin
 //////////////////////
-
 gulp.task('img', ['img:site', 'img:apps']);
 
-gulp.task('img:site', function() {
+gulp.task('img:site', () => {
   return gulp.src(paths.img.site.src)
   .pipe($.imagemin(opts.imagemin))
   .pipe(gulp.dest(paths.dest.img.site));
 });
 
-gulp.task('img:apps', function() {
+gulp.task('img:apps', () => {
   return gulp.src(paths.img.apps.src)
   .pipe($.imagemin(opts.imagemin))
   .pipe(gulp.dest(paths.dest.img.apps));
-});
-
-//////////////////////
-// WATCH
-//////////////////////
-
-gulp.task('less:watch', function() {
-  gulp.watch(paths.less.watch, ['less:reload']);
-});
-
-gulp.task('js:watch', function() {
-  gulp.watch(paths.js.watch, ['js:reload']);
-});
-
-gulp.task('eslint:watch', function() {
-  gulp.watch(paths.eslint.watch, ['eslint']);
-});
-
-//////////////////////
-// BROWSERSYNC
-//////////////////////
-
-gulp.task('browserSync', function() {
-    browserSync.init(opts.browserSync);
-    gulp.watch('*.html').on('change', browserSync.reload);
-});
-
-gulp.task('less:reload', ['less'], function() {
-    browserSync.reload();
-});
-
-gulp.task('js:reload', ['js'], function() {
-    browserSync.reload();
 });
