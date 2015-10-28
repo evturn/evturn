@@ -55,9 +55,75 @@
 	var $ = __webpack_require__(2);
 	var _ = __webpack_require__(3);
 	var Backbone = __webpack_require__(4);
-	var Router = __webpack_require__(5);
-	var view = __webpack_require__(24).init();
-	var googleAnalytics = __webpack_require__(26);
+	var views = __webpack_require__(5);
+	var view = __webpack_require__(23).init();
+	var googleAnalytics = __webpack_require__(25);
+	
+	var Router = Backbone.Router.extend({
+	  wrapper: null,
+	  indexView: null,
+	  workView: null,
+	  aboutView: null,
+	  contactView: null,
+	  routes: {
+	    '': 'index',
+	    'work/*': 'project',
+	    'work/:id': 'project',
+	    'about': 'about',
+	    'contact': 'contact'
+	  },
+	  initialize: function initialize() {
+	    this.wrapper = new views.Wrapper();
+	    _.extend(this, this.wrapper);
+	  },
+	  index: function index() {
+	    this.changeState('index');
+	
+	    if (this.indexView === null) {
+	      this.indexView = new views.Index();
+	    }
+	
+	    this.wrapper.child = this.indexView;
+	    this.wrapper.render();
+	  },
+	  work: function work(model) {
+	    this.changeState('work');
+	
+	    if (this.workView === null) {
+	      this.workView = new views.Work({ model: model });
+	      this.wrapper.child = this.workView;
+	    } else {
+	      this.wrapper.child = new views.Work({ model: model });
+	    }
+	
+	    this.wrapper.render();
+	  },
+	  about: function about() {
+	    this.changeState('about');
+	
+	    if (this.aboutView === null) {
+	      this.aboutView = new views.About();
+	    }
+	
+	    this.wrapper.child = this.aboutView;
+	    this.wrapper.render();
+	  },
+	  contact: function contact() {
+	    this.changeState('contact');
+	
+	    if (this.contactView === null) {
+	      this.contactView = new views.Contact();
+	    }
+	
+	    this.wrapper.child = this.contactView;
+	    this.wrapper.render();
+	  },
+	  project: function project(id) {
+	    var collection = this.get('apps');
+	    var model = collection.get(id) || collection.get(1);
+	    this.work(model);
+	  }
+	});
 	
 	var router = new Router();
 	Backbone.history.start();
@@ -5013,97 +5079,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var $ = __webpack_require__(2);
-	var _ = __webpack_require__(3);
-	var Backbone = __webpack_require__(4);
-	var views = __webpack_require__(6);
-	
-	module.exports = Backbone.Router.extend({
-	  wrapper: null,
-	  indexView: null,
-	  workView: null,
-	  aboutView: null,
-	  contactView: null,
-	  routes: {
-	    '': 'index',
-	    'work/*': 'project',
-	    'work/:id': 'project',
-	    'about': 'about',
-	    'contact': 'contact'
-	  },
-	  initialize: function initialize() {
-	    this.wrapper = new views.Wrapper();
-	    _.extend(this, this.wrapper);
-	  },
-	  index: function index() {
-	    this.changeState('index');
-	
-	    if (this.indexView === null) {
-	      this.indexView = new views.Index();
-	    }
-	
-	    this.wrapper.child = this.indexView;
-	    this.wrapper.render();
-	  },
-	  work: function work(model) {
-	    this.changeState('work');
-	
-	    if (this.workView === null) {
-	      this.workView = new views.Work({ model: model });
-	      this.wrapper.child = this.workView;
-	    } else {
-	      this.wrapper.child = new views.Work({ model: model });
-	    }
-	
-	    this.wrapper.render();
-	  },
-	  about: function about() {
-	    this.changeState('about');
-	
-	    if (this.aboutView === null) {
-	      this.aboutView = new views.About();
-	    }
-	
-	    this.wrapper.child = this.aboutView;
-	    this.wrapper.render();
-	  },
-	  contact: function contact() {
-	    this.changeState('contact');
-	
-	    if (this.contactView === null) {
-	      this.contactView = new views.Contact();
-	    }
-	
-	    this.wrapper.child = this.contactView;
-	    this.wrapper.render();
-	  },
-	  project: function project(id) {
-	    var collection = this.get('apps');
-	    var model = collection.get(id) || collection.get(1);
-	    this.work(model);
-	  }
-	});
+	module.exports.Index = __webpack_require__(6);
+	module.exports.Work = __webpack_require__(17);
+	module.exports.Thumbnails = __webpack_require__(18);
+	module.exports.About = __webpack_require__(20);
+	module.exports.Contact = __webpack_require__(21);
+	module.exports.Wrapper = __webpack_require__(22);
 
 /***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	module.exports.Index = __webpack_require__(7);
-	module.exports.Work = __webpack_require__(18);
-	module.exports.Thumbnails = __webpack_require__(19);
-	module.exports.About = __webpack_require__(21);
-	module.exports.Contact = __webpack_require__(22);
-	module.exports.Wrapper = __webpack_require__(23);
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var videoPlayer = __webpack_require__(8);
-	var Compiler = __webpack_require__(16);
+	var videoPlayer = __webpack_require__(7);
+	var Compiler = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  heroTemplate: Compiler.hero(),
@@ -5128,11 +5118,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var models = __webpack_require__(9);
+	var models = __webpack_require__(8);
 	
 	module.exports = function (video) {
 	  var initialized = false;
@@ -5178,26 +5168,26 @@
 	};
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	module.exports.videos = __webpack_require__(10);
-	module.exports.links = __webpack_require__(11);
-	module.exports.stats = __webpack_require__(12);
-	module.exports.tech = __webpack_require__(13);
-	module.exports.apps = __webpack_require__(14);
-	module.exports.bio = __webpack_require__(15);
+	module.exports.videos = __webpack_require__(9);
+	module.exports.links = __webpack_require__(10);
+	module.exports.stats = __webpack_require__(11);
+	module.exports.tech = __webpack_require__(12);
+	module.exports.apps = __webpack_require__(13);
+	module.exports.bio = __webpack_require__(14);
 
 /***/ },
-/* 10 */
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';
 	module.exports = ['https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1', 'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1', 'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1', 'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1', 'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1', 'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1', 'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1', 'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1', 'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1', 'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1', 'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1', 'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1', 'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1', 'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'];
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5234,7 +5224,7 @@
 	}];
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5253,7 +5243,7 @@
 	}];
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5382,7 +5372,7 @@
 	}];
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5480,7 +5470,7 @@
 	}];
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5491,11 +5481,11 @@
 	}];
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var Handlebars = __webpack_require__(17);
+	var Handlebars = __webpack_require__(16);
 	var Compiler = {};
 	
 	Compiler.carouselView = function () {
@@ -5609,7 +5599,7 @@
 	module.exports = Compiler;
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -5963,15 +5953,15 @@
 	.replace(/\u2029/g,'\\u2029') + '"';},objectLiteral:function objectLiteral(obj){var pairs=[];for(var key in obj) {if(obj.hasOwnProperty(key)){var value=castChunk(obj[key],this);if(value !== 'undefined'){pairs.push([this.quotedString(key),':',value]);}}}var ret=this.generateList(pairs);ret.prepend('{');ret.add('}');return ret;},generateList:function generateList(entries){var ret=this.empty();for(var i=0,len=entries.length;i < len;i++) {if(i){ret.add(',');}ret.add(castChunk(entries[i],this));}return ret;},generateArray:function generateArray(entries){var ret=this.generateList(entries);ret.prepend('[');ret.add(']');return ret;}};exports['default'] = CodeGen;module.exports = exports['default']; /***/} /******/]));});; /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/
 
 /***/ },
-/* 18 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
 	var _ = __webpack_require__(3);
-	var Thumbnails = __webpack_require__(19);
-	var Compiler = __webpack_require__(16);
-	var carousel = __webpack_require__(20);
+	var Thumbnails = __webpack_require__(18);
+	var Compiler = __webpack_require__(15);
+	var carousel = __webpack_require__(19);
 	
 	module.exports = Backbone.View.extend({
 	  carouselNavbarTemplate: Compiler.carouselNavbar(),
@@ -6047,12 +6037,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 19 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Compiler = __webpack_require__(16);
+	var Compiler = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  thumbnailViewTemplate: Compiler.thumbnailView(),
@@ -6077,7 +6067,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 20 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -6143,12 +6133,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Compiler = __webpack_require__(16);
+	var Compiler = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbar(),
@@ -6206,12 +6196,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Compiler = __webpack_require__(16);
+	var Compiler = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  navbarTemplate: Compiler.navbar(),
@@ -6238,7 +6228,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6254,17 +6244,17 @@
 	});
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	var $ = __webpack_require__(2);
 	var _ = __webpack_require__(3);
 	var Backbone = __webpack_require__(4);
-	var Compiler = __webpack_require__(16);
-	var models = __webpack_require__(9);
-	var nav = __webpack_require__(25);
-	var views = __webpack_require__(6);
+	var Compiler = __webpack_require__(15);
+	var models = __webpack_require__(8);
+	var nav = __webpack_require__(24);
+	var views = __webpack_require__(5);
 	var Model = Backbone.Model.extend({});
 	var Collection = Backbone.Collection.extend({
 	  model: Model
@@ -6359,11 +6349,11 @@
 	});
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var Compiler = __webpack_require__(16);
+	var Compiler = __webpack_require__(15);
 	
 	module.exports = function () {
 	  var $nav = $('.ev-nav');
@@ -6417,7 +6407,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';

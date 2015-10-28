@@ -3,8 +3,10 @@ const $ = require('jquery');
 const _ = require('underscore');
 const Backbone = require('backbone');
 const views = require('./views');
+const view = require('./lib/view').init();
+const googleAnalytics = require('google-analytics');
 
-module.exports = Backbone.Router.extend({
+const Router = Backbone.Router.extend({
   wrapper      : null,
   indexView    : null,
   workView     : null,
@@ -69,3 +71,6 @@ module.exports = Backbone.Router.extend({
     this.work(model);
   }
 });
+
+let router = new Router();
+Backbone.history.start();
