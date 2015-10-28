@@ -1,11 +1,8 @@
+'use strict';
 const $ = require('jquery');
 const _ = require('underscore');
 const Backbone = require('backbone');
-const Rza = require('./views/wrapper');
-const Index = require('./views/index');
-const About = require('./views/about');
-const Contact = require('./views/contact');
-const Work = require('./views/work');
+const views = require('./views');
 
 module.exports = Backbone.Router.extend({
   wrapper      : null,
@@ -21,14 +18,14 @@ module.exports = Backbone.Router.extend({
     'contact'  : 'contact'
   },
   initialize() {
-    this.wrapper = new Rza();
+    this.wrapper = new views.Wrapper();
     _.extend(this, this.wrapper);
   },
   index() {
     this.changeState('index');
 
     if (this.indexView === null) {
-      this.indexView = new Index();
+      this.indexView = new views.Index();
     }
 
     this.wrapper.child = this.indexView;
@@ -38,10 +35,10 @@ module.exports = Backbone.Router.extend({
     this.changeState('work');
 
     if (this.workView === null) {
-      this.workView = new Work({model: model});
+      this.workView = new views.Work({model: model});
       this.wrapper.child = this.workView;
     } else {
-      this.wrapper.child = new Work({model: model});
+      this.wrapper.child = new views.Work({model: model});
     }
 
     this.wrapper.render();
@@ -50,7 +47,7 @@ module.exports = Backbone.Router.extend({
     this.changeState('about');
 
     if (this.aboutView === null) {
-      this.aboutView = new About();
+      this.aboutView = new views.About();
     }
 
     this.wrapper.child = this.aboutView;
@@ -60,7 +57,7 @@ module.exports = Backbone.Router.extend({
     this.changeState('contact');
 
     if (this.contactView === null) {
-      this.contactView = new Contact();
+      this.contactView = new views.Contact();
     }
 
     this.wrapper.child = this.contactView;

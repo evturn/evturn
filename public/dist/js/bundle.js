@@ -5013,15 +5013,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
 	var $ = __webpack_require__(2);
 	var _ = __webpack_require__(3);
 	var Backbone = __webpack_require__(4);
-	var Rza = __webpack_require__(6);
-	var Index = __webpack_require__(7);
-	var About = __webpack_require__(12);
-	var Contact = __webpack_require__(13);
-	var Work = __webpack_require__(14);
+	var views = __webpack_require__(7);
 	
 	module.exports = Backbone.Router.extend({
 	  wrapper: null,
@@ -5037,14 +5032,14 @@
 	    'contact': 'contact'
 	  },
 	  initialize: function initialize() {
-	    this.wrapper = new Rza();
+	    this.wrapper = new views.Wrapper();
 	    _.extend(this, this.wrapper);
 	  },
 	  index: function index() {
 	    this.changeState('index');
 	
 	    if (this.indexView === null) {
-	      this.indexView = new Index();
+	      this.indexView = new views.Index();
 	    }
 	
 	    this.wrapper.child = this.indexView;
@@ -5054,10 +5049,10 @@
 	    this.changeState('work');
 	
 	    if (this.workView === null) {
-	      this.workView = new Work({ model: model });
+	      this.workView = new views.Work({ model: model });
 	      this.wrapper.child = this.workView;
 	    } else {
-	      this.wrapper.child = new Work({ model: model });
+	      this.wrapper.child = new views.Work({ model: model });
 	    }
 	
 	    this.wrapper.render();
@@ -5066,7 +5061,7 @@
 	    this.changeState('about');
 	
 	    if (this.aboutView === null) {
-	      this.aboutView = new About();
+	      this.aboutView = new views.About();
 	    }
 	
 	    this.wrapper.child = this.aboutView;
@@ -5076,7 +5071,7 @@
 	    this.changeState('contact');
 	
 	    if (this.contactView === null) {
-	      this.contactView = new Contact();
+	      this.contactView = new views.Contact();
 	    }
 	
 	    this.wrapper.child = this.contactView;
@@ -5109,32 +5104,13 @@
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var Player = __webpack_require__(8),
-	    Compiler = __webpack_require__(10);
-	
-	module.exports = Backbone.View.extend({
-	  heroTemplate: Compiler.hero(),
-	  el: '.index',
-	  initialize: function initialize() {
-	    this.render();
-	    this.setVideo();
-	  },
-	  render: function render() {
-	    this.$el.html(this.heroTemplate());
-	
-	    return this;
-	  },
-	  setVideo: function setVideo() {
-	    $(document).ready(function () {
-	      var video = document.getElementById('ev-vid');
-	
-	      Player(video);
-	    });
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	'use strict';
+	module.exports.Index = __webpack_require__(20);
+	module.exports.Work = __webpack_require__(14);
+	module.exports.Thumbnails = __webpack_require__(15);
+	module.exports.About = __webpack_require__(12);
+	module.exports.Contact = __webpack_require__(13);
+	module.exports.Wrapper = __webpack_require__(6);
 
 /***/ },
 /* 8 */
@@ -6405,6 +6381,37 @@
 	
 	ga('create', 'UA-58635966-1', 'auto');
 	ga('send', 'pageview');
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var Player = __webpack_require__(8),
+	    Compiler = __webpack_require__(10);
+	
+	module.exports = Backbone.View.extend({
+	  heroTemplate: Compiler.hero(),
+	  el: '.index',
+	  initialize: function initialize() {
+	    this.render();
+	    this.setVideo();
+	  },
+	  render: function render() {
+	    this.$el.html(this.heroTemplate());
+	
+	    return this;
+	  },
+	  setVideo: function setVideo() {
+	    $(document).ready(function () {
+	      var video = document.getElementById('ev-vid');
+	
+	      Player(video);
+	    });
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }
 /******/ ]);

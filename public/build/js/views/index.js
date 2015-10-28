@@ -1,23 +1,7 @@
-let Player = require('../video-player'),
-    Compiler = require('../templates');
-
-module.exports = Backbone.View.extend({
-  heroTemplate: Compiler.hero(),
-  el: '.index',
-  initialize() {
-    this.render();
-    this.setVideo();
-  },
-  render() {
-    this.$el.html(this.heroTemplate());
-
-    return this;
-  },
-  setVideo() {
-    $(document).ready(function() {
-      let video = document.getElementById('ev-vid');
-
-      Player(video);
-    });
-  }
-});
+'use strict';
+module.exports.Index = require('./homepage');
+module.exports.Work = require('./work');
+module.exports.Thumbnails = require('./thumbnails');
+module.exports.About = require('./about');
+module.exports.Contact = require('./contact');
+module.exports.Wrapper = require('./wrapper');
