@@ -1,12 +1,12 @@
 'use strict';
-const playlist = require('./data').videos();
+const models = require('./models');
 
 module.exports = function(video) {
-  let initialized, playCount;
+  let initialized = false;
+  let playCount = null;
+  let playlist = models.videos;
 
   const init = () => {
-    initialized = false;
-    playCount = null;
     timekeeper();
     startPlayback();
   };

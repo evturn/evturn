@@ -5117,15 +5117,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var playlist = __webpack_require__(9).videos();
+	var models = __webpack_require__(21);
 	
 	module.exports = function (video) {
-	  var initialized = undefined,
-	      playCount = undefined;
+	  var initialized = false;
+	  var playCount = null;
+	  var playlist = models.videos;
 	
 	  var init = function init() {
-	    initialized = false;
-	    playCount = null;
 	    timekeeper();
 	    startPlayback();
 	  };
@@ -5169,7 +5168,7 @@
 
 	'use strict';
 	exports.videos = function () {
-	  return ['https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1', 'https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1', 'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1', 'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1', 'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1', 'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1', 'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1', 'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1', 'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1', 'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1', 'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1', 'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1', 'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1', 'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'];
+	  return ['https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1', 'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1', 'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1', 'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1', 'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1', 'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1', 'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1', 'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1', 'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1', 'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1', 'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1', 'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1', 'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1', 'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'];
 	};
 	
 	exports.links = function () {
@@ -6406,6 +6405,58 @@
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	module.exports.videos = __webpack_require__(22);
+	module.exports.links = __webpack_require__(23);
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = ['https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1', 'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1', 'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1', 'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1', 'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1', 'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1', 'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1', 'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1', 'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1', 'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1', 'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1', 'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1', 'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1', 'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'];
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = [{
+	  name: 'email',
+	  url: 'mailto:evturn@gmail.com',
+	  icon: 'fa fa-envelope',
+	  featured: true
+	}, {
+	  name: 'github',
+	  url: 'http://github.com/evturn',
+	  icon: 'fa fa-github-square',
+	  featured: true
+	}, {
+	  name: 'linkedin',
+	  url: 'http://www.linkedin.com/in/evturn/',
+	  icon: 'fa fa-linkedin-square',
+	  featured: true
+	}, {
+	  name: 'general assembly',
+	  url: 'https://profiles.generalassemb.ly/ev',
+	  icon: 'fa fa-certificate',
+	  featured: false
+	}, {
+	  name: 'twitter',
+	  url: 'http://twitter.com/evturn',
+	  icon: 'fa fa-twitter',
+	  featured: true
+	}, {
+	  name: 'skype: @evturn',
+	  url: 'javaScript:void(0);',
+	  icon: 'fa fa-skype',
+	  featured: false
+	}];
 
 /***/ }
 /******/ ]);
