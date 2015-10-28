@@ -1,5 +1,5 @@
-let Player = require('../video-player'),
-    Compiler = require('../templates');
+const videoPlayer = require('../lib/video-player');
+const Compiler = require('../templates');
 
 module.exports = Backbone.View.extend({
   heroTemplate: Compiler.hero(),
@@ -17,7 +17,7 @@ module.exports = Backbone.View.extend({
     $(document).ready(function() {
       let video = document.getElementById('ev-vid');
 
-      Player(video);
+      videoPlayer(video);
     });
   }
 });

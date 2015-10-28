@@ -22,12 +22,18 @@ module.exports = {
     root: [
       'web_modules',
       'node_modules',
-      'views'
+      'views',
+      'templates',
+      'models',
+      'lib'
     ],
     moduleDirectories: [
       'web_modules',
       'node_modules',
-      'views'
+      'views',
+      'templates',
+      'models',
+      'lib'
     ],
     extension: [
       '.js'

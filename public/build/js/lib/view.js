@@ -2,10 +2,10 @@
 const $ = require('jquery');
 const _ = require('underscore');
 const Backbone = require('backbone');
-const Compiler = require('./templates');
-const models = require('./models');
+const Compiler = require('../templates');
+const models = require('../models');
 const nav = require('./nav');
-const views = require('./views');
+const views = require('../views');
 const Model = Backbone.Model.extend({});
 const Collection = Backbone.Collection.extend({
   model: Model

@@ -1,7 +1,7 @@
-let _ = require('underscore'),
-    Thumbnails = require('./thumbnails'),
-    Compiler = require('../templates'),
-    carousel = require('../carousel');
+const _ = require('underscore');
+const Thumbnails = require('./thumbnails');
+const Compiler = require('../templates');
+const carousel = require('../lib/carousel');
 
 module.exports = Backbone.View.extend({
   carouselNavbarTemplate : Compiler.carouselNavbar(),

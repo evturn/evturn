@@ -1,5 +1,5 @@
 'use strict';
-const Compiler = require('./templates');
+const Compiler = require('../templates');
 
 module.exports = function() {
   let $nav = $('.ev-nav');
