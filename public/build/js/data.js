@@ -1,4 +1,4 @@
-
+'use strict';
 exports.videos = () => {
   return [
     'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1',

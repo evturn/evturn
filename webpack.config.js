@@ -27,7 +27,7 @@ module.exports = {
     moduleDirectories: [
       'web_modules',
       'node_modules',
-      'shared'
+      'views'
     ],
     extension: [
       '.js'

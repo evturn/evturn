@@ -28,7 +28,7 @@ module.exports = {
 
       let errors = file.eslint.messages.map((data) => {
         let location = `Line: ${data.line}:${data.column} |\n${data.message}`;
-        return location
+        return location;
       });
 
       let message = `File: ${file.relative} (${file.eslint.errorCount} errors)\n${errors}\n`;
