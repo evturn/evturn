@@ -6,7 +6,7 @@ module.exports = [
     icon: 'fa fa-check'
   }, {
     text: 'Weekly Commits',
-    number: 276,
+    number: 200,
     icon: 'fa fa-terminal'
   }, {
     text: 'Github Contributions',
