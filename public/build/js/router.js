@@ -1,13 +1,13 @@
-let $ = require('jquery'),
-    _ = require('underscore'),
-    Backbone = require('backbone'),
-    Rza = require('./views/wrapper'),
-    Index = require('./views/index'),
-    About = require('./views/about'),
-    Contact = require('./views/contact'),
-    Work = require('./views/work');
+const $ = require('jquery');
+const _ = require('underscore');
+const Backbone = require('backbone');
+const Rza = require('./views/wrapper');
+const Index = require('./views/index');
+const About = require('./views/about');
+const Contact = require('./views/contact');
+const Work = require('./views/work');
 
-let Router = Backbone.Router.extend({
+const Router = Backbone.Router.extend({
   wrapper      : null,
   indexView    : null,
   workView     : null,
@@ -28,7 +28,7 @@ let Router = Backbone.Router.extend({
     this.changeState('index');
 
     if (this.indexView === null) {
-        this.indexView = new Index();
+      this.indexView = new Index();
     }
 
     this.wrapper.child = this.indexView;
@@ -38,12 +38,10 @@ let Router = Backbone.Router.extend({
     this.changeState('work');
 
     if (this.workView === null) {
-        this.workView = new Work({model: model});
-        this.wrapper.child = this.workView;
-    }
-    else {
-        let view = new Work({model: model});
-        this.wrapper.child = view;
+      this.workView = new Work({model: model});
+      this.wrapper.child = this.workView;
+    } else {
+      this.wrapper.child = new Work({model: model});
     }
 
     this.wrapper.render();
@@ -52,7 +50,7 @@ let Router = Backbone.Router.extend({
     this.changeState('about');
 
     if (this.aboutView === null) {
-        this.aboutView = new About();
+      this.aboutView = new About();
     }
 
     this.wrapper.child = this.aboutView;
@@ -62,16 +60,15 @@ let Router = Backbone.Router.extend({
     this.changeState('contact');
 
     if (this.contactView === null) {
-        this.contactView = new Contact();
+      this.contactView = new Contact();
     }
 
     this.wrapper.child = this.contactView;
     this.wrapper.render();
   },
   project(id) {
-    let collection = this.get('apps'),
-        model = collection.get(id) || collection.get(1);
-
+    let collection = this.get('apps');
+    let model = collection.get(id) || collection.get(1);
     this.work(model);
   }
 });

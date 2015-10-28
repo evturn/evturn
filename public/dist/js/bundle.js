@@ -5014,14 +5014,14 @@
 
 	'use strict';
 	
-	var $ = __webpack_require__(2),
-	    _ = __webpack_require__(3),
-	    Backbone = __webpack_require__(4),
-	    Rza = __webpack_require__(6),
-	    Index = __webpack_require__(7),
-	    About = __webpack_require__(12),
-	    Contact = __webpack_require__(13),
-	    Work = __webpack_require__(14);
+	var $ = __webpack_require__(2);
+	var _ = __webpack_require__(3);
+	var Backbone = __webpack_require__(4);
+	var Rza = __webpack_require__(6);
+	var Index = __webpack_require__(7);
+	var About = __webpack_require__(12);
+	var Contact = __webpack_require__(13);
+	var Work = __webpack_require__(14);
 	
 	var Router = Backbone.Router.extend({
 	  wrapper: null,
@@ -5057,8 +5057,7 @@
 	      this.workView = new Work({ model: model });
 	      this.wrapper.child = this.workView;
 	    } else {
-	      var view = new Work({ model: model });
-	      this.wrapper.child = view;
+	      this.wrapper.child = new Work({ model: model });
 	    }
 	
 	    this.wrapper.render();
@@ -5084,9 +5083,8 @@
 	    this.wrapper.render();
 	  },
 	  project: function project(id) {
-	    var collection = this.get('apps'),
-	        model = collection.get(id) || collection.get(1);
-	
+	    var collection = this.get('apps');
+	    var model = collection.get(id) || collection.get(1);
 	    this.work(model);
 	  }
 	});
