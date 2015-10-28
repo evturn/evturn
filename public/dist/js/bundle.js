@@ -5117,7 +5117,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
 	var Get = __webpack_require__(9);
 	
 	module.exports = function (video) {
@@ -6202,14 +6201,13 @@
 
 	'use strict';
 	
-	var $ = __webpack_require__(2),
-	    _ = __webpack_require__(3),
-	    Backbone = __webpack_require__(4),
-	    Compiler = __webpack_require__(10),
-	    Get = __webpack_require__(9),
-	    nav = __webpack_require__(18),
-	    Rza = __webpack_require__(6);
-	
+	var $ = __webpack_require__(2);
+	var _ = __webpack_require__(3);
+	var Backbone = __webpack_require__(4);
+	var Compiler = __webpack_require__(10);
+	var Get = __webpack_require__(9);
+	var nav = __webpack_require__(18);
+	var views = __webpack_require__(7);
 	var Model = Backbone.Model.extend({});
 	var Collection = Backbone.Collection.extend({
 	  model: Model
@@ -6248,14 +6246,11 @@
 	      models = _.has(data, 'id') ? _.sortBy(data, 'id') : data;
 	    } else {
 	      var featured = _.has(_.first(data), 'featured') ? _.where(data, { featured: true }) : data;
-	
 	      models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
 	    }
-	
 	    return new Collection(models);
 	  },
-	  // default true, `.toJSON` will be applied on iteratee
-	  // pass `false` to prevent`.toJSON` from being called on iteratee
+	  // passing `false` prevents`.toJSON()` from being called on iteratee
 	  compileAndAppend: function compileAndAppend($element, models, template) {
 	    var json = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
 	    var _iteratorNormalCompletion = true;
@@ -6267,7 +6262,6 @@
 	        var m = _step.value;
 	
 	        var model = json ? m.toJSON() : m;
-	
 	        $element.append(template(model));
 	      }
 	    } catch (err) {
@@ -6286,22 +6280,21 @@
 	    }
 	  },
 	  changeState: function changeState(string) {
-	    var $selector = $(document.getElementsByClassName(string)),
-	        element = document.createElement('div');
-	
+	    var $selector = $(document.getElementsByClassName(string));
+	    var element = document.createElement('div');
 	    element.className = string;
 	    element.dataset.view = string;
 	    $selector.remove();
-	    $(element).insertAfter(new Rza().$el);
+	    $(element).insertAfter(new views.Wrapper().$el);
 	  },
 	  scrollUp: function scrollUp() {
-	    $('html, body').animate({ scrollTop: 0 }, 500);
+	    var $webpage = $('html, body');
+	    $webpage.animate({ scrollTop: 0 }, 500);
 	  },
 	  preloader: function preloader() {
 	    $(window).load(function () {
-	      var $container = $('#preloader'),
-	          $image = $('.preloader');
-	
+	      var $container = $('#preloader');
+	      var $image = $('.preloader');
 	      $container.delay(500).fadeOut();
 	      $image.delay(600).fadeOut(600);
 	    });

@@ -1,4 +1,5 @@
-let Get = require('./data');
+'use strict';
+const Get = require('./data');
 
 module.exports = function(video) {
 
