@@ -1,7 +1,6 @@
 "use strict";
-
-let webpack = require('webpack'),
-    path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   context: __dirname,
@@ -31,7 +30,7 @@ module.exports = {
       'shared'
     ],
     extension: [
-    '.js'
+      '.js'
     ],
     alias: {
       router: 'router',
