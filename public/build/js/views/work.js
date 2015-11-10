@@ -17,7 +17,7 @@ module.exports = Backbone.View.extend({
     const tech = [];
     const techIds = model.get('technologies');
     const projects = _.where(data.projects, { featured: true });
-
+    this.initSpinner();
     techIds.forEach((id) => {
       tech.push(_.findWhere(data.tech, { id: id }));
     });
@@ -42,8 +42,9 @@ module.exports = Backbone.View.extend({
   initSpinner() {
     const $img = $('#carousel-logo');
     const $container = $('#carousel-preloader');
+    const $spinner = $('#carousel-spinner');
     $img.addClass('spin');
     $container.delay(500).fadeOut();
-    setTimeout(() => { $img.removeClass('spin'); }, 780);
+    setTimeout(() => { $img.removeClass('spin'); }, 740);
   }
 });

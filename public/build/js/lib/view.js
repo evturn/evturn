@@ -1,8 +1,5 @@
 'use strict';
-const $ = require('jquery');
-const _ = require('underscore');
 const Backbone = require('backbone');
-const Compiler = require('../templates');
 const models = require('../models');
 const nav = require('./nav');
 const views = require('../views');
@@ -44,13 +41,6 @@ module.exports = _.extend(Backbone.View.prototype, {
       return _models;
     }
     return new Collection(_models);
-  },
-  // passing `false` prevents`.toJSON()` from being called on iteratee
-  compileAndAppend($element, models, template, json=true) {
-    for (let m of models) {
-      let model = json ? m.toJSON() : m;
-      $element.append(template(model));
-    }
   },
   changeState(string) {
     let $selector = $(document.getElementsByClassName(string));

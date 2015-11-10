@@ -3377,7 +3377,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .fa-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eee;
+  border: solid 0.08em #eeeeee;
   border-radius: .1em;
 }
 .pull-right {
@@ -3479,7 +3479,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 2em;
 }
 .fa-inverse {
-  color: #fff;
+  color: #ffffff;
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
@@ -5171,7 +5171,7 @@ html {
   font-size: 10px;
 }
 body {
-  background-color: #5FA3C0;
+  background-color: #5fa3c0;
 }
 a,
 p,
@@ -5350,7 +5350,7 @@ video::-webkit-media-controls {
   height: 100%;
 }
 .ev-navbar .headline-container {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   text-align: center;
   top: 275px;
   right: 0;
@@ -5379,7 +5379,7 @@ video::-webkit-media-controls {
   right: 0;
   height: 100%;
   width: 320px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: block;
   -webkit-box-shadow: -5px 0px 52px 1px rgba(0, 0, 0, 0.75);
   box-shadow: -5px 0px 52px 1px rgba(0, 0, 0, 0.75);
@@ -5508,7 +5508,7 @@ video::-webkit-media-controls {
     -webkit-transition: 0.2s;
     -o-transition: 0.2s;
     transition: 0.2s;
-    color: #5FA3C0;
+    color: #5fa3c0;
   }
 }
 .about {
@@ -5802,19 +5802,6 @@ video::-webkit-media-controls {
   position: absolute;
   display: block;
 }
-#carousel-preloader #carousel-spinner {
-  position: absolute;
-  height: 85px;
-  width: 85px;
-  top: 2px;
-  right: 0px;
-  left: 3px;
-  z-index: 3;
-  -webkit-animation: rotation 0.750s infinite linear;
-  -moz-animation: rotation 0.750s infinite linear;
-  -o-animation: rotation 0.750s infinite linear;
-  animation: rotation 0.750s infinite linear;
-}
 #carousel-preloader #carousel-spinner:before {
   content: "";
   display: block;
@@ -5975,7 +5962,7 @@ video::-webkit-media-controls {
   margin-bottom: 10px;
   font-size: 2rem;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: left;
   display: inline-block;
 }
@@ -6051,7 +6038,7 @@ video::-webkit-media-controls {
   -o-transition: 0.3s;
   transition: 0.3s;
   margin-left: 10px;
-  color: #5FA3C0;
+  color: #5fa3c0;
 }
 .container.carousel .project-links .meta .fa:hover {
   color: #ffffff;
