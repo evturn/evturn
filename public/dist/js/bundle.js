@@ -56,10 +56,14 @@
 	var _ = __webpack_require__(3);
 	var Backbone = __webpack_require__(4);
 	var views = __webpack_require__(5);
+	var engine = __webpack_require__(32);
 	var view = __webpack_require__(24).init();
 	var googleAnalytics = __webpack_require__(26);
-	var partials = __webpack_require__(30)();
 	var spinner = __webpack_require__(28);
+	var carousel = __webpack_require__(19);
+	
+	engine.registerPartials();
+	engine.registerTemplates();
 	
 	var Router = Backbone.Router.extend({
 	  wrapper: null,
@@ -5098,15 +5102,14 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var videoPlayer = __webpack_require__(7);
-	var loadTemplate = __webpack_require__(29);
+	var engine = __webpack_require__(32);
+	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
-	  templates: [],
 	  el: '.index',
 	  filepath: '../../views/index.hbs',
 	  initialize: function initialize() {
 	    loadTemplate({
-	      templates: this.templates,
 	      filepath: this.filepath,
 	      success: this.render
 	    });
@@ -5728,12 +5731,12 @@
 	var _ = __webpack_require__(3);
 	var Thumbnails = __webpack_require__(17);
 	var carousel = __webpack_require__(19);
-	var loadTemplate = __webpack_require__(29);
 	var data = __webpack_require__(8);
+	var engine = __webpack_require__(32);
+	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
 	  project: null,
-	  templates: [],
 	  el: '.work',
 	  filepath: '../../views/work.hbs',
 	  events: {
@@ -5753,7 +5756,6 @@
 	
 	    model.set('technologies', tech);
 	    loadTemplate({
-	      templates: this.templates,
 	      filepath: this.filepath,
 	      success: this.render,
 	      data: {
@@ -6001,17 +6003,16 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var _ = __webpack_require__(3);
-	var loadTemplate = __webpack_require__(29);
 	var data = __webpack_require__(8);
 	var statCounter = __webpack_require__(21);
+	var engine = __webpack_require__(32);
+	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
-	  templates: [],
 	  el: '.about',
 	  filepath: '../../views/about.hbs',
 	  initialize: function initialize() {
 	    loadTemplate({
-	      templates: this.templates,
 	      filepath: this.filepath,
 	      success: this.render
 	    });
@@ -6065,7 +6066,8 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var links = __webpack_require__(10);
-	var loadTemplate = __webpack_require__(29);
+	var engine = __webpack_require__(32);
+	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
 	  templates: [],
@@ -6284,88 +6286,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	'use-strict';
-	var Handlebars = __webpack_require__(15);
-	
-	var loadTemplate = module.exports = function (params) {
-	  if (params.templates[params.filepath]) {
-	    return params.success(params.templates[params.filepath]);
-	  }
-	
-	  var data = params.data ? params.data : '';
-	  $.get(params.filepath, function (contents) {
-	    params.templates[params.filepath] = Handlebars.compile(contents);
-	    params.success(params.templates[params.filepath], data);
-	  });
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	'use-strict';
-	var $ = __webpack_require__(2);
-	var Handlebars = __webpack_require__(15);
-	var templates = [{
-	  filepath: '../../views/templates/carousel-navbar.hbs',
-	  name: 'carousel-navbar'
-	}, {
-	  filepath: '../../views/templates/nav.hbs',
-	  name: 'nav'
-	}, {
-	  filepath: '../../views/templates/navbar.hbs',
-	  name: 'navbar'
-	}, {
-	  filepath: '../../views/templates/thumbnails.hbs',
-	  name: 'thumbnails'
-	}, {
-	  filepath: '../../views/templates/carousel-info.hbs',
-	  name: 'carousel-info'
-	}];
-	
-	var loadPartials = module.exports = function () {
-	
-	  var get = function get(template) {
-	    $.get(template.filepath, function (contents) {
-	      return Handlebars.registerPartial(template.name, contents);
-	    });
-	  };
-	
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
-	
-	  try {
-	    for (var _iterator = templates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      var template = _step.value;
-	
-	      get(template);
-	    }
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator['return']) {
-	        _iterator['return']();
-	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
-	      }
-	    }
-	  }
-	};
-
-/***/ },
+/* 29 */,
+/* 30 */,
 /* 31 */
 /***/ function(module, exports) {
 
@@ -6462,6 +6384,112 @@
 	  featured: true,
 	  technologies: [1, 14, 12, 10, 13]
 	}];
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	'use-strict';
+	var Handlebars = __webpack_require__(15);
+	var templates = [{
+	  filepath: '../../views/templates/carousel-navbar.hbs',
+	  name: 'carousel-navbar'
+	}, {
+	  filepath: '../../views/templates/nav.hbs',
+	  name: 'nav'
+	}, {
+	  filepath: '../../views/templates/navbar.hbs',
+	  name: 'navbar'
+	}, {
+	  filepath: '../../views/templates/thumbnails.hbs',
+	  name: 'thumbnails'
+	}, {
+	  filepath: '../../views/templates/carousel-info.hbs',
+	  name: 'carousel-info'
+	}];
+	
+	var cachedTemplates = [];
+	
+	module.exports.loadTemplate = function (params) {
+	  var data = params.data ? params.data : '';
+	  if (cachedTemplates[params.filepath]) {
+	    return params.success(cachedTemplates[params.filepath], data);
+	  }
+	
+	  $.get(params.filepath, function (contents) {
+	    cachedTemplates[params.filepath] = Handlebars.compile(contents);
+	    params.success(cachedTemplates[params.filepath], data);
+	  });
+	};
+	
+	module.exports.registerTemplates = function () {
+	  var get = function get(template) {
+	    $.get(template.filepath, function (contents) {
+	      cachedTemplates[template.filepath] = Handlebars.precompile(contents);
+	    });
+	  };
+	
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+	
+	  try {
+	    for (var _iterator = templates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var template = _step.value;
+	
+	      get(template);
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator['return']) {
+	        _iterator['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+	};
+	
+	module.exports.registerPartials = function () {
+	  var get = function get(template) {
+	    $.get(template.filepath, function (contents) {
+	      return Handlebars.registerPartial(template.name, contents);
+	    });
+	  };
+	
+	  var _iteratorNormalCompletion2 = true;
+	  var _didIteratorError2 = false;
+	  var _iteratorError2 = undefined;
+	
+	  try {
+	    for (var _iterator2 = templates[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	      var template = _step2.value;
+	
+	      get(template);
+	    }
+	  } catch (err) {
+	    _didIteratorError2 = true;
+	    _iteratorError2 = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion2 && _iterator2['return']) {
+	        _iterator2['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError2) {
+	        throw _iteratorError2;
+	      }
+	    }
+	  }
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }
 /******/ ]);

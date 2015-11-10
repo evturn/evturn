@@ -1,12 +1,12 @@
 const _ = require('underscore');
 const Thumbnails = require('./thumbnails');
 const carousel = require('../lib/carousel');
-const loadTemplate = require('../lib/templates');
 const data = require('../models');
+const engine = require('../lib/view-engine');
+const loadTemplate = engine.loadTemplate;
 
 module.exports = Backbone.View.extend({
   project: null,
-  templates: [],
   el: '.work',
   filepath: '../../views/work.hbs',
   events: {
@@ -26,7 +26,6 @@ module.exports = Backbone.View.extend({
 
     model.set('technologies', tech);
     loadTemplate({
-      templates: this.templates,
       filepath: this.filepath,
       success: this.render,
       data: {

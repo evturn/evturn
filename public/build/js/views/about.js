@@ -1,16 +1,15 @@
 'use strict';
 const _ = require('underscore');
-const loadTemplate = require('../lib/templates');
 const data = require('../models');
 const statCounter = require('../lib/stat-counter');
+const engine = require('../lib/view-engine');
+const loadTemplate = engine.loadTemplate;
 
 module.exports = Backbone.View.extend({
-  templates: [],
   el: '.about',
   filepath: '../../views/about.hbs',
   initialize() {
     loadTemplate({
-      templates: this.templates,
       filepath: this.filepath,
       success: this.render
     });

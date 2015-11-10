@@ -1,6 +1,7 @@
 'use strict';
 const links = require('../models/links');
-const loadTemplate = require('../lib/templates');
+const engine = require('../lib/view-engine');
+const loadTemplate = engine.loadTemplate;
 
 module.exports = Backbone.View.extend({
   templates: [],

@@ -1,14 +1,13 @@
 'use strict';
 const videoPlayer = require('../lib/video-player');
-const loadTemplate = require('../lib/templates');
+const engine = require('../lib/view-engine');
+const loadTemplate = engine.loadTemplate;
 
 module.exports = Backbone.View.extend({
-  templates: [],
   el: '.index',
   filepath: '../../views/index.hbs',
   initialize() {
     loadTemplate({
-      templates: this.templates,
       filepath: this.filepath,
       success: this.render
     });

@@ -3,10 +3,14 @@ const $ = require('jquery');
 const _ = require('underscore');
 const Backbone = require('backbone');
 const views = require('./views');
+const engine = require('./lib/view-engine');
 const view = require('./lib/view').init();
 const googleAnalytics = require('google-analytics');
-const partials = require('./lib/partials')();
 const spinner = require('./lib/spinner');
+const carousel = require('./lib/carousel');
+
+engine.registerPartials();
+engine.registerTemplates();
 
 const Router = Backbone.Router.extend({
   wrapper      : null,
