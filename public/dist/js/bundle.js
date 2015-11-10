@@ -5370,7 +5370,7 @@
 	  url: 'http://madeinmusic.co',
 	  repo: 'https://github.com/evturn/madeinmusic.co',
 	  thumbnail: "public/dist/img/apps/mim-tn.png",
-	  items: [{ image: 'public/dist/img/apps/mim-1.png' }, { image: 'public/dist/img/apps/mim-2.png' }, { image: 'public/dist/img/apps/mim-3.png' }],
+	  images: [{ image: 'public/dist/img/apps/mim-1.png' }, { image: 'public/dist/img/apps/mim-2.png' }, { image: 'public/dist/img/apps/mim-3.png' }],
 	  featured: true,
 	  technologies: [1, 3, 14, 12, 10, 11, 15, 20]
 	}, {
@@ -5380,7 +5380,7 @@
 	  url: 'http://marshallz.com',
 	  repo: 'https://github.com/evturn/marshallz',
 	  thumbnail: 'public/dist/img/apps/marshallz-tn.png',
-	  items: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
+	  images: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
 	  featured: true,
 	  technologies: [1, 14, 12, 15, 10, 18, 19, 20]
 	}, {
@@ -5390,7 +5390,7 @@
 	  url: 'http://drivepublishing.com',
 	  repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
 	  thumbnail: "public/dist/img/apps/drive-tn.png",
-	  items: [{ image: 'public/dist/img/apps/drive-1.png' }, { image: 'public/dist/img/apps/drive-2.png' }, { image: 'public/dist/img/apps/drive-3.png' }],
+	  images: [{ image: 'public/dist/img/apps/drive-1.png' }, { image: 'public/dist/img/apps/drive-2.png' }, { image: 'public/dist/img/apps/drive-3.png' }],
 	  featured: true,
 	  technologies: [13, 11, 14, 20]
 	}, {
@@ -5400,7 +5400,7 @@
 	  url: 'http://ramenbuffet.com',
 	  repo: 'https://github.com/evturn/ramen-buffet',
 	  thumbnail: "public/dist/img/apps/rb-tn.png",
-	  items: [{ image: 'public/dist/img/apps/ramen-buffet-1.png' }, { image: 'public/dist/img/apps/ramen-buffet-2.png' }, { image: 'public/dist/img/apps/ramen-buffet-3.png' }],
+	  images: [{ image: 'public/dist/img/apps/ramen-buffet-1.png' }, { image: 'public/dist/img/apps/ramen-buffet-2.png' }, { image: 'public/dist/img/apps/ramen-buffet-3.png' }],
 	  featured: true,
 	  technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
 	}, {
@@ -5408,7 +5408,7 @@
 	  description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
 	  id: 5,
 	  thumbnail: "public/dist/img/apps/alculator-tn.png",
-	  items: [{ image: 'public/dist/img/apps/alculator-3.png' }, { image: 'public/dist/img/apps/alculator-2.png' }, { image: 'public/dist/img/apps/alculator-1.png' }, { image: 'public/dist/img/apps/alculator-4.png' }],
+	  images: [{ image: 'public/dist/img/apps/alculator-3.png' }, { image: 'public/dist/img/apps/alculator-2.png' }, { image: 'public/dist/img/apps/alculator-1.png' }, { image: 'public/dist/img/apps/alculator-4.png' }],
 	  featured: true,
 	  technologies: [1, 12, 3, 11]
 	}, {
@@ -5417,7 +5417,7 @@
 	  id: 3,
 	  repo: 'https://github.com/piqueapp/piqueapp.github.io',
 	  thumbnail: "public/dist/img/apps/pique-tn.png",
-	  items: [{ image: 'public/dist/img/apps/pique-1.jpg' }, { image: 'public/dist/img/apps/pique-2.png' }, { image: 'public/dist/img/apps/pique-3.png' }, { image: 'public/dist/img/apps/pique-4.png' }],
+	  images: [{ image: 'public/dist/img/apps/pique-1.jpg' }, { image: 'public/dist/img/apps/pique-2.png' }, { image: 'public/dist/img/apps/pique-3.png' }, { image: 'public/dist/img/apps/pique-4.png' }],
 	  featured: true,
 	  technologies: [16, 17, 11]
 	}, {
@@ -5425,7 +5425,7 @@
 	  description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
 	  id: 7,
 	  thumbnail: "public/dist/img/apps/hangman-tn.png",
-	  items: [{ image: 'public/dist/img/apps/hangman-1.jpg' }, { image: 'public/dist/img/apps/hangman-2.jpg' }],
+	  images: [{ image: 'public/dist/img/apps/hangman-1.jpg' }, { image: 'public/dist/img/apps/hangman-2.jpg' }],
 	  featured: false,
 	  technologies: [1, 12, 3, 11]
 	}, {
@@ -5433,7 +5433,7 @@
 	  description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
 	  id: 8,
 	  thumbnail: "public/dist/img/apps/ttt-tn.png",
-	  items: [{ lead: 'public/dist/img/apps/ttt-1.jpg' }, { image: 'public/dist/img/apps/ttt-2.jpg' }],
+	  images: [{ lead: 'public/dist/img/apps/ttt-1.jpg' }, { image: 'public/dist/img/apps/ttt-2.jpg' }],
 	  featured: false,
 	  technologies: [3, 11]
 	}, {
@@ -5442,7 +5442,7 @@
 	  id: 9,
 	  url: 'http://smkkstudios.com/work/brooklynfriendsschool',
 	  thumbnail: "public/dist/img/apps/bfs-tn.jpg",
-	  items: [{ image: 'public/dist/img/apps/bfs-1.png' }, { image: 'public/dist/img/apps/bfs-2.png' }],
+	  images: [{ image: 'public/dist/img/apps/bfs-1.png' }, { image: 'public/dist/img/apps/bfs-2.png' }],
 	  featured: true,
 	  technologies: [21, 13]
 	}, {
@@ -5451,7 +5451,7 @@
 	  id: 10,
 	  repo: 'https://github.com/evturn/WhereTO',
 	  thumbnail: "public/dist/img/apps/whereto-tn.png",
-	  items: [{ image: 'public/dist/img/apps/whereto-2.png' }, { image: 'public/dist/img/apps/whereto-1.png' }],
+	  images: [{ image: 'public/dist/img/apps/whereto-2.png' }, { image: 'public/dist/img/apps/whereto-1.png' }],
 	  featured: true,
 	  technologies: [1, 14, 12, 10, 13]
 	}];
@@ -10373,73 +10373,43 @@
 	
 	var _ = __webpack_require__(3);
 	var Thumbnails = __webpack_require__(47);
-	var Compiler = __webpack_require__(15);
 	var carousel = __webpack_require__(48);
+	var loadTemplate = __webpack_require__(55);
+	var data = __webpack_require__(8);
 	
 	module.exports = Backbone.View.extend({
-	  carouselNavbarTemplate: Compiler.carouselNavbar(),
-	  carouselViewTemplate: Compiler.carouselView(),
-	  carouselPanelTemplate: Compiler.carouselPanel(),
-	  carouselLinkTemplate: Compiler.carouselLink(),
-	  carouselTechTemplate: Compiler.carouselTech(),
-	  carouselImageTemplate: Compiler.carouselImage(),
+	  templates: [],
 	  el: '.work',
+	  filepath: '../../views/work.hbs',
 	  initialize: function initialize() {
-	    this.render();
-	    this.carouselPreloader();
-	    this.appendCarouselPanel();
-	    this.appendProjectLinks();
-	    this.appendProjectTechnologies();
-	    this.appendCarouselImages();
-	    this.appendProjectThumbnails();
-	  },
-	  render: function render() {
-	    var model = this.model.toJSON();
-	
-	    this.$el.html(this.carouselNavbarTemplate());
-	    this.$el.append(this.carouselViewTemplate(model));
-	    return this;
-	  },
-	  appendCarouselPanel: function appendCarouselPanel() {
-	    var $sel = $('.carousel-panel'),
-	        model = this.model.toJSON();
-	
-	    $sel.append(this.carouselPanelTemplate(model));
-	    return this;
-	  },
-	  appendProjectLinks: function appendProjectLinks() {
-	    var $sel = $('.project-links'),
-	        model = this.model.toJSON();
-	
-	    $sel.append(this.carouselLinkTemplate(model));
-	    return this;
-	  },
-	  appendProjectTechnologies: function appendProjectTechnologies() {
-	    var collection = this.get('tech', true),
-	        ids = this.model.get('technologies'),
-	        models = _.map(ids, function (id) {
-	      return collection.get(id);
+	    var tech = [];
+	    var techIds = this.model.get('technologies');
+	    var apps = _.where(data.apps, { featured: true });
+	    this.initSpinner();
+	    techIds.forEach(function (id) {
+	      tech.push(_.findWhere(data.tech, { id: id }));
 	    });
-	
-	    this.compileAndAppend($('.project-technologies'), models, this.carouselTechTemplate);
-	    return this;
+	    this.model.set('technologies', tech);
+	    loadTemplate({
+	      templates: this.templates,
+	      filepath: this.filepath,
+	      success: this.render,
+	      data: {
+	        project: this.model.toJSON(),
+	        projects: apps
+	      } });
 	  },
-	  appendCarouselImages: function appendCarouselImages() {
-	    var models = this.model.get('items');
-	
-	    this.compileAndAppend($('.carousel-inner'), models, this.carouselImageTemplate, false);
+	  render: function render(template, data) {
+	    $('.work').html(template(data));
 	    carousel();
-	    return this;
 	  },
-	  appendProjectThumbnails: function appendProjectThumbnails() {
-	    var tn = new Thumbnails(this.$el);
-	
+	  renderThumbnails: function renderThumbnails() {
+	    new Thumbnails($('.work'));
 	    this.scrollUp();
 	  },
-	  carouselPreloader: function carouselPreloader() {
-	    var $img = $('#carousel-logo'),
-	        $container = $('#carousel-preloader');
-	
+	  initSpinner: function initSpinner() {
+	    var $img = $('#carousel-logo');
+	    var $container = $('#carousel-preloader');
 	    $img.addClass('spin');
 	    $container.delay(500).fadeOut();
 	    setTimeout(function () {
@@ -10804,10 +10774,9 @@
 /* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
 	'use-strict';
-	var $ = __webpack_require__(2);
 	var Handlebars = __webpack_require__(16);
 	
 	var loadTemplate = module.exports = function (params) {
@@ -10815,11 +10784,14 @@
 	    return params.success(params.templates[params.filepath]);
 	  }
 	
+	  var data = params.data ? params.data : '';
+	
 	  $.get(params.filepath, function (contents) {
 	    params.templates[params.filepath] = Handlebars.compile(contents);
-	    params.success(params.templates[params.filepath]);
+	    params.success(params.templates[params.filepath], data);
 	  });
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 56 */
@@ -10839,6 +10811,12 @@
 	}, {
 	  filepath: '../../views/templates/navbar.hbs',
 	  name: 'navbar'
+	}, {
+	  filepath: '../../views/templates/thumbnails.hbs',
+	  name: 'thumbnails'
+	}, {
+	  filepath: '../../views/templates/carousel-info.hbs',
+	  name: 'carousel-info'
 	}];
 	
 	var loadPartials = module.exports = function () {

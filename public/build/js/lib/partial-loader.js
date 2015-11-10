@@ -7,10 +7,16 @@ const templates = [
     name: 'carousel-navbar'
   }, {
     filepath: '../../views/templates/nav.hbs',
-    name: 'nav',
+    name: 'nav'
   }, {
     filepath: '../../views/templates/navbar.hbs',
-    name: 'navbar',
+    name: 'navbar'
+  }, {
+    filepath: '../../views/templates/thumbnails.hbs',
+    name: 'thumbnails'
+  }, {
+    filepath: '../../views/templates/carousel-info.hbs',
+    name: 'carousel-info'
   }
 ];
 

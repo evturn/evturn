@@ -7,7 +7,7 @@ module.exports = [
     url: 'http://madeinmusic.co',
     repo: 'https://github.com/evturn/madeinmusic.co',
     thumbnail: "public/dist/img/apps/mim-tn.png",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/mim-1.png'},
       {image: 'public/dist/img/apps/mim-2.png'},
       {image: 'public/dist/img/apps/mim-3.png'}
@@ -21,7 +21,7 @@ module.exports = [
     url: 'http://marshallz.com',
     repo: 'https://github.com/evturn/marshallz',
     thumbnail: 'public/dist/img/apps/marshallz-tn.png',
-    items: [
+    images: [
       {image: 'public/dist/img/apps/marshallz-1.png'},
       {image: 'public/dist/img/apps/marshallz-2.png'},
       {image: 'public/dist/img/apps/marshallz-6.png'},
@@ -38,7 +38,7 @@ module.exports = [
     url: 'http://drivepublishing.com',
     repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
     thumbnail: "public/dist/img/apps/drive-tn.png",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/drive-1.png'},
       {image: 'public/dist/img/apps/drive-2.png'},
       {image: 'public/dist/img/apps/drive-3.png'}
@@ -52,7 +52,7 @@ module.exports = [
     url: 'http://ramenbuffet.com',
     repo: 'https://github.com/evturn/ramen-buffet',
     thumbnail: "public/dist/img/apps/rb-tn.png",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/ramen-buffet-1.png'},
       {image: 'public/dist/img/apps/ramen-buffet-2.png'},
       {image: 'public/dist/img/apps/ramen-buffet-3.png'}
@@ -64,7 +64,7 @@ module.exports = [
     description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
     id: 5,
     thumbnail: "public/dist/img/apps/alculator-tn.png",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/alculator-3.png'},
       {image: 'public/dist/img/apps/alculator-2.png'},
       {image: 'public/dist/img/apps/alculator-1.png'},
@@ -78,7 +78,7 @@ module.exports = [
     id: 3,
     repo: 'https://github.com/piqueapp/piqueapp.github.io',
     thumbnail: "public/dist/img/apps/pique-tn.png",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/pique-1.jpg'},
       {image: 'public/dist/img/apps/pique-2.png'},
       {image: 'public/dist/img/apps/pique-3.png'},
@@ -91,7 +91,7 @@ module.exports = [
     description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
     id: 7,
     thumbnail: "public/dist/img/apps/hangman-tn.png",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/hangman-1.jpg'},
       {image: 'public/dist/img/apps/hangman-2.jpg'}
     ],
@@ -102,7 +102,7 @@ module.exports = [
     description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
     id: 8,
     thumbnail: "public/dist/img/apps/ttt-tn.png",
-    items: [
+    images: [
       {lead: 'public/dist/img/apps/ttt-1.jpg'},
       {image: 'public/dist/img/apps/ttt-2.jpg'}
     ],
@@ -114,7 +114,7 @@ module.exports = [
     id: 9,
     url: 'http://smkkstudios.com/work/brooklynfriendsschool',
     thumbnail: "public/dist/img/apps/bfs-tn.jpg",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/bfs-1.png'},
       {image: 'public/dist/img/apps/bfs-2.png'}
     ],
@@ -126,7 +126,7 @@ module.exports = [
     id: 10,
     repo: 'https://github.com/evturn/WhereTO',
     thumbnail: "public/dist/img/apps/whereto-tn.png",
-    items: [
+    images: [
       {image: 'public/dist/img/apps/whereto-2.png'},
       {image: 'public/dist/img/apps/whereto-1.png'}
     ],
