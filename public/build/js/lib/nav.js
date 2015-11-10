@@ -1,12 +1,16 @@
 'use strict';
-const Compiler = require('../templates');
+const engine = require('./view-engine');
+const loadTemplate = engine.loadTemplate;
 
 module.exports = function() {
   let $nav = $('.ev-nav');
   let $curtain = $('#curtain');
 
   const init = () => {
-    render();
+    loadTemplate({
+      filepath: '../../views/templates/nav.hbs',
+      success: render
+    });
 
     $(document).on('click', '.burger-container', () => {
       expand();
@@ -43,9 +47,8 @@ module.exports = function() {
     }, 500);
   };
 
-  const render = () => {
-    let navTemplate = Compiler.nav();
-    $nav.html(navTemplate());
+  const render = (template) => {
+    $nav.html(template());
   };
 
   return init();

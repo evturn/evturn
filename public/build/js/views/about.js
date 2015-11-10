@@ -1,5 +1,4 @@
 'use strict';
-const _ = require('underscore');
 const data = require('../models');
 const statCounter = require('../lib/stat-counter');
 const engine = require('../lib/view-engine');

@@ -5091,7 +5091,6 @@
 	'use strict';
 	module.exports.Index = __webpack_require__(6);
 	module.exports.Work = __webpack_require__(16);
-	module.exports.Thumbnails = __webpack_require__(17);
 	module.exports.About = __webpack_require__(20);
 	module.exports.Contact = __webpack_require__(22);
 	module.exports.Wrapper = __webpack_require__(23);
@@ -5726,10 +5725,8 @@
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
 	
-	var _ = __webpack_require__(3);
-	var Thumbnails = __webpack_require__(17);
 	var carousel = __webpack_require__(19);
 	var data = __webpack_require__(8);
 	var engine = __webpack_require__(32);
@@ -5781,39 +5778,10 @@
 	    }, 780);
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(2)))
 
 /***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var Compiler = __webpack_require__(18);
-	
-	module.exports = Backbone.View.extend({
-	  thumbnailViewTemplate: Compiler.thumbnailView(),
-	  thumbnailItemTemplate: Compiler.thumbnailItem(),
-	  el: '.thumbnails-wrapper',
-	  events: {
-	    'click .thumbnail-item': 'scrollUp'
-	  },
-	  initialize: function initialize(selector) {
-	    this.render(selector);
-	  },
-	  render: function render($selector) {
-	    var collection = this.get('apps'),
-	        models = collection.models;
-	
-	    this.$el.empty();
-	    $('.work').append(this.thumbnailViewTemplate());
-	    this.compileAndAppend($('.thumbnails-wrapper'), models, this.thumbnailItemTemplate);
-	    return this;
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
+/* 17 */,
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6001,8 +5969,7 @@
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var _ = __webpack_require__(3);
+	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
 	var data = __webpack_require__(8);
 	var statCounter = __webpack_require__(21);
 	var engine = __webpack_require__(32);
@@ -6027,7 +5994,7 @@
 	    return this;
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(2)))
 
 /***/ },
 /* 21 */
@@ -6070,12 +6037,10 @@
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
-	  templates: [],
 	  el: '.contact',
 	  filepath: '../../views/contact.hbs',
 	  initialize: function initialize() {
 	    loadTemplate({
-	      templates: this.templates,
 	      filepath: this.filepath,
 	      success: this.render
 	    });
@@ -6098,7 +6063,6 @@
 	  child: null,
 	  render: function render() {
 	    this.$el.html(this.child.$el);
-	
 	    return this;
 	  }
 	});
@@ -6202,14 +6166,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var Compiler = __webpack_require__(18);
+	var engine = __webpack_require__(32);
+	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = function () {
 	  var $nav = $('.ev-nav');
 	  var $curtain = $('#curtain');
 	
 	  var init = function init() {
-	    render();
+	    loadTemplate({
+	      filepath: '../../views/templates/nav.hbs',
+	      success: render
+	    });
 	
 	    $(document).on('click', '.burger-container', function () {
 	      expand();
@@ -6246,9 +6214,8 @@
 	    }, 500);
 	  };
 	
-	  var render = function render() {
-	    var navTemplate = Compiler.nav();
-	    $nav.html(navTemplate());
+	  var render = function render(template) {
+	    $nav.html(template());
 	  };
 	
 	  return init();

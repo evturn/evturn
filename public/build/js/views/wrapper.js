@@ -3,7 +3,6 @@ module.exports = Backbone.View.extend({
   child: null,
   render() {
     this.$el.html(this.child.$el);
-
     return this;
   }
 });

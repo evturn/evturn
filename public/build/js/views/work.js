@@ -1,5 +1,3 @@
-const _ = require('underscore');
-const Thumbnails = require('./thumbnails');
 const carousel = require('../lib/carousel');
 const data = require('../models');
 const engine = require('../lib/view-engine');
