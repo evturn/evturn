@@ -2,8 +2,8 @@
 let counter, next, length, timer;
 
 const init = () => {
-  let $images = $('.item');
-  let $firstImage = $('.item:nth-child(1)');
+  const $images = $('.item');
+  const $firstImage = $('.item:nth-child(1)');
   length = $images.length;
   counter = null;
   next = null;
@@ -19,12 +19,12 @@ const init = () => {
 };
 
 const cycle = () => {
-  let $images = $('.item');
-  let $active = $('.active');
-  let $next = $('.next');
-  let isActiveLast = !!(counter === length);
-  let isNextLast = !!(next === length);
-  let isInitializing = !!(counter === null && next === null);
+  const $images = $('.item');
+  const $active = $('.active');
+  const $next = $('.next');
+  const isActiveLast = !!(counter === length);
+  const isNextLast = !!(next === length);
+  const isInitializing = !!(counter === null && next === null);
 
   if (isInitializing) {
     counter = 1;

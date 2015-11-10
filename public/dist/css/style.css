@@ -3377,7 +3377,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .fa-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eeeeee;
+  border: solid 0.08em #eee;
   border-radius: .1em;
 }
 .pull-right {
@@ -3479,7 +3479,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   font-size: 2em;
 }
 .fa-inverse {
-  color: #ffffff;
+  color: #fff;
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
@@ -5171,7 +5171,7 @@ html {
   font-size: 10px;
 }
 body {
-  background-color: #5fa3c0;
+  background-color: #5FA3C0;
 }
 a,
 p,
@@ -5350,7 +5350,7 @@ video::-webkit-media-controls {
   height: 100%;
 }
 .ev-navbar .headline-container {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   text-align: center;
   top: 275px;
   right: 0;
@@ -5379,7 +5379,7 @@ video::-webkit-media-controls {
   right: 0;
   height: 100%;
   width: 320px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   display: block;
   -webkit-box-shadow: -5px 0px 52px 1px rgba(0, 0, 0, 0.75);
   box-shadow: -5px 0px 52px 1px rgba(0, 0, 0, 0.75);
@@ -5508,7 +5508,7 @@ video::-webkit-media-controls {
     -webkit-transition: 0.2s;
     -o-transition: 0.2s;
     transition: 0.2s;
-    color: #5fa3c0;
+    color: #5FA3C0;
   }
 }
 .about {
@@ -5941,11 +5941,11 @@ video::-webkit-media-controls {
   width: 100%;
   position: relative;
   overflow: hidden;
-  height: 300px;
+  height: 210px;
 }
 @media (min-width: 600px) {
   .container.carousel .image-container {
-    height: 400px;
+    height: 260px;
   }
 }
 @media (min-width: 800px) {
@@ -5975,7 +5975,7 @@ video::-webkit-media-controls {
   margin-bottom: 10px;
   font-size: 2rem;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #FFFFFF;
   text-align: left;
   display: inline-block;
 }
@@ -6051,7 +6051,7 @@ video::-webkit-media-controls {
   -o-transition: 0.3s;
   transition: 0.3s;
   margin-left: 10px;
-  color: #5fa3c0;
+  color: #5FA3C0;
 }
 .container.carousel .project-links .meta .fa:hover {
   color: #ffffff;
