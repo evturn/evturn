@@ -5,6 +5,7 @@ const Backbone = require('backbone');
 const views = require('./views');
 const view = require('./lib/view').init();
 const googleAnalytics = require('google-analytics');
+const partials = require('./lib/partial-loader')();
 
 const Router = Backbone.Router.extend({
   wrapper      : null,

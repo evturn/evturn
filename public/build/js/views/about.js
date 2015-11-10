@@ -1,53 +1,27 @@
-let Compiler = require('../templates');
+'use strict';
+const _ = require('underscore');
+const loadTemplate = require('../lib/template-loader');
+const data = require('../models');
+const statCounter = require('../lib/stat-counter');
 
 module.exports = Backbone.View.extend({
-  navbarTemplate   : Compiler.navbar(),
-  techViewTemplate : Compiler.techView(),
-  techItemTemplate : Compiler.techItem(),
-  statItemTemplate : Compiler.statItem(),
-  bioTemplate      : Compiler.bio(),
+  templates: [],
   el: '.about',
+  filepath: '../../views/about.hbs',
   initialize() {
-    this.render();
-    this.animateStats();
+    loadTemplate({
+      templates: this.templates,
+      filepath: this.filepath,
+      success: this.render
+    });
   },
-  render() {
-    let stats = this.get('stats').models;
-    let techs = this.get('tech').models;
-    let paragraphs = this.get('bio').models;
-
-    this.$el.html(this.navbarTemplate());
-    this.$el.append(this.techViewTemplate());
-    this.compileAndAppend($('.statistics.stat-items'), stats, this.statItemTemplate);
-    this.compileAndAppend($('.technology-items'), techs, this.techItemTemplate);
-    this.compileAndAppend($('.paragraphs'), paragraphs, this.bioTemplate);
+  render(template) {
+    const tech = _.where(data.tech, { featured: true });
+    $('.about').html(template({
+      tech: tech,
+      stats: data.stats
+    }));
+    statCounter();
     return this;
   },
-  animateStats() {
-    let $counters = $('.stat-count');
-
-    $counters.each((index, element) => {
-      let $element = $(element);
-      $element.data('count', parseInt($element.html(), 10));
-      $element.html('0');
-
-      this.count($element);
-    });
-
-  },
-  count($element){
-    let current = parseInt($element.html(), 10);
-
-    current = current + 50;
-    $element.html(++current);
-
-    if (current > $element.data('count')) {
-        $element.html($element.data('count'));
-    }
-    else {
-        setTimeout(() => {
-          this.count($element);
-        }, 50);
-    }
-  }
 });

@@ -58,6 +58,7 @@
 	var views = __webpack_require__(5);
 	var view = __webpack_require__(52).init();
 	var googleAnalytics = __webpack_require__(54);
+	var partials = __webpack_require__(56)();
 	
 	var Router = Backbone.Router.extend({
 	  wrapper: null,
@@ -5174,7 +5175,6 @@
 	module.exports.stats = __webpack_require__(11);
 	module.exports.tech = __webpack_require__(12);
 	module.exports.apps = __webpack_require__(13);
-	module.exports.bio = __webpack_require__(14);
 
 /***/ },
 /* 9 */
@@ -5457,17 +5457,7 @@
 	}];
 
 /***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	'use strict';
-	module.exports = [{
-	  paragraph: 'As the web continues to evolve in the direction of single page applications, exploring solutions and strategies for building these rich front-end apps is not only essential but provides an exciting opportunity for design innovation. As a Developer, I focus on building responsive web applications that optimize scalability through RESTful APIs.'
-	}, {
-	  paragraph: 'While I enjoy building in a Node.js runtime environment, having worked with Rails and the MVC architectural pattern the framework implements, I find libraries like Backbone.js that share the same approach to data structure heavily strengthens the application logic I write.'
-	}];
-
-/***/ },
+/* 14 */,
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10560,60 +10550,30 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var Compiler = __webpack_require__(15);
+	var _ = __webpack_require__(3);
+	var loadTemplate = __webpack_require__(55);
+	var data = __webpack_require__(8);
+	var statCounter = __webpack_require__(57);
 	
 	module.exports = Backbone.View.extend({
-	  navbarTemplate: Compiler.navbar(),
-	  techViewTemplate: Compiler.techView(),
-	  techItemTemplate: Compiler.techItem(),
-	  statItemTemplate: Compiler.statItem(),
-	  bioTemplate: Compiler.bio(),
+	  templates: [],
 	  el: '.about',
+	  filepath: '../../views/about.hbs',
 	  initialize: function initialize() {
-	    this.render();
-	    this.animateStats();
-	  },
-	  render: function render() {
-	    var stats = this.get('stats').models;
-	    var techs = this.get('tech').models;
-	    var paragraphs = this.get('bio').models;
-	
-	    this.$el.html(this.navbarTemplate());
-	    this.$el.append(this.techViewTemplate());
-	    this.compileAndAppend($('.statistics.stat-items'), stats, this.statItemTemplate);
-	    this.compileAndAppend($('.technology-items'), techs, this.techItemTemplate);
-	    this.compileAndAppend($('.paragraphs'), paragraphs, this.bioTemplate);
-	    return this;
-	  },
-	  animateStats: function animateStats() {
-	    var _this = this;
-	
-	    var $counters = $('.stat-count');
-	
-	    $counters.each(function (index, element) {
-	      var $element = $(element);
-	      $element.data('count', parseInt($element.html(), 10));
-	      $element.html('0');
-	
-	      _this.count($element);
+	    loadTemplate({
+	      templates: this.templates,
+	      filepath: this.filepath,
+	      success: this.render
 	    });
 	  },
-	  count: function count($element) {
-	    var _this2 = this;
-	
-	    var current = parseInt($element.html(), 10);
-	
-	    current = current + 50;
-	    $element.html(++current);
-	
-	    if (current > $element.data('count')) {
-	      $element.html($element.data('count'));
-	    } else {
-	      setTimeout(function () {
-	        _this2.count($element);
-	      }, 50);
-	    }
+	  render: function render(template) {
+	    var tech = _.where(data.tech, { featured: true });
+	    $('.about').html(template({
+	      tech: tech,
+	      stats: data.stats
+	    }));
+	    statCounter();
+	    return this;
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
@@ -10701,9 +10661,6 @@
 	        break;
 	      case 'apps':
 	        data = models.apps;
-	        break;
-	      case 'bio':
-	        data = models.bio;
 	        break;
 	    };
 	
@@ -10863,6 +10820,91 @@
 	    params.success(params.templates[params.filepath]);
 	  });
 	};
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	'use-strict';
+	var $ = __webpack_require__(2);
+	var Handlebars = __webpack_require__(16);
+	var templates = [{
+	  filepath: '../../views/templates/carousel-navbar.hbs',
+	  name: 'carousel-navbar'
+	}, {
+	  filepath: '../../views/templates/nav.hbs',
+	  name: 'nav'
+	}, {
+	  filepath: '../../views/templates/navbar.hbs',
+	  name: 'navbar'
+	}];
+	
+	var loadPartials = module.exports = function () {
+	
+	  var get = function get(template) {
+	    $.get(template.filepath, function (contents) {
+	      return Handlebars.registerPartial(template.name, contents);
+	    });
+	  };
+	
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+	
+	  try {
+	    for (var _iterator = templates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var template = _step.value;
+	
+	      get(template);
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator['return']) {
+	        _iterator['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+	};
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	var incrementStats = function incrementStats($element) {
+	  var current = parseInt($element.html(), 10);
+	  current = current + 50;
+	  $element.html(++current);
+	
+	  if (current > $element.data('count')) {
+	    $element.html($element.data('count'));
+	  } else {
+	    setTimeout(function () {
+	      incrementStats($element);
+	    }, 50);
+	  }
+	};
+	
+	var animateStats = module.exports = function () {
+	  var $counters = $('.stat-count');
+	
+	  $counters.each(function (index, element) {
+	    var $element = $(element);
+	    $element.data('count', parseInt($element.html(), 10));
+	    $element.html('0');
+	    incrementStats($element);
+	  });
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }
 /******/ ]);

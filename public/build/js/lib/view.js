@@ -32,9 +32,6 @@ module.exports = _.extend(Backbone.View.prototype, {
       case 'apps':
         data = models.apps;
         break;
-      case 'bio':
-        data = models.bio;
-        break;
     };
 
     if (options) {
