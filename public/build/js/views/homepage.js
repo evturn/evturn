@@ -1,23 +1,22 @@
+'use strict';
 const videoPlayer = require('../lib/video-player');
-const Compiler = require('../templates');
+const loadTemplate = require('../lib/template-loader');
 
 module.exports = Backbone.View.extend({
-  heroTemplate: Compiler.hero(),
+  templates: [],
   el: '.index',
+  filepath: '../../views/index.hbs',
   initialize() {
-    this.render();
-    this.setVideo();
+    loadTemplate({
+      templates: this.templates,
+      filepath: this.filepath,
+      success: this.render
+    });
   },
-  render() {
-    this.$el.html(this.heroTemplate());
-
+  render(template) {
+    $('.index').html(template());
+    const video = document.getElementById('ev-vid');
+    videoPlayer(video);
     return this;
   },
-  setVideo() {
-    $(document).ready(function() {
-      let video = document.getElementById('ev-vid');
-
-      videoPlayer(video);
-    });
-  }
 });

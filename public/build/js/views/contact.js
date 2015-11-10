@@ -1,25 +1,20 @@
+'use strict';
 const links = require('../models/links');
-const Handlebars = require('handlebars');
+const loadTemplate = require('../lib/template-loader');
 
 module.exports = Backbone.View.extend({
   templates: [],
   el: '.contact',
   filepath: '../../views/contact.hbs',
   initialize() {
-    this.loadTemplate();
-  },
-  loadTemplate() {
-    if (this.templates[this.filepath]) {
-      return this.render(this.templates[this.filepath]);
-    }
-
-    $.get(this.filepath, (contents) => {
-      this.templates[this.filepath] = Handlebars.compile(contents);
-      this.render(this.templates[this.filepath]);
+    loadTemplate({
+      templates: this.templates,
+      filepath: this.filepath,
+      success: this.render
     });
   },
   render(template) {
-    this.$el.html(template({ links }));
+    $('.contact').html(template({ links }));
     return this;
   }
 });

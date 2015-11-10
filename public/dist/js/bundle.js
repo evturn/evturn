@@ -5091,28 +5091,25 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
 	var videoPlayer = __webpack_require__(7);
-	var Compiler = __webpack_require__(15);
+	var loadTemplate = __webpack_require__(55);
 	
 	module.exports = Backbone.View.extend({
-	  heroTemplate: Compiler.hero(),
+	  templates: [],
 	  el: '.index',
+	  filepath: '../../views/index.hbs',
 	  initialize: function initialize() {
-	    this.render();
-	    this.setVideo();
-	  },
-	  render: function render() {
-	    this.$el.html(this.heroTemplate());
-	
-	    return this;
-	  },
-	  setVideo: function setVideo() {
-	    $(document).ready(function () {
-	      var video = document.getElementById('ev-vid');
-	
-	      videoPlayer(video);
+	    loadTemplate({
+	      templates: this.templates,
+	      filepath: this.filepath,
+	      success: this.render
 	    });
+	  },
+	  render: function render(template) {
+	    $('.index').html(template());
+	    var video = document.getElementById('ev-vid');
+	    videoPlayer(video);
+	    return this;
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
@@ -10626,31 +10623,22 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
 	var links = __webpack_require__(10);
-	var Handlebars = __webpack_require__(16);
+	var loadTemplate = __webpack_require__(55);
 	
 	module.exports = Backbone.View.extend({
 	  templates: [],
 	  el: '.contact',
 	  filepath: '../../views/contact.hbs',
 	  initialize: function initialize() {
-	    this.loadTemplate();
-	  },
-	  loadTemplate: function loadTemplate() {
-	    var _this = this;
-	
-	    if (this.templates[this.filepath]) {
-	      return this.render(this.templates[this.filepath]);
-	    }
-	
-	    $.get(this.filepath, function (contents) {
-	      _this.templates[_this.filepath] = Handlebars.compile(contents);
-	      _this.render(_this.templates[_this.filepath]);
+	    loadTemplate({
+	      templates: this.templates,
+	      filepath: this.filepath,
+	      success: this.render
 	    });
 	  },
 	  render: function render(template) {
-	    this.$el.html(template({ links: links }));
+	    $('.contact').html(template({ links: links }));
 	    return this;
 	  }
 	});
@@ -10854,6 +10842,27 @@
 	
 	ga('create', 'UA-58635966-1', 'auto');
 	ga('send', 'pageview');
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	'use-strict';
+	var $ = __webpack_require__(2);
+	var Handlebars = __webpack_require__(16);
+	
+	var loadTemplate = module.exports = function (params) {
+	  if (params.templates[params.filepath]) {
+	    return params.success(params.templates[params.filepath]);
+	  }
+	
+	  $.get(params.filepath, function (contents) {
+	    params.templates[params.filepath] = Handlebars.compile(contents);
+	    params.success(params.templates[params.filepath]);
+	  });
+	};
 
 /***/ }
 /******/ ]);
