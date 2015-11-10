@@ -1,24 +1,25 @@
-let Compiler = require('../templates');
+const links = require('../models/links');
+const Handlebars = require('handlebars');
 
 module.exports = Backbone.View.extend({
-  navbarTemplate      : Compiler.navbar(),
-  contactViewTemplate : Compiler.contactView(),
-  linkItemTemplate    : Compiler.linkItem(),
+  templates: [],
   el: '.contact',
+  filepath: '../../views/contact.hbs',
   initialize() {
-    this.setView();
-    this.appendLinks();
+    this.loadTemplate();
   },
-  setView() {
-    this.$el.html(this.navbarTemplate());
-    this.$el.append(this.contactViewTemplate());
-    return this;
-  },
-  appendLinks() {
-    let collection = this.get('links'),
-        models = collection.models;
+  loadTemplate() {
+    if (this.templates[this.filepath]) {
+      return this.render(this.templates[this.filepath]);
+    }
 
-    this.compileAndAppend($('.link-items'), models, this.linkItemTemplate);
+    $.get(this.filepath, (contents) => {
+      this.templates[this.filepath] = Handlebars.compile(contents);
+      this.render(this.templates[this.filepath]);
+    });
+  },
+  render(template) {
+    this.$el.html(template({ links }));
     return this;
   }
 });

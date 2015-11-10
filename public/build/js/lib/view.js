@@ -16,7 +16,7 @@ module.exports = _.extend(Backbone.View.prototype, {
     this.preloader();
     nav();
   },
-  get(value, options=false) {
+  get(value, options=false, pure=false) {
     let data, _models;
 
     switch (value) {
@@ -42,6 +42,10 @@ module.exports = _.extend(Backbone.View.prototype, {
     } else {
       let featured = _.has(_.first(data), 'featured') ? _.where(data, {featured: true}) : data;
       _models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
+    }
+
+    if (pure) {
+      return _models;
     }
     return new Collection(_models);
   },

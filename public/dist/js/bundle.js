@@ -5207,20 +5207,10 @@
 	  icon: 'fa fa-linkedin-square',
 	  featured: true
 	}, {
-	  name: 'general assembly',
-	  url: 'https://profiles.generalassemb.ly/ev',
-	  icon: 'fa fa-certificate',
-	  featured: false
-	}, {
 	  name: 'twitter',
 	  url: 'http://twitter.com/evturn',
 	  icon: 'fa fa-twitter',
 	  featured: true
-	}, {
-	  name: 'skype: @evturn',
-	  url: 'javaScript:void(0);',
-	  icon: 'fa fa-skype',
-	  featured: false
 	}];
 
 /***/ },
@@ -10637,27 +10627,30 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	var Compiler = __webpack_require__(15);
+	var links = __webpack_require__(10);
+	var Handlebars = __webpack_require__(16);
 	
 	module.exports = Backbone.View.extend({
-	  navbarTemplate: Compiler.navbar(),
-	  contactViewTemplate: Compiler.contactView(),
-	  linkItemTemplate: Compiler.linkItem(),
+	  templates: [],
 	  el: '.contact',
+	  filepath: '../../views/contact.hbs',
 	  initialize: function initialize() {
-	    this.setView();
-	    this.appendLinks();
+	    this.loadTemplate();
 	  },
-	  setView: function setView() {
-	    this.$el.html(this.navbarTemplate());
-	    this.$el.append(this.contactViewTemplate());
-	    return this;
-	  },
-	  appendLinks: function appendLinks() {
-	    var collection = this.get('links'),
-	        models = collection.models;
+	  loadTemplate: function loadTemplate() {
+	    var _this = this;
 	
-	    this.compileAndAppend($('.link-items'), models, this.linkItemTemplate);
+	    if (this.templates[this.filepath]) {
+	      return this.render(this.templates[this.filepath]);
+	    }
+	
+	    $.get(this.filepath, function (contents) {
+	      _this.templates[_this.filepath] = Handlebars.compile(contents);
+	      _this.render(_this.templates[_this.filepath]);
+	    });
+	  },
+	  render: function render(template) {
+	    this.$el.html(template({ links: links }));
 	    return this;
 	  }
 	});
@@ -10703,6 +10696,7 @@
 	  },
 	  get: function get(value) {
 	    var options = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+	    var pure = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
 	
 	    var data = undefined,
 	        _models = undefined;
@@ -10730,6 +10724,10 @@
 	    } else {
 	      var featured = _.has(_.first(data), 'featured') ? _.where(data, { featured: true }) : data;
 	      _models = _.has(featured, 'id') ? _.sortBy(featured, 'id') : featured;
+	    }
+	
+	    if (pure) {
+	      return _models;
 	    }
 	    return new Collection(_models);
 	  },

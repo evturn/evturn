@@ -16,19 +16,9 @@ module.exports = [
     icon: 'fa fa-linkedin-square',
     featured: true
   }, {
-    name: 'general assembly',
-    url: 'https://profiles.generalassemb.ly/ev',
-    icon: 'fa fa-certificate',
-    featured: false
-  }, {
     name: 'twitter',
     url: 'http://twitter.com/evturn',
     icon: 'fa fa-twitter',
     featured: true
-  }, {
-    name: 'skype: @evturn',
-    url: 'javaScript:void(0);',
-    icon: 'fa fa-skype',
-    featured: false
   }
 ];

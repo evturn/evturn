@@ -5945,7 +5945,7 @@ video::-webkit-media-controls {
 }
 @media (min-width: 600px) {
   .container.carousel .image-container {
-    height: 260px;
+    height: 340px;
   }
 }
 @media (min-width: 800px) {
