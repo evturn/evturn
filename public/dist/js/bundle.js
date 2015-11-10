@@ -56,11 +56,11 @@
 	var _ = __webpack_require__(3);
 	var Backbone = __webpack_require__(4);
 	var views = __webpack_require__(5);
-	var engine = __webpack_require__(32);
-	var view = __webpack_require__(24).init();
-	var googleAnalytics = __webpack_require__(26);
-	var spinner = __webpack_require__(28);
-	var carousel = __webpack_require__(19);
+	var engine = __webpack_require__(14);
+	var view = __webpack_require__(22).init();
+	var googleAnalytics = __webpack_require__(24);
+	var spinner = __webpack_require__(25);
+	var carousel = __webpack_require__(17);
 	
 	engine.registerPartials();
 	engine.registerTemplates();
@@ -5091,9 +5091,9 @@
 	'use strict';
 	module.exports.Index = __webpack_require__(6);
 	module.exports.Work = __webpack_require__(16);
-	module.exports.About = __webpack_require__(20);
-	module.exports.Contact = __webpack_require__(22);
-	module.exports.Wrapper = __webpack_require__(23);
+	module.exports.About = __webpack_require__(18);
+	module.exports.Contact = __webpack_require__(20);
+	module.exports.Wrapper = __webpack_require__(21);
 
 /***/ },
 /* 6 */
@@ -5101,7 +5101,7 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var videoPlayer = __webpack_require__(7);
-	var engine = __webpack_require__(32);
+	var engine = __webpack_require__(14);
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
@@ -5181,7 +5181,7 @@
 	module.exports.links = __webpack_require__(10);
 	module.exports.stats = __webpack_require__(11);
 	module.exports.tech = __webpack_require__(12);
-	module.exports.projects = __webpack_require__(31);
+	module.exports.projects = __webpack_require__(13);
 
 /***/ },
 /* 9 */
@@ -5366,8 +5366,210 @@
 	}];
 
 /***/ },
-/* 13 */,
-/* 14 */,
+/* 13 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = [{
+	  name: 'Made In Music',
+	  description: "This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.",
+	  id: 1,
+	  url: 'http://madeinmusic.co',
+	  repo: 'https://github.com/evturn/madeinmusic.co',
+	  thumbnail: "public/dist/img/apps/mim-tn.png",
+	  images: [{ image: 'public/dist/img/apps/mim-1.png' }, { image: 'public/dist/img/apps/mim-2.png' }, { image: 'public/dist/img/apps/mim-3.png' }],
+	  featured: true,
+	  technologies: [1, 3, 14, 12, 10, 11, 15, 20]
+	}, {
+	  name: 'Marshallz Blog',
+	  description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
+	  id: 2,
+	  url: 'http://marshallz.com',
+	  repo: 'https://github.com/evturn/marshallz',
+	  thumbnail: 'public/dist/img/apps/marshallz-tn.png',
+	  images: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
+	  featured: true,
+	  technologies: [1, 14, 12, 15, 10, 18, 19, 20]
+	}, {
+	  name: 'Drive Publishing',
+	  description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
+	  id: 4,
+	  url: 'http://drivepublishing.com',
+	  repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
+	  thumbnail: "public/dist/img/apps/drive-tn.png",
+	  images: [{ image: 'public/dist/img/apps/drive-1.png' }, { image: 'public/dist/img/apps/drive-2.png' }, { image: 'public/dist/img/apps/drive-3.png' }],
+	  featured: true,
+	  technologies: [13, 11, 14, 20]
+	}, {
+	  name: 'Ramen Buffet',
+	  description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
+	  id: 6,
+	  url: 'http://ramenbuffet.com',
+	  repo: 'https://github.com/evturn/ramen-buffet',
+	  thumbnail: "public/dist/img/apps/rb-tn.png",
+	  images: [{ image: 'public/dist/img/apps/ramen-buffet-1.png' }, { image: 'public/dist/img/apps/ramen-buffet-2.png' }, { image: 'public/dist/img/apps/ramen-buffet-3.png' }],
+	  featured: true,
+	  technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
+	}, {
+	  name: 'Alculator',
+	  description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
+	  id: 5,
+	  thumbnail: "public/dist/img/apps/alculator-tn.png",
+	  images: [{ image: 'public/dist/img/apps/alculator-3.png' }, { image: 'public/dist/img/apps/alculator-2.png' }, { image: 'public/dist/img/apps/alculator-1.png' }, { image: 'public/dist/img/apps/alculator-4.png' }],
+	  featured: true,
+	  technologies: [1, 12, 3, 11]
+	}, {
+	  name: 'Pique',
+	  description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
+	  id: 3,
+	  repo: 'https://github.com/piqueapp/piqueapp.github.io',
+	  thumbnail: "public/dist/img/apps/pique-tn.png",
+	  images: [{ image: 'public/dist/img/apps/pique-1.jpg' }, { image: 'public/dist/img/apps/pique-2.png' }, { image: 'public/dist/img/apps/pique-3.png' }, { image: 'public/dist/img/apps/pique-4.png' }],
+	  featured: true,
+	  technologies: [16, 17, 11]
+	}, {
+	  name: 'Hangman',
+	  description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
+	  id: 7,
+	  thumbnail: "public/dist/img/apps/hangman-tn.png",
+	  images: [{ image: 'public/dist/img/apps/hangman-1.jpg' }, { image: 'public/dist/img/apps/hangman-2.jpg' }],
+	  featured: false,
+	  technologies: [1, 12, 3, 11]
+	}, {
+	  name: 'Tic Tac Toe',
+	  description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
+	  id: 8,
+	  thumbnail: "public/dist/img/apps/ttt-tn.png",
+	  images: [{ lead: 'public/dist/img/apps/ttt-1.jpg' }, { image: 'public/dist/img/apps/ttt-2.jpg' }],
+	  featured: false,
+	  technologies: [3, 11]
+	}, {
+	  name: 'Brooklyn Friends School',
+	  description: 'I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.',
+	  id: 9,
+	  url: 'http://smkkstudios.com/work/brooklynfriendsschool',
+	  thumbnail: "public/dist/img/apps/bfs-tn.jpg",
+	  images: [{ image: 'public/dist/img/apps/bfs-1.png' }, { image: 'public/dist/img/apps/bfs-2.png' }],
+	  featured: true,
+	  technologies: [21, 13]
+	}, {
+	  name: 'WhereTO',
+	  description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
+	  id: 10,
+	  repo: 'https://github.com/evturn/WhereTO',
+	  thumbnail: "public/dist/img/apps/whereto-tn.png",
+	  images: [{ image: 'public/dist/img/apps/whereto-2.png' }, { image: 'public/dist/img/apps/whereto-1.png' }],
+	  featured: true,
+	  technologies: [1, 14, 12, 10, 13]
+	}];
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	'use-strict';
+	var Handlebars = __webpack_require__(15);
+	var templates = [{
+	  filepath: '../../views/templates/carousel-navbar.hbs',
+	  name: 'carousel-navbar'
+	}, {
+	  filepath: '../../views/templates/nav.hbs',
+	  name: 'nav'
+	}, {
+	  filepath: '../../views/templates/navbar.hbs',
+	  name: 'navbar'
+	}, {
+	  filepath: '../../views/templates/thumbnails.hbs',
+	  name: 'thumbnails'
+	}, {
+	  filepath: '../../views/templates/carousel-info.hbs',
+	  name: 'carousel-info'
+	}];
+	
+	var cachedTemplates = [];
+	
+	module.exports.loadTemplate = function (params) {
+	  var data = params.data ? params.data : '';
+	  if (cachedTemplates[params.filepath]) {
+	    return params.success(cachedTemplates[params.filepath], data);
+	  }
+	
+	  $.get(params.filepath, function (contents) {
+	    cachedTemplates[params.filepath] = Handlebars.compile(contents);
+	    params.success(cachedTemplates[params.filepath], data);
+	  });
+	};
+	
+	module.exports.registerTemplates = function () {
+	  var get = function get(template) {
+	    $.get(template.filepath, function (contents) {
+	      cachedTemplates[template.filepath] = Handlebars.precompile(contents);
+	    });
+	  };
+	
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+	
+	  try {
+	    for (var _iterator = templates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var template = _step.value;
+	
+	      get(template);
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator['return']) {
+	        _iterator['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+	};
+	
+	module.exports.registerPartials = function () {
+	  var get = function get(template) {
+	    $.get(template.filepath, function (contents) {
+	      return Handlebars.registerPartial(template.name, contents);
+	    });
+	  };
+	
+	  var _iteratorNormalCompletion2 = true;
+	  var _didIteratorError2 = false;
+	  var _iteratorError2 = undefined;
+	
+	  try {
+	    for (var _iterator2 = templates[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	      var template = _step2.value;
+	
+	      get(template);
+	    }
+	  } catch (err) {
+	    _didIteratorError2 = true;
+	    _iteratorError2 = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion2 && _iterator2['return']) {
+	        _iterator2['return']();
+	      }
+	    } finally {
+	      if (_didIteratorError2) {
+	        throw _iteratorError2;
+	      }
+	    }
+	  }
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -5727,9 +5929,9 @@
 
 	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
 	
-	var carousel = __webpack_require__(19);
+	var carousel = __webpack_require__(17);
 	var data = __webpack_require__(8);
-	var engine = __webpack_require__(32);
+	var engine = __webpack_require__(14);
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
@@ -5782,9 +5984,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(2)))
 
 /***/ },
-/* 17 */,
-/* 18 */,
-/* 19 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -5850,13 +6050,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
 	var data = __webpack_require__(8);
-	var statCounter = __webpack_require__(21);
-	var engine = __webpack_require__(32);
+	var statCounter = __webpack_require__(19);
+	var engine = __webpack_require__(14);
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
@@ -5881,7 +6081,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(2)))
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -5912,12 +6112,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var links = __webpack_require__(10);
-	var engine = __webpack_require__(32);
+	var engine = __webpack_require__(14);
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
@@ -5937,7 +6137,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5952,13 +6152,13 @@
 	});
 
 /***/ },
-/* 24 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
 	var Backbone = __webpack_require__(4);
 	var models = __webpack_require__(8);
-	var nav = __webpack_require__(25);
+	var nav = __webpack_require__(23);
 	var views = __webpack_require__(5);
 	var Model = Backbone.Model.extend({});
 	var Collection = Backbone.Collection.extend({
@@ -6015,11 +6215,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(2)))
 
 /***/ },
-/* 25 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var engine = __webpack_require__(32);
+	var engine = __webpack_require__(14);
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = function () {
@@ -6076,7 +6276,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 26 */
+/* 24 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6091,8 +6291,7 @@
 	ga('send', 'pageview');
 
 /***/ },
-/* 27 */,
-/* 28 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -6102,212 +6301,6 @@
 	  var $image = $('.preloader');
 	  $container.delay(500).fadeOut();
 	  $image.delay(600).fadeOut(600);
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 29 */,
-/* 30 */,
-/* 31 */
-/***/ function(module, exports) {
-
-	'use strict';
-	module.exports = [{
-	  name: 'Made In Music',
-	  description: "This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.",
-	  id: 1,
-	  url: 'http://madeinmusic.co',
-	  repo: 'https://github.com/evturn/madeinmusic.co',
-	  thumbnail: "public/dist/img/apps/mim-tn.png",
-	  images: [{ image: 'public/dist/img/apps/mim-1.png' }, { image: 'public/dist/img/apps/mim-2.png' }, { image: 'public/dist/img/apps/mim-3.png' }],
-	  featured: true,
-	  technologies: [1, 3, 14, 12, 10, 11, 15, 20]
-	}, {
-	  name: 'Marshallz Blog',
-	  description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
-	  id: 2,
-	  url: 'http://marshallz.com',
-	  repo: 'https://github.com/evturn/marshallz',
-	  thumbnail: 'public/dist/img/apps/marshallz-tn.png',
-	  images: [{ image: 'public/dist/img/apps/marshallz-1.png' }, { image: 'public/dist/img/apps/marshallz-2.png' }, { image: 'public/dist/img/apps/marshallz-6.png' }, { image: 'public/dist/img/apps/marshallz-3.jpg' }, { image: 'public/dist/img/apps/marshallz-5.png' }, { image: 'public/dist/img/apps/marshallz-4.jpg' }],
-	  featured: true,
-	  technologies: [1, 14, 12, 15, 10, 18, 19, 20]
-	}, {
-	  name: 'Drive Publishing',
-	  description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
-	  id: 4,
-	  url: 'http://drivepublishing.com',
-	  repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
-	  thumbnail: "public/dist/img/apps/drive-tn.png",
-	  images: [{ image: 'public/dist/img/apps/drive-1.png' }, { image: 'public/dist/img/apps/drive-2.png' }, { image: 'public/dist/img/apps/drive-3.png' }],
-	  featured: true,
-	  technologies: [13, 11, 14, 20]
-	}, {
-	  name: 'Ramen Buffet',
-	  description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
-	  id: 6,
-	  url: 'http://ramenbuffet.com',
-	  repo: 'https://github.com/evturn/ramen-buffet',
-	  thumbnail: "public/dist/img/apps/rb-tn.png",
-	  images: [{ image: 'public/dist/img/apps/ramen-buffet-1.png' }, { image: 'public/dist/img/apps/ramen-buffet-2.png' }, { image: 'public/dist/img/apps/ramen-buffet-3.png' }],
-	  featured: true,
-	  technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
-	}, {
-	  name: 'Alculator',
-	  description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
-	  id: 5,
-	  thumbnail: "public/dist/img/apps/alculator-tn.png",
-	  images: [{ image: 'public/dist/img/apps/alculator-3.png' }, { image: 'public/dist/img/apps/alculator-2.png' }, { image: 'public/dist/img/apps/alculator-1.png' }, { image: 'public/dist/img/apps/alculator-4.png' }],
-	  featured: true,
-	  technologies: [1, 12, 3, 11]
-	}, {
-	  name: 'Pique',
-	  description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
-	  id: 3,
-	  repo: 'https://github.com/piqueapp/piqueapp.github.io',
-	  thumbnail: "public/dist/img/apps/pique-tn.png",
-	  images: [{ image: 'public/dist/img/apps/pique-1.jpg' }, { image: 'public/dist/img/apps/pique-2.png' }, { image: 'public/dist/img/apps/pique-3.png' }, { image: 'public/dist/img/apps/pique-4.png' }],
-	  featured: true,
-	  technologies: [16, 17, 11]
-	}, {
-	  name: 'Hangman',
-	  description: "A gory and cartoonish version of the classic Hangman game. An API is used to access a library of words which helps to deliver a more unique game play.",
-	  id: 7,
-	  thumbnail: "public/dist/img/apps/hangman-tn.png",
-	  images: [{ image: 'public/dist/img/apps/hangman-1.jpg' }, { image: 'public/dist/img/apps/hangman-2.jpg' }],
-	  featured: false,
-	  technologies: [1, 12, 3, 11]
-	}, {
-	  name: 'Tic Tac Toe',
-	  description: "Using photoshop, opponent 'X' displays a random image of two crossing eclairs on each game play, while opponent 'O' is represented with donuts",
-	  id: 8,
-	  thumbnail: "public/dist/img/apps/ttt-tn.png",
-	  images: [{ lead: 'public/dist/img/apps/ttt-1.jpg' }, { image: 'public/dist/img/apps/ttt-2.jpg' }],
-	  featured: false,
-	  technologies: [3, 11]
-	}, {
-	  name: 'Brooklyn Friends School',
-	  description: 'I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.',
-	  id: 9,
-	  url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-	  thumbnail: "public/dist/img/apps/bfs-tn.jpg",
-	  images: [{ image: 'public/dist/img/apps/bfs-1.png' }, { image: 'public/dist/img/apps/bfs-2.png' }],
-	  featured: true,
-	  technologies: [21, 13]
-	}, {
-	  name: 'WhereTO',
-	  description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
-	  id: 10,
-	  repo: 'https://github.com/evturn/WhereTO',
-	  thumbnail: "public/dist/img/apps/whereto-tn.png",
-	  images: [{ image: 'public/dist/img/apps/whereto-2.png' }, { image: 'public/dist/img/apps/whereto-1.png' }],
-	  featured: true,
-	  technologies: [1, 14, 12, 10, 13]
-	}];
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	'use-strict';
-	var Handlebars = __webpack_require__(15);
-	var templates = [{
-	  filepath: '../../views/templates/carousel-navbar.hbs',
-	  name: 'carousel-navbar'
-	}, {
-	  filepath: '../../views/templates/nav.hbs',
-	  name: 'nav'
-	}, {
-	  filepath: '../../views/templates/navbar.hbs',
-	  name: 'navbar'
-	}, {
-	  filepath: '../../views/templates/thumbnails.hbs',
-	  name: 'thumbnails'
-	}, {
-	  filepath: '../../views/templates/carousel-info.hbs',
-	  name: 'carousel-info'
-	}];
-	
-	var cachedTemplates = [];
-	
-	module.exports.loadTemplate = function (params) {
-	  var data = params.data ? params.data : '';
-	  if (cachedTemplates[params.filepath]) {
-	    return params.success(cachedTemplates[params.filepath], data);
-	  }
-	
-	  $.get(params.filepath, function (contents) {
-	    cachedTemplates[params.filepath] = Handlebars.compile(contents);
-	    params.success(cachedTemplates[params.filepath], data);
-	  });
-	};
-	
-	module.exports.registerTemplates = function () {
-	  var get = function get(template) {
-	    $.get(template.filepath, function (contents) {
-	      cachedTemplates[template.filepath] = Handlebars.precompile(contents);
-	    });
-	  };
-	
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
-	
-	  try {
-	    for (var _iterator = templates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      var template = _step.value;
-	
-	      get(template);
-	    }
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator['return']) {
-	        _iterator['return']();
-	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
-	      }
-	    }
-	  }
-	};
-	
-	module.exports.registerPartials = function () {
-	  var get = function get(template) {
-	    $.get(template.filepath, function (contents) {
-	      return Handlebars.registerPartial(template.name, contents);
-	    });
-	  };
-	
-	  var _iteratorNormalCompletion2 = true;
-	  var _didIteratorError2 = false;
-	  var _iteratorError2 = undefined;
-	
-	  try {
-	    for (var _iterator2 = templates[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	      var template = _step2.value;
-	
-	      get(template);
-	    }
-	  } catch (err) {
-	    _didIteratorError2 = true;
-	    _iteratorError2 = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion2 && _iterator2['return']) {
-	        _iterator2['return']();
-	      }
-	    } finally {
-	      if (_didIteratorError2) {
-	        throw _iteratorError2;
-	      }
-	    }
-	  }
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
