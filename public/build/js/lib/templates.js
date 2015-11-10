@@ -7,7 +7,6 @@ const loadTemplate = module.exports = function(params) {
   }
 
   const data = params.data ? params.data : '';
-
   $.get(params.filepath, (contents) => {
     params.templates[params.filepath] = Handlebars.compile(contents);
     params.success(params.templates[params.filepath], data);

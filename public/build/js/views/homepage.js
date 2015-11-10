@@ -1,6 +1,6 @@
 'use strict';
 const videoPlayer = require('../lib/video-player');
-const loadTemplate = require('../lib/template-loader');
+const loadTemplate = require('../lib/templates');
 
 module.exports = Backbone.View.extend({
   templates: [],

@@ -1,6 +1,6 @@
 'use strict';
 const _ = require('underscore');
-const loadTemplate = require('../lib/template-loader');
+const loadTemplate = require('../lib/templates');
 const data = require('../models');
 const statCounter = require('../lib/stat-counter');
 

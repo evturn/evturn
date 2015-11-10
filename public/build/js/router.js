@@ -5,7 +5,8 @@ const Backbone = require('backbone');
 const views = require('./views');
 const view = require('./lib/view').init();
 const googleAnalytics = require('google-analytics');
-const partials = require('./lib/partial-loader')();
+const partials = require('./lib/partials')();
+const spinner = require('./lib/spinner');
 
 const Router = Backbone.Router.extend({
   wrapper      : null,
@@ -67,10 +68,14 @@ const Router = Backbone.Router.extend({
     this.wrapper.render();
   },
   project(id) {
-    let collection = this.get('apps');
+    let collection = this.get('projects');
     let model = collection.get(id) || collection.get(1);
     this.work(model);
   }
+});
+
+$(window).load(() => {
+  spinner();
 });
 
 let router = new Router();

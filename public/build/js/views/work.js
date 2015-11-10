@@ -1,38 +1,46 @@
 const _ = require('underscore');
 const Thumbnails = require('./thumbnails');
 const carousel = require('../lib/carousel');
-const loadTemplate = require('../lib/template-loader');
+const loadTemplate = require('../lib/templates');
 const data = require('../models');
 
 module.exports = Backbone.View.extend({
+  project: null,
   templates: [],
   el: '.work',
   filepath: '../../views/work.hbs',
+  events: {
+    'click .thumbnail-item' : 'scrollWindowUp'
+  },
   initialize() {
+    this.loadProject(this.model);
+  },
+  loadProject(model) {
     const tech = [];
-    const techIds = this.model.get('technologies');
-    const apps = _.where(data.apps, { featured: true });
-    this.initSpinner();
+    const techIds = model.get('technologies');
+    const projects = _.where(data.projects, { featured: true });
+
     techIds.forEach((id) => {
       tech.push(_.findWhere(data.tech, { id: id }));
     });
-    this.model.set('technologies', tech);
+
+    model.set('technologies', tech);
     loadTemplate({
       templates: this.templates,
       filepath: this.filepath,
       success: this.render,
       data: {
-        project: this.model.toJSON(),
-        projects: apps
+        project: model.toJSON(),
+        projects: projects
     }});
   },
   render(template, data) {
     $('.work').html(template(data));
     carousel();
   },
-  renderThumbnails() {
-    new Thumbnails($('.work'));
-    this.scrollUp();
+  scrollWindowUp() {
+    const $webpage = $('html, body');
+    $webpage.animate({ scrollTop: 0 }, 500);
   },
   initSpinner() {
     const $img = $('#carousel-logo');

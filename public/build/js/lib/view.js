@@ -13,7 +13,6 @@ const Collection = Backbone.Collection.extend({
 
 module.exports = _.extend(Backbone.View.prototype, {
   init() {
-    this.preloader();
     nav();
   },
   get(value, options=false, pure=false) {
@@ -29,8 +28,8 @@ module.exports = _.extend(Backbone.View.prototype, {
       case 'tech':
         data = models.tech;
         break;
-      case 'apps':
-        data = models.apps;
+      case 'projects':
+        data = models.projects;
         break;
     };
 
@@ -61,16 +60,4 @@ module.exports = _.extend(Backbone.View.prototype, {
     $selector.remove();
     $(element).insertAfter(new views.Wrapper().$el);
   },
-  scrollUp() {
-    let $webpage = $('html, body');
-    $webpage.animate({scrollTop: 0 }, 500);
-  },
-  preloader() {
-    $(window).load(() => {
-      let $container = $('#preloader');
-      let $image = $('.preloader');
-      $container.delay(500).fadeOut();
-      $image.delay(600).fadeOut(600);
-    });
-  }
 });

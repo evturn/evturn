@@ -1,11 +1,11 @@
 'use strict';
 const models = require('../models');
+const videos = models.videos;
 
 module.exports = function(video) {
   let initialized = false;
   let playCount = null;
-  let playlist = models.videos;
-
+  let playlist = videos;
   const init = () => {
     timekeeper();
     startPlayback();
