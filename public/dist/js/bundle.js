@@ -85,7 +85,6 @@
 	  initialize: function initialize() {
 	    nav();
 	    this.wrapper = new views.Wrapper();
-	    _.extend(this, this.wrapper);
 	  },
 	  index: function index() {
 	    this.changeState('index');

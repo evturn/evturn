@@ -32,7 +32,6 @@ const Router = Backbone.Router.extend({
   initialize() {
     nav();
     this.wrapper = new views.Wrapper();
-    _.extend(this, this.wrapper);
   },
   index() {
     this.changeState('index');
