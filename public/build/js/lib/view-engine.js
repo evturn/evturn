@@ -16,6 +16,9 @@ const templates = [
   }, {
     filepath: '../../views/templates/carousel.hbs',
     name: 'carousel'
+  }, {
+    filepath: '../../views/templates/spinner.hbs',
+    name: 'spinner'
   }
 ];
 

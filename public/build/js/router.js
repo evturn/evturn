@@ -5,7 +5,6 @@ const engine = require('./lib/view-engine');
 const data = require('./data');
 const googleAnalytics = require('google-analytics');
 const nav = require('./lib/nav');
-const spinner = require('./lib/spinner');
 const Model = Backbone.Model.extend({});
 const Collection = Backbone.Collection.extend({ model: Model });
 
@@ -22,7 +21,6 @@ const Router = Backbone.Router.extend({
     'work(/:id)': '_work'
   },
   initialize() {
-    spinner();
     engine.registerTemplates();
     engine.registerPartials();
     nav();
@@ -36,7 +34,7 @@ const Router = Backbone.Router.extend({
     this.isActive = false;
     if (instance === null) {
       instance = new View();
-      return this;
+      return;
     }
     instance;
   },
@@ -48,7 +46,8 @@ const Router = Backbone.Router.extend({
       this.work = new views.Work({ model: project });
       this.isActive = true;
     } else {
-      this.work.initialize({model: project});
+      this.work.model = project;
+      this.work.initialize();
     }
   },
 });

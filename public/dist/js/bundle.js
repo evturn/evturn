@@ -58,7 +58,6 @@
 	var data = __webpack_require__(8);
 	var googleAnalytics = __webpack_require__(21);
 	var nav = __webpack_require__(22);
-	var spinner = __webpack_require__(23);
 	var Model = Backbone.Model.extend({});
 	var Collection = Backbone.Collection.extend({ model: Model });
 	
@@ -75,7 +74,6 @@
 	    'work(/:id)': '_work'
 	  },
 	  initialize: function initialize() {
-	    spinner();
 	    engine.registerTemplates();
 	    engine.registerPartials();
 	    nav();
@@ -91,7 +89,7 @@
 	    this.isActive = false;
 	    if (instance === null) {
 	      instance = new View();
-	      return this;
+	      return;
 	    }
 	    instance;
 	  },
@@ -103,7 +101,8 @@
 	      this.work = new views.Work({ model: project });
 	      this.isActive = true;
 	    } else {
-	      this.work.initialize({ model: project });
+	      this.work.model = project;
+	      this.work.initialize();
 	    }
 	  }
 	});
@@ -5078,17 +5077,21 @@
 	
 	module.exports = Backbone.View.extend({
 	  el: '.index',
-	  filepath: '../../views/index.hbs',
 	  initialize: function initialize() {
 	    loadTemplate({
-	      filepath: this.filepath,
+	      filepath: '../../views/index.hbs',
 	      success: this.render
 	    });
 	  },
 	  render: function render(template) {
 	    $('#rza').html(template());
+	    var $container = $('#preloader');
+	    var $image = $('.preloader');
 	    var video = document.getElementById('ev-vid');
+	
 	    videoPlayer(video);
+	    $container.delay(500).fadeOut();
+	    $image.delay(600).fadeOut(600);
 	    return this;
 	  }
 	});
@@ -5458,6 +5461,9 @@
 	}, {
 	  filepath: '../../views/templates/carousel.hbs',
 	  name: 'carousel'
+	}, {
+	  filepath: '../../views/templates/spinner.hbs',
+	  name: 'spinner'
 	}];
 	
 	var cachedTemplates = [];
@@ -5920,9 +5926,10 @@
 	    'click .thumbnail-item': 'scrollWindowUp'
 	  },
 	  initialize: function initialize() {
+	    console.log(this.model);
+	    var projects = _.where(data.projects, { featured: true });
 	    var tech = [];
 	    var techIds = this.model.get('technologies');
-	    var projects = _.where(data.projects, { featured: true });
 	    this.initSpinner();
 	    techIds.forEach(function (id) {
 	      tech.push(_.findWhere(data.tech, { id: id }));
@@ -5954,7 +5961,6 @@
 	        project: model.toJSON(),
 	        projects: projects
 	      } });
-	    this.initialized = true;
 	  },
 	  initSpinner: function initSpinner() {
 	    var $img = $('#carousel-logo');
@@ -6196,20 +6202,6 @@
 	  };
 	
 	  return init();
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	module.exports = function () {
-	  var $container = $('#preloader');
-	  var $image = $('.preloader');
-	  $container.delay(500).fadeOut();
-	  $image.delay(600).fadeOut(600);
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 

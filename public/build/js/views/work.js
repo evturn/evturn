@@ -9,9 +9,10 @@ module.exports = Backbone.View.extend({
     'click .thumbnail-item' : 'scrollWindowUp'
   },
   initialize() {
+    console.log(this.model);
+    const projects = _.where(data.projects, { featured: true });
     const tech = [];
     const techIds = this.model.get('technologies');
-    const projects = _.where(data.projects, { featured: true });
     this.initSpinner();
     techIds.forEach((id) => {
       tech.push(_.findWhere(data.tech, { id: id }));
@@ -43,7 +44,6 @@ module.exports = Backbone.View.extend({
         project: model.toJSON(),
         projects: projects
     }});
-    this.initialized = true;
   },
   initSpinner() {
     const $img = $('#carousel-logo');
