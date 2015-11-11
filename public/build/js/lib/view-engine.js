@@ -14,8 +14,8 @@ const templates = [
     filepath: '../../views/templates/thumbnails.hbs',
     name: 'thumbnails'
   }, {
-    filepath: '../../views/templates/carousel-info.hbs',
-    name: 'carousel-info'
+    filepath: '../../views/templates/carousel.hbs',
+    name: 'carousel'
   }
 ];
 
@@ -30,6 +30,15 @@ module.exports.loadTemplate = function(params) {
   $.get(params.filepath, (contents) => {
     cachedTemplates[params.filepath] = Handlebars.compile(contents);
     params.success(cachedTemplates[params.filepath], data);
+  });
+};
+
+
+module.exports.reloadTemplate = function(params) {
+  const data = params.data ? params.data : '';
+
+  $.get(params.filepath, (contents) => {
+    params.success(Handlebars.compile(contents), data);
   });
 };
 

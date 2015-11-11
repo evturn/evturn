@@ -73,12 +73,12 @@
 	    '': 'match',
 	    'about': 'match',
 	    'contact': 'match',
-	    'work(/:id)': 'work'
+	    'work(/:id)': '_work'
 	  },
 	  initialize: function initialize() {
 	    spinner();
-	    engine.registerPartials();
 	    engine.registerTemplates();
+	    engine.registerPartials();
 	    nav();
 	  },
 	  match: function match() {
@@ -92,12 +92,17 @@
 	      instance = new View();
 	      return this;
 	    }
-	    instance.initialize();
+	    instance;
 	  },
-	  work: function work(id) {
+	  _work: function _work(id) {
 	    var collection = new Collection(data.projects);
-	    var model = collection.get(id) || collection.get(1);
-	    this.work = new views.Work({ model: model });
+	    var project = collection.get(id) || collection.get(1);
+	    if (this.work === null) {
+	      this.work = new views.Work({ model: project });
+	    } else {
+	      console.log(this.work);
+	      this.work.init(project);
+	    }
 	  }
 	});
 	
@@ -5164,8 +5169,8 @@
 	  filepath: '../../views/templates/thumbnails.hbs',
 	  name: 'thumbnails'
 	}, {
-	  filepath: '../../views/templates/carousel-info.hbs',
-	  name: 'carousel-info'
+	  filepath: '../../views/templates/carousel.hbs',
+	  name: 'carousel'
 	}];
 	
 	var cachedTemplates = [];
@@ -5179,6 +5184,14 @@
 	  $.get(params.filepath, function (contents) {
 	    cachedTemplates[params.filepath] = Handlebars.compile(contents);
 	    params.success(cachedTemplates[params.filepath], data);
+	  });
+	};
+	
+	module.exports.reloadTemplate = function (params) {
+	  var data = params.data ? params.data : '';
+	
+	  $.get(params.filepath, function (contents) {
+	    params.success(Handlebars.compile(contents), data);
 	  });
 	};
 	
@@ -10056,44 +10069,53 @@
 	var carousel = __webpack_require__(47);
 	var data = __webpack_require__(56);
 	var engine = __webpack_require__(14);
-	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
-	  project: null,
+	  render: null,
 	  el: '.work',
-	  filepath: '../../views/work.hbs',
 	  events: {
 	    'click .thumbnail-item': 'scrollWindowUp'
 	  },
 	  initialize: function initialize() {
-	    this.loadProject(this.model);
+	    this.init(this.model);
 	  },
-	  loadProject: function loadProject(model) {
-	    console.log(model);
-	    var tech = [];
-	    var techIds = model.get('technologies');
+	  init: function init(model) {
+	    this.model = model;
 	    var projects = _.where(data.projects, { featured: true });
+	    var tech = [];
+	    var techIds = this.model.get('technologies');
 	    this.initSpinner();
 	    techIds.forEach(function (id) {
 	      tech.push(_.findWhere(data.tech, { id: id }));
 	    });
-	
-	    model.set('technologies', tech);
-	    loadTemplate({
-	      filepath: this.filepath,
-	      success: this.render,
+	    this.model.set('technologies', tech);
+	    this.render = this.render ? this.updateCarousel : this.setView;
+	    this.render(this.model, projects);
+	  },
+	  updateCarousel: function updateCarousel(model) {
+	    var $webpage = $('html, body');
+	    $webpage.animate({ scrollTop: 0 }, 500);
+	    engine.reloadTemplate({
+	      filepath: '../../views/templates/carousel.hbs',
+	      success: function success(template, data) {
+	        $('.page-carousel').html(template(data));
+	        carousel();
+	      },
+	      data: { project: model.toJSON() }
+	    });
+	  },
+	  setView: function setView(model, projects) {
+	    engine.loadTemplate({
+	      filepath: '../../views/work.hbs',
+	      success: function success(template, data) {
+	        $('#rza').html(template(data));
+	        carousel();
+	      },
 	      data: {
 	        project: model.toJSON(),
 	        projects: projects
 	      } });
-	  },
-	  render: function render(template, data) {
-	    $('#rza').html(template(data));
-	    carousel();
-	  },
-	  scrollWindowUp: function scrollWindowUp() {
-	    var $webpage = $('html, body');
-	    $webpage.animate({ scrollTop: 0 }, 500);
+	    this.initialized = true;
 	  },
 	  initSpinner: function initSpinner() {
 	    var $img = $('#carousel-logo');

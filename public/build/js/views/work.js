@@ -1,44 +1,53 @@
 const carousel = require('../lib/carousel');
 const data = require('../data');
 const engine = require('../lib/view-engine');
-const loadTemplate = engine.loadTemplate;
 
 module.exports = Backbone.View.extend({
-  project: null,
+  render: null,
   el: '.work',
-  filepath: '../../views/work.hbs',
   events: {
     'click .thumbnail-item' : 'scrollWindowUp'
   },
   initialize() {
-    this.loadProject(this.model);
+    this.init(this.model);
   },
-  loadProject(model) {
-    console.log(model);
-    const tech = [];
-    const techIds = model.get('technologies');
+  init(model) {
+    this.model = model;
     const projects = _.where(data.projects, { featured: true });
+    const tech = [];
+    const techIds = this.model.get('technologies');
     this.initSpinner();
     techIds.forEach((id) => {
       tech.push(_.findWhere(data.tech, { id: id }));
     });
-
-    model.set('technologies', tech);
-    loadTemplate({
-      filepath: this.filepath,
-      success: this.render,
+    this.model.set('technologies', tech);
+    this.render = this.render ? this.updateCarousel : this.setView;
+    this.render(this.model, projects);
+  },
+  updateCarousel(model) {
+    const $webpage = $('html, body');
+    $webpage.animate({ scrollTop: 0 }, 500);
+    engine.reloadTemplate({
+      filepath: '../../views/templates/carousel.hbs',
+      success(template, data) {
+        $('.page-carousel').html(template(data));
+        carousel();
+      },
+      data: { project: model.toJSON() }
+    });
+  },
+  setView(model, projects) {
+    engine.loadTemplate({
+      filepath: '../../views/work.hbs',
+      success(template, data) {
+        $('#rza').html(template(data));
+        carousel();
+      },
       data: {
         project: model.toJSON(),
         projects: projects
     }});
-  },
-  render(template, data) {
-    $('#rza').html(template(data));
-    carousel();
-  },
-  scrollWindowUp() {
-    const $webpage = $('html, body');
-    $webpage.animate({ scrollTop: 0 }, 500);
+    this.initialized = true;
   },
   initSpinner() {
     const $img = $('#carousel-logo');

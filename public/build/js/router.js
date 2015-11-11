@@ -20,12 +20,12 @@ const Router = Backbone.Router.extend({
     '': 'match',
     'about': 'match',
     'contact': 'match',
-    'work(/:id)': 'work'
+    'work(/:id)': '_work'
   },
   initialize() {
     spinner();
-    engine.registerPartials();
     engine.registerTemplates();
+    engine.registerPartials();
     nav();
   },
   match() {
@@ -37,12 +37,17 @@ const Router = Backbone.Router.extend({
       instance = new View();
       return this;
     }
-    instance.initialize();
+    instance;
   },
-  work(id) {
+  _work(id) {
     const collection = new Collection(data.projects);
-    const model = collection.get(id) || collection.get(1);
-    this.work = new views.Work({model: model});
+    const project = collection.get(id) || collection.get(1);
+    if (this.work === null) {
+      this.work = new views.Work({ model: project });
+    } else {
+      console.log(this.work);
+      this.work.init(project);
+    }
   },
 });
 
