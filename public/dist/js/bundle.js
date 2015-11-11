@@ -60,9 +60,7 @@
 	var nav = __webpack_require__(53);
 	var spinner = __webpack_require__(55);
 	var Model = Backbone.Model.extend({});
-	var Collection = Backbone.Collection.extend({
-	  model: Model
-	});
+	var Collection = Backbone.Collection.extend({ model: Model });
 	
 	var Router = Backbone.Router.extend({
 	  index: null,
@@ -91,7 +89,6 @@
 	    var instance = this[name];
 	
 	    this.isActive = false;
-	    console.log(this.isActive);
 	    if (instance === null) {
 	      instance = new View();
 	      return this;
@@ -101,7 +98,7 @@
 	  _work: function _work(id) {
 	    var collection = new Collection(data.projects);
 	    var project = collection.get(id) || collection.get(1);
-	    console.log(this.isActive);
+	
 	    if (this.work === null || !this.isActive) {
 	      this.work = new views.Work({ model: project });
 	      this.isActive = true;

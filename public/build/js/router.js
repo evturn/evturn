@@ -7,9 +7,7 @@ const googleAnalytics = require('google-analytics');
 const nav = require('./lib/nav');
 const spinner = require('./lib/spinner');
 const Model = Backbone.Model.extend({});
-const Collection = Backbone.Collection.extend({
-  model: Model
-});
+const Collection = Backbone.Collection.extend({ model: Model });
 
 const Router = Backbone.Router.extend({
   index: null,
@@ -31,12 +29,11 @@ const Router = Backbone.Router.extend({
   },
   match() {
     const name = Backbone.history.fragment ? Backbone.history.fragment : 'index';
-    const view = (name) => { return name.charAt(0).toUpperCase() + name.substr(1);}(name);
+    const view = (name) => { return name.charAt(0).toUpperCase() + name.substr(1); }(name);
     const View = views[view];
     let instance = this[name];
 
     this.isActive = false;
-    console.log(this.isActive);
     if (instance === null) {
       instance = new View();
       return this;
@@ -46,7 +43,7 @@ const Router = Backbone.Router.extend({
   _work(id) {
     const collection = new Collection(data.projects);
     const project = collection.get(id) || collection.get(1);
-    console.log(this.isActive);
+
     if (this.work === null || !this.isActive) {
       this.work = new views.Work({ model: project });
       this.isActive = true;
