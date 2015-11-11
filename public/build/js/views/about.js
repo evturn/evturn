@@ -15,7 +15,7 @@ module.exports = Backbone.View.extend({
   },
   render(template) {
     const tech = _.where(data.tech, { featured: true });
-    $('.about').html(template({
+    $('#rza').html(template({
       tech: tech,
       stats: data.stats
     }));

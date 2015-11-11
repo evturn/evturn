@@ -52,96 +52,53 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var $ = __webpack_require__(2);
-	var _ = __webpack_require__(3);
 	var Backbone = __webpack_require__(4);
 	var views = __webpack_require__(5);
 	var engine = __webpack_require__(14);
-	var nav = __webpack_require__(53);
-	var googleAnalytics = __webpack_require__(54);
-	var spinner = __webpack_require__(55);
-	var carousel = __webpack_require__(47);
 	var data = __webpack_require__(56);
+	var googleAnalytics = __webpack_require__(54);
+	var nav = __webpack_require__(53);
+	var spinner = __webpack_require__(55);
 	var Model = Backbone.Model.extend({});
 	var Collection = Backbone.Collection.extend({
 	  model: Model
 	});
 	
-	engine.registerPartials();
-	engine.registerTemplates();
-	
 	var Router = Backbone.Router.extend({
-	  wrapper: null,
-	  indexView: null,
-	  workView: null,
-	  aboutView: null,
-	  contactView: null,
+	  index: null,
+	  work: null,
+	  about: null,
+	  contact: null,
 	  routes: {
-	    '': 'index',
-	    'work(/:id)': 'work',
-	    'about': 'about',
-	    'contact': 'contact'
+	    '': 'match',
+	    'about': 'match',
+	    'contact': 'match',
+	    'work(/:id)': 'work'
 	  },
 	  initialize: function initialize() {
+	    spinner();
+	    engine.registerPartials();
+	    engine.registerTemplates();
 	    nav();
-	    this.wrapper = new views.Wrapper();
 	  },
-	  index: function index() {
-	    this.changeState('index');
-	
-	    if (this.indexView === null) {
-	      this.indexView = new views.Index();
+	  match: function match() {
+	    var name = Backbone.history.fragment ? Backbone.history.fragment : 'index';
+	    var view = (function (name) {
+	      return name.charAt(0).toUpperCase() + name.substr(1);
+	    })(name);
+	    var View = views[view];
+	    var instance = this[name];
+	    if (instance === null) {
+	      instance = new View();
+	      return this;
 	    }
-	
-	    this.wrapper.child = this.indexView;
-	    this.wrapper.render();
+	    instance.initialize();
 	  },
 	  work: function work(id) {
 	    var collection = new Collection(data.projects);
 	    var model = collection.get(id) || collection.get(1);
-	    this.changeState('work');
-	
-	    if (this.workView === null) {
-	      this.workView = new views.Work({ model: model });
-	      this.wrapper.child = this.workView;
-	    } else {
-	      this.wrapper.child = new views.Work({ model: model });
-	    }
-	
-	    this.wrapper.render();
-	  },
-	  about: function about() {
-	    this.changeState('about');
-	
-	    if (this.aboutView === null) {
-	      this.aboutView = new views.About();
-	    }
-	
-	    this.wrapper.child = this.aboutView;
-	    this.wrapper.render();
-	  },
-	  contact: function contact() {
-	    this.changeState('contact');
-	
-	    if (this.contactView === null) {
-	      this.contactView = new views.Contact();
-	    }
-	
-	    this.wrapper.child = this.contactView;
-	    this.wrapper.render();
-	  },
-	  changeState: function changeState(string) {
-	    var $selector = $(document.getElementsByClassName(string));
-	    var element = document.createElement('div');
-	    element.className = string;
-	    element.dataset.view = string;
-	    $selector.remove();
-	    $(element).insertAfter(new views.Wrapper().$el);
+	    this.work = new views.Work({ model: model });
 	  }
-	});
-	
-	$(window).load(function () {
-	  spinner();
 	});
 	
 	var router = new Router();
@@ -5102,7 +5059,6 @@
 	module.exports.Work = __webpack_require__(46);
 	module.exports.About = __webpack_require__(48);
 	module.exports.Contact = __webpack_require__(50);
-	module.exports.Wrapper = __webpack_require__(51);
 
 /***/ },
 /* 6 */
@@ -5123,7 +5079,7 @@
 	    });
 	  },
 	  render: function render(template) {
-	    $('.index').html(template());
+	    $('#rza').html(template());
 	    var video = document.getElementById('ev-vid');
 	    videoPlayer(video);
 	    return this;
@@ -10132,7 +10088,7 @@
 	      } });
 	  },
 	  render: function render(template, data) {
-	    $('.work').html(template(data));
+	    $('#rza').html(template(data));
 	    carousel();
 	  },
 	  scrollWindowUp: function scrollWindowUp() {
@@ -10239,7 +10195,7 @@
 	  },
 	  render: function render(template) {
 	    var tech = _.where(data.tech, { featured: true });
-	    $('.about').html(template({
+	    $('#rza').html(template({
 	      tech: tech,
 	      stats: data.stats
 	    }));
@@ -10300,27 +10256,14 @@
 	  },
 	  render: function render(template) {
 	    var links = data.links;
-	    $('.contact').html(template({ links: links }));
+	    $('#rza').html(template({ links: links }));
 	    return this;
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 51 */
-/***/ function(module, exports) {
-
-	'use strict';
-	module.exports = Backbone.View.extend({
-	  el: '#rza',
-	  child: null,
-	  render: function render() {
-	    this.$el.html(this.child.$el);
-	    return this;
-	  }
-	});
-
-/***/ },
+/* 51 */,
 /* 52 */,
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {

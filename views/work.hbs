@@ -1,22 +1,24 @@
-{{>carousel-navbar}}
-<div class="container carousel">
-  <div class="image-container">
-    <div class="carousel animated fadeIn" id="gallery">
-      <div class="carousel-inner">
-        {{#each project.images}}
-          <div class="item">
-            <img class="img-scale gallery-item" src="{{image}}">
-          </div>
-        {{/each}}
+<div class="work">
+  {{>carousel-navbar}}
+  <div class="carousel">
+    <div class="image-container">
+      <div class="carousel animated fadeIn" id="gallery">
+        <div class="carousel-inner">
+          {{#each project.images}}
+            <div class="item">
+              <img class="img-scale gallery-item" src="{{image}}">
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="container info">
+      <div class="inner">
+        <div class="carousel-panel">
+          {{>carousel-info}}
+        </div>
       </div>
     </div>
   </div>
-  <div class="container info">
-    <div class="inner">
-      <div class="carousel-panel">
-        {{>carousel-info}}
-      </div>
-    </div>
-  </div>
+  {{>thumbnails}}
 </div>
-{{>thumbnails}}

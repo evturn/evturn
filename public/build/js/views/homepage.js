@@ -13,7 +13,7 @@ module.exports = Backbone.View.extend({
     });
   },
   render(template) {
-    $('.index').html(template());
+    $('#rza').html(template());
     const video = document.getElementById('ev-vid');
     videoPlayer(video);
     return this;

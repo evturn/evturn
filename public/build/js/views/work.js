@@ -33,7 +33,7 @@ module.exports = Backbone.View.extend({
     }});
   },
   render(template, data) {
-    $('.work').html(template(data));
+    $('#rza').html(template(data));
     carousel();
   },
   scrollWindowUp() {

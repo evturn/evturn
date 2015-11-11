@@ -14,7 +14,7 @@ module.exports = Backbone.View.extend({
   },
   render(template) {
     const links = data.links;
-    $('.contact').html(template({ links }));
+    $('#rza').html(template({ links }));
     return this;
   }
 });
