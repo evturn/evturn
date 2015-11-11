@@ -9,13 +9,9 @@ module.exports = Backbone.View.extend({
     'click .thumbnail-item' : 'scrollWindowUp'
   },
   initialize() {
-    this.init(this.model);
-  },
-  init(model) {
-    this.model = model;
-    const projects = _.where(data.projects, { featured: true });
     const tech = [];
     const techIds = this.model.get('technologies');
+    const projects = _.where(data.projects, { featured: true });
     this.initSpinner();
     techIds.forEach((id) => {
       tech.push(_.findWhere(data.tech, { id: id }));

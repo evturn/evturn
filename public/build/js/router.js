@@ -48,7 +48,7 @@ const Router = Backbone.Router.extend({
       this.work = new views.Work({ model: project });
       this.isActive = true;
     } else {
-      this.work.init(project);
+      this.work.initialize({model: project});
     }
   },
 });
