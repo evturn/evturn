@@ -16,6 +16,7 @@ const Router = Backbone.Router.extend({
   work: null,
   about: null,
   contact: null,
+  isActive: false,
   routes: {
     '': 'match',
     'about': 'match',
@@ -33,6 +34,9 @@ const Router = Backbone.Router.extend({
     const view = (name) => { return name.charAt(0).toUpperCase() + name.substr(1);}(name);
     const View = views[view];
     let instance = this[name];
+
+    this.isActive = false;
+    console.log(this.isActive);
     if (instance === null) {
       instance = new View();
       return this;
@@ -42,10 +46,11 @@ const Router = Backbone.Router.extend({
   _work(id) {
     const collection = new Collection(data.projects);
     const project = collection.get(id) || collection.get(1);
-    if (this.work === null) {
+    console.log(this.isActive);
+    if (this.work === null || !this.isActive) {
       this.work = new views.Work({ model: project });
+      this.isActive = true;
     } else {
-      console.log(this.work);
       this.work.init(project);
     }
   },

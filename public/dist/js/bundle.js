@@ -69,6 +69,7 @@
 	  work: null,
 	  about: null,
 	  contact: null,
+	  isActive: false,
 	  routes: {
 	    '': 'match',
 	    'about': 'match',
@@ -88,6 +89,9 @@
 	    })(name);
 	    var View = views[view];
 	    var instance = this[name];
+	
+	    this.isActive = false;
+	    console.log(this.isActive);
 	    if (instance === null) {
 	      instance = new View();
 	      return this;
@@ -97,10 +101,11 @@
 	  _work: function _work(id) {
 	    var collection = new Collection(data.projects);
 	    var project = collection.get(id) || collection.get(1);
-	    if (this.work === null) {
+	    console.log(this.isActive);
+	    if (this.work === null || !this.isActive) {
 	      this.work = new views.Work({ model: project });
+	      this.isActive = true;
 	    } else {
-	      console.log(this.work);
 	      this.work.init(project);
 	    }
 	  }
