@@ -1,5 +1,5 @@
 'use strict';
-const links = require('../models/links');
+const data = require('../data');
 const engine = require('../lib/view-engine');
 const loadTemplate = engine.loadTemplate;
 
@@ -13,6 +13,7 @@ module.exports = Backbone.View.extend({
     });
   },
   render(template) {
+    const links = data.links;
     $('.contact').html(template({ links }));
     return this;
   }

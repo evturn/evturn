@@ -1,6 +1,6 @@
 'use strict';
-const models = require('../models');
-const videos = models.videos;
+const data = require('../data');
+const videos = data.videos;
 
 module.exports = function(video) {
   let initialized = false;

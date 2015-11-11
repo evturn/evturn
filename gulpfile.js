@@ -31,6 +31,10 @@ gulp.task('webpack:watch',  $.shell.task('webpack --watch &'));
 ////
 // Browser Sync
 ////////////////////////
+gulp.task('browserSync', () => {
+  browserSync.init(opts.browserSync);
+});
+
 gulp.task('browser:init', () => {
   setTimeout(() => {
     console.log('Browser Sync initialized');

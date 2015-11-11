@@ -1,5 +1,5 @@
 const carousel = require('../lib/carousel');
-const data = require('../models');
+const data = require('../data');
 const engine = require('../lib/view-engine');
 const loadTemplate = engine.loadTemplate;
 
@@ -14,6 +14,7 @@ module.exports = Backbone.View.extend({
     this.loadProject(this.model);
   },
   loadProject(model) {
+    console.log(model);
     const tech = [];
     const techIds = model.get('technologies');
     const projects = _.where(data.projects, { featured: true });

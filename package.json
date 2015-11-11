@@ -4,7 +4,9 @@
   "description": "A website about me for you.",
   "main": "gulpfile.js",
   "scripts": {
-    "watch": "gulp watch"
+    "prestart": "webpack --watch &",
+    "start": "gulp gulp:watch &",
+    "poststart": "gulp browser:init"
   },
   "repository": {
     "type": "git",
@@ -46,5 +48,9 @@
     "run-sequence": "^1.1.4",
     "underscore": "^1.8.3",
     "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "fs": "0.0.2",
+    "handlebars-loader": "^1.1.4"
   }
 }

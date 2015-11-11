@@ -15,6 +15,9 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader'
+      },{
+        test: /\.hbs$/,
+        loader:'handlebars-loader'
       }
     ]
   },

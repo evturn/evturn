@@ -1,5 +1,5 @@
 'use strict';
-const data = require('../models');
+const data = require('../data');
 const statCounter = require('../lib/stat-counter');
 const engine = require('../lib/view-engine');
 const loadTemplate = engine.loadTemplate;
