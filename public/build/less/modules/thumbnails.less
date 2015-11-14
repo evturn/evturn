@@ -10,7 +10,7 @@
     margin:0;
     width: 49%;
     .prevent-flash();
-    @media (min-width: @xs) {
+    @media(@tablet) {
       width: 24.5%;
     }
     .image-container {
@@ -22,7 +22,7 @@
         opacity: 0.3;
         }
       }
-      @media (min-width: @lg) {
+      @media(@desktop) {
         &:hover {
           .scale();
         }
@@ -32,7 +32,7 @@
     }
     .shadow {
       display: none;
-      @media (min-width: @lg) {
+      @media(@desktop) {
         .box-shadow(inset 0px -176px 178px -62px rgba(0,0,0,0.75));
         .transition(all 0.7s ease);
         display: block;

@@ -1,0 +1,31 @@
+.site-header {
+  width: 100%;
+  margin: 0 auto;
+  @media(@tablet) {
+    height: 170px;
+  }
+  .clearfix();
+  .site-logo {
+    position: absolute;
+    z-index: 3;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 50%;
+    width: 80px;
+    .clearfix();
+    @media(@tablet) {
+      padding: 20px;
+      width: 140px;
+    }
+  }
+  .site-nav {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 40px;
+    z-index: 3;
+  }
+  .site-menu {
+    display: none;
+  }
+}

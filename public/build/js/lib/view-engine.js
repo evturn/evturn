@@ -2,23 +2,14 @@
 const Handlebars = require('handlebars');
 const templates = [
   {
-    filepath: '../../views/templates/carousel-navbar.hbs',
-    name: 'carousel-navbar'
-  }, {
-    filepath: '../../views/templates/nav.hbs',
-    name: 'nav'
-  }, {
-    filepath: '../../views/templates/navbar.hbs',
-    name: 'navbar'
+    filepath: '../../views/templates/header.hbs',
+    name: 'header'
   }, {
     filepath: '../../views/templates/thumbnails.hbs',
     name: 'thumbnails'
   }, {
     filepath: '../../views/templates/carousel.hbs',
     name: 'carousel'
-  }, {
-    filepath: '../../views/templates/spinner.hbs',
-    name: 'spinner'
   }
 ];
 

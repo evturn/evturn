@@ -37,7 +37,7 @@ module.exports = Backbone.View.extend({
     engine.loadTemplate({
       filepath: '../../views/work.hbs',
       success(template, data) {
-        $('#rza').html(template(data));
+        $('.site-content').html(template(data));
         carousel();
       },
       data: {

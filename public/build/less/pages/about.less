@@ -1,3 +1,12 @@
+.page-about {
+  .site-logo {
+    right: 0;
+    left: 0;
+    top: 15px;
+    background-color: fade(@color-accent, 70);
+  }
+}
+
 .about {
   min-height: 100vh;
   font-family: @primarysans;
@@ -36,7 +45,7 @@
     text-align: left;
     margin-bottom: 15px;
     .margin-x-auto();
-    @media (min-width: 700px) {
+    @media(@tablet) {
       &:first-child {
         float: left;
         width: 48%;
@@ -52,19 +61,16 @@
     overflow: auto;
   }
   .image-container {
-    .margin-x(-25px);
-    @media (min-width: @xs) {
-      .margin-x(0);
-    }
+    .margin-x(0);
   }
   .stats-container:first-child {
-    @media (min-width: @sm) {
+    @media(@tablet) {
       width: 48%;
       .margin-x-auto();
     }
   }
   .stats-container:nth-child(2) {
-    @media (min-width: @sm) {
+    @media(@tablet) {
       width: 48%;
       .margin-x-auto();
     }
@@ -74,7 +80,7 @@
     padding-top: 25px;
     width: 100%;
     vertical-align: top;
-    @media (min-width: @sm) {
+    @media(@tablet) {
       display: inline-block;
     }
   }

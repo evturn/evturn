@@ -51,13 +51,12 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var Backbone = __webpack_require__(2);
 	var views = __webpack_require__(5);
 	var engine = __webpack_require__(14);
 	var data = __webpack_require__(8);
 	var googleAnalytics = __webpack_require__(21);
-	var nav = __webpack_require__(22);
 	var Model = Backbone.Model.extend({});
 	var Collection = Backbone.Collection.extend({ model: Model });
 	
@@ -76,7 +75,19 @@
 	  initialize: function initialize() {
 	    engine.registerTemplates();
 	    engine.registerPartials();
-	    nav();
+	    engine.loadTemplate({
+	      filepath: '../../views/templates/header.hbs',
+	      success: function success(template) {
+	        $('.site-header').html(template);
+	      }
+	    });
+	  },
+	  setLayout: function setLayout() {
+	    var route = Backbone.history.fragment ? Backbone.history.fragment : 'index';
+	    var slash = route.indexOf('/');
+	    var name = slash !== -1 ? route.substring(0, slash) : route;
+	    $('body').removeClass();
+	    $('body').addClass('page-' + name);
 	  },
 	  match: function match() {
 	    var name = Backbone.history.fragment ? Backbone.history.fragment : 'index';
@@ -86,6 +97,7 @@
 	    var View = views[view];
 	    var instance = this[name];
 	
+	    this.setLayout();
 	    this.isActive = false;
 	    if (instance === null) {
 	      instance = new View();
@@ -97,6 +109,7 @@
 	    var collection = new Collection(data.projects);
 	    var project = collection.get(id) || collection.get(1);
 	
+	    this.setLayout();
 	    if (this.work === null || !this.isActive) {
 	      this.work = new views.Work({ model: project });
 	      this.isActive = true;
@@ -109,6 +122,7 @@
 	
 	var router = new Router();
 	Backbone.history.start();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 /* 2 */
@@ -5084,7 +5098,7 @@
 	    });
 	  },
 	  render: function render(template) {
-	    $('#rza').html(template());
+	    $('.site-content').html(template());
 	    var $container = $('#preloader');
 	    var $image = $('.preloader');
 	    var video = document.getElementById('ev-vid');
@@ -5447,23 +5461,14 @@
 	'use-strict';
 	var Handlebars = __webpack_require__(15);
 	var templates = [{
-	  filepath: '../../views/templates/carousel-navbar.hbs',
-	  name: 'carousel-navbar'
-	}, {
-	  filepath: '../../views/templates/nav.hbs',
-	  name: 'nav'
-	}, {
-	  filepath: '../../views/templates/navbar.hbs',
-	  name: 'navbar'
+	  filepath: '../../views/templates/header.hbs',
+	  name: 'header'
 	}, {
 	  filepath: '../../views/templates/thumbnails.hbs',
 	  name: 'thumbnails'
 	}, {
 	  filepath: '../../views/templates/carousel.hbs',
 	  name: 'carousel'
-	}, {
-	  filepath: '../../views/templates/spinner.hbs',
-	  name: 'spinner'
 	}];
 	
 	var cachedTemplates = [];
@@ -5954,7 +5959,7 @@
 	    engine.loadTemplate({
 	      filepath: '../../views/work.hbs',
 	      success: function success(template, data) {
-	        $('#rza').html(template(data));
+	        $('.site-content').html(template(data));
 	        carousel();
 	      },
 	      data: {
@@ -6062,7 +6067,7 @@
 	  },
 	  render: function render(template) {
 	    var tech = _.where(data.tech, { featured: true });
-	    $('#rza').html(template({
+	    $('.site-content').html(template({
 	      tech: tech,
 	      stats: data.stats
 	    }));
@@ -6123,7 +6128,7 @@
 	  },
 	  render: function render(template) {
 	    var links = data.links;
-	    $('#rza').html(template({ links: links }));
+	    $('.site-content').html(template({ links: links }));
 	    return this;
 	  }
 	});
@@ -6143,67 +6148,6 @@
 	
 	ga('create', 'UA-58635966-1', 'auto');
 	ga('send', 'pageview');
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var engine = __webpack_require__(14);
-	var loadTemplate = engine.loadTemplate;
-	
-	module.exports = function () {
-	  var $nav = $('.ev-nav');
-	  var $curtain = $('#curtain');
-	
-	  var init = function init() {
-	    loadTemplate({
-	      filepath: '../../views/templates/nav.hbs',
-	      success: render
-	    });
-	
-	    $(document).on('click', '.burger-container', function () {
-	      expand();
-	    });
-	
-	    $(document).on('click', '.close-container', function () {
-	      collapse();
-	    });
-	
-	    $(document).on('click', '#curtain.on', function () {
-	      collapse();
-	    });
-	
-	    $(document).on('click', '.nav-item a', function () {
-	      collapse();
-	    });
-	  };
-	
-	  var expand = function expand() {
-	    $nav.removeClass('slideOutRight');
-	    $nav.addClass('on');
-	    $nav.addClass('slideInRight');
-	    $curtain.addClass('on');
-	    $curtain.fadeTo(1000, 0.3);
-	  };
-	
-	  var collapse = function collapse() {
-	    $nav.removeClass('slideInRight');
-	    $nav.addClass('slideOutRight');
-	    $curtain.fadeTo(500, 0);
-	    setTimeout(function () {
-	      $curtain.removeClass('on');
-	      $nav.removeClass('on');
-	    }, 500);
-	  };
-	
-	  var render = function render(template) {
-	    $nav.html(template());
-	  };
-	
-	  return init();
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }
 /******/ ]);

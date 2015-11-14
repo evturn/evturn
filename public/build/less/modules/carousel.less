@@ -1,3 +1,27 @@
+.container.carousel {
+
+  .project-links {
+    text-align: right;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    .meta {
+      display: inline-block;
+
+      .fa {
+        .transition(0.3s);
+        margin-left: 10px;
+        color: @primary;
+
+        &:hover {
+          color: @white;
+        }
+      }
+    }
+  }
+}
+
 .carousel {
   .padding-x(0);
   .item {
@@ -18,14 +42,8 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    height: 210px;
-    @media (min-width: @sm) {
-      height: 340px;
-    }
-    @media (min-width: @md) {
-      height: 500px;
-    }
-    @media (min-width: @lg) {
+    height: 320px;
+    @media(@tablet) {
       height: 600px;
     }
   }
@@ -37,7 +55,7 @@
   overflow: auto;
   margin-bottom: 15px;
 
-  @media (min-width: @md) {
+  @media(@tablet) {
     margin-bottom: 30px;
   }
 }
@@ -54,7 +72,7 @@
 }
 
 .project-text {
-  @media(min-width: @sm) {
+  @media(@tablet) {
     width: 50%;
     float: left;
     display: block;
@@ -78,7 +96,7 @@
 }
 .project-technologies {
   text-align: center;
-  @media(min-width: @sm) {
+  @media(@tablet) {
     text-align: right;
     width: 50%;
     float: right;
@@ -94,7 +112,7 @@
     height: 30px;
     width: 30px;
     font-size: 3rem;
-    @media (min-width: @xs) {
+    @media(@tablet) {
       font-size: 4rem;
     }
   }

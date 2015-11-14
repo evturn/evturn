@@ -1,43 +1,42 @@
 <div class="work">
-  {{>carousel-navbar}}
-    <div class="page-carousel carousel">
-      <div class="image-container">
-        <div class="carousel animated fadeIn" id="gallery">
-          <div class="carousel-inner">
-            {{#each project.images}}
-              <div class="item">
-                <img class="img-scale gallery-item" src="{{image}}">
-              </div>
-            {{/each}}
-          </div>
+  <div class="page-carousel carousel">
+    <div class="image-container">
+      <div class="carousel animated fadeIn" id="gallery">
+        <div class="carousel-inner">
+          {{#each project.images}}
+            <div class="item">
+              <img class="img-scale gallery-item" src="{{image}}">
+            </div>
+          {{/each}}
         </div>
       </div>
-      <div class="container info">
-        <div class="inner">
-          <div class="carousel-panel">
-            <div class="panel-inner">
-              <div class="title-container">
-                <p class="section-title">{{project.name}}</p>
-              </div>
-              <div class="project-text">
-                <p class="meta">{{{project.description}}}</p>
-              </div>
-              <div class="project-technologies">
-                {{#each project.technologies}}
-                  <div class="technologies-item">
-                    <i class="{{icon}}"></i>
-                    <p class="caption">{{technology}}</p>
-                  </div>
-                {{/each}}
-              </div>
-              <div class="project-links">
-                {{#if project.url}}<p class="meta"><a href="{{project.url}}" target="_blank"><i class="fa fa-link"></i></a></p>{{/if}}
-                {{#if project.repo}}<p class="meta"><a href="{{project.repo}}" target="_blank"><i class="fa fa-github"></i></a></p>{{/if}}
-              </div>
+    </div>
+    <div class="container info">
+      <div class="inner">
+        <div class="carousel-panel">
+          <div class="panel-inner">
+            <div class="title-container">
+              <p class="section-title">{{project.name}}</p>
+            </div>
+            <div class="project-text">
+              <p class="meta">{{{project.description}}}</p>
+            </div>
+            <div class="project-technologies">
+              {{#each project.technologies}}
+                <div class="technologies-item">
+                  <i class="{{icon}}"></i>
+                  <p class="caption">{{technology}}</p>
+                </div>
+              {{/each}}
+            </div>
+            <div class="project-links">
+              {{#if project.url}}<p class="meta"><a href="{{project.url}}" target="_blank"><i class="fa fa-link"></i></a></p>{{/if}}
+              {{#if project.repo}}<p class="meta"><a href="{{project.repo}}" target="_blank"><i class="fa fa-github"></i></a></p>{{/if}}
             </div>
           </div>
         </div>
       </div>
+    </div>
 </div>
   {{>thumbnails}}
 </div>

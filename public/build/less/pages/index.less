@@ -1,0 +1,31 @@
+.page-index {
+  overflow: hidden;
+  .site-logo {
+    right: 0;
+    left: 0;
+    top: 25%;
+    background-color: fade(@bg-main, 70);
+  }
+  .site-content {
+    overflow: auto;
+    height: 90vh;
+  }
+  .site-headline {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    background-color: @bg-main;
+    width: 90%;
+    margin: 0 auto;
+    .site-headline__name,
+    .site-headline__desc {
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  .site-footer {
+    display: none;
+  }
+}

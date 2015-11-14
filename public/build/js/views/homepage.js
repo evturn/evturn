@@ -13,7 +13,7 @@ module.exports = Backbone.View.extend({
     });
   },
   render(template) {
-    $('#rza').html(template());
+    $('.site-content').html(template());
     const $container = $('#preloader');
     const $image = $('.preloader');
     const video = document.getElementById('ev-vid');

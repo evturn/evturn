@@ -1,0 +1,17 @@
+.page-work {
+  .site-header {
+    @media(@tablet) {
+      position: absolute;
+    }
+  }
+  .site-logo {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    right: auto;
+    background-color: fade(@color-accent, 70);
+    @media(@tablet) {
+      background-color: fade(@bg-main, 70);
+    }
+  }
+}
