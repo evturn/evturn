@@ -1,4 +1,4 @@
-const carousel = require('../lib/carousel');
+const Carousel = require('../lib/carousel');
 const data = require('../data');
 const engine = require('../lib/view-engine');
 
@@ -28,7 +28,7 @@ module.exports = Backbone.View.extend({
       filepath: '../../views/templates/project.hbs',
       success(template, data) {
         $('.project-content').html(template(data));
-        carousel();
+        new Carousel();
       },
       data: { project: model.toJSON() }
     });
@@ -38,7 +38,7 @@ module.exports = Backbone.View.extend({
       filepath: '../../views/work.hbs',
       success(template, data) {
         $('.site-content').html(template(data));
-        carousel();
+        new Carousel();
       },
       data: {
         project: model.toJSON(),

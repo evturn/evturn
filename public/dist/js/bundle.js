@@ -5880,7 +5880,7 @@
 
 	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
 	
-	var carousel = __webpack_require__(17);
+	var Carousel = __webpack_require__(17);
 	var data = __webpack_require__(8);
 	var engine = __webpack_require__(14);
 	
@@ -5910,7 +5910,7 @@
 	      filepath: '../../views/templates/project.hbs',
 	      success: function success(template, data) {
 	        $('.project-content').html(template(data));
-	        carousel();
+	        new Carousel();
 	      },
 	      data: { project: model.toJSON() }
 	    });
@@ -5920,7 +5920,7 @@
 	      filepath: '../../views/work.hbs',
 	      success: function success(template, data) {
 	        $('.site-content').html(template(data));
-	        carousel();
+	        new Carousel();
 	      },
 	      data: {
 	        project: model.toJSON(),
@@ -5943,65 +5943,107 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
 	var counter = undefined,
 	    next = undefined,
 	    length = undefined,
 	    timer = undefined;
 	
-	var init = function init() {
-	  var $images = $('.carousel__item-image');
-	  var $firstImage = $('.carousel__item-image:nth-child(1)');
-	  length = $images.length;
-	  counter = null;
-	  next = null;
-	  clearInterval(timer);
+	module.exports = (function () {
+	  function Carousel() {
+	    _classCallCheck(this, Carousel);
 	
-	  if (length < 2) {
-	    $firstImage.addClass('active');
-	    return;
-	  } else {
-	    cycle();
-	    timer = setInterval(cycle, 4000);
-	  }
-	};
+	    this.images = null;
+	    this.total = null;
+	    this.counter = null;
+	    this.timer = null;
 	
-	var cycle = function cycle() {
-	  var $images = $('.carousel__item-image');
-	  var $active = $('.active');
-	  var $next = $('.next');
-	  var isActiveLast = !!(counter === length);
-	  var isNextLast = !!(next === length);
-	  var isInitializing = !!(counter === null && next === null);
-	
-	  if (isInitializing) {
-	    counter = 1;
-	    next = 2;
-	    $('.carousel__item-image:nth-child(' + counter + ')').addClass('active');
-	    $('.carousel__item-image:nth-child(' + next + ')').addClass('next');
-	    return;
-	  } else if (isActiveLast) {
-	    counter = 1;
-	    next = 2;
-	  } else if (isNextLast) {
-	    counter += 1;
-	    next = 1;
-	  } else {
-	    counter += 1;
-	    next = counter + 1;
+	    this.init();
 	  }
 	
-	  $active.fadeTo(1000, 0, function () {
-	    $images.removeClass('active');
-	  });
+	  _createClass(Carousel, [{
+	    key: 'init',
+	    value: function init() {
+	      this.images = $('.carousel__item-image');
+	      this.total = this.images.length;
 	
-	  $next.fadeTo(1000, 1, function () {
-	    $images.removeClass('next');
-	    $('.carousel__item-image:nth-child(' + counter + ')').addClass('active');
-	    $('.carousel__item-image:nth-child(' + next + ')').addClass('next');
-	  });
-	};
+	      if (this.total < 2) {
+	        return this.lock();
+	      } else {
+	        return this.start();
+	      }
+	    }
+	  }, {
+	    key: 'lock',
+	    value: function lock() {
+	      var $image = $('.carousel__item-image:nth-child(1)');
+	      $image.addClass('active');
+	    }
+	  }, {
+	    key: 'start',
+	    value: function start() {
+	      var _this = this;
 	
-	module.exports = init;
+	      this.cycle();
+	      this.timer = setInterval(function () {
+	        _this.cycle();
+	      }, 4000);
+	      return this.timer;
+	    }
+	  }, {
+	    key: 'cycle',
+	    value: function cycle() {
+	      var isActiveLast = !!(this.counter === this.total);
+	      var isNextLast = !!(this.next === this.total);
+	      var isInitializing = !!(this.counter === null);
+	
+	      if (isInitializing) {
+	        this.counter = 1;
+	        this.next = 2;
+	        return this.nextImage();
+	      } else if (isActiveLast) {
+	        this.counter = 1;
+	        this.next = 2;
+	      } else if (isNextLast) {
+	        this.counter += 1;
+	        this.next = 1;
+	      } else {
+	        this.counter += 1;
+	        this.next = this.counter + 1;
+	      }
+	      return this.dissolve();
+	    }
+	  }, {
+	    key: 'nextImage',
+	    value: function nextImage() {
+	      $('.carousel__item-image:nth-child(' + this.counter + ')').addClass('active');
+	      $('.carousel__item-image:nth-child(' + this.next + ')').addClass('next');
+	    }
+	  }, {
+	    key: 'dissolve',
+	    value: function dissolve() {
+	      var _this2 = this;
+	
+	      var $active = $('.active');
+	      var $next = $('.next');
+	
+	      $active.fadeTo(1000, 0, function () {
+	        _this2.images.removeClass('active');
+	      });
+	
+	      $next.fadeTo(1000, 1, function () {
+	        _this2.images.removeClass('next');
+	        _this2.nextImage();
+	      });
+	    }
+	  }]);
+	
+	  return Carousel;
+	})();
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
