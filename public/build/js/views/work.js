@@ -3,6 +3,7 @@ const data = require('../data');
 
 module.exports = Backbone.View.extend({
   render: null,
+  carousel: null,
   el: '.page-work',
   initialize() {
     const [project, projects] = this.model.populate();
@@ -13,9 +14,9 @@ module.exports = Backbone.View.extend({
   renderProject(project) {
     const callback = (template) => {
       const $projectContent = $('.project-content');
-
       $projectContent.html(template({ project }));
-      new Carousel();
+      const $carousel = $('.carousel__item-image');
+      this.carousel.reset($carousel);
       this.scrollToTop();
     };
 
@@ -27,7 +28,8 @@ module.exports = Backbone.View.extend({
   renderView(project, projects) {
     const callback = (template) => {
       this.$parent.html(template({ project, projects }));
-      new Carousel();
+      const $carousel = $('.carousel__item-image');
+      this.carousel = new Carousel($carousel);
     };
 
     this.load({

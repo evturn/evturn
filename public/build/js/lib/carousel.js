@@ -1,31 +1,33 @@
 'use strict';
 module.exports = class Carousel {
-  constructor() {
-    this.images = null;
-    this.total = null;
+  constructor($element) {
+    this.images = $element;
     this.counter = null;
-    this.timer = null;
+    this.total = null;
+
+    this.init();
+  }
+  reset($element) {
+    this.images = $element;
+    this.counter = null;
+    this.total = null;
+    clearInterval(this.timer);
 
     this.init();
   }
   init() {
-    this.images = $('.carousel__item-image');
     this.total = this.images.length;
 
     if (this.total < 2) {
       return this.lock();
     } else {
-      return this.start();
+      this.cycle();
+      this.timer = setInterval(() => { this.cycle(); }, 4000);
     }
   }
   lock() {
     const $image = $('.carousel__item-image:nth-child(1)');
     $image.addClass('active');
-  }
-  start() {
-    this.cycle();
-    this.timer = setInterval(() => { this.cycle(); }, 4000);
-    return this.timer;
   }
   cycle() {
     const isActiveLast = !!(this.counter === this.total);

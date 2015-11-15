@@ -4063,6 +4063,7 @@
 	
 	module.exports = Backbone.View.extend({
 	  render: null,
+	  carousel: null,
 	  el: '.page-work',
 	  initialize: function initialize() {
 	    var _model$populate = this.model.populate();
@@ -4081,9 +4082,9 @@
 	
 	    var callback = function callback(template) {
 	      var $projectContent = $('.project-content');
-	
 	      $projectContent.html(template({ project: project }));
-	      new Carousel();
+	      var $carousel = $('.carousel__item-image');
+	      _this.carousel.reset($carousel);
 	      _this.scrollToTop();
 	    };
 	
@@ -4097,7 +4098,8 @@
 	
 	    var callback = function callback(template) {
 	      _this2.$parent.html(template({ project: project, projects: projects }));
-	      new Carousel();
+	      var $carousel = $('.carousel__item-image');
+	      _this2.carousel = new Carousel($carousel);
 	    };
 	
 	    this.load({
@@ -4130,27 +4132,40 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
 	module.exports = (function () {
-	  function Carousel() {
+	  function Carousel($element) {
 	    _classCallCheck(this, Carousel);
 	
-	    this.images = null;
-	    this.total = null;
+	    this.images = $element;
 	    this.counter = null;
-	    this.timer = null;
+	    this.total = null;
 	
 	    this.init();
 	  }
 	
 	  _createClass(Carousel, [{
+	    key: 'reset',
+	    value: function reset($element) {
+	      this.images = $element;
+	      this.counter = null;
+	      this.total = null;
+	      clearInterval(this.timer);
+	
+	      this.init();
+	    }
+	  }, {
 	    key: 'init',
 	    value: function init() {
-	      this.images = $('.carousel__item-image');
+	      var _this = this;
+	
 	      this.total = this.images.length;
 	
 	      if (this.total < 2) {
 	        return this.lock();
 	      } else {
-	        return this.start();
+	        this.cycle();
+	        this.timer = setInterval(function () {
+	          _this.cycle();
+	        }, 4000);
 	      }
 	    }
 	  }, {
@@ -4158,17 +4173,6 @@
 	    value: function lock() {
 	      var $image = $('.carousel__item-image:nth-child(1)');
 	      $image.addClass('active');
-	    }
-	  }, {
-	    key: 'start',
-	    value: function start() {
-	      var _this = this;
-	
-	      this.cycle();
-	      this.timer = setInterval(function () {
-	        _this.cycle();
-	      }, 4000);
-	      return this.timer;
 	    }
 	  }, {
 	    key: 'cycle',
