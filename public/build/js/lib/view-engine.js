@@ -8,8 +8,8 @@ const templates = [
     filepath: '../../views/templates/thumbnails.hbs',
     name: 'thumbnails'
   }, {
-    filepath: '../../views/templates/carousel.hbs',
-    name: 'carousel'
+    filepath: '../../views/templates/project.hbs',
+    name: 'project'
   }
 ];
 

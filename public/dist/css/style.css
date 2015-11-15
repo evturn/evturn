@@ -5496,6 +5496,43 @@ video::-webkit-media-controls {
 .evcon-handlebars:before {
   content: "\e603";
 }
+.list-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  text-align: left;
+  margin: 0 auto;
+}
+.list-item-icon {
+  margin-top: 15px;
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 55px;
+}
+.list-item-icon .list-item-icon__icon {
+  font-size: 20px;
+  color: #231f20;
+  text-align: center;
+}
+.list-item-icon .list-item-icon__caption {
+  position: absolute;
+  color: #231f20;
+  font-size: 10px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
 #preloader {
   width: 100vw;
   height: 100vh;
@@ -6092,6 +6129,14 @@ video::-webkit-media-controls {
   -o-animation: rotation 0.75s infinite linear;
   animation: rotation 0.75s infinite linear;
 }
+.page-work .project-content:before,
+.page-work .project-content:after {
+  content: " ";
+  display: table;
+}
+.page-work .project-content:after {
+  clear: both;
+}
 video {
   position: fixed;
   top: 50%;
@@ -6109,7 +6154,16 @@ video {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 320px;
+  min-height: 200px;
+  border-bottom: 1px solid rgba(95, 163, 192, 0.2);
+}
+.carousel:before,
+.carousel:after {
+  content: " ";
+  display: table;
+}
+.carousel:after {
+  clear: both;
 }
 @media (min-width: 1024px) {
   .carousel {

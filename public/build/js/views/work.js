@@ -25,9 +25,9 @@ module.exports = Backbone.View.extend({
     const $webpage = $('html, body');
     $webpage.animate({ scrollTop: 0 }, 500);
     engine.reloadTemplate({
-      filepath: '../../views/templates/carousel.hbs',
+      filepath: '../../views/templates/project.hbs',
       success(template, data) {
-        $('.carousel').html(template(data));
+        $('.project-content').html(template(data));
         carousel();
       },
       data: { project: model.toJSON() }
