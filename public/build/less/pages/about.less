@@ -10,11 +10,18 @@
 .bio {
   margin: 15px auto;
   max-width: 1000px;
+  .padding-x(15px);
   .clearfix();
-  font-family: @primarysans;
+  font-family: @font-sans;
   font-weight: 500;
   text-align: justify;
+  max-width: 1000px;
+  @media(@tablet) {
+    margin-top: 50px;
+  }
   .bio__paragraph {
+    margin-bottom: 15px;
+    font-size: 18px;
     @media(@tablet) {
       .padding-x(20px);
       &:first-child {
@@ -26,6 +33,12 @@
         width: 50%;
       }
     }
+  }
+}
+
+.image-container {
+  @media(@tablet) {
+    display: none;
   }
 }
 

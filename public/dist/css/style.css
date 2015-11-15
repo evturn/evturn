@@ -5889,10 +5889,12 @@ video::-webkit-media-controls {
 }
 .bio {
   margin: 15px auto;
-  max-width: 1000px;
-  font-family: 'Raleway', sans-serif;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: 'Source Sans Pro', sans;
   font-weight: 500;
   text-align: justify;
+  max-width: 1000px;
 }
 .bio:before,
 .bio:after {
@@ -5901,6 +5903,15 @@ video::-webkit-media-controls {
 }
 .bio:after {
   clear: both;
+}
+@media (min-width: 1024px) {
+  .bio {
+    margin-top: 50px;
+  }
+}
+.bio .bio__paragraph {
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 @media (min-width: 1024px) {
   .bio .bio__paragraph {
@@ -5914,6 +5925,11 @@ video::-webkit-media-controls {
   .bio .bio__paragraph:nth-child(2) {
     float: right;
     width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .image-container {
+    display: none;
   }
 }
 .about-info {
