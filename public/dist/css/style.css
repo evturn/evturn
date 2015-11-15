@@ -6087,10 +6087,10 @@ video::-webkit-media-controls {
   color: #5fa3c0;
 }
 .page-work .site-logo__image.spin {
-  -webkit-animation: rotation 0.750s infinite linear;
-  -moz-animation: rotation 0.750s infinite linear;
-  -o-animation: rotation 0.750s infinite linear;
-  animation: rotation 0.750s infinite linear;
+  -webkit-animation: rotation 0.75s infinite linear;
+  -moz-animation: rotation 0.75s infinite linear;
+  -o-animation: rotation 0.75s infinite linear;
+  animation: rotation 0.75s infinite linear;
 }
 video {
   position: fixed;
