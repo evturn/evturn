@@ -5300,8 +5300,8 @@
 	  featured: false
 	}, {
 	  technology: 'Express.js',
-	  icon: 'evcon-express',
-	  color: 'evcon-express',
+	  icon: 'evcon evcon-express',
+	  color: 'evcon evcon-express',
 	  id: 12,
 	  featured: true
 	}, {
@@ -5336,18 +5336,18 @@
 	  featured: false
 	}, {
 	  technology: 'Handlebars',
-	  icon: 'evcon-handlebars',
-	  color: 'evcon-handlebars',
+	  icon: 'evcon evcon-handlebars',
+	  color: 'evcon evcon-handlebars',
 	  id: 18
 	}, {
 	  technology: 'Webpack',
-	  icon: 'evcon-webpack',
-	  color: 'evcon-webpack',
+	  icon: 'evcon evcon-webpack',
+	  color: 'evcon evcon-webpack',
 	  id: 19
 	}, {
 	  technology: 'Babel',
-	  icon: 'evcon-babel',
-	  color: 'evcon-babel',
+	  icon: 'evcon evcon-babel',
+	  color: 'evcon evcon-babel',
 	  id: 20
 	}, {
 	  technology: 'Wordpress',
