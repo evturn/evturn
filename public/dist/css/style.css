@@ -6194,6 +6194,9 @@ video {
   margin-bottom: 5px;
   text-transform: uppercase;
 }
+.project-content .project-details__title {
+  font-size: 22px;
+}
 .project-content .project-links:before,
 .project-content .project-links:after {
   content: " ";
