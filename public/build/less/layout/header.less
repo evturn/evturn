@@ -1,3 +1,7 @@
+.nav-is-opened {
+  overflow: hidden;
+}
+
 .site-header {
   width: 100%;
   margin: 0 auto;
@@ -26,12 +30,30 @@
     z-index: 3;
   }
   .site-menu {
+    position: absolute;
+    top: 0;
     width: 21em;
+    left: auto;
     right: -21em;
+    z-index: 4;
+    height: 100%;
     .transition(0.4s);
+    background-color: @color-accent;
 
     &.open {
       right: 0;
+    }
+  }
+  .site-menu__item {
+    text-transform: uppercase;
+    text-align: center;
+    overflow: auto;
+    & a {
+      color: @bg-main;
+    }
+
+    &.site-menu__close {
+      text-align: right;
     }
   }
 }

@@ -6142,17 +6142,19 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	module.exports = function () {
+	  var $body = $('body');
 	  var $navTrigger = $('.site-nav__trigger');
-	  var $menuClose = $('.site-menu__close');
+	  var $menuClose = $('.site-menu__close, .site-menu__item a');
 	  var $menu = $('.site-menu');
 	
 	  $navTrigger.on('click', function () {
-	    console.log('clickity');
 	    $menu.addClass('open');
+	    $body.addClass('nav-is-opened');
 	  });
 	
 	  $menuClose.on('click', function () {
 	    $menu.removeClass('open');
+	    $body.removeClass('nav-is-opened');
 	  });
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
