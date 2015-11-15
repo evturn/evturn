@@ -5103,9 +5103,9 @@
 	    $('.site-content').html(template());
 	    var $container = $('#preloader');
 	    var $image = $('.preloader');
-	    var video = document.getElementById('ev-vid');
+	    var videoElement = document.getElementById('ev-vid');
+	    var video = new Video(videoElement);
 	
-	    Video(video);
 	    $container.delay(500).fadeOut();
 	    $image.delay(600).fadeOut(600);
 	    return this;
@@ -6148,50 +6148,57 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
 	var data = __webpack_require__(8);
-	var videos = data.videos;
 	
-	module.exports = function (video) {
-	  var initialized = false;
-	  var playCount = null;
-	  var playlist = videos;
-	  var init = function init() {
-	    timekeeper();
-	    startPlayback();
-	  };
+	module.exports = (function () {
+	  function Video(videoElement) {
+	    _classCallCheck(this, Video);
 	
-	  var timekeeper = function timekeeper() {
-	    var isLastVideo = !!(playCount === playlist.length - 1);
-	    var isInitialized = initialized;
+	    this.video = videoElement;
+	    this.video.type = 'video/mp4';
+	    this.video.muted = true;
+	    this.video.autoplay = true;
+	    this.video.preload = 'auto';
 	
-	    if (!isInitialized || isLastVideo) {
-	      playCount = 0;
-	    } else {
-	      playCount += 1;
+	    this.initialized = false;
+	    this.current = null;
+	    this.playlist = data.videos;
+	    this.total = data.videos.length;
+	
+	    this.init();
+	  }
+	
+	  _createClass(Video, [{
+	    key: 'init',
+	    value: function init() {
+	      var _this = this;
+	
+	      var isLastVideo = !!(this.current === this.total - 1);
+	      var isInitialized = this.initialized;
+	
+	      if (!isInitialized || isLastVideo) {
+	        this.initialized = true;
+	        this.current = 0;
+	      } else {
+	        this.current += 1;
+	      }
+	
+	      this.video.src = this.playlist[this.current];
+	      this.video.addEventListener('ended', function () {
+	        return _this.init();
+	      });
+	      this.video.play;
+	      this.video.playbackRate = 0.5;
 	    }
-	  };
+	  }]);
 	
-	  var startPlayback = function startPlayback() {
-	    video.type = 'video/mp4';
-	    video.muted = true;
-	    video.autoplay = true;
-	    video.preload = 'auto';
-	    video.src = playlist[playCount];
-	    video.addEventListener('ended', nextVideo);
-	    video.play;
-	    video.playbackRate = 0.5;
-	    initialized = true;
-	  };
-	
-	  var nextVideo = function nextVideo() {
-	    timekeeper();
-	    video.setAttribute('src', playlist[playCount]);
-	    video.play;
-	    video.playbackRate = 0.5;
-	  };
-	
-	  return init();
-	};
+	  return Video;
+	})();
 
 /***/ }
 /******/ ]);

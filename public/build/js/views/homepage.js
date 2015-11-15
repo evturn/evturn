@@ -15,9 +15,9 @@ module.exports = Backbone.View.extend({
     $('.site-content').html(template());
     const $container = $('#preloader');
     const $image = $('.preloader');
-    const video = document.getElementById('ev-vid');
+    const videoElement = document.getElementById('ev-vid');
+    const video = new Video(videoElement);
 
-    Video(video);
     $container.delay(500).fadeOut();
     $image.delay(600).fadeOut(600);
     return this;

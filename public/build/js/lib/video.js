@@ -1,45 +1,35 @@
 'use strict';
 const data = require('../data');
-const videos = data.videos;
 
-module.exports = function(video) {
-  let initialized = false;
-  let playCount = null;
-  let playlist = videos;
-  const init = () => {
-    timekeeper();
-    startPlayback();
-  };
+module.exports = class Video {
+  constructor(videoElement) {
+    this.video = videoElement;
+    this.video.type = 'video/mp4';
+    this.video.muted = true;
+    this.video.autoplay = true;
+    this.video.preload = 'auto';
 
-  const timekeeper = () => {
-    let isLastVideo = !!(playCount === playlist.length - 1);
-    let isInitialized = initialized;
+    this.initialized = false;
+    this.current = null;
+    this.playlist = data.videos;
+    this.total = data.videos.length;
+
+    this.init();
+  }
+  init() {
+    const isLastVideo = !!(this.current === this.total - 1);
+    const isInitialized = this.initialized;
 
     if (!isInitialized || isLastVideo) {
-      playCount = 0;
+      this.initialized = true;
+      this.current = 0;
     } else {
-      playCount += 1;
+      this.current += 1;
     }
-  };
 
-  const startPlayback = () => {
-    video.type = 'video/mp4';
-    video.muted = true;
-    video.autoplay = true;
-    video.preload = 'auto';
-    video.src = playlist[playCount];
-    video.addEventListener('ended', nextVideo);
-    video.play;
-    video.playbackRate = 0.5;
-    initialized = true;
-  };
-
-  const nextVideo = () => {
-    timekeeper();
-    video.setAttribute('src', playlist[playCount]);
-    video.play;
-    video.playbackRate = 0.5;
-  };
-
-  return init();
+    this.video.src = this.playlist[this.current];
+    this.video.addEventListener('ended', () => this.init());
+    this.video.play;
+    this.video.playbackRate = 0.5;
+  }
 };
