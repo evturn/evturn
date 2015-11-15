@@ -5122,6 +5122,8 @@
 	
 	module.exports = (function () {
 	  function Video(videoElement) {
+	    var _this = this;
+	
 	    _classCallCheck(this, Video);
 	
 	    this.video = videoElement;
@@ -5129,26 +5131,25 @@
 	    this.video.muted = true;
 	    this.video.autoplay = true;
 	    this.video.preload = 'auto';
+	    this.video.addEventListener('ended', function () {
+	      return _this.init();
+	    });
 	
 	    this.initialized = false;
-	    this.current = null;
+	    this.current = 0;
 	    this.playlist = data.videos;
-	    this.total = data.videos.length;
-	
+	    this.last = data.videos.length - 1;
 	    this.init();
 	  }
 	
 	  _createClass(Video, [{
 	    key: 'init',
 	    value: function init() {
-	      var _this = this;
-	
-	      var isLastVideo = !!(this.current === this.total - 1);
+	      var isLastVideo = !!(this.current === this.last);
 	      var isInitialized = this.initialized;
 	
 	      if (!isInitialized) {
 	        this.initialized = true;
-	        this.current = 0;
 	      } else if (isLastVideo) {
 	        this.current = 0;
 	      } else {
@@ -5156,9 +5157,6 @@
 	      }
 	
 	      this.video.src = this.playlist[this.current];
-	      this.video.addEventListener('ended', function () {
-	        return _this.init();
-	      });
 	      this.video.play;
 	      this.video.playbackRate = 0.5;
 	    }
@@ -5478,17 +5476,6 @@
 	'use-strict';
 	var Handlebars = __webpack_require__(15);
 	var hbs = __webpack_require__(23);
-	var templates = [{
-	  filepath: '../../views/templates/header.hbs',
-	  name: 'header'
-	}, {
-	  filepath: '../../views/templates/thumbnails.hbs',
-	  name: 'thumbnails'
-	}, {
-	  filepath: '../../views/templates/project.hbs',
-	  name: 'project'
-	}];
-	
 	var cachedTemplates = [];
 	
 	module.exports.load = function (params) {

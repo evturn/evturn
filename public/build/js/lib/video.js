@@ -8,21 +8,20 @@ module.exports = class Video {
     this.video.muted = true;
     this.video.autoplay = true;
     this.video.preload = 'auto';
+    this.video.addEventListener('ended', () => this.init());
 
     this.initialized = false;
-    this.current = null;
+    this.current = 0;
     this.playlist = data.videos;
-    this.total = data.videos.length;
-
+    this.last = data.videos.length - 1;
     this.init();
   }
   init() {
-    const isLastVideo = !!(this.current === this.total - 1);
+    const isLastVideo = !!(this.current === this.last);
     const isInitialized = this.initialized;
 
     if (!isInitialized) {
       this.initialized = true;
-      this.current = 0;
     } else if (isLastVideo) {
       this.current = 0;
     } else {
@@ -30,7 +29,6 @@ module.exports = class Video {
     }
 
     this.video.src = this.playlist[this.current];
-    this.video.addEventListener('ended', () => this.init());
     this.video.play;
     this.video.playbackRate = 0.5;
   }

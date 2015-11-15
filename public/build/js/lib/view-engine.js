@@ -1,19 +1,6 @@
 'use-strict';
 const Handlebars = require('handlebars');
 const hbs = require('./templates');
-const templates = [
-  {
-    filepath: '../../views/templates/header.hbs',
-    name: 'header'
-  }, {
-    filepath: '../../views/templates/thumbnails.hbs',
-    name: 'thumbnails'
-  }, {
-    filepath: '../../views/templates/project.hbs',
-    name: 'project'
-  }
-];
-
 const cachedTemplates = [];
 
 module.exports.load = function(params) {
