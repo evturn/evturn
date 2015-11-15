@@ -5970,11 +5970,10 @@
 	      } });
 	  },
 	  initSpinner: function initSpinner() {
-	    var $img = $('#carousel-logo');
-	    var $container = $('#carousel-preloader');
+	    var $container = $('.site-logo');
+	    var $img = $('.site-logo__image');
 	    var $spinner = $('#carousel-spinner');
 	    $img.addClass('spin');
-	    $container.delay(500).fadeOut();
 	    setTimeout(function () {
 	      $img.removeClass('spin');
 	    }, 740);

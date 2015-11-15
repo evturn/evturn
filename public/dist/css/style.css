@@ -5496,35 +5496,6 @@ video::-webkit-media-controls {
 .evcon-handlebars:before {
   content: "\e603";
 }
-#carousel-logo.spin {
-  -webkit-animation: rotation 0.750s infinite linear;
-  -moz-animation: rotation 0.750s infinite linear;
-  -o-animation: rotation 0.750s infinite linear;
-  animation: rotation 0.750s infinite linear;
-}
-#carousel-preloader {
-  height: 100%;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
-  display: block;
-}
-#carousel-preloader #carousel-spinner:before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: -3px;
-  top: -3px;
-  height: 100%;
-  width: 100%;
-  border-top: 3px solid #000000;
-  border-left: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-radius: 100%;
-}
 #preloader {
   width: 100vw;
   height: 100vh;
@@ -6094,6 +6065,12 @@ video::-webkit-media-controls {
   .page-work .site-logo {
     background-color: rgba(255, 255, 255, 0.7);
   }
+}
+.page-work .site-logo__image.spin {
+  -webkit-animation: rotation 0.750s infinite linear;
+  -moz-animation: rotation 0.750s infinite linear;
+  -o-animation: rotation 0.750s infinite linear;
+  animation: rotation 0.750s infinite linear;
 }
 video {
   position: fixed;

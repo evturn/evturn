@@ -46,11 +46,10 @@ module.exports = Backbone.View.extend({
     }});
   },
   initSpinner() {
-    const $img = $('#carousel-logo');
-    const $container = $('#carousel-preloader');
+    const $container = $('.site-logo');
+    const $img = $('.site-logo__image');
     const $spinner = $('#carousel-spinner');
     $img.addClass('spin');
-    $container.delay(500).fadeOut();
     setTimeout(() => { $img.removeClass('spin'); }, 740);
   }
 });
