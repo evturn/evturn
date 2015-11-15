@@ -7,7 +7,7 @@ module.exports = Backbone.View.extend({
   el: '.page-index',
   initialize() {
     engine.load({
-      filepath: hbs.index.page,
+      url: hbs.index.page,
       success: this.render
     });
   },

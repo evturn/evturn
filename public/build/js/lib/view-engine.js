@@ -17,31 +17,38 @@ const templates = [
 const cachedTemplates = [];
 
 module.exports.load = function(params) {
-  if (cachedTemplates[params.filepath]) {
-    return params.success(cachedTemplates[params.filepath]);
+  const url = params.url;
+  const success = params.success;
+
+  if (cachedTemplates[url]) {
+    return success(cachedTemplates[url]);
   }
 
-  $.get(params.filepath, (contents) => {
-    cachedTemplates[params.filepath] = Handlebars.compile(contents);
-    params.success(cachedTemplates[params.filepath]);
+  $.get(url, (contents) => {
+    cachedTemplates[url] = Handlebars.compile(contents);
+    success(cachedTemplates[url]);
   });
 };
 
 module.exports.reload = function(params) {
-  $.get(params.filepath, (contents) => {
-    params.success(Handlebars.compile(contents));
+  const url = params.url;
+  const success = params.success;
+
+  $.get(url, (contents) => {
+    success(Handlebars.compile(contents));
   });
 };
 
 module.exports.registerTemplates = () => {
-  const get = (template) => {
-    $.get(template.filepath, (contents) => {
-       cachedTemplates[template.filepath] = Handlebars.precompile(contents);
+  const get = (url) => {
+    $.get(url, (contents) => {
+       cachedTemplates[url] = Handlebars.precompile(contents);
     });
   };
 
-  for (let template of templates) {
-    get(template);
+  for (let template of hbs.partials) {
+    const url = _.values(template)[0];
+    get(url);
   }
 };
 

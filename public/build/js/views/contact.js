@@ -7,7 +7,7 @@ module.exports = Backbone.View.extend({
   el: '.page-contact',
   initialize() {
     engine.load({
-      filepath: hbs.contact.page,
+      url: hbs.contact.page,
       success: this.render
     });
   },

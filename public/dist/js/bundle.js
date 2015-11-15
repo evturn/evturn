@@ -5089,7 +5089,7 @@
 	  el: '.page-index',
 	  initialize: function initialize() {
 	    engine.load({
-	      filepath: hbs.index.page,
+	      url: hbs.index.page,
 	      success: this.render
 	    });
 	  },
@@ -5492,26 +5492,32 @@
 	var cachedTemplates = [];
 	
 	module.exports.load = function (params) {
-	  if (cachedTemplates[params.filepath]) {
-	    return params.success(cachedTemplates[params.filepath]);
+	  var url = params.url;
+	  var success = params.success;
+	
+	  if (cachedTemplates[url]) {
+	    return success(cachedTemplates[url]);
 	  }
 	
-	  $.get(params.filepath, function (contents) {
-	    cachedTemplates[params.filepath] = Handlebars.compile(contents);
-	    params.success(cachedTemplates[params.filepath]);
+	  $.get(url, function (contents) {
+	    cachedTemplates[url] = Handlebars.compile(contents);
+	    success(cachedTemplates[url]);
 	  });
 	};
 	
 	module.exports.reload = function (params) {
-	  $.get(params.filepath, function (contents) {
-	    params.success(Handlebars.compile(contents));
+	  var url = params.url;
+	  var success = params.success;
+	
+	  $.get(url, function (contents) {
+	    success(Handlebars.compile(contents));
 	  });
 	};
 	
 	module.exports.registerTemplates = function () {
-	  var get = function get(template) {
-	    $.get(template.filepath, function (contents) {
-	      cachedTemplates[template.filepath] = Handlebars.precompile(contents);
+	  var get = function get(url) {
+	    $.get(url, function (contents) {
+	      cachedTemplates[url] = Handlebars.precompile(contents);
 	    });
 	  };
 	
@@ -5520,10 +5526,11 @@
 	  var _iteratorError = undefined;
 	
 	  try {
-	    for (var _iterator = templates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	    for (var _iterator = hbs.partials[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      var template = _step.value;
 	
-	      get(template);
+	      var url = _.values(template)[0];
+	      get(url);
 	    }
 	  } catch (err) {
 	    _didIteratorError = true;
@@ -5969,7 +5976,7 @@
 	    };
 	
 	    engine.reload({
-	      filepath: hbs.templates.project,
+	      url: hbs.templates.project,
 	      success: callback
 	    });
 	  },
@@ -5985,7 +5992,7 @@
 	    };
 	
 	    engine.load({
-	      filepath: hbs.work.page,
+	      url: hbs.work.page,
 	      success: callback
 	    });
 	  },
@@ -6116,7 +6123,7 @@
 	  el: '.page-about',
 	  initialize: function initialize() {
 	    engine.load({
-	      filepath: hbs.about.page,
+	      url: hbs.about.page,
 	      success: this.render
 	    });
 	  },
@@ -6177,7 +6184,7 @@
 	  el: '.page-contact',
 	  initialize: function initialize() {
 	    engine.load({
-	      filepath: hbs.contact.page,
+	      url: hbs.contact.page,
 	      success: this.render
 	    });
 	  },
@@ -6233,7 +6240,7 @@
 	      };
 	
 	      engine.load({
-	        filepath: hbs.templates.header,
+	        url: hbs.templates.header,
 	        success: callback
 	      });
 	    }

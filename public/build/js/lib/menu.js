@@ -21,7 +21,7 @@ module.exports = class Menu {
     };
 
     engine.load({
-      filepath: hbs.templates.header,
+      url: hbs.templates.header,
       success: callback
     });
   }
