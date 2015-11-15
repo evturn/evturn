@@ -1,6 +1,7 @@
 'use strict';
 const Backbone = require('backbone');
 const views = require('./views');
+const menu = require('./lib/menu');
 const engine = require('./lib/view-engine');
 const data = require('./data');
 const googleAnalytics = require('google-analytics');
@@ -26,8 +27,10 @@ const Router = Backbone.Router.extend({
       filepath: '../../views/templates/header.hbs',
       success(template) {
         $('.site-header').html(template);
+        menu();
       }
     });
+
   },
   setLayout() {
     const route = Backbone.history.fragment ? Backbone.history.fragment : 'index';

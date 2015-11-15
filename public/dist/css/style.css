@@ -5679,7 +5679,14 @@ video::-webkit-media-controls {
   z-index: 3;
 }
 .site-header .site-menu {
-  display: none;
+  width: 21em;
+  right: -21em;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+.site-header .site-menu.open {
+  right: 0;
 }
 .site-footer {
   background-color: #ffffff;
@@ -5970,7 +5977,9 @@ video::-webkit-media-controls {
 .page-index .site-logo {
   right: 0;
   left: 0;
-  top: 25%;
+  top: 15%;
+  padding: 20px;
+  width: 140px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 .page-index .site-content {
@@ -5979,7 +5988,7 @@ video::-webkit-media-controls {
 }
 .page-index .site-headline {
   position: absolute;
-  top: 40%;
+  top: 45%;
   right: 0;
   left: 0;
   z-index: 3;

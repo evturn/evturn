@@ -26,6 +26,12 @@
     z-index: 3;
   }
   .site-menu {
-    display: none;
+    width: 21em;
+    right: -21em;
+    .transition(0.4s);
+
+    &.open {
+      right: 0;
+    }
   }
 }
