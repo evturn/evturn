@@ -14,6 +14,16 @@
       background-color: fade(@bg-main, 70);
     }
   }
+  .site-nav {
+    opacity: 0.5;
+    color: @tx-main;
+    background-color: @bg-main;
+    border-radius: 8px;
+    &:hover {
+      opacity: 1;
+      color: @color-accent;
+    }
+  }
   .site-logo__image.spin {
     -webkit-animation: rotation 0.750s infinite linear;
     -moz-animation: rotation 0.750s infinite linear;

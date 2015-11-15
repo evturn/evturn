@@ -5652,9 +5652,12 @@ video::-webkit-media-controls {
   position: absolute;
   top: 25px;
   right: 25px;
-  font-size: 40px;
-  cursor: pointer;
+  height: 50px;
+  width: 50px;
   z-index: 3;
+  cursor: pointer;
+  font-size: 40px;
+  text-align: center;
 }
 .site-header .nav-is-opened {
   display: block;
@@ -6027,6 +6030,9 @@ video::-webkit-media-controls {
   width: 140px;
   background-color: rgba(255, 255, 255, 0.7);
 }
+.page-index .site-nav {
+  color: #ffffff;
+}
 .page-index .site-content {
   overflow: auto;
   height: 100vh;
@@ -6036,13 +6042,17 @@ video::-webkit-media-controls {
   top: 45%;
   right: 0;
   left: 0;
-  z-index: 3;
-  background-color: #ffffff;
   width: 90%;
   margin: 0 auto;
+  z-index: 3;
+  background-color: #ffffff;
 }
 .page-index .site-headline .site-headline__name,
 .page-index .site-headline .site-headline__desc {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'Source Sans Pro', sans;
+  font-weight: 500;
   text-align: center;
   text-transform: uppercase;
 }
@@ -6065,6 +6075,16 @@ video::-webkit-media-controls {
   .page-work .site-logo {
     background-color: rgba(255, 255, 255, 0.7);
   }
+}
+.page-work .site-nav {
+  opacity: 0.5;
+  color: #231f20;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.page-work .site-nav:hover {
+  opacity: 1;
+  color: #5fa3c0;
 }
 .page-work .site-logo__image.spin {
   -webkit-animation: rotation 0.750s infinite linear;
