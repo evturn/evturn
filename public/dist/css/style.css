@@ -5898,11 +5898,12 @@ video::-webkit-media-controls {
   width: 100%;
   height: 300px;
   overflow: hidden;
-  background-image: url('https://41.media.tumblr.com/6164a08395814a59329a0824dfd64074/tumblr_mndqixewKt1qzqju7o2_1280.jpg');
+  background-image: url('../img/site/tile.png');
   background-position-y: 50%;
   background-position-x: 50%;
   background-size: cover;
   background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(95, 163, 192, 0.6);
 }
 .page-about .image-container:before,
 .page-about .image-container:after {
@@ -5913,7 +5914,7 @@ video::-webkit-media-controls {
   clear: both;
 }
 .bio {
-  margin: 15px auto;
+  margin: 30px auto;
   padding-left: 15px;
   padding-right: 15px;
   max-width: 1000px;
@@ -5939,7 +5940,7 @@ video::-webkit-media-controls {
   margin-bottom: 15px;
   font-size: 18px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .bio .bio__paragraph {
     padding-left: 20px;
     padding-right: 20px;
@@ -6050,6 +6051,7 @@ video::-webkit-media-controls {
   background-position-x: 50%;
   background-size: cover;
   background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(95, 163, 192, 0.6);
 }
 .page-contact .image-container:before,
 .page-contact .image-container:after {
