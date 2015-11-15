@@ -13,9 +13,8 @@ module.exports = Backbone.View.extend({
   renderProject(project) {
     const callback = (template) => {
       const $projectContent = $('.project-content');
-      const data = { project };
 
-      $projectContent.html(template(data));
+      $projectContent.html(template({ project }));
       new Carousel();
       this.scrollToTop();
     };
@@ -27,10 +26,7 @@ module.exports = Backbone.View.extend({
   },
   renderView(project, projects) {
     const callback = (template) => {
-      const $siteContent = $('.site-content');
-      const data = { project, projects };
-
-      $siteContent.html(template(data));
+      this.$parent.html(template({ project, projects }));
       new Carousel();
     };
 

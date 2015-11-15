@@ -75,15 +75,18 @@
 	    engine.init(Backbone);
 	    new Menu();
 	  },
+	  getFragment: function getFragment() {
+	    return Backbone.history.fragment ? Backbone.history.fragment : 'index';
+	  },
 	  setLayout: function setLayout() {
-	    var route = Backbone.history.fragment ? Backbone.history.fragment : 'index';
+	    var route = this.getFragment();
 	    var slash = route.indexOf('/');
 	    var name = slash !== -1 ? route.substring(0, slash) : route;
 	    $('body').removeClass();
 	    $('body').addClass('page-' + name);
 	  },
 	  match: function match() {
-	    var name = Backbone.history.fragment ? Backbone.history.fragment : 'index';
+	    var name = this.getFragment();
 	    var view = (function (name) {
 	      return name.charAt(0).toUpperCase() + name.substr(1);
 	    })(name);
@@ -1596,22 +1599,26 @@
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
 	  initialize: function initialize() {
+	    this.render();
+	  },
+	  render: function render() {
+	    var _this = this;
+	
+	    var callback = function callback(template) {
+	      _this.$parent.html(template());
+	      var $container = $('#preloader');
+	      var $image = $('.preloader');
+	      var videoElement = document.getElementById('ev-vid');
+	
+	      new Video(videoElement);
+	      $container.delay(500).fadeOut();
+	      $image.delay(600).fadeOut(600);
+	    };
+	
 	    this.load({
 	      url: this.pages.index,
-	      success: this.render
+	      success: callback
 	    });
-	  },
-	  render: function render(template) {
-	    var $siteContent = $('.site-content');
-	    $siteContent.html(template());
-	    var $container = $('#preloader');
-	    var $image = $('.preloader');
-	    var videoElement = document.getElementById('ev-vid');
-	
-	    new Video(videoElement);
-	    $container.delay(500).fadeOut();
-	    $image.delay(600).fadeOut(600);
-	    return this;
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
@@ -2101,6 +2108,7 @@
 	  registerPartials();
 	
 	  return _.extend(backbone.View.prototype, {
+	    $parent: $('.site-content'),
 	    pages: hbs.pages,
 	    templates: hbs.templates,
 	    reload: reload,
@@ -4090,9 +4098,8 @@
 	
 	    var callback = function callback(template) {
 	      var $projectContent = $('.project-content');
-	      var data = { project: project };
 	
-	      $projectContent.html(template(data));
+	      $projectContent.html(template({ project: project }));
 	      new Carousel();
 	      _this.scrollToTop();
 	    };
@@ -4103,11 +4110,10 @@
 	    });
 	  },
 	  renderView: function renderView(project, projects) {
-	    var callback = function callback(template) {
-	      var $siteContent = $('.site-content');
-	      var data = { project: project, projects: projects };
+	    var _this2 = this;
 	
-	      $siteContent.html(template(data));
+	    var callback = function callback(template) {
+	      _this2.$parent.html(template({ project: project, projects: projects }));
 	      new Carousel();
 	    };
 	
@@ -4237,31 +4243,34 @@
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
 	var data = __webpack_require__(6);
 	var StatCounter = __webpack_require__(19);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
 	  initialize: function initialize() {
+	    this.render();
+	  },
+	  render: function render() {
+	    var _this = this;
+	
+	    var callback = function callback(template) {
+	      var tech = _.where(data.tech, { featured: true });
+	      _this.$parent.html(template({
+	        tech: tech,
+	        stats: data.stats
+	      }));
+	      new StatCounter();
+	    };
+	
 	    this.load({
 	      url: this.pages.about,
-	      success: this.render
+	      success: callback
 	    });
-	  },
-	  render: function render(template) {
-	    var $siteContent = $('.site-content');
-	    var tech = _.where(data.tech, { featured: true });
-	
-	    $siteContent.html(template({
-	      tech: tech,
-	      stats: data.stats
-	    }));
-	    new StatCounter();
-	    return this;
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(13)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ },
 /* 19 */
@@ -4321,25 +4330,28 @@
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	'use strict';
 	var data = __webpack_require__(6);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
 	  initialize: function initialize() {
+	    this.render();
+	  },
+	  render: function render() {
+	    var _this = this;
+	
+	    var callback = function callback(template) {
+	      var links = data.links;
+	      _this.$parent.html(template({ links: links }));
+	    };
+	
 	    this.load({
 	      url: this.pages.contact,
-	      success: this.render
+	      success: callback
 	    });
-	  },
-	  render: function render(template) {
-	    var $siteContent = $('.site-content');
-	    var links = data.links;
-	    $siteContent.html(template({ links: links }));
-	    return this;
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 21 */

@@ -58,6 +58,7 @@ module.exports.init = (backbone) => {
   registerPartials();
 
   return _.extend(backbone.View.prototype, {
+    $parent: $('.site-content'),
     pages: hbs.pages,
     templates: hbs.templates,
     reload: reload,
