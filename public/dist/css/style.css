@@ -5433,6 +5433,12 @@ ol,
 li {
   list-style-type: none;
 }
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 /* Paragraph
 ---------------------*/
 /* Links
@@ -5632,9 +5638,6 @@ video::-webkit-media-controls {
 .site-content:after {
   clear: both;
 }
-.nav-is-opened {
-  overflow: hidden;
-}
 .site-header {
   width: 100%;
   margin: 0 auto;
@@ -5682,13 +5685,17 @@ video::-webkit-media-controls {
   cursor: pointer;
   z-index: 3;
 }
+.site-header .nav-is-opened {
+  display: block;
+}
 .site-header .site-menu {
-  position: absolute;
+  position: fixed;
   top: 0;
+  bottom: 0;
   width: 21em;
   left: auto;
   right: -21em;
-  z-index: 4;
+  z-index: 999;
   height: 100%;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
@@ -5733,6 +5740,27 @@ video::-webkit-media-controls {
   width: 60px;
   font-size: 25px;
   background-color: #ffffff;
+}
+.nav-is-opened {
+  overflow: hidden;
+}
+.nav-is-opened .nav-overlay {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  top: 0;
+  left: 0;
+}
+@media (min-width: 1024px) {
+  .nav-is-opened .nav-overlay {
+    background: rgba(255, 255, 255, 0.65);
+  }
+}
+.nav-is-opened .site-menu {
+  -webkit-box-shadow: -20px 0px 50px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: -20px 0px 50px 0px rgba(50, 50, 50, 0.5);
 }
 .site-footer {
   background-color: #ffffff;
@@ -6030,7 +6058,7 @@ video::-webkit-media-controls {
 }
 .page-index .site-content {
   overflow: auto;
-  height: 50vh;
+  height: 100vh;
 }
 .page-index .site-headline {
   position: absolute;
