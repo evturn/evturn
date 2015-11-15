@@ -10,18 +10,28 @@
     margin-bottom: 5px;
     text-transform: uppercase;
   }
+  .project-links {
+    .clearfix();
+  }
+  .project-links__list {
+    float: right;
+  }
   .project-links__item {
-    height: 40px;
-    width: 40px;
-    .list-item-icon__icon a {
-      color: @bg-main;
+    margin-right: 5px;
+    margin-bottom: 0;
+    &.list-item-icon {
+      height: 45px;
+      width: 45px;
+      background-color: @color-accent;
+      & a {
+        color: @bg-main;
+      }
     }
     .list-item-icon__icon .icon {
-      line-height: 30px;
-      height: 30px;
-      width: 30px;
-      font-size: 18px;
-      background-color: @tx-main;
+      line-height: 45px;
+      height: 45px;
+      width: 45px;
+      font-size: 25px;
     }
   }
 }

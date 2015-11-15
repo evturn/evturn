@@ -6198,19 +6198,34 @@ video {
   margin-bottom: 5px;
   text-transform: uppercase;
 }
-.project-content .project-links__item {
-  height: 40px;
-  width: 40px;
+.project-content .project-links:before,
+.project-content .project-links:after {
+  content: " ";
+  display: table;
 }
-.project-content .project-links__item .list-item-icon__icon a {
+.project-content .project-links:after {
+  clear: both;
+}
+.project-content .project-links__list {
+  float: right;
+}
+.project-content .project-links__item {
+  margin-right: 5px;
+  margin-bottom: 0;
+}
+.project-content .project-links__item.list-item-icon {
+  height: 45px;
+  width: 45px;
+  background-color: #5fa3c0;
+}
+.project-content .project-links__item.list-item-icon a {
   color: #ffffff;
 }
 .project-content .project-links__item .list-item-icon__icon .icon {
-  line-height: 30px;
-  height: 30px;
-  width: 30px;
-  font-size: 18px;
-  background-color: #231f20;
+  line-height: 45px;
+  height: 45px;
+  width: 45px;
+  font-size: 25px;
 }
 .thumbnails {
   margin-bottom: 80px;
