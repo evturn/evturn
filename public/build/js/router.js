@@ -3,7 +3,6 @@ const Backbone = require('backbone');
 const views = require('./views');
 const Menu = require('./lib/menu');
 const engine = require('./lib/view-engine');
-const data = require('./data');
 const models = require('./models');
 
 const Router = Backbone.Router.extend({

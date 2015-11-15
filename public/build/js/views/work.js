@@ -7,19 +7,19 @@ module.exports = Backbone.View.extend({
   render: null,
   el: '.page-work',
   initialize() {
-    const [model, projects] = this.model.populate();
+    const [project, projects] = this.model.populate();
     this.spinner();
-    this.render = this.render ? this.swapProject : this.setView;
-    this.render(model, projects);
+    this.render = this.render ? this.renderProject : this.renderView;
+    this.render(project, projects);
   },
-  swapProject(model) {
+  renderProject(project) {
     const callback = (template) => {
-      const $webpage = $('html, body');
       const $projectContent = $('.project-content');
-      const data = { project: model.toJSON() };
+      const data = { project };
+
       $projectContent.html(template(data));
       new Carousel();
-      $webpage.animate({ scrollTop: 0 }, 500);
+      this.scrollToTop();
     };
 
     engine.reload({
@@ -27,13 +27,11 @@ module.exports = Backbone.View.extend({
       success: callback,
     });
   },
-  setView(model, projects) {
+  renderView(project, projects) {
     const callback = (template) => {
       const $siteContent = $('.site-content');
-      const data = {
-        project: model.toJSON(),
-        projects: projects
-      };
+      const data = { project, projects };
+
       $siteContent.html(template(data));
       new Carousel();
     };
@@ -47,5 +45,9 @@ module.exports = Backbone.View.extend({
     const $siteImage = $('.site-logo__image');
     $siteImage.addClass('spin');
     setTimeout(() => $siteImage.removeClass('spin'), 740);
+  },
+  scrollToTop() {
+    const $webpage = $('html, body');
+    $webpage.animate({ scrollTop: 0 }, 500);
   }
 });

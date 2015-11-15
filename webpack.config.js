@@ -45,7 +45,7 @@ module.exports = {
       router: 'router',
       jquery: 'jquery',
       underscore: 'underscore',
-      backbone: 'backbone'
+      Backbone: 'backbone'
     }
   },
   resolveLoader: {
