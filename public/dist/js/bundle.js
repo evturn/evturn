@@ -54,7 +54,6 @@
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var Backbone = __webpack_require__(24);
 	var views = __webpack_require__(3);
-	var Menu = __webpack_require__(21);
 	var engine = __webpack_require__(12);
 	var models = __webpack_require__(22);
 	
@@ -71,9 +70,7 @@
 	    'work(/:id)': 'project'
 	  },
 	  initialize: function initialize() {
-	    __webpack_require__(23);
 	    engine.init(Backbone);
-	    new Menu();
 	  },
 	  getFragment: function getFragment() {
 	    return Backbone.history.fragment ? Backbone.history.fragment : 'index';
@@ -1994,6 +1991,7 @@
 	
 	var Handlebars = __webpack_require__(14);
 	var hbs = __webpack_require__(15);
+	var Menu = __webpack_require__(21);
 	var cachedTemplates = [];
 	
 	var registerTemplates = function registerTemplates() {
@@ -2104,9 +2102,10 @@
 	};
 	
 	module.exports.init = function (backbone) {
+	  __webpack_require__(23);
 	  registerTemplates();
 	  registerPartials();
-	
+	  new Menu();
 	  return _.extend(backbone.View.prototype, {
 	    $parent: $('.site-content'),
 	    pages: hbs.pages,

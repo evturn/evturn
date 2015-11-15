@@ -1,7 +1,6 @@
 'use strict';
 const Backbone = require('backbone');
 const views = require('./views');
-const Menu = require('./lib/menu');
 const engine = require('./lib/view-engine');
 const models = require('./models');
 
@@ -18,9 +17,7 @@ const Router = Backbone.Router.extend({
     'work(/:id)': 'project'
   },
   initialize() {
-    require('google-analytics');
     engine.init(Backbone);
-    new Menu();
   },
   getFragment() {
     return Backbone.history.fragment ? Backbone.history.fragment : 'index';

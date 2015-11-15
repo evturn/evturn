@@ -1,6 +1,7 @@
 'use-strict';
 const Handlebars = require('handlebars');
 const hbs = require('./templates');
+const Menu = require('./menu');
 const cachedTemplates = [];
 
 const registerTemplates = () => {
@@ -54,9 +55,10 @@ const reload = module.exports.reload = function(params) {
 };
 
 module.exports.init = (backbone) => {
+  require('google-analytics');
   registerTemplates();
   registerPartials();
-
+  new Menu();
   return _.extend(backbone.View.prototype, {
     $parent: $('.site-content'),
     pages: hbs.pages,
