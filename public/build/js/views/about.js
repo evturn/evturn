@@ -5,7 +5,7 @@ const engine = require('../lib/view-engine');
 const loadTemplate = engine.loadTemplate;
 
 module.exports = Backbone.View.extend({
-  el: '.about',
+  el: '.page-about',
   filepath: '../../views/about.hbs',
   initialize() {
     loadTemplate({

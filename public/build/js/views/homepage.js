@@ -4,7 +4,7 @@ const engine = require('../lib/view-engine');
 const loadTemplate = engine.loadTemplate;
 
 module.exports = Backbone.View.extend({
-  el: '.index',
+  el: '.page-index',
   initialize() {
     loadTemplate({
       filepath: '../../views/index.hbs',

@@ -5092,7 +5092,7 @@
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
-	  el: '.index',
+	  el: '.page-index',
 	  initialize: function initialize() {
 	    loadTemplate({
 	      filepath: '../../views/index.hbs',
@@ -6056,7 +6056,7 @@
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
-	  el: '.about',
+	  el: '.page-about',
 	  filepath: '../../views/about.hbs',
 	  initialize: function initialize() {
 	    loadTemplate({
@@ -6117,7 +6117,7 @@
 	var loadTemplate = engine.loadTemplate;
 	
 	module.exports = Backbone.View.extend({
-	  el: '.contact',
+	  el: '.page-contact',
 	  filepath: '../../views/contact.hbs',
 	  initialize: function initialize() {
 	    loadTemplate({

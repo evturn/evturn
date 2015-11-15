@@ -6148,6 +6148,11 @@ video {
 .carousel:after {
   clear: both;
 }
+@media (min-width: 768px) {
+  .carousel {
+    height: 400px;
+  }
+}
 @media (min-width: 1024px) {
   .carousel {
     height: 600px;
