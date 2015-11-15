@@ -30,7 +30,7 @@ module.exports = Backbone.View.extend({
     };
 
     engine.reload({
-      filepath: hbs.work.project,
+      filepath: hbs.templates.project,
       success: callback,
     });
   },

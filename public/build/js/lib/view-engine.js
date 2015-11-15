@@ -1,5 +1,6 @@
 'use-strict';
 const Handlebars = require('handlebars');
+const hbs = require('./templates');
 const templates = [
   {
     filepath: '../../views/templates/header.hbs',
@@ -45,13 +46,15 @@ module.exports.registerTemplates = () => {
 };
 
 module.exports.registerPartials = () => {
-  const get = (template) => {
-    $.get(template.filepath, (contents) => {
-       return Handlebars.registerPartial(template.name, contents);
+  const get = (name, url) => {
+    $.get(url, (contents) => {
+       return Handlebars.registerPartial(name, contents);
     });
   };
 
-  for (let template of templates) {
-    get(template);
+  for (let partial of hbs.partials) {
+    const name = _.keys(partial)[0];
+    const url = _.values(partial)[0];
+    get(name, url);
   }
 };

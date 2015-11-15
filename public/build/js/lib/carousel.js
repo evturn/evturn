@@ -1,6 +1,4 @@
 'use strict';
-let counter, next, length, timer;
-
 module.exports = class Carousel {
   constructor() {
     this.images = null;

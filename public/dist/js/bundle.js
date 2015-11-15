@@ -5473,10 +5473,11 @@
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
 	
 	'use-strict';
 	var Handlebars = __webpack_require__(15);
+	var hbs = __webpack_require__(23);
 	var templates = [{
 	  filepath: '../../views/templates/header.hbs',
 	  name: 'header'
@@ -5541,9 +5542,9 @@
 	};
 	
 	module.exports.registerPartials = function () {
-	  var get = function get(template) {
-	    $.get(template.filepath, function (contents) {
-	      return Handlebars.registerPartial(template.name, contents);
+	  var get = function get(name, url) {
+	    $.get(url, function (contents) {
+	      return Handlebars.registerPartial(name, contents);
 	    });
 	  };
 	
@@ -5552,10 +5553,12 @@
 	  var _iteratorError2 = undefined;
 	
 	  try {
-	    for (var _iterator2 = templates[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	      var template = _step2.value;
+	    for (var _iterator2 = hbs.partials[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	      var partial = _step2.value;
 	
-	      get(template);
+	      var _name = _.keys(partial)[0];
+	      var url = _.values(partial)[0];
+	      get(_name, url);
 	    }
 	  } catch (err) {
 	    _didIteratorError2 = true;
@@ -5572,7 +5575,7 @@
 	    }
 	  }
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
 
 /***/ },
 /* 15 */
@@ -5966,7 +5969,7 @@
 	    };
 	
 	    engine.reload({
-	      filepath: hbs.work.project,
+	      filepath: hbs.templates.project,
 	      success: callback
 	    });
 	  },
@@ -6005,11 +6008,6 @@
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	var counter = undefined,
-	    next = undefined,
-	    length = undefined,
-	    timer = undefined;
 	
 	module.exports = (function () {
 	  function Carousel() {
@@ -6235,7 +6233,7 @@
 	      };
 	
 	      engine.load({
-	        filepath: hbs.layouts.header,
+	        filepath: hbs.templates.header,
 	        success: callback
 	      });
 	    }
@@ -6289,22 +6287,30 @@
 
 	'use strict';
 	module.exports = {
-	  layouts: {
-	    header: '../../views/templates/header.hbs'
+	  templates: {
+	    header: '../../views/templates/header.hbs',
+	    project: '../../views/templates/project.hbs',
+	    thumbnails: '../../views/templates/thumbnails.hbs'
 	  },
 	  index: {
 	    page: '../../views/index.hbs'
 	  },
 	  work: {
-	    page: '../../views/work.hbs',
-	    project: '../../views/templates/project.hbs'
+	    page: '../../views/work.hbs'
 	  },
 	  about: {
 	    page: '../../views/about.hbs'
 	  },
 	  contact: {
 	    page: '../../views/contact.hbs'
-	  }
+	  },
+	  partials: [{
+	    header: '../../views/templates/header.hbs'
+	  }, {
+	    project: '../../views/templates/project.hbs'
+	  }, {
+	    thumbnails: '../../views/templates/thumbnails.hbs'
+	  }]
 	};
 
 /***/ }
