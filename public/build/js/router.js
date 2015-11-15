@@ -21,8 +21,7 @@ const Router = Backbone.Router.extend({
     'work(/:id)': 'project'
   },
   initialize() {
-    engine.registerTemplates();
-    engine.registerPartials();
+    engine.init();
     new Menu();
   },
   setLayout() {

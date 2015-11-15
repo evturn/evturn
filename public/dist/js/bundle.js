@@ -74,8 +74,7 @@
 	    'work(/:id)': 'project'
 	  },
 	  initialize: function initialize() {
-	    engine.registerTemplates();
-	    engine.registerPartials();
+	    engine.init();
 	    new Menu();
 	  },
 	  setLayout: function setLayout() {
@@ -5478,30 +5477,7 @@
 	var hbs = __webpack_require__(23);
 	var cachedTemplates = [];
 	
-	module.exports.load = function (params) {
-	  var url = params.url;
-	  var success = params.success;
-	
-	  if (cachedTemplates[url]) {
-	    return success(cachedTemplates[url]);
-	  }
-	
-	  $.get(url, function (contents) {
-	    cachedTemplates[url] = Handlebars.compile(contents);
-	    success(cachedTemplates[url]);
-	  });
-	};
-	
-	module.exports.reload = function (params) {
-	  var url = params.url;
-	  var success = params.success;
-	
-	  $.get(url, function (contents) {
-	    success(Handlebars.compile(contents));
-	  });
-	};
-	
-	module.exports.registerTemplates = function () {
+	var registerTemplates = function registerTemplates() {
 	  var get = function get(url) {
 	    $.get(url, function (contents) {
 	      cachedTemplates[url] = Handlebars.precompile(contents);
@@ -5535,7 +5511,7 @@
 	  }
 	};
 	
-	module.exports.registerPartials = function () {
+	var registerPartials = function registerPartials() {
 	  var get = function get(name, url) {
 	    $.get(url, function (contents) {
 	      return Handlebars.registerPartial(name, contents);
@@ -5568,6 +5544,34 @@
 	      }
 	    }
 	  }
+	};
+	
+	module.exports.load = function (params) {
+	  var url = params.url;
+	  var success = params.success;
+	
+	  if (cachedTemplates[url]) {
+	    return success(cachedTemplates[url]);
+	  }
+	
+	  $.get(url, function (contents) {
+	    cachedTemplates[url] = Handlebars.compile(contents);
+	    success(cachedTemplates[url]);
+	  });
+	};
+	
+	module.exports.reload = function (params) {
+	  var url = params.url;
+	  var success = params.success;
+	
+	  $.get(url, function (contents) {
+	    success(Handlebars.compile(contents));
+	  });
+	};
+	
+	module.exports.init = function () {
+	  registerTemplates();
+	  registerPartials();
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
 
