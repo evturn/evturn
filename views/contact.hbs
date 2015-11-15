@@ -1,16 +1,11 @@
-<div class="contact">
-  <div class="image-container">
-    <img class="img-scale" src="public/dist/img/site/city-invert.png">
-  </div>
-  <div class="wrapper">
-    <div class="links-container">
-      <ul class="link-items">
-        {{#each links}}
-          <li class="link-item">
-            <a href="{{url}}" target="_blank"><i class="{{icon}}"></i></a>
-          </li>
-        {{/each}}
-      </div>
-    </div>
+<div class="image-container animated fadeInUp"></div>
+  <div class="links-container">
+    <ul class="link-items list-icons">
+      {{#each links}}
+        <li class="link-item list-item-icon">
+          <div class="list-item-icon__icon"><a href="{{url}}" target="_blank"><i class="icon {{icon}}"></i></a></div>
+        </li>
+      {{/each}}
+    </ul>
   </div>
 </div>
