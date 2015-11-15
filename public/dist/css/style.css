@@ -5509,15 +5509,11 @@ video::-webkit-media-controls {
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  text-align: left;
   margin: 0 auto;
 }
 .list-item-icon {
-  margin-bottom: 15px;
   position: relative;
   display: inline-block;
-  width: 55px;
-  height: 55px;
 }
 .list-item-icon .list-item-icon__icon {
   font-size: 14px;
@@ -5528,8 +5524,8 @@ video::-webkit-media-controls {
 }
 .list-item-icon .list-item-icon__caption {
   position: absolute;
-  font-size: 10px;
-  bottom: 0;
+  font-size: 9px;
+  bottom: 10px;
   right: 0;
   left: 0;
   text-align: center;
@@ -6216,7 +6212,7 @@ video {
 .project-content .project-links__item.list-item-icon {
   height: 45px;
   width: 45px;
-  background-color: #5fa3c0;
+  background-color: #231f20;
 }
 .project-content .project-links__item.list-item-icon a {
   color: #ffffff;
@@ -6226,6 +6222,25 @@ video {
   height: 45px;
   width: 45px;
   font-size: 25px;
+}
+.project-content .project-tech__list {
+  text-align: center;
+}
+.project-content .project-tech__item {
+  width: 25%;
+}
+.project-content .project-tech__item .list-item-icon__icon {
+  background-color: #5fa3c0;
+  color: #ffffff;
+  margin: 5px;
+}
+.project-content .project-tech__item .list-item-icon__icon .icon {
+  line-height: 65px;
+  height: 65px;
+  width: 65px;
+}
+.project-content .project-tech__item .list-item-icon__caption {
+  color: #ffffff;
 }
 .thumbnails {
   margin-bottom: 80px;

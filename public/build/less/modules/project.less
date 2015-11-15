@@ -22,7 +22,7 @@
     &.list-item-icon {
       height: 45px;
       width: 45px;
-      background-color: @color-accent;
+      background-color: @tx-main;
       & a {
         color: @bg-main;
       }
@@ -32,6 +32,26 @@
       height: 45px;
       width: 45px;
       font-size: 25px;
+    }
+  }
+
+  .project-tech__list {
+    text-align: center;
+  }
+  .project-tech__item {
+    width: 25%;
+    .list-item-icon__icon {
+      background-color: @color-accent;
+      color: @bg-main;
+      margin: 5px;
+      & .icon {
+        line-height: 65px;
+        height: 65px;
+        width: 65px;
+      }
+    }
+    .list-item-icon__caption {
+      color: @bg-main;
     }
   }
 }
