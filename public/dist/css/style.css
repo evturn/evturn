@@ -5679,6 +5679,7 @@ video::-webkit-media-controls {
   top: 25px;
   right: 25px;
   font-size: 40px;
+  cursor: pointer;
   z-index: 3;
 }
 .site-header .site-menu {
@@ -5697,16 +5698,41 @@ video::-webkit-media-controls {
 .site-header .site-menu.open {
   right: 0;
 }
+.site-header .site-menu__list {
+  margin-top: 0;
+}
 .site-header .site-menu__item {
   text-transform: uppercase;
   text-align: center;
   overflow: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 .site-header .site-menu__item a {
   color: #ffffff;
 }
-.site-header .site-menu__item.site-menu__close {
-  text-align: right;
+.site-header .site-menu__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.site-header .site-menu__header:before,
+.site-header .site-menu__header:after {
+  content: " ";
+  display: table;
+}
+.site-header .site-menu__header:after {
+  clear: both;
+}
+.site-header .site-menu__header .site-menu__close {
+  float: right;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+}
+.site-header .site-menu__header .site-menu__close .icon {
+  line-height: 60px;
+  height: 60px;
+  width: 60px;
+  font-size: 25px;
+  background-color: #ffffff;
 }
 .site-footer {
   background-color: #ffffff;
