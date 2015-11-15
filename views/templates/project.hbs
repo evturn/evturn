@@ -21,18 +21,20 @@
 </div>
 
 <div class="project-links">
-  <ul class="project-links__list">
-    {{#if project.url}}
-        <li class="project-links__item">
-          <a href="{{project.url}}" target="_blank"><i class="icon fa fa-link"></i></a>
+  {{#if project.links}}
+    <ul class="project-links__list list-icons">
+      {{#if project.url}}
+          <li class="project-links__item list-item-icon">
+            <div class="list-item-icon__icon"><a href="{{project.url}}" target="_blank"><span class="icon fa fa-link"></span></a></div>
+          </li>
+        {{/if}}
+      {{#if project.repo}}
+        <li class="project-links__item list-item-icon">
+          <div class="list-item-icon__icon"><a href="{{project.repo}}" target="_blank"><span class="icon fa fa-github"></span></a></div>
         </li>
       {{/if}}
-    {{#if project.repo}}
-      <li class="project-links__item">
-        <a href="{{project.repo}}" target="_blank"><i class="icon fa fa-github"></i></a>
-      </li>
-    {{/if}}
-  </ul>
+    </ul>
+  {{/if}}
 </div>
 
 

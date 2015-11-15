@@ -6138,6 +6138,10 @@ video::-webkit-media-controls {
 .page-work .project-content:after {
   clear: both;
 }
+.page-work .project-content .project-links__item {
+  height: 40px;
+  width: 30px;
+}
 video {
   position: fixed;
   top: 50%;

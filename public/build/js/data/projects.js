@@ -4,6 +4,7 @@ module.exports = [
     name: 'Made In Music',
     description: "This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.",
     id: 1,
+    links: true,
     url: 'http://madeinmusic.co',
     repo: 'https://github.com/evturn/madeinmusic.co',
     thumbnail: "public/dist/img/apps/mim-tn.png",
@@ -18,6 +19,7 @@ module.exports = [
     name: 'Marshallz Blog',
     description: "A blog run by a fictitious nine year old. A new post is authored every hour in addition to sending out <a href='http://twitter.com/marshallzBlog' target='_blank'>sporatic unrelated tweets</a>.",
     id: 2,
+    links: true,
     url: 'http://marshallz.com',
     repo: 'https://github.com/evturn/marshallz',
     thumbnail: 'public/dist/img/apps/marshallz-tn.png',
@@ -35,6 +37,7 @@ module.exports = [
     name: 'Drive Publishing',
     description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
     id: 4,
+    links: true,
     url: 'http://drivepublishing.com',
     repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
     thumbnail: "public/dist/img/apps/drive-tn.png",
@@ -49,6 +52,7 @@ module.exports = [
     name: 'Ramen Buffet',
     description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
     id: 6,
+    links: true,
     url: 'http://ramenbuffet.com',
     repo: 'https://github.com/evturn/ramen-buffet',
     thumbnail: "public/dist/img/apps/rb-tn.png",
@@ -63,6 +67,7 @@ module.exports = [
     name: 'Alculator',
     description: "Alculator is a BAC calculator. User can add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
     id: 5,
+    links: true,
     thumbnail: "public/dist/img/apps/alculator-tn.png",
     images: [
       {image: 'public/dist/img/apps/alculator-3.png'},
@@ -76,6 +81,7 @@ module.exports = [
     name: 'Pique',
     description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
     id: 3,
+    links: true,
     repo: 'https://github.com/piqueapp/piqueapp.github.io',
     thumbnail: "public/dist/img/apps/pique-tn.png",
     images: [
@@ -112,6 +118,7 @@ module.exports = [
     name: 'Brooklyn Friends School',
     description: 'I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.',
     id: 9,
+    links: true,
     url: 'http://smkkstudios.com/work/brooklynfriendsschool',
     thumbnail: "public/dist/img/apps/bfs-tn.jpg",
     images: [
@@ -124,6 +131,7 @@ module.exports = [
     name: 'WhereTO',
     description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
     id: 10,
+    links: true,
     repo: 'https://github.com/evturn/WhereTO',
     thumbnail: "public/dist/img/apps/whereto-tn.png",
     images: [
