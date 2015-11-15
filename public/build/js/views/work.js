@@ -9,7 +9,6 @@ module.exports = Backbone.View.extend({
     'click .thumbnail-item' : 'scrollWindowUp'
   },
   initialize() {
-    console.log(this.model);
     const projects = _.where(data.projects, { featured: true });
     const tech = [];
     const techIds = this.model.get('technologies');
@@ -28,7 +27,7 @@ module.exports = Backbone.View.extend({
       filepath: '../../views/templates/project.hbs',
       success(template, data) {
         $('.project-content').html(template(data));
-        new Carousel();
+        const carousel = new Carousel();
       },
       data: { project: model.toJSON() }
     });
@@ -38,7 +37,7 @@ module.exports = Backbone.View.extend({
       filepath: '../../views/work.hbs',
       success(template, data) {
         $('.site-content').html(template(data));
-        new Carousel();
+        const carousel = new Carousel();
       },
       data: {
         project: model.toJSON(),

@@ -5891,7 +5891,6 @@
 	    'click .thumbnail-item': 'scrollWindowUp'
 	  },
 	  initialize: function initialize() {
-	    console.log(this.model);
 	    var projects = _.where(data.projects, { featured: true });
 	    var tech = [];
 	    var techIds = this.model.get('technologies');
@@ -5910,7 +5909,7 @@
 	      filepath: '../../views/templates/project.hbs',
 	      success: function success(template, data) {
 	        $('.project-content').html(template(data));
-	        new Carousel();
+	        var carousel = new Carousel();
 	      },
 	      data: { project: model.toJSON() }
 	    });
@@ -5920,7 +5919,7 @@
 	      filepath: '../../views/work.hbs',
 	      success: function success(template, data) {
 	        $('.site-content').html(template(data));
-	        new Carousel();
+	        var carousel = new Carousel();
 	      },
 	      data: {
 	        project: model.toJSON(),
