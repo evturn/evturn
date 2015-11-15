@@ -45,8 +45,8 @@ const Router = Backbone.Router.extend({
     instance;
   },
   project(id) {
-    const collection = new models.Collection(data.projects);
-    const project = collection.get(id) || collection.get(1);
+    const projects = models.Projects;
+    const project = projects.select(id);
 
     this.setLayout();
     if (this.work === null || !this.isActive) {

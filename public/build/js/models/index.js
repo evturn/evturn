@@ -1,9 +1,10 @@
 'use strict';
 const data = require('../data');
 
+const projects = _.where(data.projects, { featured: true });
+
 const Model = module.exports.Model = Backbone.Model.extend({
   populate() {
-    const projects = _.where(data.projects, { featured: true });
     const tech = [];
     const techIds = this.get('technologies');
     techIds.forEach((id) => {
@@ -15,4 +16,12 @@ const Model = module.exports.Model = Backbone.Model.extend({
   }
 });
 
-const Collection = module.exports.Collection = Backbone.Collection.extend({ model: Model });
+const Collection = module.exports.Collection = Backbone.Collection.extend({
+  model: Model,
+  select(id) {
+    const project = this.get(id) || this.get(4);
+    return project;
+  }
+});
+
+const Projects = module.exports.Projects = new Collection(projects);

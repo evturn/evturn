@@ -100,8 +100,8 @@
 	    instance;
 	  },
 	  project: function project(id) {
-	    var collection = new models.Collection(data.projects);
-	    var project = collection.get(id) || collection.get(1);
+	    var projects = models.Projects;
+	    var project = projects.select(id);
 	
 	    this.setLayout();
 	    if (this.work === null || !this.isActive) {
@@ -6318,9 +6318,10 @@
 	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
 	var data = __webpack_require__(8);
 	
+	var projects = _.where(data.projects, { featured: true });
+	
 	var Model = module.exports.Model = Backbone.Model.extend({
 	  populate: function populate() {
-	    var projects = _.where(data.projects, { featured: true });
 	    var tech = [];
 	    var techIds = this.get('technologies');
 	    techIds.forEach(function (id) {
@@ -6332,7 +6333,15 @@
 	  }
 	});
 	
-	var Collection = module.exports.Collection = Backbone.Collection.extend({ model: Model });
+	var Collection = module.exports.Collection = Backbone.Collection.extend({
+	  model: Model,
+	  select: function select(id) {
+	    var project = this.get(id) || this.get(4);
+	    return project;
+	  }
+	});
+	
+	var Projects = module.exports.Projects = new Collection(projects);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }
