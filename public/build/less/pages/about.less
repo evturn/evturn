@@ -7,103 +7,79 @@
   }
 }
 
-.about {
-  min-height: 100vh;
+.bio {
+  margin: 15px auto;
+  max-width: 1000px;
+  .clearfix();
   font-family: @primarysans;
   font-weight: 500;
   text-align: justify;
-  line-height: 1.8;
-  padding-bottom: 20px;
-  .section-title {
-    text-align: center;
-    font-size: 3rem;
-    color: @color-tx-white;
-    .margin-y(15px);
-  }
-  .subhead {
-    color: @color-tx-white;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 2.3rem;
-  }
-  .bio-container {
-    .margin-x-auto();
-  }
-  .paragraphs {
-    overflow: auto;
-    .margin-x-auto();
-    max-width: 1100px;
-  }
-  .paragraph {
-    width: 100%;
-    vertical-align: top;
-    display: inline-block;
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-    color: @color-tx-white;
-    text-align: left;
-    margin-bottom: 15px;
-    .margin-x-auto();
+  .bio__paragraph {
     @media(@tablet) {
+      .padding-x(20px);
       &:first-child {
         float: left;
-        width: 48%;
+        width: 50%;
       }
       &:nth-child(2) {
         float: right;
-        width: 48%;
+        width: 50%;
       }
     }
   }
-  .bio-container,
-  .info-container {
-    overflow: auto;
-  }
-  .image-container {
-    .margin-x(0);
-  }
-  .stats-container:first-child {
+}
+
+.about-info {
+  margin: 15px auto;
+  max-width: 1000px;
+  .clearfix();
+  .about-tech {
     @media(@tablet) {
-      width: 48%;
-      .margin-x-auto();
+      .padding-x(20px);
+      width: 50%;
+      float: left;
     }
   }
-  .stats-container:nth-child(2) {
+  .about-stats {
     @media(@tablet) {
-      width: 48%;
-      .margin-x-auto();
+      .padding-x(20px);
+      width: 50%;
+      float: right;
     }
   }
-  .stats-container {
-    text-align: center;
-    padding-top: 25px;
-    width: 100%;
-    vertical-align: top;
-    @media(@tablet) {
-      display: inline-block;
-    }
-  }
-  .stat-icon {
-    display: block;
+  .about-info__header {
     margin-bottom: 10px;
-    i {
-      color: @black;
-      font-size: 3rem;
+    font-size: 21px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .about-tech__item {
+    width: 25%;
+    .list-item-icon__icon {
+      background-color: @color-accent;
+      color: @bg-main;
+      margin: 5px;
+      & .icon,
+      & .evcon {
+        line-height: 65px;
+        height: 65px;
+        width: 65px;
+      }
+    }
+    .list-item-icon__caption {
+      color: @bg-main;
     }
   }
-  .stat-items {
-    text-align: center;
-  }
-  .stat-item {
-    display: inline-block;
-    width: 80px;
-    margin-bottom: 15px;
-    text-align: center;
-    line-height: 1.5em;
-  }
-  .meta {
-    color: @color-tx-white;
-    font-size: 1.5rem;
+  .about-stats__item {
+    width: 25%;
+    height: 65px;
+    background-color: @color-accent;
+    color: @bg-main;
+    margin: 5px;
+    .stat-count {
+      line-height: 55px;
+      height: 65px;
+      font-size: 23px;
+    }
   }
 }

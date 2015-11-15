@@ -1,16 +1,13 @@
-<div class="container thumbnails">
-  <div class="wrapper thumbnails-wrapper">
-    {{#each projects}}
-      <div class="thumbnail-item">
-        <a href="#work/{{id}}">
-        <div class="thumbnail-inner">
-          <div class="image-container">
-            <img class="img-scale" src="{{thumbnail}}">
-            <div class="shadow"></div>
-          </div>
+<div class="thumbnail__header">Projects</div>
+<ul class="thumbnails">
+  {{#each projects}}
+    <li class="thumbnail-item">
+      <a href="#work/{{id}}">
+        <div class="image-container">
+          <img class="img-scale" src="{{thumbnail}}">
+          <div class="shadow"></div>
         </div>
-        </a>
-      </div>
-    {{/each}}
-  </div>
-</div>
+      </a>
+    </li>
+  {{/each}}
+</ul>

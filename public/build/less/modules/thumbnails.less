@@ -1,17 +1,25 @@
+.thumbnail__header {
+  text-transform: uppercase;
+  font-size: 21px;
+  text-align: left;
+  .margin-y(15px);
+  .padding-x(15px);
+}
+
 .thumbnails {
-  margin-bottom: 80px;
   overflow: auto;
   text-align: center;
+  .flexy();
   .transition(all 0.3s ease);
   .thumbnail-item {
     .transition(0.3s);
     .margin-x(-12.5px);
     display: inline-block;
     margin:0;
-    width: 49%;
+    width: 50%;
     .prevent-flash();
     @media(@tablet) {
-      width: 24.5%;
+      width: 25%;
     }
     .image-container {
       position: relative;
