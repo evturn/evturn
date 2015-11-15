@@ -11,7 +11,7 @@ const registerTemplates = () => {
   };
 
   for (let template of hbs.partials) {
-    const url = _.values(template)[0];
+    const [url] = _.values(template);
     get(url);
   }
 };
@@ -24,8 +24,8 @@ const registerPartials = () => {
   };
 
   for (let partial of hbs.partials) {
-    const name = _.keys(partial)[0];
-    const url = _.values(partial)[0];
+    const [name] = _.keys(partial);
+    const [url] = _.values(partial);
     get(name, url);
   }
 };
@@ -58,6 +58,8 @@ module.exports.init = (backbone) => {
   registerPartials();
 
   return _.extend(backbone.View.prototype, {
+    pages: hbs.pages,
+    templates: hbs.templates,
     reload: reload,
     load: load
   });

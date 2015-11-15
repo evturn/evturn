@@ -5,17 +5,11 @@ module.exports = {
     project: '../../views/templates/project.hbs',
     thumbnails: '../../views/templates/thumbnails.hbs'
   },
-  index: {
-    page: '../../views/index.hbs'
-  },
-  work: {
-    page: '../../views/work.hbs',
-  },
-  about: {
-    page: '../../views/about.hbs'
-  },
-  contact: {
-    page: '../../views/contact.hbs'
+  pages: {
+    index: '../../views/index.hbs',
+    work: '../../views/work.hbs',
+    about: '../../views/about.hbs',
+    contact: '../../views/contact.hbs'
   },
   partials: [{
       header: '../../views/templates/header.hbs'

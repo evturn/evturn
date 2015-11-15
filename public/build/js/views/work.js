@@ -1,6 +1,5 @@
 const Carousel = require('../lib/carousel');
 const data = require('../data');
-const hbs = require('../lib/templates');
 
 module.exports = Backbone.View.extend({
   render: null,
@@ -22,7 +21,7 @@ module.exports = Backbone.View.extend({
     };
 
     this.reload({
-      url: hbs.templates.project,
+      url: this.templates.project,
       success: callback,
     });
   },
@@ -36,7 +35,7 @@ module.exports = Backbone.View.extend({
     };
 
     this.load({
-      url: hbs.work.page,
+      url: this.pages.work,
       success: callback,
     });
   },

@@ -1592,14 +1592,12 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var Video = __webpack_require__(5);
-	var engine = __webpack_require__(12);
-	var hbs = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
 	  initialize: function initialize() {
 	    this.load({
-	      url: hbs.index.page,
+	      url: this.pages.index,
 	      success: this.render
 	    });
 	  },
@@ -1984,6 +1982,9 @@
 	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
 	
 	'use-strict';
+	
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+	
 	var Handlebars = __webpack_require__(14);
 	var hbs = __webpack_require__(15);
 	var cachedTemplates = [];
@@ -2003,7 +2004,12 @@
 	    for (var _iterator = hbs.partials[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      var template = _step.value;
 	
-	      var url = _.values(template)[0];
+	      var _$values = _.values(template);
+	
+	      var _$values2 = _slicedToArray(_$values, 1);
+	
+	      var url = _$values2[0];
+	
 	      get(url);
 	    }
 	  } catch (err) {
@@ -2037,8 +2043,18 @@
 	    for (var _iterator2 = hbs.partials[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	      var partial = _step2.value;
 	
-	      var _name = _.keys(partial)[0];
-	      var url = _.values(partial)[0];
+	      var _$keys = _.keys(partial);
+	
+	      var _$keys2 = _slicedToArray(_$keys, 1);
+	
+	      var _name = _$keys2[0];
+	
+	      var _$values3 = _.values(partial);
+	
+	      var _$values32 = _slicedToArray(_$values3, 1);
+	
+	      var url = _$values32[0];
+	
 	      get(_name, url);
 	    }
 	  } catch (err) {
@@ -2085,6 +2101,8 @@
 	  registerPartials();
 	
 	  return _.extend(backbone.View.prototype, {
+	    pages: hbs.pages,
+	    templates: hbs.templates,
 	    reload: reload,
 	    load: load
 	  });
@@ -4026,17 +4044,11 @@
 	    project: '../../views/templates/project.hbs',
 	    thumbnails: '../../views/templates/thumbnails.hbs'
 	  },
-	  index: {
-	    page: '../../views/index.hbs'
-	  },
-	  work: {
-	    page: '../../views/work.hbs'
-	  },
-	  about: {
-	    page: '../../views/about.hbs'
-	  },
-	  contact: {
-	    page: '../../views/contact.hbs'
+	  pages: {
+	    index: '../../views/index.hbs',
+	    work: '../../views/work.hbs',
+	    about: '../../views/about.hbs',
+	    contact: '../../views/contact.hbs'
 	  },
 	  partials: [{
 	    header: '../../views/templates/header.hbs'
@@ -4057,7 +4069,6 @@
 	
 	var Carousel = __webpack_require__(17);
 	var data = __webpack_require__(6);
-	var hbs = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  render: null,
@@ -4087,7 +4098,7 @@
 	    };
 	
 	    this.reload({
-	      url: hbs.templates.project,
+	      url: this.templates.project,
 	      success: callback
 	    });
 	  },
@@ -4101,7 +4112,7 @@
 	    };
 	
 	    this.load({
-	      url: hbs.work.page,
+	      url: this.pages.work,
 	      success: callback
 	    });
 	  },
@@ -4229,19 +4240,19 @@
 	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
 	var data = __webpack_require__(6);
 	var statCounter = __webpack_require__(19);
-	var hbs = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
 	  initialize: function initialize() {
 	    this.load({
-	      url: hbs.about.page,
+	      url: this.pages.about,
 	      success: this.render
 	    });
 	  },
 	  render: function render(template) {
 	    var $siteContent = $('.site-content');
 	    var tech = _.where(data.tech, { featured: true });
+	
 	    $siteContent.html(template({
 	      tech: tech,
 	      stats: data.stats
@@ -4289,13 +4300,12 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var data = __webpack_require__(6);
-	var hbs = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
 	  initialize: function initialize() {
 	    this.load({
-	      url: hbs.contact.page,
+	      url: this.pages.contact,
 	      success: this.render
 	    });
 	  },

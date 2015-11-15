@@ -1,13 +1,11 @@
 'use strict';
 const Video = require('../lib/video');
-const engine = require('../lib/view-engine');
-const hbs = require('../lib/templates');
 
 module.exports = Backbone.View.extend({
   el: '.page-index',
   initialize() {
     this.load({
-      url: hbs.index.page,
+      url: this.pages.index,
       success: this.render
     });
   },
