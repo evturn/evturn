@@ -5928,7 +5928,7 @@
 	
 	module.exports = Backbone.View.extend({
 	  render: null,
-	  el: '.work',
+	  el: '.page-work',
 	  events: {
 	    'click .thumbnail-item': 'scrollWindowUp'
 	  },
@@ -5951,7 +5951,7 @@
 	    engine.reloadTemplate({
 	      filepath: '../../views/templates/carousel.hbs',
 	      success: function success(template, data) {
-	        $('.page-carousel').html(template(data));
+	        $('.carousel').html(template(data));
 	        carousel();
 	      },
 	      data: { project: model.toJSON() }
@@ -5972,7 +5972,6 @@
 	  initSpinner: function initSpinner() {
 	    var $container = $('.site-logo');
 	    var $img = $('.site-logo__image');
-	    var $spinner = $('#carousel-spinner');
 	    $img.addClass('spin');
 	    setTimeout(function () {
 	      $img.removeClass('spin');
@@ -5992,8 +5991,8 @@
 	    timer = undefined;
 	
 	var init = function init() {
-	  var $images = $('.item');
-	  var $firstImage = $('.item:nth-child(1)');
+	  var $images = $('.carousel__item-image');
+	  var $firstImage = $('.carousel__item-image:nth-child(1)');
 	  length = $images.length;
 	  counter = null;
 	  next = null;
@@ -6009,7 +6008,7 @@
 	};
 	
 	var cycle = function cycle() {
-	  var $images = $('.item');
+	  var $images = $('.carousel__item-image');
 	  var $active = $('.active');
 	  var $next = $('.next');
 	  var isActiveLast = !!(counter === length);
@@ -6019,8 +6018,8 @@
 	  if (isInitializing) {
 	    counter = 1;
 	    next = 2;
-	    $('.item:nth-child(' + counter + ')').addClass('active');
-	    $('.item:nth-child(' + next + ')').addClass('next');
+	    $('.carousel__item-image:nth-child(' + counter + ')').addClass('active');
+	    $('.carousel__item-image:nth-child(' + next + ')').addClass('next');
 	    return;
 	  } else if (isActiveLast) {
 	    counter = 1;
@@ -6039,8 +6038,8 @@
 	
 	  $next.fadeTo(1000, 1, function () {
 	    $images.removeClass('next');
-	    $('.item:nth-child(' + counter + ')').addClass('active');
-	    $('.item:nth-child(' + next + ')').addClass('next');
+	    $('.carousel__item-image:nth-child(' + counter + ')').addClass('active');
+	    $('.carousel__item-image:nth-child(' + next + ')').addClass('next');
 	  });
 	};
 	

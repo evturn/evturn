@@ -2,8 +2,8 @@
 let counter, next, length, timer;
 
 const init = () => {
-  const $images = $('.item');
-  const $firstImage = $('.item:nth-child(1)');
+  const $images = $('.carousel__item-image');
+  const $firstImage = $('.carousel__item-image:nth-child(1)');
   length = $images.length;
   counter = null;
   next = null;
@@ -19,7 +19,7 @@ const init = () => {
 };
 
 const cycle = () => {
-  const $images = $('.item');
+  const $images = $('.carousel__item-image');
   const $active = $('.active');
   const $next = $('.next');
   const isActiveLast = !!(counter === length);
@@ -29,8 +29,8 @@ const cycle = () => {
   if (isInitializing) {
     counter = 1;
     next = 2;
-    $(`.item:nth-child(${counter})`).addClass('active');
-    $(`.item:nth-child(${next})`).addClass('next');
+    $(`.carousel__item-image:nth-child(${counter})`).addClass('active');
+    $(`.carousel__item-image:nth-child(${next})`).addClass('next');
     return;
   } else if (isActiveLast) {
     counter = 1;
@@ -49,8 +49,8 @@ const cycle = () => {
 
   $next.fadeTo(1000, 1, () => {
     $images.removeClass('next');
-    $(`.item:nth-child(${counter})`).addClass('active');
-    $(`.item:nth-child(${next})`).addClass('next');
+    $(`.carousel__item-image:nth-child(${counter})`).addClass('active');
+    $(`.carousel__item-image:nth-child(${next})`).addClass('next');
   });
 };
 

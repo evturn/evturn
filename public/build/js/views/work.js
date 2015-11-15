@@ -4,7 +4,7 @@ const engine = require('../lib/view-engine');
 
 module.exports = Backbone.View.extend({
   render: null,
-  el: '.work',
+  el: '.page-work',
   events: {
     'click .thumbnail-item' : 'scrollWindowUp'
   },
@@ -27,7 +27,7 @@ module.exports = Backbone.View.extend({
     engine.reloadTemplate({
       filepath: '../../views/templates/carousel.hbs',
       success(template, data) {
-        $('.page-carousel').html(template(data));
+        $('.carousel').html(template(data));
         carousel();
       },
       data: { project: model.toJSON() }
@@ -48,7 +48,6 @@ module.exports = Backbone.View.extend({
   initSpinner() {
     const $container = $('.site-logo');
     const $img = $('.site-logo__image');
-    const $spinner = $('#carousel-spinner');
     $img.addClass('spin');
     setTimeout(() => { $img.removeClass('spin'); }, 740);
   }
