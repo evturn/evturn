@@ -27,10 +27,8 @@ module.exports.loadTemplate = function(params) {
   });
 };
 
-
 module.exports.reloadTemplate = function(params) {
   const data = params.data ? params.data : '';
-
   $.get(params.filepath, (contents) => {
     params.success(Handlebars.compile(contents), data);
   });

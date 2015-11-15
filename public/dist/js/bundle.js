@@ -71,7 +71,7 @@
 	    '': 'match',
 	    'about': 'match',
 	    'contact': 'match',
-	    'work(/:id)': '_work'
+	    'work(/:id)': 'project'
 	  },
 	  initialize: function initialize() {
 	    engine.registerTemplates();
@@ -107,7 +107,7 @@
 	    }
 	    instance;
 	  },
-	  _work: function _work(id) {
+	  project: function project(id) {
 	    var collection = new Collection(data.projects);
 	    var project = collection.get(id) || collection.get(1);
 	
@@ -5087,7 +5087,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var videoPlayer = __webpack_require__(7);
+	var Video = __webpack_require__(23);
 	var engine = __webpack_require__(14);
 	var loadTemplate = engine.loadTemplate;
 	
@@ -5105,7 +5105,7 @@
 	    var $image = $('.preloader');
 	    var video = document.getElementById('ev-vid');
 	
-	    videoPlayer(video);
+	    Video(video);
 	    $container.delay(500).fadeOut();
 	    $image.delay(600).fadeOut(600);
 	    return this;
@@ -5114,56 +5114,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var data = __webpack_require__(8);
-	var videos = data.videos;
-	
-	module.exports = function (video) {
-	  var initialized = false;
-	  var playCount = null;
-	  var playlist = videos;
-	  var init = function init() {
-	    timekeeper();
-	    startPlayback();
-	  };
-	
-	  var timekeeper = function timekeeper() {
-	    var isLastVideo = !!(playCount === playlist.length - 1);
-	    var isInitialized = initialized;
-	
-	    if (!isInitialized || isLastVideo) {
-	      playCount = 0;
-	    } else {
-	      playCount += 1;
-	    }
-	  };
-	
-	  var startPlayback = function startPlayback() {
-	    video.type = 'video/mp4';
-	    video.muted = true;
-	    video.autoplay = true;
-	    video.preload = 'auto';
-	    video.src = playlist[playCount];
-	    video.addEventListener('ended', nextVideo);
-	    video.play;
-	    video.playbackRate = 0.5;
-	    initialized = true;
-	  };
-	
-	  var nextVideo = function nextVideo() {
-	    timekeeper();
-	    video.setAttribute('src', playlist[playCount]);
-	    video.play;
-	    video.playbackRate = 0.5;
-	  };
-	
-	  return init();
-	};
-
-/***/ },
+/* 7 */,
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -5497,7 +5448,6 @@
 	
 	module.exports.reloadTemplate = function (params) {
 	  var data = params.data ? params.data : '';
-	
 	  $.get(params.filepath, function (contents) {
 	    params.success(Handlebars.compile(contents), data);
 	  });
@@ -6192,6 +6142,56 @@
 	
 	ga('create', 'UA-58635966-1', 'auto');
 	ga('send', 'pageview');
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var data = __webpack_require__(8);
+	var videos = data.videos;
+	
+	module.exports = function (video) {
+	  var initialized = false;
+	  var playCount = null;
+	  var playlist = videos;
+	  var init = function init() {
+	    timekeeper();
+	    startPlayback();
+	  };
+	
+	  var timekeeper = function timekeeper() {
+	    var isLastVideo = !!(playCount === playlist.length - 1);
+	    var isInitialized = initialized;
+	
+	    if (!isInitialized || isLastVideo) {
+	      playCount = 0;
+	    } else {
+	      playCount += 1;
+	    }
+	  };
+	
+	  var startPlayback = function startPlayback() {
+	    video.type = 'video/mp4';
+	    video.muted = true;
+	    video.autoplay = true;
+	    video.preload = 'auto';
+	    video.src = playlist[playCount];
+	    video.addEventListener('ended', nextVideo);
+	    video.play;
+	    video.playbackRate = 0.5;
+	    initialized = true;
+	  };
+	
+	  var nextVideo = function nextVideo() {
+	    timekeeper();
+	    video.setAttribute('src', playlist[playCount]);
+	    video.play;
+	    video.playbackRate = 0.5;
+	  };
+	
+	  return init();
+	};
 
 /***/ }
 /******/ ]);

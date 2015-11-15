@@ -18,7 +18,7 @@ const Router = Backbone.Router.extend({
     '': 'match',
     'about': 'match',
     'contact': 'match',
-    'work(/:id)': '_work'
+    'work(/:id)': 'project'
   },
   initialize() {
     engine.registerTemplates();
@@ -30,7 +30,6 @@ const Router = Backbone.Router.extend({
         menu();
       }
     });
-
   },
   setLayout() {
     const route = Backbone.history.fragment ? Backbone.history.fragment : 'index';
@@ -53,7 +52,7 @@ const Router = Backbone.Router.extend({
     }
     instance;
   },
-  _work(id) {
+  project(id) {
     const collection = new Collection(data.projects);
     const project = collection.get(id) || collection.get(1);
 

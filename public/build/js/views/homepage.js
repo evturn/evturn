@@ -1,8 +1,7 @@
 'use strict';
-const videoPlayer = require('../lib/video-player');
+const Video = require('../lib/video');
 const engine = require('../lib/view-engine');
 const loadTemplate = engine.loadTemplate;
-
 
 module.exports = Backbone.View.extend({
   el: '.index',
@@ -18,7 +17,7 @@ module.exports = Backbone.View.extend({
     const $image = $('.preloader');
     const video = document.getElementById('ev-vid');
 
-    videoPlayer(video);
+    Video(video);
     $container.delay(500).fadeOut();
     $image.delay(600).fadeOut(600);
     return this;
