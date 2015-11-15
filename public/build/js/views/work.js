@@ -7,17 +7,10 @@ module.exports = Backbone.View.extend({
   render: null,
   el: '.page-work',
   initialize() {
-    const projects = _.where(data.projects, { featured: true });
-    const tech = [];
-    const techIds = this.model.get('technologies');
-
+    const [model, projects] = this.model.populate();
     this.spinner();
-    techIds.forEach((id) => {
-      tech.push(_.findWhere(data.tech, { id: id }));
-    });
-    this.model.set('technologies', tech);
     this.render = this.render ? this.swapProject : this.setView;
-    this.render(this.model, projects);
+    this.render(model, projects);
   },
   swapProject(model) {
     const callback = (template) => {

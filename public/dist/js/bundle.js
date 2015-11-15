@@ -57,9 +57,7 @@
 	var Menu = __webpack_require__(21);
 	var engine = __webpack_require__(14);
 	var data = __webpack_require__(8);
-	var googleAnalytics = __webpack_require__(22);
-	var Model = Backbone.Model.extend({});
-	var Collection = Backbone.Collection.extend({ model: Model });
+	var models = __webpack_require__(24);
 	
 	var Router = Backbone.Router.extend({
 	  index: null,
@@ -74,6 +72,7 @@
 	    'work(/:id)': 'project'
 	  },
 	  initialize: function initialize() {
+	    __webpack_require__(22);
 	    engine.init();
 	    new Menu();
 	  },
@@ -101,7 +100,7 @@
 	    instance;
 	  },
 	  project: function project(id) {
-	    var collection = new Collection(data.projects);
+	    var collection = new models.Collection(data.projects);
 	    var project = collection.get(id) || collection.get(1);
 	
 	    this.setLayout();
@@ -5933,7 +5932,9 @@
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 	
 	var Carousel = __webpack_require__(17);
 	var data = __webpack_require__(8);
@@ -5944,17 +5945,16 @@
 	  render: null,
 	  el: '.page-work',
 	  initialize: function initialize() {
-	    var projects = _.where(data.projects, { featured: true });
-	    var tech = [];
-	    var techIds = this.model.get('technologies');
+	    var _model$populate = this.model.populate();
+	
+	    var _model$populate2 = _slicedToArray(_model$populate, 2);
+	
+	    var model = _model$populate2[0];
+	    var projects = _model$populate2[1];
 	
 	    this.spinner();
-	    techIds.forEach(function (id) {
-	      tech.push(_.findWhere(data.tech, { id: id }));
-	    });
-	    this.model.set('technologies', tech);
 	    this.render = this.render ? this.swapProject : this.setView;
-	    this.render(this.model, projects);
+	    this.render(model, projects);
 	  },
 	  swapProject: function swapProject(model) {
 	    var callback = function callback(template) {
@@ -5995,7 +5995,7 @@
 	    }, 740);
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 17 */
@@ -6310,6 +6310,30 @@
 	    thumbnails: '../../views/templates/thumbnails.hbs'
 	  }]
 	};
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
+	var data = __webpack_require__(8);
+	
+	var Model = module.exports.Model = Backbone.Model.extend({
+	  populate: function populate() {
+	    var projects = _.where(data.projects, { featured: true });
+	    var tech = [];
+	    var techIds = this.get('technologies');
+	    techIds.forEach(function (id) {
+	      tech.push(_.findWhere(data.tech, { id: id }));
+	    });
+	    this.set('technologies', tech);
+	    var populated = [this, projects];
+	    return populated;
+	  }
+	});
+	
+	var Collection = module.exports.Collection = Backbone.Collection.extend({ model: Model });
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }
 /******/ ]);

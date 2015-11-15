@@ -4,9 +4,7 @@ const views = require('./views');
 const Menu = require('./lib/menu');
 const engine = require('./lib/view-engine');
 const data = require('./data');
-const googleAnalytics = require('google-analytics');
-const Model = Backbone.Model.extend({});
-const Collection = Backbone.Collection.extend({ model: Model });
+const models = require('./models');
 
 const Router = Backbone.Router.extend({
   index: null,
@@ -21,6 +19,7 @@ const Router = Backbone.Router.extend({
     'work(/:id)': 'project'
   },
   initialize() {
+    require('google-analytics');
     engine.init();
     new Menu();
   },
@@ -46,7 +45,7 @@ const Router = Backbone.Router.extend({
     instance;
   },
   project(id) {
-    const collection = new Collection(data.projects);
+    const collection = new models.Collection(data.projects);
     const project = collection.get(id) || collection.get(1);
 
     this.setLayout();
