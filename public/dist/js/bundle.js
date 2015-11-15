@@ -6223,8 +6223,10 @@
 	      var isLastVideo = !!(this.current === this.total - 1);
 	      var isInitialized = this.initialized;
 	
-	      if (!isInitialized || isLastVideo) {
+	      if (!isInitialized) {
 	        this.initialized = true;
+	        this.current = 0;
+	      } else if (isLastVideo) {
 	        this.current = 0;
 	      } else {
 	        this.current += 1;
