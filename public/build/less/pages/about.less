@@ -5,6 +5,11 @@
     top: 15px;
     background-color: fade(@color-accent, 70);
   }
+  .image-container {
+    @media(@tablet) {
+      display: none;
+    }
+  }
 }
 
 .bio {
@@ -36,11 +41,6 @@
   }
 }
 
-.image-container {
-  @media(@tablet) {
-    display: none;
-  }
-}
 
 .about-info {
   margin: 15px auto;

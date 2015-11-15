@@ -5887,6 +5887,11 @@ video::-webkit-media-controls {
   top: 15px;
   background-color: rgba(95, 163, 192, 0.7);
 }
+@media (min-width: 1024px) {
+  .page-about .image-container {
+    display: none;
+  }
+}
 .bio {
   margin: 15px auto;
   padding-left: 15px;
@@ -5925,11 +5930,6 @@ video::-webkit-media-controls {
   .bio .bio__paragraph:nth-child(2) {
     float: right;
     width: 50%;
-  }
-}
-@media (min-width: 1024px) {
-  .image-container {
-    display: none;
   }
 }
 .about-info {
@@ -6271,22 +6271,10 @@ video {
   transition: all 0.3s ease;
 }
 .thumbnails .thumbnail-item {
+  width: 50%;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  margin-left: -12.5px;
-  margin-right: -12.5px;
-  display: inline-block;
-  margin: 0;
-  width: 50%;
-}
-.thumbnails .thumbnail-item,
-.thumbnails .thumbnail-item:before,
-.thumbnails .thumbnail-item:after {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-tap-highlight-color: transparent;
 }
 @media (min-width: 1024px) {
   .thumbnails .thumbnail-item {
