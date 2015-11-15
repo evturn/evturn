@@ -56,6 +56,7 @@
 	var views = __webpack_require__(5);
 	var menu = __webpack_require__(21);
 	var engine = __webpack_require__(14);
+	var hbs = __webpack_require__(23);
 	var data = __webpack_require__(8);
 	var googleAnalytics = __webpack_require__(22);
 	var Model = Backbone.Model.extend({});
@@ -74,14 +75,15 @@
 	    'work(/:id)': 'project'
 	  },
 	  initialize: function initialize() {
+	    var callback = function callback(template) {
+	      $('.site-header').html(template);
+	      menu();
+	    };
 	    engine.registerTemplates();
 	    engine.registerPartials();
 	    engine.loadTemplate({
-	      filepath: '../../views/templates/header.hbs',
-	      success: function success(template) {
-	        $('.site-header').html(template);
-	        menu();
-	      }
+	      filepath: hbs.layouts.header,
+	      success: callback
 	    });
 	  },
 	  setLayout: function setLayout() {
@@ -5087,25 +5089,26 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var Video = __webpack_require__(23);
+	var Video = __webpack_require__(7);
 	var engine = __webpack_require__(14);
-	var loadTemplate = engine.loadTemplate;
+	var hbs = __webpack_require__(23);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
 	  initialize: function initialize() {
-	    loadTemplate({
-	      filepath: '../../views/index.hbs',
+	    engine.loadTemplate({
+	      filepath: hbs.index.page,
 	      success: this.render
 	    });
 	  },
 	  render: function render(template) {
-	    $('.site-content').html(template());
+	    var $siteContent = $('.site-content');
+	    $siteContent.html(template());
 	    var $container = $('#preloader');
 	    var $image = $('.preloader');
 	    var videoElement = document.getElementById('ev-vid');
-	    var video = new Video(videoElement);
 	
+	    new Video(videoElement);
 	    $container.delay(500).fadeOut();
 	    $image.delay(600).fadeOut(600);
 	    return this;
@@ -5114,7 +5117,65 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 7 */,
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	var data = __webpack_require__(8);
+	
+	module.exports = (function () {
+	  function Video(videoElement) {
+	    _classCallCheck(this, Video);
+	
+	    this.video = videoElement;
+	    this.video.type = 'video/mp4';
+	    this.video.muted = true;
+	    this.video.autoplay = true;
+	    this.video.preload = 'auto';
+	
+	    this.initialized = false;
+	    this.current = null;
+	    this.playlist = data.videos;
+	    this.total = data.videos.length;
+	
+	    this.init();
+	  }
+	
+	  _createClass(Video, [{
+	    key: 'init',
+	    value: function init() {
+	      var _this = this;
+	
+	      var isLastVideo = !!(this.current === this.total - 1);
+	      var isInitialized = this.initialized;
+	
+	      if (!isInitialized) {
+	        this.initialized = true;
+	        this.current = 0;
+	      } else if (isLastVideo) {
+	        this.current = 0;
+	      } else {
+	        this.current += 1;
+	      }
+	
+	      this.video.src = this.playlist[this.current];
+	      this.video.addEventListener('ended', function () {
+	        return _this.init();
+	      });
+	      this.video.play;
+	      this.video.playbackRate = 0.5;
+	    }
+	  }]);
+	
+	  return Video;
+	})();
+
+/***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -5886,55 +5947,60 @@
 	var Carousel = __webpack_require__(17);
 	var data = __webpack_require__(8);
 	var engine = __webpack_require__(14);
+	var hbs = __webpack_require__(23);
 	
 	module.exports = Backbone.View.extend({
 	  render: null,
 	  el: '.page-work',
-	  events: {
-	    'click .thumbnail-item': 'scrollWindowUp'
-	  },
 	  initialize: function initialize() {
 	    var projects = _.where(data.projects, { featured: true });
 	    var tech = [];
 	    var techIds = this.model.get('technologies');
-	    this.initSpinner();
+	
+	    this.spinner();
 	    techIds.forEach(function (id) {
 	      tech.push(_.findWhere(data.tech, { id: id }));
 	    });
 	    this.model.set('technologies', tech);
-	    this.render = this.render ? this.updateCarousel : this.setView;
+	    this.render = this.render ? this.swapProject : this.setView;
 	    this.render(this.model, projects);
 	  },
-	  updateCarousel: function updateCarousel(model) {
-	    var $webpage = $('html, body');
-	    $webpage.animate({ scrollTop: 0 }, 500);
+	  swapProject: function swapProject(model) {
+	    var callback = function callback(template) {
+	      var $webpage = $('html, body');
+	      var $projectContent = $('.project-content');
+	      var data = { project: model.toJSON() };
+	      $projectContent.html(template(data));
+	      new Carousel();
+	      $webpage.animate({ scrollTop: 0 }, 500);
+	    };
+	
 	    engine.reloadTemplate({
-	      filepath: '../../views/templates/project.hbs',
-	      success: function success(template, data) {
-	        $('.project-content').html(template(data));
-	        var carousel = new Carousel();
-	      },
-	      data: { project: model.toJSON() }
+	      filepath: hbs.work.project,
+	      success: callback
 	    });
 	  },
 	  setView: function setView(model, projects) {
-	    engine.loadTemplate({
-	      filepath: '../../views/work.hbs',
-	      success: function success(template, data) {
-	        $('.site-content').html(template(data));
-	        var carousel = new Carousel();
-	      },
-	      data: {
+	    var callback = function callback(template) {
+	      var $siteContent = $('.site-content');
+	      var data = {
 	        project: model.toJSON(),
 	        projects: projects
-	      } });
+	      };
+	      $siteContent.html(template(data));
+	      new Carousel();
+	    };
+	
+	    engine.loadTemplate({
+	      filepath: hbs.work.page,
+	      success: callback
+	    });
 	  },
-	  initSpinner: function initSpinner() {
-	    var $container = $('.site-logo');
-	    var $img = $('.site-logo__image');
-	    $img.addClass('spin');
+	  spinner: function spinner() {
+	    var $siteImage = $('.site-logo__image');
+	    $siteImage.addClass('spin');
 	    setTimeout(function () {
-	      $img.removeClass('spin');
+	      return $siteImage.removeClass('spin');
 	    }, 740);
 	  }
 	});
@@ -6052,24 +6118,24 @@
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(_, $) {'use strict';
+	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
 	var data = __webpack_require__(8);
 	var statCounter = __webpack_require__(19);
 	var engine = __webpack_require__(14);
-	var loadTemplate = engine.loadTemplate;
+	var hbs = __webpack_require__(23);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
-	  filepath: '../../views/about.hbs',
 	  initialize: function initialize() {
-	    loadTemplate({
-	      filepath: this.filepath,
+	    engine.loadTemplate({
+	      filepath: hbs.about.page,
 	      success: this.render
 	    });
 	  },
 	  render: function render(template) {
+	    var $siteContent = $('.site-content');
 	    var tech = _.where(data.tech, { featured: true });
-	    $('.site-content').html(template({
+	    $siteContent.html(template({
 	      tech: tech,
 	      stats: data.stats
 	    }));
@@ -6077,7 +6143,7 @@
 	    return this;
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
 
 /***/ },
 /* 19 */
@@ -6117,20 +6183,20 @@
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var data = __webpack_require__(8);
 	var engine = __webpack_require__(14);
-	var loadTemplate = engine.loadTemplate;
+	var hbs = __webpack_require__(23);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
-	  filepath: '../../views/contact.hbs',
 	  initialize: function initialize() {
-	    loadTemplate({
-	      filepath: this.filepath,
+	    engine.loadTemplate({
+	      filepath: hbs.contact.page,
 	      success: this.render
 	    });
 	  },
 	  render: function render(template) {
+	    var $siteContent = $('.site-content');
 	    var links = data.links;
-	    $('.site-content').html(template({ links: links }));
+	    $siteContent.html(template({ links: links }));
 	    return this;
 	  }
 	});
@@ -6189,62 +6255,27 @@
 
 /***/ },
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	var data = __webpack_require__(8);
-	
-	module.exports = (function () {
-	  function Video(videoElement) {
-	    _classCallCheck(this, Video);
-	
-	    this.video = videoElement;
-	    this.video.type = 'video/mp4';
-	    this.video.muted = true;
-	    this.video.autoplay = true;
-	    this.video.preload = 'auto';
-	
-	    this.initialized = false;
-	    this.current = null;
-	    this.playlist = data.videos;
-	    this.total = data.videos.length;
-	
-	    this.init();
+	module.exports = {
+	  layouts: {
+	    header: '../../views/templates/header.hbs'
+	  },
+	  index: {
+	    page: '../../views/index.hbs'
+	  },
+	  work: {
+	    page: '../../views/work.hbs',
+	    project: '../../views/templates/project.hbs'
+	  },
+	  about: {
+	    page: '../../views/about.hbs'
+	  },
+	  contact: {
+	    page: '../../views/contact.hbs'
 	  }
-	
-	  _createClass(Video, [{
-	    key: 'init',
-	    value: function init() {
-	      var _this = this;
-	
-	      var isLastVideo = !!(this.current === this.total - 1);
-	      var isInitialized = this.initialized;
-	
-	      if (!isInitialized) {
-	        this.initialized = true;
-	        this.current = 0;
-	      } else if (isLastVideo) {
-	        this.current = 0;
-	      } else {
-	        this.current += 1;
-	      }
-	
-	      this.video.src = this.playlist[this.current];
-	      this.video.addEventListener('ended', function () {
-	        return _this.init();
-	      });
-	      this.video.play;
-	      this.video.playbackRate = 0.5;
-	    }
-	  }]);
-	
-	  return Video;
-	})();
+	};
 
 /***/ }
 /******/ ]);

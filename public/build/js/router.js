@@ -3,6 +3,7 @@ const Backbone = require('backbone');
 const views = require('./views');
 const menu = require('./lib/menu');
 const engine = require('./lib/view-engine');
+const hbs = require('./lib/templates');
 const data = require('./data');
 const googleAnalytics = require('google-analytics');
 const Model = Backbone.Model.extend({});
@@ -21,14 +22,15 @@ const Router = Backbone.Router.extend({
     'work(/:id)': 'project'
   },
   initialize() {
+    const callback = (template) => {
+      $('.site-header').html(template);
+      menu();
+    };
     engine.registerTemplates();
     engine.registerPartials();
     engine.loadTemplate({
-      filepath: '../../views/templates/header.hbs',
-      success(template) {
-        $('.site-header').html(template);
-        menu();
-      }
+      filepath: hbs.layouts.header,
+      success: callback
     });
   },
   setLayout() {

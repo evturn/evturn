@@ -1,53 +1,58 @@
 const Carousel = require('../lib/carousel');
 const data = require('../data');
 const engine = require('../lib/view-engine');
+const hbs = require('../lib/templates');
 
 module.exports = Backbone.View.extend({
   render: null,
   el: '.page-work',
-  events: {
-    'click .thumbnail-item' : 'scrollWindowUp'
-  },
   initialize() {
     const projects = _.where(data.projects, { featured: true });
     const tech = [];
     const techIds = this.model.get('technologies');
-    this.initSpinner();
+
+    this.spinner();
     techIds.forEach((id) => {
       tech.push(_.findWhere(data.tech, { id: id }));
     });
     this.model.set('technologies', tech);
-    this.render = this.render ? this.updateCarousel : this.setView;
+    this.render = this.render ? this.swapProject : this.setView;
     this.render(this.model, projects);
   },
-  updateCarousel(model) {
-    const $webpage = $('html, body');
-    $webpage.animate({ scrollTop: 0 }, 500);
+  swapProject(model) {
+    const callback = (template) => {
+      const $webpage = $('html, body');
+      const $projectContent = $('.project-content');
+      const data = { project: model.toJSON() };
+      $projectContent.html(template(data));
+      new Carousel();
+      $webpage.animate({ scrollTop: 0 }, 500);
+    };
+
     engine.reloadTemplate({
-      filepath: '../../views/templates/project.hbs',
-      success(template, data) {
-        $('.project-content').html(template(data));
-        const carousel = new Carousel();
-      },
-      data: { project: model.toJSON() }
+      filepath: hbs.work.project,
+      success: callback,
     });
   },
   setView(model, projects) {
-    engine.loadTemplate({
-      filepath: '../../views/work.hbs',
-      success(template, data) {
-        $('.site-content').html(template(data));
-        const carousel = new Carousel();
-      },
-      data: {
+    const callback = (template) => {
+      const $siteContent = $('.site-content');
+      const data = {
         project: model.toJSON(),
         projects: projects
-    }});
+      };
+      $siteContent.html(template(data));
+      new Carousel();
+    };
+
+    engine.loadTemplate({
+      filepath: hbs.work.page,
+      success: callback,
+    });
   },
-  initSpinner() {
-    const $container = $('.site-logo');
-    const $img = $('.site-logo__image');
-    $img.addClass('spin');
-    setTimeout(() => { $img.removeClass('spin'); }, 740);
+  spinner() {
+    const $siteImage = $('.site-logo__image');
+    $siteImage.addClass('spin');
+    setTimeout(() => $siteImage.removeClass('spin'), 740);
   }
 });

@@ -2,20 +2,20 @@
 const data = require('../data');
 const statCounter = require('../lib/stat-counter');
 const engine = require('../lib/view-engine');
-const loadTemplate = engine.loadTemplate;
+const hbs = require('../lib/templates');
 
 module.exports = Backbone.View.extend({
   el: '.page-about',
-  filepath: '../../views/about.hbs',
   initialize() {
-    loadTemplate({
-      filepath: this.filepath,
+    engine.loadTemplate({
+      filepath: hbs.about.page,
       success: this.render
     });
   },
   render(template) {
+    const $siteContent = $('.site-content');
     const tech = _.where(data.tech, { featured: true });
-    $('.site-content').html(template({
+    $siteContent.html(template({
       tech: tech,
       stats: data.stats
     }));
