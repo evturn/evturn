@@ -1,6 +1,5 @@
 const Carousel = require('../lib/carousel');
 const data = require('../data');
-const engine = require('../lib/view-engine');
 const hbs = require('../lib/templates');
 
 module.exports = Backbone.View.extend({
@@ -22,7 +21,7 @@ module.exports = Backbone.View.extend({
       this.scrollToTop();
     };
 
-    engine.reload({
+    this.reload({
       url: hbs.templates.project,
       success: callback,
     });
@@ -36,7 +35,7 @@ module.exports = Backbone.View.extend({
       new Carousel();
     };
 
-    engine.load({
+    this.load({
       url: hbs.work.page,
       success: callback,
     });

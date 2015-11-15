@@ -6,7 +6,7 @@ const hbs = require('../lib/templates');
 module.exports = Backbone.View.extend({
   el: '.page-index',
   initialize() {
-    engine.load({
+    this.load({
       url: hbs.index.page,
       success: this.render
     });

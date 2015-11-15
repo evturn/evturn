@@ -1,5 +1,5 @@
 'use strict';
-module.exports.Index = require('./homepage');
-module.exports.Work = require('./work');
-module.exports.About = require('./about');
-module.exports.Contact = require('./contact');
+const Index = module.exports.Index = require('./homepage');
+const Work = module.exports.Work = require('./work');
+const About = module.exports.About = require('./about');
+const Contact = module.exports.Contact = require('./contact');

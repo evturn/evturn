@@ -72,7 +72,7 @@
 	  },
 	  initialize: function initialize() {
 	    __webpack_require__(23);
-	    engine.init();
+	    engine.init(Backbone);
 	    new Menu();
 	  },
 	  setLayout: function setLayout() {
@@ -1581,10 +1581,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	module.exports.Index = __webpack_require__(4);
-	module.exports.Work = __webpack_require__(16);
-	module.exports.About = __webpack_require__(18);
-	module.exports.Contact = __webpack_require__(20);
+	var Index = module.exports.Index = __webpack_require__(4);
+	var Work = module.exports.Work = __webpack_require__(16);
+	var About = module.exports.About = __webpack_require__(18);
+	var Contact = module.exports.Contact = __webpack_require__(20);
 
 /***/ },
 /* 4 */
@@ -1598,7 +1598,7 @@
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
 	  initialize: function initialize() {
-	    engine.load({
+	    this.load({
 	      url: hbs.index.page,
 	      success: this.render
 	    });
@@ -2057,7 +2057,7 @@
 	  }
 	};
 	
-	module.exports.load = function (params) {
+	var load = module.exports.load = function (params) {
 	  var url = params.url;
 	  var success = params.success;
 	
@@ -2071,7 +2071,7 @@
 	  });
 	};
 	
-	module.exports.reload = function (params) {
+	var reload = module.exports.reload = function (params) {
 	  var url = params.url;
 	  var success = params.success;
 	
@@ -2080,9 +2080,14 @@
 	  });
 	};
 	
-	module.exports.init = function () {
+	module.exports.init = function (backbone) {
 	  registerTemplates();
 	  registerPartials();
+	
+	  return _.extend(backbone.View.prototype, {
+	    reload: reload,
+	    load: load
+	  });
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(13)))
 
@@ -4052,7 +4057,6 @@
 	
 	var Carousel = __webpack_require__(17);
 	var data = __webpack_require__(6);
-	var engine = __webpack_require__(12);
 	var hbs = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
@@ -4082,7 +4086,7 @@
 	      _this.scrollToTop();
 	    };
 	
-	    engine.reload({
+	    this.reload({
 	      url: hbs.templates.project,
 	      success: callback
 	    });
@@ -4096,7 +4100,7 @@
 	      new Carousel();
 	    };
 	
-	    engine.load({
+	    this.load({
 	      url: hbs.work.page,
 	      success: callback
 	    });
@@ -4225,13 +4229,12 @@
 	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
 	var data = __webpack_require__(6);
 	var statCounter = __webpack_require__(19);
-	var engine = __webpack_require__(12);
 	var hbs = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
 	  initialize: function initialize() {
-	    engine.load({
+	    this.load({
 	      url: hbs.about.page,
 	      success: this.render
 	    });
@@ -4286,13 +4289,12 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var data = __webpack_require__(6);
-	var engine = __webpack_require__(12);
 	var hbs = __webpack_require__(15);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
 	  initialize: function initialize() {
-	    engine.load({
+	    this.load({
 	      url: hbs.contact.page,
 	      success: this.render
 	    });

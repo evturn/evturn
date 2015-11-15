@@ -1,12 +1,11 @@
 'use strict';
 const data = require('../data');
-const engine = require('../lib/view-engine');
 const hbs = require('../lib/templates');
 
 module.exports = Backbone.View.extend({
   el: '.page-contact',
   initialize() {
-    engine.load({
+    this.load({
       url: hbs.contact.page,
       success: this.render
     });

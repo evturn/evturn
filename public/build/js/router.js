@@ -19,7 +19,7 @@ const Router = Backbone.Router.extend({
   },
   initialize() {
     require('google-analytics');
-    engine.init();
+    engine.init(Backbone);
     new Menu();
   },
   setLayout() {

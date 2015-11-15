@@ -30,7 +30,7 @@ const registerPartials = () => {
   }
 };
 
-module.exports.load = function(params) {
+const load = module.exports.load = function(params) {
   const url = params.url;
   const success = params.success;
 
@@ -44,7 +44,7 @@ module.exports.load = function(params) {
   });
 };
 
-module.exports.reload = function(params) {
+const reload = module.exports.reload = function(params) {
   const url = params.url;
   const success = params.success;
 
@@ -53,7 +53,12 @@ module.exports.reload = function(params) {
   });
 };
 
-module.exports.init = () => {
+module.exports.init = (backbone) => {
   registerTemplates();
   registerPartials();
+
+  return _.extend(backbone.View.prototype, {
+    reload: reload,
+    load: load
+  });
 };
