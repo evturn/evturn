@@ -4239,7 +4239,7 @@
 
 	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
 	var data = __webpack_require__(6);
-	var statCounter = __webpack_require__(19);
+	var StatCounter = __webpack_require__(19);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
@@ -4257,7 +4257,7 @@
 	      tech: tech,
 	      stats: data.stats
 	    }));
-	    statCounter();
+	    new StatCounter();
 	    return this;
 	  }
 	});
@@ -4268,30 +4268,53 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var incrementStats = function incrementStats($element) {
-	  var current = parseInt($element.html(), 10);
-	  current = current + 50;
-	  $element.html(++current);
 	
-	  if (current > $element.data('count')) {
-	    $element.html($element.data('count'));
-	  } else {
-	    setTimeout(function () {
-	      incrementStats($element);
-	    }, 50);
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	module.exports = (function () {
+	  function StatCounter() {
+	    _classCallCheck(this, StatCounter);
+	
+	    this.$counters = $('.stat-count');
+	
+	    this.animate();
 	  }
-	};
 	
-	var animateStats = module.exports = function () {
-	  var $counters = $('.stat-count');
+	  _createClass(StatCounter, [{
+	    key: 'increment',
+	    value: function increment($element) {
+	      var _this = this;
 	
-	  $counters.each(function (index, element) {
-	    var $element = $(element);
-	    $element.data('count', parseInt($element.html(), 10));
-	    $element.html('0');
-	    incrementStats($element);
-	  });
-	};
+	      var current = parseInt($element.html(), 10);
+	      current = current + 50;
+	      $element.html(++current);
+	
+	      if (current > $element.data('count')) {
+	        $element.html($element.data('count'));
+	      } else {
+	        setTimeout(function () {
+	          return _this.increment($element);
+	        }, 50);
+	      }
+	    }
+	  }, {
+	    key: 'animate',
+	    value: function animate() {
+	      var _this2 = this;
+	
+	      this.$counters.each(function (index, element) {
+	        var $element = $(element);
+	        $element.data('count', parseInt($element.html(), 10));
+	        $element.html('0');
+	        _this2.increment($element);
+	      });
+	    }
+	  }]);
+	
+	  return StatCounter;
+	})();
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },

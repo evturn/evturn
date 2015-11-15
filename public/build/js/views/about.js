@@ -1,6 +1,6 @@
 'use strict';
 const data = require('../data');
-const statCounter = require('../lib/stat-counter');
+const StatCounter = require('../lib/stat-counter');
 
 module.exports = Backbone.View.extend({
   el: '.page-about',
@@ -18,7 +18,7 @@ module.exports = Backbone.View.extend({
       tech: tech,
       stats: data.stats
     }));
-    statCounter();
+    new StatCounter();
     return this;
   },
 });
