@@ -6144,17 +6144,30 @@
 	module.exports = function () {
 	  var $body = $('body');
 	  var $navTrigger = $('.site-nav__trigger');
+	  var $navOverlay = $('.nav-overlay');
 	  var $menuClose = $('.site-menu__close, .site-menu__item a');
 	  var $menu = $('.site-menu');
 	
-	  $navTrigger.on('click', function () {
+	  var setNavOpen = function setNavOpen() {
 	    $menu.addClass('open');
 	    $body.addClass('nav-is-opened');
+	  };
+	
+	  var setNavClosed = function setNavClosed() {
+	    $menu.removeClass('open');
+	    $body.removeClass('nav-is-opened');
+	  };
+	
+	  $navTrigger.on('click', function () {
+	    setNavOpen();
 	  });
 	
 	  $menuClose.on('click', function () {
-	    $menu.removeClass('open');
-	    $body.removeClass('nav-is-opened');
+	    setNavClosed();
+	  });
+	
+	  $navOverlay.on('click', function () {
+	    setNavClosed();
 	  });
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
