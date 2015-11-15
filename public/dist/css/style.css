@@ -5982,18 +5982,24 @@ video::-webkit-media-controls {
 }
 .about-info .about-tech__item .list-item-icon__caption {
   color: #ffffff;
+  font-size: 11px;
 }
 .about-info .about-stats__item {
-  width: 25%;
+  width: 33.3333333333%;
+  color: #ffffff;
+}
+.about-info .about-stats__item .list-item-icon__icon {
   height: 65px;
   background-color: #5fa3c0;
-  color: #ffffff;
   margin: 5px;
 }
 .about-info .about-stats__item .stat-count {
   line-height: 55px;
   height: 65px;
   font-size: 23px;
+}
+.about-info .about-stats__item .list-item-icon__caption {
+  font-size: 12px;
 }
 .page-contact .site-logo {
   right: 0;

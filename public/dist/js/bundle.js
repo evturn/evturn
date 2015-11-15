@@ -5230,7 +5230,7 @@
 	  icon: 'devicon-ubuntu-plain',
 	  color: 'devicon-ubuntu-plain colored',
 	  id: 8,
-	  featured: true
+	  featured: false
 	}, {
 	  technology: 'Firebase',
 	  icon: 'fa fa-database one-half-em',
@@ -5289,16 +5289,19 @@
 	  technology: 'Handlebars',
 	  icon: 'evcon evcon-handlebars',
 	  color: 'evcon evcon-handlebars',
+	  featured: true,
 	  id: 18
 	}, {
 	  technology: 'Webpack',
 	  icon: 'evcon evcon-webpack',
 	  color: 'evcon evcon-webpack',
+	  featured: true,
 	  id: 19
 	}, {
 	  technology: 'Babel',
 	  icon: 'evcon evcon-babel',
 	  color: 'evcon evcon-babel',
+	  featured: true,
 	  id: 20
 	}, {
 	  technology: 'Wordpress',
