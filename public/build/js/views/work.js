@@ -29,7 +29,7 @@ module.exports = Backbone.View.extend({
       $webpage.animate({ scrollTop: 0 }, 500);
     };
 
-    engine.reloadTemplate({
+    engine.reload({
       filepath: hbs.work.project,
       success: callback,
     });
@@ -45,7 +45,7 @@ module.exports = Backbone.View.extend({
       new Carousel();
     };
 
-    engine.loadTemplate({
+    engine.load({
       filepath: hbs.work.page,
       success: callback,
     });

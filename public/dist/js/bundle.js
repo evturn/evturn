@@ -81,7 +81,7 @@
 	    };
 	    engine.registerTemplates();
 	    engine.registerPartials();
-	    engine.loadTemplate({
+	    engine.load({
 	      filepath: hbs.layouts.header,
 	      success: callback
 	    });
@@ -5096,7 +5096,7 @@
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
 	  initialize: function initialize() {
-	    engine.loadTemplate({
+	    engine.load({
 	      filepath: hbs.index.page,
 	      success: this.render
 	    });
@@ -5498,22 +5498,20 @@
 	
 	var cachedTemplates = [];
 	
-	module.exports.loadTemplate = function (params) {
-	  var data = params.data ? params.data : '';
+	module.exports.load = function (params) {
 	  if (cachedTemplates[params.filepath]) {
-	    return params.success(cachedTemplates[params.filepath], data);
+	    return params.success(cachedTemplates[params.filepath]);
 	  }
 	
 	  $.get(params.filepath, function (contents) {
 	    cachedTemplates[params.filepath] = Handlebars.compile(contents);
-	    params.success(cachedTemplates[params.filepath], data);
+	    params.success(cachedTemplates[params.filepath]);
 	  });
 	};
 	
-	module.exports.reloadTemplate = function (params) {
-	  var data = params.data ? params.data : '';
+	module.exports.reload = function (params) {
 	  $.get(params.filepath, function (contents) {
-	    params.success(Handlebars.compile(contents), data);
+	    params.success(Handlebars.compile(contents));
 	  });
 	};
 	
@@ -5975,7 +5973,7 @@
 	      $webpage.animate({ scrollTop: 0 }, 500);
 	    };
 	
-	    engine.reloadTemplate({
+	    engine.reload({
 	      filepath: hbs.work.project,
 	      success: callback
 	    });
@@ -5991,7 +5989,7 @@
 	      new Carousel();
 	    };
 	
-	    engine.loadTemplate({
+	    engine.load({
 	      filepath: hbs.work.page,
 	      success: callback
 	    });
@@ -6127,7 +6125,7 @@
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
 	  initialize: function initialize() {
-	    engine.loadTemplate({
+	    engine.load({
 	      filepath: hbs.about.page,
 	      success: this.render
 	    });
@@ -6188,7 +6186,7 @@
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
 	  initialize: function initialize() {
-	    engine.loadTemplate({
+	    engine.load({
 	      filepath: hbs.contact.page,
 	      success: this.render
 	    });

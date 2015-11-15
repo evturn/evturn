@@ -6,7 +6,7 @@ const hbs = require('../lib/templates');
 module.exports = Backbone.View.extend({
   el: '.page-contact',
   initialize() {
-    engine.loadTemplate({
+    engine.load({
       filepath: hbs.contact.page,
       success: this.render
     });

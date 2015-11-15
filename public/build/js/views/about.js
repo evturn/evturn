@@ -7,7 +7,7 @@ const hbs = require('../lib/templates');
 module.exports = Backbone.View.extend({
   el: '.page-about',
   initialize() {
-    engine.loadTemplate({
+    engine.load({
       filepath: hbs.about.page,
       success: this.render
     });

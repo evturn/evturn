@@ -15,22 +15,20 @@ const templates = [
 
 const cachedTemplates = [];
 
-module.exports.loadTemplate = function(params) {
-  const data = params.data ? params.data : '';
+module.exports.load = function(params) {
   if (cachedTemplates[params.filepath]) {
-    return params.success(cachedTemplates[params.filepath], data);
+    return params.success(cachedTemplates[params.filepath]);
   }
 
   $.get(params.filepath, (contents) => {
     cachedTemplates[params.filepath] = Handlebars.compile(contents);
-    params.success(cachedTemplates[params.filepath], data);
+    params.success(cachedTemplates[params.filepath]);
   });
 };
 
-module.exports.reloadTemplate = function(params) {
-  const data = params.data ? params.data : '';
+module.exports.reload = function(params) {
   $.get(params.filepath, (contents) => {
-    params.success(Handlebars.compile(contents), data);
+    params.success(Handlebars.compile(contents));
   });
 };
 

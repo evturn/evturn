@@ -28,7 +28,7 @@ const Router = Backbone.Router.extend({
     };
     engine.registerTemplates();
     engine.registerPartials();
-    engine.loadTemplate({
+    engine.load({
       filepath: hbs.layouts.header,
       success: callback
     });
