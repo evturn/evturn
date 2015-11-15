@@ -54,9 +54,8 @@
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var Backbone = __webpack_require__(3);
 	var views = __webpack_require__(5);
-	var menu = __webpack_require__(21);
+	var Menu = __webpack_require__(21);
 	var engine = __webpack_require__(14);
-	var hbs = __webpack_require__(23);
 	var data = __webpack_require__(8);
 	var googleAnalytics = __webpack_require__(22);
 	var Model = Backbone.Model.extend({});
@@ -75,16 +74,9 @@
 	    'work(/:id)': 'project'
 	  },
 	  initialize: function initialize() {
-	    var callback = function callback(template) {
-	      $('.site-header').html(template);
-	      menu();
-	    };
 	    engine.registerTemplates();
 	    engine.registerPartials();
-	    engine.load({
-	      filepath: hbs.layouts.header,
-	      success: callback
-	    });
+	    new Menu();
 	  },
 	  setLayout: function setLayout() {
 	    var route = Backbone.history.fragment ? Backbone.history.fragment : 'index';
@@ -6205,35 +6197,75 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	module.exports = function () {
-	  var $body = $('body');
-	  var $navTrigger = $('.site-nav__trigger');
-	  var $navOverlay = $('.nav-overlay');
-	  var $menuClose = $('.site-menu__close, .site-menu__item a');
-	  var $menu = $('.site-menu');
 	
-	  var setNavOpen = function setNavOpen() {
-	    $menu.addClass('open');
-	    $body.addClass('nav-is-opened');
-	  };
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
-	  var setNavClosed = function setNavClosed() {
-	    $menu.removeClass('open');
-	    $body.removeClass('nav-is-opened');
-	  };
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	  $navTrigger.on('click', function () {
-	    setNavOpen();
-	  });
+	var engine = __webpack_require__(14);
+	var hbs = __webpack_require__(23);
 	
-	  $menuClose.on('click', function () {
-	    setNavClosed();
-	  });
+	module.exports = (function () {
+	  function Menu() {
+	    _classCallCheck(this, Menu);
 	
-	  $navOverlay.on('click', function () {
-	    setNavClosed();
-	  });
-	};
+	    this.render();
+	  }
+	
+	  _createClass(Menu, [{
+	    key: 'setNavOpen',
+	    value: function setNavOpen() {
+	      this.$menu.addClass('open');
+	      this.$body.addClass('nav-is-opened');
+	    }
+	  }, {
+	    key: 'setNavClosed',
+	    value: function setNavClosed() {
+	      this.$menu.removeClass('open');
+	      this.$body.removeClass('nav-is-opened');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this = this;
+	
+	      var callback = function callback(template) {
+	        $('.site-header').html(template);
+	        _this.init();
+	      };
+	
+	      engine.load({
+	        filepath: hbs.layouts.header,
+	        success: callback
+	      });
+	    }
+	  }, {
+	    key: 'init',
+	    value: function init() {
+	      var _this2 = this;
+	
+	      this.$body = $('body');
+	      this.$navTrigger = $('.site-nav__trigger');
+	      this.$navOverlay = $('.nav-overlay');
+	      this.$menuClose = $('.site-menu__close, .site-menu__item a');
+	      this.$menu = $('.site-menu');
+	
+	      this.$navTrigger.on('click', function () {
+	        _this2.setNavOpen();
+	      });
+	
+	      this.$menuClose.on('click', function () {
+	        _this2.setNavClosed();
+	      });
+	
+	      this.$navOverlay.on('click', function () {
+	        _this2.setNavClosed();
+	      });
+	    }
+	  }]);
+	
+	  return Menu;
+	})();
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },

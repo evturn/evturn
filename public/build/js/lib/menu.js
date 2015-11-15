@@ -1,30 +1,47 @@
 'use strict';
-module.exports = () => {
-  const $body = $('body');
-  const $navTrigger = $('.site-nav__trigger');
-  const $navOverlay = $('.nav-overlay');
-  const $menuClose = $('.site-menu__close, .site-menu__item a');
-  const $menu = $('.site-menu');
+const engine = require('./view-engine');
+const hbs = require('./templates');
 
-  const setNavOpen = () => {
-    $menu.addClass('open');
-    $body.addClass('nav-is-opened');
-  };
+module.exports = class Menu {
+  constructor() {
+    this.render();
+  }
+  setNavOpen() {
+    this.$menu.addClass('open');
+    this.$body.addClass('nav-is-opened');
+  }
+  setNavClosed() {
+    this.$menu.removeClass('open');
+    this.$body.removeClass('nav-is-opened');
+  }
+  render() {
+    const callback = (template) => {
+      $('.site-header').html(template);
+      this.init();
+    };
 
-  const setNavClosed = () => {
-    $menu.removeClass('open');
-    $body.removeClass('nav-is-opened');
-  };
+    engine.load({
+      filepath: hbs.layouts.header,
+      success: callback
+    });
+  }
+  init() {
+    this.$body = $('body');
+    this.$navTrigger = $('.site-nav__trigger');
+    this.$navOverlay = $('.nav-overlay');
+    this.$menuClose = $('.site-menu__close, .site-menu__item a');
+    this.$menu = $('.site-menu');
 
-  $navTrigger.on('click', () => {
-    setNavOpen();
-  });
+    this.$navTrigger.on('click', () => {
+      this.setNavOpen();
+    });
 
-  $menuClose.on('click', () => {
-    setNavClosed();
-  });
+    this.$menuClose.on('click', () => {
+      this.setNavClosed();
+    });
 
-  $navOverlay.on('click', () => {
-    setNavClosed();
-  });
+    this.$navOverlay.on('click', () => {
+      this.setNavClosed();
+    });
+  }
 };
