@@ -5916,9 +5916,6 @@ video::-webkit-media-controls {
   margin: 15px auto;
   padding-left: 15px;
   padding-right: 15px;
-  font-family: 'Source Sans Pro', sans;
-  font-weight: 500;
-  text-align: justify;
   max-width: 1000px;
 }
 .bio:before,
@@ -5929,12 +5926,16 @@ video::-webkit-media-controls {
 .bio:after {
   clear: both;
 }
-@media (min-width: 1024px) {
-  .bio {
-    margin-top: 50px;
-  }
+.bio .bio__header {
+  margin-bottom: 10px;
+  font-size: 21px;
+  text-transform: uppercase;
+  text-align: center;
 }
 .bio .bio__paragraph {
+  font-family: 'Source Sans Pro', sans;
+  font-weight: 500;
+  text-align: justify;
   margin-bottom: 15px;
   font-size: 18px;
 }
