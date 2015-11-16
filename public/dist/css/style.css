@@ -5892,6 +5892,16 @@ video::-webkit-media-controls {
   top: 15px;
   background-color: rgba(255, 255, 255, 0.7);
 }
+.page-about .site-nav {
+  opacity: 0.5;
+  color: #231f20;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.page-about .site-nav:hover {
+  opacity: 1;
+  color: #5fa3c0;
+}
 .page-about .image-container {
   position: relative;
   top: 0;

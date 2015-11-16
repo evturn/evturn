@@ -10,6 +10,16 @@
     top: 15px;
     background-color: fade(@bg-main, 70);
   }
+  .site-nav {
+    opacity: 0.5;
+    color: @tx-main;
+    background-color: @bg-main;
+    border-radius: 8px;
+    &:hover {
+      opacity: 1;
+      color: @color-accent;
+    }
+  }
   .image-container {
     position: relative;
     top: 0;
@@ -23,9 +33,6 @@
     background-repeat: no-repeat;
     border-bottom: 1px solid fade(@color-accent, 60);
     .clearfix();
-    @media(@tablet) {
-      // display: none;
-    }
   }
 }
 
