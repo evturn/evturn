@@ -5929,16 +5929,17 @@ video::-webkit-media-controls {
 }
 .bio .bio__header {
   margin-bottom: 10px;
-  font-size: 21px;
   text-transform: uppercase;
   text-align: center;
+  font-size: 22px;
 }
 .bio .bio__paragraph {
-  font-family: 'Source Sans Pro', sans;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   text-align: justify;
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 24px;
 }
 @media (min-width: 768px) {
   .bio .bio__paragraph {
@@ -6232,6 +6233,9 @@ video {
 .project-content .project-info__header {
   margin-bottom: 5px;
   text-transform: uppercase;
+}
+.project-content .project-details__desc {
+  line-height: 24px;
 }
 .project-content .project-details__title {
   font-size: 22px;
