@@ -1,21 +1,13 @@
 'use strict';
 module.exports = class Carousel {
   constructor($element) {
-    this.images = $element;
-    this.counter = null;
-    this.total = null;
-
-    this.init();
+    this.init($element);
   }
-  reset($element) {
+  init($element) {
     this.images = $element;
     this.counter = null;
     this.total = null;
     clearInterval(this.timer);
-
-    this.init();
-  }
-  init() {
     this.total = this.images.length;
 
     if (this.total < 2) {

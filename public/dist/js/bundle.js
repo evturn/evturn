@@ -4084,7 +4084,7 @@
 	      var $projectContent = $('.project-content');
 	      $projectContent.html(template({ project: project }));
 	      var $carousel = $('.carousel__item-image');
-	      _this.carousel.reset($carousel);
+	      _this.carousel.init($carousel);
 	      _this.scrollToTop();
 	    };
 	
@@ -4135,28 +4135,18 @@
 	  function Carousel($element) {
 	    _classCallCheck(this, Carousel);
 	
-	    this.images = $element;
-	    this.counter = null;
-	    this.total = null;
-	
-	    this.init();
+	    this.init($element);
 	  }
 	
 	  _createClass(Carousel, [{
-	    key: 'reset',
-	    value: function reset($element) {
+	    key: 'init',
+	    value: function init($element) {
+	      var _this = this;
+	
 	      this.images = $element;
 	      this.counter = null;
 	      this.total = null;
 	      clearInterval(this.timer);
-	
-	      this.init();
-	    }
-	  }, {
-	    key: 'init',
-	    value: function init() {
-	      var _this = this;
-	
 	      this.total = this.images.length;
 	
 	      if (this.total < 2) {

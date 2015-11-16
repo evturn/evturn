@@ -16,7 +16,7 @@ module.exports = Backbone.View.extend({
       const $projectContent = $('.project-content');
       $projectContent.html(template({ project }));
       const $carousel = $('.carousel__item-image');
-      this.carousel.reset($carousel);
+      this.carousel.init($carousel);
       this.scrollToTop();
     };
 
