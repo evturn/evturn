@@ -1,22 +1,21 @@
 'use strict';
-const data = require('../data');
+exports = module.exports = Video;
 
-module.exports = class Video {
-  constructor(videoElement) {
-    this.video = videoElement;
+const proto = {
+  init: function init(element, sources) {
+    this.video = element;
     this.video.type = 'video/mp4';
     this.video.muted = true;
     this.video.autoplay = true;
     this.video.preload = 'auto';
-    this.video.addEventListener('ended', () => this.init());
-
+    this.video.addEventListener('ended', () => this.start());
     this.initialized = false;
     this.current = 0;
-    this.playlist = data.videos;
-    this.last = data.videos.length - 1;
-    this.init();
-  }
-  init() {
+    this.playlist = sources;
+    this.last = sources.length - 1;
+    this.start();
+  },
+  start: function start() {
     const isLastVideo = !!(this.current === this.last);
     const isInitialized = this.initialized;
 
@@ -32,4 +31,12 @@ module.exports = class Video {
     this.video.play;
     this.video.playbackRate = 0.5;
   }
+};
+
+function Video(element, sources) {
+  const video = {};
+
+  _.extend(video, proto);
+  video.init(element, sources);
+  return video;
 };

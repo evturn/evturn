@@ -5085,9 +5085,11 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var Video = __webpack_require__(7);
+	var videos = __webpack_require__(9);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
+	  video: null,
 	  initialize: function initialize() {
 	    this.render();
 	  },
@@ -5100,7 +5102,7 @@
 	      var $image = $('.preloader');
 	      var videoElement = document.getElementById('ev-vid');
 	
-	      new Video(videoElement);
+	      _this.video = Video(videoElement, videos);
 	      $container.delay(500).fadeOut();
 	      $image.delay(600).fadeOut(600);
 	    };
@@ -5117,58 +5119,53 @@
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
+	exports = module.exports = Video;
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	var data = __webpack_require__(8);
-	
-	module.exports = (function () {
-	  function Video(videoElement) {
+	var proto = {
+	  init: function init(element, sources) {
 	    var _this = this;
 	
-	    _classCallCheck(this, Video);
-	
-	    this.video = videoElement;
+	    this.video = element;
 	    this.video.type = 'video/mp4';
 	    this.video.muted = true;
 	    this.video.autoplay = true;
 	    this.video.preload = 'auto';
 	    this.video.addEventListener('ended', function () {
-	      return _this.init();
+	      return _this.start();
 	    });
-	
 	    this.initialized = false;
 	    this.current = 0;
-	    this.playlist = data.videos;
-	    this.last = data.videos.length - 1;
-	    this.init();
-	  }
+	    this.playlist = sources;
+	    this.last = sources.length - 1;
+	    this.start();
+	  },
+	  start: function start() {
+	    var isLastVideo = !!(this.current === this.last);
+	    var isInitialized = this.initialized;
 	
-	  _createClass(Video, [{
-	    key: 'init',
-	    value: function init() {
-	      var isLastVideo = !!(this.current === this.last);
-	      var isInitialized = this.initialized;
-	
-	      if (!isInitialized) {
-	        this.initialized = true;
-	      } else if (isLastVideo) {
-	        this.current = 0;
-	      } else {
-	        this.current += 1;
-	      }
-	
-	      this.video.src = this.playlist[this.current];
-	      this.video.play;
-	      this.video.playbackRate = 0.5;
+	    if (!isInitialized) {
+	      this.initialized = true;
+	    } else if (isLastVideo) {
+	      this.current = 0;
+	    } else {
+	      this.current += 1;
 	    }
-	  }]);
 	
-	  return Video;
-	})();
+	    this.video.src = this.playlist[this.current];
+	    this.video.play;
+	    this.video.playbackRate = 0.5;
+	  }
+	};
+	
+	function Video(element, sources) {
+	  var video = {};
+	
+	  _.extend(video, proto);
+	  video.init(element, sources);
+	  return video;
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 /* 8 */
