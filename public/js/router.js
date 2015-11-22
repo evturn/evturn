@@ -4,7 +4,7 @@ const views = require('./views');
 const View = require('./lib/view');
 const Menu = require('./lib/menu');
 const models = require('./models');
-const ga = require('google-analytics');
+const ga = require('./lib/web_modules/google-analytics');
 
 View.init();
 View.extend(Menu);
