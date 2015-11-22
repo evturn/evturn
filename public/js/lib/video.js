@@ -9,10 +9,10 @@ const proto = {
     this.video.autoplay = true;
     this.video.preload = 'auto';
     this.video.addEventListener('ended', () => this.start());
+    this.last = sources.length - 1;
     this.initialized = false;
     this.current = 0;
     this.playlist = sources;
-    this.last = sources.length - 1;
     this.start();
   },
   start: function start() {

@@ -5134,10 +5134,10 @@
 	    this.video.addEventListener('ended', function () {
 	      return _this.start();
 	    });
+	    this.last = sources.length - 1;
 	    this.initialized = false;
 	    this.current = 0;
 	    this.playlist = sources;
-	    this.last = sources.length - 1;
 	    this.start();
 	  },
 	  start: function start() {
