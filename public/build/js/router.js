@@ -1,7 +1,8 @@
 'use strict';
 const Backbone = require('backbone');
 const views = require('./views');
-const engine = require('./lib/view-engine');
+const View = require('./lib/view');
+const Menu = require('./lib/menu');
 const models = require('./models');
 
 const Router = Backbone.Router.extend({
@@ -17,7 +18,10 @@ const Router = Backbone.Router.extend({
     'work(/:id)': 'project'
   },
   initialize() {
-    engine.init(Backbone);
+    View.init();
+    View.extend(Menu);
+    Menu.init();
+    View.extend(Backbone.View.prototype);
   },
   getFragment() {
     return Backbone.history.fragment ? Backbone.history.fragment : 'index';
