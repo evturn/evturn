@@ -5106,7 +5106,7 @@
 	
 	    this.load({
 	      url: this.pages.index,
-	      success: callback
+	      callback: callback
 	    });
 	  }
 	});
@@ -5496,7 +5496,7 @@
 	
 	    this.reload({
 	      url: this.templates.project,
-	      success: callback
+	      callback: callback
 	    });
 	  },
 	  renderView: function renderView(project, projects) {
@@ -5510,7 +5510,7 @@
 	
 	    this.load({
 	      url: this.pages.work,
-	      success: callback
+	      callback: callback
 	    });
 	  },
 	  spinner: function spinner() {
@@ -5649,7 +5649,7 @@
 	
 	    this.load({
 	      url: this.pages.about,
-	      success: callback
+	      callback: callback
 	    });
 	  }
 	});
@@ -5731,7 +5731,7 @@
 	
 	    this.load({
 	      url: this.pages.contact,
-	      success: callback
+	      callback: callback
 	    });
 	  }
 	});
@@ -5871,18 +5871,18 @@
 	    });
 	  },
 	  load: function load(params) {
+	    var callback = params.callback;
 	    var url = params.url;
-	    var callback = params.success;
 	
 	    if (this.cache[url]) {
-	      return success(this.cache[url]);
+	      return callback(this.cache[url]);
 	    }
 	
 	    this.loadTemplates(url, callback);
 	  },
 	  reload: function reload(params) {
+	    var callback = params.callback;
 	    var url = params.url;
-	    var callback = params.success;
 	
 	    this.loadFromCache(url, callback);
 	  }
@@ -6321,7 +6321,7 @@
 	
 	    this.load({
 	      url: this.templates.header,
-	      success: callback
+	      callback: callback
 	    });
 	  }
 	};

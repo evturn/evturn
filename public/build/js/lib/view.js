@@ -61,18 +61,14 @@ const View = exports = module.exports = {
     });
   },
   load: function load(params) {
-    const url = params.url;
-    const callback = params.success;
+    const { callback, url } = params;
 
-    if (this.cache[url]) {
-      return callback(this.cache[url]);
-    }
+    if (this.cache[url]) { return callback(this.cache[url]); }
 
     this.loadTemplates(url, callback);
   },
   reload: function reload(params) {
-    const url = params.url;
-    const callback = params.success;
+    const { callback, url } = params;
 
     this.loadFromCache(url, callback);
   },

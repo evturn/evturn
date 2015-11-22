@@ -23,7 +23,7 @@ module.exports = Backbone.View.extend({
 
     this.reload({
       url: this.templates.project,
-      success: callback,
+      callback: callback,
     });
   },
   renderView(project, projects) {
@@ -35,7 +35,7 @@ module.exports = Backbone.View.extend({
 
     this.load({
       url: this.pages.work,
-      success: callback,
+      callback: callback,
     });
   },
   spinner() {

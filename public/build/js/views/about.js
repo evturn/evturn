@@ -19,7 +19,7 @@ module.exports = Backbone.View.extend({
 
     this.load({
       url: this.pages.about,
-      success: callback
+      callback: callback
     });
   },
 });

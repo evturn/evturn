@@ -20,7 +20,7 @@ module.exports = Backbone.View.extend({
 
     this.load({
       url: this.pages.index,
-      success: callback
+      callback: callback
     });
   },
 });

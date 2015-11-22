@@ -36,7 +36,7 @@ const Menu = exports = module.exports = {
 
     this.load({
       url: this.templates.header,
-      success: callback
+      callback: callback
     });
   },
 };

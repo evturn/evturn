@@ -14,7 +14,7 @@ module.exports = Backbone.View.extend({
 
     this.load({
       url: this.pages.contact,
-      success: callback
+      callback: callback
     });
   }
 });
