@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: ['./public/build/js/router.js'],
+  entry: ['./public/js/router.js'],
   output: {
       path: 'public/dist/js/',
       filename: 'bundle.js',

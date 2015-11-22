@@ -13,8 +13,8 @@ module.exports.paths = {
     }
   },
   less: {
-    src: 'public/build/less/*.less',
-    watch: 'public/build/less/**/*.less',
+    src: 'public/less/*.less',
+    watch: 'public/less/**/*.less',
     filename: 'style.css',
     min: 'style.min.css'
   },
@@ -26,19 +26,19 @@ module.exports.paths = {
   },
   eslint: {
     src: [
-      'public/build/js/**/*.js',
-      '!public/build/js/web_modules/**/*.js',
-      'public/build/js/views/**/*.js',
+      'public/js/**/*.js',
+      '!public/js/web_modules/**/*.js',
+      'public/js/views/**/*.js',
       'config/**/*.js',
       'gulpfile.js'
     ]
   },
   img: {
     apps: {
-      src: 'public/build/img/apps/**/*'
+      src: 'public/img/apps/**/*'
     },
     site: {
-      src: 'public/build/img/site/**/*'
+      src: 'public/img/site/**/*'
     }
   }
 };
