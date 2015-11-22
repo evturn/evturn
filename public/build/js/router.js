@@ -5,6 +5,11 @@ const View = require('./lib/view');
 const Menu = require('./lib/menu');
 const models = require('./models');
 
+View.init();
+View.extend(Menu);
+View.extend(Backbone.View.prototype);
+Menu.init();
+
 const Router = Backbone.Router.extend({
   index: null,
   work: null,
@@ -16,12 +21,6 @@ const Router = Backbone.Router.extend({
     'about': 'match',
     'contact': 'match',
     'work(/:id)': 'project'
-  },
-  initialize() {
-    View.init();
-    View.extend(Menu);
-    Menu.init();
-    View.extend(Backbone.View.prototype);
   },
   getFragment() {
     return Backbone.history.fragment ? Backbone.history.fragment : 'index';

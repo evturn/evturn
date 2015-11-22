@@ -54,9 +54,14 @@
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var Backbone = __webpack_require__(3);
 	var views = __webpack_require__(5);
-	var View = __webpack_require__(25);
+	var View = __webpack_require__(19);
 	var Menu = __webpack_require__(22);
-	var models = __webpack_require__(24);
+	var models = __webpack_require__(23);
+	
+	View.init();
+	View.extend(Menu);
+	View.extend(Backbone.View.prototype);
+	Menu.init();
 	
 	var Router = Backbone.Router.extend({
 	  index: null,
@@ -69,12 +74,6 @@
 	    'about': 'match',
 	    'contact': 'match',
 	    'work(/:id)': 'project'
-	  },
-	  initialize: function initialize() {
-	    View.init();
-	    View.extend(Menu);
-	    Menu.init();
-	    View.extend(Backbone.View.prototype);
 	  },
 	  getFragment: function getFragment() {
 	    return Backbone.history.fragment ? Backbone.history.fragment : 'index';
@@ -5736,7 +5735,159 @@
 	});
 
 /***/ },
-/* 19 */,
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+	
+	var _ = __webpack_require__(4);
+	var Handlebars = __webpack_require__(20);
+	var paths = __webpack_require__(21);
+	
+	var View = exports = module.exports = {
+	  cache: [],
+	  partials: paths.partials,
+	  templates: paths.templates,
+	  pages: paths.pages,
+	  init: function init() {
+	    this.registerTemplates();
+	    this.registerPartials();
+	    return this;
+	  },
+	  extend: function extend(obj) {
+	    var configurations = {
+	      $parent: $('.site-content'),
+	      cache: View.cache,
+	      pages: View.pages,
+	      templates: View.templates,
+	      reload: function reload(params) {
+	        return View.reload.call(View, params);
+	      },
+	      load: function load(params) {
+	        return View.load.call(View, params);
+	      }
+	    };
+	
+	    _.extend(obj, configurations);
+	    return obj;
+	  },
+	  getTemplates: function getTemplates(url) {
+	    var _this = this;
+	
+	    return $.get(url, function (contents) {
+	      _this.cache[url] = Handlebars.precompile(contents);
+	    });
+	  },
+	  getPartials: function getPartials(name, url) {
+	    return $.get(url, function (contents) {
+	      return Handlebars.registerPartial(name, contents);
+	    });
+	  },
+	  registerTemplates: function registerTemplates() {
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+	
+	    try {
+	      for (var _iterator = this.partials[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var template = _step.value;
+	
+	        var _$values = _.values(template);
+	
+	        var _$values2 = _slicedToArray(_$values, 1);
+	
+	        var url = _$values2[0];
+	
+	        this.getTemplates(url);
+	      }
+	    } catch (err) {
+	      _didIteratorError = true;
+	      _iteratorError = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion && _iterator['return']) {
+	          _iterator['return']();
+	        }
+	      } finally {
+	        if (_didIteratorError) {
+	          throw _iteratorError;
+	        }
+	      }
+	    }
+	  },
+	  registerPartials: function registerPartials() {
+	    var _iteratorNormalCompletion2 = true;
+	    var _didIteratorError2 = false;
+	    var _iteratorError2 = undefined;
+	
+	    try {
+	      for (var _iterator2 = this.partials[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	        var partial = _step2.value;
+	
+	        var _$keys = _.keys(partial);
+	
+	        var _$keys2 = _slicedToArray(_$keys, 1);
+	
+	        var _name = _$keys2[0];
+	
+	        var _$values3 = _.values(partial);
+	
+	        var _$values32 = _slicedToArray(_$values3, 1);
+	
+	        var url = _$values32[0];
+	
+	        this.getPartials(_name, url);
+	      }
+	    } catch (err) {
+	      _didIteratorError2 = true;
+	      _iteratorError2 = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion2 && _iterator2['return']) {
+	          _iterator2['return']();
+	        }
+	      } finally {
+	        if (_didIteratorError2) {
+	          throw _iteratorError2;
+	        }
+	      }
+	    }
+	  },
+	  loadTemplates: function loadTemplates(url, callback) {
+	    var _this2 = this;
+	
+	    return $.get(url, function (contents) {
+	      _this2.cache[url] = Handlebars.compile(contents);
+	      callback(_this2.cache[url]);
+	    });
+	  },
+	  loadFromCache: function loadFromCache(url, callback) {
+	    return $.get(url, function (contents) {
+	      callback(Handlebars.compile(contents));
+	    });
+	  },
+	  load: function load(params) {
+	    var url = params.url;
+	    var callback = params.success;
+	
+	    if (this.cache[url]) {
+	      return success(this.cache[url]);
+	    }
+	
+	    this.loadTemplates(url, callback);
+	  },
+	  reload: function reload(params) {
+	    var url = params.url;
+	    var callback = params.success;
+	
+	    this.loadFromCache(url, callback);
+	  }
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6175,8 +6326,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 23 */,
-/* 24 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
@@ -6208,159 +6358,6 @@
 	
 	var Projects = module.exports.Projects = new Collection(projects);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
-	
-	var _ = __webpack_require__(4);
-	var Handlebars = __webpack_require__(20);
-	var paths = __webpack_require__(21);
-	
-	var View = exports = module.exports = {
-	  cache: [],
-	  partials: paths.partials,
-	  templates: paths.templates,
-	  pages: paths.pages,
-	  init: function init() {
-	    this.registerTemplates();
-	    this.registerPartials();
-	    return this;
-	  },
-	  extend: function extend(obj) {
-	    var configurations = {
-	      $parent: $('.site-content'),
-	      cache: View.cache,
-	      pages: View.pages,
-	      templates: View.templates,
-	      reload: function reload(params) {
-	        return View.reload.call(View, params);
-	      },
-	      load: function load(params) {
-	        return View.load.call(View, params);
-	      }
-	    };
-	
-	    _.extend(obj, configurations);
-	    return obj;
-	  },
-	  getTemplates: function getTemplates(url) {
-	    var _this = this;
-	
-	    return $.get(url, function (contents) {
-	      _this.cache[url] = Handlebars.precompile(contents);
-	    });
-	  },
-	  getPartials: function getPartials(name, url) {
-	    return $.get(url, function (contents) {
-	      return Handlebars.registerPartial(name, contents);
-	    });
-	  },
-	  registerTemplates: function registerTemplates() {
-	    var _iteratorNormalCompletion = true;
-	    var _didIteratorError = false;
-	    var _iteratorError = undefined;
-	
-	    try {
-	      for (var _iterator = this.partials[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	        var template = _step.value;
-	
-	        var _$values = _.values(template);
-	
-	        var _$values2 = _slicedToArray(_$values, 1);
-	
-	        var url = _$values2[0];
-	
-	        this.getTemplates(url);
-	      }
-	    } catch (err) {
-	      _didIteratorError = true;
-	      _iteratorError = err;
-	    } finally {
-	      try {
-	        if (!_iteratorNormalCompletion && _iterator['return']) {
-	          _iterator['return']();
-	        }
-	      } finally {
-	        if (_didIteratorError) {
-	          throw _iteratorError;
-	        }
-	      }
-	    }
-	  },
-	  registerPartials: function registerPartials() {
-	    var _iteratorNormalCompletion2 = true;
-	    var _didIteratorError2 = false;
-	    var _iteratorError2 = undefined;
-	
-	    try {
-	      for (var _iterator2 = this.partials[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	        var partial = _step2.value;
-	
-	        var _$keys = _.keys(partial);
-	
-	        var _$keys2 = _slicedToArray(_$keys, 1);
-	
-	        var _name = _$keys2[0];
-	
-	        var _$values3 = _.values(partial);
-	
-	        var _$values32 = _slicedToArray(_$values3, 1);
-	
-	        var url = _$values32[0];
-	
-	        this.getPartials(_name, url);
-	      }
-	    } catch (err) {
-	      _didIteratorError2 = true;
-	      _iteratorError2 = err;
-	    } finally {
-	      try {
-	        if (!_iteratorNormalCompletion2 && _iterator2['return']) {
-	          _iterator2['return']();
-	        }
-	      } finally {
-	        if (_didIteratorError2) {
-	          throw _iteratorError2;
-	        }
-	      }
-	    }
-	  },
-	  loadTemplates: function loadTemplates(url, callback) {
-	    var _this2 = this;
-	
-	    return $.get(url, function (contents) {
-	      _this2.cache[url] = Handlebars.compile(contents);
-	      callback(_this2.cache[url]);
-	    });
-	  },
-	  loadFromCache: function loadFromCache(url, callback) {
-	    return $.get(url, function (contents) {
-	      callback(Handlebars.compile(contents));
-	    });
-	  },
-	  load: function load(params) {
-	    var url = params.url;
-	    var callback = params.success;
-	
-	    if (this.cache[url]) {
-	      return success(this.cache[url]);
-	    }
-	
-	    this.loadTemplates(url, callback);
-	  },
-	  reload: function reload(params) {
-	    var url = params.url;
-	    var callback = params.success;
-	
-	    this.loadFromCache(url, callback);
-	  }
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }
 /******/ ]);
