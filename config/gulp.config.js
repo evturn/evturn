@@ -62,17 +62,11 @@ module.exports.opts = {
   },
   notify: {
     eslint: (file) => {
-      if (file.eslint.errorCount === 0) {
-        return;
-      }
-
-      let errors = file.eslint.messages.map((data) => {
-        let location = `Line: ${data.line}:${data.column} |\n${data.message}`;
-        return location;
+      if (file.eslint.errorCount === 0) { return; }
+      const errors = file.eslint.messages.map((data) => {
+        return `Line: ${data.line}:${data.column} |\n${data.message}`;
       });
-
-      let message = `File: ${file.relative} (${file.eslint.errorCount} errors)\n${errors}\n`;
-      return message;
+      return `File: ${file.relative} (${file.eslint.errorCount} errors)\n${errors}\n`;
     }
   },
   imagemin: {
