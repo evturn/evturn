@@ -8,7 +8,6 @@ const models = require('./models');
 View.init();
 View.extend(Menu);
 View.extend(Backbone.View.prototype);
-Menu.init();
 
 const Router = Backbone.Router.extend({
   index: null,
@@ -21,6 +20,9 @@ const Router = Backbone.Router.extend({
     'about': 'match',
     'contact': 'match',
     'work(/:id)': 'project'
+  },
+  initialize() {
+    Menu.init();
   },
   getFragment() {
     return Backbone.history.fragment ? Backbone.history.fragment : 'index';

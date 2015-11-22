@@ -61,7 +61,6 @@
 	View.init();
 	View.extend(Menu);
 	View.extend(Backbone.View.prototype);
-	Menu.init();
 	
 	var Router = Backbone.Router.extend({
 	  index: null,
@@ -74,6 +73,9 @@
 	    'about': 'match',
 	    'contact': 'match',
 	    'work(/:id)': 'project'
+	  },
+	  initialize: function initialize() {
+	    Menu.init();
 	  },
 	  getFragment: function getFragment() {
 	    return Backbone.history.fragment ? Backbone.history.fragment : 'index';
