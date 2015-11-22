@@ -3,12 +3,15 @@
   "ecmaFeatures": {
       "arrowFunctions": true,
       "blockBindings": true,
+      "commonjs": true,
       "defaultParams": true,
       "destructuring": true,
+      "es6": true,
       "forOf": true,
       "objectLiteralComputedProperties": true,
       "objectLiteralShorthandMethods": true,
       "objectLiteralShorthandProperties": true,
+      "restParams": true,
       "spread": true,
       "templateStrings": true
   },
