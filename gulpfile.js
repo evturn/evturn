@@ -4,7 +4,7 @@ const gutil = require('gulp-util');
 const $ = require('gulp-load-plugins')();
 const browserSync = require('browser-sync').create();
 const runSequence = require('run-sequence');
-const config = require('./config/gulp.config');
+const config = require('./public/gulp.config');
 const opts = config.opts;
 const paths = config.paths;
 
