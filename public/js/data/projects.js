@@ -76,7 +76,7 @@ module.exports = [
     technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
   },{
     name: 'Slackbots',
-    description: "A package designed to create instances of new Bots on Slack. The API is abstracted away from the user in order to easily create interactions with the team's channel. Extending Node's native Event Emitter and Backbone.Events, the bot is connected and notified of all chatroom activity.",
+    description: "A package designed to create instances of new Bots on Slack. The API is abstracted away from the user in order to easily create interactions with the team's channel. By extending Node's native Event Emitter, the bot is connected and notified of all chatroom activity.",
     id: 11,
     links: true,
     repo: 'https://github.com/faquet/bots/tree/api-init',
