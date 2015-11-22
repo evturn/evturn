@@ -10,7 +10,7 @@ const Model = module.exports.Model = Backbone.Model.extend({
     techIds.forEach((id) => {
       tech.push(_.findWhere(data.tech, { id: id }));
     });
-    this.set('technologies', tech);
+    this.set('tech', tech);
     const project = this.toJSON();
     const populated = [project, projects];
     return populated;

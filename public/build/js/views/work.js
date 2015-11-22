@@ -12,6 +12,7 @@ module.exports = Backbone.View.extend({
     this.render(project, projects);
   },
   renderProject(project) {
+    console.log(project);
     const callback = (template) => {
       const $projectContent = $('.project-content');
       $projectContent.html(template({ project }));
