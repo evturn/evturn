@@ -65,7 +65,7 @@ const View = exports = module.exports = {
     const callback = params.success;
 
     if (this.cache[url]) {
-      return success(this.cache[url]);
+      return callback(this.cache[url]);
     }
 
     this.loadTemplates(url, callback);
