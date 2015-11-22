@@ -5496,12 +5496,11 @@
 	  renderProject: function renderProject(project) {
 	    var _this = this;
 	
-	    console.log(project);
 	    var callback = function callback(template) {
 	      var $projectContent = $('.project-content');
 	      $projectContent.html(template({ project: project }));
-	      var $carousel = $('.carousel__item-image');
-	      _this.carousel.init($carousel);
+	      _this.carousel.reset();
+	      _this.carousel = Carousel(project.images);
 	      _this.scrollToTop();
 	    };
 	
@@ -5515,8 +5514,7 @@
 	
 	    var callback = function callback(template) {
 	      _this2.$parent.html(template({ project: project, projects: projects }));
-	      var $carousel = $('.carousel__item-image');
-	      _this2.carousel = new Carousel($carousel);
+	      _this2.carousel = Carousel(project.images);
 	    };
 	
 	    this.load({
@@ -5542,96 +5540,84 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
+	exports = module.exports = Carousel;
 	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var proto = {
+	  init: function init(images) {
+	    var _this = this;
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	    this.$images = $('.carousel__item-image');
+	    this.counter = null;
+	    this.images = images;
+	    this.total = images.length;
 	
-	module.exports = (function () {
-	  function Carousel($element) {
-	    _classCallCheck(this, Carousel);
+	    if (this.total === 1) {
+	      return this.lock();
+	    } else {
+	      this.cycle();
+	      this.timer = setInterval(function () {
+	        _this.cycle();
+	      }, 4000);
+	    }
+	  },
+	  lock: function lock() {
+	    var $image = $('.carousel__item-image:nth-child(1)');
+	    $image.addClass('active');
+	  },
+	  reset: function reset() {
+	    return clearInterval(this.timer);
+	  },
+	  cycle: function cycle() {
+	    var isActiveLast = !!(this.counter === this.total);
+	    var isNextLast = !!(this.next === this.total);
+	    var isInitializing = !!(this.counter === null);
 	
-	    this.init($element);
+	    if (isInitializing) {
+	      this.counter = 1;
+	      this.next = 2;
+	      return this.nextImage();
+	    } else if (isActiveLast) {
+	      this.counter = 1;
+	      this.next = 2;
+	    } else if (isNextLast) {
+	      this.counter += 1;
+	      this.next = 1;
+	    } else {
+	      this.counter += 1;
+	      this.next = this.counter + 1;
+	    }
+	    return this.dissolve();
+	  },
+	  nextImage: function nextImage() {
+	    $('.carousel__item-image:nth-child(' + this.counter + ')').addClass('active');
+	    $('.carousel__item-image:nth-child(' + this.next + ')').addClass('next');
+	  },
+	  dissolve: function dissolve() {
+	    var _this2 = this;
+	
+	    var $active = $('.active');
+	    var $next = $('.next');
+	
+	    $active.fadeTo(1000, 0, function () {
+	      _this2.$images.removeClass('active');
+	    });
+	
+	    $next.fadeTo(1000, 1, function () {
+	      _this2.$images.removeClass('next');
+	      _this2.nextImage();
+	    });
 	  }
+	};
 	
-	  _createClass(Carousel, [{
-	    key: 'init',
-	    value: function init($element) {
-	      var _this = this;
+	function Carousel(images) {
+	  var carousel = {};
 	
-	      this.images = $element;
-	      this.counter = null;
-	      this.total = null;
-	      clearInterval(this.timer);
-	      this.total = this.images.length;
-	
-	      if (this.total < 2) {
-	        return this.lock();
-	      } else {
-	        this.cycle();
-	        this.timer = setInterval(function () {
-	          _this.cycle();
-	        }, 4000);
-	      }
-	    }
-	  }, {
-	    key: 'lock',
-	    value: function lock() {
-	      var $image = $('.carousel__item-image:nth-child(1)');
-	      $image.addClass('active');
-	    }
-	  }, {
-	    key: 'cycle',
-	    value: function cycle() {
-	      var isActiveLast = !!(this.counter === this.total);
-	      var isNextLast = !!(this.next === this.total);
-	      var isInitializing = !!(this.counter === null);
-	
-	      if (isInitializing) {
-	        this.counter = 1;
-	        this.next = 2;
-	        return this.nextImage();
-	      } else if (isActiveLast) {
-	        this.counter = 1;
-	        this.next = 2;
-	      } else if (isNextLast) {
-	        this.counter += 1;
-	        this.next = 1;
-	      } else {
-	        this.counter += 1;
-	        this.next = this.counter + 1;
-	      }
-	      return this.dissolve();
-	    }
-	  }, {
-	    key: 'nextImage',
-	    value: function nextImage() {
-	      $('.carousel__item-image:nth-child(' + this.counter + ')').addClass('active');
-	      $('.carousel__item-image:nth-child(' + this.next + ')').addClass('next');
-	    }
-	  }, {
-	    key: 'dissolve',
-	    value: function dissolve() {
-	      var _this2 = this;
-	
-	      var $active = $('.active');
-	      var $next = $('.next');
-	
-	      $active.fadeTo(1000, 0, function () {
-	        _this2.images.removeClass('active');
-	      });
-	
-	      $next.fadeTo(1000, 1, function () {
-	        _this2.images.removeClass('next');
-	        _this2.nextImage();
-	      });
-	    }
-	  }]);
-	
-	  return Carousel;
-	})();
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	  _.extend(carousel, proto);
+	  carousel.init(images);
+	  return carousel;
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
 
 /***/ },
 /* 16 */

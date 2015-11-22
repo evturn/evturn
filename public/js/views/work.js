@@ -12,12 +12,11 @@ module.exports = Backbone.View.extend({
     this.render(project, projects);
   },
   renderProject(project) {
-    console.log(project);
     const callback = (template) => {
       const $projectContent = $('.project-content');
       $projectContent.html(template({ project }));
-      const $carousel = $('.carousel__item-image');
-      this.carousel.init($carousel);
+      this.carousel.reset();
+      this.carousel = Carousel(project.images);
       this.scrollToTop();
     };
 
@@ -29,8 +28,7 @@ module.exports = Backbone.View.extend({
   renderView(project, projects) {
     const callback = (template) => {
       this.$parent.html(template({ project, projects }));
-      const $carousel = $('.carousel__item-image');
-      this.carousel = new Carousel($carousel);
+      this.carousel = Carousel(project.images);
     };
 
     this.load({
