@@ -10,11 +10,9 @@ module.exports = Backbone.View.extend({
   render() {
     const callback = (template) => {
       const tech = _.where(data.tech, { featured: true });
-      this.$parent.html(template({
-        tech: tech,
-        stats: data.stats
-      }));
-      new StatCounter();
+      const stats = data.stats;
+      this.$parent.html(template({ tech, stats }));
+      StatCounter();
     };
 
     this.load({
