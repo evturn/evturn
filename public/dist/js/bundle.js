@@ -5705,14 +5705,9 @@
 	  render: function render() {
 	    var _this = this;
 	
-	    var callback = function callback(template) {
+	    this.load(this.pages.contact).then(function (template) {
 	      var links = data.links;
 	      _this.$parent.html(template({ links: links }));
-	    };
-	
-	    this.load({
-	      url: this.pages.contact,
-	      callback: callback
 	    });
 	  }
 	});

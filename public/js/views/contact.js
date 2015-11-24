@@ -7,14 +7,10 @@ module.exports = Backbone.View.extend({
     this.render();
   },
   render() {
-    const callback = (template) => {
-      const links = data.links;
-      this.$parent.html(template({ links }));
-    };
-
-    this.load({
-      url: this.pages.contact,
-      callback: callback
-    });
-  }
+    this.load(this.pages.contact)
+      .then((template) => {
+        const links = data.links;
+        this.$parent.html(template({ links }));
+      });
+  },
 });
