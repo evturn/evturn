@@ -5096,7 +5096,7 @@
 	  render: function render() {
 	    var _this = this;
 	
-	    var callback = function callback(template) {
+	    this.load(this.pages.index).then(function (template) {
 	      _this.$parent.html(template());
 	      var $container = $('#preloader');
 	      var $image = $('.preloader');
@@ -5105,11 +5105,6 @@
 	      _this.video = Video(videoElement, videos);
 	      $container.delay(500).fadeOut();
 	      $image.delay(600).fadeOut(600);
-	    };
-	
-	    this.load({
-	      url: this.pages.index,
-	      callback: callback
 	    });
 	  }
 	});

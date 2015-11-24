@@ -9,20 +9,16 @@ module.exports = Backbone.View.extend({
     this.render();
   },
   render() {
-    const callback = (template) => {
-      this.$parent.html(template());
-      const $container = $('#preloader');
-      const $image = $('.preloader');
-      const videoElement = document.getElementById('ev-vid');
+    this.load(this.pages.index)
+      .then((template) => {
+        this.$parent.html(template());
+        const $container = $('#preloader');
+        const $image = $('.preloader');
+        const videoElement = document.getElementById('ev-vid');
 
-      this.video = Video(videoElement, videos);
-      $container.delay(500).fadeOut();
-      $image.delay(600).fadeOut(600);
-    };
-
-    this.load({
-      url: this.pages.index,
-      callback: callback
+        this.video = Video(videoElement, videos);
+        $container.delay(500).fadeOut();
+        $image.delay(600).fadeOut(600);
     });
   },
 });
