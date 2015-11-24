@@ -55,7 +55,6 @@ const View = exports = module.exports = {
     }
   },
   load: function load(url) {
-    console.log('LOAD', this);
     if (this.cache[url]) { return this.cache[url]; }
 
     return new Promise((resolve, reject) => {
@@ -66,7 +65,6 @@ const View = exports = module.exports = {
     });
   },
   reload: function reload(url) {
-    console.log('RELOAD', this);
     return new Promise((resolve, reject) => {
       $.get(url, (contents) => {
         resolve(Handlebars.compile(contents));

@@ -81,12 +81,14 @@
 	  getFragment: function getFragment() {
 	    return Backbone.history.fragment ? Backbone.history.fragment : 'index';
 	  },
-	  setLayout: function setLayout() {
+	  setupLayout: function setupLayout() {
+	    var $body = $('body');
 	    var route = this.getFragment();
 	    var slash = route.indexOf('/');
 	    var name = slash !== -1 ? route.substring(0, slash) : route;
-	    $('body').removeClass();
-	    $('body').addClass('page-' + name);
+	
+	    $body.removeClass();
+	    $body.addClass('page-' + name);
 	  },
 	  match: function match() {
 	    var name = this.getFragment();
@@ -96,19 +98,19 @@
 	    var View = views[view];
 	    var instance = this[name];
 	
-	    this.setLayout();
+	    this.setupLayout();
 	    this.isActive = false;
 	    if (instance === null) {
 	      instance = new View();
-	      return;
+	      return instance;
 	    }
-	    instance;
+	    return instance;
 	  },
 	  project: function project(id) {
 	    var projects = models.Projects;
 	    var project = projects.select(id);
 	
-	    this.setLayout();
+	    this.setupLayout();
 	    if (this.work === null || !this.isActive) {
 	      this.work = new views.Work({ model: project });
 	      this.isActive = true;
@@ -5627,14 +5629,12 @@
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
 	  initialize: function initialize() {
-	    this.render();
-	  },
-	  render: function render() {
 	    var _this = this;
 	
 	    this.load(this.pages.about).then(function (template) {
 	      var tech = _.where(data.tech, { featured: true });
 	      var stats = data.stats;
+	
 	      _this.$parent.html(template({ tech: tech, stats: stats }));
 	      StatCounter();
 	    });
@@ -5700,13 +5700,11 @@
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
 	  initialize: function initialize() {
-	    this.render();
-	  },
-	  render: function render() {
 	    var _this = this;
 	
 	    this.load(this.pages.contact).then(function (template) {
 	      var links = data.links;
+	
 	      _this.$parent.html(template({ links: links }));
 	    });
 	  }
@@ -5841,7 +5839,6 @@
 	  load: function load(url) {
 	    var _this2 = this;
 	
-	    console.log('LOAD', this);
 	    if (this.cache[url]) {
 	      return this.cache[url];
 	    }
@@ -5854,7 +5851,6 @@
 	    });
 	  },
 	  reload: function reload(url) {
-	    console.log('RELOAD', this);
 	    return new Promise(function (resolve, reject) {
 	      $.get(url, function (contents) {
 	        resolve(Handlebars.compile(contents));

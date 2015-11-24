@@ -28,12 +28,14 @@ const Router = Backbone.Router.extend({
   getFragment() {
     return Backbone.history.fragment ? Backbone.history.fragment : 'index';
   },
-  setLayout() {
+  setupLayout() {
+    const $body = $('body');
     const route = this.getFragment();
     const slash = route.indexOf('/');
     const name = slash !== -1 ? route.substring(0, slash) : route;
-    $('body').removeClass();
-    $('body').addClass(`page-${name}`);
+
+    $body.removeClass();
+    $body.addClass(`page-${name}`);
   },
   match() {
     const name = this.getFragment();
@@ -41,19 +43,19 @@ const Router = Backbone.Router.extend({
     const View = views[view];
     let instance = this[name];
 
-    this.setLayout();
+    this.setupLayout();
     this.isActive = false;
     if (instance === null) {
       instance = new View();
-      return;
+      return instance;
     }
-    instance;
+    return instance;
   },
   project(id) {
     const projects = models.Projects;
     const project = projects.select(id);
 
-    this.setLayout();
+    this.setupLayout();
     if (this.work === null || !this.isActive) {
       this.work = new views.Work({ model: project });
       this.isActive = true;
