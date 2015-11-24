@@ -5199,30 +5199,22 @@
 	  renderProject: function renderProject(project) {
 	    var _this = this;
 	
-	    var callback = function callback(template) {
+	    this.reload(this.templates.project).then(function (template) {
 	      var $projectContent = $('.project-content');
 	      $projectContent.html(template({ project: project }));
 	      _this.carousel.reset();
 	      _this.carousel = Carousel(project.images);
 	      _this.scrollToTop();
-	    };
-	
-	    this.reload({
-	      url: this.templates.project,
-	      callback: callback
+	      return _this;
 	    });
 	  },
 	  renderView: function renderView(project, projects) {
 	    var _this2 = this;
 	
-	    var callback = function callback(template) {
+	    this.load(this.pages.work).then(function (template) {
 	      _this2.$parent.html(template({ project: project, projects: projects }));
 	      _this2.carousel = Carousel(project.images);
-	    };
-	
-	    this.load({
-	      url: this.pages.work,
-	      callback: callback
+	      return _this2;
 	    });
 	  },
 	  spinner: function spinner() {

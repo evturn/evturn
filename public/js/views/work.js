@@ -12,29 +12,23 @@ module.exports = Backbone.View.extend({
     this.render(project, projects);
   },
   renderProject(project) {
-    const callback = (template) => {
-      const $projectContent = $('.project-content');
-      $projectContent.html(template({ project }));
-      this.carousel.reset();
-      this.carousel = Carousel(project.images);
-      this.scrollToTop();
-    };
-
-    this.reload({
-      url: this.templates.project,
-      callback: callback,
+    this.reload(this.templates.project)
+      .then((template) => {
+        const $projectContent = $('.project-content');
+        $projectContent.html(template({ project }));
+        this.carousel.reset();
+        this.carousel = Carousel(project.images);
+        this.scrollToTop();
+        return this;
     });
   },
   renderView(project, projects) {
-    const callback = (template) => {
-      this.$parent.html(template({ project, projects }));
-      this.carousel = Carousel(project.images);
-    };
-
-    this.load({
-      url: this.pages.work,
-      callback: callback,
-    });
+    this.load(this.pages.work)
+      .then((template) => {
+        this.$parent.html(template({ project, projects }));
+        this.carousel = Carousel(project.images);
+        return this;
+      });
   },
   spinner() {
     const $siteImage = $('.site-logo__image');
