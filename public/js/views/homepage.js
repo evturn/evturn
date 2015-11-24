@@ -22,6 +22,7 @@ module.exports = Backbone.View.extend({
   },
   initVideoPlayer() {
     const element = document.getElementById('ev-vid');
+
     this.video = Video(element, videos);
     return this;
   },

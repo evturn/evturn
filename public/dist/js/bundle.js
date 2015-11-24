@@ -5109,6 +5109,7 @@
 	  },
 	  initVideoPlayer: function initVideoPlayer() {
 	    var element = document.getElementById('ev-vid');
+	
 	    this.video = Video(element, videos);
 	    return this;
 	  },
@@ -5205,41 +5206,40 @@
 	    var project = _model$populate2[0];
 	    var projects = _model$populate2[1];
 	
-	    this.spinner();
-	    this.render = this.render ? this.renderProject : this.renderView;
+	    this.rotateSiteLogo();
+	    this.render = this.render ? this.renderProject : this.renderPage;
 	    this.render(project, projects);
 	  },
-	  renderProject: function renderProject(project) {
+	  renderPage: function renderPage(project, projects) {
 	    var _this = this;
 	
-	    this.reload(this.templates.project).then(function (template) {
-	      var $projectContent = $('.project-content');
-	      $projectContent.html(template({ project: project }));
-	      _this.carousel.reset();
+	    this.load(this.pages.work).then(function (template) {
+	      _this.$parent.html(template({ project: project, projects: projects }));
 	      _this.carousel = Carousel(project.images);
-	      _this.scrollToTop();
 	      return _this;
 	    });
 	  },
-	  renderView: function renderView(project, projects) {
+	  renderProject: function renderProject(project) {
 	    var _this2 = this;
 	
-	    this.load(this.pages.work).then(function (template) {
-	      _this2.$parent.html(template({ project: project, projects: projects }));
+	    this.reload(this.templates.project).then(function (template) {
+	      var $webpage = $('html, body');
+	      var $projectContent = $('.project-content');
+	
+	      $projectContent.html(template({ project: project }));
+	      _this2.carousel.reset();
 	      _this2.carousel = Carousel(project.images);
+	      $webpage.animate({ scrollTop: 0 }, 500);
 	      return _this2;
 	    });
 	  },
-	  spinner: function spinner() {
+	  rotateSiteLogo: function rotateSiteLogo() {
 	    var $siteImage = $('.site-logo__image');
+	
 	    $siteImage.addClass('spin');
 	    setTimeout(function () {
 	      return $siteImage.removeClass('spin');
 	    }, 740);
-	  },
-	  scrollToTop: function scrollToTop() {
-	    var $webpage = $('html, body');
-	    $webpage.animate({ scrollTop: 0 }, 500);
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
