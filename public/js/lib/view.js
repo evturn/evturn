@@ -9,7 +9,6 @@ const View = exports = module.exports = {
   templates: paths.templates,
   pages: paths.pages,
   init: function init() {
-    this.registerTemplates();
     this.registerPartials();
     return this;
   },
@@ -26,26 +25,12 @@ const View = exports = module.exports = {
     _.extend(obj, configurations);
     return obj;
   },
-  getTemplates: function getTemplates(url) {
-    return new Promise((resolve, reject) => {
-      $.get(url, (contents) => {
-         this.cache[url] = Handlebars.precompile(contents);
-         resolve(this.cache[url]);
-      });
-    });
-  },
   getPartials: function getPartials(name, url) {
     return new Promise((resolve, reject) => {
       $.get(url, (contents) => {
          resolve(Handlebars.registerPartial(name, contents));
       });
     });
-  },
-  registerTemplates: function registerTemplates() {
-    for (let template of this.partials) {
-      const [url] = _.values(template);
-      this.getTemplates(url);
-    }
   },
   registerPartials: function registerPartials() {
     for (let partial of this.partials) {

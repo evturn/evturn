@@ -5658,9 +5658,9 @@
 	    var _this = this;
 	
 	    var current = parseInt($element.html(), 10);
+	
 	    current = current + 50;
 	    $element.html(++current);
-	
 	    if (current > $element.data('count')) {
 	      $element.html($element.data('count'));
 	    } else {
@@ -5674,6 +5674,7 @@
 	
 	    this.$counters.each(function (index, element) {
 	      var $element = $(element);
+	
 	      $element.data('count', parseInt($element.html(), 10));
 	      $element.html('0');
 	      _this2.increment($element);
@@ -5728,7 +5729,6 @@
 	  templates: paths.templates,
 	  pages: paths.pages,
 	  init: function init() {
-	    this.registerTemplates();
 	    this.registerPartials();
 	    return this;
 	  },
@@ -5749,16 +5749,6 @@
 	    _.extend(obj, configurations);
 	    return obj;
 	  },
-	  getTemplates: function getTemplates(url) {
-	    var _this = this;
-	
-	    return new Promise(function (resolve, reject) {
-	      $.get(url, function (contents) {
-	        _this.cache[url] = Handlebars.precompile(contents);
-	        resolve(_this.cache[url]);
-	      });
-	    });
-	  },
 	  getPartials: function getPartials(name, url) {
 	    return new Promise(function (resolve, reject) {
 	      $.get(url, function (contents) {
@@ -5766,22 +5756,28 @@
 	      });
 	    });
 	  },
-	  registerTemplates: function registerTemplates() {
+	  registerPartials: function registerPartials() {
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
 	
 	    try {
 	      for (var _iterator = this.partials[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	        var template = _step.value;
+	        var partial = _step.value;
 	
-	        var _$values = _.values(template);
+	        var _$keys = _.keys(partial);
+	
+	        var _$keys2 = _slicedToArray(_$keys, 1);
+	
+	        var _name = _$keys2[0];
+	
+	        var _$values = _.values(partial);
 	
 	        var _$values2 = _slicedToArray(_$values, 1);
 	
 	        var url = _$values2[0];
 	
-	        this.getTemplates(url);
+	        this.getPartials(_name, url);
 	      }
 	    } catch (err) {
 	      _didIteratorError = true;
@@ -5798,46 +5794,8 @@
 	      }
 	    }
 	  },
-	  registerPartials: function registerPartials() {
-	    var _iteratorNormalCompletion2 = true;
-	    var _didIteratorError2 = false;
-	    var _iteratorError2 = undefined;
-	
-	    try {
-	      for (var _iterator2 = this.partials[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	        var partial = _step2.value;
-	
-	        var _$keys = _.keys(partial);
-	
-	        var _$keys2 = _slicedToArray(_$keys, 1);
-	
-	        var _name = _$keys2[0];
-	
-	        var _$values3 = _.values(partial);
-	
-	        var _$values32 = _slicedToArray(_$values3, 1);
-	
-	        var url = _$values32[0];
-	
-	        this.getPartials(_name, url);
-	      }
-	    } catch (err) {
-	      _didIteratorError2 = true;
-	      _iteratorError2 = err;
-	    } finally {
-	      try {
-	        if (!_iteratorNormalCompletion2 && _iterator2['return']) {
-	          _iterator2['return']();
-	        }
-	      } finally {
-	        if (_didIteratorError2) {
-	          throw _iteratorError2;
-	        }
-	      }
-	    }
-	  },
 	  load: function load(url) {
-	    var _this2 = this;
+	    var _this = this;
 	
 	    if (this.cache[url]) {
 	      return this.cache[url];
@@ -5845,8 +5803,8 @@
 	
 	    return new Promise(function (resolve, reject) {
 	      $.get(url, function (contents) {
-	        _this2.cache[url] = Promise.resolve(Handlebars.compile(contents));
-	        resolve(_this2.cache[url]);
+	        _this.cache[url] = Promise.resolve(Handlebars.compile(contents));
+	        resolve(_this.cache[url]);
 	      });
 	    });
 	  },

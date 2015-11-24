@@ -29,6 +29,7 @@ const Menu = exports = module.exports = {
   },
   render: function render() {
     this.load(this.templates.header)
+
       .then((template) => {
         this.$siteHeader.html(template);
         this.addListeners();
