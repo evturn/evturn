@@ -5091,21 +5091,34 @@
 	  el: '.page-index',
 	  video: null,
 	  initialize: function initialize() {
-	    this.render();
-	  },
-	  render: function render() {
 	    var _this = this;
 	
 	    this.load(this.pages.index).then(function (template) {
-	      _this.$parent.html(template());
-	      var $container = $('#preloader');
-	      var $image = $('.preloader');
-	      var videoElement = document.getElementById('ev-vid');
-	
-	      _this.video = Video(videoElement, videos);
-	      $container.delay(500).fadeOut();
-	      $image.delay(600).fadeOut(600);
+	      return _this.render(template);
+	    }).then(function () {
+	      return _this.initVideoPlayer();
+	    }).then(function () {
+	      return _this.spinner();
+	    })['catch'](function (err) {
+	      return console.log(err);
 	    });
+	  },
+	  render: function render(template) {
+	    this.$parent.html(template());
+	    return this;
+	  },
+	  initVideoPlayer: function initVideoPlayer() {
+	    var element = document.getElementById('ev-vid');
+	    this.video = Video(element, videos);
+	    return this;
+	  },
+	  spinner: function spinner() {
+	    var $container = $('#preloader');
+	    var $image = $('.preloader');
+	
+	    $container.delay(500).fadeOut();
+	    $image.delay(600).fadeOut(600);
+	    return this;
 	  }
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
