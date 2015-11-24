@@ -8,16 +8,16 @@ const proto = {
       this.images = images;
       this.total = images.length;
 
-      if (this.total === 1) {
-        return this.lock();
-      } else {
-        this.cycle();
-        this.timer = setInterval(() => this.cycle(), 4000);
-      }
+      if (this.total === 1) { return this.lock(); }
+
+      this.cycle();
+      this.timer = setInterval(() => this.cycle(), 4000);
     },
     lock: function lock() {
       const $image = $('.carousel__item-image:nth-child(1)');
+
       $image.addClass('active');
+      return this;
     },
     reset: function reset() {
       return clearInterval(this.timer);

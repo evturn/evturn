@@ -5264,16 +5264,18 @@
 	
 	    if (this.total === 1) {
 	      return this.lock();
-	    } else {
-	      this.cycle();
-	      this.timer = setInterval(function () {
-	        return _this.cycle();
-	      }, 4000);
 	    }
+	
+	    this.cycle();
+	    this.timer = setInterval(function () {
+	      return _this.cycle();
+	    }, 4000);
 	  },
 	  lock: function lock() {
 	    var $image = $('.carousel__item-image:nth-child(1)');
+	
 	    $image.addClass('active');
+	    return this;
 	  },
 	  reset: function reset() {
 	    return clearInterval(this.timer);
