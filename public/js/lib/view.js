@@ -35,6 +35,7 @@ const View = exports = module.exports = {
     for (let partial of this.partials) {
       const [name] = _.keys(partial);
       const [url] = _.values(partial);
+
       this.getPartials(name, url);
     }
   },

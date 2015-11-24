@@ -63,6 +63,7 @@ module.exports.opts = {
   notify: {
     eslint: (file) => {
       if (file.eslint.errorCount === 0) { return; }
+
       const errors = file.eslint.messages.map((data) => {
         return `Line: ${data.line}:${data.column} |\n${data.message}`;
       });
