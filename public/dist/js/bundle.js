@@ -5075,7 +5075,7 @@
 
 	'use strict';
 	var Index = module.exports.Index = __webpack_require__(6);
-	var Work = module.exports.Work = __webpack_require__(14);
+	var Work = module.exports.Work = __webpack_require__(9);
 	var About = module.exports.About = __webpack_require__(16);
 	var Contact = module.exports.Contact = __webpack_require__(18);
 
@@ -5085,7 +5085,7 @@
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	var Video = __webpack_require__(7);
-	var videos = __webpack_require__(9);
+	var videos = __webpack_require__(8);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
@@ -5169,24 +5169,177 @@
 
 /***/ },
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	module.exports.videos = __webpack_require__(9);
-	module.exports.links = __webpack_require__(10);
-	module.exports.stats = __webpack_require__(11);
-	module.exports.tech = __webpack_require__(12);
-	module.exports.projects = __webpack_require__(13);
-
-/***/ },
-/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';
 	module.exports = ['https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1', 'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1', 'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1', 'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1', 'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1', 'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1', 'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1', 'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1', 'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1', 'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1', 'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1', 'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1', 'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1', 'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'];
 
 /***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+	
+	var Carousel = __webpack_require__(10);
+	var data = __webpack_require__(11);
+	
+	module.exports = Backbone.View.extend({
+	  render: null,
+	  carousel: null,
+	  el: '.page-work',
+	  initialize: function initialize() {
+	    var _model$populate = this.model.populate();
+	
+	    var _model$populate2 = _slicedToArray(_model$populate, 2);
+	
+	    var project = _model$populate2[0];
+	    var projects = _model$populate2[1];
+	
+	    this.spinner();
+	    this.render = this.render ? this.renderProject : this.renderView;
+	    this.render(project, projects);
+	  },
+	  renderProject: function renderProject(project) {
+	    var _this = this;
+	
+	    var callback = function callback(template) {
+	      var $projectContent = $('.project-content');
+	      $projectContent.html(template({ project: project }));
+	      _this.carousel.reset();
+	      _this.carousel = Carousel(project.images);
+	      _this.scrollToTop();
+	    };
+	
+	    this.reload({
+	      url: this.templates.project,
+	      callback: callback
+	    });
+	  },
+	  renderView: function renderView(project, projects) {
+	    var _this2 = this;
+	
+	    var callback = function callback(template) {
+	      _this2.$parent.html(template({ project: project, projects: projects }));
+	      _this2.carousel = Carousel(project.images);
+	    };
+	
+	    this.load({
+	      url: this.pages.work,
+	      callback: callback
+	    });
+	  },
+	  spinner: function spinner() {
+	    var $siteImage = $('.site-logo__image');
+	    $siteImage.addClass('spin');
+	    setTimeout(function () {
+	      return $siteImage.removeClass('spin');
+	    }, 740);
+	  },
+	  scrollToTop: function scrollToTop() {
+	    var $webpage = $('html, body');
+	    $webpage.animate({ scrollTop: 0 }, 500);
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
 /* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
+	exports = module.exports = Carousel;
+	
+	var proto = {
+	  init: function init(images) {
+	    var _this = this;
+	
+	    this.$images = $('.carousel__item-image');
+	    this.counter = null;
+	    this.images = images;
+	    this.total = images.length;
+	
+	    if (this.total === 1) {
+	      return this.lock();
+	    } else {
+	      this.cycle();
+	      this.timer = setInterval(function () {
+	        _this.cycle();
+	      }, 4000);
+	    }
+	  },
+	  lock: function lock() {
+	    var $image = $('.carousel__item-image:nth-child(1)');
+	    $image.addClass('active');
+	  },
+	  reset: function reset() {
+	    return clearInterval(this.timer);
+	  },
+	  cycle: function cycle() {
+	    var isActiveLast = !!(this.counter === this.total);
+	    var isNextLast = !!(this.next === this.total);
+	    var isInitializing = !!(this.counter === null);
+	
+	    if (isInitializing) {
+	      this.counter = 1;
+	      this.next = 2;
+	      return this.nextImage();
+	    } else if (isActiveLast) {
+	      this.counter = 1;
+	      this.next = 2;
+	    } else if (isNextLast) {
+	      this.counter += 1;
+	      this.next = 1;
+	    } else {
+	      this.counter += 1;
+	      this.next = this.counter + 1;
+	    }
+	    return this.dissolve();
+	  },
+	  nextImage: function nextImage() {
+	    $('.carousel__item-image:nth-child(' + this.counter + ')').addClass('active');
+	    $('.carousel__item-image:nth-child(' + this.next + ')').addClass('next');
+	  },
+	  dissolve: function dissolve() {
+	    var _this2 = this;
+	
+	    var $active = $('.active');
+	    var $next = $('.next');
+	
+	    $active.fadeTo(1000, 0, function () {
+	      _this2.$images.removeClass('active');
+	    });
+	
+	    $next.fadeTo(1000, 1, function () {
+	      _this2.$images.removeClass('next');
+	      _this2.nextImage();
+	    });
+	  }
+	};
+	
+	function Carousel(images) {
+	  var carousel = {};
+	
+	  _.extend(carousel, proto);
+	  carousel.init(images);
+	  return carousel;
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	module.exports.videos = __webpack_require__(8);
+	module.exports.links = __webpack_require__(12);
+	module.exports.stats = __webpack_require__(13);
+	module.exports.tech = __webpack_require__(14);
+	module.exports.projects = __webpack_require__(15);
+
+/***/ },
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5213,7 +5366,7 @@
 	}];
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5232,7 +5385,7 @@
 	}];
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5364,7 +5517,7 @@
 	}];
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5464,164 +5617,11 @@
 	}];
 
 /***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	
-	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
-	
-	var Carousel = __webpack_require__(15);
-	var data = __webpack_require__(8);
-	
-	module.exports = Backbone.View.extend({
-	  render: null,
-	  carousel: null,
-	  el: '.page-work',
-	  initialize: function initialize() {
-	    var _model$populate = this.model.populate();
-	
-	    var _model$populate2 = _slicedToArray(_model$populate, 2);
-	
-	    var project = _model$populate2[0];
-	    var projects = _model$populate2[1];
-	
-	    this.spinner();
-	    this.render = this.render ? this.renderProject : this.renderView;
-	    this.render(project, projects);
-	  },
-	  renderProject: function renderProject(project) {
-	    var _this = this;
-	
-	    var callback = function callback(template) {
-	      var $projectContent = $('.project-content');
-	      $projectContent.html(template({ project: project }));
-	      _this.carousel.reset();
-	      _this.carousel = Carousel(project.images);
-	      _this.scrollToTop();
-	    };
-	
-	    this.reload({
-	      url: this.templates.project,
-	      callback: callback
-	    });
-	  },
-	  renderView: function renderView(project, projects) {
-	    var _this2 = this;
-	
-	    var callback = function callback(template) {
-	      _this2.$parent.html(template({ project: project, projects: projects }));
-	      _this2.carousel = Carousel(project.images);
-	    };
-	
-	    this.load({
-	      url: this.pages.work,
-	      callback: callback
-	    });
-	  },
-	  spinner: function spinner() {
-	    var $siteImage = $('.site-logo__image');
-	    $siteImage.addClass('spin');
-	    setTimeout(function () {
-	      return $siteImage.removeClass('spin');
-	    }, 740);
-	  },
-	  scrollToTop: function scrollToTop() {
-	    var $webpage = $('html, body');
-	    $webpage.animate({ scrollTop: 0 }, 500);
-	  }
-	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
-	exports = module.exports = Carousel;
-	
-	var proto = {
-	  init: function init(images) {
-	    var _this = this;
-	
-	    this.$images = $('.carousel__item-image');
-	    this.counter = null;
-	    this.images = images;
-	    this.total = images.length;
-	
-	    if (this.total === 1) {
-	      return this.lock();
-	    } else {
-	      this.cycle();
-	      this.timer = setInterval(function () {
-	        _this.cycle();
-	      }, 4000);
-	    }
-	  },
-	  lock: function lock() {
-	    var $image = $('.carousel__item-image:nth-child(1)');
-	    $image.addClass('active');
-	  },
-	  reset: function reset() {
-	    return clearInterval(this.timer);
-	  },
-	  cycle: function cycle() {
-	    var isActiveLast = !!(this.counter === this.total);
-	    var isNextLast = !!(this.next === this.total);
-	    var isInitializing = !!(this.counter === null);
-	
-	    if (isInitializing) {
-	      this.counter = 1;
-	      this.next = 2;
-	      return this.nextImage();
-	    } else if (isActiveLast) {
-	      this.counter = 1;
-	      this.next = 2;
-	    } else if (isNextLast) {
-	      this.counter += 1;
-	      this.next = 1;
-	    } else {
-	      this.counter += 1;
-	      this.next = this.counter + 1;
-	    }
-	    return this.dissolve();
-	  },
-	  nextImage: function nextImage() {
-	    $('.carousel__item-image:nth-child(' + this.counter + ')').addClass('active');
-	    $('.carousel__item-image:nth-child(' + this.next + ')').addClass('next');
-	  },
-	  dissolve: function dissolve() {
-	    var _this2 = this;
-	
-	    var $active = $('.active');
-	    var $next = $('.next');
-	
-	    $active.fadeTo(1000, 0, function () {
-	      _this2.$images.removeClass('active');
-	    });
-	
-	    $next.fadeTo(1000, 1, function () {
-	      _this2.$images.removeClass('next');
-	      _this2.nextImage();
-	    });
-	  }
-	};
-	
-	function Carousel(images) {
-	  var carousel = {};
-	
-	  _.extend(carousel, proto);
-	  carousel.init(images);
-	  return carousel;
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
-
-/***/ },
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
-	var data = __webpack_require__(8);
+	var data = __webpack_require__(11);
 	var StatCounter = __webpack_require__(17);
 	
 	module.exports = Backbone.View.extend({
@@ -5632,16 +5632,11 @@
 	  render: function render() {
 	    var _this = this;
 	
-	    var callback = function callback(template) {
+	    this.load(this.pages.about).then(function (template) {
 	      var tech = _.where(data.tech, { featured: true });
 	      var stats = data.stats;
 	      _this.$parent.html(template({ tech: tech, stats: stats }));
 	      StatCounter();
-	    };
-	
-	    this.load({
-	      url: this.pages.about,
-	      callback: callback
 	    });
 	  }
 	});
@@ -5700,7 +5695,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var data = __webpack_require__(8);
+	var data = __webpack_require__(11);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
@@ -5843,34 +5838,26 @@
 	      }
 	    }
 	  },
-	  loadTemplates: function loadTemplates(url, callback) {
+	  load: function load(url) {
 	    var _this2 = this;
 	
-	    return $.get(url, function (contents) {
-	      _this2.cache[url] = Handlebars.compile(contents);
-	      callback(_this2.cache[url]);
-	    });
-	  },
-	  loadFromCache: function loadFromCache(url, callback) {
-	    return $.get(url, function (contents) {
-	      callback(Handlebars.compile(contents));
-	    });
-	  },
-	  load: function load(params) {
-	    var callback = params.callback;
-	    var url = params.url;
-	
 	    if (this.cache[url]) {
-	      return callback(this.cache[url]);
+	      return this.cache[url];
 	    }
 	
-	    this.loadTemplates(url, callback);
+	    return new Promise(function (resolve, reject) {
+	      $.get(url, function (contents) {
+	        _this2.cache[url] = Handlebars.compile(contents);
+	        resolve(_this2.cache[url]);
+	      });
+	    });
 	  },
-	  reload: function reload(params) {
-	    var callback = params.callback;
-	    var url = params.url;
-	
-	    this.loadFromCache(url, callback);
+	  reload: function reload(url) {
+	    return new Promise(function (resolve, reject) {
+	      $.get(url, function (contents) {
+	        resolve(Handlebars.compile(contents));
+	      });
+	    });
 	  }
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
@@ -6299,15 +6286,10 @@
 	  render: function render() {
 	    var _this2 = this;
 	
-	    var callback = function callback(template) {
+	    this.load(this.templates.header).then(function (template) {
 	      _this2.$siteHeader.html(template);
 	      _this2.addListeners();
 	      return _this2;
-	    };
-	
-	    this.load({
-	      url: this.templates.header,
-	      callback: callback
 	    });
 	  }
 	};
@@ -6318,7 +6300,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
-	var data = __webpack_require__(8);
+	var data = __webpack_require__(11);
 	
 	var projects = _.where(data.projects, { featured: true });
 	

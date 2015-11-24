@@ -49,27 +49,21 @@ const View = exports = module.exports = {
       this.getPartials(name, url);
     }
   },
-  loadTemplates: function loadTemplates(url, callback) {
-    return $.get(url, (contents) => {
-      this.cache[url] = Handlebars.compile(contents);
-      callback(this.cache[url]);
+  load: function load(url) {
+    if (this.cache[url]) { return this.cache[url]; }
+
+    return new Promise((resolve, reject) => {
+      $.get(url, (contents) => {
+        this.cache[url] = Handlebars.compile(contents);
+        resolve(this.cache[url]);
+      });
     });
   },
-  loadFromCache: function loadFromCache(url, callback) {
-    return $.get(url, (contents) => {
-      callback(Handlebars.compile(contents));
+  reload: function reload(url) {
+    return new Promise((resolve, reject) => {
+      $.get(url, (contents) => {
+        resolve(Handlebars.compile(contents));
+      });
     });
-  },
-  load: function load(params) {
-    const { callback, url } = params;
-
-    if (this.cache[url]) { return callback(this.cache[url]); }
-
-    this.loadTemplates(url, callback);
-  },
-  reload: function reload(params) {
-    const { callback, url } = params;
-
-    this.loadFromCache(url, callback);
   },
 };

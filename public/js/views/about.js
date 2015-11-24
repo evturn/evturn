@@ -8,16 +8,12 @@ module.exports = Backbone.View.extend({
     this.render();
   },
   render() {
-    const callback = (template) => {
-      const tech = _.where(data.tech, { featured: true });
-      const stats = data.stats;
-      this.$parent.html(template({ tech, stats }));
-      StatCounter();
-    };
-
-    this.load({
-      url: this.pages.about,
-      callback: callback
+    this.load(this.pages.about)
+      .then((template) => {
+        const tech = _.where(data.tech, { featured: true });
+        const stats = data.stats;
+        this.$parent.html(template({ tech, stats }));
+        StatCounter();
     });
   },
 });

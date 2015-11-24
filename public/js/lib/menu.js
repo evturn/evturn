@@ -28,15 +28,11 @@ const Menu = exports = module.exports = {
     this.$body.removeClass('nav-is-opened');
   },
   render: function render() {
-    const callback = (template) => {
-      this.$siteHeader.html(template);
-      this.addListeners();
-      return this;
-    };
-
-    this.load({
-      url: this.templates.header,
-      callback: callback
-    });
+    this.load(this.templates.header)
+      .then((template) => {
+        this.$siteHeader.html(template);
+        this.addListeners();
+        return this;
+      });
   },
 };
