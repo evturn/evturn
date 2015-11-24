@@ -12,7 +12,7 @@ const proto = {
         return this.lock();
       } else {
         this.cycle();
-        this.timer = setInterval(() => { this.cycle(); }, 4000);
+        this.timer = setInterval(() => this.cycle(), 4000);
       }
     },
     lock: function lock() {

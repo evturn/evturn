@@ -1,5 +1,4 @@
 'use strict';
-const _ = require('underscore');
 const Handlebars = require('handlebars');
 const paths = require('./templates');
 
