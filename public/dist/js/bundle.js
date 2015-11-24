@@ -5741,13 +5741,18 @@
 	  getTemplates: function getTemplates(url) {
 	    var _this = this;
 	
-	    return $.get(url, function (contents) {
-	      _this.cache[url] = Handlebars.precompile(contents);
+	    return new Promise(function (resolve, reject) {
+	      $.get(url, function (contents) {
+	        _this.cache[url] = Handlebars.precompile(contents);
+	        resolve(_this.cache[url]);
+	      });
 	    });
 	  },
 	  getPartials: function getPartials(name, url) {
-	    return $.get(url, function (contents) {
-	      return Handlebars.registerPartial(name, contents);
+	    return new Promise(function (resolve, reject) {
+	      $.get(url, function (contents) {
+	        resolve(Handlebars.registerPartial(name, contents));
+	      });
 	    });
 	  },
 	  registerTemplates: function registerTemplates() {
@@ -5823,18 +5828,20 @@
 	  load: function load(url) {
 	    var _this2 = this;
 	
+	    console.log('LOAD', this);
 	    if (this.cache[url]) {
 	      return this.cache[url];
 	    }
 	
 	    return new Promise(function (resolve, reject) {
 	      $.get(url, function (contents) {
-	        _this2.cache[url] = Handlebars.compile(contents);
+	        _this2.cache[url] = Promise.resolve(Handlebars.compile(contents));
 	        resolve(_this2.cache[url]);
 	      });
 	    });
 	  },
 	  reload: function reload(url) {
+	    console.log('RELOAD', this);
 	    return new Promise(function (resolve, reject) {
 	      $.get(url, function (contents) {
 	        resolve(Handlebars.compile(contents));
@@ -6206,8 +6213,7 @@
 	module.exports = {
 	  templates: {
 	    header: '../../views/templates/header.hbs',
-	    project: '../../views/templates/project.hbs',
-	    thumbnails: '../../views/templates/thumbnails.hbs'
+	    project: '../../views/templates/project.hbs'
 	  },
 	  pages: {
 	    index: '../../views/index.hbs',
@@ -6219,8 +6225,6 @@
 	    header: '../../views/templates/header.hbs'
 	  }, {
 	    project: '../../views/templates/project.hbs'
-	  }, {
-	    thumbnails: '../../views/templates/thumbnails.hbs'
 	  }]
 	};
 

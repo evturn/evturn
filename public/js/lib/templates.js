@@ -2,8 +2,7 @@
 module.exports = {
   templates: {
     header: '../../views/templates/header.hbs',
-    project: '../../views/templates/project.hbs',
-    thumbnails: '../../views/templates/thumbnails.hbs'
+    project: '../../views/templates/project.hbs'
   },
   pages: {
     index: '../../views/index.hbs',
@@ -15,7 +14,5 @@ module.exports = {
       header: '../../views/templates/header.hbs'
     },{
       project: '../../views/templates/project.hbs'
-    },{
-      thumbnails: '../../views/templates/thumbnails.hbs'
   }],
 };

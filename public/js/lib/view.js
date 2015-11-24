@@ -27,13 +27,18 @@ const View = exports = module.exports = {
     return obj;
   },
   getTemplates: function getTemplates(url) {
-    return $.get(url, (contents) => {
-       this.cache[url] = Handlebars.precompile(contents);
+    return new Promise((resolve, reject) => {
+      $.get(url, (contents) => {
+         this.cache[url] = Handlebars.precompile(contents);
+         resolve(this.cache[url]);
+      });
     });
   },
   getPartials: function getPartials(name, url) {
-    return $.get(url, (contents) => {
-       return Handlebars.registerPartial(name, contents);
+    return new Promise((resolve, reject) => {
+      $.get(url, (contents) => {
+         resolve(Handlebars.registerPartial(name, contents));
+      });
     });
   },
   registerTemplates: function registerTemplates() {
@@ -50,16 +55,18 @@ const View = exports = module.exports = {
     }
   },
   load: function load(url) {
+    console.log('LOAD', this);
     if (this.cache[url]) { return this.cache[url]; }
 
     return new Promise((resolve, reject) => {
       $.get(url, (contents) => {
-        this.cache[url] = Handlebars.compile(contents);
+        this.cache[url] = Promise.resolve(Handlebars.compile(contents));
         resolve(this.cache[url]);
       });
     });
   },
   reload: function reload(url) {
+    console.log('RELOAD', this);
     return new Promise((resolve, reject) => {
       $.get(url, (contents) => {
         resolve(Handlebars.compile(contents));

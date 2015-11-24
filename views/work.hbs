@@ -1,4 +1,16 @@
 <div class="project-content">
   {{>project}}
 </div>
-{{>thumbnails}}
+<div class="thumbnail__header">Projects</div>
+<ul class="thumbnails">
+  {{#each projects}}
+    <li class="thumbnail-item">
+      <a href="#work/{{id}}">
+        <div class="image-container">
+          <img class="img-scale" src="{{thumbnail}}">
+          <div class="shadow"></div>
+        </div>
+      </a>
+    </li>
+  {{/each}}
+</ul>
