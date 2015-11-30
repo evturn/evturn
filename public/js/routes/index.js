@@ -1,16 +1,9 @@
 'use strict';
 const Backbone = require('backbone');
-const views = require('./views');
-const View = require('./lib/view');
-const Menu = require('./lib/menu');
-const models = require('./models');
-const ga = require('./lib/web_modules/google-analytics');
+const views = require('../views');
+const models = require('../models');
 
-View.init();
-View.extend(Menu);
-View.extend(Backbone.View.prototype);
-
-const Router = Backbone.Router.extend({
+exports = module.exports = Backbone.Router.extend({
   index: null,
   work: null,
   about: null,
@@ -21,9 +14,6 @@ const Router = Backbone.Router.extend({
     'about': 'match',
     'contact': 'match',
     'work(/:id)': 'project'
-  },
-  initialize() {
-    Menu.init();
   },
   getFragment() {
     return Backbone.history.fragment ? Backbone.history.fragment : 'index';
@@ -66,6 +56,3 @@ const Router = Backbone.Router.extend({
     }
   },
 });
-
-const router = new Router();
-Backbone.history.start();

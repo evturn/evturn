@@ -52,78 +52,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var Backbone = __webpack_require__(3);
-	var views = __webpack_require__(5);
-	var View = __webpack_require__(19);
-	var Menu = __webpack_require__(22);
-	var models = __webpack_require__(23);
-	var ga = __webpack_require__(24);
+	
+	var Router = __webpack_require__(3);
+	var View = __webpack_require__(21);
+	var Menu = __webpack_require__(24);
+	var ga = __webpack_require__(25);
 	
 	View.init();
 	View.extend(Menu);
 	View.extend(Backbone.View.prototype);
 	
-	var Router = Backbone.Router.extend({
-	  index: null,
-	  work: null,
-	  about: null,
-	  contact: null,
-	  isActive: false,
-	  routes: {
-	    '': 'match',
-	    'about': 'match',
-	    'contact': 'match',
-	    'work(/:id)': 'project'
-	  },
-	  initialize: function initialize() {
-	    Menu.init();
-	  },
-	  getFragment: function getFragment() {
-	    return Backbone.history.fragment ? Backbone.history.fragment : 'index';
-	  },
-	  setupLayout: function setupLayout() {
-	    var $body = $('body');
-	    var route = this.getFragment();
-	    var slash = route.indexOf('/');
-	    var name = slash !== -1 ? route.substring(0, slash) : route;
-	
-	    $body.removeClass();
-	    $body.addClass('page-' + name);
-	  },
-	  match: function match() {
-	    var name = this.getFragment();
-	    var view = (function (name) {
-	      return name.charAt(0).toUpperCase() + name.substr(1);
-	    })(name);
-	    var View = views[view];
-	
-	    var instance = this[name];
-	
-	    this.setupLayout();
-	    this.isActive = false;
-	    if (instance === null) {
-	      instance = new View();
-	      return instance;
-	    }
-	    return instance;
-	  },
-	  project: function project(id) {
-	    var projects = models.Projects;
-	    var project = projects.select(id);
-	
-	    this.setupLayout();
-	    if (this.work === null || !this.isActive) {
-	      this.work = new views.Work({ model: project });
-	      this.isActive = true;
-	    } else {
-	      this.work.model = project;
-	      this.work.initialize();
-	    }
-	  }
+	$(document).on('ready', function () {
+	  Menu.init();
+	  new Router();
+	  Backbone.history.start();
 	});
-	
-	var router = new Router();
-	Backbone.history.start();
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
@@ -1589,6 +1532,72 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	var Backbone = __webpack_require__(4);
+	var views = __webpack_require__(6);
+	var models = __webpack_require__(20);
+	
+	exports = module.exports = Backbone.Router.extend({
+	  index: null,
+	  work: null,
+	  about: null,
+	  contact: null,
+	  isActive: false,
+	  routes: {
+	    '': 'match',
+	    'about': 'match',
+	    'contact': 'match',
+	    'work(/:id)': 'project'
+	  },
+	  getFragment: function getFragment() {
+	    return Backbone.history.fragment ? Backbone.history.fragment : 'index';
+	  },
+	  setupLayout: function setupLayout() {
+	    var $body = $('body');
+	    var route = this.getFragment();
+	    var slash = route.indexOf('/');
+	    var name = slash !== -1 ? route.substring(0, slash) : route;
+	
+	    $body.removeClass();
+	    $body.addClass('page-' + name);
+	  },
+	  match: function match() {
+	    var name = this.getFragment();
+	    var view = (function (name) {
+	      return name.charAt(0).toUpperCase() + name.substr(1);
+	    })(name);
+	    var View = views[view];
+	
+	    var instance = this[name];
+	
+	    this.setupLayout();
+	    this.isActive = false;
+	    if (instance === null) {
+	      instance = new View();
+	      return instance;
+	    }
+	    return instance;
+	  },
+	  project: function project(id) {
+	    var projects = models.Projects;
+	    var project = projects.select(id);
+	
+	    this.setupLayout();
+	    if (this.work === null || !this.isActive) {
+	      this.work = new views.Work({ model: project });
+	      this.isActive = true;
+	    } else {
+	      this.work.model = project;
+	      this.work.initialize();
+	    }
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {//     Backbone.js 1.2.3
 	
 	//     (c) 2010-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -1604,7 +1613,7 @@
 	
 	  // Set up Backbone appropriately for the environment. Start with AMD.
 	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(4), __webpack_require__(2), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (_, $, exports) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(5), __webpack_require__(2), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (_, $, exports) {
 	      // Export global even in AMD case in case this script is loaded with
 	      // others that may still expect a global Backbone.
 	      root.Backbone = factory(root, exports, _, $);
@@ -3503,7 +3512,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -5073,22 +5082,22 @@
 	}).call(undefined);
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var Index = module.exports.Index = __webpack_require__(6);
-	var Work = module.exports.Work = __webpack_require__(9);
-	var About = module.exports.About = __webpack_require__(16);
-	var Contact = module.exports.Contact = __webpack_require__(18);
-
-/***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	var Index = module.exports.Index = __webpack_require__(7);
+	var Work = module.exports.Work = __webpack_require__(10);
+	var About = module.exports.About = __webpack_require__(17);
+	var Contact = module.exports.Contact = __webpack_require__(19);
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-	var Video = __webpack_require__(7);
-	var videos = __webpack_require__(8);
+	var Video = __webpack_require__(8);
+	var videos = __webpack_require__(9);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-index',
@@ -5128,7 +5137,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
@@ -5177,25 +5186,25 @@
 	  video.init(element, sources);
 	  return video;
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';
 	module.exports = ['https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1', 'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1', 'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1', 'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1', 'https://www.dropbox.com/s/8tqgae5yuf7x1n7/vid-6.m4v?dl=1', 'https://www.dropbox.com/s/0dk58ha0o191qmx/vid-11.m4v?dl=1', 'https://www.dropbox.com/s/jszss7t0msash80/vid-10.m4v?dl=1', 'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1', 'https://www.dropbox.com/s/dsab5kvchdzvzyp/vid-12.m4v?dl=1', 'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1', 'https://www.dropbox.com/s/a7vmoy155re7drv/vid-18.m4v?dl=1', 'https://www.dropbox.com/s/wloza0nswfwxb9f/vid-14.m4v?dl=1', 'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1', 'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'];
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
 	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 	
-	var Carousel = __webpack_require__(10);
-	var data = __webpack_require__(11);
+	var Carousel = __webpack_require__(11);
+	var data = __webpack_require__(12);
 	
 	module.exports = Backbone.View.extend({
 	  render: null,
@@ -5248,7 +5257,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
@@ -5330,21 +5339,21 @@
 	  carousel.init(images);
 	  return carousel;
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	module.exports.videos = __webpack_require__(8);
-	module.exports.links = __webpack_require__(12);
-	module.exports.stats = __webpack_require__(13);
-	module.exports.tech = __webpack_require__(14);
-	module.exports.projects = __webpack_require__(15);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(5)))
 
 /***/ },
 /* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	module.exports.videos = __webpack_require__(9);
+	module.exports.links = __webpack_require__(13);
+	module.exports.stats = __webpack_require__(14);
+	module.exports.tech = __webpack_require__(15);
+	module.exports.projects = __webpack_require__(16);
+
+/***/ },
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5371,7 +5380,7 @@
 	}];
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5390,7 +5399,7 @@
 	}];
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5522,7 +5531,7 @@
 	}];
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5622,12 +5631,12 @@
 	}];
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
-	var data = __webpack_require__(11);
-	var StatCounter = __webpack_require__(17);
+	var data = __webpack_require__(12);
+	var StatCounter = __webpack_require__(18);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-about',
@@ -5643,10 +5652,10 @@
 	    });
 	  }
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
@@ -5692,14 +5701,14 @@
 	  statCounter.init();
 	  return statCounter;
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(5)))
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var data = __webpack_require__(11);
+	var data = __webpack_require__(12);
 	
 	module.exports = Backbone.View.extend({
 	  el: '.page-contact',
@@ -5715,15 +5724,45 @@
 	});
 
 /***/ },
-/* 19 */
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
+	var data = __webpack_require__(12);
+	var projects = _.where(data.projects, { featured: true });
+	
+	var Model = module.exports.Model = Backbone.Model.extend({
+	  populate: function populate() {
+	    var tech = [];
+	
+	    this.get('technologies').forEach(function (id) {
+	      tech.push(_.findWhere(data.tech, { id: id }));
+	    });
+	    this.set('tech', tech);
+	    return [this.toJSON(), projects];
+	  }
+	});
+	
+	var Collection = module.exports.Collection = Backbone.Collection.extend({
+	  model: Model,
+	  select: function select(id) {
+	    return this.get(id) || this.get(4);
+	  }
+	});
+	
+	var Projects = module.exports.Projects = new Collection(projects);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($, _) {'use strict';
 	
 	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 	
-	var Handlebars = __webpack_require__(20);
-	var paths = __webpack_require__(21);
+	var Handlebars = __webpack_require__(22);
+	var paths = __webpack_require__(23);
 	
 	var View = exports = module.exports = {
 	  cache: [],
@@ -5818,10 +5857,10 @@
 	    });
 	  }
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(5)))
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -6175,7 +6214,7 @@
 	.replace(/\u2029/g,'\\u2029') + '"';},objectLiteral:function objectLiteral(obj){var pairs=[];for(var key in obj) {if(obj.hasOwnProperty(key)){var value=castChunk(obj[key],this);if(value !== 'undefined'){pairs.push([this.quotedString(key),':',value]);}}}var ret=this.generateList(pairs);ret.prepend('{');ret.add('}');return ret;},generateList:function generateList(entries){var ret=this.empty();for(var i=0,len=entries.length;i < len;i++) {if(i){ret.add(',');}ret.add(castChunk(entries[i],this));}return ret;},generateArray:function generateArray(entries){var ret=this.generateList(entries);ret.prepend('[');ret.add(']');return ret;}};exports['default'] = CodeGen;module.exports = exports['default']; /***/} /******/]));});; /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/ /***/
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6198,7 +6237,7 @@
 	};
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -6251,37 +6290,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
-	var data = __webpack_require__(11);
-	var projects = _.where(data.projects, { featured: true });
-	
-	var Model = module.exports.Model = Backbone.Model.extend({
-	  populate: function populate() {
-	    var tech = [];
-	
-	    this.get('technologies').forEach(function (id) {
-	      tech.push(_.findWhere(data.tech, { id: id }));
-	    });
-	    this.set('tech', tech);
-	    return [this.toJSON(), projects];
-	  }
-	});
-	
-	var Collection = module.exports.Collection = Backbone.Collection.extend({
-	  model: Model,
-	  select: function select(id) {
-	    return this.get(id) || this.get(4);
-	  }
-	});
-	
-	var Projects = module.exports.Projects = new Collection(projects);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';

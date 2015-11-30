@@ -4,9 +4,7 @@
   "description": "A website about me for you.",
   "main": "gulpfile.js",
   "scripts": {
-    "prestart": "webpack --watch &",
-    "start": "gulp gulp:watch &",
-    "poststart": "gulp browser:init"
+    "watch": "gulp"
   },
   "repository": {
     "type": "git",
