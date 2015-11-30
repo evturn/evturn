@@ -59,7 +59,8 @@ module.exports = {
     new BrowserSyncPlugin({
       server: {
         baseDir: './',
-        logConnections: true
+        logConnections: true,
+        open: false
       },
       get: 'ev-dev'
     }),

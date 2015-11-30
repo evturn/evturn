@@ -8,51 +8,58 @@ const config = require('./public/gulp.config');
 const opts = config.opts;
 const paths = config.paths;
 
-////
-// `$ npm run watch`
-////////////////////////
-gulp.task('watch', ['browserSync', 'webpack:watch', 'gulp:watch']);
+ /**
+ *
+ * default
+ *
+ */
 
-////
-// Gulp Watch
-////////////////////////
-gulp.task('gulp:watch', () => {
+gulp.task('default', ['browserSync:init', 'webpack:watch', 'watch']);
+
+ /**
+ *
+ * watch
+ *
+ */
+
+gulp.task('watch', () => {
   gulp.watch(paths.less.watch, ['run:less']);
   gulp.watch(paths.eslint.src, ['eslint']);
   gulp.watch(paths.js.src, ['browser:reload']);
   gulp.watch(paths.views.src, ['browser:reload']);
 });
 
-////
-// Shell Scripts
-////////////////////////
+ /**
+ *
+ * $ webpack --watch
+ *
+ */
+
 gulp.task('webpack:watch',  $.shell.task('webpack --watch &'));
 
-////
-// Browser Sync
-////////////////////////
-gulp.task('browserSync', () => {
-  browserSync.init(opts.browserSync);
-});
+ /**
+ *
+ * BrowserSync
+ *
+ */
 
-gulp.task('browser:init', () => {
-  setTimeout(() => {
-    console.log('Browser Sync initialized');
-    browserSync.init(opts.browserSync);
-  }, 9000); // Timeout allows webpack to finish initial bundle
+gulp.task('browserSync:init', () => {
+  browserSync.init(opts.browserSync);
 });
 
 gulp.task('browser:reload', () => {
   browserSync.reload();
 });
 
-////
-// LESS
-//////////////////////
-const cb = () => { console.log('Finished with that.'); };
-gulp.task('run:less', (cb) => {
+ /**
+ *
+ * LESS
+ *
+ */
+
+gulp.task('run:less', (done) => {
   runSequence('less', 'browser:reload', () => {
-    cb();
+    done();
   });
 });
 
@@ -69,9 +76,12 @@ gulp.task('less', () => {
     .pipe(gulp.dest(paths.dest.css)).on('error', gutil.log);
 });
 
-////
-// ESLint
-//////////////////////
+ /**
+ *
+ * ESLint
+ *
+ */
+
 gulp.task('eslint', () => {
   return gulp.src(paths.eslint.src)
     .pipe($.plumber(opts.plumber))
@@ -81,9 +91,12 @@ gulp.task('eslint', () => {
     .pipe($.notify(opts.notify.eslint));
 });
 
-////
-// Imagemin
-//////////////////////
+ /**
+ *
+ * Imagemin
+ *
+ */
+
 gulp.task('img', ['img:site', 'img:apps']);
 
 gulp.task('img:site', () => {
