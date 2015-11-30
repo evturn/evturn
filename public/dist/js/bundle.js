@@ -5598,7 +5598,7 @@
 	  thumbnail: "public/dist/img/apps/bots-tn.png",
 	  images: [{ image: 'public/dist/img/apps/bots-1.png' }, { image: 'public/dist/img/apps/bots-2.png' }],
 	  featured: true,
-	  technologies: [1, 14, 12, 11, 3]
+	  technologies: [1, 14, 12, 11]
 	}, {
 	  name: 'Pique',
 	  description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
