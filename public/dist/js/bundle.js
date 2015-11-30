@@ -96,6 +96,7 @@
 	      return name.charAt(0).toUpperCase() + name.substr(1);
 	    })(name);
 	    var View = views[view];
+	
 	    var instance = this[name];
 	
 	    this.setupLayout();

@@ -46,7 +46,9 @@ module.exports.paths = {
 module.exports.opts = {
   browserSync: {
     server: {
-      baseDir: './'
+      baseDir: './',
+      logConnections: true,
+      open: false
     }
   },
   babel: {

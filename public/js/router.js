@@ -41,6 +41,7 @@ const Router = Backbone.Router.extend({
     const name = this.getFragment();
     const view = (name) => { return name.charAt(0).toUpperCase() + name.substr(1); }(name);
     const View = views[view];
+
     let instance = this[name];
 
     this.setupLayout();

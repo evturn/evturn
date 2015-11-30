@@ -2,7 +2,7 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const $ = require('gulp-load-plugins')();
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create('ev-dev');
 const runSequence = require('run-sequence');
 const config = require('./public/gulp.config');
 const opts = config.opts;
@@ -11,15 +11,15 @@ const paths = config.paths;
 ////
 // `$ npm run watch`
 ////////////////////////
-gulp.task('watch', ['webpack:watch', 'gulp:watch', 'browser:init']);
+gulp.task('watch', ['browserSync', 'webpack:watch', 'gulp:watch']);
 
 ////
 // Gulp Watch
 ////////////////////////
 gulp.task('gulp:watch', () => {
-  gulp.watch(paths.js.src, ['browser:reload']),
   gulp.watch(paths.less.watch, ['run:less']);
   gulp.watch(paths.eslint.src, ['eslint']);
+  gulp.watch(paths.js.src, ['browser:reload']);
   gulp.watch(paths.views.src, ['browser:reload']);
 });
 
