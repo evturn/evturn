@@ -1,5 +1,5 @@
 'use strict';
-const videos = [
+export default [
   'https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1',
   'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1',
   'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1',
@@ -15,5 +15,3 @@ const videos = [
   'https://www.dropbox.com/s/7y7zkt6a9ty7ebr/vid-17.m4v?dl=1',
   'https://www.dropbox.com/s/ogq5n2az7o8ooxp/vid-2.m4v?dl=1'
 ];
-
-export { videos };
