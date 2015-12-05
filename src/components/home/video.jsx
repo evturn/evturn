@@ -3,7 +3,7 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import sources from '../models/videos';
+import sources from '../../models/videos';
 
 class Video extends React.Component {
   init() {
