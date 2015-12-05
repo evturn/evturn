@@ -3,14 +3,13 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
+import { Links } from './links';
+import { links } from '../../models/links';
 
 export const Contact = React.createClass({
   render() {
     return (
-      <div className="site-headline">
-        <h3 className="site-headline__name">Evan Turner</h3>
-        <h3 className="site-headline__desc">Web Developer</h3>
-      </div>
+      <Links contacts={ links } />
     );
   }
 });

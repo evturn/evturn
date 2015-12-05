@@ -1,5 +1,5 @@
 'use strict';
-module.exports = [
+export const links = [
   {
     name: 'email',
     url: 'mailto:evturn@gmail.com',

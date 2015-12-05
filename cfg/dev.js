@@ -25,6 +25,7 @@ const config = _.merge({
     }),
     new WebpackNotifierPlugin(),
     new webpack.ProvidePlugin({
+      React: 'react',
       _: 'underscore',
       jQuery: 'jquery',
       $: 'jquery'
