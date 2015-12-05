@@ -5,16 +5,13 @@ import { Home } from './home/Home';
 import { Work } from './work/Work';
 import { Contact } from './contact/Contact';
 import { About } from './about/About';
-import { Menu } from './layouts/menu';
+import { Header } from './layouts/Header';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <div className="nav-overlay"></div>
-        <header id="site-header" className="site-header">
-          <Menu />
-        </header>
+      <div className="site-container">
+        <Header />
         <div id="site-content" className="site-content">
           { this.props.children }
         </div>
