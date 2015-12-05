@@ -28,7 +28,7 @@ export const Links = React.createClass({
           <ul className="link-items list-icons">
             {
               this.props.contacts.map((result) => {
-                return <Link key={ result.id } data={ result } />;
+                return <Link key={ result.name } data={ result } />;
               })
             }
           </ul>
