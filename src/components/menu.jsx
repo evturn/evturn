@@ -3,11 +3,35 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
+import $ from 'jquery';
 
 class Menu extends React.Component {
+  init() {
+    this.$body = $('body');
+    this.$siteHeader = $('.site-header');
+    this.$navTrigger = $('.site-nav__trigger');
+    this.$navOverlay = $('.nav-overlay');
+    this.$menuClose = $('.site-menu__close, .site-menu__item a');
+    this.$menu = $('.site-menu');
+
+    this.$navTrigger.on('click', () => this.setNavOpen());
+    this.$menuClose.on('click', () => this.setNavClosed());
+    this.$navOverlay.on('click', () => this.setNavClosed());
+  }
+  setNavOpen() {
+    this.$menu.addClass('open');
+    this.$body.addClass('nav-is-opened');
+  }
+  setNavClosed() {
+    this.$menu.removeClass('open');
+    this.$body.removeClass('nav-is-opened');
+  }
+  componentDidMount() {
+    this.init();
+  }
   render() {
     return (
-      <div>
+      <div ref={(menu) => this.menu = menu}>
         <div className="site-logo">
           <img className="site-logo__image img-scale" src="../images/site/ev-av.png" />
         </div>
