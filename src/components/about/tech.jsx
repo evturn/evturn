@@ -7,8 +7,8 @@ import { tech } from '../../models/tech';
 
 /**
  * Helper
- * Return technologies where { featured: true }
  *
+ * Return technologies where { featured: true }
  */
 
 const getFeatured = (tech) => {
@@ -22,8 +22,8 @@ const getFeatured = (tech) => {
 
 /**
  * Child
- * Technology Item
  *
+ * Technology Item
  */
 
 const TechItem = React.createClass({
@@ -43,8 +43,8 @@ const TechItem = React.createClass({
 
 /**
  * Parent
- * Technologies
  *
+ * Technologies
  */
 
 export const Tech = React.createClass({

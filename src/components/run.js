@@ -1,14 +1,28 @@
+'use strict';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, RouteHandler, IndexRoute, History } from 'react-router';
-import { createHistory, useBasename } from 'history'
+import { Router, Route, IndexRoute, History } from 'react-router';
+import { createHistory } from 'history'
 import { Home } from './home/Home';
 import { Work, Project } from './work/Work';
 import { Contact } from './contact/Contact';
 import { About } from './about/About';
 import { Header } from './layouts/Header';
 
+/**
+ * App DOM element
+ *
+ */
+
 const el = document.getElementById('site-container');
+
+/**
+ * Helper
+ *
+ * Each route passes its location to the App
+ * and the parent element's class is updated.
+ */
 
 const updateLayout = (location) => {
   const { pathname } = location;
