@@ -8,6 +8,8 @@ import { links } from '../../models/links';
 
 export const Contact = React.createClass({
   render() {
+    const { pathname } = this.props.location;
+
     return (
       <Links contacts={ links } />
     );
