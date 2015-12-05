@@ -8,11 +8,14 @@ import { Contact } from './contact/Contact';
 import { About } from './about/About';
 import { Header } from './layouts/Header';
 
+const el = document.getElementById('site-container');
+
 const App = React.createClass({
   render() {
     const { pathname } = this.props.location;
     const key = pathname.split('/')[1] || 'index';
-    document.querySelector('body').classList.add(`page-${key}`);
+    el.removeAttribute('class');
+    el.classList.add(`page-${key}`);
 
     return (
       <div className="site-container">
