@@ -4,7 +4,7 @@ require('styles/style.less');
 
 import React from 'react';
 
-const About = React.createClass({
+export const About = React.createClass({
   render() {
     return (
       <div className="site-headline">
@@ -14,5 +14,3 @@ const About = React.createClass({
     );
   }
 });
-
-export { About };

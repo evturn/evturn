@@ -25,7 +25,7 @@ const Nav = React.createClass({
   }
 });
 
-const Header = React.createClass({
+export const Header = React.createClass({
   init() {
     this.$body = $('body');
     this.$siteHeader = $('.site-header');
@@ -68,5 +68,3 @@ const Header = React.createClass({
     );
   }
 });
-
-export { Header }

@@ -4,7 +4,7 @@ require('styles/style.less');
 
 import React from 'react';
 
-const Contact = React.createClass({
+export const Contact = React.createClass({
   render() {
     return (
       <div className="site-headline">
@@ -14,5 +14,3 @@ const Contact = React.createClass({
     );
   }
 });
-
-export { Contact };

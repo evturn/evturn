@@ -5,7 +5,7 @@ require('styles/style.less');
 import React from 'react';
 import sources from '../../models/videos';
 
-class Video extends React.Component {
+export const Video = React.createClass({
   init() {
     this.video.type = 'video/mp4';
     this.video.muted = true;
@@ -17,7 +17,7 @@ class Video extends React.Component {
     this.current = 0;
     this.playlist = sources;
     this.start();
-  }
+  },
   start() {
     const isLastVideo = !!(this.current === this.last);
     const isInitialized = this.initialized;
@@ -33,10 +33,10 @@ class Video extends React.Component {
     this.video.src = this.playlist[this.current];
     this.video.play;
     this.video.playbackRate = 0.5;
-  }
+  },
   componentDidMount() {
     this.init();
-  }
+  },
   render() {
     return (
       <video
@@ -46,21 +46,4 @@ class Video extends React.Component {
       type="video/mp4"></video>
     );
   }
-}
-
-export { Video };
-
-const proto = {
-  init: function init(element, sources) {
-
-  },
-
-};
-
-function Video(element, sources) {
-  const video = {};
-
-  _.extend(video, proto);
-  video.init(element, sources);
-  return video;
-};
+});
