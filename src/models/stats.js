@@ -1,5 +1,5 @@
 'use strict';
-module.exports = [
+export const stats = [
   {
     text: 'Quesadillas Eaten',
     number: 777074,
