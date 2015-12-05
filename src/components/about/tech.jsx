@@ -5,6 +5,12 @@ require('styles/style.less');
 import React from 'react';
 import { tech } from '../../models/tech';
 
+/**
+ * Helper
+ * Return technologies where { featured: true }
+ *
+ */
+
 const getFeatured = (tech) => {
   const featured = [];
 
@@ -13,6 +19,12 @@ const getFeatured = (tech) => {
   }
   return featured;
 };
+
+/**
+ * Child
+ * Technology Item
+ *
+ */
 
 const TechItem = React.createClass({
   render() {
@@ -28,6 +40,12 @@ const TechItem = React.createClass({
     );
   }
 });
+
+/**
+ * Parent
+ * Technologies
+ *
+ */
 
 export const Tech = React.createClass({
   render() {

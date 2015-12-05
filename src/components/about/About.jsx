@@ -7,10 +7,6 @@ import { Bio } from './bio';
 import { Tech } from './tech';
 import { Stats } from './stats';
 
-
-
-
-
 export const About = React.createClass({
   render() {
     const { pathname } = this.props.location;

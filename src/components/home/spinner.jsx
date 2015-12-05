@@ -5,17 +5,17 @@ require('styles/style.less');
 import React from 'react';
 import $ from 'jquery';
 
-class Spinner extends React.Component {
+export const Spinner = React.createClass({
   spin() {
     const $container = $('#preloader');
     const $image = $('.preloader');
 
     $container.delay(500).fadeOut();
     $image.delay(600).fadeOut(600);
-  }
+  },
   componentDidMount() {
     this.spin();
-  }
+  },
   render() {
     return (
       <div id="preloader" ref={(spinner) => this.spinner = spinner}>
@@ -24,6 +24,4 @@ class Spinner extends React.Component {
       </div>
     );
   }
-}
-
-export { Spinner }
+});
