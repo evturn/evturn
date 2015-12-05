@@ -1,5 +1,5 @@
 'use strict';
-module.exports = [
+export const tech = [
   {
     technology: 'Node.js',
     icon: 'devicon-nodejs-plain',
