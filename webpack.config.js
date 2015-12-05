@@ -1,73 +1,48 @@
-"use strict";
-const webpack = require('webpack');
+'use strict';
+'use strict';
 const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const args = require('minimist')(process.argv.slice(2));
 
-module.exports = {
-  context: __dirname,
-  entry: [
-    './public/js/index.js'
-    ],
-  output: {
-      path: 'public/dist/js/',
-      filename: 'bundle.js',
-      publicPath: '/public/dist/js/'
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      },{
-        test: /\.hbs$/,
-        loader:'handlebars-loader'
-      }
-    ]
-  },
-  resolve: {
-    root: [
-      'web_modules',
-      'node_modules',
-      'views',
-      'templates',
-      'models',
-      'lib'
-    ],
-    moduleDirectories: [
-      'web_modules',
-      'node_modules',
-      'views',
-      'templates',
-      'models',
-      'lib'
-    ],
-    extension: [
-      '.js'
-    ],
-    alias: {
-      router: 'router',
-      jquery: 'jquery',
-      underscore: 'underscore',
-      Backbone: 'backbone'
-    }
-  },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
-  },
-  plugins: [
-    new BrowserSyncPlugin({
-      server: {
-        baseDir: './',
-        logConnections: true,
-        open: false
-      },
-      get: 'ev-dev'
-    }),
-    new webpack.ProvidePlugin({
-      _: 'underscore',
-      jQuery: 'jquery',
-      $: 'jquery'
-    })
-  ],
-  devtool: 'source-map'
+// List of allowed environments
+const allowedEnvs = ['dev', 'dist', 'test'];
+
+// Set the correct environment
+let env;
+if(args._.length > 0 && args._.indexOf('start') !== -1) {
+  env = 'test';
+} else if (args.env) {
+  env = args.env;
+} else {
+  env = 'dev';
+}
+process.env.REACT_WEBPACK_ENV = env;
+
+// Get available configurations
+const configs = {
+  base: require(path.join(__dirname, 'cfg/base')),
+  dev: require(path.join(__dirname, 'cfg/dev')),
+  dist: require(path.join(__dirname, 'cfg/dist')),
+  test: require(path.join(__dirname, 'cfg/test'))
 };
+
+/**
+ * Get an allowed environment
+ * @param  {String}  env
+ * @return {String}
+ */
+function getValidEnv(env) {
+  const isValid = env && env.length > 0 && allowedEnvs.indexOf(env) !== -1;
+  return isValid ? env : 'dev';
+}
+
+/**
+ * Build the webpack configuration
+ * @param  {String} env Environment to use
+ * @return {Object} Webpack config
+ */
+function buildConfig(env) {
+  const usedEnv = getValidEnv(env);
+  return configs[usedEnv];
+}
+
+module.exports = buildConfig(env);

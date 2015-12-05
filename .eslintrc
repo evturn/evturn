@@ -1,33 +1,33 @@
 {
-  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
   "ecmaFeatures": {
-      "arrowFunctions": true,
-      "blockBindings": true,
-      "commonjs": true,
-      "defaultParams": true,
-      "destructuring": true,
-      "es6": true,
-      "forOf": true,
-      "objectLiteralComputedProperties": true,
-      "objectLiteralShorthandMethods": true,
-      "objectLiteralShorthandProperties": true,
-      "restParams": true,
-      "spread": true,
-      "templateStrings": true
-  },
-  "rules": {
-      "eqeqeq": 1,
-      "semi": 2,
-      "curly": [2, "all"],
-      "quotes": [0, "single"]
+    "jsx": true,
+    "modules": true
   },
   "env": {
-      "browser": true,
-      "node": true
+    "browser": true,
+    "amd": true,
+    "es6": true,
+    "node": true
   },
-  "globals":{
-      "jQuery": true,
-      "$": true,
-      "_": true
+  "rules": {
+    "comma-dangle": 1,
+    "eqeqeq": 1,
+    "global-strict": 0,
+    "no-console": 1,
+    "no-extra-semi": 1,
+    "no-trailing-spaces": [1, { "skipBlankLines": true }],
+    "no-undef": 1,
+    "no-underscore-dangle": 0,
+    "no-unreachable": 1,
+    "semi": 2,
+    "quotes": [1, "single"]
+  }
+  "globals": {
+    "jQuery": true,
+    "$": true,
+    "_": true
   }
 }
