@@ -10,12 +10,17 @@ import { Header } from './layouts/Header';
 
 const el = document.getElementById('site-container');
 
+const updateLayout = (location) => {
+  const { pathname } = location;
+  const key = pathname.split('/')[1] || 'index';
+
+  el.removeAttribute('class');
+  el.classList.add(`page-${key}`);
+};
+
 const App = React.createClass({
   render() {
-    const { pathname } = this.props.location;
-    const key = pathname.split('/')[1] || 'index';
-    el.removeAttribute('class');
-    el.classList.add(`page-${key}`);
+    updateLayout(this.props.location);
 
     return (
       <div className="site-container">
@@ -40,4 +45,4 @@ ReactDOM.render((
       <Route path="contact" component={ Contact } />
     </Route>
   </Router>
-), document.getElementById('site-container'));
+), el);
