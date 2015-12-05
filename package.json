@@ -74,15 +74,16 @@
   },
   "dependencies": {
     "@evturn/proto": "^0.1.1",
-    "backbone": "^1.2.3",
+    "font-awesome": "^4.3.0",
     "fs": "0.0.2",
-    "handlebars-loader": "^1.1.4",
+    "history": "^1.13.1",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-router": "^1.0.0",
     "underscore": "^1.8.3"
   }
 }
