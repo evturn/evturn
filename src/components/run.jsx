@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, History } from 'react-router';
 import { createHistory } from 'history'
 import { Home } from './home/Home';
-import { Work, Project } from './work/Work';
+import { Work } from './work/Work';
+import { Project } from './work/project';
 import { Contact } from './contact/Contact';
 import { About } from './about/About';
 import { Header } from './layouts/Header';

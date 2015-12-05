@@ -1,5 +1,5 @@
 'use strict';
-module.exports = [
+export const projects = [
   {
     name: 'Made In Music',
     description: "This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.",
