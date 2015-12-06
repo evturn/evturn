@@ -6,11 +6,12 @@ import React from 'react';
 
 const ProjectLink = React.createClass({
   render() {
+    const { url, icon } = this.props.link;
     return (
       <li className="project-links__item list-item-icon">
         <div className="list-item-icon__icon">
-          <a href={ this.props.url } target="_blank">
-            <span className={ `icon fa  ${this.props.icon} `}></span>
+          <a href={ url } target="_blank">
+            <span className={ `icon fa  ${icon} `}></span>
           </a>
         </div>
       </li>
