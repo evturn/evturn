@@ -8,12 +8,10 @@ import { ProjectDetails } from './details';
 
 export const Project = React.createClass({
   render() {
-    const { projectId } = this.props.params;
-
     return (
       <div className="project-content">
-        <Carousel />
-        <ProjectDetails />
+        <Carousel images={ this.props.project.images }/>
+        <ProjectDetails project={ this.props.project } />
       </div>
     );
   }

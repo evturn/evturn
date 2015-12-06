@@ -10,7 +10,7 @@ export const Carousel = React.createClass({
     this.$images = $('.carousel__item-image');
     this.counter = null;
     this.images = this.props.images;
-    this.total = images.length;
+    this.total = this.images.length;
 
     if (this.total === 1) { return this.lock(); }
 

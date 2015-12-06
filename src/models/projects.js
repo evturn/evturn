@@ -7,11 +7,11 @@ export const projects = [
     links: true,
     url: 'http://madeinmusic.co',
     repo: 'https://github.com/evturn/madeinmusic.co',
-    thumbnail: "public/dist/img/apps/mim-tn.png",
+    thumbnail: "../images/apps/mim-tn.png",
     images: [
-      {image: 'public/dist/img/apps/mim-1.png'},
-      {image: 'public/dist/img/apps/mim-2.png'},
-      {image: 'public/dist/img/apps/mim-3.png'}
+      {image: '../images/apps/mim-1.png'},
+      {image: '../images/apps/mim-2.png'},
+      {image: '../images/apps/mim-3.png'}
     ],
     featured: true,
     technologies: [1, 3, 14, 12, 10, 11, 15, 20]
@@ -22,12 +22,12 @@ export const projects = [
     links: true,
     url: 'http://marshallz.com',
     repo: 'https://github.com/evturn/marshallz',
-    thumbnail: 'public/dist/img/apps/marshallz-tn.png',
+    thumbnail: '../images/apps/marshallz-tn.png',
     images: [
-      {image: 'public/dist/img/apps/marshallz-1.png'},
-      {image: 'public/dist/img/apps/marshallz-2.png'},
-      {image: 'public/dist/img/apps/marshallz-3.png'},
-      {image: 'public/dist/img/apps/marshallz-4.png'}
+      {image: '../images/apps/marshallz-1.png'},
+      {image: '../images/apps/marshallz-2.png'},
+      {image: '../images/apps/marshallz-3.png'},
+      {image: '../images/apps/marshallz-4.png'}
     ],
     featured: true,
     technologies: [1, 14, 12, 15, 10, 18, 19, 20]
@@ -38,11 +38,11 @@ export const projects = [
     links: true,
     url: 'http://drivepublishing.com',
     repo: 'https://github.com/drivepublishing/drivepublishing.github.io',
-    thumbnail: "public/dist/img/apps/drive-tn.png",
+    thumbnail: "../images/apps/drive-tn.png",
     images: [
-      {image: 'public/dist/img/apps/drive-1.png'},
-      {image: 'public/dist/img/apps/drive-2.png'},
-      {image: 'public/dist/img/apps/drive-3.png'}
+      {image: '../images/apps/drive-1.png'},
+      {image: '../images/apps/drive-2.png'},
+      {image: '../images/apps/drive-3.png'}
     ],
     featured: true,
     technologies: [13, 11, 14, 20]
@@ -52,10 +52,10 @@ export const projects = [
     id: 9,
     links: true,
     url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-    thumbnail: "public/dist/img/apps/bfs-tn.jpg",
+    thumbnail: "../images/apps/bfs-tn.jpg",
     images: [
-      {image: 'public/dist/img/apps/bfs-1.png'},
-      {image: 'public/dist/img/apps/bfs-2.png'}
+      {image: '../images/apps/bfs-1.png'},
+      {image: '../images/apps/bfs-2.png'}
     ],
     featured: true,
     technologies: [21, 13]
@@ -66,11 +66,11 @@ export const projects = [
     links: true,
     url: 'http://ramenbuffet.com',
     repo: 'https://github.com/evturn/ramen-buffet',
-    thumbnail: "public/dist/img/apps/rb-tn.png",
+    thumbnail: "../images/apps/rb-tn.png",
     images: [
-      {image: 'public/dist/img/apps/ramen-buffet-1.png'},
-      {image: 'public/dist/img/apps/ramen-buffet-2.png'},
-      {image: 'public/dist/img/apps/ramen-buffet-3.png'}
+      {image: '../images/apps/ramen-buffet-1.png'},
+      {image: '../images/apps/ramen-buffet-2.png'},
+      {image: '../images/apps/ramen-buffet-3.png'}
     ],
     featured: true,
     technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
@@ -80,10 +80,10 @@ export const projects = [
     id: 11,
     links: true,
     repo: 'https://github.com/faquet/bots/tree/api-init',
-    thumbnail: "public/dist/img/apps/bots-tn.png",
+    thumbnail: "../images/apps/bots-tn.png",
     images: [
-      {image: 'public/dist/img/apps/bots-1.png'},
-      {image: 'public/dist/img/apps/bots-2.png'}
+      {image: '../images/apps/bots-1.png'},
+      {image: '../images/apps/bots-2.png'}
     ],
     featured: true,
     technologies: [1, 14, 12, 11]
@@ -93,12 +93,12 @@ export const projects = [
     id: 3,
     links: true,
     repo: 'https://github.com/piqueapp/piqueapp.github.io',
-    thumbnail: "public/dist/img/apps/pique-tn.png",
+    thumbnail: "../images/apps/pique-tn.png",
     images: [
-      {image: 'public/dist/img/apps/pique-1.jpg'},
-      {image: 'public/dist/img/apps/pique-2.png'},
-      {image: 'public/dist/img/apps/pique-3.png'},
-      {image: 'public/dist/img/apps/pique-4.png'}
+      {image: '../images/apps/pique-1.jpg'},
+      {image: '../images/apps/pique-2.png'},
+      {image: '../images/apps/pique-3.png'},
+      {image: '../images/apps/pique-4.png'}
     ],
     featured: true,
     technologies : [16, 17, 11]
@@ -107,12 +107,12 @@ export const projects = [
     description: "User add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
     id: 5,
     links: true,
-    thumbnail: "public/dist/img/apps/alculator-tn.png",
+    thumbnail: "../images/apps/alculator-tn.png",
     images: [
-      {image: 'public/dist/img/apps/alculator-2.png'},
-      {image: 'public/dist/img/apps/alculator-3.png'},
-      {image: 'public/dist/img/apps/alculator-1.png'},
-      {image: 'public/dist/img/apps/alculator-4.png'}
+      {image: '../images/apps/alculator-2.png'},
+      {image: '../images/apps/alculator-3.png'},
+      {image: '../images/apps/alculator-1.png'},
+      {image: '../images/apps/alculator-4.png'}
     ],
     featured: true,
     technologies: [1, 12, 3, 11]
@@ -122,10 +122,10 @@ export const projects = [
     id: 10,
     links: true,
     repo: 'https://github.com/evturn/WhereTO',
-    thumbnail: "public/dist/img/apps/whereto-tn.png",
+    thumbnail: "../images/apps/whereto-tn.png",
     images: [
-      {image: 'public/dist/img/apps/whereto-2.png'},
-      {image: 'public/dist/img/apps/whereto-1.png'}
+      {image: '../images/apps/whereto-2.png'},
+      {image: '../images/apps/whereto-1.png'}
     ],
     featured: true,
     technologies: [1, 14, 12, 10, 13]
