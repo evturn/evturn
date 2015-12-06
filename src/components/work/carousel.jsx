@@ -9,7 +9,7 @@ export const Carousel = React.createClass({
   init() {
     this.$images = $('.carousel__item-image');
     this.counter = null;
-    this.images = this.props;
+    this.images = this.props.images;
     console.log('CAROUSEL', this.images);
     this.total = this.images.length;
 
@@ -77,7 +77,7 @@ export const Carousel = React.createClass({
             console.log('CAROUSEL RESULT', result);
             return (
               <div
-              ref={ (slide) => this.slide = slide }
+              ref={ (image) => this.image = image }
               key={ result }
               className="carousel__item-image">
                 <img className="img-scale" src={ result } />
