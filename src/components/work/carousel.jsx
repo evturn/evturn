@@ -9,7 +9,8 @@ export const Carousel = React.createClass({
   init() {
     this.$images = $('.carousel__item-image');
     this.counter = null;
-    this.images = this.props.images;
+    this.images = this.props;
+    console.log('CAROUSEL', this.images);
     this.total = this.images.length;
 
     if (this.total === 1) { return this.lock(); }
@@ -68,16 +69,18 @@ export const Carousel = React.createClass({
     this.init();
   },
   render() {
+    console.log(this.props.images);
     return (
       <div className="carousel">
         {
-          this.props.images.map((result) => {
+          this.props.images.forEach((result) => {
+            console.log('CAROUSEL RESULT', result);
             return (
               <div
               ref={ (slide) => this.slide = slide }
-              key={ result.image }
+              key={ result }
               className="carousel__item-image">
-                <img className="img-scale" src={ result.image } />
+                <img className="img-scale" src={ result } />
               </div>
             );
           })

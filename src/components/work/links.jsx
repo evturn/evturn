@@ -10,7 +10,7 @@ const ProjectLink = React.createClass({
       <li className="project-links__item list-item-icon">
         <div className="list-item-icon__icon">
           <a href={ this.props.url } target="_blank">
-            <span className="icon fa fa-link"></span>
+            <span className={ `icon fa  ${this.props.icon} `}></span>
           </a>
         </div>
       </li>
@@ -20,14 +20,21 @@ const ProjectLink = React.createClass({
 
 export const ProjectLinks = React.createClass({
   render() {
-    // this.props.links.url ? <ProjectLink { this.props.links.url } />; : '';
-    // this.props.links.repo ? <ProjectLink { this.props.links.repo } />; : '';
-    console.log(this.props);
+    console.log('LINKS', this.props);
+    const links = this.props.links;
     return (
       <div className="project-links project-info">
         <ul className="project-links__list list-icons">
-          { this.props.links.url }
-          { this.props.links.repo }
+          {
+            links.map((result) => {
+              console.log(result);
+              return (
+
+                <ProjectLink link={ result } />
+
+              );
+            })
+        }
         </ul>
       </div>
     );

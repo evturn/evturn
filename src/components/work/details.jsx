@@ -9,12 +9,13 @@ import { ProjectTech } from './tech';
 
 export const ProjectDetails = React.createClass({
   render() {
-    const { project } = this.props;
+    console.log('DETAILS', this.props);
+    const { description, name, links, technologies } = this.props.project;
     return (
       <div className="project">
-        <ProjectInfo info={ project.description, project.name } />
-        <ProjectLinks links={ project.links, project.repo, project.url } />
-        <ProjectTech tech={ project.technologies } />
+        <ProjectInfo description={ description } name={ name } />
+        <ProjectLinks links={ links } />
+        <ProjectTech tech={ technologies } />
       </div>
     );
   }
