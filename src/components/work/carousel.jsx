@@ -69,11 +69,11 @@ export const Carousel = React.createClass({
     this.init();
   },
   render() {
-    console.log(this.props.images);
+    const { images } = this.props;
     return (
       <div className="carousel">
         {
-          this.props.images.forEach((result) => {
+          images.map((result) => {
             console.log('CAROUSEL RESULT', result);
             return (
               <div
