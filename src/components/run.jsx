@@ -12,19 +12,7 @@ import { About } from './about/About';
 import { Header } from './layouts/Header';
 import { Footer } from './layouts/Footer';
 
-/**
- * App DOM element
- *
- */
-
 const el = document.getElementById('site-container');
-
-/**
- * Helper
- *
- * Each route passes its location to the App
- * and the parent element's class is updated.
- */
 
 const updateLayout = (location) => {
   const { pathname } = location;
@@ -48,8 +36,8 @@ const App = React.createClass({
     })
   },
   render() {
-    updateLayout(this.props.location);
     let Child;
+    updateLayout(this.props.location);
 
     switch (this.state.route) {
       case '/about':   Child = About; break;
@@ -57,6 +45,7 @@ const App = React.createClass({
       case '/work':    Child = Work; break;
       default:         Child = Home;
     }
+
 
     return (
       <div className="site-container">

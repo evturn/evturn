@@ -49,12 +49,13 @@ const TechItem = React.createClass({
 
 export const Tech = React.createClass({
   render() {
+    const featuredTech = getFeatured(tech);
     return (
       <div className="about-tech">
         <div className="about-info__header">Notable Tools</div>
         <ul className="about-tech__list list-icons">
           {
-            getFeatured(tech).map((result) => {
+            featuredTech.map((result) => {
               return <TechItem key={ result.id }  data={ result } />;
             })
           }

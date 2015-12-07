@@ -4,9 +4,10 @@ require('styles/style.less');
 
 import React from 'react';
 import { Link } from 'react-router';
+import { projects } from '../../models/projects';
 
 
-export const Projects = React.createClass({
+export const Thumbnails = React.createClass({
   handleClick() {
     const $webpage = $('html, body');
     const $siteImage = $('.site-logo__image');
@@ -16,7 +17,6 @@ export const Projects = React.createClass({
     setTimeout(() => $siteImage.removeClass('spin'), 740);
   },
   render() {
-    const projects = this.props.projects;
     this.handleClick();
     return (
       <div>

@@ -3,18 +3,18 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import $ from 'jquery';
 
-export const Carousel = React.createClass({
+export const ProjectCarousel = React.createClass({
   init() {
-    this.$images = $('.carousel__item-image');
+    this.timer = null;
     this.counter = null;
+    this.$images = $('.carousel__item-image');
     this.images = this.props.images;
     console.log('CAROUSEL', this.images);
     this.total = this.images.length;
 
     if (this.total === 1) { return this.lock(); }
-
+    clearInterval(this.timer);
     this.cycle();
     this.timer = setInterval(() => this.cycle(), 4000);
   },
@@ -23,9 +23,6 @@ export const Carousel = React.createClass({
 
     $image.addClass('active');
     return this;
-  },
-  reset() {
-    return clearInterval(this.timer);
   },
   cycle() {
     const isActiveLast = !!(this.counter === this.total);
@@ -65,9 +62,11 @@ export const Carousel = React.createClass({
       this.nextImage();
     });
   },
+  componentDidMount() {
+    this.init();
+  },
   render() {
     const { images } = this.props;
-    this.init();
 
     return (
       <div className="carousel">

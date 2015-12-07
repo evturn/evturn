@@ -3,32 +3,22 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import { Carousel } from './carousel';
-import { ProjectDetails } from './details';
-import { projects } from '../../models/projects';
+import { ProjectCarousel } from './project-carousel';
+import { ProjectInfo } from './project-info';
+import { ProjectLinks } from './project-links';
+import { ProjectTech } from './project-tech';
 
-const getProject = (params=4) => {
-  const id = parseInt(params);
-
-  const iterateProjects = (id) => {
-    for (let p of projects) {
-      if (p.id === parseInt(id)) { return p; }
-    }
-  };
-
-  const result = iterateProjects(id);
-  if (result) { return result; }
-  else { return iterateProjects(4); }
-};
 
 export const Project = React.createClass({
   render() {
-    const project = getProject(this.props.id);
+    const { images, description, name, links, technologies } = this.props.project;
 
     return (
       <div className="project-content">
-        <Carousel images={ project.images } />
-        <ProjectDetails project={ project } />
+        <ProjectCarousel images={ images } />
+        <ProjectInfo description={ description } name={ name } />
+        <ProjectLinks links={ links } />
+        <ProjectTech tech={ technologies } />
       </div>
     );
   }
