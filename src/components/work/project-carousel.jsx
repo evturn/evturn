@@ -4,17 +4,18 @@ require('styles/style.less');
 
 import React from 'react';
 
-export const ProjectCarousel = React.createClass({
-  init() {
+const carousel = {
+  init(images) {
+    clearInterval(this.timer);
+    this.images = images;
     this.timer = null;
     this.counter = null;
     this.$images = $('.carousel__item-image');
-    this.images = this.props.images;
     console.log('CAROUSEL', this.images);
     this.total = this.images.length;
 
     if (this.total === 1) { return this.lock(); }
-    clearInterval(this.timer);
+
     this.cycle();
     this.timer = setInterval(() => this.cycle(), 4000);
   },
@@ -61,12 +62,19 @@ export const ProjectCarousel = React.createClass({
       this.$images.removeClass('next');
       this.nextImage();
     });
+  }
+};
+
+export const ProjectCarousel = React.createClass({
+  componentWillMount() {
+    carousel.init(this.props.images);
   },
   componentDidMount() {
-    this.init();
+    carousel.init(this.props.images);
   },
   render() {
     const { images } = this.props;
+    carousel.init(this.props.images);
 
     return (
       <div className="carousel">
