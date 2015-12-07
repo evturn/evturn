@@ -6,7 +6,7 @@ import React from 'react';
 import $ from 'jquery';
 import { IndexLink, Link, History } from 'react-router';
 
-const Nav = React.createClass({
+const HeaderNav = React.createClass({
   mixins: [ History ],
   render() {
     return (
@@ -61,7 +61,7 @@ export const Header = React.createClass({
             <div className="site-nav site-nav__trigger">
               <span className="icon fa fa-bars"></span>
             </div>
-            <Nav />
+            <HeaderNav />
           </div>
         </header>
       </div>

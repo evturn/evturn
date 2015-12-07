@@ -24,19 +24,21 @@ const getTech = (id) => {
 
 export const ProjectTech = React.createClass({
   render() {
-    const techIds = this.props.tech;
+    const techItems = findTechById(this.props.tech);
+
     return (
       <div className="project-tech project-info">
         <div className="project-tech__header project-info__header">Made with</div>
         <ul className="project-tech__list list-icons">
-          { (findTechById(techIds)).map((result) => {
-            return (
-              <li key={ result.id } className="project-tech__item list-item-icon">
-                <div className="project-tech__item-icon list-item-icon__icon"><span className={ `icon ${result.icon}` }></span></div>
-                <div className="project-tech__item-name list-item-icon__caption">{ result.technology }</div>
-              </li>
-            );
-          })}
+          {
+            techItems.map((result) => {
+              return (
+                <li key={ result.id } className="project-tech__item list-item-icon">
+                  <div className="project-tech__item-icon list-item-icon__icon"><span className={ `icon ${result.icon}` }></span></div>
+                  <div className="project-tech__item-name list-item-icon__caption">{ result.technology }</div>
+                </li>
+              );
+            })}
         </ul>
       </div>
     );

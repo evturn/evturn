@@ -6,12 +6,13 @@ import React from 'react';
 
 export const Projects = React.createClass({
   render() {
+    const projects = this.props.projects;
     return (
       <div>
         <div className="thumbnail__header">Projects</div>
         <ul className="thumbnails">
           {
-            (this.props.projects).map((result) => {
+            projects.map((result) => {
               return (
                 <li key={ result.id } className="thumbnail-item">
                   <a href={`work/${ result.id }`}>

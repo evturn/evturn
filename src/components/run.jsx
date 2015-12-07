@@ -34,13 +34,33 @@ const updateLayout = (location) => {
 };
 
 const App = React.createClass({
+  getInitialState() {
+    return {
+      route: window.location.hash.substr(1)
+    }
+  },
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({
+        route: window.location.hash.substr(1)
+      })
+    })
+  },
   render() {
     updateLayout(this.props.location);
+    let Child;
+
+    switch (this.state.route) {
+      case '/about':   Child = About; break;
+      case '/contact': Child = Contact; break;
+      case '/work':    Child = Work; break;
+      default:         Child = Home;
+    }
 
     return (
       <div className="site-container">
         <Header />
-        <div id="site-content" className="site-content">
+        <div className="site-content">
           { this.props.children }
         </div>
         <footer className="site-footer"></footer>
