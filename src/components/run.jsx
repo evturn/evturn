@@ -10,6 +10,7 @@ import { Project } from './work/project';
 import { Contact } from './contact/Contact';
 import { About } from './about/About';
 import { Header } from './layouts/Header';
+import { Footer } from './layouts/Footer';
 
 /**
  * App DOM element
@@ -63,7 +64,7 @@ const App = React.createClass({
         <div className="site-content">
           { this.props.children }
         </div>
-        <footer className="site-footer"></footer>
+        <Footer />
       </div>
     );
   }
