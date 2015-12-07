@@ -139,20 +139,6 @@ export const projects = [
     featured: true,
     technologies : [16, 17, 11]
   }, {
-    name: 'Alculator',
-    description: "User add items to their tab from a bar with an inventory of standard cocktails, wine by the glass or bottle, and beer. The results include the user's blood alcohol level along with a description of that particular level of intoxication.",
-    id: 5,
-    links: null,
-    thumbnail: "../images/apps/alculator-tn.png",
-    images: [
-      '../images/apps/alculator-2.png',
-      '../images/apps/alculator-3.png',
-      '../images/apps/alculator-1.png',
-      '../images/apps/alculator-4.png'
-    ],
-    featured: true,
-    technologies: [1, 12, 3, 11]
-  }, {
     name: 'WhereTO',
     description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
     id: 10,

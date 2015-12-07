@@ -4,90 +4,98 @@ require('styles/style.less');
 
 import React from 'react';
 
-const carousel = {
-  init(images) {
-    clearInterval(this.timer);
-    this.images = images;
-    this.timer = null;
-    this.counter = null;
-    this.$images = $('.carousel__item-image');
-    this.total = this.images.length;
 
-    if (this.total === 1) { return this.lock(); }
+const carousel = function() {
 
-    this.cycle();
-    this.timer = setInterval(() => this.cycle(), 4000);
-  },
-  lock() {
-    const $image = $('.carousel__item-image:nth-child(1)');
+  return function(props) {
+    let counter = 0;
+    let next = 1;
+    const total = props.images.length;
 
-    $image.addClass('active');
-    return this;
-  },
-  cycle() {
-    const isActiveLast = !!(this.counter === this.total);
-    const isNextLast = !!(this.next === this.total);
-    const isInitializing = !!(this.counter === null);
+    const go = {
+      timer: function() {
+        this.interval = setInterval(this.cycle, 4000);
+      },
+      init: function() {
+        clearInterval(this.interval);
+        this.cycle();
+        this.timer();
+      },
+      cycle: function() {
+        const $images = $(document).find('.carousel__item-image');
+        const $active = $('.active');
+        const $next = $('.next');
+        const isActiveLast = !!(counter === total);
+        const isNextLast = !!(next === total);
 
-    if (isInitializing) {
-      this.counter = 1;
-      this.next = 2;
-      return this.nextImage();
-    } else if (isActiveLast) {
-      this.counter = 1;
-      this.next = 2;
-    } else if (isNextLast) {
-      this.counter += 1;
-      this.next = 1;
-    } else {
-      this.counter += 1;
-      this.next = this.counter + 1;
-    }
-    return this.dissolve();
-  },
-  nextImage() {
-    $(`.carousel__item-image:nth-child(${this.counter})`).addClass('active');
-    $(`.carousel__item-image:nth-child(${this.next})`).addClass('next');
-  },
-  dissolve() {
-    const $active = $('.active');
-    const $next = $('.next');
+        if (counter === 0) {
+          counter = 1;
+          next = 2;
+          console.log('First image');
+        } else if (isActiveLast) {
+          counter = 1;
+          next = 2;
+          console.log('Starting Over');
+        } else if (isNextLast) {
+          counter += 1;
+          next = 1;
+          console.log('Next is last image');
+        } else {
+          counter += 1;
+          next = counter + 1;
+          console.log('Increment to ' + counter);
+        }
 
-    $active.fadeTo(1000, 0, () => {
-      this.$images.removeClass('active');
-    });
+        console.log('Currently at ' + counter);
 
-    $next.fadeTo(1000, 1, () => {
-      this.$images.removeClass('next');
-      this.nextImage();
-    });
-  }
+        $active.fadeTo(1000, 0, () => {
+          $images.removeClass('active');
+        });
+
+        $next.fadeTo(1000, 1, () => {
+          $(`#cycle-${counter}`).addClass('active');
+        });
+        console.log((`#cycle-${counter}`));
+        console.log(counter, next, total);
+      }
+    };
+    go.init();
+  };
 };
 
 export const ProjectCarousel = React.createClass({
+  getDefaultProps() {
+    return {
+      images: ['../images/apps/drive-1.png'],
+      counter: 0,
+      total: 0
+    };
+  },
+  getInitialState() {
+    return {
+      images: ['../images/apps/drive-1.png'],
+      counter: 0,
+      total: 0
+    };
+  },
+  carousel: null,
   componentWillReceiveProps() {
-    this.setState(function() {
-      return ({images: this.props.images});
-    });
-    carousel.init(this.props.images);
+    this.carousel = carousel();
   },
   componentDidMount() {
-    this.setState(function() {
-      return ({images: this.props.images});
-    });
-    carousel.init(this.props.images);
+    this.carousel(this.props);
+  },
+  componentWillMount() {
+    this.carousel = carousel();
   },
   render() {
     return (
-      <div className="carousel">
-        {
-          this.props.images.map((result) => {
+      <div className="carousel" >
+
+        { this.props.images.map((result, i) => {
             return (
-              <div
-              ref={ (image) => this.image = image }
-              key={ result }
-              className="carousel__item-image">
-                <img className="img-scale" src={ result } />
+              <div key={ result } className="carousel__item-image" id={`cycle-${this.props.images.length + 1}`} >
+                <img className="img-scale" src={ result } />;
               </div>
             );
           })
