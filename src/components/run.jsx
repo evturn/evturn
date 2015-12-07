@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, History } from 'react-router';
-import { createHistory } from 'history'
+import { history } from 'history'
 import { Home } from './home/Home';
 import { Work } from './work/Work';
 import { Project } from './work/project';
@@ -60,11 +60,11 @@ const App = React.createClass({
 });
 
 ReactDOM.render((
-  <Router>
-    <Route path="/" component={ App }>
+  <Router >
+    <Route path="/" component={ App } >
       <IndexRoute component={ Home } />
-      <Route path="work" component={ Work }>
-        <Route path="projects/:id" component={ Project } />
+      <Route path="work" component={ Work } >
+        <Route path="projects(/:id)" component={ Project } />
       </Route>
       <Route path="about" component={ About } />
       <Route path="contact" component={ Contact } />

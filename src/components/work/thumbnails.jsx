@@ -18,6 +18,7 @@ export const Thumbnails = React.createClass({
   },
   render() {
     this.handleClick();
+
     return (
       <div>
         <div className="thumbnail__header">Projects</div>
