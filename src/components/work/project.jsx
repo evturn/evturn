@@ -9,7 +9,7 @@ import { projects } from '../../models/projects';
 
 const getProject = (id=4) => {
   for (let p of projects) {
-    if (p.id === id) {
+    if (p.id === parseInt(id)) {
       return p;
     }
   }
@@ -17,11 +17,11 @@ const getProject = (id=4) => {
 
 export const Project = React.createClass({
   render() {
-    const project = getProject(4);
-    const images = project.images;
+    const project = getProject(this.props.id);
+
     return (
       <div className="project-content">
-        <Carousel images={ images } />
+        <Carousel images={ project.images } />
         <ProjectDetails project={ project } />
       </div>
     );

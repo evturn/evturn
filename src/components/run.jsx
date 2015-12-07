@@ -75,7 +75,7 @@ ReactDOM.render((
     <Route path="/" component={ App }>
       <IndexRoute component={ Home } />
       <Route path="work" component={ Work }>
-        <Route path="work/:id" component={ Project } />
+        <Route path="projects/:id" component={ Project } />
       </Route>
       <Route path="about" component={ About } />
       <Route path="contact" component={ Contact } />
