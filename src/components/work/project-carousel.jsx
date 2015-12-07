@@ -11,7 +11,6 @@ const carousel = {
     this.timer = null;
     this.counter = null;
     this.$images = $('.carousel__item-image');
-    console.log('CAROUSEL', this.images);
     this.total = this.images.length;
 
     if (this.total === 1) { return this.lock(); }
@@ -66,21 +65,23 @@ const carousel = {
 };
 
 export const ProjectCarousel = React.createClass({
-  componentWillMount() {
+  componentWillReceiveProps() {
+    this.setState(function() {
+      return ({images: this.props.images});
+    });
     carousel.init(this.props.images);
   },
   componentDidMount() {
+    this.setState(function() {
+      return ({images: this.props.images});
+    });
     carousel.init(this.props.images);
   },
   render() {
-    const { images } = this.props;
-    carousel.init(this.props.images);
-
     return (
       <div className="carousel">
         {
-          images.map((result) => {
-            console.log('CAROUSEL RESULT', result);
+          this.props.images.map((result) => {
             return (
               <div
               ref={ (image) => this.image = image }

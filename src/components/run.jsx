@@ -40,10 +40,11 @@ const App = React.createClass({
     updateLayout(this.props.location);
 
     switch (this.state.route) {
-      case '/about':   Child = About; break;
-      case '/contact': Child = Contact; break;
-      case '/work':    Child = Work; break;
-      default:         Child = Home;
+      case '/about':             Child = About; break;
+      case '/contact':           Child = Contact; break;
+      case '/work':              Child = Work; break;
+      case '/work/projects/:id': Child = Project; break;
+      default:                   Child = Home;
     }
 
 

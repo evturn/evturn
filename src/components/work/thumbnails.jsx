@@ -17,8 +17,6 @@ export const Thumbnails = React.createClass({
     setTimeout(() => $siteImage.removeClass('spin'), 740);
   },
   render() {
-    this.handleClick();
-
     return (
       <div>
         <div className="thumbnail__header">Projects</div>
@@ -26,7 +24,10 @@ export const Thumbnails = React.createClass({
           {
             projects.map((result) => {
               return (
-                <li key={ result.id } className="thumbnail-item">
+                <li
+                  key={ result.id }
+                  className="thumbnail-item"
+                  onClick={ this.handleClick } >
                   <Link to={`work/projects/${ result.id }`} hash="#work/projects:id">
                     <div className="image-container">
                       <img className="img-scale" src={ result.thumbnail } />
