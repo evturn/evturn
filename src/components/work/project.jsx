@@ -7,12 +7,18 @@ import { Carousel } from './carousel';
 import { ProjectDetails } from './details';
 import { projects } from '../../models/projects';
 
-const getProject = (id=4) => {
-  for (let p of projects) {
-    if (p.id === parseInt(id)) {
-      return p;
+const getProject = (params=4) => {
+  const id = parseInt(params);
+
+  const iterateProjects = (id) => {
+    for (let p of projects) {
+      if (p.id === parseInt(id)) { return p; }
     }
-  }
+  };
+
+  const result = iterateProjects(id);
+  if (result) { return result; }
+  else { return iterateProjects(4); }
 };
 
 export const Project = React.createClass({

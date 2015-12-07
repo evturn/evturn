@@ -7,6 +7,7 @@ import React from 'react';
 const ProjectLink = React.createClass({
   render() {
     const { url, icon } = this.props.link;
+
     return (
       <li className="project-links__item list-item-icon">
         <div className="list-item-icon__icon">
@@ -23,6 +24,7 @@ export const ProjectLinks = React.createClass({
   render() {
     console.log('LINKS', this.props);
     const links = this.props.links;
+
     return (
       <div className="project-links project-info">
         <ul className="project-links__list list-icons">

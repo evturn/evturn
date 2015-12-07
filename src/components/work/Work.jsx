@@ -11,6 +11,7 @@ import { projects } from '../../models/projects';
 export const Work = React.createClass({
   render() {
     const { pathname } = this.props.location;
+
     return (
       <div>
         <Project id={ this.props.params.id || 4 } />

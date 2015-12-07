@@ -65,11 +65,10 @@ export const Carousel = React.createClass({
       this.nextImage();
     });
   },
-  componentDidMount() {
-    this.init();
-  },
   render() {
     const { images } = this.props;
+    this.init();
+
     return (
       <div className="carousel">
         {
