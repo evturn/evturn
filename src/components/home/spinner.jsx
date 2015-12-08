@@ -3,7 +3,6 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import $ from 'jquery';
 
 export const Spinner = React.createClass({
   spin() {
@@ -20,7 +19,7 @@ export const Spinner = React.createClass({
     return (
       <div id="preloader" ref={(spinner) => this.spinner = spinner}>
         <div id="spinner"></div>
-        <img className="preloader" src="../images/favicon.jpg" />
+        <img className="preloader" src="../assets/images/favicon.jpg" />
       </div>
     );
   }

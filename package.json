@@ -74,6 +74,7 @@
   },
   "dependencies": {
     "@evturn/proto": "^0.1.1",
+    "flux": "^2.1.1",
     "font-awesome": "^4.3.0",
     "fs": "0.0.2",
     "history": "^1.13.1",

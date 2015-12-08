@@ -4,7 +4,7 @@ require('styles/style.less');
 
 import React from 'react';
 import { Link } from 'react-router';
-import { projects } from '../../models/projects';
+import { projects } from 'sources/projects';
 
 
 export const Thumbnails = React.createClass({

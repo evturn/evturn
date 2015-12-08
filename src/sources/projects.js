@@ -13,11 +13,11 @@ export const projects = [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: "../images/apps/mim-tn.png",
+    thumbnail: "../assets/images/apps/mim-tn.png",
     images: [
-      '../images/apps/mim-1.png',
-      '../images/apps/mim-2.png',
-      '../images/apps/mim-3.png'
+      '../assets/images/apps/mim-1.png',
+      '../assets/images/apps/mim-2.png',
+      '../assets/images/apps/mim-3.png'
     ],
     featured: true,
     technologies: [1, 3, 14, 12, 10, 11, 15, 20]
@@ -34,12 +34,12 @@ export const projects = [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: '../images/apps/marshallz-tn.png',
+    thumbnail: '../assets/images/apps/marshallz-tn.png',
     images: [
-      '../images/apps/marshallz-1.png',
-      '../images/apps/marshallz-2.png',
-      '../images/apps/marshallz-3.png',
-      '../images/apps/marshallz-4.png'
+      '../assets/images/apps/marshallz-1.png',
+      '../assets/images/apps/marshallz-2.png',
+      '../assets/images/apps/marshallz-3.png',
+      '../assets/images/apps/marshallz-4.png'
     ],
     featured: true,
     technologies: [1, 14, 12, 15, 10, 18, 19, 20]
@@ -56,11 +56,11 @@ export const projects = [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: "../images/apps/drive-tn.png",
+    thumbnail: "../assets/images/apps/drive-tn.png",
     images: [
-      '../images/apps/drive-1.png',
-      '../images/apps/drive-2.png',
-      '../images/apps/drive-3.png'
+      '../assets/images/apps/drive-1.png',
+      '../assets/images/apps/drive-2.png',
+      '../assets/images/apps/drive-3.png'
     ],
     featured: true,
     technologies: [13, 11, 14, 20]
@@ -74,10 +74,10 @@ export const projects = [
         icon: 'fa fa-link'
       }
     ],
-    thumbnail: "../images/apps/bfs-tn.jpg",
+    thumbnail: "../assets/images/apps/bfs-tn.jpg",
     images: [
-      '../images/apps/bfs-1.png',
-      '../images/apps/bfs-2.png'
+      '../assets/images/apps/bfs-1.png',
+      '../assets/images/apps/bfs-2.png'
     ],
     featured: true,
     technologies: [21, 13]
@@ -94,11 +94,11 @@ export const projects = [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: "../images/apps/rb-tn.png",
+    thumbnail: "../assets/images/apps/rb-tn.png",
     images: [
-      '../images/apps/ramen-buffet-1.png',
-      '../images/apps/ramen-buffet-2.png',
-      '../images/apps/ramen-buffet-3.png'
+      '../assets/images/apps/ramen-buffet-1.png',
+      '../assets/images/apps/ramen-buffet-2.png',
+      '../assets/images/apps/ramen-buffet-3.png'
     ],
     featured: true,
     technologies: [1, 3, 14, 12, 10, 11, 15, 18, 20]
@@ -112,10 +112,10 @@ export const projects = [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: "../images/apps/bots-tn.png",
+    thumbnail: "../assets/images/apps/bots-tn.png",
     images: [
-      '../images/apps/bots-1.png',
-      '../images/apps/bots-2.png'
+      '../assets/images/apps/bots-1.png',
+      '../assets/images/apps/bots-2.png'
     ],
     featured: true,
     technologies: [1, 14, 12, 11]
@@ -129,12 +129,12 @@ export const projects = [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: "../images/apps/pique-tn.png",
+    thumbnail: "../assets/images/apps/pique-tn.png",
     images: [
-      '../images/apps/pique-1.jpg',
-      '../images/apps/pique-2.png',
-      '../images/apps/pique-3.png',
-      '../images/apps/pique-4.png'
+      '../assets/images/apps/pique-1.jpg',
+      '../assets/images/apps/pique-2.png',
+      '../assets/images/apps/pique-3.png',
+      '../assets/images/apps/pique-4.png'
     ],
     featured: true,
     technologies : [16, 17, 11]
@@ -143,10 +143,10 @@ export const projects = [
     description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
     id: 10,
     links: null,
-    thumbnail: "../images/apps/whereto-tn.png",
+    thumbnail: "../assets/images/apps/whereto-tn.png",
     images: [
-      '../images/apps/whereto-2.png',
-      '../images/apps/whereto-1.png'
+      '../assets/images/apps/whereto-2.png',
+      '../assets/images/apps/whereto-1.png'
     ],
     featured: true,
     technologies: [1, 14, 12, 10, 13]

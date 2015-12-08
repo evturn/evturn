@@ -3,7 +3,7 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import { tech } from '../../models/tech';
+import { tech } from 'sources/tech';
 
 const findTechById = (ids) => {
   const technologies = [];

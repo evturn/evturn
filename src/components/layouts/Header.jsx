@@ -3,7 +3,6 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import $ from 'jquery';
 import { IndexLink, Link, History } from 'react-router';
 
 const HeaderNav = React.createClass({
@@ -56,7 +55,7 @@ export const Header = React.createClass({
         <header id="site-header" className="site-header">
           <div>
             <div className="site-logo">
-              <img className="site-logo__image img-scale" src="../images/site/ev-av.png" />
+              <img className="site-logo__image img-scale" src="../assets/images/site/ev-av.png" />
             </div>
             <div className="site-nav site-nav__trigger">
               <span className="icon fa fa-bars"></span>

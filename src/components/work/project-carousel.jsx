@@ -4,7 +4,6 @@ require('styles/style.less');
 
 import React from 'react';
 
-
 const carousel = function() {
 
   return function(props) {

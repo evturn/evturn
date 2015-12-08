@@ -4,7 +4,7 @@ require('styles/style.less');
 
 import React from 'react';
 import { Links } from './links';
-import { links } from '../../models/links';
+import { links } from 'sources/links';
 
 export const Contact = React.createClass({
   render() {

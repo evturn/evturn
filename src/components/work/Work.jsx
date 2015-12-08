@@ -5,7 +5,7 @@ require('styles/style.less');
 import React from 'react';
 import { Project } from './project';
 import { Thumbnails } from './thumbnails';
-import { projects } from '../../models/projects';
+import { projects } from 'sources/projects';
 
 const getProject = (params=4) => {
   const id = parseInt(params);

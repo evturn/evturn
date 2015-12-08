@@ -3,8 +3,7 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import $ from 'jquery';
-import { stats } from '../../models/stats';
+import { stats } from 'sources/stats';
 
 export const Stats = React.createClass({
   init: function init() {
