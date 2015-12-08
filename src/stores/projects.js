@@ -4,36 +4,36 @@ import { MapStore } from 'flux/utils';
 import { AppDispatcher } from 'dispatcher';
 import { Constants } from 'constants';
 import { Proto } from '@evturn/proto';
-
-const ProtoStore = Proto.extend(MapStore);
-/* Extends ReduceStore and defines the state as an immutable map
- * This is a simple store. It allows caching key value pairs.
- *
- *    reduce(state, action) {
- *      switch (action.type) {
- *        case 'foo':
- *          return state.set(action.id, action.foo);
- *        case 'bar':
- *          return state.delete(action.id);
- *        default:
- *          return state;
- *      }
- *    }
- */
+import { projects } from 'sources/projects';
 
 let _projects = {};
 let _project = {};
 
-const loadProjects = (data) => {
-  _projects = data.projects;
+const loadProject = (params=4) => {
+  const id = parseInt(params);
+  const iterateProjects = (id) => {
+    for (let p of projects) {
+      if (p.id === parseInt(id)) { return p; }
+    }
+  };
+
+  const result = iterateProjects(id);
+  const fallback = iterateProjects(4);
+
+  if (result) {
+    _project[result.id] = result;
+  } else {
+    _project[fallback.id] = fallback;
+  }
 };
 
-const loadProject = (data) => {
-  _project = data.project;
+const loadProjects = () => {
+  _projects = projects;
 };
 
+const ProtoStore = Proto.extend(MapStore);
 const ProjectsStore = ProtoStore.extend({
-  getProjects() {
+  getAll() {
     return _projects;
   },
   getProject() {
@@ -47,23 +47,21 @@ const ProjectsStore = ProtoStore.extend({
   },
   removeChangeListener(callback) {
     this.removeListener('change', callback);
-  };
-});
+  },
+  dispatcherIndex: AppDispatcher.register((payload) => {
+    const action = payload.action;
 
-AppDispatcher.register((payload) => {
-  const action = payload.action;
+    switch(action.actionType) {
+      case Constants.LOAD_PROJECTS:
+        loadProjects(action.data);
+        ProjectsStore.emitChange();
+        break;
+      case Constants.LOAD_PROJECT:
+        loadProject(action.data);
+        ProjectsStore.emitChange();
+        break;
+    }
 
-  switch(action.actionType) {
-    case Constants.LOAD_PROJECTS:
-      loadProjects(action.data);
-      break;
-    case Constants.LOAD_PROJECT:
-      loadProject(action.data);
-      break;
-    default:
-      return;
+    return true;
   }
-
-  ProjectsStore.emitChange();
-  return;
 });

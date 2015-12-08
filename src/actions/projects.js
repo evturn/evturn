@@ -8,13 +8,13 @@ import { Constants } from 'constants';
 
 export const ProjectsActions = {
   getProjects: function(projects) {
-    AppDispatcher.dispatch({
+    AppDispatcher.handleViewAction({
       actionType: Constants.LOAD_PROJECTS,
       projects: projects
     });
   },
   getProject: function(project) {
-    AppDispatcher.dispatch({
+    AppDispatcher.handleViewAction({
       actionType: Constants.LOAD_PROJECT,
       project: project
     });
