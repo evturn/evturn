@@ -12,8 +12,6 @@ import { About } from './about/About';
 import { Header } from './layouts/Header';
 import { Footer } from './layouts/Footer';
 
-const el = document.getElementById('site-container');
-
 const updateLayout = (location) => {
   const { pathname } = location;
   const key = pathname.split('/')[1] || 'index';
@@ -37,16 +35,24 @@ const App = React.createClass({
   },
   render() {
     let Child;
+
     updateLayout(this.props.location);
-
     switch (this.state.route) {
-      case '/about':             Child = About; break;
-      case '/contact':           Child = Contact; break;
-      case '/work':              Child = Work; break;
-      case '/work/projects/:id': Child = Project; break;
-      default:                   Child = Home;
+      case '/about':
+        Child = About;
+        break;
+      case '/contact':
+        Child = Contact;
+        break;
+      case '/work':
+        Child = Work;
+        break;
+      case '/work/projects/:id':
+        Child = Project;
+        break;
+      default:
+        Child = Home;
     }
-
 
     return (
       <div className="site-container">
@@ -71,4 +77,4 @@ ReactDOM.render((
       <Route path="contact" component={ Contact } />
     </Route>
   </Router>
-), el);
+), document.getElementById('site-container'));

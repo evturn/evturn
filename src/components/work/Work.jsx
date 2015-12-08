@@ -8,6 +8,9 @@ import { Thumbnails } from './thumbnails';
 import { projects } from 'sources/projects';
 import { ProjectsActions } from 'actions/projects';
 
+// ProjectActions.getProjects
+// ProjectActions.getProject
+
 export const Work = React.createClass({
   render() {
     const { pathname } = this.props.location;

@@ -61,7 +61,6 @@ const ProjectsStore = ProtoStore.extend({
         ProjectsStore.emitChange();
         break;
     }
-
     return true;
   }
 });
