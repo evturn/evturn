@@ -1,3 +1,6 @@
 'use strict';
 
-const import { Dispatcher } from 'flux';
+import Dispatcher from 'flux';
+import Proto from '@evturn/proto';
+
+export const AppDispatcher = Proto.extend(Dispatcher);

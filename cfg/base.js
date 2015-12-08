@@ -29,6 +29,7 @@ module.exports = {
     alias: {
       actions:    srcPath + '/actions/',
       components: srcPath + '/components/',
+      constants:  srcPath + '/constants/',
       dispatcher: srcPath + '/dispatcher/',
       sources:    srcPath + '/sources/',
       stores:     srcPath + '/stores/',
