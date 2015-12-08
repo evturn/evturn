@@ -33,12 +33,12 @@ module.exports = {
   resolve: {
     extensions: [ '', '.js', '.jsx' ],
     alias: {
-      actions: srcPath + 'actions/',
-      helpers: path.join(__dirname, '/../test/helpers'),
+      actions:    srcPath + 'actions/',
+      helpers:    path.join(__dirname, '/../test/helpers'),
       components: srcPath + 'components/',
-      sources: srcPath + 'sources/',
-      stores: srcPath + 'stores/',
-      styles: srcPath + 'styles/',
+      sources:    srcPath + 'sources/',
+      stores:     srcPath + 'stores/',
+      styles:     srcPath + 'assets/styles/',
       config: './config/' + process.env.REACT_WEBPACK_ENV
     }
   },

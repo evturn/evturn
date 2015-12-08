@@ -1,8 +1,9 @@
 'use strict';
 const path = require('path');
 const port = 8000;
-const srcPath = path.join(__dirname, '/../src');
+const src     = path.join(__dirname, '/../src');
 const publicPath = '/assets/';
+const assets = path.join(__dirname, '/../src/assets');
 
 module.exports = {
   port: port,
@@ -18,7 +19,8 @@ module.exports = {
     hot: true,
     port: port,
     publicPath: publicPath,
-    noInfo: false
+    noInfo: false,
+    stats: { colors: true }
   },
   resolve: {
     extensions: [
@@ -27,13 +29,13 @@ module.exports = {
       '.jsx'
     ],
     alias: {
-      actions:    srcPath + '/actions/',
-      components: srcPath + '/components/',
-      constants:  srcPath + '/constants/',
-      dispatcher: srcPath + '/dispatcher/',
-      sources:    srcPath + '/sources/',
-      stores:     srcPath + '/stores/',
-      styles:     srcPath + '/styles/',
+      actions:    src     + '/actions/',
+      components: src     + '/components/',
+      constants:  src     + '/constants/',
+      dispatcher: src     + '/dispatcher/',
+      sources:    src     + '/sources/',
+      stores:     src     + '/stores/',
+      styles:     assets  + '/styles/',
       config: './config/' + process.env.REACT_WEBPACK_ENV
     }
   },
