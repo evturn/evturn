@@ -6,7 +6,7 @@ import { Constants } from 'constants';
 import { Proto } from '@evturn/proto';
 import { projects } from 'sources/projects';
 
-let _projects = {};
+
 let _project = {};
 
 const loadProject = (params=4) => {
