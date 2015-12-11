@@ -29,10 +29,11 @@ module.exports = {
       '.jsx'
     ],
     alias: {
-      actions:    src     + '/actions/',
+      actions:    src     + '/actions',
+      reducer:    src     + '/reducer',
+      store:      src     + '/store',
       components: src     + '/components/',
       sources:    src     + '/sources/',
-      stores:     src     + '/stores/',
       styles:     assets  + '/styles/',
       config: './config/' + process.env.REACT_WEBPACK_ENV
     }

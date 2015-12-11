@@ -1,5 +1,4 @@
 'use strict';
-
 import {List, Map} from 'immutable';
 
 export function setProjects(state, projects) {

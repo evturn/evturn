@@ -1,5 +1,4 @@
 'use strict';
-
 import {setProject, setProjects} from 'actions/projects';
 
 export default function reducer(state, action) => {
