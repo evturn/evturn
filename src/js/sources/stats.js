@@ -1,5 +1,5 @@
 'use strict';
-export const stats = [
+export default [
   {
     text: 'Quesadillas Eaten',
     number: 777074,

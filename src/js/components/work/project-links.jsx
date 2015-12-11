@@ -27,7 +27,7 @@ export const ProjectLinks = React.createClass({
     return (
       <div className="project-links project-info">
         <ul className="project-links__list list-icons">
-          { this.props.map((result) => {
+          { this.props.links.map((result) => {
               return <ProjectLink key={ result.url } link={ result } />;
             })}
         </ul>

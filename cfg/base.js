@@ -1,9 +1,9 @@
 'use strict';
 const path = require('path');
 const port = 8000;
-const src     = path.join(__dirname, '/../src');
+const js     = path.join(__dirname, '/../src/js');
 const publicPath = '/assets/';
-const assets = path.join(__dirname, '/../src/assets');
+const less = path.join(__dirname, '/../src/less');
 
 module.exports = {
   port: port,
@@ -29,16 +29,16 @@ module.exports = {
       '.jsx'
     ],
     alias: {
-      actions:    src     + '/actions/',
-      components: src     + '/components/',
-      reducers:   src     + '/reducers/',
-      stores:     src     + '/stores/',
-      Home:       src     + '/components/home/Home',
-      Work:       src     + '/components/work/Work',
-      About:      src     + '/components/about/About',
-      Contact:    src     + '/components/contact/Contact',
-      sources:    src     + '/sources/',
-      styles:     assets  + '/styles/',
+      actions:    js     + '/actions/',
+      components: js     + '/components/',
+      reducers:   js     + '/reducers/',
+      stores:     js     + '/stores/',
+      Home:       js     + '/components/home/Home',
+      Work:       js     + '/components/work/Work',
+      About:      js     + '/components/about/About',
+      Contact:    js     + '/components/contact/Contact',
+      sources:    js     + '/sources/',
+      styles:     less   + '/',
       config: './config/' + process.env.REACT_WEBPACK_ENV
     }
   },

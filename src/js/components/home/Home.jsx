@@ -10,8 +10,6 @@ import { Headline } from './headline';
 
 const Home = React.createClass({
   render() {
-    const { pathname } = this.props.location;
-
     return (
       <div>
         <Spinner />
