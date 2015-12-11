@@ -1,14 +1,12 @@
 'use strict';
 import React from 'react';
-import {
-  Home,
-  Work,
-  About,
-  Project,
-  Contact,
-  Footer,
-  Header } from '../views';
-
+import { connect } from 'react-redux';
+import { Home } from 'Home';
+import { About } from 'About';
+import { Contact } from 'Contact';
+import { Work } from 'Work';
+import { Header } from 'components/layouts/Header';
+import { Footer } from 'components/layouts/Footer';
 
 export const App = React.createClass({
   updateLayout(location) {
@@ -32,26 +30,8 @@ export const App = React.createClass({
     })
   },
   render() {
-    let Child;
-
     this.updateLayout(this.props.location);
-    switch (this.state.route) {
-      case '/about':
-        Child = About;
-        break;
-      case '/contact':
-        Child = Contact;
-        break;
-      case '/work':
-        Child = Work;
-        break;
-      case '/work/projects/:id':
-        Child = Project;
-        break;
-      default:
-        Child = Home;
-    }
-
+    console.log(this.props);
     return (
       <div className="site-container">
         <Header />

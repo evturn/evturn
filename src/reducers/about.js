@@ -10,11 +10,11 @@ export default function aboutReducer(state = initialState, action) {
   switch (action.type) {
     case 'SET_ABOUT_TECH':
       return Object.assign({}, state, {
-        tech: action.tech
+        tech: state.tech
       });
     case 'SET_ABOUT_STATS':
       return Object.assign({}, state, {
-        stats: action.stats
+        stats: state.stats
       });
     default:
       return state;

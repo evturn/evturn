@@ -1,5 +1,14 @@
 'use strict';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import projectReducer from 'reducers/project'
 
-let store = createStore(projectReducer);
+const store = applyMiddleware((thunk),
+  reduxReactRouter({
+  routes,
+  createHistory
+  }),
+  devTools()(createStore);
+
+
+const projectStore = createStoreWithMiddleware(projectReducer);

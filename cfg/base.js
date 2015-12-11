@@ -33,6 +33,10 @@ module.exports = {
       components: src     + '/components/',
       reducers:   src     + '/reducers/',
       stores:     src     + '/stores/',
+      Home:       src     + '/components/home/Home',
+      Work:       src     + '/components/work/Work',
+      About:      src     + '/components/about/About',
+      Contact:    src     + '/components/contact/Contact',
       sources:    src     + '/sources/',
       styles:     assets  + '/styles/',
       config: './config/' + process.env.REACT_WEBPACK_ENV

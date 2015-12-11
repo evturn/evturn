@@ -3,11 +3,12 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
+import { connect } from 'react-redux';
 import { Spinner } from './spinner';
 import { Video } from './video';
 import { Headline } from './headline';
 
-export const Home = React.createClass({
+const Home = React.createClass({
   render() {
     const { pathname } = this.props.location;
 
@@ -20,3 +21,7 @@ export const Home = React.createClass({
     );
   }
 });
+
+export default connect((state) => ({
+  state
+}))(Home);
