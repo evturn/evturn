@@ -1,37 +1,13 @@
 'use strict';
 
-import { combineReducers } from 'redux'
-import { projects } from 'sources/projects';
+import {setProject, setProjects} from 'actions/projects';
 
-const loadProject = (params=4) => {
-  const id = parseInt(params);
-  const iterateProjects = (id) => {
-    for (let p of projects) {
-      if (p.id === parseInt(id)) { return p; }
-    }
-  };
-
-  const result = iterateProjects(id);
-  const fallback = iterateProjects(4);
-
-  if (result) {
-    _project[result.id] = result;
-  } else {
-    _project[fallback.id] = fallback;
-  }
-};
-
-
-const projects = (state = [], action) => {
+export default function reducer(state, action) => {
   switch (action.type) {
-      case 'LOAD_PROJECTS':
-        return Object.assign({}, state, {
-          projects
-        });
-      case 'LOAD_PROJECT':
-        return Object.assign({}, state, {
-          project: loadProject(params);
-        });
+    case 'SET_PROJECT':
+      return setProject(state, action.project);
+    case 'SET_PROJECTS':
+      return setProjects(state, action.projects);
     }
-    return true;
-  }
+  return state;
+}

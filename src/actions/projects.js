@@ -1,22 +1,24 @@
 'use strict';
 
-import React from 'react';
-import { AppDispatcher } from 'dispatcher';
-import { Constants } from 'constants';
+import {List, Map} from 'immutable';
 
-/* Helper methods that facilitate passing data to the Dispatcher */
+export function setProjects(state, projects) {
+  return state.set('projects', List(projects))
+}
 
-export const ProjectsActions = {
-  getProjects: function(projects) {
-    AppDispatcher.handleViewAction({
-      actionType: Constants.LOAD_PROJECTS,
-      projects: projects
-    });
-  },
-  getProject: function(project) {
-    AppDispatcher.handleViewAction({
-      actionType: Constants.LOAD_PROJECT,
-      project: project
-    });
+function queryProjects(id) {
+  for (let project of projects) {
+    if (project.id === parseInt(id)) {
+      return project;
+    }
   }
-};
+}
+
+const defaultId = 4;
+
+export function setProject(id = defaultId) {
+  const result = queryProjects(parseInt(id));
+
+  if (result) { return result; }
+  else { return queryProjects(id); }
+}

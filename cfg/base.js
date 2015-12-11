@@ -31,8 +31,6 @@ module.exports = {
     alias: {
       actions:    src     + '/actions/',
       components: src     + '/components/',
-      constants:  src     + '/constants/',
-      dispatcher: src     + '/dispatcher/',
       sources:    src     + '/sources/',
       stores:     src     + '/stores/',
       styles:     assets  + '/styles/',
