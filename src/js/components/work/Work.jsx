@@ -10,8 +10,6 @@ import { ProjectLinks } from 'components/work/project-links';
 import { ProjectTech } from 'components/work/project-tech';
 import { Thumbnails } from 'components/work/thumbnails';
 
-import { setProject } from 'stores';
-
 const Work = React.createClass({
   componentDidMount() {
 
@@ -19,8 +17,10 @@ const Work = React.createClass({
   render() {
     console.log('Work', this);
     const { project } = this.props.project;
+    const { projects } = this.props.projects;
 
     console.log('proj', project);
+    console.log('projs', projects);
     console.log('this props', this.props);
     console.log('this state', this.state);
 
@@ -32,7 +32,7 @@ const Work = React.createClass({
           <ProjectTech tech={ project.tech } />
           <ProjectLinks links={ project.links } />
         </div>
-        <Thumbnails />
+        <Thumbnails projects={ projects } />
       </div>
     );
   }

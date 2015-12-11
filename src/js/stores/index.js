@@ -10,6 +10,7 @@ import { default as projectData } from 'sources/projects';
 
 const SET_ABOUT = 'SET_ABOUT';
 const SET_PROJECT = 'SET_PROJECT';
+const SET_FEATURED = 'SET_FEATURED';
 const reducer = combineReducers({ workReducer, aboutReducer });
 const createStoreWithMiddleware = applyMiddleware(
   thunk
@@ -19,7 +20,6 @@ export const store = createStoreWithMiddleware(reducer);
 
 export function setProject(id) {
   const { project } = findProjectById(parseInt(id));
-  console.log(project);
   project.tech = findTechByIds(project.techIds);
 
   return store.dispatch({ type: 'SET_PROJECT', project });
@@ -54,5 +54,18 @@ function findTechByIds(ids) {
 
   console.log(projectTech);
   return projectTech;
+}
+
+export function setFeaturedProjects() {
+  const featured = [];
+
+  for (let p of projectData) {
+    if (p.featured) { featured.push(p); }
+  }
+
+  return store.dispatch({
+    type: 'SET_FEATURED',
+    projects: featured
+  });
 }
 

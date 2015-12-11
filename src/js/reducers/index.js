@@ -15,6 +15,9 @@ export function workReducer(state = initialWork, action) {
     case 'SET_PROJECT':
       const project = { project: action.project };
       return Object.assign({}, state, project);
+    case 'SET_FEATURED':
+      const projects = { projects: action.projects };
+      return Object.assign({}, state, projects);
     default:
       return state;
     }

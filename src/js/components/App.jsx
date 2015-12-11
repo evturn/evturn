@@ -9,11 +9,12 @@ import { default as Work } from 'Work';
 import { Header } from 'components/layouts/Header';
 import { Footer } from 'components/layouts/Footer';
 
-import { setProject } from 'stores';
+import { setProject, setFeaturedProjects } from 'stores';
 
 function matchRoute(route) {
+  const projects = setFeaturedProjects();
 
-  console.log(route);
+  console.log(projects);
   switch (route) {
     case '/about':
       return <About />;
@@ -21,11 +22,10 @@ function matchRoute(route) {
       return <Contact />;
     case '/work':
       const defaultProject = setProject(4);
-      console.log(defaultProject);
-      return <Work project={ defaultProject } />;
+      return <Work projects={ projects } project={ defaultProject } />;
     case '/work/projects/:id':
       const selectedProject = setProject(parseInt(route));
-      return <Work project={ selectedProject } />;
+      return <Work projects={ projects } project={ selectedProject } />;
     default:
       return <Home />;
   }

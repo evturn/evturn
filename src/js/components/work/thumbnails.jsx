@@ -22,7 +22,7 @@ export const Thumbnails = React.createClass({
         <div className="thumbnail__header">Projects</div>
         <ul className="thumbnails">
           {
-            projects.map((result) => {
+            this.props.projects.map((result) => {
               return (
                 <li
                   key={ result.id }
