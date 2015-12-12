@@ -3,7 +3,6 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import { stats } from 'sources/stats';
 
 export const Stats = React.createClass({
   init: function init() {
@@ -39,7 +38,7 @@ export const Stats = React.createClass({
         <div className="about-info__header">Statistics</div>
         <ul className="about-stats__list list-icons">
           {
-            (stats).map((result) => {
+            this.props.stats.map((result) => {
               return (
                 <li
                 ref={ (stat) => this.stat = stat }

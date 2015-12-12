@@ -31,13 +31,17 @@ module.exports = {
     alias: {
       actions:    js     + '/actions/',
       components: js     + '/components/',
+      containers: js     + '/containers/',
       reducers:   js     + '/reducers/',
       stores:     js     + '/stores/',
-      Home:       js     + '/components/home/Home',
-      Work:       js     + '/components/work/Work',
-      About:      js     + '/components/about/About',
-      Contact:    js     + '/components/contact/Contact',
+      helpers:    js     + '/helpers/',
       sources:    js     + '/sources/',
+      App:        js     + '/containers/app',
+      Home:       js     + '/containers/home',
+      Work:       js     + '/containers/work',
+      Project:    js     + '/containers/project',
+      About:      js     + '/containers/about',
+      Contact:    js     + '/containers/contact',
       styles:     less   + '/',
       config: './config/' + process.env.REACT_WEBPACK_ENV
     }

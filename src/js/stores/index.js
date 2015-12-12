@@ -5,8 +5,6 @@ import { pushState } from 'redux-router';
 import thunk from 'redux-thunk';
 import { devTools } from 'redux-devtools';
 import { workReducer, aboutReducer } from 'reducers'
-import { default as techData } from 'sources/tech';
-import { default as projectData } from 'sources/projects';
 
 const SET_ABOUT = 'SET_ABOUT';
 const SET_PROJECT = 'SET_PROJECT';
@@ -17,13 +15,6 @@ const createStoreWithMiddleware = applyMiddleware(
 )(createStore);
 
 export const store = createStoreWithMiddleware(reducer);
-
-export function setProject(id) {
-  const { project } = findProjectById(parseInt(id));
-  project.tech = findTechByIds(project.techIds);
-
-  return store.dispatch({ type: 'SET_PROJECT', project });
-}
 
 function findProjectById(id = 4, fallback = 4) {
   let found = false;
@@ -52,9 +43,21 @@ function findTechByIds(ids) {
     }
   }
 
-  console.log(projectTech);
   return projectTech;
 }
+
+
+/* Set Project */
+
+export function setProject(id) {
+  const { project } = findProjectById(parseInt(id));
+  project.tech = findTechByIds(project.techIds);
+
+  return store.dispatch({ type: 'SET_PROJECT', project });
+}
+
+
+/* Set Thumbnails */
 
 export function setFeaturedProjects() {
   const featured = [];
@@ -68,4 +71,3 @@ export function setFeaturedProjects() {
     projects: featured
   });
 }
-

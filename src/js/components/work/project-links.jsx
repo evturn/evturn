@@ -22,8 +22,6 @@ const ProjectLink = React.createClass({
 
 export const ProjectLinks = React.createClass({
   render() {
-    console.log(this.props);
-
     return (
       <div className="project-links project-info">
         <ul className="project-links__list list-icons">

@@ -3,9 +3,10 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
-import { IndexLink, Link } from 'react-router';
+import { IndexLink, Link, History } from 'react-router';
 
 const HeaderNav = React.createClass({
+  mixins: [ History ],
   render() {
     return (
       <nav className="site-menu">
