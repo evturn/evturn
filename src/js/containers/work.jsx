@@ -17,8 +17,6 @@ export default React.createClass({
     const { pathname } = this.props.location;
     const project = o_O.setProject(this.props.params.id);
     const projects = o_O.setFeaturedProjects();
-    console.log(project);
-    console.log(projects);
 
     return (
       <div>

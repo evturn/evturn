@@ -41,6 +41,34 @@ function getFeatured(dataSource) {
   return featured;
 }
 
+function getChildPath() {
+  const fromSecondPath = window.location.hash.substr(window.location.hash.indexOf('/') + 1);
+  return fromSecondPath.substr(0, fromSecondPath.indexOf('/'));
+}
+
+function getParam() {
+  const hash = window.location.hash.substr(1);
+  return hash.substr(hash.lastIndexOf('/') + 1);
+}
+
+export const URL = {
+  hash: window.location.hash,
+  location: window.location,
+  route: window.location.hash.substr(1),
+  page: window.location.hash.substring(1, window.location.hash.indexOf('/')),
+  child: getChildPath(),
+  param: getParam()
+};
+
+export function updateLayout(location) {
+  const { pathname } = location;
+  const key = pathname.split('/')[1] || 'index';
+  const el = document.getElementById('site-container');
+
+  el.removeAttribute('class');
+  el.classList.add(`page-${key}`);
+}
+
 export function setProject(id) {
   const { project } = findProjectById(parseInt(id));
   project.tech = findTechByIds(project.techIds);
