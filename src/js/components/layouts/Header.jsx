@@ -7,7 +7,6 @@ import $ from 'jquery';
 import { IndexLink, Link } from 'react-router';
 
 const HeaderNav = React.createClass({
-  mixins: [ History ],
   contextTypes: {
     router: React.PropTypes.func
   },
