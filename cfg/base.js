@@ -52,31 +52,24 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader!postcss-loader'
-      },
-      {
+      },{
         test: /\.sass/,
         loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&indentedSyntax'
-      },
-      {
+      },{
         test: /\.scss/,
         loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
-      },
-      {
+      },{
         test: /\.less$/,
         loader: 'style-loader!css-loader!postcss-loader!less-loader'
-      },
-      {
+      },{
         test: /\.styl/,
         loader: 'style-loader!css-loader!postcss-loader!stylus-loader'
-      },
-      {
+      },{
         test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader'
-      },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      },{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'
-      },
-      {
+      },{
         test: /\.woff2(\?\S*)?$/,
         loader: 'url-loader?limit=100000'
       }
