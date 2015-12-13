@@ -26,7 +26,7 @@ export default [
     techIds: [13, 11, 14, 20]
   },{
     name: 'Marshallz Blog',
-    description: "This blog continuously produces new posts authored by bots. These bots get their content by scraping text documents, washing machine manuals, and other sources followed by taking fragments and applying a <a href'https://en.wikipedia.org/wiki/Markov_chain' target'_blank'>Markov Chain</a> to create nonsensical sentences. Before publishing, a randomly selected word from the content is used to search <a href='http://giphy.com' target='_blank'>Giphy</a> and retrieve a related images which is then included in the post. In addition to the website, these same 'authors' post new content to <a href='http://twitter.com/marshallzBlog' target='_blank'>Twitter under their own accounts.</a>",
+    description: "This blog continuously produces new posts authored by bots. These bots get their content by scraping text documents, washing machine manuals, and other sources followed by taking fragments and applying a Markov Chain to create nonsensical sentences. Before publishing, a randomly selected word from the content is used to search Giphy and retrieve a related images which is then included in the post. In addition to the website, these same 'authors' post new content to Twitter under their own accounts.",
     id: 2,
     slug: 'marshallz',
     links: [
@@ -36,6 +36,9 @@ export default [
       }, {
         url: 'https://github.com/evturn/marshallz',
         icon: 'fa fa-github'
+      }, {
+        url: 'http://twitter.com/marshallzBlog',
+        icon: 'fa fa-twitter'
       }
     ],
     thumbnail: `${prefix}marshallz-tn.png`,
