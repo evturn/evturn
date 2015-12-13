@@ -37,9 +37,9 @@ export default [
     id: 6,
     featured: true
   }, {
-    name: 'Photoshop',
-    icon: 'devicon-photoshop-plain',
-    color: 'devicon-photoshop-plain colored',
+    name: 'React',
+    icon: 'devicon-react-plain-wordmark',
+    color: 'devicon-react-plain-wordmark',
     id: 7,
     featured: true
   }, {
@@ -125,5 +125,11 @@ export default [
     icon: 'fa fa-wordpress',
     color: 'fa fa-wordpress',
     id: 21
+  }, {
+    name: 'Photoshop',
+    icon: 'devicon-photoshop-plain',
+    color: 'devicon-photoshop-plain colored',
+    id: 22,
+    featured: false
   }
 ];
