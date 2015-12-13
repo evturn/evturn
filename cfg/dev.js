@@ -12,6 +12,7 @@ const config = _.merge({
     './src/js/components/run'
   ],
   cache: true,
+  inline: true,
   devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

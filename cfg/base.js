@@ -1,24 +1,22 @@
 'use strict';
 const path = require('path');
-const port = 8000;
-const publicPath = '/src/dist/';
 const js = path.join(__dirname, '/../src/js');
 const img = path.join(__dirname, '/../src/images');
 const less = path.join(__dirname, '/../src/less');
 
 module.exports = {
-  port: port,
+  port: 8000,
   debug: true,
   output: {
     path: path.join(__dirname, '/../src/dist'),
     filename: 'app.js',
-    publicPath: publicPath
+    publicPath: '/src/dist/'
   },
   devServer: {
     contentBase: './',
     historyApiFallback: true,
     hot: true,
-    port: port,
+    port: 8000,
     publicPath: '/src/build/',
     noInfo: false,
     stats: { colors: true }
