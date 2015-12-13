@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, RouteHandler, Route, IndexRoute } from 'react-router';
 import createHistory from 'history/lib/createHashHistory';
+import { default } from 'sources/google-analytics';
 import { default as App } from 'App';
 import { default as Home } from 'Home';
 import { default as About } from 'About';
