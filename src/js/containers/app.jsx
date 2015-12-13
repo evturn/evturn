@@ -16,11 +16,15 @@ import { Footer } from 'components/layouts/Footer';
 import * as $ from 'helpers';
 
 export default React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState() {
     return {
       route: $.URL.route,
       page: $.URL.page,
-      child: $.URL.child
+      child: $.URL.child,
+      projectId: $.URL.params
     }
   },
   componentDidMount() {
@@ -28,21 +32,13 @@ export default React.createClass({
       this.setState({
         route: $.URL.route,
         page: $.URL.page,
-        child: $.URL.child
+        child: $.URL.child,
+        projectId: $.URL.params
       });
     });
   },
   render() {
-    let Child;
     $.updateLayout(this.props.location);
-
-    switch (this.state.route) {
-      case '/about':             Child = About; break;
-      case '/contact':           Child = Contact; break;
-      case '/work':              Child = Work; break;
-      case '/work/projects/:id': Child = Project; break;
-      default:                   Child = Home;
-    }
 
     return (
       <div className="site-container">

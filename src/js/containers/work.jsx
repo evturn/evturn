@@ -10,18 +10,26 @@ import { ProjectTech } from 'components/work/project-tech';
 import { default as Project } from 'Project';
 import { default as projects } from 'sources/projects';
 import { Thumbnails } from 'components/work/thumbnails';
-import * as o_O from 'helpers';
+import * as $ from 'helpers';
 
 export default React.createClass({
+  getInitialState() {
+    return {
+      projects: $.setFeaturedProjects()
+    };
+  },
+  componentDidMount() {
+    return this.setState({
+      projects: $.setFeaturedProjects()
+    });
+  },
   render() {
     const { pathname } = this.props.location;
-    const project = o_O.setProject(this.props.params.id);
-    const projects = o_O.setFeaturedProjects();
 
     return (
       <div>
-        <Project project={ project } />
-        <Thumbnails projects={ projects } />
+        { this.props.children }
+        <Thumbnails projects={ this.state.projects } />
       </div>
     );
   }

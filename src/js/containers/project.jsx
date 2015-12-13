@@ -7,27 +7,29 @@ import { ProjectCarousel } from 'components/work/project-carousel';
 import { ProjectInfo } from 'components/work/project-info';
 import { ProjectLinks } from 'components/work/project-links';
 import { ProjectTech } from 'components/work/project-tech';
-import * as o_O from 'helpers';
+import * as $ from 'helpers';
 
 export default React.createClass({
   getInitialState() {
-    return o_O.setProject(4);
+    return $.setProject();
   },
   componentWillReceiveProps() {
-    return this.setState({ project: this.props.project });
+    return this.setState({
+      project: $.setProject(this.props.params.projectId)
+    });
   },
   componentWillMount() {
-    return this.setState({ project: this.props.project });
+    return this.setState({
+      project: $.setProject(this.props.params.projectId)
+    });
   },
   render() {
-    const { images, description, name, links, tech } = this.props.project;
-
     return (
       <div className="project-content">
-        <ProjectCarousel project={ this.props.project } />
-        <ProjectInfo description={ description } name={ name } />
-        <ProjectLinks links={ links } />
-        <ProjectTech tech={ tech } />
+        <ProjectCarousel images={ this.state.project.images } />
+        <ProjectInfo description={ this.state.project.description } name={ this.state.project.name } />
+        <ProjectLinks links={ this.state.project.links } />
+        <ProjectTech tech={ this.state.project.tech } />
       </div>
     );
   }

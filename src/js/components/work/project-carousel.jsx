@@ -5,16 +5,11 @@ require('styles/style.less');
 import React from 'react';
 
 export const ProjectCarousel = React.createClass({
-  init(images) {
-    this.parent = document.getElementById('carousel');
-    this.id = this.parent.dataset.id;
-    this.images = images;
-    this.total = this.images.length;
+  init() {
+    this.total = document.getElementsByClassName('carousel__item-image').length;
     this.counter = null;
     this.cycle();
     this.timer = setInterval(() => this.cycle(), 4000);
-
-    console.log(this.id);
   },
   reset() {
     return clearInterval(this.timer);
@@ -60,39 +55,29 @@ export const ProjectCarousel = React.createClass({
   componentWillUnmount() {
     return this.reset();
   },
-  componentWillUpdate() {
-    this.reset();
-    return this.init(this.props.project.images);
-  },
   componentWillReceiveProps() {
-    return this.setState({
-      images: this.props.project.images,
-      id: this.props.project.id,
-      name: this.props.project.name
+    this.reset();
+    this.setState({
+      images: this.props.images,
     });
+    return this.init();
   },
   componentDidMount() {
-    return this.init(this.props.project.images);
+    this.setState({
+      images: this.props.images,
+    });
+    return this.init();
   },
   render() {
     return (
-      <div
-        className="carousel"
-        id="carousel"
-        data-id={ this.props.project.id }>
-        {
-          this.props.project.images.map((result) => {
-            console.log('CAROUSEL RESULT', result);
+      <div className="carousel" id="carousel">
+        { this.props.images.map((result) => {
             return (
-              <div
-                ref={ (image) => this.image = image }
-                key={ result }
-                className="carousel__item-image">
+              <div key={ result } className="carousel__item-image">
                 <img className="img-scale" src={ result } />
               </div>
             );
-          })
-        }
+        }) }
       </div>
     );
   }

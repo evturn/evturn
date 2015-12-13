@@ -2,7 +2,7 @@
 import { default as __projects } from 'sources/projects';
 import { default as __tech } from 'sources/tech';
 
-function findProjectById(id = 4, fallback = 4) {
+function findProjectById(id = 4) {
   let found = false;
   let project = null;
 
@@ -11,7 +11,7 @@ function findProjectById(id = 4, fallback = 4) {
       project = p
       found = true;
     } else if ((__projects.length - 1 === i) && !found && project === null) {
-      project = __projects[fallback];
+      project = __projects[0];
     }
   });
 
@@ -46,7 +46,7 @@ function getChildPath() {
   return fromSecondPath.substr(0, fromSecondPath.indexOf('/'));
 }
 
-function getParam() {
+function getParams() {
   const hash = window.location.hash.substr(1);
   return hash.substr(hash.lastIndexOf('/') + 1);
 }
@@ -57,7 +57,7 @@ export const URL = {
   route: window.location.hash.substr(1),
   page: window.location.hash.substring(1, window.location.hash.indexOf('/')),
   child: getChildPath(),
-  param: getParam()
+  params: getParams()
 };
 
 export function updateLayout(location) {
