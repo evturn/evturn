@@ -1,7 +1,4 @@
 'use strict';
-require('normalize.css');
-require('styles/style.less');
-
 import React from 'react';
 
 const p1 = 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.';

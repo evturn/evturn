@@ -1,7 +1,4 @@
 'use strict';
-require('normalize.css');
-require('styles/style.less');
-
 import React from 'react';
 import { Spinner } from 'components/home/spinner';
 import { Video } from 'components/home/video';

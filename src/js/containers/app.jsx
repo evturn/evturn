@@ -1,12 +1,8 @@
 'use strict';
-require('normalize.css');
-require('styles/style.less');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, History } from 'react-router';
-import { history } from 'history'
-
+import { history } from 'history';
 import { default as App } from 'App';
 import { default as Home } from 'Home';
 import { default as About } from 'About';
@@ -27,7 +23,11 @@ export default React.createClass({
       page: URL.page,
       child: URL.child,
       projectId: URL.params
-    }
+    };
+  },
+  componentWillMount() {
+    require('normalize.css');
+    require('styles/style.less');
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {

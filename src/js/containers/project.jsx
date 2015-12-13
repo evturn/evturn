@@ -1,7 +1,4 @@
 'use strict';
-require('normalize.css');
-require('styles/style.less');
-
 import React from 'react';
 import { ProjectCarousel } from 'components/work/project-carousel';
 import { ProjectInfo } from 'components/work/project-info';

@@ -24,7 +24,7 @@
     "no-unreachable": 1,
     "semi": 2,
     "quotes": [1, "single"]
-  }
+  },
   "globals": {
     "jQuery": true,
     "$": true,

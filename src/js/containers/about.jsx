@@ -1,7 +1,4 @@
 'use strict';
-require('normalize.css');
-require('styles/style.less');
-
 import React from 'react';
 import { Bio } from 'components/about/bio';
 import { Tech } from 'components/about/tech';

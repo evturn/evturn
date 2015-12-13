@@ -9,8 +9,6 @@ const initialWork = {
 };
 
 export function workReducer(state = initialWork, action) {
-
-  console.log('action project', action.project);
   switch (action.type) {
     case 'SET_PROJECT':
       const project = { project: action.project };

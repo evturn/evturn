@@ -4,7 +4,7 @@ const prefix = 'src/images/apps/';
 export default [
  {
     name: 'Drive Publishing',
-    description: "Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.",
+    description: `Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.`,
     id: 1,
     slug: 'drive',
     links: [
@@ -26,7 +26,7 @@ export default [
     techIds: [13, 11, 14, 20]
   },{
     name: 'Marshallz Blog',
-    description: "This blog continuously produces new posts authored by bots. These bots get their content by scraping text documents, washing machine manuals, and other sources followed by taking fragments and applying a Markov Chain to create nonsensical sentences. Before publishing, a randomly selected word from the content is used to search Giphy and retrieve a related images which is then included in the post. In addition to the website, these same 'authors' post new content to Twitter under their own accounts.",
+    description: `This blog continuously produces new posts authored by bots. These bots get their content by scraping text documents, washing machine manuals, and other sources followed by taking fragments and applying a Markov Chain to create nonsensical sentences. Before publishing, a randomly selected word from the content is used to search Giphy and retrieve a related images which is then included in the post. In addition to the website, these same "authors" post new content to Twitter under their own accounts.`,
     id: 2,
     slug: 'marshallz',
     links: [
@@ -53,7 +53,7 @@ export default [
   },
   {
     name: 'Made In Music',
-    description: "This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.",
+    description: `This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.`,
     id: 3,
     slug: 'mim',
     links: [
@@ -75,7 +75,7 @@ export default [
     techIds: [1, 3, 14, 12, 10, 11, 15, 20]
   }, {
     name: 'Brooklyn Friends School',
-    description: 'I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.',
+    description: `I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.`,
     id: 4,
     slug: 'bfs',
     links: [
@@ -93,7 +93,7 @@ export default [
     techIds: [21, 13]
   }, {
     name: 'Ramen Buffet',
-    description: "Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.",
+    description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
     id: 5,
     slug: 'rb',
     links: [
@@ -115,7 +115,7 @@ export default [
     techIds: [1, 3, 14, 12, 10, 11, 15, 18, 20]
   },{
     name: 'Slackbots',
-    description: "A package designed to create instances of new Bots on Slack. The API is abstracted away from the user in order to easily create interactions with the team's channel. By extending Node's native Event Emitter, the bot is connected and notified of all chatroom activity.",
+    description: `A package designed to create instances of new Bots on Slack. The API is abstracted away from the user in order to easily create interactions with the team's channel. By extending Node's native Event Emitter, the bot is connected and notified of all chatroom activity.`,
     id: 6,
     slug: 'slackbots',
     links: [
@@ -133,7 +133,7 @@ export default [
     techIds: [1, 14, 12, 11]
   },{
     name: 'Pique',
-    description: "Pique is an app for people who are interested in networking, collaborating, and working on projects.",
+    description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
     id: 7,
     slug: 'pique',
     links: [
@@ -153,7 +153,7 @@ export default [
     techIds : [16, 17, 11]
   }, {
     name: 'WhereTO',
-    description: 'Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.',
+    description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
     id: 8,
     slug: 'whereto',
     links: null,

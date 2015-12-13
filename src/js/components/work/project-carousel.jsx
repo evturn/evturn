@@ -1,20 +1,17 @@
 'use strict';
-require('normalize.css');
-require('styles/style.less');
-
 import React from 'react';
 import $ from 'jquery';
 
 export const ProjectCarousel = React.createClass({
   init(slug) {
-    this.ID = slug
+    this.ID = slug;
     this.spinLogo();
     this.parent = this.refs[this.ID];
     this.total = $(this.parent.children).length;
     this.counter = null;
     clearInterval(this.timer);
     this.cycle();
-    this.timer = setInterval(() => { this.cycle() }, 4000);
+    this.timer = setInterval(() => { this.cycle(); }, 4000);
   },
   spinLogo() {
     const $webpage = $('html, body');

@@ -8,7 +8,7 @@ function findProjectById(id = 4) {
 
   __projects.map((p, i) => {
     if (p.id === id) {
-      project = p
+      project = p;
       found = true;
     } else if ((__projects.length - 1 === i) && !found && project === null) {
       project = __projects[0];

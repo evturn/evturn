@@ -1,7 +1,4 @@
 'use strict';
-require('normalize.css');
-require('styles/style.less');
-
 import React from 'react';
 
 const Link = React.createClass({
