@@ -9,6 +9,7 @@ new WebpackDevServer(webpack(config), config.devServer)
 
   .listen(config.port, 'localhost', (err) => {
     if (err) { console.log(err); }
+
     console.log(`Listening on ${config.port}`);
     console.log(`Opening your system browser and your heart...`);
     open(`http://localhost:${config.port}/webpack-dev-server/`);

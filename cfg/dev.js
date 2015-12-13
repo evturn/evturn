@@ -5,7 +5,6 @@ const _ = require('lodash');
 
 const baseConfig = require('./base');
 
-// Add needed plugins here
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
@@ -16,7 +15,7 @@ const config = _.merge({
     './src/js/components/run'
   ],
   cache: true,
-  devtool: 'eval',
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
@@ -33,7 +32,6 @@ const config = _.merge({
   ]
 }, baseConfig);
 
-// Add needed loaders
 config.module.loaders.push({
   test: /\.(js|jsx)$/,
   loader: 'react-hot!babel-loader',
