@@ -12,14 +12,15 @@ export const ProjectCarousel = React.createClass({
     console.log(this.parent.children);
     this.total = $(this.parent.children).length;
     this.counter = null;
+    clearInterval(this.timer);
     this.cycle();
-    this.timer = setInterval(() => this.cycle(), 4000);
+    this.timer = setInterval(() => { this.cycle() }, 4000);
   },
   spinLogo() {
     const $webpage = $('html, body');
     const $siteImage = $('.site-logo__image');
 
-    $webpage.animate({ scrollTop: 0 }, 500);
+    $webpage.animate({ scrollTop: 0 }, 200);
     $siteImage.addClass('spin');
     setTimeout(() => $siteImage.removeClass('spin'), 740);
   },
@@ -28,7 +29,7 @@ export const ProjectCarousel = React.createClass({
     this.removeClasses();
   },
   removeClasses() {
-    const slides = $(this.parent).find('carousel__item-image');
+    const slides = $(this.parent.children);
     $(slides).removeClass('active');
     $(slides).removeClass('next');
   },
@@ -72,21 +73,16 @@ export const ProjectCarousel = React.createClass({
   componentWillUnmount() {
     return this.reset();
   },
-  rebind() {
-    this.setState({
-      name: this.props.name,
-      images: this.props.images,
-      total: this.props.images.length,
-      slug: this.props.slug
-    });
-    this.init(this.state.slug);
-    return this;
-  },
   componentWillReceiveProps(nextProps) {
-    if (nextProps !== this.props) {
-      this.reset();
-      this.rebind();
-    }
+    this.setState({
+      name: nextProps.name,
+      images: nextProps.images,
+      total: nextProps.images.length,
+      slug: nextProps.slug
+    });
+  },
+  componentDidUpdate() {
+    this.init(this.state.slug);
   },
   componentDidMount() {
     this.setState({
