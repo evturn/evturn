@@ -9,14 +9,6 @@ export const Thumbnails = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
-  handleClick() {
-    const $webpage = $('html, body');
-    const $siteImage = $('.site-logo__image');
-
-    $webpage.animate({ scrollTop: 0 }, 500);
-    $siteImage.addClass('spin');
-    setTimeout(() => $siteImage.removeClass('spin'), 740);
-  },
   render() {
     return (
       <div>
@@ -25,10 +17,7 @@ export const Thumbnails = React.createClass({
           {
             this.props.projects.map((result) => {
               return (
-                <li
-                  key={ result.id }
-                  className="thumbnail-item"
-                  onClick={ this.handleClick } >
+                <li key={ result.id } className="thumbnail-item" >
                   <Link to={`work/projects/${ result.id }`}>
                     <div className="image-container">
                       <img className="img-scale" src={ result.thumbnail } />

@@ -1,5 +1,5 @@
 'use strict';
-const prefix = '../../images/apps/';
+const prefix = 'src/images/apps/';
 
 export default [
  {

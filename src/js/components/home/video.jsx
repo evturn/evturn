@@ -42,7 +42,7 @@ export const Video = React.createClass({
       <video
       id="ev-vid"
       ref={(video) => this.video = video}
-      poster="../../images/site/vid-poster.gif"
+      poster={ require('images/site/vid-poster.gif') }
       type="video/mp4"></video>
     );
   }

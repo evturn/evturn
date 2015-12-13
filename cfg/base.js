@@ -1,15 +1,16 @@
 'use strict';
 const path = require('path');
 const port = 8000;
-const js     = path.join(__dirname, '/../src/js');
-const publicPath = '/assets/';
+const publicPath = '/src/dist/';
+const js = path.join(__dirname, '/../src/js');
+const img = path.join(__dirname, '/../src/images');
 const less = path.join(__dirname, '/../src/less');
 
 module.exports = {
   port: port,
   debug: true,
   output: {
-    path: path.join(__dirname, '/../dist/assets'),
+    path: path.join(__dirname, '/../src/dist'),
     filename: 'app.js',
     publicPath: publicPath
   },
@@ -42,6 +43,7 @@ module.exports = {
       Project:    js     + '/containers/project',
       About:      js     + '/containers/about',
       Contact:    js     + '/containers/contact',
+      images:     img    + '/',
       styles:     less   + '/',
       config: './config/' + process.env.REACT_WEBPACK_ENV
     }
@@ -75,7 +77,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=100000'
+        loader: 'url-loader'
       },
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'

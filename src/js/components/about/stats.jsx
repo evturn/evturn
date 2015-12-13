@@ -3,6 +3,7 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
+import $ from 'jquery';
 
 export const Stats = React.createClass({
   init: function init() {

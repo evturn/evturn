@@ -7,16 +7,20 @@ import { Bio } from 'components/about/bio';
 import { Tech } from 'components/about/tech';
 import { Stats } from 'components/about/stats';
 import { default as __stats } from 'sources/stats';
-import * as o_O from 'helpers';
+import * as $ from 'helpers';
 
 export default React.createClass({
+  componentDidMount() {
+    const image = require('images/site/tile.png');
+    this.refs['tile'].style.backgroundImage = `url(${image})`;
+  },
   render() {
     const { pathname } = this.props.location;
-    const featured = o_O.setFeaturedTech();
+    const featured = $.setFeaturedTech();
 
     return (
       <div>
-        <div className="image-container animated fadeInUp"></div>
+        <div className="image-container animated fadeInUp" key={ 'tile' } ref={ 'tile' } ></div>
         <Bio />
         <div className="about-info">
           <Tech tech={ featured } />

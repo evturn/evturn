@@ -3,13 +3,13 @@ require('normalize.css');
 require('styles/style.less');
 
 import React from 'react';
+import $ from 'jquery';
 
 export const ProjectCarousel = React.createClass({
   init(slug) {
     this.ID = slug
     this.spinLogo();
     this.parent = this.refs[this.ID];
-    console.log(this.parent.children);
     this.total = $(this.parent.children).length;
     this.counter = null;
     clearInterval(this.timer);
@@ -38,7 +38,6 @@ export const ProjectCarousel = React.createClass({
     const isNextLast = !!(this.next === this.total);
     const isInitializing = !!(this.counter === null);
 
-    console.log(this);
     if (isInitializing) {
       this.counter = 1;
       this.next = 2;

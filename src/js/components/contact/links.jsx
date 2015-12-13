@@ -21,9 +21,13 @@ const Link = React.createClass({
 });
 
 export const Links = React.createClass({
+  componentDidMount() {
+    const image = require('images/site/city-invert.png');
+    this.refs['nyc'].style.backgroundImage = `url(${image})`;
+  },
   render() {
     return (
-      <div className="image-container animated fadeInUp">
+      <div className="image-container animated fadeInUp" key={ 'nyc' } ref={ 'nyc' } >
         <div className="links">
           <ul className="link-items list-icons">
             {
