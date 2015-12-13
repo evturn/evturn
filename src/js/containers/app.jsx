@@ -15,7 +15,7 @@ import { default as Work } from 'Work';
 import { default as Project } from 'Project';
 import { Header } from 'components/layouts/Header';
 import { Footer } from 'components/layouts/Footer';
-import * as $ from 'helpers';
+import { URL, updateLayout } from 'helpers';
 
 export default React.createClass({
   contextTypes: {
@@ -23,24 +23,24 @@ export default React.createClass({
   },
   getInitialState() {
     return {
-      route: $.URL.route,
-      page: $.URL.page,
-      child: $.URL.child,
-      projectId: $.URL.params
+      route: URL.route,
+      page: URL.page,
+      child: URL.child,
+      projectId: URL.params
     }
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
       this.setState({
-        route: $.URL.route,
-        page: $.URL.page,
-        child: $.URL.child,
-        projectId: $.URL.params
+        route: URL.route,
+        page: URL.page,
+        child: URL.child,
+        projectId: URL.params
       });
     });
   },
   render() {
-    $.updateLayout(this.props.location);
+    updateLayout(this.props.location);
 
     return (
       <div className="site-container">
