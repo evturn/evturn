@@ -6,43 +6,61 @@ export default [
     color: 'devicon-nodejs-plain colored',
     id: 1,
     featured: true
-  }, {
-    name: 'AngularJS',
-    icon: 'devicon-angularjs-plain',
-    color: 'devicon-angularjs-plain colored',
-    id: 2,
-    featured: false
-  }, {
-    name: 'Backbone.js',
-    icon: 'devicon-backbonejs-plain',
-    color: 'devicon-backbonejs-plain colored',
-    id: 3,
-    featured: true
-  }, {
-    name: 'jQuery',
-    icon: 'devicon-jquery-plain',
-    color: 'devicon-jquery-plain colored',
-    id: 4,
-    featured: false
-  }, {
-    name: 'Bootstrap',
-    icon: 'devicon-bootstrap-plain',
-    color: 'devicon-bootstrap-plain colored',
-    id: 5,
-    featured: false
-  }, {
-    name: 'git',
-    icon: 'devicon-git-plain',
-    color: 'devicon-git-plain colored',
-    id: 6,
-    featured: true
-  }, {
+  },{
     name: 'React',
     icon: 'devicon-react-plain-wordmark',
     color: 'devicon-react-plain-wordmark',
     id: 7,
     featured: true
-  }, {
+  },{
+    name: 'Less',
+    icon: 'devicon-less-plain-wordmark',
+    color: 'devicon-less-plain-wordmark',
+    id: 15,
+    featured: true
+  },{
+    name: 'Webpack',
+    icon: 'evcon evcon-webpack',
+    color: 'evcon evcon-webpack',
+    featured: true,
+    id: 19
+  },{
+    name: 'Backbone',
+    icon: 'devicon-backbonejs-plain',
+    color: 'devicon-backbonejs-plain colored',
+    id: 3,
+    featured: true
+  },{
+    name: 'Babel',
+    icon: 'evcon evcon-babel',
+    color: 'evcon evcon-babel',
+    featured: true,
+    id: 20
+  },{
+    name: 'Handlebars',
+    icon: 'evcon evcon-handlebars',
+    color: 'evcon evcon-handlebars',
+    featured: true,
+    id: 18
+  },{
+    name: 'MongoDB',
+    icon: 'devicon-mongodb-plain',
+    color: 'devicon-mongodb-plain colored',
+    id: 10,
+    featured: true
+  },{
+    name: 'Gulp.js',
+    icon: 'devicon-gulp-plain',
+    color: 'devicon-gulp-plain',
+    id: 14,
+    featured: true
+  },{
+    name: 'git',
+    icon: 'devicon-git-plain',
+    color: 'devicon-git-plain colored',
+    id: 6,
+    featured: true
+  },{
     name: 'Ubuntu',
     icon: 'devicon-ubuntu-plain',
     color: 'devicon-ubuntu-plain colored',
@@ -54,13 +72,7 @@ export default [
     color: 'fa fa-database one-half-em',
     id: 9,
     featured: false
-  }, {
-    name: 'MongoDB',
-    icon: 'devicon-mongodb-plain',
-    color: 'devicon-mongodb-plain colored',
-    id: 10,
-    featured: true
-  }, {
+  },{
     name: 'Underscore.js',
     icon: 'fa fa-minus one-half-em',
     color: 'fa fa-minus one-half-em',
@@ -78,19 +90,7 @@ export default [
     color: 'devicon-sass-original colored',
     id: 13,
     featured: true
-  }, {
-    name: 'Gulp.js',
-    icon: 'devicon-gulp-plain',
-    color: 'devicon-gulp-plain',
-    id: 14,
-    featured: true
-  }, {
-    name: 'Less',
-    icon: 'devicon-less-plain-wordmark',
-    color: 'devicon-less-plain-wordmark',
-    id: 15,
-    featured: true
-  }, {
+  },{
     name: 'Rails',
     icon: 'devicon-rails-plain-wordmark',
     color: 'devicon-rails-plain-wordmark',
@@ -102,25 +102,7 @@ export default [
     color: 'devicon-postgresql-plain-wordmark',
     id: 17,
     featured: false
-  }, {
-    name: 'Handlebars',
-    icon: 'evcon evcon-handlebars',
-    color: 'evcon evcon-handlebars',
-    featured: true,
-    id: 18
-  }, {
-    name: 'Webpack',
-    icon: 'evcon evcon-webpack',
-    color: 'evcon evcon-webpack',
-    featured: true,
-    id: 19
-  }, {
-    name: 'Babel',
-    icon: 'evcon evcon-babel',
-    color: 'evcon evcon-babel',
-    featured: true,
-    id: 20
-  }, {
+  },{
     name: 'Wordpress',
     icon: 'fa fa-wordpress',
     color: 'fa fa-wordpress',
@@ -130,6 +112,24 @@ export default [
     icon: 'devicon-photoshop-plain',
     color: 'devicon-photoshop-plain colored',
     id: 22,
+    featured: false
+  },{
+    name: 'AngularJS',
+    icon: 'devicon-angularjs-plain',
+    color: 'devicon-angularjs-plain colored',
+    id: 2,
+    featured: false
+  },{
+    name: 'jQuery',
+    icon: 'devicon-jquery-plain',
+    color: 'devicon-jquery-plain colored',
+    id: 4,
+    featured: false
+  },{
+    name: 'Bootstrap',
+    icon: 'devicon-bootstrap-plain',
+    color: 'devicon-bootstrap-plain colored',
+    id: 5,
     featured: false
   }
 ];
