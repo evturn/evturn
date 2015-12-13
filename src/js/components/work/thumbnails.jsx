@@ -6,6 +6,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export const Thumbnails = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   handleClick() {
     const $webpage = $('html, body');
     const $siteImage = $('.site-logo__image');
@@ -26,7 +29,7 @@ export const Thumbnails = React.createClass({
                   key={ result.id }
                   className="thumbnail-item"
                   onClick={ this.handleClick } >
-                  <Link to={`work/projects/${ result.id }`} hash="#work/projects:id ">
+                  <Link to={`work/projects/${ result.id }`}>
                     <div className="image-container">
                       <img className="img-scale" src={ result.thumbnail } />
                       <div className="shadow"></div>

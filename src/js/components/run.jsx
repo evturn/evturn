@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 import { Router, RouteHandler, Route, IndexRoute } from 'react-router';
 
 import { history } from 'history'
+// import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import { default as App } from 'App';
 import { default as Home } from 'Home';
@@ -13,10 +14,11 @@ import { default as Contact } from 'Contact';
 import { default as Work } from 'Work';
 import { default as Project } from 'Project';
 
+// const history = createBrowserHistory();
 
 render((
 
-  <Router>
+  <Router history={ history } >
     <Route path="/" component={ App } >
       <IndexRoute component={ Home } />
       <Route path="work(/projects/:projectId)" component={ Work } >

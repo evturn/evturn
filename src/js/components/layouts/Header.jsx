@@ -7,6 +7,9 @@ import { IndexLink, Link, History } from 'react-router';
 
 const HeaderNav = React.createClass({
   mixins: [ History ],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   render() {
     return (
       <nav className="site-menu">
@@ -15,9 +18,9 @@ const HeaderNav = React.createClass({
         </div>
         <ul className="site-menu__list">
           <li className="site-menu__item"><h4><IndexLink to="/" className="nav-link">Home</IndexLink></h4></li>
-          <li className="site-menu__item"><h4><Link to="/work" hash="#work" className="nav-link">Work</Link></h4></li>
-          <li className="site-menu__item"><h4><Link to="/about" hash="#about" className="nav-link">About</Link></h4></li>
-          <li className="site-menu__item"><h4><Link to="/contact" hash="#contact" className="nav-link">Contact</Link></h4></li>
+          <li className="site-menu__item"><h4><Link to="work" className="nav-link">Work</Link></h4></li>
+          <li className="site-menu__item"><h4><Link to="about" className="nav-link">About</Link></h4></li>
+          <li className="site-menu__item"><h4><Link to="contact" className="nav-link">Contact</Link></h4></li>
         </ul>
       </nav>
     );

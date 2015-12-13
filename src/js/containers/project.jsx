@@ -10,6 +10,9 @@ import { ProjectTech } from 'components/work/project-tech';
 import * as $ from 'helpers';
 
 export default React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState() {
     return $.setProject();
   },

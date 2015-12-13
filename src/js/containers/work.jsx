@@ -13,6 +13,9 @@ import { Thumbnails } from 'components/work/thumbnails';
 import * as $ from 'helpers';
 
 export default React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState() {
     return {
       projects: $.setFeaturedProjects()
