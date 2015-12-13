@@ -1,4 +1,6 @@
 'use strict';
+require('normalize.css');
+require('styles/style.less');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
