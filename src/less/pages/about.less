@@ -1,4 +1,5 @@
 .page-about {
+
   .site-header {
     @media(@tablet) {
       position: absolute;
@@ -20,19 +21,11 @@
       color: @color-accent;
     }
   }
-  .image-container {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    // background-image: url('@{images}site/tile.png');
-    background-position-y: 50%;
-    background-position-x: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-bottom: 1px solid fade(@color-accent, 60);
-    .clearfix();
+  .about  {
+    margin-top: 100px;
+    @media(@tablet) {
+      margin-top: 160px;
+    }
   }
 }
 
@@ -46,7 +39,7 @@
     margin-bottom: 10px;
     text-transform: uppercase;
     text-align: center;
-    font-size: 22px;
+    font-size: 32px;
   }
   .bio__paragraph {
     font-family: @font-serif;
