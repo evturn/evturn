@@ -5,20 +5,39 @@ require('styles/style.less');
 import React from 'react';
 
 export const ProjectCarousel = React.createClass({
-  init() {
-    this.total = document.getElementsByClassName('carousel__item-image').length;
+  init(slug) {
+    this.ID = slug
+    this.spinLogo();
+    this.parent = this.refs[this.ID];
+    console.log(this.parent.children);
+    this.total = $(this.parent.children).length;
     this.counter = null;
     this.cycle();
     this.timer = setInterval(() => this.cycle(), 4000);
   },
+  spinLogo() {
+    const $webpage = $('html, body');
+    const $siteImage = $('.site-logo__image');
+
+    $webpage.animate({ scrollTop: 0 }, 500);
+    $siteImage.addClass('spin');
+    setTimeout(() => $siteImage.removeClass('spin'), 740);
+  },
   reset() {
-    return clearInterval(this.timer);
+    clearInterval(this.timer);
+    this.removeClasses();
+  },
+  removeClasses() {
+    const slides = $(this.parent).find('carousel__item-image');
+    $(slides).removeClass('active');
+    $(slides).removeClass('next');
   },
   cycle() {
     const isActiveLast = !!(this.counter === this.total);
     const isNextLast = !!(this.next === this.total);
     const isInitializing = !!(this.counter === null);
 
+    console.log(this);
     if (isInitializing) {
       this.counter = 1;
       this.next = 2;
@@ -36,18 +55,16 @@ export const ProjectCarousel = React.createClass({
     return this.dissolve();
   },
   nextImage() {
-    const all = document.getElementsByClassName('carousel__item-image');
-    const active = document.getElementsByClassName('carousel__item-image')[this.counter - 1];
-    const next = document.getElementsByClassName('carousel__item-image')[this.next - 1];
+    const active = $(this.parent.children)[this.counter - 1];
+    const next = $(this.parent.children)[this.next - 1];
 
-    $(all).removeClass('active');
-    $(all).removeClass('next');
+    this.removeClasses();
     $(active).addClass('active');
     $(next).addClass('next');
   },
   dissolve() {
-    const active = document.getElementsByClassName('active');
-    const next = document.getElementsByClassName('next');
+    const active = $(this.parent.children)[this.counter - 1];
+    const next = $(this.parent.children)[this.next - 1];
 
     $(active).fadeTo(1000, 0);
     $(next).fadeTo(1000, 1, () => this.nextImage());
@@ -55,25 +72,37 @@ export const ProjectCarousel = React.createClass({
   componentWillUnmount() {
     return this.reset();
   },
-  componentWillReceiveProps() {
-    this.reset();
+  rebind() {
     this.setState({
+      name: this.props.name,
       images: this.props.images,
+      total: this.props.images.length,
+      slug: this.props.slug
     });
-    return this.init();
+    this.init(this.state.slug);
+    return this;
+  },
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props) {
+      this.reset();
+      this.rebind();
+    }
   },
   componentDidMount() {
     this.setState({
+      name: this.props.name,
       images: this.props.images,
+      total: this.props.images.length,
+      slug: this.props.slug
     });
-    return this.init();
+    this.init(this.props.slug);
   },
   render() {
     return (
-      <div className="carousel" id="carousel">
-        { this.props.images.map((result) => {
+      <div className="carousel" ref={ `${this.props.slug}` }>
+        { this.props.images.map((result, i) => {
             return (
-              <div key={ result } className="carousel__item-image">
+              <div key={ `${this.props.slug}-${i + 1}` } className="carousel__item-image">
                 <img className="img-scale" src={ result } />
               </div>
             );

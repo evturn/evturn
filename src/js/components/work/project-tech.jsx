@@ -6,8 +6,6 @@ import React from 'react';
 
 export const ProjectTech = React.createClass({
   render() {
-    console.log(this.props);
-
     return (
       <div className="project-tech project-info">
         <div className="project-tech__header project-info__header">Made with</div>

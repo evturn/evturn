@@ -29,7 +29,7 @@ export default React.createClass({
   render() {
     return (
       <div className="project-content">
-        <ProjectCarousel images={ this.state.project.images } />
+        <ProjectCarousel slug={ this.state.project.slug } name={ this.state.project.name } images={ this.state.project.images } />
         <ProjectInfo description={ this.state.project.description } name={ this.state.project.name } />
         <ProjectLinks links={ this.state.project.links } />
         <ProjectTech tech={ this.state.project.tech } />
