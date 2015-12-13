@@ -7,7 +7,7 @@ import { Bio } from 'components/about/bio';
 import { Tech } from 'components/about/tech';
 import { Stats } from 'components/about/stats';
 import { default as __stats } from 'sources/stats';
-import * as $ from 'helpers';
+import { setFeaturedTech } from 'helpers';
 
 export default React.createClass({
   componentDidMount() {
@@ -16,7 +16,7 @@ export default React.createClass({
   },
   render() {
     const { pathname } = this.props.location;
-    const featured = $.setFeaturedTech();
+    const featured = setFeaturedTech();
 
     return (
       <div>

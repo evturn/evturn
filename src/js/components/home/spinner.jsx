@@ -19,7 +19,7 @@ export const Spinner = React.createClass({
   render() {
 
     return (
-      <div id="preloader" ref={(spinner) => this.spinner = spinner}>
+      <div id="preloader" ref={ (spinner) => this.spinner = spinner }>
         <div id="spinner"></div>
         <img className="preloader" src={ require('images/favicon.jpg') } />
       </div>

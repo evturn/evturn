@@ -24,11 +24,7 @@ module.exports = {
     stats: { colors: true }
   },
   resolve: {
-    extensions: [
-      '',
-      '.js',
-      '.jsx'
-    ],
+    extensions: ['', '.js', '.jsx'],
     alias: {
       actions:    js     + '/actions/',
       components: js     + '/components/',

@@ -2,9 +2,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const _ = require('lodash');
-
 const baseConfig = require('./base');
-const BowerWebpackPlugin = require('bower-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 const config = _.merge({
@@ -18,13 +16,8 @@ const config = _.merge({
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new BowerWebpackPlugin({
-      searchResolveModulesDirectories: false
-    }),
     new WebpackNotifierPlugin(),
-    new webpack.ProvidePlugin({
-      React: 'react'
-    })
+    new webpack.ProvidePlugin({ React: 'react' })
   ]
 }, baseConfig);
 

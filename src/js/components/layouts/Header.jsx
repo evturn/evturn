@@ -4,7 +4,7 @@ require('styles/style.less');
 
 import React from 'react';
 import $ from 'jquery';
-import { IndexLink, Link, History } from 'react-router';
+import { IndexLink, Link } from 'react-router';
 
 const HeaderNav = React.createClass({
   mixins: [ History ],
