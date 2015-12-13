@@ -50,6 +50,7 @@ export const Header = React.createClass({
     this.$body.removeClass('nav-is-opened');
   },
   componentDidMount() {
+    this.refs['site-logo'].src = require('images/site/ev-av.png');
     this.init();
   },
   render() {
@@ -59,7 +60,7 @@ export const Header = React.createClass({
         <header id="site-header" className="site-header">
           <div>
             <div className="site-logo">
-              <img className="site-logo__image img-scale" src={ require('images/site/ev-av.png') } />
+              <img className="site-logo__image img-scale" ref={ 'site-logo' } />
             </div>
             <div className="site-nav site-nav__trigger">
               <span className="icon fa fa-bars"></span>
