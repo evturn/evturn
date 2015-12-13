@@ -10,7 +10,7 @@ import { ProjectTech } from 'components/work/project-tech';
 import { default as Project } from 'Project';
 import { default as projects } from 'sources/projects';
 import { Thumbnails } from 'components/work/thumbnails';
-import * as $ from 'helpers';
+import { setFeaturedProjects } from 'helpers';
 
 export default React.createClass({
   contextTypes: {
@@ -18,12 +18,12 @@ export default React.createClass({
   },
   getInitialState() {
     return {
-      projects: $.setFeaturedProjects()
+      projects: setFeaturedProjects()
     };
   },
   componentDidMount() {
     return this.setState({
-      projects: $.setFeaturedProjects()
+      projects: setFeaturedProjects()
     });
   },
   render() {

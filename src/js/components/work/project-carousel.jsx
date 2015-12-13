@@ -74,7 +74,6 @@ export const ProjectCarousel = React.createClass({
   },
   componentWillReceiveProps(nextProps) {
     this.setState({
-      name: nextProps.name,
       images: nextProps.images,
       total: nextProps.images.length,
       slug: nextProps.slug
@@ -85,7 +84,6 @@ export const ProjectCarousel = React.createClass({
   },
   componentDidMount() {
     this.setState({
-      name: this.props.name,
       images: this.props.images,
       total: this.props.images.length,
       slug: this.props.slug
