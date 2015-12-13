@@ -19,6 +19,12 @@ export default [
     id: 15,
     featured: true
   },{
+    name: 'Gulp.js',
+    icon: 'devicon-gulp-plain',
+    color: 'devicon-gulp-plain',
+    id: 14,
+    featured: true
+  },{
     name: 'Webpack',
     icon: 'evcon evcon-webpack',
     color: 'evcon evcon-webpack',
@@ -47,12 +53,6 @@ export default [
     icon: 'devicon-mongodb-plain',
     color: 'devicon-mongodb-plain colored',
     id: 10,
-    featured: true
-  },{
-    name: 'Gulp.js',
-    icon: 'devicon-gulp-plain',
-    color: 'devicon-gulp-plain',
-    id: 14,
     featured: true
   },{
     name: 'git',
