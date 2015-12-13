@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const _ = require('lodash');
 
 const baseConfig = require('./base');
-
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
@@ -24,9 +23,7 @@ const config = _.merge({
     }),
     new WebpackNotifierPlugin(),
     new webpack.ProvidePlugin({
-      React: 'react',
-      // jQuery: 'jquery',
-      // $: 'jquery'
+      React: 'react'
     })
   ]
 }, baseConfig);

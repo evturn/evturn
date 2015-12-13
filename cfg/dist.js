@@ -11,21 +11,12 @@ const config = _.merge({
   cache: false,
   devtool: 'source-map',
   plugins: [
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.DefinePlugin({
-    //   'process.env.NODE_ENV': '"production"'
-    // }),
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
     }),
-    // new webpack.optimize.UglifyJsPlugin(),
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    // new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
-      // jQuery: 'jquery',
-      // $: 'jquery'
     })
   ]
 }, baseConfig);

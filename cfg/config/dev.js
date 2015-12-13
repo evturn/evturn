@@ -1,6 +1,7 @@
 'use strict';
 const config = {
-  appEnv: 'dev'
+  appEnv: 'dev',
+  imagePrefix: '../../images/app/'
 };
 
 export default config;

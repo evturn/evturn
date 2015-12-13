@@ -15,11 +15,11 @@ module.exports = {
     publicPath: publicPath
   },
   devServer: {
-    contentBase: './src/',
+    contentBase: './',
     historyApiFallback: true,
     hot: true,
     port: port,
-    publicPath: publicPath,
+    publicPath: '/src/build/',
     noInfo: false,
     stats: { colors: true }
   },
