@@ -33,6 +33,19 @@ export const Video = React.createClass({
     this.video.play;
     this.video.playbackRate = 0.5;
   },
+    getDefaultProps() {
+    const bg = require('images/site/banana-plants.png');
+    return {
+      bg: bg,
+      style: {
+        parent: 'page-wrapper',
+        bg: {
+          backgroundImage: `url(${bg})`
+        },
+        bgImg: bg
+      }
+    };
+  },
   componentDidMount() {
     this.init();
   },
@@ -40,7 +53,7 @@ export const Video = React.createClass({
     return (
       <video
         ref={ (video) => this.video = video }
-        poster={ require('images/site/banana-plants.png') }
+        poster={ this.props.bg }
         type="video/mp4"></video>
     );
   }

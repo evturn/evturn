@@ -7,12 +7,22 @@ import { default as __stats } from 'sources/stats';
 import { setFeaturedTech } from 'helpers';
 
 export default React.createClass({
+  getDefaultProps() {
+    return {
+      style: {
+        parent: 'page-wrapper about',
+        bg: {
+          backgroundColor: '#ffffff'
+        }
+      }
+    };
+  },
   render() {
     const { pathname } = this.props.location;
     const featured = setFeaturedTech();
 
     return (
-      <div className="about">
+      <div style={ this.props.style.bg } className={ this.props.style.parent }>
         <Bio />
         <div className="about-info">
           <Tech tech={ featured } />

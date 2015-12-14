@@ -5,8 +5,6 @@ import { Headline } from 'components/home/headline';
 
 export default React.createClass({
   render() {
-    const { pathname } = this.props.location;
-
     return (
       <div>
         <Video />

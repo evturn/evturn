@@ -13,6 +13,17 @@ export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
+  getDefaultProps() {
+    return {
+      style: {
+        parent: 'page-wrapper',
+        bg: {
+          backgroundColor: '#ffffff'
+        }
+
+      }
+    };
+  },
   getInitialState() {
     return {
       projects: setFeaturedProjects()
@@ -27,7 +38,7 @@ export default React.createClass({
     const { pathname } = this.props.location;
 
     return (
-      <div>
+      <div style={ this.props.style.bg } className={ this.props.style.parent} >
         { this.props.children }
         <Thumbnails projects={ this.state.projects } />
       </div>

@@ -3,10 +3,10 @@
 @import "../global/reset.less";
 @import "../global/base.less";
 @import "../global/fonts/fonts.less";
+@import "../global/fonts/animate.less";
 @import "../components/icons.less";
 
 .page-contact {
-
   .blend {
     padding: 80px;
     position: absolute;
@@ -16,15 +16,6 @@
     left: 0;
     .linear-gradient(rgba(255, 255, 255, 0));
     .flip-vertical();
-  }
-  .site-content {
-    background-image: url('@{images}site/banana-plants.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: 50%;
-    @media(@tablet) {
-      background-position-x: 0%;
-    }
   }
   .site-header {
     @media(@tablet) {
@@ -46,14 +37,12 @@
       opacity: 1;
     }
   }
-  .links {
-    margin-top: 30%;
-    @media(@tablet) {
-      margin-top: 15%;
-    }
-  }
   .link-items {
     text-align: center;
+    padding-top: 30%;
+    @media(@tablet) {
+      padding-top: 15%;
+    }
   }
   .link-item {
     display: inline-block;
@@ -69,7 +58,6 @@
     .list-item-icon__icon {
       margin-left: 0;
       color: @tx-dark;
-      .transition(all 0.1s ease);
       a {
         color: @tx-dark;
       }
@@ -88,6 +76,7 @@
           line-height: 150px;
           font-size: 7em;
           &:hover {
+            .transition(all 0.1s ease);
             background-color: @bg-light;
             color: @color-accent;
           }
