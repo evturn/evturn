@@ -37,10 +37,9 @@ export const Video = React.createClass({
   render() {
     return (
       <video
-      id="ev-vid"
-      ref={(video) => this.video = video}
-      poster={ require('images/site/vid-poster.gif') }
-      type="video/mp4"></video>
+        ref={ (video) => this.video = video }
+        poster={ require('images/site/banana-plants.png') }
+        type="video/mp4"></video>
     );
   }
 });
