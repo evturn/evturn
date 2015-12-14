@@ -13,13 +13,13 @@ const HeaderNav = React.createClass({
     return (
       <nav className="site-menu">
         <div className="site-menu__header">
-          <div className="site-menu__close"><span className="icon fa fa-times"></span></div>
+          <div className="site-menu__close" onClick={ this.props.onClick }><span className="icon fa fa-times"></span></div>
         </div>
         <ul className="site-menu__list">
-          <li className="site-menu__item"><h4><IndexLink to="/" className="nav-link">Home</IndexLink></h4></li>
-          <li className="site-menu__item"><h4><Link to="work" className="nav-link">Work</Link></h4></li>
-          <li className="site-menu__item"><h4><Link to="about" className="nav-link">About</Link></h4></li>
-          <li className="site-menu__item"><h4><Link to="contact" className="nav-link">Contact</Link></h4></li>
+          <li className="site-menu__item" onClick={ this.props.onClick }><h4><IndexLink to="/" className="nav-link">Home</IndexLink></h4></li>
+          <li className="site-menu__item" onClick={ this.props.onClick }><h4><Link to="work" className="nav-link">Work</Link></h4></li>
+          <li className="site-menu__item" onClick={ this.props.onClick }><h4><Link to="about" className="nav-link">About</Link></h4></li>
+          <li className="site-menu__item" onClick={ this.props.onClick }><h4><Link to="contact" className="nav-link">Contact</Link></h4></li>
         </ul>
       </nav>
     );
@@ -28,42 +28,42 @@ const HeaderNav = React.createClass({
 
 export const Header = React.createClass({
   init() {
-    this.$body = $('body');
-    this.$siteHeader = $('.site-header');
-    this.$navTrigger = $('.site-nav__trigger');
-    this.$navOverlay = $('.nav-overlay');
     this.$menuClose = $('.site-menu__close, .site-menu__item a');
     this.$menu = $('.site-menu');
 
-    this.$navTrigger.on('click', () => this.setNavOpen());
-    this.$menuClose.on('click', () => this.setNavClosed());
-    this.$navOverlay.on('click', () => this.setNavClosed());
+    // this.$menuClose.on('click', () => this.setNavClosed());
   },
-  setNavOpen() {
+  setNavOpen(e) {
     this.$menu.addClass('open');
-    this.$body.addClass('nav-is-opened');
+    this.props.body.classList.add('nav-is-opened');
+    console.log(e)
   },
   setNavClosed() {
     this.$menu.removeClass('open');
-    this.$body.removeClass('nav-is-opened');
+    this.props.body.classList.remove('nav-is-opened');
+  },
+  getDefaultProps() {
+    return {
+      siteLogo: require('images/site/ev-av.png'),
+      body: document.getElementsByTagName('body')[0]
+    };
   },
   componentDidMount() {
-    this.refs['site-logo'].src = require('images/site/ev-av.png');
     this.init();
   },
   render() {
     return (
       <div>
-        <div className="nav-overlay"></div>
+        <div className="nav-overlay" onClick={ this.setNavClosed }></div>
         <header id="site-header" className="site-header">
           <div>
             <div className="site-logo">
-              <img className="site-logo__image img-scale" ref={ 'site-logo' } />
+              <img className="site-logo__image img-scale" src={ this.props.siteLogo } />
             </div>
-            <div className="site-nav site-nav__trigger">
+            <div className="site-nav site-nav__trigger" onClick={ this.setNavOpen }>
               <span className="icon fa fa-bars"></span>
             </div>
-            <HeaderNav />
+            <HeaderNav onClick={ this.setNavClosed } />
           </div>
         </header>
       </div>
