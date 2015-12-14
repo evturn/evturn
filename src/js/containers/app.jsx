@@ -41,7 +41,6 @@ export default React.createClass({
   },
   render() {
     updateLayout(this.props.location);
-    console.log(this);
 
     return (
       <div className="site-container">
