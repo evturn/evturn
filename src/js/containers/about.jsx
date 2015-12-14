@@ -10,7 +10,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       style: {
-        parent: 'page-wrapper about',
+        parent: 'about',
         bg: {
           backgroundColor: '#ffffff'
         }

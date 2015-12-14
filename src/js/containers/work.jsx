@@ -16,11 +16,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       style: {
-        parent: 'page-wrapper',
-        bg: {
-          backgroundColor: '#ffffff'
-        }
-
+        bg: { backgroundColor: '#ffffff' }
       }
     };
   },
@@ -35,10 +31,8 @@ export default React.createClass({
     });
   },
   render() {
-    const { pathname } = this.props.location;
-
     return (
-      <div style={ this.props.style.bg } className={ this.props.style.parent} >
+      <div style={ this.props.style.bg } >
         { this.props.children }
         <Thumbnails projects={ this.state.projects } />
       </div>
