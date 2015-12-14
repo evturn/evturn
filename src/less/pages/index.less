@@ -12,18 +12,20 @@
     color: @bg-main;
   }
   .site-content {
-    overflow: auto;
-    height: 100vh;
+    overflow: hidden;
   }
   .site-headline {
     position: absolute;
     top: 45%;
     right: 0;
     left: 0;
-    width: 90%;
     margin: 0 auto;
     z-index: 3;
-    background-color: @bg-main;
+    background-color: fade(@bg-light, 60);
+    width: 90%;
+    @media(@tablet) {
+      width: 300px;
+    }
     .site-headline__name,
     .site-headline__desc {
       .margin-y(0);
