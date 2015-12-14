@@ -10,8 +10,25 @@ const HeaderNav = React.createClass({
   },
   getDefaultProps() {
     return {
+      routes: {
+        home: '/',
+        work: 'work',
+        about: 'about',
+        contact: 'contact'
+      },
+      pages : {
+        home: 'Home',
+        work: 'Work',
+        about: 'About',
+        contact: 'Contact'
+      },
       style: {
-        item: 'site-menu__item'
+        parent: 'site-menu',
+        header: 'site-menu__header',
+        list: 'site-menu__list',
+        item: 'site-menu__item',
+        closeBtn: 'site-menu__close',
+        closeIcon: 'icon fa fa-times'
       }
     }
   },
@@ -19,18 +36,21 @@ const HeaderNav = React.createClass({
     return { open: false };
   },
   render() {
+    const { style, pages, routes, onClick } = this.props;
+    const isOpen = this.state.open ? 'open' : '';
+
     return (
-      <nav className={`site-menu ${ this.state.open ? 'open' : '' }`} >
-        <div className="site-menu__header">
-          <div className="site-menu__close" onClick={ this.props.onClick }>
-            <span className="icon fa fa-times"></span>
+      <nav className={`${ style.parent } ${ isOpen }`} >
+        <div className={ style.header }>
+          <div className={ style.closeBtn } onClick={ onClick }>
+            <span className={ style.closeIcon }></span>
           </div>
         </div>
-        <ul className="site-menu__list">
-          <li className={ this.props.style.item } onClick={ this.props.onClick }><IndexLink to="/">Home</IndexLink></li>
-          <li className={ this.props.style.item } onClick={ this.props.onClick }><Link to="work">Work</Link></li>
-          <li className={ this.props.style.item } onClick={ this.props.onClick }><Link to="about">About</Link></li>
-          <li className={ this.props.style.item } onClick={ this.props.onClick }><Link to="contact">Contact</Link></li>
+        <ul className={ style.list }>
+          <li className={ style.item } onClick={ onClick }><IndexLink to={ routes.home }>{ pages.home }</IndexLink></li>
+          <li className={ style.item } onClick={ onClick }><Link to={ routes.work }>{ pages.work }</Link></li>
+          <li className={ style.item } onClick={ onClick }><Link to={ routes.about }>{ pages.about }</Link></li>
+          <li className={ style.item } onClick={ onClick }><Link to={ routes.contact }>{ pages.contact }</Link></li>
         </ul>
       </nav>
     );
