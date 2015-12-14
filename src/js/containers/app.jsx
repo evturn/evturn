@@ -12,6 +12,8 @@ import { default as Project } from 'Project';
 import { Header } from 'components/layouts/Header';
 import { Footer } from 'components/layouts/Footer';
 import { URL, updateLayout } from 'helpers';
+require('normalize.css');
+require('styles/style.less');
 
 export default React.createClass({
   contextTypes: {
@@ -24,10 +26,6 @@ export default React.createClass({
       child: URL.child,
       projectId: URL.params
     };
-  },
-  componentWillMount() {
-    require('normalize.css');
-    require('styles/style.less');
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
