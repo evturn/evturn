@@ -1,15 +1,14 @@
 'use strict';
 import React from 'react';
+import styles from 'styles/style.less';
 
 const Link = React.createClass({
   render() {
-    const { url, icon } = this.props.data;
-
     return (
       <li className="link-item list-item-icon">
         <div className="list-item-icon__icon">
-          <a href={ url } target="_blank">
-            <i className={`icon ${icon}`}></i>
+          <a href={ this.props.url } target="_blank">
+            <i className={`icon ${this.props.icon}`}></i>
           </a>
         </div>
       </li>
@@ -23,7 +22,7 @@ export const Links = React.createClass({
       <div className="links">
         <ul className="link-items list-icons">
           { this.props.links.map((result) => {
-              return <Link key={ result.name } data={ result } />;
+              return <Link key={ result.name } url={ result.url } icon={ result.icon } />;
           }) }
         </ul>
       </div>

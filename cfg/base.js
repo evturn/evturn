@@ -3,6 +3,7 @@ const path = require('path');
 const js = path.join(__dirname, '/../src/js');
 const img = path.join(__dirname, '/../src/images');
 const less = path.join(__dirname, '/../src/less');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   port: 8000,
@@ -76,6 +77,6 @@ module.exports = {
     ]
   },
   postcss: function () {
-    return [];
+    return [require('autoprefixer')];
   }
 };
