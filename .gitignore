@@ -3,4 +3,4 @@ node_modules
 *.log
 *.hot-update.js.map
 *.hot-update.js
-*.hot-update.js.json
+*.hot-update.json
