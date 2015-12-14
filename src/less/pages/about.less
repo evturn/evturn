@@ -6,8 +6,10 @@
 
 .page-about {
   .site-header {
+    position: relative;
+    min-height: 110px;
     @media(@tablet) {
-      position: absolute;
+      min-height: 170px;
     }
   }
   .site-logo {
@@ -21,12 +23,6 @@
     .transition(0.3s);
     &:hover {
       color: @color-accent;
-    }
-  }
-  .about  {
-    margin-top: 100px;
-    @media(@tablet) {
-      margin-top: 160px;
     }
   }
 }
