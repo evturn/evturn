@@ -16,6 +16,7 @@
   z-index: 11000;
   position: fixed;
   display: block;
+
 }
 
 .site-spinner__logo {
@@ -34,6 +35,7 @@
     padding: 20px;
     width: 140px;
     height: 140px;
+    top: 25px;
   }
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
@@ -63,6 +65,9 @@
       -moz-animation: rotation 0.750s infinite linear;
         -o-animation: rotation 0.750s infinite linear;
            animation: rotation 0.750s infinite linear;
+  @media(@tablet) {
+    top: 25px;
+  }
 }
 
 .site-spinner__animation:before {
