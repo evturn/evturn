@@ -6,21 +6,22 @@ require('styles/components/spinner.less');
 
 export const Spinner = React.createClass({
   spin() {
-    const $container = $('#preloader');
-    const $image = $('.preloader');
+    const $spinner = $('.site-spinner');
+    const $spinnerLogo = $('.site-spinner__logo');
 
-    $container.delay(500).fadeOut();
-    $image.delay(600).fadeOut(600);
+    $spinner.delay(1500).fadeOut(1500);
+    $spinnerLogo.delay(1500).fadeOut(1500);
   },
   componentDidMount() {
     this.spin();
   },
   render() {
-
     return (
-      <div id="preloader" ref={ (spinner) => this.spinner = spinner }>
-        <div id="spinner"></div>
-        <img className="preloader" src={ require('images/favicon.jpg') } />
+      <div className="site-spinner" ref={ (spinner) => this.spinner = spinner } >
+        <div className="site-spinner__animation"></div>
+        <div className="site-spinner__logo">
+          <img className="site-spinner__logo-image img-scale" src={ require('images/site/ev-av.png') } />
+        </div>
       </div>
     );
   }

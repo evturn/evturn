@@ -17,6 +17,8 @@ import { URL, updateLayout } from 'helpers';
 require('normalize.css');
 require('styles/style.less');
 
+ReactDOM.render(<Spinner />, document.getElementById('site-loader'));
+
 export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
@@ -44,7 +46,6 @@ export default React.createClass({
 
     return (
       <div className="site-container">
-        <Spinner key={ 'spinner' } />
         <Header />
         <div className="site-content">
           { this.props.children }

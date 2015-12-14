@@ -2,6 +2,8 @@
 import React from 'react';
 import sources from 'sources/videos';
 
+require('styles/modules/video.less');
+
 export const Video = React.createClass({
   init() {
     this.video.type = 'video/mp4';
