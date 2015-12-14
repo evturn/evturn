@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import styles from 'styles/style.less';
 
 const Link = React.createClass({
   render() {

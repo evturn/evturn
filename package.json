@@ -76,7 +76,7 @@
     "flux": "^2.1.1",
     "font-awesome": "^4.3.0",
     "fs": "0.0.2",
-    "history": "^1.13.1",
+    "history": "1.13.x",
     "immutable": "^3.7.5",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
@@ -86,7 +86,7 @@
     "react-addons-test-utils": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
-    "react-router": "^1.0.2",
+    "react-router": "1.0.2",
     "redux": "^3.0.4",
     "redux-router": "^1.0.0-beta3",
     "redux-thunk": "^1.0.0"
