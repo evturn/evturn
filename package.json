@@ -10,6 +10,7 @@
     "lint": "eslint ./src",
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
+    "static": "open index.html",
     "dev": "node server.js & webpack --inline --watch --env=dev"
   },
   "repository": {

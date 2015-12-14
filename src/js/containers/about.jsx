@@ -13,7 +13,8 @@ export default React.createClass({
         parent: 'about',
         bg: {
           backgroundColor: '#ffffff'
-        }
+        },
+        aboutInfo: 'about-info'
       }
     };
   },
@@ -24,7 +25,7 @@ export default React.createClass({
     return (
       <div style={ this.props.style.bg } className={ this.props.style.parent }>
         <Bio />
-        <div className="about-info">
+        <div className={ this.props.style.aboutInfo }>
           <Tech tech={ featured } />
           <Stats stats={ __stats } />
         </div>
