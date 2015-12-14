@@ -5,9 +5,7 @@ import { Header } from 'components/layouts/Header';
 import { Footer } from 'components/layouts/Footer';
 import { default as __links } from 'sources/links';
 
-require('styles/layout/header.less');
 require('styles/pages/contact.less');
-require('styles/layout/footer.less');
 
 const ContactLink = React.createClass({
   getDefaultProps() {
@@ -63,7 +61,7 @@ export default React.createClass({
     return (
       <div style={ this.props.style.bg } className="contact">
         <Header />
-        <div className="site-content"><ContactLinks /></div>
+        <ContactLinks />
         <Footer />
       </div>
     );

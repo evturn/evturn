@@ -36,7 +36,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <div className="site-content work">
+      <div className="work">
         <Header />
           <div style={ this.props.style.bg } >
             { this.props.children }
