@@ -1,3 +1,8 @@
+@import "../global/variables.less";
+@import "../global/mixins.less";
+@import "../global/base.less";
+@import "../components/icons.less";
+
 .page-contact {
 
   .blend {
@@ -61,7 +66,11 @@
     }
     .list-item-icon__icon {
       margin-left: 0;
+      color: @tx-dark;
       .transition(all 0.1s ease);
+      a {
+        color: @tx-dark;
+      }
       .icon {
         width: 100px;
         height: 100px;

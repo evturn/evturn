@@ -2,6 +2,8 @@
 import React from 'react';
 import $ from 'jquery';
 
+require('styles/components/spinner.less');
+
 export const Spinner = React.createClass({
   spin() {
     const $container = $('#preloader');

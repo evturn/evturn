@@ -3,6 +3,8 @@ import React from 'react';
 import $ from 'jquery';
 import { IndexLink, Link } from 'react-router';
 
+require('styles/layout/header.less');
+
 const HeaderNav = React.createClass({
   contextTypes: {
     router: React.PropTypes.func

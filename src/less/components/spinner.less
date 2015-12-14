@@ -1,3 +1,5 @@
+@color-accent: #5FA3C0;
+
 #preloader {
   width: 100vw;
   height: 100vh;
@@ -29,7 +31,9 @@
 }
 
 #spinner {
-  .no-scrollbar;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   position: relative;
   height: 95px;
   width: 95px;

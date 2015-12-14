@@ -1,6 +1,8 @@
 'use strict';
 import React from 'react';
 
+require('styles/pages/contact.less');
+
 const Link = React.createClass({
   render() {
     return (

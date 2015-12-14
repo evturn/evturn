@@ -11,7 +11,9 @@ import { default as Work } from 'Work';
 import { default as Project } from 'Project';
 import { Header } from 'components/layouts/Header';
 import { Footer } from 'components/layouts/Footer';
+import { Spinner } from 'components/home/spinner';
 import { URL, updateLayout } from 'helpers';
+
 require('normalize.css');
 require('styles/style.less');
 
@@ -21,27 +23,29 @@ export default React.createClass({
   },
   getInitialState() {
     return {
-      route: URL.route,
-      page: URL.page,
-      child: URL.child,
-      projectId: URL.params
+      route: URL.route(),
+      page: URL.page(),
+      child: URL.child(),
+      projectId: URL.params()
     };
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      this.setState({
-        route: URL.route,
-        page: URL.page,
-        child: URL.child,
-        projectId: URL.params
+      return this.setState({
+        route: URL.route(),
+        page: URL.page(),
+        child: URL.child(),
+        projectId: URL.params()
       });
     });
   },
   render() {
     updateLayout(this.props.location);
+    console.log(this);
 
     return (
       <div className="site-container">
+        <Spinner key={ 'spinner' } />
         <Header />
         <div className="site-content">
           { this.props.children }
