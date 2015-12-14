@@ -6,6 +6,8 @@ import { ProjectLinks } from 'components/work/project-links';
 import { ProjectTech } from 'components/work/project-tech';
 import { setProject } from 'helpers';
 
+require('styles/modules/project.less');
+
 export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func

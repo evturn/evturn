@@ -2,6 +2,8 @@
 import React from 'react';
 import $ from 'jquery';
 
+require('styles/modules/carousel.less');
+
 export const ProjectCarousel = React.createClass({
   init(slug) {
     this.ID = slug;

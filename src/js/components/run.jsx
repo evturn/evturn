@@ -17,12 +17,12 @@ render((
   <Router history={ history } >
     <Route path="/" component={ App } >
       <IndexRoute component={ Home } />
+      <Route path="about" component={ About } />
+      <Route path="contact" component={ Contact } />
       <Route path="work(/projects/:projectId)" component={ Work } >
         <IndexRoute component={ Project } />
         <Route path="/projects/:projectId" component={ Project } />
       </Route>
-      <Route path="about" component={ About } />
-      <Route path="contact" component={ Contact } />
     </Route>
   </Router>
 ), document.getElementById('site-container'));

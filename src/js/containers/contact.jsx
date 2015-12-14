@@ -1,9 +1,13 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Header } from 'components/layouts/Header';
+import { Footer } from 'components/layouts/Footer';
 import { default as __links } from 'sources/links';
 
+require('styles/layout/header.less');
 require('styles/pages/contact.less');
+require('styles/layout/footer.less');
 
 const ContactLink = React.createClass({
   getDefaultProps() {
@@ -51,14 +55,17 @@ export default React.createClass({
       style: {
         bg: {
           backgroundImage: `url(${ require('images/site/banana-plants.png') })`
-        },
-        parent: 'page-wrapper'
+        }
       }
     };
   },
   render() {
     return (
-      <div style={ this.props.style.bg } className={ this.props.style.parent }><ContactLinks /></div>
+      <div style={ this.props.style.bg } className="contact">
+        <Header />
+        <div className="site-content"><ContactLinks /></div>
+        <Footer />
+      </div>
     );
   }
 });

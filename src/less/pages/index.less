@@ -3,8 +3,11 @@
 @import "../global/reset.less";
 @import "../global/base.less";
 @import "../global/fonts/fonts.less";
+@import "../components/icons.less";
 
-.page-index {
+
+  // overflow: hidden;
+.home {
   overflow: hidden;
   .site-logo {
     right: 0;
@@ -17,9 +20,7 @@
   .site-nav {
     color: @bg-main;
   }
-  .site-content {
-    overflow: hidden;
-  }
+
   .site-headline {
     position: absolute;
     top: 45%;
@@ -34,7 +35,8 @@
     }
     .site-headline__name,
     .site-headline__desc {
-      .margin-y(0);
+      margin-top: 0;
+      margin-bottom: 0;
       font-family: @font-sans;
       font-weight: 500;
       text-align: center;

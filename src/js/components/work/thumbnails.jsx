@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+require('styles/modules/thumbnails.less');
+
 export const Thumbnails = React.createClass({
   contextTypes: {
     router: React.PropTypes.func

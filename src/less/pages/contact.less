@@ -3,10 +3,21 @@
 @import "../global/reset.less";
 @import "../global/base.less";
 @import "../global/fonts/fonts.less";
-@import "../global/fonts/animate.less";
 @import "../components/icons.less";
+@import "../layout/footer.less";
 
-.page-contact {
+
+.contact {
+  .clearfix();
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 50%;
+  @media(@tablet) {
+    background-position-x: 0%;
+  }
   .blend {
     padding: 80px;
     position: absolute;
@@ -21,6 +32,9 @@
     @media(@tablet) {
       position: absolute;
     }
+  }
+  .site-footer {
+    bottom: 0;
   }
   .site-logo {
     right: 0;
@@ -91,5 +105,3 @@
     }
   }
 }
-
-

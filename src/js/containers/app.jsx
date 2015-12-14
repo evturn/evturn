@@ -14,8 +14,7 @@ import { Footer } from 'components/layouts/Footer';
 import { Spinner } from 'components/home/spinner';
 import { URL, updateLayout } from 'helpers';
 
-require('normalize.css');
-require('styles/style.less');
+require('styles/layout/page.less');
 
 ReactDOM.render(<Spinner />, document.getElementById('site-loader'));
 
@@ -42,15 +41,10 @@ export default React.createClass({
     });
   },
   render() {
-    updateLayout(this.props.location);
 
     return (
       <div className="site-container">
-        <Header />
-        <div className="site-content">
-          { this.props.children }
-        </div>
-        <Footer />
+        { this.props.children }
       </div>
     );
   }
