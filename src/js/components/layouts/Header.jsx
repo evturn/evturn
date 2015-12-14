@@ -8,6 +8,13 @@ const HeaderNav = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
+  getDefaultProps() {
+    return {
+      style: {
+        item: 'site-menu__item'
+      }
+    }
+  },
   getInitialState() {
     return { open: false };
   },
@@ -15,13 +22,15 @@ const HeaderNav = React.createClass({
     return (
       <nav className={`site-menu ${ this.state.open ? 'open' : '' }`} >
         <div className="site-menu__header">
-          <div className="site-menu__close" onClick={ this.props.onClick }><span className="icon fa fa-times"></span></div>
+          <div className="site-menu__close" onClick={ this.props.onClick }>
+            <span className="icon fa fa-times"></span>
+          </div>
         </div>
         <ul className="site-menu__list">
-          <li className="site-menu__item" onClick={ this.props.onClick }><h4><IndexLink to="/" className="nav-link">Home</IndexLink></h4></li>
-          <li className="site-menu__item" onClick={ this.props.onClick }><h4><Link to="work" className="nav-link">Work</Link></h4></li>
-          <li className="site-menu__item" onClick={ this.props.onClick }><h4><Link to="about" className="nav-link">About</Link></h4></li>
-          <li className="site-menu__item" onClick={ this.props.onClick }><h4><Link to="contact" className="nav-link">Contact</Link></h4></li>
+          <li className={ this.props.style.item } onClick={ this.props.onClick }><IndexLink to="/">Home</IndexLink></li>
+          <li className={ this.props.style.item } onClick={ this.props.onClick }><Link to="work">Work</Link></li>
+          <li className={ this.props.style.item } onClick={ this.props.onClick }><Link to="about">About</Link></li>
+          <li className={ this.props.style.item } onClick={ this.props.onClick }><Link to="contact">Contact</Link></li>
         </ul>
       </nav>
     );
