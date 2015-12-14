@@ -9,9 +9,12 @@ const HeaderNav = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
+  getInitialState() {
+    return { open: false };
+  },
   render() {
     return (
-      <nav className="site-menu">
+      <nav className={`site-menu ${ this.state.open ? 'open' : '' }`} >
         <div className="site-menu__header">
           <div className="site-menu__close" onClick={ this.props.onClick }><span className="icon fa fa-times"></span></div>
         </div>
@@ -27,19 +30,12 @@ const HeaderNav = React.createClass({
 });
 
 export const Header = React.createClass({
-  init() {
-    this.$menuClose = $('.site-menu__close, .site-menu__item a');
-    this.$menu = $('.site-menu');
-
-    // this.$menuClose.on('click', () => this.setNavClosed());
-  },
   setNavOpen(e) {
-    this.$menu.addClass('open');
+    this.refs.menu.setState({ open: true });
     this.props.body.classList.add('nav-is-opened');
-    console.log(e)
   },
   setNavClosed() {
-    this.$menu.removeClass('open');
+    this.refs.menu.setState({ open: false });
     this.props.body.classList.remove('nav-is-opened');
   },
   getDefaultProps() {
@@ -47,9 +43,6 @@ export const Header = React.createClass({
       siteLogo: require('images/site/ev-av.png'),
       body: document.getElementsByTagName('body')[0]
     };
-  },
-  componentDidMount() {
-    this.init();
   },
   render() {
     return (
@@ -63,7 +56,7 @@ export const Header = React.createClass({
             <div className="site-nav site-nav__trigger" onClick={ this.setNavOpen }>
               <span className="icon fa fa-bars"></span>
             </div>
-            <HeaderNav onClick={ this.setNavClosed } />
+            <HeaderNav ref={ 'menu' } onClick={ this.setNavClosed } />
           </div>
         </header>
       </div>
