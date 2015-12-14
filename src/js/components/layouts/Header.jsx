@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import $ from 'jquery';
 import { IndexLink, Link } from 'react-router';
 
 require('styles/layout/header.less');
@@ -48,7 +47,7 @@ export const Header = React.createClass({
     return (
       <div>
         <div className="nav-overlay" onClick={ this.setNavClosed }></div>
-        <header id="site-header" className="site-header">
+        <header className="site-header">
           <div>
             <div className="site-logo">
               <img className="site-logo__image img-scale" src={ this.props.siteLogo } />
