@@ -14,9 +14,8 @@ import { Footer } from 'components/layouts/Footer';
 import { Spinner } from 'components/home/spinner';
 import { URL, updateLayout } from 'helpers';
 
-require('styles/layout/page.less');
-
-ReactDOM.render(<Spinner />, document.getElementById('site-loader'));
+require('styles/layout/header.less');
+require('styles/layout/footer.less');
 
 export default React.createClass({
   contextTypes: {
@@ -24,28 +23,30 @@ export default React.createClass({
   },
   getInitialState() {
     return {
-      route: URL.route(),
-      page: URL.page(),
-      child: URL.child(),
-      projectId: URL.params()
+      page: URL.route(),
+      route: URL.route()
     };
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
       return this.setState({
-        route: URL.route(),
-        page: URL.page(),
+        page: URL.route(),
         child: URL.child(),
         projectId: URL.params()
       });
     });
   },
   render() {
+  const { pathname } = this.props.location;
+  const page = pathname.split('/')[1] || 'home';
 
     return (
-      <div className="site-container">
-        { this.props.children }
-      </div>
+        <div className={ `site-container ${ page }` }>
+          <Spinner />
+          <Header />
+          { this.props.children }
+          <Footer />
+        </div>
     );
   }
 });

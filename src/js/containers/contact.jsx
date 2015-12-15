@@ -1,8 +1,6 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Header } from 'components/layouts/Header';
-import { Footer } from 'components/layouts/Footer';
 import { default as __links } from 'sources/links';
 
 require('styles/pages/contact.less');
@@ -59,10 +57,8 @@ export default React.createClass({
   },
   render() {
     return (
-      <div style={ this.props.style.bg } className="contact">
-        <Header />
+      <div style={ this.props.style.bg } className="backdrop">
         <ContactLinks />
-        <Footer />
       </div>
     );
   }

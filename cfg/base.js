@@ -25,11 +25,8 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      actions:    js     + '/actions/',
       components: js     + '/components/',
       containers: js     + '/containers/',
-      reducers:   js     + '/reducers/',
-      stores:     js     + '/stores/',
       helpers:    js     + '/helpers/',
       sources:    js     + '/sources/',
       App:        js     + '/containers/app',

@@ -11,7 +11,9 @@
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
     "static": "open index.html",
-    "dev": "node server.js & webpack --inline --watch --env=dev"
+    "start": "node server.js & webpack --inline --watch --env=dev",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base ./ --env=dev"
+
   },
   "repository": {
     "type": "git",

@@ -9,13 +9,19 @@
   // overflow: hidden;
 .home {
   overflow: hidden;
-  .site-logo {
-    right: 0;
-    left: 0;
-    top: 15%;
-    padding: 20px;
-    width: 140px;
-    background-color: fade(@bg-main, 70);
+  .site-header {
+    height: 170px;
+    .site-logo {
+      right: 0;
+      left: 0;
+      padding: 20px;
+      width: 140px;
+      background-color: fade(@bg-main, 70);
+      top: 25px;
+      @media(@tablet) {
+        top: 15%;
+      }
+    }
   }
   .site-nav {
     color: @bg-main;

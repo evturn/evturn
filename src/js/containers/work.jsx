@@ -1,7 +1,5 @@
 'use strict';
 import React from 'react';
-import { Header } from 'components/layouts/Header';
-import { Footer } from 'components/layouts/Footer';
 import { ProjectCarousel } from 'components/work/project-carousel';
 import { ProjectInfo } from 'components/work/project-info';
 import { ProjectLinks } from 'components/work/project-links';
@@ -37,13 +35,11 @@ export default React.createClass({
   render() {
     return (
       <div className="work">
-        <Header />
-          <div style={ this.props.style.bg } >
-            { this.props.children }
-            <Thumbnails projects={ this.state.projects } />
-          </div>
-        <Footer />
-      </div>
+        <div style={ this.props.style.bg } >
+          { this.props.children }
+          <Thumbnails projects={ this.state.projects } />
+        </div>
+    </div>
     );
   }
 });
