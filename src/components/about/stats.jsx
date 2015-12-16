@@ -2,9 +2,12 @@
 import React from 'react';
 import $ from 'jquery';
 
-export const Stats = React.createClass({
+import CSSModules from 'react-css-modules';
+import css from './stats.pre';
+
+const Stats = React.createClass({
   init: function init() {
-    this.$counters = $('.stat-count');
+    this.$counters = $(css.count);
     this.animate();
   },
   increment: function increment($element) {
@@ -32,24 +35,24 @@ export const Stats = React.createClass({
   },
   render() {
     return (
-      <div className="about-stats">
-        <div className="about-info__header">Statistics</div>
-        <ul className="about-stats__list list-icons">
-          {
-            this.props.stats.map((result) => {
-              return (
-                <li
-                ref={ (stat) => this.stat = stat }
-                key={ result.number }
-                className="about-stats__item list-item-icon">
-                  <div className="about-stats__item-icon list-item-icon__icon stat-count">{ result.number }</div>
-                  <div className="about-stats__item-name list-item-icon__caption">{ result.text }</div>
-                </li>
-              );
-            })
-          }
+      <div className={css.root}>
+        <div className={css.header}>Statistics</div>
+        <ul className="list-icons">
+          { this.props.stats.map((result) => {
+            return (
+              <li
+                ref={(stat) => this.stat = stat}
+                key={result.number}
+                className={`${css.item} list-item-icon`}>
+                <div className={`${css.icon} list-item-icon__icon ${css.count}`}>{result.number}</div>
+                <div className={css.caption}>{result.text}</div>
+              </li>
+            );
+          }) }
         </ul>
       </div>
     );
   }
  });
+
+export default CSSModules(Stats, css);

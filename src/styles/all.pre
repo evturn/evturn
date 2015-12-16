@@ -2,6 +2,14 @@
 @import "mixins.pre";
 
 :global {
+  .info {
+    margin: 15px auto;
+    max-width: 1000px;
+    .clearfix();
+  }
+}
+
+:global {
   .img {
     .img-scale();
   }

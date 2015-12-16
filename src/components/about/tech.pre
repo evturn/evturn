@@ -1,0 +1,46 @@
+@import "../../styles/all.pre";
+
+.root {
+  margin-bottom: 15px;
+  @media(@tablet) {
+    .padding-x(20px);
+    float: left;
+    width: 50%;
+  }
+}
+
+.header {
+  margin-bottom: 10px;
+  font-size: 21px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+ .item {
+  position: relative;
+  width: 33.3333333333%;
+  color: @bg-main;
+  text-align: center;
+  .caption {
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70%;
+  }
+}
+
+.icon {
+  background-color: @color-accent;
+  color: @bg-main;
+  margin: 5px;
+  & span {
+    line-height: 65px;
+    height: 65px;
+    width: 65px;
+  }
+}
+.caption {
+  color: @bg-main;
+  font-size: 11px;
+}

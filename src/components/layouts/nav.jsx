@@ -4,8 +4,6 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import css from './nav.pre';
 
-console.log('NAV', css);
-
 const Nav = React.createClass({
   getDefaultProps() {
     return { logo: require('images/site/ev-av.png') };

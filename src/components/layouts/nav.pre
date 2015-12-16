@@ -59,3 +59,19 @@
 .home .burger {
   color: @bg-main;
 }
+
+.about {
+  .logo {
+    right: 0;
+    left: 0;
+    top: 25px;
+    background-color: fade(@bg-main, 70);
+  }
+  .burger {
+    color: @tx-dark;
+    .transition(0.3s);
+    &:hover {
+      color: @color-accent;
+    }
+  }
+}

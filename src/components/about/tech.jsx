@@ -1,32 +1,35 @@
 'use strict';
 import React from 'react';
 
+import CSSModules from 'react-css-modules';
+import css from './tech.pre';
+
 const TechItem = React.createClass({
   render() {
-    const { name, icon } = this.props.data;
-
     return (
-      <li className="about-tech__item list-item-icon">
-        <div className="about-tech__item-icon list-item-icon__icon">
-          <span className={`icon ${icon} `}></span>
+      <li className={`${css.item} list-item-icon`}>
+        <div className={`${css.icon} list-item-icon__icon`}>
+          <span className={`icon ${this.props.icon}`}></span>
         </div>
-        <div className="about-tech__item-name list-item-icon__caption">{ name }</div>
+        <div className={css.caption}>{this.props.name}</div>
       </li>
     );
   }
 });
 
-export const Tech = React.createClass({
+const Tech = React.createClass({
   render() {
     return (
-      <div className="about-tech">
-        <div className="about-info__header">Notable Tools</div>
-        <ul className="about-tech__list list-icons">
+      <div className={css.root}>
+        <div className={css.header}>Notable Tools</div>
+        <ul className="list-icons">
           { this.props.tech.map((result) => {
-              return <TechItem key={ result.id }  data={ result } />;
+              return <TechItem key={result.id} name={result.name} icon={result.icon} />;
           }) }
         </ul>
       </div>
     );
   }
 });
+
+export default CSSModules(Tech, css);

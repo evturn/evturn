@@ -4,11 +4,8 @@ import { IndexLink, Link } from 'react-router';
 import { default as Nav } from './nav';
 import { default as Menu } from './menu';
 
-
 import CSSModules from 'react-css-modules';
 import css from './header.pre';
-
-console.log('HEADER', css);
 
 const Overlay = React.createClass({
   getInitialState() {

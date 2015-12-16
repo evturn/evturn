@@ -5,8 +5,6 @@ import { IndexLink, Link } from 'react-router';
 import CSSModules from 'react-css-modules';
 import css from './menu.pre';
 
-console.log('MENU', css);
-
 const items = {
   home:    { name: 'Home',    route: '/'       },
   work:    { name: 'Work',    route: 'work'    },

@@ -1,0 +1,25 @@
+@import '../../styles/all.pre';
+
+.root {
+  margin: 30px auto;
+  max-width: 1000px;
+  .padding-x(15px);
+  .clearfix();
+  max-width: 500px;
+  .header {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 32px;
+  }
+  .paragraph {
+    font-family: @font-serif;
+    font-weight: 500;
+    text-align: justify;
+    font-size: 17px;
+    line-height: 27px;
+    @media(@tablet-portrait) {
+      .padding-x(20px);
+    }
+  }
+}
