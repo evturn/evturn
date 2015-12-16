@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, History } from 'react-router';
 import { history } from 'history';
 import { Header, Footer } from 'components/layouts';
-// import { default as Spinner } from 'components/home/spinner';
+import { default as Spinner } from 'components/home/spinner';
 import { URL, getPage, updateLayout } from 'helpers';
 
 // <Spinner />
@@ -29,11 +29,12 @@ export default React.createClass({
   },
   render() {
     return (
-        <div>
-          <Header page={this.state.page} />
-          { this.props.children }
-          <Footer page={this.state.page} />
-        </div>
+      <div>
+        <Spinner page={this.state.page} />
+        <Header page={this.state.page} />
+        {this.props.children}
+        <Footer page={this.state.page} />
+      </div>
     );
   }
 });
