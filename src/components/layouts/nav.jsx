@@ -23,12 +23,10 @@ const Nav = React.createClass({
     this.props.callbackParent(newState);
   },
   componentWillReceiveProps(newProps) {
-    if (this.state.open !== newProps) {
-      return this.setState({
-        page: newProps.page,
-        open: newProps.open
-      });
+    if (this.state.open !== newProps.open) {
+      this.setState({ open: newProps.open });
     }
+    this.setState({page: newProps.page});
   },
   render() {
     console.log('NAV STATE', this.state.open);

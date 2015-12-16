@@ -16,29 +16,25 @@ export default React.createClass({
     router: React.PropTypes.func
   },
   getInitialState() {
-    return {
-      page: URL.route(),
-      route: URL.route()
-    };
+    const route = URL.route().substr(1);
+
+    return { page: route === "" ? 'home' : route };
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
+      const route = URL.route().substr(1);
+
       return this.setState({
-        page: URL.route(),
-        child: URL.child(),
-        projectId: URL.params()
+        page: route === "" ? 'home' : route
       });
     });
   },
   render() {
-  const { pathname } = this.props.location;
-  const page = pathname.split('/')[1] || 'home';
-
     return (
-        <div className={ `site-container ${ page }` }>
-          <Header page={ page } />
+        <div>
+          <Header page={this.state.page} />
           { this.props.children }
-          <Footer page={ page } />
+          <Footer page={this.state.page} />
         </div>
     );
   }

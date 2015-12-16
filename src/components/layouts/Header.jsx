@@ -32,7 +32,6 @@ const Overlay = React.createClass({
   render() {
     const openClass = this.state.open ? css.overlay : '';
 
-    console.log('OVERLAY STATE', this.state.open);
     return <div className={openClass} onClick={ this.handleClick } />;
   }
 });
@@ -46,12 +45,13 @@ const Header = React.createClass({
   },
   onChildChanged(newState) {
     this.setState({ open: newState });
-    console.log(newState);
+  },
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      page: newProps.page
+    });
   },
   render() {
-
-    console.log('HEADER STATE', this.state.open);
-
     return (
       <div className={css[this.state.page]}>
         <Overlay initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>

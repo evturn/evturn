@@ -2,7 +2,10 @@
 import React from 'react';
 import sources from 'sources/videos';
 
-export const Video = React.createClass({
+import CSSModules from 'react-css-modules';
+import css from './video.pre';
+
+const Video = React.createClass({
   init() {
     this.video.type = 'video/mp4';
     this.video.muted = true;
@@ -31,17 +34,9 @@ export const Video = React.createClass({
     this.video.play;
     this.video.playbackRate = 0.5;
   },
-    getDefaultProps() {
-    const bg = require('images/site/banana-plants.png');
+  getDefaultProps() {
     return {
-      bg: bg,
-      style: {
-        parent: 'page-wrapper',
-        bg: {
-          backgroundImage: `url(${bg})`
-        },
-        bgImg: bg
-      }
+      poster: require('images/site/banana-plants.png')
     };
   },
   componentDidMount() {
@@ -50,9 +45,13 @@ export const Video = React.createClass({
   render() {
     return (
       <video
+        className={css.video}
         ref={ (video) => this.video = video }
-        poster={ this.props.bg }
-        type="video/mp4"></video>
+        poster={ this.props.poster }
+        type="video/mp4">
+      </video>
     );
   }
 });
+
+export default CSSModules(Video, css);

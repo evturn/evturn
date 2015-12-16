@@ -7,6 +7,12 @@
   position: relative;
 }
 
+.home {
+  &.footer {
+    display: none;
+  }
+}
+
 .contact {
   &.footer {
     bottom: 0;

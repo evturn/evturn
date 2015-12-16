@@ -10,6 +10,9 @@ const Footer = React.createClass({
       page: this.props.page
     });
   },
+  componentWillReceiveProps(newProps) {
+    this.setState({page: newProps.page});
+  },
   render() {
     return (
       <footer className={`${css[this.state.page]} ${css.footer}`}>
