@@ -1,0 +1,36 @@
+@import "../../styles/all.pre";
+
+// Contact
+.contact {
+  .root {
+    @media(@tablet) {
+      position: absolute;
+    }
+  }
+}
+
+.root {
+  width: 100%;
+  margin: 0 auto;
+  @media(@tablet) {
+    height: 170px;
+    top: 0;
+    left: 0;
+    right:0;
+  }
+  .clearfix();
+}
+
+.overlay {
+  overflow: hidden;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.65);
+  top: 0;
+  left: 0;
+  @media(@tablet) {
+    background: rgba(255,255,255,.65);
+  }
+}

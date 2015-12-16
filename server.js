@@ -1,16 +1,44 @@
 'use strict';
-/*eslint no-console:0 */
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config');
-const open = require('open');
+var browserSync,
+    webpack,
+    webpackDevMiddleware,
+    webpackHotMiddleware,
+    webpackConfig,
+    bundler;
 
-new WebpackDevServer(webpack(config), config.devServer)
+browserSync = require('browser-sync');
+webpack = require('webpack');
+webpackDevMiddleware = require('webpack-dev-middleware');
+webpackHotMiddleware = require('webpack-hot-middleware');
+webpackConfig = require('./webpack.config.browsersync');
+bundler = webpack(webpackConfig);
 
-  .listen(config.port, 'localhost', (err) => {
-    if (err) { console.log(err); }
+browserSync({
+    ui: false,
+    ghostMode: false,
+    online: false,
+    open: false,
+    notify: false,
+    host: webpackConfig.devServer.host,
+    port: webpackConfig.devServer.port,
+    xip: false,
+    tunnel: true,
+    server: {
+        baseDir: webpackConfig.devServer.contentBase,
 
-    console.log(`Listening on ${config.port}`);
-    console.log(`Opening your system browser and your heart...`);
-    open(`http://localhost:${config.port}/`);
+        middleware: [
+            webpackDevMiddleware(bundler, {
+                publicPath: webpackConfig.output.publicPath,
+                noInfo: false,
+                quiet: false,
+                stats: {
+                    colors: true
+                }
+            }),
+            webpackHotMiddleware(bundler)
+        ]
+    },
+    files: [
+        './dist/static/*.css'
+    ]
 });

@@ -1,0 +1,45 @@
+@import "../../styles/all.pre";
+
+.burger {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  height: 47px;
+  width: 47px;
+  z-index: 3;
+  cursor: pointer;
+  font-size: 40px;
+  text-align: center;
+}
+
+.logo {
+  position: absolute;
+  z-index: 3;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 50%;
+  top: 25px;
+  width: 80px;
+  .clearfix();
+  @media(@tablet) {
+    padding: 20px;
+    width: 140px;
+  }
+}
+
+
+.contact .logo {
+  right: 0;
+  left: 0;
+  top: 25px;
+  background-color: fade(@bg-main, 70);
+}
+.contact .burger {
+  .transition(0.3s);
+  opacity: 0.5;
+  color: @tx-light;
+  border-radius: 8px;
+  &:hover {
+    opacity: 1;
+  }
+}

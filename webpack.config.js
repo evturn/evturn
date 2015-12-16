@@ -1,31 +1,93 @@
 'use strict';
 const path = require('path');
-const args = require('minimist')(process.argv.slice(2));
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const WebpackNotifierPlugin = require('webpack-notifier');
 
-const allowedEnvs = ['dev', 'dist'];
-
-let env;
-
-if (args._.length > 0 && args._.indexOf('start') !== -1) { env = 'test'; }
-else if (args.env) { env = args.env; }
-else { env = 'dev'; }
-
-process.env.REACT_WEBPACK_ENV = env;
-
-const configs = {
-  base: require(path.join(__dirname, 'cfg/base')),
-  dev:  require(path.join(__dirname, 'cfg/dev')),
-  dist: require(path.join(__dirname, 'cfg/dist'))
+const devServer = {
+  contentBase: path.resolve(__dirname, './dist'),
+  historyApiFallback: true,
+  quiet: false,
+  host: '127.0.0.1',
+  port: 8000,
+  hot: true,
+  publicPath: '/static/',
+  noInfo: false,
+  stats: { colors: true }
 };
 
-function getValidEnv(env) {
-  const isValid = env && env.length > 0 && allowedEnvs.indexOf(env) !== -1;
-  return isValid ? env : 'dev';
-}
+const alias = {
+  components: path.join(__dirname, './src/components/'),
+  helpers: path.join(__dirname, './src/helpers/'),
+  sources: path.join(__dirname, './src/sources/'),
+  images: path.join(__dirname, './src/images/'),
+  styles: path.join(__dirname, './src/styles/')
+};
 
-function buildConfig(env) {
-  const usedEnv = getValidEnv(env);
-  return configs[usedEnv];
-}
+module.exports = {
+  devtool: 'source-map',
+  debug: true,
+  devServer: devServer,
+  context: path.resolve(__dirname, './src'),
+  inline: true,
+  devtool: 'source-map',
+  entry: [
+    'webpack-dev-server/client?http://' + devServer.host + ':' + devServer.port,
+    'webpack/hot/only-dev-server',
+    './run.jsx'
+  ],
+  output: {
+    path: path.resolve(__dirname, './dist/static'),
+    filename: '[name].js',
+    publicPath: devServer.publicPath
+  },
+  plugins: [
+    new ExtractTextPlugin('app.css', {
+      disable: false,
+      allChunks: true
+    }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new WebpackNotifierPlugin(),
+    new webpack.ProvidePlugin({ React: 'react' })
 
-module.exports = buildConfig(env);
+  ],
+  module: {
+    preLoaders: [
+      {
+        test: /\.(js|jsx)$/,
+        include: path.join(__dirname, 'src'),
+        loader: 'eslint-loader'
+      }
+    ],
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!postcss-loader'
+      },{
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!postcss-loader!less-loader'
+      },{
+        test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader'
+      },{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
+      },{
+        test: /\.woff2(\?\S*)?$/,
+        loader: 'url-loader?limit=100000'
+      },{
+        test: /\.(js|jsx)$/,
+        loader: 'react-hot!babel-loader',
+        include: path.join(__dirname, 'src')
+      },
+    ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    alias: alias
+  },
+  postcss: function() {
+      return [require('autoprefixer')];
+  }
+};

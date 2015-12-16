@@ -1,7 +1,8 @@
 {
   "presets": [
     "es2015-loose",
-    "react"
+    "react",
+    "stage-0"
   ],
   "plugins": [
     "syntax-jsx"
