@@ -25,50 +25,33 @@ const alias = {
 };
 
 module.exports = {
-  devtool: 'source-map',
-  debug: true,
-  devServer: devServer,
-  context: path.resolve(__dirname, './src'),
-  inline: true,
-  devtool: 'source-map',
   entry: [
-    'webpack-dev-server/client?http://' + devServer.host + ':' + devServer.port,
-    'webpack/hot/only-dev-server',
-    './run.jsx'
+    path.resolve(__dirname, 'src/run.jsx')
   ],
   output: {
-    path: path.resolve(__dirname, './dist/static'),
-    filename: '[name].js',
-    publicPath: devServer.publicPath
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    // publicPath: devServer.publicPath
   },
   plugins: [
-    new ExtractTextPlugin('app.css', {
-      disable: false,
+    new ExtractTextPlugin('style.css', {
       allChunks: true
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new WebpackNotifierPlugin(),
-    new webpack.ProvidePlugin({ React: 'react' })
-
   ],
   module: {
-    preLoaders: [
-      {
-        test: /\.(js|jsx)$/,
-        include: path.join(__dirname, 'src'),
-        loader: 'eslint-loader'
-      }
-    ],
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },{
         test: /\.less$/,
-        loader: 'style-loader!css-loader!postcss-loader!less-loader'
-      },{
+        loader: 'style-loader!css-loader!less-loader'
+      },
+      {
+        test: /\.pre$/,
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less')
+      },
+      {
         test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader'
       },{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -78,9 +61,9 @@ module.exports = {
         loader: 'url-loader?limit=100000'
       },{
         test: /\.(js|jsx)$/,
-        loader: 'react-hot!babel-loader',
+        loader: 'babel-loader',
         include: path.join(__dirname, 'src')
-      },
+      }
     ]
   },
   resolve: {

@@ -34,25 +34,36 @@ const Menu = React.createClass({
     }
     this.setState({page: newProps.page});
   },
+  componentDidMount() {
+    const pageClass = this.state.page === undefined ? css[this.state.page] : 'fuck';
+    this.setState({
+      page: this.props.page,
+      pageClass: pageClass,
+      classPage: css[this.props.page]
+    });
+  },
   render() {
     const { home, work, about, contact } = items;
     const openClass = this.state.open ? css.open : '';
 
-    console.log('MENU STATE', this.state.open);
 
+    console.log('menu', this.state);
+    console.log('menu', this.props);
     return (
-      <div className={`${css[this.state.page]} ${openClass}`}>
-        <nav className={css.root}>
-          <div className={css.header}>
-            <div className={css.close} onClick={this.handleClick}><span className={`${css.icon} fa fa-times`}></span></div>
-          </div>
-          <ul className={css.list}>
-            <li className={css.item} onClick={this.handleClick}><IndexLink to={home.route}>{home.name}</IndexLink></li>
-            <li className={css.item} onClick={this.handleClick}><Link to={work.route}>{work.name}</Link></li>
-            <li className={css.item} onClick={this.handleClick}><Link to={about.route}>{about.name}</Link></li>
-            <li className={css.item} onClick={this.handleClick}><Link to={contact.route}>{contact.name}</Link></li>
-          </ul>
-        </nav>
+      <div className={css[this.props.page]}>
+        <div className={openClass}>
+          <nav className={css.root}>
+            <div className={css.header}>
+              <div className={css.close} onClick={this.handleClick}><span className={`${css.icon} fa fa-times`}></span></div>
+            </div>
+            <ul className={css.list}>
+              <li className={css.item} onClick={this.handleClick}><IndexLink to={home.route}>{home.name}</IndexLink></li>
+              <li className={css.item} onClick={this.handleClick}><Link to={work.route}>{work.name}</Link></li>
+              <li className={css.item} onClick={this.handleClick}><Link to={about.route}>{about.name}</Link></li>
+              <li className={css.item} onClick={this.handleClick}><Link to={contact.route}>{contact.name}</Link></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     );
   }

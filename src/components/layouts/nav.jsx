@@ -27,7 +27,6 @@ const Nav = React.createClass({
     this.setState({page: newProps.page});
   },
   render() {
-    console.log('NAV STATE', this.state.open);
     return (
       <div className={css[this.state.page]}>
         <div className={css.logo}><img className={`site-logo__image img-scale`} src={this.props.logo} /></div>

@@ -54,7 +54,7 @@ const Header = React.createClass({
         <Overlay initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>
         <header className={css.root}>
           <Nav initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>
-          <Menu initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>
+          <Menu initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged}/>
         </header>
       </div>
     );

@@ -15,13 +15,15 @@ const Footer = React.createClass({
   },
   render() {
     return (
-      <footer className={`${css[this.state.page]} ${css.footer}`}>
-      <div className={css.blend}></div>
-      <div className={css.text}>
-        <span className={css.copyright}>© 2015 evturn.com built with </span>
-        <span className="icon devicon-react-plain-wordmark"></span>
+      <div className={css[this.state.page]}>
+        <footer className={css.footer}>
+        <div className={css.blend}></div>
+        <div className={css.text}>
+          <span className={css.copyright}>© 2015 evturn.com built with </span>
+          <span className="icon devicon-react-plain-wordmark"></span>
+        </div>
+        </footer>
       </div>
-      </footer>
     );
   }
 });
