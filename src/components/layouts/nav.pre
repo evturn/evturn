@@ -75,3 +75,24 @@
     }
   }
 }
+
+.work {
+  .logo {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    right: auto;
+    background-color: fade(@bg-main, 70);
+  }
+  .nav {
+    opacity: 0.5;
+    color: @tx-main;
+    background-color: @bg-main;
+    border-radius: 8px;
+    &:hover {
+      opacity: 1;
+      color: @color-accent;
+    }
+  }
+}
+

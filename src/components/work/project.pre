@@ -1,0 +1,11 @@
+@import "../../styles/all.pre";
+
+.spin {
+  .rotate-clockwise(0.750s);
+}
+
+.root {
+  border-bottom: 1px solid fade(@color-accent, 20);
+  .clearfix();
+}
+

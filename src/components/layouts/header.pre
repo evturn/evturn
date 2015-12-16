@@ -29,6 +29,14 @@
   }
 }
 
+.work {
+  .root {
+    @media(@tablet) {
+      position: absolute;
+    }
+  }
+}
+
 .root {
   width: 100%;
   margin: 0 auto;

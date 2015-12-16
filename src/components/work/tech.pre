@@ -1,0 +1,36 @@
+@import "../../styles/all.pre";
+
+.root {
+  margin: 15px;
+}
+
+.header {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+
+.list {
+  text-align: center;
+}
+.item {
+  width: 25%;
+  .icon {
+    background-color: @color-accent;
+    color: @bg-main;
+    margin: 5px;
+    & span {
+      line-height: 65px;
+      height: 65px;
+      width: 65px;
+    }
+  }
+  .caption {
+    color: @bg-main;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    font-size: 9px;
+  }
+}

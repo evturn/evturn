@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, History } from 'react-router';
 import { history } from 'history';
 import { Header, Footer } from 'components/layouts';
 // import { default as Spinner } from 'components/home/spinner';
-import { URL, updateLayout } from 'helpers';
+import { URL, getPage, updateLayout } from 'helpers';
 
 // <Spinner />
 
@@ -16,16 +16,14 @@ export default React.createClass({
     router: React.PropTypes.func
   },
   getInitialState() {
-    const route = URL.route().substr(1);
-
-    return { page: route === "" ? 'home' : route };
+    return {
+      page: getPage(URL.route().substr(1))
+    };
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      const route = URL.route().substr(1);
-
       return this.setState({
-        page: route === "" ? 'home' : route
+        page: getPage(URL.route().substr(1))
       });
     });
   },

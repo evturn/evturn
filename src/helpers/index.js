@@ -64,6 +64,18 @@ export const URL = {
   }
 };
 
+export function getPage(route) {
+  let page;
+
+  if (route === "") {
+    return 'home';
+  } else if (route.startsWith('work/projects')) {
+    return 'work';
+  } else {
+    return route;
+  }
+}
+
 export function updateLayout(location) {
   const { pathname } = location;
   const key = pathname.split('/')[1] || 'index';

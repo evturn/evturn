@@ -1,0 +1,25 @@
+@import "../../styles/all.pre";
+
+.root {
+  .clearfix();
+  margin: 15px;
+}
+.list {
+  float: right;
+}
+.item {
+  margin-right: 5px;
+  margin-bottom: 0;
+  height: 45px;
+  width: 45px;
+  background-color: @tx-main;
+  & a {
+    color: @bg-main;
+  }
+  .icon {
+    line-height: 45px;
+    height: 45px;
+    width: 45px;
+    font-size: 25px;
+  }
+}

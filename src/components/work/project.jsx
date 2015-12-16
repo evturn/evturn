@@ -1,13 +1,13 @@
 'use strict';
 import React from 'react';
-import { ProjectCarousel } from 'components/work/project-carousel';
-import { ProjectInfo } from 'components/work/project-info';
-import { ProjectLinks } from 'components/work/project-links';
-import { ProjectTech } from 'components/work/project-tech';
+import { default as Carousel } from './carousel';
+import { default as Details } from './details';
+import { default as Links } from './links';
+import { default as Tech } from './tech';
 import { setProject } from 'helpers';
 
 import CSSModules from 'react-css-modules';
-// import styles from './style.less';
+import css from './project.pre';
 
 const Project = React.createClass({
   contextTypes: {
@@ -28,15 +28,16 @@ const Project = React.createClass({
   },
   render() {
     const {slug, images, name, description, links, tech} = this.state.project;
+
     return (
-      <div className="project-content">
-        <ProjectCarousel slug={ slug } images={ images } />
-        <ProjectInfo description={ description } name={ name } />
-        <ProjectLinks links={ links } />
-        <ProjectTech tech={ tech } />
+      <div className={css.root}>
+        <Carousel slug={slug} images={images} />
+        <Details description={description} name={name} />
+        <Links links={links} />
+        <Tech tech={tech} />
       </div>
     );
   }
 });
 
-export default Project;
+export default CSSModules(Project, css);

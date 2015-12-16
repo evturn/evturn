@@ -5,6 +5,7 @@ import { default as __links } from 'sources/links';
 
 import CSSModules from 'react-css-modules';
 import css from './contact.pre';
+import 'styles/typography/animate.less';
 
 css.backgroundImage = {
   backgroundImage: `url(${ require('images/site/banana-plants.png') })`
@@ -42,7 +43,7 @@ const ContactLinks = React.createClass({
 const Contact = React.createClass({
   render() {
     return (
-      <div style={css.backgroundImage} className={css.backdrop}>
+      <div style={css.backgroundImage} className={`${css.backdrop} animated fadeIn`}>
         <ContactLinks />
       </div>
     );

@@ -4,6 +4,7 @@ import sources from 'sources/videos';
 
 import CSSModules from 'react-css-modules';
 import css from './video.pre';
+import 'styles/typography/animate.less';
 
 const Video = React.createClass({
   init() {
@@ -45,7 +46,7 @@ const Video = React.createClass({
   render() {
     return (
       <video
-        className={css.video}
+        className={`${css.video} animated fadeIn`}
         ref={ (video) => this.video = video }
         poster={ this.props.poster }
         type="video/mp4">
