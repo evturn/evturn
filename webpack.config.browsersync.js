@@ -38,9 +38,9 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, './dist/static'),
+    path: path.resolve(__dirname, './dist'),
     filename: '[name].js',
-    publicPath: devServer.publicPath
+    publicPath: /dist/
   },
   plugins: [
     new WriteFilePlugin(),
