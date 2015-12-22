@@ -12,6 +12,11 @@ module.exports = {
   },
   cache: true,
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('style.css', {
       allChunks: true
@@ -36,10 +41,12 @@ module.exports = {
         loader: 'file-loader'
       },{
         test: /\.woff2(\?\S*)?$/,
-        loader: 'url-loader?limit=100000'
+        loader: 'url-loader?limit=8192'
       },{
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        exclude: '/node_modules/',
+        include: path.join(__dirname, 'src')
       }
     ]
   },
