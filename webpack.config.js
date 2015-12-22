@@ -17,10 +17,9 @@ const devServer = {
 };
 
 module.exports = {
-  context: __dirname,
-  entry: ['./src/run.jsx'],
+  entry: path.join(__dirname, './src/run'),
   output: {
-    path: 'dist/',
+    path: path.join(__dirname, './dist'),
     filename: 'bundle.js',
     publicPath: '/dist/'
   },
