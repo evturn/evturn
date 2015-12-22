@@ -12,11 +12,8 @@ module.exports = {
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
-    }),
     new ExtractTextPlugin('style.css', {
-      allChunks: false
+      allChunks: true
     })
   ],
   module: {
@@ -33,15 +30,15 @@ module.exports = {
       },{
         test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader'
-      },{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      },{
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'
       },{
         test: /\.woff2(\?\S*)?$/,
         loader: 'url-loader?limit=100000'
       },{
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        include: path.join(__dirname, 'src')
+        loader: 'babel-loader'
       }
     ]
   },
