@@ -18,10 +18,10 @@ const devServer = {
 
 module.exports = {
   context: __dirname,
-  entry: ['./src/run.jsx']
+  entry: ['./src/run.jsx'],
   output: {
     path: 'dist/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
     publicPath: '/dist/'
   },
   plugins: [
