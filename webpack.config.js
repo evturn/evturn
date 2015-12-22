@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 const devServer = {
-  contentBase: path.resolve(__dirname, './dist'),
+  contentBase: './',
   historyApiFallback: true,
   quiet: false,
   host: '127.0.0.1',
