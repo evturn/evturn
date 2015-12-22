@@ -27,6 +27,10 @@
   }
 }
 
+.spin {
+  .rotate-clockwise(0.750s);
+}
+
 
 .contact .logo {
   right: 0;

@@ -7,8 +7,6 @@ import { Header, Footer } from 'components/layouts';
 import { default as Spinner } from 'components/home/spinner';
 import { URL, getPage, updateLayout } from 'helpers';
 
-// <Spinner />
-
 import 'styles/app.less';
 
 export default React.createClass({

@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import $ from 'jquery';
 
 import CSSModules from 'react-css-modules';
 import css from './stats.pre';
@@ -12,7 +11,7 @@ const StatItem = React.createClass({
         count: this.props.number
       });
     } else {
-      setTimeout(() => {
+      this.incTimer = setTimeout(() => {
         this.setState({
           count: this.state.count + 50
         });
@@ -25,6 +24,9 @@ const StatItem = React.createClass({
   },
   componentDidMount() {
     this.increment();
+  },
+  componentWillUnmount() {
+    return clearTimeout(this.incTimer);
   },
   render() {
     return (
