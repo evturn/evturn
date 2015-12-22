@@ -517,8 +517,12 @@
   padding: 30px 15px;
   position: relative;
 }
-.footer__home___QfXJ0.footer__footer___2hs5j {
+.footer__home___QfXJ0 {
   display: none;
+}
+.footer__home___QfXJ0 .footer__footer___2hs5j {
+  display: none;
+  bottom: 0;
 }
 .footer__contact___3_pkU.footer__footer___2hs5j {
   bottom: 0;
@@ -1360,6 +1364,7 @@ video::-webkit-media-controls {
 }
 @media (min-width: 1024px) {
   .contact__backdrop___Rlf8E {
+    background-position-y: 40%;
     background-position-x: 0%;
   }
 }

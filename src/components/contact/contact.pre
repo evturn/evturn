@@ -9,6 +9,7 @@
   background-size: cover;
   background-position-x: 50%;
   @media(@tablet) {
+    background-position-y: 40%;
     background-position-x: 0%;
   }
 }

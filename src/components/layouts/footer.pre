@@ -8,8 +8,10 @@
 }
 
 .home {
-  &.footer {
+  display: none;
+  .footer {
     display: none;
+    bottom: 0;
   }
 }
 

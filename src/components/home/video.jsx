@@ -46,7 +46,7 @@ const Video = React.createClass({
   render() {
     return (
       <video
-        className={`${css.video} animated fadeIn`}
+        className="animated fadeIn"
         ref={ (video) => this.video = video }
         poster={ this.props.poster }
         type="video/mp4">

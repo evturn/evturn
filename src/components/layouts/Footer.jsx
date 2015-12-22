@@ -5,6 +5,11 @@ import CSSModules from 'react-css-modules';
 import css from './footer.pre';
 
 const Footer = React.createClass({
+  getInitialState() {
+    return {
+      page: this.props.page
+    };
+  },
   componentWillMount() {
     return this.setState({
       page: this.props.page
