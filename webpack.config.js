@@ -11,13 +11,12 @@ module.exports = {
     publicPath: 'dist/'
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'
     }),
     new ExtractTextPlugin('style.css', {
-      allChunks: true
+      allChunks: false
     })
   ],
   module: {
