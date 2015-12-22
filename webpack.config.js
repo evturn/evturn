@@ -5,32 +5,24 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 const devServer = {
-  contentBase: './',
+  contentBase: path.resolve(__dirname, './dist'),
   historyApiFallback: true,
   quiet: false,
   host: '127.0.0.1',
   port: 8000,
   hot: true,
-  publicPath: 'dist',
+  publicPath: '/static/',
   noInfo: false,
   stats: { colors: true }
 };
 
-const alias = {
-  components: path.join(__dirname, './src/components/'),
-  helpers: path.join(__dirname, './src/helpers/'),
-  sources: path.join(__dirname, './src/sources/'),
-  images: path.join(__dirname, './src/images/'),
-  styles: path.join(__dirname, './src/styles/')
-};
-
 module.exports = {
-  entry: [
-    path.resolve(__dirname, 'src/run.jsx')
-  ],
+  context: __dirname,
+  entry: ['./src/run.jsx']
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: 'dist/',
     filename: 'bundle.js'
+    publicPath: '/dist/'
   },
   plugins: [
     new ExtractTextPlugin('style.css', {
@@ -45,12 +37,10 @@ module.exports = {
       },{
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
-      },
-      {
+      },{
         test: /\.pre$/,
         loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less')
-      },
-      {
+      },{
         test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader'
       },{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -67,7 +57,13 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    alias: alias
+    alias: {
+      components: path.join(__dirname, './src/components/'),
+      helpers: path.join(__dirname, './src/helpers/'),
+      sources: path.join(__dirname, './src/sources/'),
+      images: path.join(__dirname, './src/images/'),
+      styles: path.join(__dirname, './src/styles/')
+    }
   },
   postcss: function() {
       return [require('autoprefixer')];
