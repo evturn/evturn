@@ -10,6 +10,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: 'dist/'
   },
+  cache: true,
   plugins: [
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('style.css', {
