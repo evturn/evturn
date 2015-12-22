@@ -37,31 +37,6 @@ const StatItem = React.createClass({
 });
 
 const Stats = React.createClass({
-  init() {
-    const counters = this.refs.stats.children;
-    console.log(this.counters);
-    for (let c of counters) {
-      console.log(c);
-    }
-    this.$counters.forEach((index, element) => {
-      const $el = $(element).find(css.count);
-      console.log($el.val());
-      $el.data('count', parseInt($el.html(), 10));
-      $el.html('0');
-      this.increment($el);
-    });
-  },
-  increment($element) {
-    let current = parseInt($element.html(), 10);
-
-    current = current + 50;
-    $element.html(++current);
-    if (current > $element.data('count')) {
-      $element.html($element.data('count'));
-    } else {
-      setTimeout(() => this.increment($element), 50);
-    }
-  },
   render() {
     return (
       <div className={css.root}>
