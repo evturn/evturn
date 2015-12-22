@@ -2,31 +2,22 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const WebpackNotifierPlugin = require('webpack-notifier');
-
-const devServer = {
-  contentBase: path.resolve(__dirname, './dist'),
-  historyApiFallback: true,
-  quiet: false,
-  host: '127.0.0.1',
-  port: 8000,
-  hot: true,
-  publicPath: '/static/',
-  noInfo: false,
-  stats: { colors: true }
-};
 
 module.exports = {
-  entry: path.join(__dirname, './src/run'),
+  entry: path.join(__dirname, 'src/run.jsx'),
   output: {
-    path: path.join(__dirname, './dist'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: 'dist/'
   },
   plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    }),
     new ExtractTextPlugin('style.css', {
       allChunks: true
-    }),
+    })
   ],
   module: {
     loaders: [
