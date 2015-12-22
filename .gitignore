@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/static
+static
 *.log
 *.hot-update.js.map
 *.hot-update.js
