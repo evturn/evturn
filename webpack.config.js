@@ -4,14 +4,17 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: path.join(__dirname, './src/run'),
+  entry: path.join(__dirname, 'src/run.jsx'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: 'dist/'
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    }),
     new ExtractTextPlugin('style.css', {
       allChunks: true
     })
