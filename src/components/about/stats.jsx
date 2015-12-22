@@ -5,12 +5,53 @@ import $ from 'jquery';
 import CSSModules from 'react-css-modules';
 import css from './stats.pre';
 
-const Stats = React.createClass({
-  init: function init() {
-    this.$counters = $(css.count);
-    this.animate();
+const StatItem = React.createClass({
+  increment() {
+    if (this.state.count >= this.props.number) {
+      return this.setState({
+        count: this.props.number
+      });
+    } else {
+      setTimeout(() => {
+        this.setState({
+          count: this.state.count + 50
+        });
+        this.increment();
+      }, 50);
+    }
   },
-  increment: function increment($element) {
+  getInitialState() {
+    return { count: 0 };
+  },
+  componentDidMount() {
+    this.increment();
+  },
+  render() {
+    return (
+      <li  className={`${css.item} list-item-icon`}>
+        <div className={`${css.icon} list-item-icon__icon ${css.count}`}>{this.state.count}</div>
+        <div className={css.caption}>{this.props.text}</div>
+      </li>
+    );
+  }
+});
+
+const Stats = React.createClass({
+  init() {
+    const counters = this.refs.stats.children;
+    console.log(this.counters);
+    for (let c of counters) {
+      console.log(c);
+    }
+    this.$counters.forEach((index, element) => {
+      const $el = $(element).find(css.count);
+      console.log($el.val());
+      $el.data('count', parseInt($el.html(), 10));
+      $el.html('0');
+      this.increment($el);
+    });
+  },
+  increment($element) {
     let current = parseInt($element.html(), 10);
 
     current = current + 50;
@@ -21,33 +62,13 @@ const Stats = React.createClass({
       setTimeout(() => this.increment($element), 50);
     }
   },
-  animate: function animate() {
-    this.$counters.each((index, element) => {
-      const $element = $(element);
-
-      $element.data('count', parseInt($element.html(), 10));
-      $element.html('0');
-      this.increment($element);
-    });
-  },
-  componentDidMount() {
-    this.init();
-  },
   render() {
     return (
       <div className={css.root}>
         <div className={css.header}>Statistics</div>
         <ul className="list-icons">
-          { this.props.stats.map((result) => {
-            return (
-              <li
-                ref={(stat) => this.stat = stat}
-                key={result.number}
-                className={`${css.item} list-item-icon`}>
-                <div className={`${css.icon} list-item-icon__icon ${css.count}`}>{result.number}</div>
-                <div className={css.caption}>{result.text}</div>
-              </li>
-            );
+          { this.props.stats.map((result, i) => {
+            return <StatItem key={i} text={result.text} number={result.number}/>;
           }) }
         </ul>
       </div>

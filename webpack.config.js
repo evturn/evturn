@@ -30,8 +30,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    // publicPath: devServer.publicPath
+    filename: 'bundle.js'
   },
   plugins: [
     new ExtractTextPlugin('style.css', {
