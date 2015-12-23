@@ -55,7 +55,10 @@ const Carousel = React.createClass({
       next: this.state.images[enqueue]
     });
   },
-  componentWillUnmount() {
+  setTimer() {
+    this.timer = setInterval(() => { this.changeSlide(); }, 4000);
+  },
+  clearTimer() {
     return clearInterval(this.timer);
   },
   getDefaultProps() {
@@ -76,11 +79,14 @@ const Carousel = React.createClass({
       timer: null
     };
   },
+  componentWillUnmount() {
+    return this.clearTimer();
+  },
   componentDidMount() {
-    this.timer = setInterval(() => { this.changeSlide(); }, 4000);
+    return this.setTimer();
   },
   componentWillReceiveProps(newProps) {
-    clearInterval(this.timer);
+    this.clearTimer();
     this.setState({
       counter: 0,
       enqueue: 1,
@@ -90,7 +96,7 @@ const Carousel = React.createClass({
       next: newProps.images[1],
       slug: newProps.slug
     });
-    this.timer = setInterval(() => { this.changeSlide(); }, 4000);
+    this.setTimer();
   },
   render() {
     return (
@@ -98,7 +104,8 @@ const Carousel = React.createClass({
         {this.props.images.map((image, i) => {
           const activeClass = image === this.state.active ? true : false;
           const nextClass = image === this.state.next ? true : false;
-          return <CarouselSlide ref={i} key={i} active={activeClass} next={nextClass} image={image} />;
+
+          return <CarouselSlide key={i} active={activeClass} next={nextClass} image={image}/>;
         }) }
       </div>
     );
