@@ -1,18 +1,18 @@
 'use strict';
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './bio.pre';
+import styles from './bio.css';
 
 const Bio = React.createClass({
   getDefaultProps() {
     return {
       title: 'Web Developer',
-      bio: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.';
+      bio: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.'
     };
   },
   render() {
     return (
-      <div styleName='root'>
+      <div styleName='root' className='clearfix'>
         <div styleName='header'>{this.props.title}</div>
         <div styleName='paragraph'>{this.props.bio}</div>
       </div>
@@ -20,4 +20,4 @@ const Bio = React.createClass({
   }
 });
 
-export default CSSModules(Bio, css);
+export default CSSModules(Bio, styles);

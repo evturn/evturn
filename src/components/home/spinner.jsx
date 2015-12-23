@@ -1,34 +1,46 @@
 'use strict';
 import React from 'react';
-import $ from 'jquery';
 import { URL } from 'helpers';
 
 import CSSModules from 'react-css-modules';
-import css from './spinner.pre';
+import styles from './spinner.pre';
 
 const Spinner = React.createClass({
-  spin() {
-    $(this.spinner).delay(1500).fadeOut(1500);
-    $(this.logo).delay(1500).fadeOut(1500);
+  setTimerToHide() {
+    setTimeout(() => {
+      this.setState({
+        display: styles.hidden
+      });
+    }, 2500);
+  },
+  getDefaultProps() {
+    return {
+      logo: require('images/site/ev-av.png')
+    };
   },
   getInitialState() {
     return {
-      page: this.props.page === 'home' ? css.home : ''
+      display: 'animated',
+      page: this.props.page
     };
   },
   componentDidMount() {
-    this.spin();
+    this.setTimerToHide();
+
+    return this.setState({
+      display: 'animated fadeOut'
+    });
   },
   render() {
     return (
-      <div className={`${css.root} ${this.state.page}`} ref={(spinner) => this.spinner = spinner}>
-        <div className={css.animation}></div>
-        <div className={css.logo} ref={(logo) => this.logo = logo}>
-          <img className={`${css.image} img-scale`} src={require('images/site/ev-av.png')} />
+      <div styleName='root' className={this.state.display}>
+        <div styleName='animation'></div>
+        <div styleName='logo'>
+          <img styleName='image' className='img-scale' src={this.props.logo}/>
         </div>
       </div>
     );
   }
 });
 
-export default CSSModules(Spinner, css);
+export default CSSModules(Spinner, styles, {allowMultiple: true});
