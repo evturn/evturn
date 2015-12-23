@@ -5,21 +5,24 @@ import CSSModules from 'react-css-modules';
 import css from './tech.pre';
 
 const Tech = React.createClass({
+  getDefaultProps() {
+    return {
+      title: 'Made with'
+    };
+  },
   render() {
     return (
-      <div className={css.root}>
-        <div className={css.header}>Made with</div>
-        <ul className={`${css.list} list-icons`}>
-          { this.props.tech.map((result) => {
+      <div styleName='root'>
+        <div styleName='header'>{this.props.title}</div>
+        <ul styleName='list'>
+          {this.props.tech.map((result, i) => {
             return (
-              <li key={result.id} className={`${css.item} list-item-icon`}>
-                <div className={`${css.icon} list-item-icon__icon`}>
-                  <span className={`icon ${result.icon}`}></span>
-                </div>
-                <div className={css.caption}>{result.name}</div>
+              <li key={i} styleName='item'>
+                <div styleName='iconwrap'><span styleName='icon' className={result.icon}></span></div>
+                <div styleName='caption'>{result.name}</div>
               </li>
             );
-          }) }
+          })}
         </ul>
       </div>
     );

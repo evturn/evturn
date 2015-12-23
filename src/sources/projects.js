@@ -21,7 +21,7 @@ export default [
       require('images/apps/drive-3.png')
     ],
     featured: true,
-    techIds: [13, 11, 14, 20]
+    techIds: [1, 13, 14, 20]
   },{
     name: 'Marshallz Blog',
     description: `This blog continuously produces new posts authored by bots. These bots get their content by scraping text documents, washing machine manuals, and other sources followed by taking fragments and applying a Markov Chain to create nonsensical sentences. Before publishing, a randomly selected word from the content is used to search Giphy and retrieve a related images which is then included in the post. In addition to the website, these same "authors" post new content to Twitter under their own accounts.`,
@@ -70,7 +70,7 @@ export default [
       require('images/apps/mim-3.png')
     ],
     featured: true,
-    techIds: [1, 3, 14, 12, 10, 11, 15, 20]
+    techIds: [1, 3, 14, 12, 10, 15, 20]
   }, {
     name: 'Brooklyn Friends School',
     description: `I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.`,
@@ -110,7 +110,7 @@ export default [
       require('images/apps/ramen-buffet-3.png')
     ],
     featured: true,
-    techIds: [1, 3, 14, 12, 10, 11, 15, 18, 20]
+    techIds: [1, 3, 14, 12, 10, 15, 18, 20]
   },{
     name: 'Slackbots',
     description: `A package designed to create instances of new Bots on Slack. The API is abstracted away from the user in order to easily create interactions with the team's channel. By extending Node's native Event Emitter, the bot is connected and notified of all chatroom activity.`,
@@ -128,7 +128,7 @@ export default [
       require('images/apps/bots-2.png')
     ],
     featured: true,
-    techIds: [1, 14, 12, 11]
+    techIds: [1, 14, 12]
   },{
     name: 'Pique',
     description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
@@ -148,7 +148,7 @@ export default [
       require('images/apps/pique-4.png')
     ],
     featured: true,
-    techIds : [16, 17, 11]
+    techIds : [16, 17]
   }, {
     name: 'WhereTO',
     description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,

@@ -1349,28 +1349,43 @@ video::-webkit-media-controls {
   font-size: 22px;
 }
 .tech__list___2y68I {
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 .tech__item___fIT8x {
+  position: relative;
   width: 25%;
+  text-align: center;
 }
-.tech__item___fIT8x .tech__icon___qIMsc {
+.tech__iconwrap___2LyQ7 {
   background-color: #5FA3C0;
-  color: #ffffff;
+  height: 65px;
   margin: 5px;
+  color: #ffffff;
 }
-.tech__item___fIT8x .tech__icon___qIMsc span {
-  line-height: 65px;
+.tech__icon___qIMsc {
+  line-height: 1.5em;
   height: 65px;
   width: 65px;
 }
-.tech__item___fIT8x .tech__caption___2Rt0y {
+.tech__caption___2Rt0y {
   color: #ffffff;
+  font-size: 12px;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10px;
-  font-size: 9px;
+  top: 70%;
 }
 .project__no-scrollbar___1hejR ::-webkit-scrollbar {
   display: none;
