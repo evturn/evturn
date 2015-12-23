@@ -3,7 +3,7 @@ const browserSync = require('browser-sync');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('./webpack.config.browsersync');
+const webpackConfig = require('./webpack.config');
 const bundler = webpack(webpackConfig);
 
 browserSync({
@@ -12,15 +12,15 @@ browserSync({
   online: false,
   open: false,
   notify: false,
-  host: webpackConfig.devServer.host,
-  port: webpackConfig.devServer.port,
+  host: '127.0.0.1',
+  port: 8000,
   xip: false,
   tunnel: true,
   server: {
-    baseDir: webpackConfig.devServer.contentBase,
+    baseDir: './',
     middleware: [
       webpackDevMiddleware(bundler, {
-        publicPath: webpackConfig.output.publicPath,
+        publicPath: /dist/,
         noInfo: false,
         quiet: false,
         stats: {
@@ -31,6 +31,7 @@ browserSync({
     ]
   },
   files: [
-    './dist/static/*.css'
+    './dist/*.css',
+    './dist/*.js'
   ]
 });

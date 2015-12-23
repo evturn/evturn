@@ -41,7 +41,7 @@ module.exports = {
         loader: 'file-loader'
       },{
         test: /\.woff2(\?\S*)?$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=100000'
       },{
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',

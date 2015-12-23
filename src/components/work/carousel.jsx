@@ -1,104 +1,104 @@
 'use strict';
 import React from 'react';
-import $ from 'jquery';
 
 import CSSModules from 'react-css-modules';
 import css from './carousel.pre';
 
+const CarouselSlide = React.createClass({
+  getInitialState() {
+    return {
+      active: this.props.active,
+      next: this.props.next
+    };
+  },
+  componentWillReceiveProps(newProps) {
+    return this.setState({
+      active: newProps.active,
+      next: newProps.next
+    });
+  },
+  render() {
+    const activeClass = this.state.active ? css.active : '';
+
+    return (
+      <div className={`${css.item} ${activeClass}`}>
+        <img className="img-scale" src={this.props.image} />
+      </div>
+    );
+  }
+});
+
 const Carousel = React.createClass({
-  init(slug) {
-    this.ID = slug;
-    this.spinLogo();
-    this.parent = this.refs[this.ID];
-    this.total = $(this.parent.children).length;
-    this.counter = null;
-    clearInterval(this.timer);
-    this.cycle();
-    this.timer = setInterval(() => { this.cycle(); }, 4000);
-  },
-  spinLogo() {
-    const $webpage = $('html, body');
-    const $siteImage = $('.site-logo__image');
+  changeSlide() {
+    let enqueueState = this.state.enqueue;
+    let counterState = this.state.counter;
+    let totalState = this.state.total;
 
-    $webpage.animate({ scrollTop: 0 }, 200);
-    $siteImage.addClass('spin');
-    setTimeout(() => $siteImage.removeClass('spin'), 740);
-  },
-  reset() {
-    clearInterval(this.timer);
-    this.removeClasses();
-  },
-  removeClasses() {
-    const slides = $(this.parent.children);
-    $(slides).removeClass(css.active);
-    $(slides).removeClass('next');
-  },
-  cycle() {
-    const isActiveLast = !!(this.counter === this.total);
-    const isNextLast = !!(this.next === this.total);
-    const isInitializing = !!(this.counter === null);
+    let counter;
+    let enqueue;
 
-    if (isInitializing) {
-      this.counter = 1;
-      this.next = 2;
-      return this.nextImage();
-    } else if (isActiveLast) {
-      this.counter = 1;
-      this.next = 2;
-    } else if (isNextLast) {
-      this.counter += 1;
-      this.next = 1;
-    } else {
-      this.counter += 1;
-      this.next = this.counter + 1;
+    if (enqueueState < totalState && counterState !== totalState) {
+      counter = counterState +=1;
+      enqueue = enqueueState +=1;
+    } else if (enqueueState === totalState) {
+      counter = counterState +=1;
+      enqueue = 0;
+    } else if (enqueueState === 0) {
+      counter = 0;
+      enqueue = counter + 1
     }
-    return this.dissolve();
-  },
-  nextImage() {
-    const active = $(this.parent.children)[this.counter - 1];
-    const next = $(this.parent.children)[this.next - 1];
 
-    this.removeClasses();
-    $(active).addClass(css.active);
-    $(next).addClass('next');
-  },
-  dissolve() {
-    const active = $(this.parent.children)[this.counter - 1];
-    const next = $(this.parent.children)[this.next - 1];
-
-    $(active).fadeTo(1000, 0);
-    $(next).fadeTo(1000, 1, () => this.nextImage());
+    return this.setState({
+      counter: counter,
+      enqueue: enqueue,
+      active: this.state.images[counter],
+      next: this.state.images[enqueue]
+    });
   },
   componentWillUnmount() {
-    return this.reset();
+    return clearInterval(this.timer);
   },
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      images: nextProps.images,
-      total: nextProps.images.length,
-      slug: nextProps.slug
-    });
+  getDefaultProps() {
+    return {
+      counter: 0,
+      enqueue: 1
+    };
   },
-  componentDidUpdate() {
-    this.init(this.state.slug);
+  getInitialState() {
+    return {
+      counter: this.props.counter,
+      enqueue: this.props.enqueue,
+      total: this.props.images.length - 1,
+      images: this.props.images,
+      active: this.props.images[this.props.counter],
+      next: this.props.images[this.props.enqueue],
+      slug: this.props.slug,
+      timer: null
+    };
   },
   componentDidMount() {
+    this.timer = setInterval(() => { this.changeSlide(); }, 4000);
+  },
+  componentWillReceiveProps(newProps) {
+    clearInterval(this.timer);
     this.setState({
-      images: this.props.images,
-      total: this.props.images.length,
-      slug: this.props.slug
+      counter: 0,
+      enqueue: 1,
+      total: newProps.images.length - 1,
+      images: newProps.images,
+      active: newProps.images[0],
+      next: newProps.images[1],
+      slug: newProps.slug
     });
-    this.init(this.props.slug);
+    this.timer = setInterval(() => { this.changeSlide(); }, 4000);
   },
   render() {
     return (
-      <div className={css.root} ref={`${this.props.slug}`}>
-        { this.props.images.map((result, i) => {
-          return (
-            <div key={ `${this.props.slug}-${i + 1}` } className={css.item}>
-              <img className="img-scale" src={result} />
-            </div>
-          );
+      <div className={css.root}>
+        {this.props.images.map((image, i) => {
+          const activeClass = image === this.state.active ? true : false;
+          const nextClass = image === this.state.next ? true : false;
+          return <CarouselSlide ref={i} key={i} active={activeClass} next={nextClass} image={image} />;
         }) }
       </div>
     );
