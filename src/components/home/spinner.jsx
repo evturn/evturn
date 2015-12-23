@@ -43,4 +43,4 @@ const Spinner = React.createClass({
   }
 });
 
-export default CSSModules(Spinner, styles, {allowMultiple: true});
+export default CSSModules(Spinner, styles);

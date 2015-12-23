@@ -1,25 +1,23 @@
 @import "variables.pre";
 @import "mixins.pre";
 
-:global {
-  .clearfix {
-    &:before,
-    &:after {
-      content: " ";
-      display: table;
-    }
-    &:after {
-      clear: both;
-    }
+
+:global .clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
   }
 }
 
-:global {
-  .info {
-    margin: 15px auto;
-    max-width: 1000px;
-    .clearfix();
-  }
+
+:global .info {
+  margin: 15px auto;
+  max-width: 1000px;
+  .clearfix();
 }
 
 :global {
@@ -28,29 +26,29 @@
   }
 }
 
-:global {
-  .list-icons {
-    .flexy();
-    margin: 0 auto;
-  }
+// :global {
+//   .list-icons {
+//     .flexy();
+//     margin: 0 auto;
+//   }
 
-  .list-item-icon {
-    position: relative;
-    display: inline-block;
-    .list-item-icon__icon {
-      font-size: @font-size-icon;
-      text-align: center;
-      .evcon {
-        font-size: @font-size-evcon;
-      }
-    }
-    .list-item-icon__caption {
-      position: absolute;
-      font-size: 9px;
-      bottom: 10px;
-      right: 0;
-      left: 0;
-      text-align: center;
-    }
-  }
-}
+//   .list-item-icon {
+//     position: relative;
+//     display: inline-block;
+//     .list-item-icon__icon {
+//       font-size: @font-size-icon;
+//       text-align: center;
+//       .evcon {
+//         font-size: @font-size-evcon;
+//       }
+//     }
+//     .list-item-icon__caption {
+//       position: absolute;
+//       font-size: 9px;
+//       bottom: 10px;
+//       right: 0;
+//       left: 0;
+//       text-align: center;
+//     }
+//   }
+// }

@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './bio.css';
+import styles from './bio.pre';
 
 const Bio = React.createClass({
   getDefaultProps() {
