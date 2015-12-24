@@ -1,8 +1,13 @@
 @import "../../styles/all.pre";
 
 .root {
+  height: 100vh;
+  width: 100vw;
+}
+
+.banner {
   position: absolute;
-  top: 45%;
+  top: 35%;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -10,10 +15,12 @@
   background-color: fade(@bg-light, 60);
   width: 90%;
   @media(@tablet) {
+    top: 45%;
     width: 300px;
   }
-  .name,
-  .desc {
+
+  .title,
+  .description {
     margin-top: 0;
     margin-bottom: 0;
     font-family: @font-sans;

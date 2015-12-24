@@ -22,11 +22,11 @@ const Home = React.createClass({
     } = this.props;
 
     return (
-      <div>
+      <div styleName='root'>
         <Video playlist={__videos} />
-        <div styleName='root'>
-          <h3 styleName='name'>{title}</h3>
-          <h3 styleName='desc'>{description}</h3>
+        <div styleName='banner'>
+          <h3 styleName='title'>{title}</h3>
+          <h3 styleName='description'>{description}</h3>
         </div>
       </div>
     );

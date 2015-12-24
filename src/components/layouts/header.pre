@@ -4,6 +4,7 @@
 .home {
   overflow: hidden;
   .root {
+    position: absolute;
     height: 170px;
   }
 }
@@ -58,6 +59,7 @@
   background: rgba(0,0,0,.65);
   top: 0;
   left: 0;
+  .transition(0.3s);
   @media(@tablet) {
     background: rgba(255,255,255,.65);
   }
