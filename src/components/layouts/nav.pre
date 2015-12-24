@@ -33,10 +33,14 @@
 
 
 .contact .logo {
+  display: none;
   right: 0;
   left: 0;
   top: 25px;
   background-color: fade(@bg-main, 70);
+  @media(min-width: 600px) {
+    display: block;
+  }
 }
 .contact .burger {
   .transition(0.3s);

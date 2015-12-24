@@ -17,9 +17,8 @@
   composes: list from '../../styles/list.pre';
   min-height: 100vh;
   text-align: center;
-  padding-top: 30%;
+  padding-top: 20%;
   @media(@tablet) {
-    padding-top: 15%;
   }
 }
 

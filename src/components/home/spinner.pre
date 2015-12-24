@@ -22,7 +22,7 @@
   position: absolute;
   margin: 0 auto;
   left: 0;
-  top: 25px;
+  top: 30%;
   right: 0;
   padding: 20px;
   border-radius: 50%;
@@ -30,6 +30,7 @@
   width: 140px;
   height: 140px;
   @media(@tablet) {
+    top: 25px;
     padding: 20px;
     width: 140px;
     height: 140px;
@@ -44,7 +45,7 @@
 
 .animation {
   position: relative;
-  top: 15%;
+  top: 30%;
   width: 140px;
   height: 140px;
   margin:0 auto;
