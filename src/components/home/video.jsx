@@ -1,58 +1,71 @@
 'use strict';
 import React from 'react';
-import sources from 'sources/videos';
-
 import CSSModules from 'react-css-modules';
-import css from './video.pre';
-import 'styles/typography/animate.less';
+import styles from './video.pre';
 
 const Video = React.createClass({
-  init() {
-    this.video.type = 'video/mp4';
-    this.video.muted = true;
-    this.video.autoplay = true;
-    this.video.preload = 'auto';
-    this.video.addEventListener('ended', () => this.start());
-    this.last = sources.length - 1;
-    this.initialized = false;
-    this.current = 0;
-    this.playlist = sources;
-    this.start();
+  beginPlayback() {
+    this.player.src = this.state.playlist[this.state.current];
+    this.player.play;
+    this.player.playbackRate = 0.5;
   },
-  start() {
-    const isLastVideo = !!(this.current === this.last);
-    const isInitialized = this.initialized;
+  restartPlaylist() {
+    return this.setState({
+      current: 0
+    });
+  },
+  startNextVideo() {
+    return this.setState({
+      current: this.state.current + 1
+    });
+  },
+  onVideoChange() {
+    this.player.addEventListener('ended', () => {
+      if (this.state.current === this.state.last) {
+        this.restartPlaylist();
+      } else {
+        this.startNextVideo();
+      }
 
-    if (!isInitialized) {
-      this.initialized = true;
-    } else if (isLastVideo) {
-      this.current = 0;
-    } else {
-      this.current += 1;
+      this.beginPlayback();
+    });
+  },
+  mergeStateAndDOM() {
+    for (let attr in this.state) {
+      this.player[attr] = this.state[attr];
     }
-
-    this.video.src = this.playlist[this.current];
-    this.video.play;
-    this.video.playbackRate = 0.5;
   },
   getDefaultProps() {
     return {
+      current: 0,
+      autoplay: true,
+      muted: true,
+      type: 'video/mp4',
+      preload: 'auto',
       poster: require('images/site/banana-plants.png')
     };
   },
+  getInitialState() {
+    const last = this.props.playlist.length - 1;
+
+    return { last, ...this.props };
+  },
   componentDidMount() {
-    this.init();
+    this.onVideoChange();
+    this.beginPlayback();
+    this.mergeStateAndDOM();
   },
   render() {
     return (
-      <video
-        className="animated fadeIn"
-        ref={ (video) => this.video = video }
-        poster={ this.props.poster }
-        type="video/mp4">
-      </video>
+      <div className='animated fadeIn'>
+        <video
+          ref={(player) => this.player = player}
+          poster={this.state.poster}
+          type={this.state.type}>
+        </video>
+      </div>
     );
   }
 });
 
-export default CSSModules(Video, css);
+export default CSSModules(Video, styles);
