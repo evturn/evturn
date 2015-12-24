@@ -7,10 +7,9 @@ import createHistory from 'history/lib/createHashHistory';
 import {default as Home} from 'containers/home';
 import {default as About} from 'containers/about';
 import {default as Contact} from 'containers/contact';
-
-import { default as Work } from 'components/work';
-import { default as Project } from 'components/work/project';
-import { default as App } from 'components/app';
+import {default as Work} from 'containers/work';
+import {default as Project} from 'containers/project';
+import {default as App} from 'components/app';
 
 const history = createHistory({ queryKey: false });
 

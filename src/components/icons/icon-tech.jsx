@@ -2,10 +2,9 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import {default as Icon} from './icon';
-
 import styles from 'styles/list.pre';
 
-const IconTech = React.createClass({
+const TechIcons = React.createClass({
   getDefaultProps() {
     return {
       width: 'item',
@@ -46,4 +45,4 @@ const IconTech = React.createClass({
   }
 });
 
-export default CSSModules(IconTech, styles);
+export default CSSModules(TechIcons, styles);
