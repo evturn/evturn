@@ -1,12 +1,13 @@
-@import "../../styles/all.pre";
+@import '../../styles/all.pre';
 
 .root {
   border-bottom: 1px solid fade(@color-accent, 20);
   .clearfix();
 }
 
-.details {
+.child {
   margin: 15px;
+  .clearfix();
 }
 
 .title {
@@ -17,4 +18,9 @@
 
 .description {
   line-height: 24px;
+}
+
+
+.list {
+  composes: list from '../../styles/list.pre';
 }

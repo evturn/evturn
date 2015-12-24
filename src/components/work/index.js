@@ -1,9 +1,9 @@
 'use strict';
 import React from 'react';
-import { default as Thumbnails } from './thumbnails';
-import { setFeaturedProjects } from 'helpers';
+import {default as Thumbnails} from './thumbnails';
+import {setFeaturedProjects} from 'helpers';
 
-const Work = React.createClass({
+export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -14,12 +14,10 @@ const Work = React.createClass({
   },
   render() {
     return (
-      <div>
-        { this.props.children }
+      <div className='clearfix'>
+        {this.props.children}
         <Thumbnails projects={this.state.projects} />
       </div>
     );
   }
 });
-
-export default Work;

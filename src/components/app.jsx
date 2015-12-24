@@ -9,7 +9,7 @@ import {URL, getPage, updateLayout} from 'helpers';
 
 import 'styles/app.less';
 
-const App = React.createClass({
+export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -36,5 +36,3 @@ const App = React.createClass({
     );
   }
 });
-
-export default App;

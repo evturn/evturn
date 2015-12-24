@@ -43,28 +43,15 @@
   width: 50%;
 }
 
-.item-inner {
+.icon {
   height: 65px;
   margin: 5px;
-
 }
 
-.icon {
-  composes: item-inner;
-}
-
-.tech-icon {
-  composes: item-inner;
+.icon-accent {
+  composes: icon;
   background-color: @color-accent;
   color: @tx-light;
-}
-
-.number {
-  composes: item-inner;
-  background-color: @color-accent;
-  color: @tx-light;
-  font-size: 23px;
-  line-height: 55px;
 }
 
 .icon span {
@@ -72,6 +59,7 @@
   height: 65px;
   width: 65px;
 }
+
 
 .caption {
   position: absolute;

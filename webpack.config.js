@@ -10,6 +10,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: 'dist/'
   },
+  devtool: 'source-maps',
   cache: true,
   plugins: [
     new webpack.DefinePlugin({

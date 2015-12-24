@@ -1,10 +1,10 @@
 'use strict';
 import React from 'react';
-
 import CSSModules from 'react-css-modules';
-import styles from 'styles/list.pre';
+import {default as Icon} from 'components/icons/icon';
+import styles from './about.pre';
 
-const StatItem = CSSModules(React.createClass({
+const StatItem = React.createClass({
   increment() {
     if (this.state.count >= this.props.number) {
       return this.setState({
@@ -32,27 +32,51 @@ const StatItem = CSSModules(React.createClass({
   },
   render() {
     return (
-      <li styleName='item-33'>
-        <div styleName='number'>{this.state.count}</div>
-        <div styleName='caption'>{this.props.text}</div>
-      </li>
+      <Icon
+        text={this.state.count}
+        classname={'text'}
+        caption={this.props.caption}
+        width={'item-33'}
+      />
     );
   }
-}), styles);
+});
 
 const Stats = React.createClass({
+  getDefaultProps() {
+    return {
+      title: 'Statistics'
+    };
+  },
+  getInitialState() {
+    return {...this.props};
+  },
+  componentDidMount() {
+    return this.setState({...this.props});
+  },
   render() {
+    const {
+      title,
+      items
+    } = this.state;
+
     return (
-      <div styleName='root'>
-        <div styleName='header'>Statistics</div>
+      <div styleName='stats'>
+        <div styleName='header'>{title}</div>
         <ul styleName='list'>
-          { this.props.stats.map((result, i) => {
-            return <StatItem key={i} text={result.text} number={result.number}/>;
-          }) }
+          {items.map((obj, i) => {
+            return (
+              <StatItem
+                key={i}
+                caption={obj.caption}
+                number={obj.number}
+              />
+            );
+          })}
         </ul>
       </div>
     );
   }
- });
+});
 
 export default CSSModules(Stats, styles);

@@ -1,8 +1,8 @@
 'use strict';
 import React from 'react';
-import { default as __links } from 'sources/links';
-
 import CSSModules from 'react-css-modules';
+import {default as __links} from 'sources/links';
+import {default as LinkCircles} from 'components/links/link-circles';
 import styles from './contact.pre';
 
 const Contact = React.createClass({
@@ -22,17 +22,7 @@ const Contact = React.createClass({
 
     return (
       <div style={image} styleName='backdrop' className='clearfix animated fadeIn'>
-        <ul styleName='list'>
-          {links.map((result, i) => {
-            return (
-              <li key={i} styleName='item'>
-                <div styleName='icon'>
-                  <a href={result.url} target="_blank"><span className={result.icon}></span></a>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <LinkCircles items={links}/>
       </div>
     );
   }

@@ -1,10 +1,10 @@
 'use strict';
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import { default as Tech } from './tech';
-import { default as Stats } from './stats';
-import { default as __stats } from 'sources/stats';
-import { setFeaturedTech } from 'helpers';
+import {default as Tech} from './tech';
+import {default as Stats} from './stats';
+import {default as __stats} from 'sources/stats';
+import {setFeaturedTech} from 'helpers';
 
 import styles from './about.pre';
 
@@ -17,13 +17,19 @@ const About = React.createClass({
       tech: setFeaturedTech()
     };
   },
+  getInitialState() {
+    return {...this.props};
+  },
+  componentDidMount() {
+    return this.setState({...this.props});
+  },
   render() {
     const {
       title,
       bio,
       tech,
       stats
-    } = this.props;
+    } = this.state;
 
     return (
       <div styleName='root'>
@@ -32,8 +38,8 @@ const About = React.createClass({
           <div styleName='paragraph'>{bio}</div>
         </div>
         <div styleName='info' className='clearfix'>
-          <Tech tech={tech} />
-          <Stats stats={stats} />
+          <Tech items={tech} />
+          <Stats items={stats} />
         </div>
       </div>
     );
