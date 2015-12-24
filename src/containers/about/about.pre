@@ -1,7 +1,7 @@
 @import '../../styles/variables.less';
 
 .root {
-  height: 65vh;
+  height: 100%;
   width: 100%;
 }
 

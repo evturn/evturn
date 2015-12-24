@@ -10,7 +10,7 @@ const Thumbnails = React.createClass({
   },
   getDefaultProps() {
     return {
-      title: 'Project',
+      title: 'Projects',
     };
   },
   render() {
@@ -18,6 +18,7 @@ const Thumbnails = React.createClass({
       title,
       projects
     } = this.props;
+
     return (
       <div>
         <div styleName='header'>{title}</div>

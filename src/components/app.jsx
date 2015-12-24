@@ -5,8 +5,7 @@ import {Router, Route, IndexRoute, History} from 'react-router';
 import {history} from 'history';
 import {default as Spinner} from 'components/spinner';
 import {Header, Footer} from 'components/layouts';
-import {URL, getPage, updateLayout} from 'helpers';
-
+import {URL, getPage} from 'helpers';
 import 'styles/app.less';
 
 export default React.createClass({
@@ -20,9 +19,7 @@ export default React.createClass({
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      return this.setState({
-        page: getPage(URL.route().substr(1))
-      });
+      return this.setState({...this.state});
     });
   },
   render() {
