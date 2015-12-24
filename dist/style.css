@@ -1070,7 +1070,6 @@ img {
   clear: both;
 }
 .nav__logo___3Z-Zo {
-  display: block;
   position: absolute;
   right: 0;
   left: 0;
@@ -1109,9 +1108,13 @@ img {
 }
 @media (min-width: 1024px) {
   .nav__burger___19iJ8 {
+    opacity: 0.7;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
+  }
+  .nav__burger___19iJ8:hover {
+    opacity: 1;
   }
 }
 .nav__logo-about___1AbRl {
@@ -1124,6 +1127,7 @@ img {
 }
 @media (min-width: 600px) {
   .nav__logo-contact___cMHFl {
+    display: block;
   }
 }
 .nav__logo-home___ijKd- {
@@ -1135,24 +1139,16 @@ img {
     top: 15%;
   }
 }
+.nav__burger-home___OeKT2,
 .nav__burger-contact___3ri-r {
-  opacity: 0.5;
-  color: #ffffff;
-  border-radius: 8px;
-}
-.nav__burger-contact___3ri-r:hover {
-  opacity: 1;
-}
-.nav__burger-home___OeKT2 {
   color: #ffffff;
 }
 .nav__burger-work___34ZpL {
+  position: fixed;
+  color: #5FA3C0;
 }
 .nav__burger-about___L9KZO {
   color: #231f20;
-}
-.nav__burger-about___L9KZO:hover {
-  color: #5FA3C0;
 }
 .nav__spin___3Ehbj {
   -webkit-animation: nav__rotation___3ZArL 0.75s infinite linear;
