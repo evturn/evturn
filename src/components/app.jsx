@@ -1,13 +1,12 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, History } from 'react-router';
-import { history } from 'history';
-import { Header, Footer } from 'components/layouts';
-import { default as Spinner } from 'components/home/spinner';
-import { URL, getPage, updateLayout } from 'helpers';
+import {Router, Route, IndexRoute, History} from 'react-router';
+import {history} from 'history';
+import {default as Spinner} from 'components/spinner';
+import {Header, Footer} from 'components/layouts';
+import {URL, getPage, updateLayout} from 'helpers';
 
-import CSSModules from 'react-css-modules';
 import 'styles/app.less';
 
 const App = React.createClass({

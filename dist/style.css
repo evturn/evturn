@@ -1,4 +1,109 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);.nav__no-scrollbar___LVbAU ::-webkit-scrollbar {
+@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);.spinner__hidden___Vxz9u {
+  display: none;
+}
+.spinner__root___AWzjX {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #5FA3C0;
+  z-index: 11000;
+  position: fixed;
+  animation-delay: 1.5s;
+  animation-duration: 1.5s;
+}
+.spinner__logo___3fd1_ {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  top: 30%;
+  right: 0;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 140px;
+  height: 140px;
+}
+@media (min-width: 1024px) {
+  .spinner__logo___3fd1_ {
+    top: 25px;
+    padding: 20px;
+    width: 140px;
+    height: 140px;
+  }
+}
+.spinner__image___2jHt- {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+.spinner__animation___1smU5 {
+  position: relative;
+  top: 30%;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  margin-bottom: -45px;
+  border-radius: 100%;
+  animation: spinner__rotation___10UUh 0.6s infinite linear;
+}
+@media (min-width: 1024px) {
+  .spinner__animation___1smU5 {
+    top: 25px;
+  }
+}
+.spinner__animation___1smU5:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  height: 100%;
+  width: 100%;
+  border-top: 10px solid #ffffff;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-radius: 100%;
+}
+.spinner__animation___1smU5 ::-webkit-scrollbar {
+  display: none;
+}
+@-webkit-keyframes spinner__rotation___10UUh {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner__rotation___10UUh {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner__rotation___10UUh {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes spinner__rotation___10UUh {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.nav__no-scrollbar___LVbAU ::-webkit-scrollbar {
   display: none;
 }
 .nav__img-shadow___3zKSB {
@@ -456,111 +561,6 @@
 .footer__text___2vrMp .footer__icon___2nOOE {
   vertical-align: bottom;
 }
-.spinner__hidden___sEkB3 {
-  display: none;
-}
-.spinner__root___eASvh {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #5FA3C0;
-  z-index: 11000;
-  position: fixed;
-  animation-delay: 1.5s;
-  animation-duration: 1.5s;
-}
-.spinner__logo___3gPSa {
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  top: 30%;
-  right: 0;
-  padding: 20px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 140px;
-  height: 140px;
-}
-@media (min-width: 1024px) {
-  .spinner__logo___3gPSa {
-    top: 25px;
-    padding: 20px;
-    width: 140px;
-    height: 140px;
-  }
-}
-.spinner__image___19liC {
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-}
-.spinner__animation___86A6h {
-  position: relative;
-  top: 30%;
-  width: 140px;
-  height: 140px;
-  margin: 0 auto;
-  margin-bottom: -45px;
-  border-radius: 100%;
-  animation: spinner__rotation___30VyI 0.6s infinite linear;
-}
-@media (min-width: 1024px) {
-  .spinner__animation___86A6h {
-    top: 25px;
-  }
-}
-.spinner__animation___86A6h:before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: -2px;
-  top: -2px;
-  height: 100%;
-  width: 100%;
-  border-top: 10px solid #ffffff;
-  border-left: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-radius: 100%;
-}
-.spinner__animation___86A6h ::-webkit-scrollbar {
-  display: none;
-}
-@-webkit-keyframes spinner__rotation___30VyI {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@-moz-keyframes spinner__rotation___30VyI {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-@-o-keyframes spinner__rotation___30VyI {
-  from {
-    -o-transform: rotate(0deg);
-  }
-  to {
-    -o-transform: rotate(360deg);
-  }
-}
-@keyframes spinner__rotation___30VyI {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 video {
   overflow: hidden;
   position: fixed;
@@ -577,19 +577,19 @@ video {
 video::-webkit-media-controls {
   display: none !important;
 }
-.home__no-scrollbar___1Bl4I ::-webkit-scrollbar {
+.home__no-scrollbar___6waSJ ::-webkit-scrollbar {
   display: none;
 }
-.home__img-shadow___2l7Ji {
+.home__img-shadow___2dqFl {
   -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
   box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
 }
-.home__img-scale___3Exjg {
+.home__img-scale___2k38m {
   width: 100%;
   height: auto;
   display: block;
 }
-.home__flexy___3m4z3 {
+.home__flexy___1ieYf {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -603,7 +603,7 @@ video::-webkit-media-controls {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-.home__flip-vertical___2sQPD {
+.home__flip-vertical___2FGQB {
   -moz-transform: scaleY(-1);
   -webkit-transform: scaleY(-1);
   -o-transform: scaleY(-1);
@@ -620,11 +620,11 @@ video::-webkit-media-controls {
 .clearfix:after {
   clear: both;
 }
-.home__root___2GxsM {
+.home__root___2aXSZ {
   height: 100vh;
   width: 100vw;
 }
-.home__banner___MzTCH {
+.home__banner___1fc8w {
   position: absolute;
   top: 35%;
   right: 0;
@@ -635,13 +635,13 @@ video::-webkit-media-controls {
   width: 90%;
 }
 @media (min-width: 1024px) {
-  .home__banner___MzTCH {
+  .home__banner___1fc8w {
     top: 45%;
     width: 300px;
   }
 }
-.home__banner___MzTCH .home__title___3Moep,
-.home__banner___MzTCH .home__description___XQKrD {
+.home__banner___1fc8w .home__title___SOQSb,
+.home__banner___1fc8w .home__description___2zTas {
   margin-top: 0;
   margin-bottom: 0;
   font-family: 'Source Sans Pro', sans;
@@ -743,28 +743,28 @@ video::-webkit-media-controls {
   font-size: 12px;
   color: #ffffff;
 }
-.about__root___hjg1_ {
+.about__root___1CAYO {
   height: 65vh;
   width: 100%;
 }
-.about__bio___1sp_h {
+.about__bio___1E4Sb {
   margin: 30px auto;
   max-width: 1000px;
   padding-left: 20px;
   padding-right: 15px;
   max-width: 500px;
 }
-.about__info___2vgAb {
+.about__info___e5yRw {
   margin: 15px auto;
   max-width: 1000px;
 }
-.about__header___1aCRF {
+.about__header___3BmgS {
   margin-bottom: 10px;
   text-transform: uppercase;
   text-align: center;
   font-size: 32px;
 }
-.about__paragraph___225oL {
+.about__paragraph___2Reww {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
   text-align: justify;
@@ -772,24 +772,24 @@ video::-webkit-media-controls {
   line-height: 27px;
 }
 @media (min-width: 768px) {
-  .about__paragraph___225oL {
+  .about__paragraph___2Reww {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-.contact__no-scrollbar___Pw_3S ::-webkit-scrollbar {
+.contact__no-scrollbar___3vBF0 ::-webkit-scrollbar {
   display: none;
 }
-.contact__img-shadow___1H9-f {
+.contact__img-shadow___1Tm0k {
   -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
   box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
 }
-.contact__img-scale___1xvEu {
+.contact__img-scale___3rsv1 {
   width: 100%;
   height: auto;
   display: block;
 }
-.contact__flexy___1UZ-1 {
+.contact__flexy___3oxrY {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -803,7 +803,7 @@ video::-webkit-media-controls {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-.contact__flip-vertical___3Op3x {
+.contact__flip-vertical___3OrVv {
   -moz-transform: scaleY(-1);
   -webkit-transform: scaleY(-1);
   -o-transform: scaleY(-1);
@@ -820,7 +820,7 @@ video::-webkit-media-controls {
 .clearfix:after {
   clear: both;
 }
-.contact__backdrop___Rlf8E {
+.contact__backdrop___okH3_ {
   min-height: 100vh;
   margin: 0 auto;
   position: relative;
@@ -829,17 +829,17 @@ video::-webkit-media-controls {
   background-position-x: 50%;
 }
 @media (min-width: 1024px) {
-  .contact__backdrop___Rlf8E {
+  .contact__backdrop___okH3_ {
     background-position-y: 40%;
     background-position-x: 0%;
   }
 }
-.contact__list___2qzpl {
+.contact__list___1Ye8e {
   min-height: 100vh;
   text-align: center;
   padding-top: 20%;
 }
-.contact__item___2CVKb {
+.contact__item___2dBH5 {
   display: inline-block;
   overflow: auto;
   text-align: center;
@@ -848,12 +848,12 @@ video::-webkit-media-controls {
   height: 110px;
 }
 @media (min-width: 600px) {
-  .contact__item___2CVKb {
+  .contact__item___2dBH5 {
     width: auto;
     height: auto;
   }
 }
-.contact__icon___1-kRF {
+.contact__icon___14N5P {
   display: inline-block;
   -webkit-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
@@ -867,7 +867,7 @@ video::-webkit-media-controls {
   background-color: rgba(255, 255, 255, 0.7);
 }
 @media (min-width: 600px) {
-  .contact__icon___1-kRF {
+  .contact__icon___14N5P {
     width: 150px;
     height: 150px;
     line-height: 150px;
@@ -875,7 +875,7 @@ video::-webkit-media-controls {
   }
 }
 @media (min-width: 1024px) {
-  .contact__icon___1-kRF {
+  .contact__icon___14N5P {
     width: 200px;
     height: 200px;
     line-height: 200px;
@@ -883,7 +883,7 @@ video::-webkit-media-controls {
   }
 }
 @media (min-width: 600px) {
-  .contact__icon___1-kRF:hover {
+  .contact__icon___14N5P:hover {
     -webkit-transition: all 0.1s ease;
     -o-transition: all 0.1s ease;
     transition: all 0.1s ease;
@@ -894,7 +894,7 @@ video::-webkit-media-controls {
 a {
   color: #231f20;
 }
-.contact__icon___1-kRF:hover a {
+.contact__icon___14N5P:hover a {
   color: #5FA3C0;
 }
 .thumbnails__no-scrollbar____x_RQ ::-webkit-scrollbar {

@@ -5,9 +5,9 @@ import { Router, RouteHandler, Route, IndexRoute } from 'react-router';
 import createHistory from 'history/lib/createHashHistory';
 // import 'sources/google-analytics';
 import { default as App } from 'components/app';
-import { default as Home } from 'components/home';
-import { default as About } from 'components/about';
-import { default as Contact } from 'components/contact';
+import {default as Home} from 'containers/home';
+import {default as About} from 'containers/about';
+import {default as Contact} from 'containers/contact';
 import { default as Work } from 'components/work';
 import { default as Project } from 'components/work/project';
 
