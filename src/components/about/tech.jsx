@@ -14,7 +14,7 @@ const Tech = React.createClass({
     return (
       <div styleName='root'>
         <div styleName='header'>{this.props.title}</div>
-        <ul className='list'>
+        <ul styleName='list'>
           {this.props.tech.map((result, i) => {
             return (
               <li styleName='item-25'>

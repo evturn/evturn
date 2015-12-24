@@ -45,7 +45,7 @@ const Stats = React.createClass({
     return (
       <div styleName='root'>
         <div styleName='header'>Statistics</div>
-        <ul className='list'>
+        <ul styleName='list'>
           { this.props.stats.map((result, i) => {
             return <StatItem key={i} text={result.text} number={result.number}/>;
           }) }

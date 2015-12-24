@@ -1,11 +1,16 @@
 @import '../../styles/variables.less';
 
-.root {
+.bio {
   margin: 30px auto;
   max-width: 1000px;
   padding-left: 20px;
   padding-right: 15px;
   max-width: 500px;
+}
+
+.info {
+  margin: 15px auto;
+  max-width: 1000px;
 }
 
 .header {
