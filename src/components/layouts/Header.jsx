@@ -1,37 +1,11 @@
 'use strict';
 import React from 'react';
-import {IndexLink, Link} from 'react-router';
-import {default as Menu} from 'components/menu';
-import { default as Nav } from './nav';
-
 import CSSModules from 'react-css-modules';
+import {default as Menu} from 'components/menu';
+import {default as Overlay} from 'components/overlay';
+import {default as Nav} from 'components/nav';
+
 import styles from './header.pre';
-
-const Overlay = CSSModules(React.createClass({
-  getInitialState() {
-    return {
-      page: this.props.page,
-      open: this.props.initialOpen
-    };
-  },
-  handleClick() {
-    const newState = !this.state.open;
-
-    this.setState({ open: newState });
-    this.props.callbackParent(newState);
-  },
-  componentWillReceiveProps(newProps) {
-    if (this.state.open !== newProps.open) {
-      this.setState({ open: newProps.open });
-    }
-    this.setState({page: newProps.page});
-  },
-  render() {
-    const openClass = this.state.open ? 'overlay' : '';
-
-    return <div styleName={openClass} onClick={this.handleClick} />;
-  }
-}), styles);
 
 const Header = React.createClass({
   getInitialState() {
@@ -40,23 +14,42 @@ const Header = React.createClass({
       open: false
     };
   },
-  onChildChanged(newState) {
-    this.setState({ open: newState });
+  onChildChanged(newOpenState) {
+    return this.setState(newOpenState);
   },
   componentWillReceiveProps(newProps) {
-    this.setState({
+    return this.setState({
       page: newProps.page
     });
   },
+  componentDidMount() {
+    return this.setState({
+      page: this.props.page
+    });
+  },
   render() {
+    const {
+      page,
+      open
+    } = this.state;
+
     return (
-      <div className={styles[this.state.page]}>
-        <Overlay initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>
-        <header className='root'>
-          <Nav initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>
+      <div styleName={page}>
+        <Overlay
+          initialOpen={open}
+          open={open}
+          callbackParent={this.onChildChanged}
+        />
+        <header styleName='root'>
+          <Nav
+            initialOpen={open}
+            open={open}
+            callbackParent={this.onChildChanged}
+            page={page}
+          />
           <Menu
-            initialOpen={this.state.open}
-            open={this.state.open}
+            initialOpen={open}
+            open={open}
             callbackParent={this.onChildChanged}
           />
         </header>

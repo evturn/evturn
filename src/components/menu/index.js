@@ -24,10 +24,12 @@ const Menu = React.createClass({
     };
   },
   handleClick() {
-    const newState = !this.state.open;
+    const newOpenState = {
+      open: !this.state.open
+    };
 
-    this.setState({ open: newState });
-    this.props.callbackParent(newState);
+    this.setState(newOpenState);
+    this.props.callbackParent(newOpenState);
   },
   componentWillReceiveProps(newProps) {
     if (this.state.open !== newProps.open) {

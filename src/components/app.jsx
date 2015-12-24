@@ -19,7 +19,9 @@ export default React.createClass({
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      return this.setState({...this.state});
+      return this.setState({
+        page: getPage(URL.route().substr(1))
+      });
     });
   },
   render() {

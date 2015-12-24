@@ -1,0 +1,90 @@
+@import '../../styles/all.pre';
+
+.logo {
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 25px;
+  width: 80px;
+  z-index: 3;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: fade(@bg-main, 70);
+  .clearfix();
+  @media(@tablet) {
+    padding: 20px;
+    width: 140px;
+  }
+}
+
+.burger {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  height: 47px;
+  width: 47px;
+  z-index: 3;
+  cursor: pointer;
+  font-size: 40px;
+  text-align: center;
+  @media(@tablet) {
+    .transition(0.3s);
+  }
+}
+
+.logo-about {
+  composes: logo;
+}
+
+.logo-work {
+  display: none;
+}
+
+.logo-contact {
+  display: none;
+  @media(min-width: 600px) {
+    composes: logo;
+  }
+}
+
+.logo-home {
+  composes: logo;
+  padding: 20px;
+  width: 140px;
+  @media(@tablet) {
+    top: 15%;
+  }
+}
+
+.burger-contact {
+  composes: burger;
+  opacity: 0.5;
+  color: @tx-light;
+  border-radius: 8px;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.burger-home {
+  composes: burger;
+  color: @bg-main;
+}
+
+.burger-work {
+  composes: burger;
+}
+
+.burger-about {
+  composes: burger;
+  color: @tx-dark;
+  &:hover {
+    color: @color-accent;
+  }
+}
+
+.spin {
+  .rotate-clockwise(0.750s);
+}
