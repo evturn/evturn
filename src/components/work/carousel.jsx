@@ -100,7 +100,7 @@ const Carousel = React.createClass({
   },
   render() {
     return (
-      <div className={css.root}>
+      <div styleName='root'>
         {this.props.images.map((image, i) => {
           const activeClass = image === this.state.active ? true : false;
           const nextClass = image === this.state.next ? true : false;

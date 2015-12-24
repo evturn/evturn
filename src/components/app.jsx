@@ -7,9 +7,10 @@ import { Header, Footer } from 'components/layouts';
 import { default as Spinner } from 'components/home/spinner';
 import { URL, getPage, updateLayout } from 'helpers';
 
+import CSSModules from 'react-css-modules';
 import 'styles/app.less';
 
-export default React.createClass({
+const App = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -36,3 +37,5 @@ export default React.createClass({
     );
   }
 });
+
+export default App;

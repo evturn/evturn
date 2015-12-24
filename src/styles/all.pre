@@ -1,5 +1,5 @@
-@import "variables.pre";
-@import "mixins.pre";
+@import "variables.less";
+@import "mixins.less";
 
 
 :global .clearfix {

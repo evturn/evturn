@@ -2,9 +2,9 @@
 import React from 'react';
 
 import CSSModules from 'react-css-modules';
-import css from './stats.pre';
+import styles from 'styles/list.pre';
 
-const StatItem = React.createClass({
+const StatItem = CSSModules(React.createClass({
   increment() {
     if (this.state.count >= this.props.number) {
       return this.setState({
@@ -20,30 +20,32 @@ const StatItem = React.createClass({
     }
   },
   getInitialState() {
-    return { count: 0 };
+    return {
+      count: 0
+    };
   },
   componentDidMount() {
-    this.increment();
+    return this.increment();
   },
   componentWillUnmount() {
     return clearTimeout(this.incTimer);
   },
   render() {
     return (
-      <li  className={`${css.item} list-item-icon`}>
-        <div className={`${css.icon} list-item-icon__icon ${css.count}`}>{this.state.count}</div>
-        <div className={css.caption}>{this.props.text}</div>
+      <li styleName='item-33'>
+        <div styleName='number'>{this.state.count}</div>
+        <div styleName='caption'>{this.props.text}</div>
       </li>
     );
   }
-});
+}), styles);
 
 const Stats = React.createClass({
   render() {
     return (
-      <div className={css.root}>
-        <div className={css.header}>Statistics</div>
-        <ul className="list-icons">
+      <div styleName='root'>
+        <div styleName='header'>Statistics</div>
+        <ul className='list'>
           { this.props.stats.map((result, i) => {
             return <StatItem key={i} text={result.text} number={result.number}/>;
           }) }
@@ -53,4 +55,4 @@ const Stats = React.createClass({
   }
  });
 
-export default CSSModules(Stats, css);
+export default CSSModules(Stats, styles);

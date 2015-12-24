@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);.nav__no-scrollbar___LVbAU ::-webkit-scrollbar {
+@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);.nav__no-scrollbar___LVbAU ::-webkit-scrollbar {
   display: none;
 }
 .nav__img-shadow___3zKSB {
@@ -694,102 +694,62 @@ video::-webkit-media-controls {
   text-align: center;
   text-transform: uppercase;
 }
-.tech__root___2unif {
+.list__root___1gll1 {
   margin-bottom: 15px;
 }
 @media (min-width: 1024px) {
-  .tech__root___2unif {
+  .list__root___1gll1 {
     padding-left: 20px;
     padding-right: 20px;
     float: left;
     width: 50%;
   }
 }
-.tech__header___3vz3j {
+.list__header___2LcSz {
   margin-bottom: 10px;
   font-size: 21px;
   text-transform: uppercase;
   text-align: center;
 }
-.tech__list___3LfZD {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
-.tech__item___YSL09 {
+.list__item___3Stdi {
+  display: inline-block;
   position: relative;
-  width: 25%;
+  vertical-align: top;
   text-align: center;
 }
-.tech__iconwrap___f8mHF {
-  background-color: #5FA3C0;
+.list__item-25___1NAjR {
+  width: 25%;
+}
+.list__item-33___28gQ5 {
+  width: 33.3333333333%;
+}
+.list__item-50___SiRRm {
+  width: 50%;
+}
+.list__item-inner___3rMeh {
   height: 65px;
   margin: 5px;
+  background-color: #5FA3C0;
   color: #ffffff;
 }
-.tech__icon___jXio- {
+.list__icon___18-F4 {
+}
+.list__number___2BpDC {
+  font-size: 23px;
+  line-height: 55px;
+}
+.list__icon___18-F4 span {
   line-height: 1.5em;
   height: 65px;
   width: 65px;
 }
-.tech__caption___36c7m {
-  color: #ffffff;
-  font-size: 12px;
+.list__caption___2_Drt {
   position: absolute;
+  top: 70%;
   left: 0;
   right: 0;
-  top: 70%;
-}
-.stats__root___1CFex {
-  margin-bottom: 15px;
-}
-@media (min-width: 1024px) {
-  .stats__root___1CFex {
-    float: right;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 50%;
-  }
-}
-.stats__header___1oTGh {
-  margin-bottom: 10px;
-  font-size: 21px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.stats__item___1nsVQ {
-  display: inline-block;
-  position: relative;
-  width: 33.3333333333%;
-  color: #ffffff;
-  text-align: center;
-}
-.stats__caption___2m2gz {
   font-size: 12px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 70%;
-}
-.stats__icon___3lMYu {
-  height: 65px;
-  background-color: #5FA3C0;
-  margin: 5px;
-}
-.stats__count___2Hz6E {
-  line-height: 55px;
-  height: 65px;
-  font-size: 23px;
+  color: #ffffff;
 }
 .bio__root___KUDUN {
   margin: 30px auto;

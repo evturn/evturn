@@ -1,0 +1,72 @@
+@import 'variables.less';
+
+.root {
+  margin-bottom: 15px;
+  @media(@tablet) {
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
+    width: 50%;
+  }
+}
+
+.header {
+  margin-bottom: 10px;
+  font-size: 21px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.item {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  text-align: center;
+}
+
+.item-25 {
+  composes: item;
+  width: 25%;
+}
+
+.item-33 {
+  composes: item;
+  width: 33.3333333333%;
+}
+
+.item-50 {
+  composes: item;
+  width: 50%;
+}
+
+.item-inner {
+  height: 65px;
+  margin: 5px;
+  background-color: @color-accent;
+  color: @bg-main;
+}
+
+.icon {
+  composes: item-inner;
+}
+
+.number {
+  composes: item-inner;
+  font-size: 23px;
+  line-height: 55px;
+}
+
+.icon span {
+  line-height: 1.5em;
+  height: 65px;
+  width: 65px;
+}
+
+.caption {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  color: @bg-main;
+}

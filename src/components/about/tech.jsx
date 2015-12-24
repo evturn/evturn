@@ -2,7 +2,7 @@
 import React from 'react';
 
 import CSSModules from 'react-css-modules';
-import styles from './tech.pre';
+import styles from 'styles/list.pre';
 
 const Tech = React.createClass({
   getDefaultProps() {
@@ -14,11 +14,11 @@ const Tech = React.createClass({
     return (
       <div styleName='root'>
         <div styleName='header'>{this.props.title}</div>
-        <ul styleName='list'>
+        <ul className='list'>
           {this.props.tech.map((result, i) => {
             return (
-              <li styleName='item'>
-                <div styleName='iconwrap'><span styleName='icon' className={result.icon}></span></div>
+              <li styleName='item-25'>
+                <div styleName='icon'><span className={result.icon}></span></div>
                 <div styleName='caption'>{result.name}</div>
               </li>
             );
