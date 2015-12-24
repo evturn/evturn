@@ -6,27 +6,32 @@
   overflow: hidden;
   width: 100%;
   min-height: 200px;
-  .clearfix();
   border-bottom: 1px solid fade(@color-accent, 20);
+  .clearfix();
   @media(@tablet-portrait) {
     height: 400px;
   }
   @media(@tablet) {
     height: 600px;
   }
-  .item {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 100%;
-    transition: background 1s linear;
-    opacity: 0;
-    &.active {
-      opacity: 1;
-      img {
-        display: block;
-      }
-    }
-  }
+
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  transition: background 1s linear;
+  opacity: 0;
+}
+
+.active {
+  composes: slide;
+  opacity: 1;
+}
+
+img {
+  display: block;
 }

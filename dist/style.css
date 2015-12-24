@@ -743,6 +743,10 @@ video::-webkit-media-controls {
   font-size: 12px;
   color: #ffffff;
 }
+.about__root___hjg1_ {
+  height: 65vh;
+  width: 100%;
+}
 .about__bio___1sp_h {
   margin: 30px auto;
   max-width: 1000px;
@@ -1082,7 +1086,7 @@ a {
     height: 600px;
   }
 }
-.carousel__root___2moYo .carousel__item___2tjX5 {
+.carousel__slide___3b8uH {
   position: absolute;
   top: 0;
   right: 0;
@@ -1091,10 +1095,10 @@ a {
   transition: background 1s linear;
   opacity: 0;
 }
-.carousel__root___2moYo .carousel__item___2tjX5.carousel__active___hSpp1 {
+.carousel__active___hSpp1 {
   opacity: 1;
 }
-.carousel__root___2moYo .carousel__item___2tjX5.carousel__active___hSpp1 img {
+img {
   display: block;
 }
 .details__no-scrollbar___2YbuK ::-webkit-scrollbar {

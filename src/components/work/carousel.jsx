@@ -1,10 +1,9 @@
 'use strict';
 import React from 'react';
-
 import CSSModules from 'react-css-modules';
-import css from './carousel.pre';
+import styles from './carousel.pre';
 
-const CarouselSlide = React.createClass({
+const CarouselSlide = CSSModules(React.createClass({
   getInitialState() {
     return {
       active: this.props.active,
@@ -18,45 +17,61 @@ const CarouselSlide = React.createClass({
     });
   },
   render() {
-    const activeClass = this.state.active ? css.active : '';
+    const {
+      image,
+      active
+    } = this.props;
+
+    const activeClass = active ? 'active' : 'slide';
 
     return (
-      <div className={`${css.item} ${activeClass}`}>
-        <img className="img-scale" src={this.props.image} />
+      <div styleName={activeClass}>
+        <img className="img-scale" src={image} />
       </div>
     );
   }
-});
+}), styles);
 
 const Carousel = React.createClass({
-  changeSlide() {
-    let enqueueState = this.state.enqueue;
-    let counterState = this.state.counter;
-    let totalState = this.state.total;
-
-    let counter;
-    let enqueue;
-
-    if (enqueueState < totalState && counterState !== totalState) {
-      counter = counterState +=1;
-      enqueue = enqueueState +=1;
-    } else if (enqueueState === totalState) {
-      counter = counterState +=1;
-      enqueue = 0;
-    } else if (enqueueState === 0) {
-      counter = 0;
-      enqueue = counter + 1
+  rotateSlide() {
+    return this.setState({
+      active: this.state.images[this.state.counter],
+      next: this.state.images[this.state.enqueue]
+    });
+  },
+  onSlideChange() {
+    if (this.state.enqueue < this.state.total && this.state.counter !== this.state.total) {
+      this.showNextSlide();
+    } else if (this.state.enqueue === this.state.total) {
+      this.showLastSlide();
+    } else if (this.state.enqueue === 0) {
+      this.showFirstSlide();
     }
 
+    this.rotateSlide();
+  },
+  showFirstSlide() {
     return this.setState({
-      counter: counter,
-      enqueue: enqueue,
-      active: this.state.images[counter],
-      next: this.state.images[enqueue]
+      counter: 0,
+      enqueue: 1,
+    });
+  },
+  showNextSlide() {
+    return this.setState({
+      counter: this.state.counter + 1,
+      enqueue: this.state.enqueue + 1,
+    });
+  },
+  showLastSlide() {
+    return this.setState({
+      counter: this.state.counter + 1,
+      enqueue: 0,
     });
   },
   setTimer() {
-    this.timer = setInterval(() => { this.changeSlide(); }, 4000);
+    this.timer = setInterval(() => {
+      this.onSlideChange();
+    }, 4000);
   },
   clearTimer() {
     return clearInterval(this.timer);
@@ -75,7 +90,6 @@ const Carousel = React.createClass({
       images: this.props.images,
       active: this.props.images[this.props.counter],
       next: this.props.images[this.props.enqueue],
-      slug: this.props.slug,
       timer: null
     };
   },
@@ -94,7 +108,6 @@ const Carousel = React.createClass({
       images: newProps.images,
       active: newProps.images[0],
       next: newProps.images[1],
-      slug: newProps.slug
     });
     this.setTimer();
   },
@@ -102,14 +115,20 @@ const Carousel = React.createClass({
     return (
       <div styleName='root'>
         {this.props.images.map((image, i) => {
-          const activeClass = image === this.state.active ? true : false;
-          const nextClass = image === this.state.next ? true : false;
+          const isActive = image === this.state.active ? true : false;
+          const isNext = image === this.state.next ? true : false;
 
-          return <CarouselSlide key={i} active={activeClass} next={nextClass} image={image}/>;
-        }) }
+          return (
+            <CarouselSlide
+              key={i}
+              active={isActive}
+              next={isNext}
+              image={image} />
+          );
+        })}
       </div>
     );
   }
 });
 
-export default CSSModules(Carousel, css);
+export default CSSModules(Carousel, styles);

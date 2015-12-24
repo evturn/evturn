@@ -26,7 +26,7 @@ const About = React.createClass({
     } = this.props;
 
     return (
-      <div>
+      <div styleName='root'>
         <div styleName='bio' className='clearfix'>
           <div styleName='header'>{title}</div>
           <div styleName='paragraph'>{bio}</div>

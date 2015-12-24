@@ -1,5 +1,10 @@
 @import '../../styles/variables.less';
 
+.root {
+  height: 65vh;
+  width: 100%;
+}
+
 .bio {
   margin: 30px auto;
   max-width: 1000px;
