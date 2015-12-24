@@ -46,16 +46,23 @@
 .item-inner {
   height: 65px;
   margin: 5px;
-  background-color: @color-accent;
-  color: @bg-main;
+
 }
 
 .icon {
   composes: item-inner;
 }
 
+.tech-icon {
+  composes: item-inner;
+  background-color: @color-accent;
+  color: @tx-light;
+}
+
 .number {
   composes: item-inner;
+  background-color: @color-accent;
+  color: @tx-light;
   font-size: 23px;
   line-height: 55px;
 }

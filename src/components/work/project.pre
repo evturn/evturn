@@ -5,3 +5,16 @@
   .clearfix();
 }
 
+.details {
+  margin: 15px;
+}
+
+.title {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+
+.description {
+  line-height: 24px;
+}

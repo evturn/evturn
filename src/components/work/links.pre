@@ -4,22 +4,44 @@
   .clearfix();
   margin: 15px;
 }
+
+.box {
+  line-height: 65px;
+  height: 65px;
+  width: 65px;
+}
+
 .list {
+  composes: list from '../../styles/list.pre';
   float: right;
 }
+
 .item {
-  margin-right: 5px;
-  margin-bottom: 0;
-  height: 45px;
-  width: 45px;
-  background-color: @tx-main;
-  & a {
-    color: @bg-main;
+  composes: item from '../../styles/list.pre';
+}
+
+.icon {
+  .transition(0.1s);
+  composes: box;
+  margin: 5px;
+  font-size: 27px;
+  background-color: fade(@bg-dark, 95);
+}
+
+.item a {
+  .transition(0.1s);
+  color: @tx-light;
+}
+
+.item:hover a {
+  @media(@tablet) {
+    color: @color-accent;
   }
-  .icon {
-    line-height: 45px;
-    height: 45px;
-    width: 45px;
-    font-size: 25px;
+}
+
+.item:hover .icon {
+  @media(@tablet) {
+    border: 1px solid fade(@tx-dark, 50);
+    background-color: @bg-light;
   }
 }

@@ -2,41 +2,50 @@
 import React from 'react';
 
 import CSSModules from 'react-css-modules';
-import css from './links.pre';
+import styles from './links.pre';
 
-const Link = React.createClass({
+const LinksList = CSSModules(React.createClass({
   render() {
-    const { url, icon } = this.props.link;
-
     return (
-      <li className={`${css.item} list-item-icon`}>
-        <div className="list-item-icon__icon">
-          <a href={ url } target="_blank">
-            <span className={ `${css.icon} fa ${icon}`}></span>
-          </a>
-        </div>
-      </li>
+      <ul styleName='list'>
+        {this.props.links.map((result, i) => {
+          return (
+            <li key={i} styleName='item'>
+              <a href={result.url} target="_blank">
+                <div styleName='icon'><span className={result.icon}></span></div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     );
   }
-});
+}), styles);
+
 
 const Links = React.createClass({
-  render() {
-    let links;
-
-    if (this.props.links) {
-      links = (
-        <ul className={`${css.list} list-icons`}>
-          { this.props.links.map((result) => {
-              return <Link key={result.url} link={result} />;
-            })}
-        </ul>
-      );
-    } else {
-      links = '';
+  hasProps() {
+    if (this.state === null) {
+      return false;
+    } else if (this.state.links) {
+      return true;
     }
-    return <div className={css.root}>{links}</div>;
+  },
+  componentWillReceiveProps(newProps) {
+    return this.setState({
+      links: newProps.links
+    });
+  },
+  componentDidMount() {
+    return this.setState({
+      links: this.props.links
+    });
+  },
+  render() {
+    const links = this.hasProps() ? <LinksList links={this.state.links}/> : '';
+
+    return <div styleName='root'>{links}</div>;
   }
 });
 
-export default CSSModules(Links, css);
+export default CSSModules(Links, styles);

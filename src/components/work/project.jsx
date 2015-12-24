@@ -1,12 +1,11 @@
 'use strict';
 import React from 'react';
-import { default as Carousel } from './carousel';
-import { default as Details } from './details';
+import CSSModules from 'react-css-modules';
+import {default as Carousel} from 'components/carousel';
 import { default as Links } from './links';
 import { default as Tech } from './tech';
-import { setProject } from 'helpers';
+import {setProject} from 'helpers';
 
-import CSSModules from 'react-css-modules';
 import css from './project.pre';
 
 const Project = React.createClass({
@@ -27,12 +26,21 @@ const Project = React.createClass({
     });
   },
   render() {
-    const {slug, images, name, description, links, tech} = this.state.project;
+    const {
+      images,
+      name,
+      description,
+      links,
+      tech
+    } = this.state.project;
 
     return (
-      <div className={css.root}>
-        <Carousel slug={slug} images={images} />
-        <Details description={description} name={name} />
+      <div styleName='root'>
+        <Carousel images={images} />
+        <div styleName='details'>
+          <div styleName='title'>{name}</div>
+          <div styleName='description'>{description}</div>
+        </div>
         <Links links={links} />
         <Tech tech={tech} />
       </div>

@@ -18,7 +18,7 @@ const Tech = React.createClass({
           {this.props.tech.map((result, i) => {
             return (
               <li styleName='item-25'>
-                <div styleName='icon'><span className={result.icon}></span></div>
+                <div styleName='tech-icon'><span className={result.icon}></span></div>
                 <div styleName='caption'>{result.name}</div>
               </li>
             );

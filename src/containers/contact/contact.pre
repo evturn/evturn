@@ -43,7 +43,7 @@
   height: 100px;
   line-height: 100px;
   font-size: 4em;
-  color: @tx-main;
+  color: @tx-dark;
   border-radius: 50%;
   background-color: fade(@bg-light, 70);
   @media(min-width: 600px) {

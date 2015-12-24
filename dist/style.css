@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);.spinner__hidden___Vxz9u {
+@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);.spinner__hidden___Vxz9u {
   display: none;
 }
 .spinner__root___AWzjX {
@@ -721,12 +721,16 @@ video::-webkit-media-controls {
 .list__item-inner___3rMeh {
   height: 65px;
   margin: 5px;
-  background-color: #5FA3C0;
-  color: #ffffff;
 }
 .list__icon___18-F4 {
 }
+.list__tech-icon____8riJ {
+  background-color: #5FA3C0;
+  color: #ffffff;
+}
 .list__number___2BpDC {
+  background-color: #5FA3C0;
+  color: #ffffff;
   font-size: 23px;
   line-height: 55px;
 }
@@ -1017,19 +1021,19 @@ a {
     width: 100%;
   }
 }
-.carousel__no-scrollbar___29zu- ::-webkit-scrollbar {
+.carousel__no-scrollbar___1afTZ ::-webkit-scrollbar {
   display: none;
 }
-.carousel__img-shadow___M9-TX {
+.carousel__img-shadow___3J_GU {
   -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
   box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
 }
-.carousel__img-scale___2R1qA {
+.carousel__img-scale___20SKS {
   width: 100%;
   height: auto;
   display: block;
 }
-.carousel__flexy___2AEs1 {
+.carousel__flexy___2R6S4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -1043,7 +1047,7 @@ a {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-.carousel__flip-vertical___2qITx {
+.carousel__flip-vertical___28PkD {
   -moz-transform: scaleY(-1);
   -webkit-transform: scaleY(-1);
   -o-transform: scaleY(-1);
@@ -1060,7 +1064,7 @@ a {
 .clearfix:after {
   clear: both;
 }
-.carousel__root___2moYo {
+.carousel__root___3gklb {
   display: block;
   position: relative;
   overflow: hidden;
@@ -1068,25 +1072,25 @@ a {
   min-height: 200px;
   border-bottom: 1px solid rgba(95, 163, 192, 0.2);
 }
-.carousel__root___2moYo:before,
-.carousel__root___2moYo:after {
+.carousel__root___3gklb:before,
+.carousel__root___3gklb:after {
   content: " ";
   display: table;
 }
-.carousel__root___2moYo:after {
+.carousel__root___3gklb:after {
   clear: both;
 }
 @media (min-width: 768px) {
-  .carousel__root___2moYo {
+  .carousel__root___3gklb {
     height: 400px;
   }
 }
 @media (min-width: 1024px) {
-  .carousel__root___2moYo {
+  .carousel__root___3gklb {
     height: 600px;
   }
 }
-.carousel__slide___3b8uH {
+.carousel__slide___2XTrN {
   position: absolute;
   top: 0;
   right: 0;
@@ -1095,65 +1099,11 @@ a {
   transition: background 1s linear;
   opacity: 0;
 }
-.carousel__active___hSpp1 {
+.carousel__active___3gPtB {
   opacity: 1;
 }
 img {
   display: block;
-}
-.details__no-scrollbar___2YbuK ::-webkit-scrollbar {
-  display: none;
-}
-.details__img-shadow___1pGE6 {
-  -webkit-box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
-}
-.details__img-scale___1KZXG {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.details__flexy___2gGe0 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.details__flip-vertical___1IUBb {
-  -moz-transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-  -o-transform: scaleY(-1);
-  transform: scaleY(-1);
-  -ms-filter: flipv;
-  /*IE*/
-  filter: flipv;
-}
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-.details__root___ZI6yE {
-  margin: 15px;
-}
-.details__header___2q_X6 {
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  font-size: 22px;
-}
-.details__desc___iQSoX {
-  line-height: 24px;
 }
 .links__no-scrollbar___3Uon0 ::-webkit-scrollbar {
   display: none;
@@ -1209,24 +1159,40 @@ img {
 .links__root___3aBd1:after {
   clear: both;
 }
+.links__box___2ilYa {
+  line-height: 65px;
+  height: 65px;
+  width: 65px;
+}
 .links__list___22gbe {
   float: right;
 }
 .links__item___3XKZX {
-  margin-right: 5px;
-  margin-bottom: 0;
-  height: 45px;
-  width: 45px;
-  background-color: #231f20;
+}
+.links__icon___1fKZq {
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+  margin: 5px;
+  font-size: 27px;
+  background-color: rgba(35, 31, 32, 0.95);
 }
 .links__item___3XKZX a {
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
   color: #ffffff;
 }
-.links__item___3XKZX .links__icon___1fKZq {
-  line-height: 45px;
-  height: 45px;
-  width: 45px;
-  font-size: 25px;
+@media (min-width: 1024px) {
+  .links__item___3XKZX:hover a {
+    color: #5FA3C0;
+  }
+}
+@media (min-width: 1024px) {
+  .links__item___3XKZX:hover .links__icon___1fKZq {
+    border: 1px solid rgba(35, 31, 32, 0.5);
+    background-color: #ffffff;
+  }
 }
 .tech__no-scrollbar___aNiss ::-webkit-scrollbar {
   display: none;
@@ -1371,4 +1337,15 @@ img {
 }
 .project__root___cMhJG:after {
   clear: both;
+}
+.project__details___1rpuW {
+  margin: 15px;
+}
+.project__title___32ce9 {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+.project__description___2vawo {
+  line-height: 24px;
 }
