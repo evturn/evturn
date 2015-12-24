@@ -34,7 +34,6 @@ const About = React.createClass({
     return (
       <div styleName='root'>
         <div styleName='bio' className='clearfix'>
-          <div styleName='header'>{title}</div>
           <div styleName='paragraph'>{bio}</div>
         </div>
         <div styleName='info' className='clearfix'>

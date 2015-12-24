@@ -1,13 +1,13 @@
 'use strict';
 import React from 'react';
-import { IndexLink, Link } from 'react-router';
+import {IndexLink, Link} from 'react-router';
+import {default as Menu} from 'components/menu';
 import { default as Nav } from './nav';
-import { default as Menu } from './menu';
 
 import CSSModules from 'react-css-modules';
-import css from './header.pre';
+import styles from './header.pre';
 
-const Overlay = React.createClass({
+const Overlay = CSSModules(React.createClass({
   getInitialState() {
     return {
       page: this.props.page,
@@ -27,11 +27,11 @@ const Overlay = React.createClass({
     this.setState({page: newProps.page});
   },
   render() {
-    const openClass = this.state.open ? css.overlay : '';
+    const openClass = this.state.open ? 'overlay' : '';
 
-    return <div className={openClass} onClick={ this.handleClick } />;
+    return <div styleName={openClass} onClick={this.handleClick} />;
   }
-});
+}), styles);
 
 const Header = React.createClass({
   getInitialState() {
@@ -50,15 +50,19 @@ const Header = React.createClass({
   },
   render() {
     return (
-      <div className={css[this.state.page]}>
+      <div className={styles[this.state.page]}>
         <Overlay initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>
-        <header className={css.root}>
+        <header className='root'>
           <Nav initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged} page={this.state.page}/>
-          <Menu initialOpen={this.state.open} open={this.state.open} callbackParent={this.onChildChanged}/>
+          <Menu
+            initialOpen={this.state.open}
+            open={this.state.open}
+            callbackParent={this.onChildChanged}
+          />
         </header>
       </div>
     );
   }
 });
 
-export default CSSModules(Header, css);
+export default CSSModules(Header, styles);

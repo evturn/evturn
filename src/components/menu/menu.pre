@@ -1,0 +1,59 @@
+@import "../../styles/all.pre";
+
+.open {
+  .root {
+    .box-shadow(-20px 0px 50px 0px rgba(50, 50, 50, 0.5));
+    right: 0;
+  }
+}
+
+.root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 21em;
+  left: auto;
+  right: -21em;
+  z-index: 999;
+  height: 100%;
+  .transition(0.4s);
+  background-color: @color-accent;
+}
+
+.list {
+  margin-top: 0;
+}
+
+.item {
+  text-transform: uppercase;
+  text-align: center;
+  overflow: auto;
+  border-bottom: 1px solid fade(@bg-main, 30);
+  font-weight: bold;
+  line-height: 19px;
+  font-size: 19px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  & a {
+    color: @bg-main;
+  }
+}
+
+.header {
+  .clearfix();
+  border-bottom: 1px solid fade(@bg-main, 30);
+  .close {
+    float: right;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    .icon {
+      height: 60px;
+      line-height: 60px;
+      height: 60px;
+      width: 60px;
+      font-size: 25px;
+      background-color: @bg-main;
+    }
+  }
+}
