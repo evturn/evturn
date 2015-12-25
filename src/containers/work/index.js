@@ -16,6 +16,7 @@ const Work = React.createClass({
   },
   render() {
     const {projects} = this.props;
+
     return (
       <div styleName='root'>
         {this.props.children}

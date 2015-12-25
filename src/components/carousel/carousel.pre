@@ -1,7 +1,7 @@
 @import '../../styles/all.pre';
 
 .root {
-  // .clearfix;
+  composes: clearfix from '../../styles/list.pre';
   display: block;
   position: relative;
   overflow: hidden;

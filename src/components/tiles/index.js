@@ -19,7 +19,6 @@ const Tiles = React.createClass({
               <Link to={`${path}${obj.id}`}>
                 <div styleName='frame'>
                   <img className='img-scale' src={obj.thumbnail} />
-                  <div styleName='shadow'></div>
                 </div>
               </Link>
             </li>

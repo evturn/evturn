@@ -5,13 +5,15 @@
   overflow: auto;
   text-align: center;
   .transition(all 0.3s ease);
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .item {
-  width: 50%;
+  width: 25%;
   .transition(0.3s);
   @media(@break) {
-    width: 25%;
+    width: 12.5%;
   }
 }
 

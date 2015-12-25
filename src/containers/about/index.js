@@ -32,7 +32,9 @@ const About = React.createClass({
 
     return (
       <div styleName='root'>
-        <div styleName='placeholder'></div>
+        <div styleName='placeholder'>
+          <img styleName='image' src={require('images/site/skel.gif')}/>
+        </div>
         <div styleName='bio'>
           <div styleName='paragraph'>{bio}</div>
         </div>

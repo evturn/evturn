@@ -21,7 +21,6 @@ const CarouselSlide = CSSModules(React.createClass({
       image,
       active
     } = this.props;
-
     const activeClass = active ? 'active' : 'slide';
 
     return (
