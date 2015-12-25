@@ -9,16 +9,17 @@ const Work = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
-  getInitialState() {
+  getDefaultProps() {
     return {
       projects: setFeaturedProjects()
     };
   },
   render() {
+    const {projects} = this.props;
     return (
       <div styleName='root'>
         {this.props.children}
-        <Thumbnails projects={this.state.projects} />
+        <Thumbnails items={projects}/>
       </div>
     );
   }
