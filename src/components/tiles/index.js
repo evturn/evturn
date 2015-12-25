@@ -14,7 +14,6 @@ const Tiles = React.createClass({
     return (
       <ul styleName='root'>
         {items.map((obj, i) => {
-
           return (
             <li key={i} styleName='item'>
               <Link to={`${path}${obj.id}`}>
