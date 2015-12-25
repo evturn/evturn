@@ -5,7 +5,6 @@ import {default as Tech} from './tech';
 import {default as Stats} from './stats';
 import {default as __stats} from 'sources/stats';
 import {setFeaturedTech} from 'helpers';
-
 import styles from './about.pre';
 
 const About = React.createClass({
@@ -33,10 +32,11 @@ const About = React.createClass({
 
     return (
       <div styleName='root'>
-        <div styleName='bio' className='clearfix'>
+        <div styleName='placeholder'></div>
+        <div styleName='bio'>
           <div styleName='paragraph'>{bio}</div>
         </div>
-        <div styleName='info' className='clearfix'>
+        <div styleName='info'>
           <Tech items={tech} />
           <Stats items={stats} />
         </div>

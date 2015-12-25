@@ -1,4 +1,4 @@
-@import "../../styles/all.pre";
+@import '../../styles/all.pre';
 
 .open {
   .root {
@@ -40,20 +40,19 @@
 }
 
 .header {
-  .clearfix();
+  composes: clearfix from '../../styles/list.pre';
   border-bottom: 1px solid fade(@bg-main, 30);
-  .close {
-    float: right;
-    cursor: pointer;
-    margin: 0 auto;
-    text-align: center;
-    .icon {
-      height: 60px;
-      line-height: 60px;
-      height: 60px;
-      width: 60px;
-      font-size: 25px;
-      background-color: @bg-main;
-    }
-  }
+}
+
+.icon {
+  float: right;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  height: 60px;
+  width: 60px;
+  font-size: 25px;
+  background-color: @bg-main;
 }

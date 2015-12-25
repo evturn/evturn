@@ -1,0 +1,12 @@
+@import '../../styles/all.pre';
+
+.root {
+  composes: clearfix from '../../styles/list.pre';
+  width: 100%;
+  margin: 0 auto;
+  @media(@tablet) {
+    top: 0;
+    left: 0;
+    right:0;
+  }
+}

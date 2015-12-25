@@ -17,6 +17,10 @@
   text-align: center;
 }
 
+.clearfix {
+  composes: clearfix from './mixins.less';
+}
+
 .list {
   composes: flexy from './mixins.less';
 }

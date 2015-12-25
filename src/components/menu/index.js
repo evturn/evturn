@@ -52,8 +52,8 @@ const Menu = React.createClass({
       <div styleName={openClass}>
         <nav styleName='root'>
           <div styleName='header'>
-            <div styleName='close' onClick={this.handleClick}>
-              <span styleName='icon' className='fa fa-times'></span>
+            <div styleName='icon' onClick={this.handleClick}>
+              <span className='fa fa-times'></span>
             </div>
           </div>
           <ul styleName='list'>

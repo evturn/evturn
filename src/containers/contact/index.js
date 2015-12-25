@@ -21,7 +21,7 @@ const Contact = React.createClass({
     } = this.props;
 
     return (
-      <div style={image} styleName='backdrop' className='clearfix animated fadeIn'>
+      <div style={image} styleName='backdrop' className='animated fadeIn'>
         <LinkCircles items={links}/>
       </div>
     );

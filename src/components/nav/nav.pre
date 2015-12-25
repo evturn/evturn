@@ -1,6 +1,7 @@
 @import '../../styles/all.pre';
 
 .logo {
+  composes: clearfix from '../../styles/list.pre';
   position: absolute;
   right: 0;
   left: 0;
@@ -11,7 +12,6 @@
   padding: 10px;
   border-radius: 50%;
   background-color: fade(@bg-main, 70);
-  .clearfix();
   @media(@tablet) {
     padding: 20px;
     width: 140px;
@@ -37,17 +37,14 @@
   }
 }
 
-.logo-about {
-  composes: logo;
-}
-
+.logo-about,
 .logo-work {
   display: none;
 }
 
 .logo-contact {
   display: none;
-  @media(min-width: 600px) {
+  @media(@tablet) {
     composes: logo;
     display: block;
   }
@@ -77,8 +74,4 @@
 .burger-about {
   composes: burger;
   color: @tx-dark;
-}
-
-.spin {
-  .rotate-clockwise(0.750s);
 }

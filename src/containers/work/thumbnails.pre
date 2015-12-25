@@ -27,7 +27,7 @@
 
 .item:hover {
   @media(@desktop) {
-      .scale();
+    .scale();
   }
 }
 

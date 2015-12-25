@@ -2,12 +2,12 @@
 
 .root {
   border-bottom: 1px solid fade(@color-accent, 20);
-  .clearfix();
+  composes: clearfix from '../../styles/list.pre';
 }
 
 .child {
   margin: 15px;
-  .clearfix();
+  composes: clearfix from '../../styles/list.pre';
 }
 
 .title {

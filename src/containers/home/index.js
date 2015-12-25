@@ -3,7 +3,6 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import {default as __videos} from 'sources/videos';
 import {default as Video} from 'components/video';
-
 import styles from './home.pre';
 
 const Home = React.createClass({

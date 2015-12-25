@@ -1,20 +1,19 @@
-@import "../../styles/all.pre";
+@import '../../styles/all.pre';
 
 .root {
+  // .clearfix;
   display: block;
   position: relative;
   overflow: hidden;
   width: 100%;
   min-height: 200px;
   border-bottom: 1px solid fade(@color-accent, 20);
-  .clearfix();
   @media(@tablet-portrait) {
     height: 400px;
   }
   @media(@tablet) {
     height: 600px;
   }
-
 }
 
 .slide {

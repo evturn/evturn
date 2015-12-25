@@ -10,18 +10,19 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: 'dist/'
   },
-  devtool: 'source-maps',
+  debug: true,
+  devtool: 'source-map',
   cache: true,
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('style.css', {
       allChunks: true
-    })
+    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     'NODE_ENV': JSON.stringify('production')
+    //   }
+    // }),
+    new webpack.NoErrorsPlugin()
   ],
   module: {
     loaders: [

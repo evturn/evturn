@@ -358,6 +358,17 @@
   }
 }
 
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
 .flexy {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, History} from 'react-router';
 import {history} from 'history';
 import {default as Spinner} from 'components/spinner';
-import {Header, Footer} from 'components/layouts';
+import {default as Footer} from 'components/footer';
+import {default as Header} from 'components/header';
 import {URL, getPage} from 'helpers';
 import 'styles/app.less';
 

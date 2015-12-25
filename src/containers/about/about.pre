@@ -1,11 +1,20 @@
-@import '../../styles/variables.less';
+@import '../../styles/all.pre';
 
 .root {
   height: 100%;
   width: 100%;
 }
 
+.placeholder {
+  position: relative;
+  height: 110px;
+  @media(@tablet) {
+    height: 170px;
+  }
+}
+
 .bio {
+  composes: clearfix from '../../styles/list.pre';
   margin: 30px auto;
   max-width: 1000px;
   padding-left: 20px;
@@ -14,6 +23,7 @@
 }
 
 .info {
+  composes: clearfix from '../../styles/list.pre';
   margin: 15px auto;
   max-width: 1000px;
 }
