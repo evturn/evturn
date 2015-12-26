@@ -1,0 +1,6 @@
+:global {
+  html {
+    @import 'reset.pre';
+    @import 'base.pre';
+  }
+}

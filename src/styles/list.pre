@@ -25,6 +25,11 @@
   composes: flexy from './mixins.less';
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .item {
   display: inline-block;
   position: relative;

@@ -19,8 +19,7 @@ const Spinner = React.createClass({
   },
   getInitialState() {
     return {
-      display: 'animated',
-      page: this.props.page
+      display: 'animated'
     };
   },
   componentDidMount() {

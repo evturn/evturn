@@ -7,9 +7,11 @@ import {default as Spinner} from 'components/spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import {URL, getPage} from 'helpers';
-import 'styles/app.less';
+import CSSModules from 'react-css-modules';
+import styles from 'styles/app.pre'
+import 'styles/fonts.less';
 
-export default React.createClass({
+const App = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -28,7 +30,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <Spinner page={this.state.page} />
+        <Spinner/>
         <Header page={this.state.page} />
         {this.props.children}
         <Footer page={this.state.page} />
@@ -36,3 +38,5 @@ export default React.createClass({
     );
   }
 });
+
+export default CSSModules(App, styles);
