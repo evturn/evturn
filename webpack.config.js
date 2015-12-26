@@ -10,10 +10,12 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: 'dist/'
   },
+  devtool: 'eval',
   debug: true,
-  devtool: 'source-map',
   cache: true,
+
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('style.css', {
       allChunks: true
     }),

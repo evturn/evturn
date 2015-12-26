@@ -5,9 +5,7 @@ import styles from './link-circles.pre';
 
 const LinkCircles = React.createClass({
   componentDidMount() {
-    return this.setState({
-      ...this.props
-    });
+    return this.setState({...this.props});
   },
   render() {
     return (
