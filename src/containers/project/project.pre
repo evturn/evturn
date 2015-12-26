@@ -1,13 +1,13 @@
 @import '../../styles/all.pre';
 
 .root {
-  border-bottom: 1px solid fade(@color-accent, 20);
   composes: clearfix from '../../styles/list.pre';
+  border-bottom: 1px solid fade(@color-accent, 20);
 }
 
 .child {
-  margin: 15px;
   composes: clearfix from '../../styles/list.pre';
+  margin: 15px;
 }
 
 // Details

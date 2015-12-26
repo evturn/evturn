@@ -4,7 +4,7 @@ import CSSModules from 'react-css-modules';
 import {default as Menu} from 'components/menu';
 import {default as Overlay} from 'components/overlay';
 import {default as Nav} from 'components/nav';
-import styles from './header.pre';
+import styles from './style.css';
 
 const Header = React.createClass({
   getInitialState() {

@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './overlay.pre';
+import styles from './style.css';
 
 const Overlay = React.createClass({
   getInitialState() {

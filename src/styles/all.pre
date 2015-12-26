@@ -1,2 +1,37 @@
-@import "variables.less";
-@import "mixins.less";
+@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+@import url(/fonts/font-awesome.pre);
+@import url(/fonts/devicon.pre);
+@import url(/fonts/evcon.pre);
+@import 'mixins.less';
+
+@font-serif:              'Raleway', sans-serif;
+@font-sans:               'Source Sans Pro', sans;
+@mobile:                  ~'min-width: 320px';
+@break:                   ~'min-width: 600px';
+@tablet-portrait:         ~'min-width: 768px';
+@tablet:                  ~'min-width: 1024px';
+@desktop:                 ~'min-width: 1025px';
+@desktop-md:              ~'min-width: 1440px';
+@desktop-lg:              ~'min-width: 1920px';
+@bg-main:                 #ffffff;
+@tx-main:                 #231f20;
+@color-accent:            #5FA3C0;
+@font-size-icon:          14px;
+@font-size-evcon:         @font-size-icon * 3;
+@tx-dark:                 #231f20;
+@bg-dark:                 #231f20;
+@tx-light:                #ffffff;
+@bg-light:                #ffffff;
+
+.font-serif {             font-family: 'Raleway', sans-serif; }
+.font-sans {              font-family: 'Source Sans Pro', sans; }
+.font-size-icon {         font-size: 14px; }
+.font-size-evcon {        font-size: 42px; }
+
+.tx-accent {              color: #5FA3C0; }
+.bg-accent {              background-color: #5FA3C0; }
+.tx-light {               color: #ffffff; }
+.bg-light {               background-color: #ffffff; }
+.tx-dark {                color: #231f20; }
+.bg-dark {                background-color: #231f20; }

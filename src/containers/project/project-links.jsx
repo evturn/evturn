@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import {default as LinkBoxes} from 'components/links/link-boxes';
+import {default as Links} from 'components/links';
 
 export default React.createClass({
   hasProps() {
@@ -22,6 +22,6 @@ export default React.createClass({
   render() {
     if (!this.hasProps()) { return ''; }
 
-    return <LinkBoxes items={this.state.items} />;
+    return <Links items={this.state.items} circles{false} />;
   }
 });

@@ -2,7 +2,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import {default as __links} from 'sources/links';
-import {default as LinkCircles} from 'components/links/link-circles';
+import {default as Links} from 'components/links';
 import styles from './contact.pre';
 
 const Contact = React.createClass({
@@ -22,7 +22,7 @@ const Contact = React.createClass({
 
     return (
       <div style={image} styleName='backdrop' className='animated fadeIn'>
-        <LinkCircles items={links}/>
+        <Links items={links} circles{true} />
       </div>
     );
   }

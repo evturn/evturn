@@ -22,9 +22,9 @@
 
 .title,
 .description {
+  composes: font-sans;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: @font-sans;
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;

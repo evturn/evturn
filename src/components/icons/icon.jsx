@@ -1,6 +1,6 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './icon.pre';
+import styles from './style.css';
 
 const Icon = React.createClass({
   render() {

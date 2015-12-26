@@ -1,0 +1,26 @@
+.list {
+  composes: flex from '../../styles/common.css';
+}
+
+.item,
+.item-25 {
+  composes: item-25 from '../../styles/common.css';
+}
+
+.item-33 {
+  composes: item-33 from '../../styles/common.css';
+}
+
+.icon {
+  composes: icon-accent from '../../styles/common.css';
+}
+
+.text {
+  composes: icon-accent from '../../styles/common.css';
+  font-size: 23px;
+  line-height: 55px;
+}
+
+.caption {
+  composes: caption from '../../styles/common.css';
+}

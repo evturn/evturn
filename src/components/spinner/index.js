@@ -2,7 +2,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import {URL} from 'helpers';
-import styles from './spinner.pre';
+import styles from './style.css';
 
 const Spinner = React.createClass({
   setTimerToHide() {

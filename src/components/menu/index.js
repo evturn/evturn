@@ -2,7 +2,7 @@
 import React from 'react';
 import {IndexLink, Link} from 'react-router';
 import CSSModules from 'react-css-modules';
-import styles from './menu.pre';
+import styles from './style.css';
 
 const Menu = React.createClass({
   contextTypes: {

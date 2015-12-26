@@ -29,7 +29,7 @@ const About = React.createClass({
       tech,
       stats
     } = this.state;
-
+    console.log(this);
     return (
       <div styleName='root'>
         <div styleName='placeholder'>

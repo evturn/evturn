@@ -1,0 +1,47 @@
+.root {
+  composes: tx-dark from '../../styles/common.css';
+  composes: bg-light from '../../styles/common.css';
+  padding: 30px 15px;
+  position: relative;
+}
+
+.blend {
+  padding: 80px;
+  position: absolute;
+  height: 80px;
+  top: -160px;
+  right: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(red(#ffffff), green(#ffffff), blue(#ffffff),100) 0%,rgba(red(#ffffff), green(#ffffff), blue(#ffffff),0) 100%);
+  composes: flip-vertical from '../../styles/common.css';
+}
+
+.root-work,
+.root-about {
+  composes: root;
+}
+
+.root-home {
+  display: none;
+}
+
+.root-contact {
+  composes: root;
+  bottom: 0;
+}
+
+.copyright {
+  vertical-align: super;
+}
+
+.icon {
+  vertical-align: bottom;
+}
+
+.text {
+  position: absolute;
+  font-size: 12px;
+  left: 15px;
+  top: 20px;
+  vertical-align: sub;
+}
