@@ -17,11 +17,6 @@ module.exports = {
     new ExtractTextPlugin('style.css', {
       allChunks: true
     }),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     'NODE_ENV': JSON.stringify('production')
-    //   }
-    // }),
     new webpack.NoErrorsPlugin()
   ],
   module: {
@@ -46,9 +41,7 @@ module.exports = {
         loader: 'url-loader?limit=100000'
       },{
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        exclude: '/node_modules/',
-        include: path.join(__dirname, 'src')
+        loader: 'babel-loader'
       }
     ]
   },

@@ -541,7 +541,7 @@ a {
     width: 12.5%;
   }
 }
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .tiles__item___37vpq:hover {
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
