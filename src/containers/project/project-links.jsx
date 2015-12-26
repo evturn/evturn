@@ -22,6 +22,6 @@ export default React.createClass({
   render() {
     if (!this.hasProps()) { return ''; }
 
-    return <Links items={this.state.items} circles{false} />;
+    return <Links items={this.state.items} circles={false} />;
   }
 });

@@ -5,7 +5,7 @@ import {default as Tech} from './tech';
 import {default as Stats} from './stats';
 import {default as __stats} from 'sources/stats';
 import {setFeaturedTech} from 'helpers';
-import styles from './about.pre';
+import styles from './style.css';
 
 const About = React.createClass({
   getDefaultProps() {
@@ -29,7 +29,7 @@ const About = React.createClass({
       tech,
       stats
     } = this.state;
-    console.log(this);
+
     return (
       <div styleName='root'>
         <div styleName='placeholder'>

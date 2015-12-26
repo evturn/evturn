@@ -1,14 +1,12 @@
-@import '../../styles/all.pre';
-
 .backdrop {
-  composes: clearfix from '../../styles/list.pre';
+  composes: clearfix from '../../styles/common.css';
   min-height: 100vh;
   margin: 0 auto;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 50%;
-  @media(@tablet) {
+  @media(min-width: 1024px) {
     background-position-y: 40%;
     background-position-x: 0%;
   }

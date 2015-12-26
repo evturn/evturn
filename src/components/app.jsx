@@ -8,9 +8,8 @@ import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import {URL, getPage} from 'helpers';
 import CSSModules from 'react-css-modules';
-import css from 'styles';
+import {css} from 'styles';
 
-console.log(css);
 const App = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
@@ -28,6 +27,7 @@ const App = React.createClass({
     });
   },
   render() {
+    css();
     return (
       <div>
         <Spinner/>

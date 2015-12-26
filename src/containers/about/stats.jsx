@@ -2,7 +2,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import {default as Icon} from 'components/icons/icon';
-import styles from './about.pre';
+import styles from './style.css';
 
 const StatItem = React.createClass({
   increment() {

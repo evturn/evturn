@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import CSSModules from 'react-css-modules';
-import styles from './tiles.pre';
+import styles from './style.css';
 
 const Tiles = React.createClass({
   contextTypes: {

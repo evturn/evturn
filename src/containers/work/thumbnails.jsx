@@ -2,7 +2,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import {default as Tiles} from 'components/tiles';
-import styles from './work.pre';
+import styles from './style.css';
 
 const Thumbnails = React.createClass({
   getDefaultProps() {

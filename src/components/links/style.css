@@ -1,37 +1,11 @@
-/* common */
-.lis {
-  composes: flex from '../../styles/common.css';
-}
-.centered {
-  composes: li-center from '../../styles/common.css';
-}
-.fours {
-  composes: item-25 from '../../styles/common.css';
-}
-.dark-text {
-  composes: tx-dark from '../../styles/common.css';
-}
-.dark-bg {
-  composes: bg-dark from '../../styles/common.css';
-}
-.light-bg {
-  composes: bg-light from '../../styles/common.css';
-}
-.accent-tx {
-  composes: tx-accent from '../../styles/common.css';
-}
-.accent-bg {
-  composes: bg-accent from '../../styles/common.css';
-}
-
 /* list */
 .squares {
-  composes: lis;
+  composes: flex from '../../styles/common.css';
   float: right;
 }
 
 .circles {
-  composes: lis;
+  composes: flex from '../../styles/common.css';
   min-height: 100vh;
   text-align: center;
   padding-top: 20%;
@@ -39,7 +13,7 @@
 
 /* list item */
 .square {
-  composes: centered;
+  composes: li-center from '../../styles/common.css';
 }
 
 .circle {
@@ -50,7 +24,7 @@
   width: 100%;
   height: 110px;
   @media(min-width: 600px) {
-    composes: fours;
+    composes: item-25 from '../../styles/common.css';
     width: auto;
     height: auto;
   }
@@ -58,7 +32,7 @@
 
 /* icon */
 .square .icon {
-  composes: dark-bg;
+  background-color: #231f20;
   transition: 0.1s;
   line-height: 65px;
   height: 65px;
@@ -69,13 +43,13 @@
 
 .square:hover .icon {
   @media(min-width: 1024px) {
-    composes: light-bg;
+    background-color: #ffffff;
     border: 1px #cccccc;
   }
 }
 
 .circle .icon {
-  composes: dark-text;
+  color: #231f20;
   display: inline-block;
   transition: all 0.1s ease;
   width: 100px;
@@ -100,27 +74,27 @@
 
 .circle .icon:hover {
   @media(min-width: 600px) {
-    composes: light-bg;
-    composes: accent-tx;
+    background-color: #ffffff;
+    color: #5FA3C0;
     transition: all 0.1s ease;
   }
 }
 
 .circle a {
-  composes: dark-text;
+  color: #231f20;
 }
 
 .circle:hover a {
-  composes: tx-accent;
+  color: #5FA3C0;
 }
 
 .square a {
   transition: 0.1s;
-  composes: light-tx;
+  color: #ffffff;
 }
 
 .square:hover a {
   @media(min-width: 1024px) {
-    composes: accent-tx;
+    color: #5FA3C0;
   }
 }

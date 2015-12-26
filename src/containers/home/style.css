@@ -1,5 +1,3 @@
-@import '../../styles/all.pre';
-
 .root {
   height: 100vh;
   width: 100vw;
@@ -12,9 +10,10 @@
   left: 0;
   margin: 0 auto;
   z-index: 3;
-  background-color: fade(@bg-light, 60);
+  background-color: #ffffff;
+  opacity: .9;
   width: 90%;
-  @media(@tablet) {
+  @media(min-width: 1024px) {
     top: 45%;
     width: 300px;
   }
@@ -22,7 +21,7 @@
 
 .title,
 .description {
-  composes: font-sans;
+  composes: font-sans from '../../styles/common.css';
   margin-top: 0;
   margin-bottom: 0;
   font-weight: 500;

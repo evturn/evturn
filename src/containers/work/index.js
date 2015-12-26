@@ -3,7 +3,7 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import {default as Thumbnails} from './thumbnails';
 import {setFeaturedProjects} from 'helpers';
-import styles from './work.pre';
+import styles from './style.css';
 
 const Work = React.createClass({
   contextTypes: {

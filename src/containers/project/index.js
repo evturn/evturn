@@ -5,7 +5,7 @@ import {default as Carousel} from 'components/carousel';
 import {default as ProjectLinks} from './project-links';
 import {default as ProjectTech} from './project-tech';
 import {setProject} from 'helpers';
-import styles from './project.pre';
+import styles from './style.css';
 
 const Project = React.createClass({
   contextTypes: {

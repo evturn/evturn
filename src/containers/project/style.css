@@ -1,23 +1,22 @@
-@import '../../styles/all.pre';
-
 .root {
-  composes: clearfix from '../../styles/list.pre';
-  border-bottom: 1px solid fade(@color-accent, 20);
+  composes: clearfix from '../../styles/common.css';
+  border-bottom: 1px solid #cccccc;
 }
 
 .child {
-  composes: clearfix from '../../styles/list.pre';
+  composes: clearfix from '../../styles/common.css';
   margin: 15px;
 }
 
 // Details
 .details {
-  composes: child;
+  composes: clearfix from '../../styles/common.css';
+  color: black;
 }
 
 // Details - Info
 .info {
-  @media(@tablet) {
+  @media(min-width: 1024px) {
     float: left;
     width: 65%;
   }
@@ -34,7 +33,7 @@
 
 // Details - Links
 .links {
-  @media(@tablet) {
+  @media(min-width: 1024px) {
    float: right;
    width: 25%;
   }
@@ -46,5 +45,5 @@
 }
 
 .list {
-  composes: list from '../../styles/list.pre';
+  composes: flex from '../../styles/common.css';
 }

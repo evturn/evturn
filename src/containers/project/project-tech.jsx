@@ -2,7 +2,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import {default as TechIcons} from 'components/icons/icon-tech';
-import styles from './project.pre';
+import styles from './style.css';
 
 const ProjectTech = React.createClass({
   getDefaultProps() {
