@@ -34,14 +34,16 @@ const Project = React.createClass({
     return (
       <div styleName='root'>
         <Carousel images={images} />
-        <div styleName='child'>
-          <div styleName='title'>{name}</div>
-          <div styleName='description'>{description}</div>
+        <div styleName='details'>
+          <div styleName='info'>
+            <div styleName='title'>{name}</div>
+            <div styleName='description'>{description}</div>
+          </div>
+          <div styleName='links'>
+            <ProjectLinks items={links}/>
+          </div>
         </div>
-        <div styleName='child'>
-          <ProjectLinks items={links}/>
-        </div>
-        <div styleName='child'>
+        <div styleName='tech'>
           <ProjectTech items={tech}/>
         </div>
       </div>
