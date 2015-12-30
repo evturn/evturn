@@ -29,11 +29,9 @@ module.exports = {
       React: 'react'
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
-    }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15}),
+    // new webpack.DefinePlugin({
+    //   'process.env.NODE_ENV': '"production"'
+    // }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin()

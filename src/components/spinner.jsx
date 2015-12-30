@@ -1,6 +1,6 @@
 export default React.createClass({
   onLoaded() {
-    document.addEventListener('load', () => {
+    window.addEventListener('load', () => {
       return this.setState({
         hidden: true
       });
@@ -18,9 +18,10 @@ export default React.createClass({
       hidden: false
     };
   },
+  componentWillMount() {
+    return this.onLoaded();
+  },
   componentDidMount() {
-    this.onLoaded();
-
     return this.setState({
       display: 'animated fadeOut'
     });
