@@ -36,7 +36,8 @@ module.exports = {
         loader: 'url-loader?limit=100000'
       },{
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        include: path.join(__dirname, './src/')
       }
     ]
   },
