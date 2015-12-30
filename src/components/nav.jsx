@@ -1,5 +1,3 @@
-import css from 'styles/components/nav';
-
 export default React.createClass({
   handleClick() {
     const newOpenState = {
@@ -31,13 +29,13 @@ export default React.createClass({
   },
   render() {
     const {page} = this.state;
-    const logo = css[`logo-${page}`];
-    const burger = css[`burger-${page}`];
+    const logo = `logo-${page}`;
+    const burger = `burger-${page}`;
 
     return (
       <div>
         <div className={logo}>
-          <img className={css['img-scale']} src='src/images/site/ev-av.png' />
+          <img className='img-scale' src='src/images/site/ev-av.png' />
         </div>
         <div className={burger} onClick={this.handleClick}>
           <span className='fa fa-bars'></span>

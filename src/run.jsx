@@ -1,22 +1,21 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute} from 'react-router';
-import {createHashHistory} from 'history';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {default as App} from 'containers/app';
 import {default as Home} from 'containers/home';
 import {default as About} from 'containers/about';
 import {default as Contact} from 'containers/contact';
-import {default as Work} from 'containers/work';
+import {default as Work} from'containers/work';
 
-const history = createHashHistory({queryKey: false});
+const history = browserHistory;
+const el = document.getElementById('site-container');
 
 ReactDOM.render((
   <Router history={history}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Home} />
-      <Route path="about" component={About} />
-      <Route path="contact" component={Contact} />
-      <Route path="work(/:id)" component={Work} />
+    <Route component={App} path='/' >
+      <IndexRoute component={Home} name='home' />
+      <Route component={About} path='about' name='about' />
+      <Route component={Contact} path='contact' name='contact' />
+      <Route component={Work} path='work(/:id)' name='work' />
     </Route>
   </Router>
-), document.getElementById('site-container'));
+), el);

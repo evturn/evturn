@@ -17,16 +17,8 @@ export default React.createClass({
       page: newProps.page
     });
   },
-  componentDidMount() {
-    return this.setState({
-      page: this.props.page
-    });
-  },
   render() {
-    const {
-      page,
-      open
-    } = this.state;
+    const {page, open} = this.state;
 
     return (
       <div>
