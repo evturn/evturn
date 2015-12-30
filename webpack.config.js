@@ -23,7 +23,7 @@ module.exports = {
     noInfo: false,
     stats: { colors: true }
   },
-  cache: false,
+  cache: true,
   plugins: [
     new webpack.ProvidePlugin({
       React: 'react'
