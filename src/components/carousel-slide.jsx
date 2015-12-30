@@ -20,7 +20,7 @@ export default React.createClass({
 
     return (
       <div className={activeClass}>
-        <img className="img-scale" src={image} />
+        <img className="img-scale" src={require(image)} />
       </div>
     );
   }

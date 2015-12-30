@@ -14,7 +14,7 @@ export default React.createClass({
             <li key={i} className='item'>
               <Link to={`work/${obj.id}`}>
                 <div className='frame'>
-                  <img className='img-scale' src={obj.thumbnail} />
+                  <img className='img-scale' src={require(obj.thumbnail)} />
                 </div>
               </Link>
             </li>

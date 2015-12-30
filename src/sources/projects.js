@@ -14,11 +14,11 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: require('images/apps/drive-tn.png'),
+    thumbnail: 'images/apps/drive-tn.png',
     images: [
-      require('images/apps/drive-1.png'),
-      require('images/apps/drive-2.png'),
-      require('images/apps/drive-3.png')
+      'images/apps/drive-1.png',
+      'images/apps/drive-2.png',
+      'images/apps/drive-3.png'
     ],
     featured: true,
     techIds: [1, 13, 14, 20]
@@ -39,12 +39,12 @@ export default [
         icon: 'fa fa-twitter'
       }
     ],
-    thumbnail: require('images/apps/marshallz-tn.png'),
+    thumbnail: 'images/apps/marshallz-tn.png',
     images: [
-      require('images/apps/marshallz-1.png'),
-      require('images/apps/marshallz-2.png'),
-      require('images/apps/marshallz-3.png'),
-      require('images/apps/marshallz-4.png')
+      'images/apps/marshallz-1.png',
+      'images/apps/marshallz-2.png',
+      'images/apps/marshallz-3.png',
+      'images/apps/marshallz-4.png'
     ],
     featured: true,
     techIds: [1, 14, 12, 15, 10, 18, 19, 20]
@@ -63,11 +63,11 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: require('images/apps/mim-tn.png'),
+    thumbnail: 'images/apps/mim-tn.png',
     images: [
-      require('images/apps/mim-1.png'),
-      require('images/apps/mim-2.png'),
-      require('images/apps/mim-3.png')
+      'images/apps/mim-1.png',
+      'images/apps/mim-2.png',
+      'images/apps/mim-3.png'
     ],
     featured: true,
     techIds: [1, 3, 14, 12, 10, 15, 20]
@@ -82,10 +82,10 @@ export default [
         icon: 'fa fa-link'
       }
     ],
-    thumbnail: require('images/apps/bfs-tn.jpg'),
+    thumbnail: 'images/apps/bfs-tn.jpg',
     images: [
-      require('images/apps/bfs-1.png'),
-      require('images/apps/bfs-2.png')
+      'images/apps/bfs-1.png',
+      'images/apps/bfs-2.png'
     ],
     featured: true,
     techIds: [21, 13]
@@ -103,11 +103,11 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: require('images/apps/rb-tn.png'),
+    thumbnail: 'images/apps/rb-tn.png',
     images: [
-      require('images/apps/ramen-buffet-1.png'),
-      require('images/apps/ramen-buffet-2.png'),
-      require('images/apps/ramen-buffet-3.png')
+      'images/apps/ramen-buffet-1.png',
+      'images/apps/ramen-buffet-2.png',
+      'images/apps/ramen-buffet-3.png'
     ],
     featured: true,
     techIds: [1, 3, 14, 12, 10, 15, 18, 20]
@@ -122,10 +122,10 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: require('images/apps/bots-tn.png'),
+    thumbnail: 'images/apps/bots-tn.png',
     images: [
-      require('images/apps/bots-1.png'),
-      require('images/apps/bots-2.png')
+      'images/apps/bots-1.png',
+      'images/apps/bots-2.png'
     ],
     featured: true,
     techIds: [1, 14, 12]
@@ -140,12 +140,12 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: require('images/apps/pique-tn.png'),
+    thumbnail: 'images/apps/pique-tn.png',
     images: [
-      require('images/apps/pique-1.jpg'),
-      require('images/apps/pique-2.png'),
-      require('images/apps/pique-3.png'),
-      require('images/apps/pique-4.png')
+      'images/apps/pique-1.jpg',
+      'images/apps/pique-2.png',
+      'images/apps/pique-3.png',
+      'images/apps/pique-4.png'
     ],
     featured: true,
     techIds : [16, 17]
@@ -155,10 +155,10 @@ export default [
     id: 8,
     slug: 'whereto',
     links: null,
-    thumbnail: require('images/apps/whereto-tn.png'),
+    thumbnail: 'images/apps/whereto-tn.png',
     images: [
-      require('images/apps/whereto-2.png'),
-      require('images/apps/whereto-1.png')
+      'images/apps/whereto-2.png',
+      'images/apps/whereto-1.png'
     ],
     featured: true,
     techIds: [1, 14, 12, 10, 13]
