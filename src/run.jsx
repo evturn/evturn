@@ -1,7 +1,6 @@
 'use strict';
-import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, RouteHandler, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import createHistory from 'history/lib/createHashHistory';
 // import 'sources/google-analytics';
 import {default as Home} from 'containers/home';

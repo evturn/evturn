@@ -8,7 +8,7 @@ export default React.createClass({
     return {
       title: 'Evan Turner',
       description: 'Web Developer',
-      video: __videos
+      videos: __videos
     };
   },
   render() {
@@ -20,7 +20,7 @@ export default React.createClass({
 
     return (
       <div className='home'>
-        <Video playlist={__videos}/>
+        <Video playlist={videos}/>
         <div className='home-banner'>
           <h3 className='home-title'>{title}</h3>
           <h3 className='home-description'>{description}</h3>

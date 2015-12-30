@@ -5,6 +5,9 @@
     "stage-0"
   ],
   "plugins": [
-    "syntax-jsx"
+    "syntax-jsx",
+    "transform-react-jsx",
+    "syntax-object-rest-spread",
+    "transform-object-rest-spread"
   ]
 }

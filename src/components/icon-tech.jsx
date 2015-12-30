@@ -20,8 +20,7 @@ export default  React.createClass({
   render() {
     const {
       items,
-      width,
-      classname
+      width
     } = this.state;
 
     return (

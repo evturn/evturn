@@ -1,8 +1,5 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, History} from 'react-router';
-import {history} from 'history';
 import {default as Spinner} from 'components/spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';

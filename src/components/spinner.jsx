@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import {URL} from 'helpers';
 
 export default React.createClass({
   setTimerToHide() {
