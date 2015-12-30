@@ -1,11 +1,20 @@
 export default  React.createClass({
   render() {
-    const content = this.props.icon ? <span className={this.props.icon}></span> : this.props.text;
+    const {
+      width,
+      icon,
+      text,
+      caption
+    } = this.props;
+    const classname = icon ? icon : 'text';
+    const content = classname === 'text' ? text : '';
 
     return (
-      <li className={this.props.width}>
-        <div className='icon-accent'>{content}</div>
-        <div className='caption'>{this.props.caption}</div>
+      <li className={width}>
+        <div className='icon-accent'>
+          <span className={classname}>{content}</span>
+        </div>
+        <div className='caption'>{caption}</div>
       </li>
     );
   }

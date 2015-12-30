@@ -34,7 +34,7 @@ export default React.createClass({
     }
   },
   render() {
-    const {projects} = this.props
+    const {projects} = this.props;
     const {
       images,
       name,
@@ -42,33 +42,24 @@ export default React.createClass({
       links,
       tech
     } = this.state.project;
-
     const slides = images.map((image) => { return `src/${image}`; });
 
     return (
-
       <div className='work'>
-
         <Carousel images={slides} />
-
         <div className='project-details'>
-
           <div className='project-info'>
             <div className='project-title'>{name}</div>
             <div className='project-description'>{description}</div>
           </div>
-
           <div className='project-links'>
             {this.hasLinks(links)}
           </div>
-
         </div>
-
         <div className='project-tech'>
           <div className='project-title'>Made with</div>
           <TechIcons items={tech} width={'item-25'} />
         </div>
-
         <div className='projects'>
           <div className='projects-header'>Projects</div>
           <Tiles items={projects}/>
