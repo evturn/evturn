@@ -1,10 +1,11 @@
 export default React.createClass({
-  setTimerToHide() {
-    setTimeout(() => {
-      this.setState({
+  onLoaded() {
+    document.addEventListener('load', () => {
+      return this.setState({
         hidden: true
       });
-    }, 2500);
+    })
+
   },
   getDefaultProps() {
     return {
@@ -18,7 +19,7 @@ export default React.createClass({
     };
   },
   componentDidMount() {
-    this.setTimerToHide();
+    this.onLoaded();
 
     return this.setState({
       display: 'animated fadeOut'

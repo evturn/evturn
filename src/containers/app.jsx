@@ -1,4 +1,3 @@
-import {default as Spinner} from 'components/spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 // import 'sources/google-analytics';
@@ -30,7 +29,6 @@ export default React.createClass({
 
     return (
       <div>
-        <Spinner/>
         <Header page={this.state.page} />
         {this.props.children}
         <Footer page={this.state.page} />
