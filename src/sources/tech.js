@@ -1,4 +1,3 @@
-'use strict';
 export default [
   {
     name: 'Node.js',
@@ -61,11 +60,11 @@ export default [
     id: 6,
     featured: true
   },{
-    name: 'Ubuntu',
+    name: 'Digital Ocean',
     icon: 'devicon-ubuntu-plain',
     color: 'devicon-ubuntu-plain colored',
     id: 8,
-    featured: false
+    featured: true
   }, {
     name: 'Firebase',
     icon: 'fa fa-database one-half-em',
@@ -112,7 +111,7 @@ export default [
     icon: 'devicon-photoshop-plain',
     color: 'devicon-photoshop-plain colored',
     id: 22,
-    featured: false
+    featured: true
   },{
     name: 'AngularJS',
     icon: 'devicon-angularjs-plain',

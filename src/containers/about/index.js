@@ -45,11 +45,11 @@ export default React.createClass({
         <div className='about-info'>
           <div className='about-tech'>
             <AboutHeader title='Notable Tools' />
-            <AboutTech items={tech} width={'item-25'} />
+            <AboutTech items={tech} width={'item-20'} />
           </div>
           <div className='about-stats'>
             <AboutHeader title='Statistics' />
-            <AboutStat items={stats} width={'item-33'} />
+            <AboutStat items={stats} width={'item-50'} />
           </div>
         </div>
 
