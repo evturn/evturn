@@ -1,5 +1,5 @@
 import {default as Carousel} from 'components/carousel';
-import {default as TechIcons} from 'components/icon-tech';
+import {TechItems as ProjectTech} from 'components/icon-tech';
 import {default as Tiles} from 'components/tiles';
 import {default as Links} from 'components/links';
 import {setProject, setFeaturedProjects} from 'helpers';
@@ -58,7 +58,7 @@ export default React.createClass({
         </div>
         <div className='project-tech'>
           <div className='project-title'>Made with</div>
-          <TechIcons items={tech} width={'item-25'} />
+          <ProjectTech items={tech} width={'item-25'} />
         </div>
         <div className='projects'>
           <div className='projects-header'>Projects</div>

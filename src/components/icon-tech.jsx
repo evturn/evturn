@@ -1,25 +1,13 @@
 import {default as Icon} from 'components/icon';
 
-export default React.createClass({
+export const TechItems = React.createClass({
   getDefaultProps() {
     return {
       width: 'item'
     };
   },
-  getInitialState() {
-    return {...this.props};
-  },
-  componentWillReceiveProps(newProps) {
-    return this.setState({...newProps});
-  },
-  componentWillMount() {
-    return this.setState({...this.props});
-  },
-  render() {
-    const {
-      items,
-      width
-    } = this.state;
+  render () {
+    const {width, items} = this.props;
 
     return (
       <ul className='flex'>
@@ -27,9 +15,9 @@ export default React.createClass({
           return (
             <Icon
               key={i}
-              width={width}
               icon={obj.icon}
               caption={obj.name}
+              width={width}
             />
           );
         })}
