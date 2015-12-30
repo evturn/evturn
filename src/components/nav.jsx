@@ -9,7 +9,7 @@ export default React.createClass({
   },
   getDefaultProps() {
     return {
-      image: require('images/site/ev-av.png')
+      image: 'src/images/site/ev-av.png'
     };
   },
   getInitialState() {

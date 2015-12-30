@@ -8,7 +8,7 @@ export default React.createClass({
     return {
       links: __links,
       image: {
-        backgroundImage: `url(${require('images/site/banana-plants.png')})`
+        backgroundImage: 'url("src/images/site/banana-plants.png"))'
       }
     };
   },

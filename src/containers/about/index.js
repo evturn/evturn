@@ -29,7 +29,7 @@ export default React.createClass({
     return (
       <div className='about'>
         <div className='placeholder'>
-          <img className='about-image' src={require('images/site/skel.gif')}/>
+          <img className='about-image' src='src/images/site/skel.gif' />
         </div>
         <div className='bio'>
           <div className='paragraph'>{bio}</div>
