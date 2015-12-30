@@ -1,17 +1,13 @@
 'use strict';
 const path = require('path');
 const webpack = require('webpack');
-
-const publicPath = 'dist/';
+const publicPath = '/dist/';
 const port = 8000;
 
 module.exports = {
   port: port,
   debug: true,
-  entry: [
-    './src/run.jsx'
-  ],
-  vendors: ['react'],
+  entry: path.join(__dirname, './src/run'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -19,21 +15,25 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: './',
+    contentBase: './src/',
     historyApiFallback: true,
     hot: true,
     port: port,
     publicPath: publicPath,
-    noInfo: false
+    noInfo: false,
+    stats: { colors: true }
   },
-  cache: true,
+  cache: false,
   plugins: [
     new webpack.ProvidePlugin({
       React: 'react'
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'react.js'),
     new webpack.optimize.DedupePlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    }),
     new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.LimitChunkCountPlugin({maxChunks: 15}),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin()
@@ -63,8 +63,7 @@ module.exports = {
         loader: 'url-loader?limit=100000'
       },{
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        exclude: path.resolve(__dirname, 'node_modules'),
+        loader: 'babel',
         include: path.join(__dirname, './src/')
       }
     ]

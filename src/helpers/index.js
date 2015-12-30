@@ -64,13 +64,17 @@ export const URL = {
   }
 };
 
-export function getPage(route) {
-  if (route === '') {
+export function getPage() {
+  const route = window.location.hash.substr(1);
+
+  if (route === '/') {
     return 'home';
-  } else if (route.startsWith('work/projects')) {
+  } else if (route.startsWith('/work')) {
     return 'work';
-  } else {
-    return route;
+  } else if (route.startsWith('/about')) {
+    return 'about';
+  } else if (route.startsWith('/contact')) {
+    return 'contact';
   }
 }
 
