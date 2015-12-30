@@ -1,3 +1,5 @@
+import css from 'styles/components/nav';
+
 export default React.createClass({
   handleClick() {
     const newOpenState = {
@@ -6,11 +8,6 @@ export default React.createClass({
 
     this.setState(newOpenState);
     this.props.callbackParent(newOpenState);
-  },
-  getDefaultProps() {
-    return {
-      image: 'src/images/site/ev-av.png'
-    };
   },
   getInitialState() {
     return {
@@ -33,15 +30,14 @@ export default React.createClass({
 
   },
   render() {
-    const {image} = this.props;
     const {page} = this.state;
-    const logo = `logo-${page}`;
-    const burger = `burger-${page}`;
+    const logo = css[`logo-${page}`];
+    const burger = css[`burger-${page}`];
 
     return (
       <div>
         <div className={logo}>
-          <img className='img-scale' src={image} />
+          <img className={css['img-scale']} src='src/images/site/ev-av.png' />
         </div>
         <div className={burger} onClick={this.handleClick}>
           <span className='fa fa-bars'></span>
