@@ -43,11 +43,13 @@ export default React.createClass({
       tech
     } = this.state.project;
 
+    const slides = images.map((image) => { return `src/${image}`; });
+
     return (
 
       <div className='work'>
 
-        <Carousel images={images} />
+        <Carousel images={slides} />
 
         <div className='project-details'>
 

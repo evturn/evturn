@@ -5,7 +5,7 @@ export default React.createClass({
     router: React.PropTypes.func
   },
   render() {
-    const {items, path} = this.props;
+    const {items} = this.props;
 
     return (
       <ul className='tiles'>
@@ -14,7 +14,7 @@ export default React.createClass({
             <li key={i} className='item'>
               <Link to={`work/${obj.id}`}>
                 <div className='frame'>
-                  <img className='img-scale' src={require(obj.thumbnail)} />
+                  <img className='img-scale' src={`src/${obj.thumbnail}`} />
                 </div>
               </Link>
             </li>

@@ -15,7 +15,7 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: './src/',
+    contentBase: './',
     historyApiFallback: true,
     hot: true,
     port: port,

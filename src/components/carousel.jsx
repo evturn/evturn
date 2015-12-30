@@ -85,7 +85,6 @@ export default React.createClass({
         {this.props.images.map((image, i) => {
           const isActive = image === this.state.active ? true : false;
           const isNext = image === this.state.next ? true : false;
-
           return (
             <CarouselSlide
               key={i}
