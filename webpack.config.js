@@ -8,9 +8,12 @@ const port = 8000;
 module.exports = {
   port: port,
   debug: true,
-  entry: './src/run.jsx',
+  entry: [
+    './src/run.jsx'
+  ],
+  vendors: ['react'],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: publicPath
   },
@@ -28,6 +31,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react'
     }),
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'react.js'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -37,6 +41,7 @@ module.exports = {
   module: {
     preLoaders: [{
       test: /\.(js|jsx)$/,
+      exclude: path.resolve(__dirname, 'node_modules'),
       include: path.join(__dirname, 'src'),
       loader: 'eslint-loader'
     }],
@@ -59,6 +64,7 @@ module.exports = {
       },{
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
+        exclude: path.resolve(__dirname, 'node_modules'),
         include: path.join(__dirname, './src/')
       }
     ]
