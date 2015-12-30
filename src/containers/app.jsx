@@ -1,12 +1,18 @@
 import {default as Spinner} from 'components/spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
+// import 'sources/google-analytics';
 import {getPage} from 'helpers';
-require('styles/style.less');
+import styles from 'styles/style.less';
 
 export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
+  },
+  getDefaultProps() {
+    return {
+      styles: styles
+    };
   },
   getInitialState() {
     return {
@@ -15,7 +21,7 @@ export default React.createClass({
   },
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      return this.setState({
+      this.setState({
         page: getPage()
       });
     });

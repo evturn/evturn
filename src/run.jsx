@@ -1,10 +1,6 @@
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute} from 'react-router';
-import {createHashHistory} from 'history';
-import {default as Spinner} from 'components/spinner';
-import {default as Footer} from 'components/footer';
-import {default as Header} from 'components/header';
-// import 'sources/google-analytics';
+import {createHistory} from 'history/lib/createHashHistory';
 import {default as App} from 'containers/app';
 import {default as Home} from 'containers/home';
 import {default as About} from 'containers/about';
@@ -12,7 +8,7 @@ import {default as Contact} from 'containers/contact';
 import {default as Work} from 'containers/work';
 import 'styles/style.less';
 
-const history = createHashHistory({queryKey: false});
+const history = createHistory({queryKey: false});
 
 ReactDOM.render((
   <Router history={history}>
