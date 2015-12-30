@@ -1,7 +1,6 @@
 'use strict';
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: path.join(__dirname, 'src/run.jsx'),
@@ -12,20 +11,15 @@ module.exports = {
   },
   devtool: 'eval',
   debug: true,
-  cache: true,
-
+  cache: false,
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('style.css', {
-      allChunks: true
-    }),
     new webpack.NoErrorsPlugin()
   ],
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less')
+        loader: 'style-loader!css-loader'
       },{
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
@@ -49,10 +43,10 @@ module.exports = {
     alias: {
       containers: path.join(__dirname, './src/containers/'),
       components: path.join(__dirname, './src/components/'),
-      helpers: path.join(__dirname, './src/helpers/'),
-      sources: path.join(__dirname, './src/sources/'),
-      images: path.join(__dirname, './src/images/'),
-      styles: path.join(__dirname, './src/styles/')
+      helpers:    path.join(__dirname, './src/helpers/'),
+      sources:    path.join(__dirname, './src/sources/'),
+      images:     path.join(__dirname, './src/images/'),
+      styles:     path.join(__dirname, './src/styles/')
     }
   },
   postcss: function() {

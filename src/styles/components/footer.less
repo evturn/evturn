@@ -1,0 +1,47 @@
+.footer {
+  color: @tx-dark;
+  background-color: @bg-light;
+  padding: 30px 15px;
+  position: relative;
+}
+
+.blend {
+  padding: 80px;
+  position: absolute;
+  height: 80px;
+  top: -160px;
+  right: 0;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(red(#ffffff), green(#ffffff), blue(#ffffff),100) 0%,rgba(red(#ffffff), green(#ffffff), blue(#ffffff),0) 100%);
+  .flip-vertical;
+}
+
+.footer-work,
+.footer-about {
+  .footer;
+}
+
+.footer-home {
+  display: none;
+}
+
+.footer-contact {
+  .footer;
+  bottom: 0;
+}
+
+.copyright {
+  vertical-align: super;
+}
+
+.icon {
+  vertical-align: bottom;
+}
+
+.footer-text {
+  position: absolute;
+  font-size: 12px;
+  left: 15px;
+  top: 20px;
+  vertical-align: sub;
+}

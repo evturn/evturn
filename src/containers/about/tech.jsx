@@ -1,10 +1,8 @@
 'use strict';
 import React from 'react';
-import CSSModules from 'react-css-modules';
-import {default as TechIcons} from 'components/icons/icon-tech';
-import styles from './style.css';
+import {default as TechIcons} from 'components/icon-tech';
 
-const Tech = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       title: 'Notable Tools',
@@ -25,8 +23,8 @@ const Tech = React.createClass({
     } = this.state;
 
     return (
-      <div styleName='tech'>
-        <div styleName='header'>{title}</div>
+      <div className='about-tech'>
+        <div className='about-header'>{title}</div>
         <TechIcons
           items={items}
           width={width}
@@ -35,5 +33,3 @@ const Tech = React.createClass({
     );
   }
 });
-
-export default CSSModules(Tech, styles);

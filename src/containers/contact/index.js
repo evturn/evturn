@@ -1,11 +1,9 @@
 'use strict';
 import React from 'react';
-import CSSModules from 'react-css-modules';
 import {default as __links} from 'sources/links';
 import {default as Links} from 'components/links';
-import styles from './style.css';
 
-const Contact = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       links: __links,
@@ -21,11 +19,9 @@ const Contact = React.createClass({
     } = this.props;
 
     return (
-      <div style={image} styleName='backdrop' className='animated fadeIn'>
+      <div style={image} className='backdrop animated fadeIn'>
         <Links items={links} circles={true} />
       </div>
     );
   }
 });
-
-export default CSSModules(Contact, styles);

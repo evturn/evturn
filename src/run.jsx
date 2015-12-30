@@ -14,14 +14,14 @@ import {default as App} from 'components/app';
 const history = createHistory({ queryKey: false });
 
 ReactDOM.render((
-  <Router history={ history } >
-    <Route path="/" component={ App } >
-      <IndexRoute component={ Home } />
-      <Route path="about" component={ About } />
-      <Route path="contact" component={ Contact } />
-      <Route path="work(/projects/:projectId)" component={ Work } >
-        <IndexRoute component={ Project } />
-        <Route path="/projects/:projectId" component={ Project } />
+  <Router history={ history }>
+    <Route path="/" component={ App }>
+      <IndexRoute component={ Home }/>
+      <Route path="about" component={ About }/>
+      <Route path="contact" component={ Contact }/>
+      <Route path="work(/projects/:projectId)" component={ Work }>
+        <IndexRoute component={ Project }/>
+        <Route path="/projects/:projectId" component={ Project }/>
       </Route>
     </Route>
   </Router>

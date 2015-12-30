@@ -1,11 +1,9 @@
 'use strict';
 import React from 'react';
-import CSSModules from 'react-css-modules';
-import {default as Thumbnails} from './thumbnails';
+import {default as Thumbnails} from 'containers/work/thumbnails';
 import {setFeaturedProjects} from 'helpers';
-import styles from './style.css';
 
-const Work = React.createClass({
+export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -18,12 +16,10 @@ const Work = React.createClass({
     const {projects} = this.props;
 
     return (
-      <div styleName='root'>
+      <div className='work'>
         {this.props.children}
         <Thumbnails items={projects}/>
       </div>
     );
   }
 });
-
-export default CSSModules(Work, styles);

@@ -1,8 +1,6 @@
 'use strict';
 import React from 'react';
-import CSSModules from 'react-css-modules';
-import {default as Icon} from 'components/icons/icon';
-import styles from './style.css';
+import {default as Icon} from 'components/icon';
 
 const StatItem = React.createClass({
   increment() {
@@ -42,7 +40,7 @@ const StatItem = React.createClass({
   }
 });
 
-const Stats = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       title: 'Statistics'
@@ -61,9 +59,9 @@ const Stats = React.createClass({
     } = this.state;
 
     return (
-      <div styleName='stats'>
-        <div styleName='header'>{title}</div>
-        <ul styleName='list'>
+      <div className='about-stats'>
+        <div className='about-header'>{title}</div>
+        <ul className='flex'>
           {items.map((obj, i) => {
             return (
               <StatItem
@@ -78,5 +76,3 @@ const Stats = React.createClass({
     );
   }
 });
-
-export default CSSModules(Stats, styles);

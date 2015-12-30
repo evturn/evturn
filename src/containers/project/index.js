@@ -1,13 +1,11 @@
 'use strict';
 import React from 'react';
-import CSSModules from 'react-css-modules';
 import {default as Carousel} from 'components/carousel';
-import {default as ProjectLinks} from './project-links';
-import {default as ProjectTech} from './project-tech';
+import {default as ProjectLinks} from 'containers/project/project-links';
+import {default as ProjectTech} from 'containers/project/project-tech';
 import {setProject} from 'helpers';
-import styles from './style.css';
 
-const Project = React.createClass({
+export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -32,23 +30,21 @@ const Project = React.createClass({
     } = this.state;
 
     return (
-      <div styleName='root'>
+      <div className='project'>
         <Carousel images={images} />
-        <div styleName='details'>
-          <div styleName='info'>
-            <div styleName='title'>{name}</div>
-            <div styleName='description'>{description}</div>
+        <div className='project-details'>
+          <div className='project-info'>
+            <div className='project-title'>{name}</div>
+            <div className='project-description'>{description}</div>
           </div>
-          <div styleName='links'>
+          <div className='project-links'>
             <ProjectLinks items={links}/>
           </div>
         </div>
-        <div styleName='tech'>
+        <div className='project-tech'>
           <ProjectTech items={tech}/>
         </div>
       </div>
     );
   }
 });
-
-export default CSSModules(Project, styles);

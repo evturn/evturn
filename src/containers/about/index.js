@@ -1,13 +1,11 @@
 'use strict';
 import React from 'react';
-import CSSModules from 'react-css-modules';
-import {default as Tech} from './tech';
-import {default as Stats} from './stats';
+import {default as Tech} from 'containers/about/tech';
+import {default as Stats} from 'containers/about/stats';
 import {default as __stats} from 'sources/stats';
 import {setFeaturedTech} from 'helpers';
-import styles from './style.css';
 
-const About = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       title: 'Web Developer',
@@ -31,14 +29,14 @@ const About = React.createClass({
     } = this.state;
 
     return (
-      <div styleName='root'>
-        <div styleName='placeholder'>
-          <img styleName='image' src={require('images/site/skel.gif')}/>
+      <div className='about'>
+        <div className='placeholder'>
+          <img className='about-image' src={require('images/site/skel.gif')}/>
         </div>
-        <div styleName='bio'>
-          <div styleName='paragraph'>{bio}</div>
+        <div className='bio'>
+          <div className='paragraph'>{bio}</div>
         </div>
-        <div styleName='info'>
+        <div className='about-info'>
           <Tech items={tech} />
           <Stats items={stats} />
         </div>
@@ -46,5 +44,3 @@ const About = React.createClass({
     );
   }
 });
-
-export default CSSModules(About, styles);

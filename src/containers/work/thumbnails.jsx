@@ -1,10 +1,8 @@
 'use strict';
 import React from 'react';
-import CSSModules from 'react-css-modules';
 import {default as Tiles} from 'components/tiles';
-import styles from './style.css';
 
-const Thumbnails = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       path: 'work/projects/',
@@ -20,7 +18,7 @@ const Thumbnails = React.createClass({
 
     return (
       <div>
-        <div styleName='header'>{title}</div>
+        <div className='work-header'>{title}</div>
         <Tiles
           items={items}
           path={path}
@@ -29,5 +27,3 @@ const Thumbnails = React.createClass({
     );
   }
 });
-
-export default CSSModules(Thumbnails, styles);
