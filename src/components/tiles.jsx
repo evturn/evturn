@@ -1,5 +1,3 @@
-'use strict';
-import React from 'react';
 import {Link} from 'react-router';
 
 export default React.createClass({
@@ -14,7 +12,7 @@ export default React.createClass({
         {items.map((obj, i) => {
           return (
             <li key={i} className='item'>
-              <Link to={`${path}${obj.id}`}>
+              <Link to={`work/${obj.id}`}>
                 <div className='frame'>
                   <img className='img-scale' src={obj.thumbnail} />
                 </div>

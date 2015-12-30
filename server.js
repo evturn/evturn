@@ -31,7 +31,6 @@ browserSync({
     ]
   },
   files: [
-    './dist/*.css',
     './dist/*.js'
   ]
 });

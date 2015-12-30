@@ -65,9 +65,7 @@ export const URL = {
 };
 
 export function getPage(route) {
-  let page;
-
-  if (route === "") {
+  if (route === '') {
     return 'home';
   } else if (route.startsWith('work/projects')) {
     return 'work';

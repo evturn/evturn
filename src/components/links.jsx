@@ -1,6 +1,3 @@
-'use strict';
-import React from 'react';
-
 export default React.createClass({
   componentDidMount() {
     return this.setState({...this.props});

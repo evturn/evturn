@@ -1,6 +1,3 @@
-'use strict';
-import React from 'react';
-
 export default React.createClass({
   beginPlayback() {
     this.player.src = this.state.playlist[this.state.current];

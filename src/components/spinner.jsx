@@ -1,6 +1,3 @@
-'use strict';
-import React from 'react';
-
 export default React.createClass({
   setTimerToHide() {
     setTimeout(() => {
@@ -17,7 +14,7 @@ export default React.createClass({
   getInitialState() {
     return {
       display: 'animated',
-      hidden: false,
+      hidden: false
     };
   },
   componentDidMount() {

@@ -1,33 +1,4 @@
-'use strict';
-import React from 'react';
-
-const CarouselSlide = React.createClass({
-  getInitialState() {
-    return {
-      active: this.props.active,
-      next: this.props.next
-    };
-  },
-  componentWillReceiveProps(newProps) {
-    return this.setState({
-      active: newProps.active,
-      next: newProps.next
-    });
-  },
-  render() {
-    const {
-      image,
-      active
-    } = this.props;
-    const activeClass = active ? 'active' : 'slide';
-
-    return (
-      <div className={activeClass}>
-        <img className="img-scale" src={image} />
-      </div>
-    );
-  }
-});
+import {default as CarouselSlide} from 'components/carousel-slide';
 
 export default React.createClass({
   rotateSlide() {
@@ -50,19 +21,19 @@ export default React.createClass({
   showFirstSlide() {
     return this.setState({
       counter: 0,
-      enqueue: 1,
+      enqueue: 1
     });
   },
   showNextSlide() {
     return this.setState({
       counter: this.state.counter + 1,
-      enqueue: this.state.enqueue + 1,
+      enqueue: this.state.enqueue + 1
     });
   },
   showLastSlide() {
     return this.setState({
       counter: this.state.counter + 1,
-      enqueue: 0,
+      enqueue: 0
     });
   },
   setTimer() {
@@ -104,7 +75,7 @@ export default React.createClass({
       total: newProps.images.length - 1,
       images: newProps.images,
       active: newProps.images[0],
-      next: newProps.images[1],
+      next: newProps.images[1]
     });
     this.setTimer();
   },

@@ -25,9 +25,13 @@ module.exports = {
   },
   cache: true,
   plugins: [
+    new webpack.ProvidePlugin({
+      React: 'react'
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin()
   ],
   module: {

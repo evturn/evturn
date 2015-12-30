@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default  React.createClass({
   render() {
     const content = this.props.icon ? <span className={this.props.icon}></span> : this.props.text;

@@ -1,8 +1,6 @@
-'use strict';
-import React from 'react';
 import {default as Icon} from 'components/icon';
 
-export default  React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       width: 'item'

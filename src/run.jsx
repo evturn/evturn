@@ -1,27 +1,26 @@
-'use strict';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
-import createHistory from 'history/lib/createHashHistory';
+import {Router, Route, IndexRoute} from 'react-router';
+import {createHashHistory} from 'history';
+import {default as Spinner} from 'components/spinner';
+import {default as Footer} from 'components/footer';
+import {default as Header} from 'components/header';
 // import 'sources/google-analytics';
+import {default as App} from 'containers/app';
 import {default as Home} from 'containers/home';
 import {default as About} from 'containers/about';
 import {default as Contact} from 'containers/contact';
 import {default as Work} from 'containers/work';
-import {default as Project} from 'containers/project';
-import {default as App} from 'components/app';
+import 'styles/style.less';
 
-const history = createHistory({ queryKey: false });
+const history = createHashHistory({queryKey: false});
 
 ReactDOM.render((
-  <Router history={ history }>
-    <Route path="/" component={ App }>
-      <IndexRoute component={ Home }/>
-      <Route path="about" component={ About }/>
-      <Route path="contact" component={ Contact }/>
-      <Route path="work(/projects/:projectId)" component={ Work }>
-        <IndexRoute component={ Project }/>
-        <Route path="/projects/:projectId" component={ Project }/>
-      </Route>
+  <Router history={history}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="about" component={About} />
+      <Route path="contact" component={Contact} />
+      <Route path="work(/:id)" component={Work} />
     </Route>
   </Router>
 ), document.getElementById('site-container'));
