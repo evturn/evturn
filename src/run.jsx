@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute} from 'react-router';
-import {createHistory} from 'history/lib/createHashHistory';
+import {createHashHistory} from 'history';
 import {default as App} from 'containers/app';
 import {default as Home} from 'containers/home';
 import {default as About} from 'containers/about';
@@ -8,7 +8,7 @@ import {default as Contact} from 'containers/contact';
 import {default as Work} from 'containers/work';
 import 'styles/style.less';
 
-const history = createHistory({queryKey: false});
+const history = createHashHistory({queryKey: false});
 
 ReactDOM.render((
   <Router history={history}>
