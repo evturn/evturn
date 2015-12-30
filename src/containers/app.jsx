@@ -3,16 +3,11 @@ import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 // import 'sources/google-analytics';
 import {getPage} from 'helpers';
-import styles from 'styles/style.less';
+import 'styles/style.less';
 
 export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
-  },
-  getDefaultProps() {
-    return {
-      styles: styles
-    };
   },
   getInitialState() {
     return {
