@@ -13,6 +13,9 @@ const config = _.merge({
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'
     }),
+    new webpack.ProvidePlugin({
+      React: 'react'
+    }),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
