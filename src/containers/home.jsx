@@ -1,5 +1,4 @@
-'use strict';
-import React from 'react';
+import {default as Spinner} from 'components/spinner';
 import {default as __videos} from 'sources/videos';
 import {default as Video} from 'components/video';
 
@@ -11,15 +10,15 @@ export default React.createClass({
       videos: __videos
     };
   },
+  componentWillMount() {
+    return
+  },
   render() {
-    const {
-      title,
-      description,
-      videos
-    } = this.props;
+    const {title, description, videos} = this.props;
 
     return (
       <div className='home'>
+        <Spinner />
         <Video playlist={videos}/>
         <div className='home-banner'>
           <h3 className='home-title'>{title}</h3>

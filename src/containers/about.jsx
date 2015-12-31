@@ -1,5 +1,3 @@
-'use strict';
-import React from 'react';
 import {CounterItems as AboutStat} from 'components/icon-count';
 import {TechItems as AboutTech} from 'components/icon-tech';
 import {default as __stats} from 'sources/stats';

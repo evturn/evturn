@@ -20,7 +20,7 @@ module.exports = {
     hot: true,
     port: port,
     publicPath: publicPath,
-    noInfo: false,
+    noInfo: true,
     stats: { colors: true }
   },
   cache: true,
@@ -29,9 +29,6 @@ module.exports = {
       React: 'react'
     }),
     new webpack.optimize.DedupePlugin(),
-    // new webpack.DefinePlugin({
-    //   'process.env.NODE_ENV': '"production"'
-    // }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin()
