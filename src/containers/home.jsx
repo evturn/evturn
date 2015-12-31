@@ -10,9 +10,6 @@ export default React.createClass({
       videos: __videos
     };
   },
-  componentWillMount() {
-    return
-  },
   render() {
     const {title, description, videos} = this.props;
 

@@ -1,83 +1,33 @@
 'use strict';
 const path = require('path');
-const webpack = require('webpack');
-const publicPath = '/dist/';
-const port = 8000;
+const args = require('minimist')(process.argv.slice(2));
+const allowedEnvs = ['dev', 'dist', 'test'];
 
-module.exports = {
-  port: port,
-  debug: true,
-  entry: path.join(__dirname, './src/run'),
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: publicPath
-  },
-  devtool: 'source-map',
-  devServer: {
-    contentBase: './',
-    historyApiFallback: true,
-    hot: true,
-    port: port,
-    publicPath: publicPath,
-    noInfo: true,
-    stats: { colors: true }
-  },
-  cache: true,
-  plugins: [
-    new webpack.ProvidePlugin({
-      React: 'react'
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-  module: {
-    preLoaders: [{
-      test: /\.(js|jsx)$/,
-      exclude: path.resolve(__dirname, 'node_modules'),
-      include: [
-        path.join(__dirname, 'src/components'),
-        path.join(__dirname, 'src/containers')
-      ],
-      loader: 'eslint-loader'
-    }],
-    loaders: [
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
-      },{
-        test: /\.less$/,
-        loader: 'style-loader!css-loader!postcss-loader!less-loader'
-      },{
-        test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader'
-      },{
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
-      },{
-        test: /\.woff2(\?\S*)?$/,
-        loader: 'url-loader?limit=100000'
-      },{
-        test: /\.(js|jsx)$/,
-        loader: 'babel',
-        include: path.join(__dirname, './src/')
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-    alias: {
-      containers: path.join(__dirname, './src/containers/'),
-      components: path.join(__dirname, './src/components/'),
-      helpers:    path.join(__dirname, './src/helpers/'),
-      sources:    path.join(__dirname, './src/sources/'),
-      images:     path.join(__dirname, './src/images/'),
-      styles:     path.join(__dirname, './src/styles/')
-    }
-  },
-  postcss: function() {
-    return [require('autoprefixer')];
-  }
+let env;
+if(args._.length > 0 && args._.indexOf('start') !== -1) {
+  env = 'test';
+} else if (args.env) {
+  env = args.env;
+} else {
+  env = 'dev';
+}
+process.env.REACT_WEBPACK_ENV = env;
+
+const configs = {
+  base: require(path.join(__dirname, 'webpack.config.base')),
+  dev: require(path.join(__dirname, 'webpack.config.dev')),
+  dist: require(path.join(__dirname, 'webpack.config.prod')),
+  test: require(path.join(__dirname, 'webpack.config.dev'))
 };
+
+function getValidEnv(env) {
+  const isValid = env && env.length > 0 && allowedEnvs.indexOf(env) !== -1;
+  return isValid ? env : 'dev';
+}
+
+function buildConfig(env) {
+  const usedEnv = getValidEnv(env);
+  return configs[usedEnv];
+}
+
+module.exports = buildConfig(env);

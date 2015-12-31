@@ -12,7 +12,7 @@ const AboutHeader = React.createClass({
 export default React.createClass({
   getTechItems() {
     return __tech.filter((obj) => {
-      return obj.featured
+      return obj.featured;
     }).map((obj) => {
       return obj;
     });
