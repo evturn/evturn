@@ -13,25 +13,7 @@ export default React.createClass({
       leave: null
     };
   },
-  showFirst() {
-    return this.setState({
-      counter: 0,
-      enqueue: 1
-    });
-  },
-  showNext() {
-    return this.setState({
-      counter: this.state.counter + 1,
-      enqueue: this.state.enqueue + 1
-    });
-  },
-  showLast() {
-    return this.setState({
-      counter: this.state.counter + 1,
-      enqueue: 0
-    });
-  },
-  applyState(image) {
+  beforeRender(image) {
     if (image === this.state.enter) {
       return 'enter';
     } else if (image === this.state.leave) {
@@ -42,6 +24,26 @@ export default React.createClass({
       return 'inactive';
     }
   },
+  beforeTransition() {
+    const nextIsFirst = this.state.enqueue === 0;
+    const nextIsLast = this.state.enqueue === this.state.total;
+    const nextIsNotLast = this.state.enqueue < this.state.total;
+    const activeIsNotLast = this.state.counter !== this.state.total;
+    const noneIsLast = nextIsNotLast && activeIsNotLast;
+    const showFirst = {counter: 0, enqueue: 1};
+    const showNext = {counter: this.state.counter + 1, enqueue: this.state.enqueue + 1};
+    const showLast = {counter: this.state.counter + 1, enqueue: 0};
+
+    if (noneIsLast) {
+      this.setState(showNext);
+    } else if (nextIsLast) {
+      this.setState(showLast);
+    } else if (nextIsFirst) {
+      this.setState(showFirst);
+    }
+
+    this.runTransition();
+  },
   runTransition() {
     this.setState({
       active: null,
@@ -50,23 +52,6 @@ export default React.createClass({
     });
 
     this.afterTransition();
-  },
-  beforeTransition() {
-    const nextIsNotLast = this.state.enqueue < this.state.total;
-    const activeIsNotLast = this.state.counter !== this.state.total;
-    const noneIsLast = nextIsNotLast && activeIsNotLast;
-    const nextIsLast = this.state.enqueue === this.state.total;
-    const nextIsFirst = this.state.enqueue === 0;
-
-    if (noneIsLast) {
-      this.showNext();
-    } else if (nextIsLast) {
-      this.showLast();
-    } else if (nextIsFirst) {
-      this.showFirst();
-    }
-
-    this.runTransition();
   },
   afterTransition() {
     setTimeout(() => {
@@ -102,7 +87,6 @@ export default React.createClass({
   componentWillReceiveProps(newProps) {
     if (this.state.images !== newProps.images) {
       this.setState(this.resetState(newProps.images));
-
       this.restart();
     }
   },
@@ -112,7 +96,7 @@ export default React.createClass({
     return (
       <div className='carousel'>
         {images.map((image, i) => {
-          const activeClass = this.applyState(image);
+          const activeClass = this.beforeRender(image);
 
           return (
             <CarouselSlide key={i} active={activeClass} image={image} />

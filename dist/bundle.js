@@ -13040,25 +13040,7 @@
 	      leave: null
 	    };
 	  },
-	  showFirst: function showFirst() {
-	    return this.setState({
-	      counter: 0,
-	      enqueue: 1
-	    });
-	  },
-	  showNext: function showNext() {
-	    return this.setState({
-	      counter: this.state.counter + 1,
-	      enqueue: this.state.enqueue + 1
-	    });
-	  },
-	  showLast: function showLast() {
-	    return this.setState({
-	      counter: this.state.counter + 1,
-	      enqueue: 0
-	    });
-	  },
-	  applyState: function applyState(image) {
+	  beforeRender: function beforeRender(image) {
 	    if (image === this.state.enter) {
 	      return 'enter';
 	    } else if (image === this.state.leave) {
@@ -13069,6 +13051,26 @@
 	      return 'inactive';
 	    }
 	  },
+	  beforeTransition: function beforeTransition() {
+	    var nextIsFirst = this.state.enqueue === 0;
+	    var nextIsLast = this.state.enqueue === this.state.total;
+	    var nextIsNotLast = this.state.enqueue < this.state.total;
+	    var activeIsNotLast = this.state.counter !== this.state.total;
+	    var noneIsLast = nextIsNotLast && activeIsNotLast;
+	    var showFirst = { counter: 0, enqueue: 1 };
+	    var showNext = { counter: this.state.counter + 1, enqueue: this.state.enqueue + 1 };
+	    var showLast = { counter: this.state.counter + 1, enqueue: 0 };
+	
+	    if (noneIsLast) {
+	      this.setState(showNext);
+	    } else if (nextIsLast) {
+	      this.setState(showLast);
+	    } else if (nextIsFirst) {
+	      this.setState(showFirst);
+	    }
+	
+	    this.runTransition();
+	  },
 	  runTransition: function runTransition() {
 	    this.setState({
 	      active: null,
@@ -13077,23 +13079,6 @@
 	    });
 	
 	    this.afterTransition();
-	  },
-	  beforeTransition: function beforeTransition() {
-	    var nextIsNotLast = this.state.enqueue < this.state.total;
-	    var activeIsNotLast = this.state.counter !== this.state.total;
-	    var noneIsLast = nextIsNotLast && activeIsNotLast;
-	    var nextIsLast = this.state.enqueue === this.state.total;
-	    var nextIsFirst = this.state.enqueue === 0;
-	
-	    if (noneIsLast) {
-	      this.showNext();
-	    } else if (nextIsLast) {
-	      this.showLast();
-	    } else if (nextIsFirst) {
-	      this.showFirst();
-	    }
-	
-	    this.runTransition();
 	  },
 	  afterTransition: function afterTransition() {
 	    var _this = this;
@@ -13133,7 +13118,6 @@
 	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
 	    if (this.state.images !== newProps.images) {
 	      this.setState(this.resetState(newProps.images));
-	
 	      this.restart();
 	    }
 	  },
@@ -13146,7 +13130,7 @@
 	      'div',
 	      { className: 'carousel' },
 	      images.map(function (image, i) {
-	        var activeClass = _this3.applyState(image);
+	        var activeClass = _this3.beforeRender(image);
 	
 	        return React.createElement(_carouselSlide2.default, { key: i, active: activeClass, image: image });
 	      })
