@@ -1,65 +1,97 @@
 import {default as CarouselSlide} from 'components/carousel-slide';
 
 export default React.createClass({
-  rotateSlide() {
-    return this.setState({
-      active: this.state.images[this.state.counter],
-      next: this.state.images[this.state.enqueue]
-    });
+  resetState(images) {
+    return {
+      images: images,
+      active: images[0],
+      total: images.length - 1,
+      counter: 0,
+      enqueue: 1,
+      previous: null,
+      enter: null,
+      leave: null
+    };
   },
-  onSlideChange() {
-    if (this.state.enqueue < this.state.total && this.state.counter !== this.state.total) {
-      this.showNextSlide();
-    } else if (this.state.enqueue === this.state.total) {
-      this.showLastSlide();
-    } else if (this.state.enqueue === 0) {
-      this.showFirstSlide();
-    }
-
-    this.rotateSlide();
-  },
-  showFirstSlide() {
+  showFirst() {
     return this.setState({
       counter: 0,
       enqueue: 1
     });
   },
-  showNextSlide() {
+  showNext() {
     return this.setState({
       counter: this.state.counter + 1,
       enqueue: this.state.enqueue + 1
     });
   },
-  showLastSlide() {
+  showLast() {
     return this.setState({
       counter: this.state.counter + 1,
       enqueue: 0
     });
   },
+  applyState(image) {
+    if (image === this.state.enter) {
+      return 'enter';
+    } else if (image === this.state.leave) {
+      return 'leave';
+    } else if (image === this.state.active) {
+      return 'active';
+    } else {
+      return 'inactive';
+    }
+  },
+  runTransition() {
+    this.setState({
+      active: null,
+      enter: this.state.images[this.state.counter],
+      leave: this.state.previous
+    });
+
+    this.afterTransition();
+  },
+  beforeTransition() {
+    const nextIsNotLast = this.state.enqueue < this.state.total;
+    const activeIsNotLast = this.state.counter !== this.state.total;
+    const noneIsLast = nextIsNotLast && activeIsNotLast;
+    const nextIsLast = this.state.enqueue === this.state.total;
+    const nextIsFirst = this.state.enqueue === 0;
+
+    if (noneIsLast) {
+      this.showNext();
+    } else if (nextIsLast) {
+      this.showLast();
+    } else if (nextIsFirst) {
+      this.showFirst();
+    }
+
+    this.runTransition();
+  },
+  afterTransition() {
+    setTimeout(() => {
+      return this.setState({
+        active: this.state.images[this.state.counter],
+        previous: this.state.images[this.state.counter],
+        enter: null,
+        leave: null
+      });
+    }, 1000);
+  },
   setTimer() {
     this.timer = setInterval(() => {
-      this.onSlideChange();
+      this.beforeTransition();
     }, 4000);
   },
   clearTimer() {
     return clearInterval(this.timer);
   },
-  getDefaultProps() {
-    return {
-      counter: 0,
-      enqueue: 1
-    };
+  restart() {
+    this.clearTimer();
+    this.setTimer();
   },
   getInitialState() {
-    return {
-      counter: this.props.counter,
-      enqueue: this.props.enqueue,
-      total: this.props.images.length - 1,
-      images: this.props.images,
-      active: this.props.images[this.props.counter],
-      next: this.props.images[this.props.enqueue],
-      timer: null
-    };
+    return this.resetState(this.props.images);
   },
   componentWillUnmount() {
     return this.clearTimer();
@@ -68,30 +100,22 @@ export default React.createClass({
     return this.setTimer();
   },
   componentWillReceiveProps(newProps) {
-    this.clearTimer();
-    this.setState({
-      counter: 0,
-      enqueue: 1,
-      total: newProps.images.length - 1,
-      images: newProps.images,
-      active: newProps.images[0],
-      next: newProps.images[1]
-    });
-    this.setTimer();
+    if (this.state.images !== newProps.images) {
+      this.setState(this.resetState(newProps.images));
+
+      this.restart();
+    }
   },
   render() {
+    const {images} = this.state;
+
     return (
       <div className='carousel'>
-        {this.props.images.map((image, i) => {
-          const isActive = image === this.state.active ? true : false;
-          const isNext = image === this.state.next ? true : false;
+        {images.map((image, i) => {
+          const activeClass = this.applyState(image);
+
           return (
-            <CarouselSlide
-              key={i}
-              active={isActive}
-              next={isNext}
-              image={image}
-            />
+            <CarouselSlide key={i} active={activeClass} image={image} />
           );
         })}
       </div>

@@ -20,15 +20,32 @@
   right: 0;
   left: 0;
   height: 100%;
-  transition: background 1s linear;
-  opacity: 0;
-}
-
-.active {
-  .slide;
-  opacity: 1;
+  transition: all 1s ease;
+  transition-duration: 1s;
+  &.inactive {
+    opacity: 0;
+  }
+  &.active {
+    opacity: 1;
+  }
+  &.enter {
+    animation: fadein 1s linear;
+  }
+  &.leave {
+    animation: fadeout 1s linear;
+  }
 }
 
 img {
-  display: block;
+  .img-scale;
+}
+
+@keyframes fadein {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@keyframes fadeout {
+  0% {opacity:1;}
+  100% {opacity:0;}
 }
