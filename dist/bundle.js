@@ -5284,9 +5284,6 @@
 	'use strict';
 	
 	exports.__esModule = true;
-	exports.URL = undefined;
-	exports.getPage = getPage;
-	exports.updateLayout = updateLayout;
 	exports.setProject = setProject;
 	exports.setFeaturedProjects = setFeaturedProjects;
 	exports.setFeaturedTech = setFeaturedTech;
@@ -5379,53 +5376,6 @@
 	    obj.featured ? featured.push(obj) : '';
 	  }
 	  return featured;
-	}
-	
-	var URL = exports.URL = {
-	  hash: function hash() {
-	    return window.location.hash;
-	  },
-	  location: function location() {
-	    return window.location;
-	  },
-	  route: function route() {
-	    return window.location.hash.substr(1);
-	  },
-	  page: function page() {
-	    return window.location.hash.substring(1, window.location.hash.indexOf('/'));
-	  },
-	  child: function child() {
-	    var fromSecondPath = window.location.hash.substr(window.location.hash.indexOf('/') + 1);
-	    return fromSecondPath.substr(0, fromSecondPath.indexOf('/'));
-	  },
-	  params: function params() {
-	    var hash = window.location.hash.substr(1);
-	    return hash.substr(hash.lastIndexOf('/') + 1);
-	  }
-	};
-	
-	function getPage() {
-	  var route = window.location.hash.substr(1);
-	
-	  if (route === '/') {
-	    return 'home';
-	  } else if (route.startsWith('/work')) {
-	    return 'work';
-	  } else if (route.startsWith('/about')) {
-	    return 'about';
-	  } else if (route.startsWith('/contact')) {
-	    return 'contact';
-	  }
-	}
-	
-	function updateLayout(location) {
-	  var pathname = location.pathname;
-	
-	  var key = pathname.split('/')[1] || 'index';
-	  var el = document.getElementById('site-container');
-	
-	  el.removeAttribute('class');
-	  el.classList.add('page-' + key);
 	}
 	
 	function setProject(id) {
@@ -14031,13 +13981,9 @@
 /* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(React) {'use strict';
 	
 	exports.__esModule = true;
-	
-	var _react = __webpack_require__(3);
-	
-	var _react2 = _interopRequireDefault(_react);
 	
 	var _links = __webpack_require__(128);
 	
@@ -14049,7 +13995,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = _react2.default.createClass({
+	exports.default = React.createClass({
 	  displayName: 'contact',
 	  getDefaultProps: function getDefaultProps() {
 	    return {
@@ -14057,17 +14003,16 @@
 	    };
 	  },
 	  render: function render() {
-	    var _props = this.props;
-	    var image = _props.image;
-	    var links = _props.links;
+	    var links = this.props.links;
 	
-	    return _react2.default.createElement(
+	    return React.createElement(
 	      'div',
 	      { className: 'backdrop animated fadeIn' },
-	      _react2.default.createElement(_links4.default, { items: links, circles: true })
+	      React.createElement(_links4.default, { items: links, circles: true })
 	    );
 	  }
 	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 126 */

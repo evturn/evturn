@@ -1,5 +1,3 @@
-'use strict';
-import React from 'react';
 import {default as __links} from 'sources/links';
 import {default as Links} from 'components/links';
 
@@ -10,10 +8,7 @@ export default React.createClass({
     };
   },
   render() {
-    const {
-      image,
-      links
-    } = this.props;
+    const {links} = this.props;
 
     return (
       <div className='backdrop animated fadeIn'>

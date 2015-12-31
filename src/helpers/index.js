@@ -41,52 +41,6 @@ function getFeatured(dataSource) {
   return featured;
 }
 
-export const URL = {
-  hash: () => {
-    return window.location.hash;
-  },
-  location: () => {
-    return window.location;
-  },
-  route: () => {
-    return window.location.hash.substr(1);
-  },
-  page: () => {
-    return window.location.hash.substring(1, window.location.hash.indexOf('/'));
-  },
-  child: () => {
-    const fromSecondPath = window.location.hash.substr(window.location.hash.indexOf('/') + 1);
-    return fromSecondPath.substr(0, fromSecondPath.indexOf('/'));
-  },
-  params: () => {
-    const hash = window.location.hash.substr(1);
-    return hash.substr(hash.lastIndexOf('/') + 1);
-  }
-};
-
-export function getPage() {
-  const route = window.location.hash.substr(1);
-
-  if (route === '/') {
-    return 'home';
-  } else if (route.startsWith('/work')) {
-    return 'work';
-  } else if (route.startsWith('/about')) {
-    return 'about';
-  } else if (route.startsWith('/contact')) {
-    return 'contact';
-  }
-}
-
-export function updateLayout(location) {
-  const { pathname } = location;
-  const key = pathname.split('/')[1] || 'index';
-  const el = document.getElementById('site-container');
-
-  el.removeAttribute('class');
-  el.classList.add(`page-${key}`);
-}
-
 export function setProject(id) {
   const { project } = findProjectById(parseInt(id));
   project.tech = findTechByIds(project.techIds);
