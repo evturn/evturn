@@ -35,19 +35,28 @@ export default React.createClass({
 
     return `${prefix}${absolutePath}`;
   },
-  render() {
-    const {images, name, description, links, tech, id} = this.state.project;
-    const {projects} = this.props;
-    const projectLinks = links ? <IconLinks items={links} classname={'square'} /> : '';
-    const thumbs = projects.map((project) => {
+  setupSlides(images) {
+    return images.map((image) => {
+      return this.getRelativePath(image);
+    });
+  },
+  setupThumbnails(projects) {
+    return projects.map((project) => {
       return {
         id: project.id,
         image: this.getRelativePath(project.thumbnail)
       };
     });
-    const projectSlides = images.map((image) => {
-      return this.getRelativePath(image);
-    });
+  },
+  setupLinks(links) {
+    return links ? <IconLinks items={links} classname={'square'} /> : '';
+  },
+  render() {
+    const {images, name, description, links, tech, id} = this.state.project;
+    const {projects} = this.props;
+    const thumbs = this.setupThumbnails(projects);
+    const projectLinks = this.setupLinks(links);
+    const projectSlides = this.setupSlides(images);
 
     return (
       <div className='work'>
