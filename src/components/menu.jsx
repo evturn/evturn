@@ -11,7 +11,8 @@ export default React.createClass({
         {name: 'Work',    route: 'work'   , id: 2},
         {name: 'About',   route: 'about'  , id: 3},
         {name: 'Contact', route: 'contact', id: 4}
-      ]
+      ],
+      openClassName: 'open'
     };
   },
   getInitialState() {
@@ -45,9 +46,9 @@ export default React.createClass({
     }
   },
   render() {
-    const {pages} = this.props;
+    const {pages, openClassName} = this.props;
     const {open} = this.state;
-    const openClass = open ? 'open' : '';
+    const openClass = open ? openClassName : '';
 
     return (
       <div className={openClass}>

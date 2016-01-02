@@ -5,15 +5,15 @@
 
 .home-banner {
   position: absolute;
-  top: 35%;
+  top: 65%;
   right: 0;
   left: 0;
   margin: 0 auto;
   z-index: 3;
-  background-color: #ffffff;
+  background-color: fade(@bg-light, 70);
   opacity: .9;
   width: 90%;
-  @media(min-width: 1024px) {
+  @media(@tablet) {
     top: 45%;
     width: 300px;
   }
