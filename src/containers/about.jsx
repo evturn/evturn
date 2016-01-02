@@ -1,50 +1,32 @@
-import {CounterItems as AboutStat} from 'components/icon-count';
-import {TechItems as AboutTech} from 'components/icon-tech';
-import {default as __stats} from 'sources/stats';
-import {getTechItems} from 'helpers';
-
-const AboutHeader = React.createClass({
-  render() {
-    return <div className='about-header'>{this.props.title}</div>;
-  }
-});
+import {AboutInfo} from 'containers/about/about-info';
+import {AboutStats} from 'containers/about/about-stats';
+import {AboutTech} from 'containers/about/about-tech';
+import {AboutTitle} from 'containers/about/about-title';
 
 export default React.createClass({
   getDefaultProps() {
     return {
       bio: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
-      stats: __stats,
-      tech: getTechItems(),
       bioTitle: 'Development',
-      techTitle: 'Tools',
-      statsTitle: 'Statistics',
       image: 'src/assets/images/site/skel.gif'
     };
   },
   render() {
-    const {bio, stats, tech, bioTitle, techTitle, statsTitle, image} = this.props;
+    const {bio, bioTitle, image} = this.props;
 
     return (
       <div className='about'>
-        <div className='placeholder'>
+        <div className='header'>
           <img className='about-image' src={image} />
         </div>
         <div className='bio'>
-        <AboutHeader title={bioTitle} />
+          <AboutTitle title={bioTitle} />
           <div className='paragraph'>{bio}</div>
         </div>
-
-        <div className='about-info'>
-          <div className='about-tech'>
-            <AboutHeader title={techTitle} />
-            <AboutTech items={tech} width={'item-20'} />
-          </div>
-          <div className='about-stats'>
-            <AboutHeader title={statsTitle} />
-            <AboutStat items={stats} width={'item-50'} />
-          </div>
-        </div>
-
+        <AboutInfo>
+          <AboutTech />
+          <AboutStats />
+        </AboutInfo>
       </div>
     );
   }
