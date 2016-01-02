@@ -1,13 +1,9 @@
-import {default as Spinner} from 'components/spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import 'sources/google-analytics';
 import 'styles/style.less';
 
 export const App = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
   getInitialState() {
     return {
       page: 'home'
@@ -27,14 +23,11 @@ export const App = React.createClass({
     });
   },
   render() {
-    const {page} = this.state;
-
     return (
       <div>
-        <Spinner />
-        <Header page={page} />
+        <Header {...this.props} {...this.state} />
         {this.props.children}
-        <Footer page={page} />
+        <Footer {...this.props} {...this.state} />
       </div>
     );
   }

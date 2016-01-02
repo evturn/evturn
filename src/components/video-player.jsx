@@ -1,4 +1,4 @@
-export default React.createClass({
+export const VideoPlayer = React.createClass({
   beginPlayback() {
     const {current} = this.state;
     const {playlist} = this.props;
@@ -14,7 +14,9 @@ export default React.createClass({
   },
   onVideoPlay() {
     this.player.addEventListener('playing', () => {
-      this.setState({playing: true});
+      const readyState = {contentReady: true};
+      this.setState(readyState);
+      this.props.onContentReady(readyState);
     });
   },
   setNextVideo() {
@@ -42,7 +44,7 @@ export default React.createClass({
     return {
       current: 0,
       src: this.props.playlist[0],
-      playing: false
+      contentReady: this.props.contentReady
     };
   },
   componentDidMount() {
@@ -53,11 +55,7 @@ export default React.createClass({
   render() {
     return (
       <div className='animated fadeIn'>
-        <video
-          ref={(player) => this.player = player}
-          {...this.props}
-          {...this.state}>
-        </video>
+        <video ref={(player) => this.player = player} {...this.props} {...this.state}></video>
       </div>
     );
   }

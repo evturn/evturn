@@ -1,14 +1,4 @@
-export default React.createClass({
-  onLoaded() {
-    window.addEventListener('DOMContentLoaded', () => {
-      console.log('DOMContentLoaded');
-      setTimeout(() => {
-        return this.setState({
-          hidden: 'hidden'
-        });
-      }, 2000);
-    });
-  },
+export const Spinner = React.createClass({
   getDefaultProps() {
     return {
       image: 'src/assets/images/site/ev-av.png'
@@ -17,11 +7,17 @@ export default React.createClass({
   getInitialState() {
     return {
       display: '',
-      hidden: ''
+      hidden: '',
+      contentReady: this.props.contentReady
     };
   },
-  componentWillMount() {
-    return this.onLoaded();
+  componentWillReceiveProps(nextProps) {
+    if (this.state.contentReady !== nextProps.contentReady) {
+      return this.setState({
+        contentReady: nextProps.contentReady,
+        hidden: 'hidden'
+      });
+    }
   },
   componentDidMount() {
     return this.setState({
