@@ -14,11 +14,12 @@ export default React.createClass({
     };
   },
   beforeRender(image) {
-    if (image === this.state.enter) {
+    const {enter, leave, active} = this.state;
+    if (image === enter) {
       return 'enter';
-    } else if (image === this.state.leave) {
+    } else if (image === leave) {
       return 'leave';
-    } else if (image === this.state.active) {
+    } else if (image === active) {
       return 'active';
     } else {
       return 'inactive';

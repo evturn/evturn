@@ -20,18 +20,12 @@ export default React.createClass({
     };
   },
   componentWillReceiveProps(nextProps) {
+    const projectId = nextProps.params.id;
+
     return this.setState({
-      project: setProject(nextProps.params.id),
-      activeId: nextProps.params.id
+      project: setProject(projectId),
+      activeId: projectId
     });
-  },
-  componentWillMount() {
-    if (this.props.params.id) {
-      return this.setState({
-        project: setProject(this.props.params.id),
-        activeId: this.props.params.id
-      });
-    }
   },
   render() {
     const {title} = this.props;

@@ -13,8 +13,9 @@ export const WorkMeta = React.createClass({
   },
   setupLinks() {
     const {links} = this.state;
-    if (links) {
-      return false;
+    console.log(links);
+    if (links === null) {
+      return null;
     }
     return <div className='project-links'><IconLinks items={links} classname={'square'} /></div>;
   },
