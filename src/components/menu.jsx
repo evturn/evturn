@@ -1,4 +1,5 @@
 import {IndexLink, Link} from 'react-router';
+import {getRelativePath} from 'helpers';
 
 export default React.createClass({
   contextTypes: {
@@ -57,7 +58,7 @@ export default React.createClass({
     return (
       <header>
         <div className={`logo-${page}`}>
-          <img src='src/images/site/ev-av.png' />
+          <img src='src/assets/images/site/ev-av.png' />
         </div>
         <nav className={openClass}>
           <div className={`burger-${page}`} onClick={this.handleClick}>

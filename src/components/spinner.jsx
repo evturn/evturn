@@ -3,15 +3,20 @@ export default React.createClass({
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         return this.setState({
-          hidden: true
+          hidden: 'hidden'
         });
       }, 2000);
     });
   },
+  getDefaultProps() {
+    return {
+      image: 'src/assets/images/site/ev-av.png'
+    };
+  },
   getInitialState() {
     return {
-      display: 'animated',
-      hidden: false
+      display: '',
+      hidden: ''
     };
   },
   componentWillMount() {
@@ -19,17 +24,18 @@ export default React.createClass({
   },
   componentDidMount() {
     return this.setState({
-      display: 'animated fadeOut'
+      display: 'fadeOut'
     });
   },
   render() {
-    const hiddenClass = this.state.hidden ? 'hidden' : '';
+    const {image} = this.props;
+    const {display, hidden} = this.state;
 
     return (
-      <div className={`spinner ${this.state.display} ${hiddenClass}`}>
+      <div className={`spinner animated ${display} ${hidden}`}>
         <div className='animation'></div>
         <div className='spinner-logo'>
-          <img className='spinner-image' src='src/images/site/ev-av.png'/>
+          <img className='spinner-image' src={image} />
         </div>
       </div>
     );

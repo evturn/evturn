@@ -2,7 +2,7 @@ import {default as Carousel} from 'components/carousel';
 import {TechItems as ProjectTech} from 'components/icon-tech';
 import {default as Tiles} from 'components/tiles';
 import {default as IconLinks} from 'components/icon-links';
-import {setProject, setFeaturedProjects} from 'helpers';
+import {getRelativePath, setProject, setFeaturedProjects} from 'helpers';
 
 export default React.createClass({
   contextTypes: {
@@ -31,7 +31,7 @@ export default React.createClass({
     }
   },
   getRelativePath(absolutePath) {
-    const prefix = 'src/';
+    const prefix = 'src/assets/';
 
     return `${prefix}${absolutePath}`;
   },
