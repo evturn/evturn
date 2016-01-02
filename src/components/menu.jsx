@@ -27,17 +27,22 @@ export default React.createClass({
     this.setState(newOpenState);
     this.props.callbackParent(newOpenState);
   },
-  componentWillReceiveProps(newProps) {
-    if (this.state.open !== newProps.open) {
+  componentWillReceiveProps(nextProps) {
+    if (this.state.open !== nextProps.open) {
       return this.setState({
-        open: newProps.open
+        open: nextProps.open
       });
     }
   },
   setPageLinks(page) {
     const {route, name, id} = page;
 
-    return id === 1 ? <IndexLink to={route}>{name}</IndexLink> : <Link to={route}>{name}</Link>;
+    switch (id) {
+      case 1:
+        return <IndexLink to={route}>{name}</IndexLink>;
+      default:
+        return <Link to={route}>{name}</Link>;
+    }
   },
   render() {
     const {pages} = this.props;
