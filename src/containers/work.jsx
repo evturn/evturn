@@ -1,64 +1,17 @@
-import {default as Carousel} from 'components/carousel';
-import {TechItems as ProjectTech} from 'components/icon-tech';
-import {default as Thumbnail} from 'components/thumbnail';
-import {default as IconLinks} from 'components/icon-links';
-import {setProjectCarouselSlides, setProjectThumbnails, getRelativePath, setProject, setFeaturedProjects} from 'helpers';
-
-const WorkThumbnails = React.createClass({
-  getDefaultProps() {
-    return {
-      projects: setFeaturedProjects()
-    };
-  },
-  getInitialState() {
-    return {
-      activeId : this.props.activeId
-    };
-  },
-  componentWillReceiveProps(nextProps) {
-    return this.setState({
-      activeId: nextProps.activeId
-    });
-  },
-  render() {
-    const {projects} = this.props;
-    const {activeId} = this.state;
-    const thumbs = setProjectThumbnails(projects);
-
-    return (
-      <div className='project-thumbs'>
-        <ul className='tiles'>
-          {thumbs.map((obj, i) => {
-            return <Thumbnail key={i} project={obj} activeId={activeId} />;
-          })}
-        </ul>
-      </div>
-    );
-  }
-});
-
-const WorkCarousel = React.createClass({
-  getInitialState() {
-    return {
-      images: this.props.images
-    };
-  },
-  componentWillReceiveProps(nextProps) {
-    return this.setState({
-      images: nextProps.images
-    });
-  },
-  render() {
-    const {images} = this.state;
-    const projectSlides = setProjectCarouselSlides(images);
-
-    return <div className='project-carousel'><Carousel images={projectSlides} /></div>;
-  }
-});
+import {WorkCarousel} from 'containers/work/work-carousel';
+import {WorkThumbnails} from 'containers/work/work-thumbnails';
+import {WorkTech} from 'containers/work/work-tech';
+import {WorkMeta} from 'containers/work/work-meta';
+import {setProject} from 'helpers';
 
 export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
+  },
+  getDefaultProps() {
+    return {
+      title: 'Projects'
+    };
   },
   getInitialState() {
     return {
@@ -80,28 +33,18 @@ export default React.createClass({
       });
     }
   },
-  setupLinks(links) {
-    return links ? <IconLinks items={links} classname={'square'} /> : '';
-  },
   render() {
+    const {title} = this.props;
     const {images, name, description, links, tech, id} = this.state.project;
     const {activeId} = this.state;
-    const projectLinks = this.setupLinks(links);
 
     return (
       <div className='work'>
-        <div className='project-header'>Projects</div>
+        <div className='project-header'>{title}</div>
         <WorkThumbnails activeId={activeId} />
         <WorkCarousel images={images} />
-        <div className='project-info'>
-          <div className='project-title'>{name}</div>
-          <div className='project-description'>{description}</div>
-          <div className='project-links'>{projectLinks}</div>
-        </div>
-        <div className='project-tech'>
-          <div className='project-title'>Made with</div>
-          <ProjectTech items={tech} width={'item-25'} />
-        </div>
+        <WorkMeta name={name} description={description} links={links} />
+        <WorkTech items={tech}/>
       </div>
     );
   }
