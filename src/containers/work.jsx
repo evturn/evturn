@@ -8,9 +8,6 @@ export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
-  hasLinks(links) {
-    return links === null ? '' : <IconLinks items={links} classname={'square'} />;
-  },
   getDefaultProps() {
     return {
       projects: setFeaturedProjects()
@@ -21,9 +18,9 @@ export default React.createClass({
       project: setProject()
     };
   },
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(nextProps) {
     return this.setState({
-      project: setProject(newProps.params.id)
+      project: setProject(nextProps.params.id)
     });
   },
   componentWillMount() {
@@ -33,17 +30,23 @@ export default React.createClass({
       });
     }
   },
+  getRelativePath(absolutePath) {
+    const prefix = 'src/';
+
+    return `${prefix}${absolutePath}`;
+  },
   render() {
     const {images, name, description, links, tech, id} = this.state.project;
     const {projects} = this.props;
+    const projectLinks = links ? <IconLinks items={links} classname={'square'} /> : '';
     const thumbs = projects.map((project) => {
       return {
         id: project.id,
-        image: `src/${project.thumbnail}`
+        image: this.getRelativePath(project.thumbnail)
       };
     });
-    const slides = images.map((image) => {
-      return `src/${image}`;
+    const projectSlides = images.map((image) => {
+      return this.getRelativePath(image);
     });
 
     return (
@@ -53,12 +56,12 @@ export default React.createClass({
           <Tiles projects={thumbs} active={id} />
         </div>
         <div className='project-carousel'>
-          <Carousel images={slides} />
+          <Carousel images={projectSlides} />
         </div>
         <div className='project-info'>
           <div className='project-title'>{name}</div>
           <div className='project-description'>{description}</div>
-          <div className='project-links'>{this.hasLinks(links)}</div>
+          <div className='project-links'>{projectLinks}</div>
         </div>
         <div className='project-tech'>
           <div className='project-title'>Made with</div>
