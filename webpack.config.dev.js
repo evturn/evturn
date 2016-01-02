@@ -11,6 +11,7 @@ const config = _.merge({
     'webpack/hot/only-dev-server',
     './src/run'
   ],
+  debug: true,
   cache: true,
   devtool: 'eval',
   plugins: [

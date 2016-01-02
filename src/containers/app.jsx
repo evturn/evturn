@@ -1,3 +1,4 @@
+import {default as Spinner} from 'components/spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import 'sources/google-analytics';
@@ -6,7 +7,8 @@ import 'styles/style.less';
 export default React.createClass({
   getInitialState() {
     return {
-      page: this.props.routes[1].name
+      loading: true,
+      page: 'home'
     };
   },
   componentWillReceiveProps(newProps) {
@@ -19,14 +21,16 @@ export default React.createClass({
   },
   componentDidMount() {
     return this.setState({
+      loading: false,
       page: this.props.routes[1].name
     });
   },
   render() {
-    const {page} = this.state;
+    const {loading, page} = this.state;
 
     return (
       <div>
+        <Spinner loading={loading} />
         <Header page={page} />
         {this.props.children}
         <Footer page={page} />
