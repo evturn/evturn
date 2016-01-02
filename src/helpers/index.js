@@ -42,6 +42,14 @@ function getFeatured(dataSource) {
   return featured;
 }
 
+export function getTechItems() {
+  return __tech.filter((obj) => {
+    return obj.featured;
+  }).map((obj) => {
+    return obj;
+  });
+}
+
 export function getRelativePath(absolutePath) {
   const prefix = 'src/assets/';
 

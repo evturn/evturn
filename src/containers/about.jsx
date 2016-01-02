@@ -1,8 +1,7 @@
 import {CounterItems as AboutStat} from 'components/icon-count';
 import {TechItems as AboutTech} from 'components/icon-tech';
 import {default as __stats} from 'sources/stats';
-import {default as __tech} from 'sources/tech';
-import {getRelativePath} from 'helpers';
+import {getTechItems} from 'helpers';
 
 const AboutHeader = React.createClass({
   render() {
@@ -11,17 +10,11 @@ const AboutHeader = React.createClass({
 });
 
 export default React.createClass({
-  getTechItems() {
-    return __tech.filter((obj) => {
-      return obj.featured;
-    }).map((obj) => {
-      return obj;
-    });
-  },
   getDefaultProps() {
     return {
       bio: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
       stats: __stats,
+      tech: getTechItems(),
       bioTitle: 'Development',
       techTitle: 'Tools',
       statsTitle: 'Statistics',
@@ -29,8 +22,7 @@ export default React.createClass({
     };
   },
   render() {
-    const {bio, stats, bioTitle, techTitle, statsTitle, image} = this.props;
-    const tech = this.getTechItems();
+    const {bio, stats, tech, bioTitle, techTitle, statsTitle, image} = this.props;
 
     return (
       <div className='about'>
