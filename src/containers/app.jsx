@@ -5,9 +5,11 @@ import 'sources/google-analytics';
 import 'styles/style.less';
 
 export default React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState() {
     return {
-      loading: true,
       page: 'home'
     };
   },
@@ -21,16 +23,15 @@ export default React.createClass({
   },
   componentDidMount() {
     return this.setState({
-      loading: false,
       page: this.props.routes[1].name
     });
   },
   render() {
-    const {loading, page} = this.state;
+    const {page} = this.state;
 
     return (
       <div>
-        <Spinner loading={loading} />
+        <Spinner />
         <Header page={page} />
         {this.props.children}
         <Footer page={page} />

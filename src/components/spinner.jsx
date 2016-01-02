@@ -1,6 +1,6 @@
 export default React.createClass({
   onLoaded() {
-    window.addEventListener('load', () => {
+    window.addEventListener('DOMContentLoaded', () => {
       return this.setState({
         hidden: true
       });
