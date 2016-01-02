@@ -18,7 +18,6 @@ export default React.createClass({
     }
   },
   componentDidMount() {
-    console.log(this.props);
     return this.setState({
       page: this.props.routes[1].name
     });

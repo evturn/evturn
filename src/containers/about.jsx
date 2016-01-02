@@ -28,14 +28,7 @@ export default React.createClass({
     };
   },
   render() {
-    const {
-      bio,
-      tech,
-      stats,
-      bioTitle,
-      techTitle,
-      statsTitle
-    } = this.state;
+    const {bio, tech, stats, bioTitle, techTitle, statsTitle} = this.state;
 
     return (
       <div className='about'>
