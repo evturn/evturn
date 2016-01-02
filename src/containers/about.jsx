@@ -22,8 +22,8 @@ export default React.createClass({
       bio: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
       stats: __stats,
       tech: this.getTechItems(),
-      bioTitle: 'Web Developer',
-      techTitle: 'Notable Tools',
+      bioTitle: 'Development',
+      techTitle: 'Tools',
       statsTitle: 'Statistics'
     };
   },
