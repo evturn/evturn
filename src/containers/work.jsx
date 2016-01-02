@@ -1,13 +1,10 @@
 import {default as Carousel} from 'components/carousel';
 import {TechItems as ProjectTech} from 'components/icon-tech';
-import {default as Tiles} from 'components/tiles';
+import {default as Thumbnails} from 'components/thumbnails';
 import {default as IconLinks} from 'components/icon-links';
-import {getRelativePath, setProject, setFeaturedProjects} from 'helpers';
+import {setProjectCarouselSlides, setProjectThumbnails, getRelativePath, setProject, setFeaturedProjects} from 'helpers';
 
-export default React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
+const WorkThumbnails = React.createClass({
   getDefaultProps() {
     return {
       projects: setFeaturedProjects()
@@ -15,55 +12,64 @@ export default React.createClass({
   },
   getInitialState() {
     return {
-      project: setProject()
+      activeId : this.props.activeId
     };
   },
   componentWillReceiveProps(nextProps) {
     return this.setState({
-      project: setProject(nextProps.params.id)
+      activeId: nextProps.activeId
+    });
+  },
+  render() {
+    const {projects} = this.props;
+    const {activeId} = this.state;
+    const thumbs = setProjectThumbnails(projects);
+
+    return (
+      <div className='project-thumbs'>
+        <Thumbnails projects={thumbs} activeId={activeId} />
+      </div>
+    );
+  }
+});
+
+export default React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
+  getInitialState() {
+    return {
+      project: setProject(),
+      activeId: this.props.params.id
+    };
+  },
+  componentWillReceiveProps(nextProps) {
+    return this.setState({
+      project: setProject(nextProps.params.id),
+      activeId: nextProps.params.id
     });
   },
   componentWillMount() {
-    if (this.props.params.projectId) {
+    if (this.props.params.id) {
       return this.setState({
-        project: setProject(this.props.params.id)
+        project: setProject(this.props.params.id),
+        activeId: this.props.params.id
       });
     }
-  },
-  getRelativePath(absolutePath) {
-    const prefix = 'src/assets/';
-
-    return `${prefix}${absolutePath}`;
-  },
-  setupSlides(images) {
-    return images.map((image) => {
-      return this.getRelativePath(image);
-    });
-  },
-  setupThumbnails(projects) {
-    return projects.map((project) => {
-      return {
-        id: project.id,
-        image: this.getRelativePath(project.thumbnail)
-      };
-    });
   },
   setupLinks(links) {
     return links ? <IconLinks items={links} classname={'square'} /> : '';
   },
   render() {
     const {images, name, description, links, tech, id} = this.state.project;
-    const {projects} = this.props;
-    const thumbs = this.setupThumbnails(projects);
+    const {activeId} = this.state;
     const projectLinks = this.setupLinks(links);
-    const projectSlides = this.setupSlides(images);
+    const projectSlides = setProjectCarouselSlides(images);
 
     return (
       <div className='work'>
         <div className='project-header'>Projects</div>
-        <div className='project-thumbs'>
-          <Tiles projects={thumbs} activeId={id} />
-        </div>
+        <WorkThumbnails activeId={activeId} />
         <div className='project-carousel'>
           <Carousel images={projectSlides} />
         </div>

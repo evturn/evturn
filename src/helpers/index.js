@@ -2,6 +2,7 @@
 import { default as __projects } from 'sources/projects';
 import { default as __tech } from 'sources/tech';
 
+
 function findProjectById(id = 4) {
   let found = false;
   let project = null;
@@ -39,6 +40,28 @@ function getFeatured(dataSource) {
     obj.featured ? featured.push(obj) : '';
   }
   return featured;
+}
+
+export function getRelativePath(absolutePath) {
+  const prefix = 'src/assets/';
+
+  return `${prefix}${absolutePath}`;
+}
+
+export function setProjectThumbnails(projects) {
+  return projects.map((project) => {
+    const url = getRelativePath(project.thumbnail);
+    return {
+      id: project.id,
+      image: url
+    };
+  });
+}
+
+export function setProjectCarouselSlides(images) {
+  return images.map((image) => {
+    return getRelativePath(image);
+  });
 }
 
 export function setProject(id) {

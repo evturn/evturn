@@ -16,11 +16,7 @@ const Thumbnail = React.createClass({
     });
   },
   applyActive(id) {
-    if (id !== this.state.activeId) {
-      return 'thumb';
-    } else {
-      return 'thumb-active';
-    }
+    return id !== this.state.activeId ? 'thumb' : 'thumb-active';
   },
   render() {
     const {id, image} = this.props.project;
