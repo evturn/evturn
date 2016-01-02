@@ -1,62 +1,62 @@
 export default React.createClass({
   beginPlayback() {
-    this.player.src = this.state.playlist[this.state.current];
+    const {current} = this.state;
+    const {playlist} = this.props;
+
+    this.player.src = playlist[current];
     this.player.play;
     this.player.playbackRate = 0.5;
   },
-  restartPlaylist() {
-    return this.setState({
-      current: 0
-    });
-  },
-  startNextVideo() {
-    return this.setState({
-      current: this.state.current + 1
-    });
-  },
-  onVideoChange() {
+  onVideoEnded() {
     this.player.addEventListener('ended', () => {
-      if (this.state.current === this.state.last) {
-        this.restartPlaylist();
-      } else {
-        this.startNextVideo();
-      }
-
-      this.beginPlayback();
+      this.setNextVideo();
     });
   },
-  mergeStateAndDOM() {
-    for (let attr in this.state) {
-      this.player[attr] = this.state[attr];
+  onVideoPlay() {
+    this.player.addEventListener('playing', () => {
+      this.setState({playing: true});
+    });
+  },
+  setNextVideo() {
+    const {playlist} = this.props;
+    const {current} = this.state;
+
+    if (current === playlist.length - 1) {
+      this.setState({current: 0});
+    } else {
+      this.setState({current: current + 1});
     }
+
+    this.beginPlayback();
   },
   getDefaultProps() {
     return {
-      current: 0,
-      autoplay: true,
+      autoPlay: true,
       muted: true,
       type: 'video/mp4',
       preload: 'auto',
-      poster: require('images/site/banana-plants.png')
+      poster: 'src/assets/images/site/banana-plants.png'
     };
   },
   getInitialState() {
-    const last = this.props.playlist.length - 1;
-
-    return { last, ...this.props };
+    return {
+      current: 0,
+      src: this.props.playlist[0],
+      playing: false
+    };
   },
   componentDidMount() {
-    this.onVideoChange();
+    this.onVideoEnded();
+    this.onVideoPlay();
     this.beginPlayback();
-    this.mergeStateAndDOM();
   },
   render() {
     return (
       <div className='animated fadeIn'>
         <video
           ref={(player) => this.player = player}
-          poster={this.state.poster}
-          type={this.state.type}>
+          {...this.props}
+          {...this.state}>
         </video>
       </div>
     );

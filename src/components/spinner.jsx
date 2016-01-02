@@ -1,6 +1,7 @@
 export default React.createClass({
   onLoaded() {
     window.addEventListener('DOMContentLoaded', () => {
+      console.log('DOMContentLoaded');
       setTimeout(() => {
         return this.setState({
           hidden: 'hidden'
