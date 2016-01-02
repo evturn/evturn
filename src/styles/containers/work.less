@@ -3,8 +3,16 @@
 }
 
 .topside {
+  .clearfix;
   position: absolute;
   top: 0;
+  max-height: 500px;
+}
+
+.bottomside {
+  .clearfix;
+  position: absolute;
+  bottom: 0;
 }
 
 .project-carousel {
@@ -12,8 +20,9 @@
     .topside;
     right: 0;
     float: right;
-    height: auto;
     width: 80%;
+    height: 100%;
+    max-height: 500px;
   }
 }
 
@@ -25,6 +34,16 @@
     float: left;
     width: 20%;
     height: auto;
+  }
+}
+
+// Details
+.project-details {
+  .clearfix;
+  color: black;
+  width: 100%;
+  @media(@tablet-portrait) {
+    .bottomside;
   }
 }
 
@@ -44,14 +63,8 @@
 
 .child {
   .clearfix;
+  position: relative;
   margin: 15px;
-}
-
-// Details
-.project-details {
-  .clearfix;
-  color: black;
-  width: 100%;
 }
 
 // Details - Info
