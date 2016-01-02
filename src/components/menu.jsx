@@ -12,14 +12,14 @@ export default React.createClass({
         {name: 'Work',    route: 'work'   , id: 2},
         {name: 'About',   route: 'about'  , id: 3},
         {name: 'Contact', route: 'contact', id: 4}
-      ],
-      openClassName: 'open'
+      ]
     };
   },
   getInitialState() {
     return {
       page: this.props.page,
-      open: this.props.initialOpen
+      open: this.props.initialOpen,
+      visibleClass: ''
     };
   },
   handleClick() {
@@ -27,11 +27,18 @@ export default React.createClass({
       open: !this.state.open
     };
 
+    this.setVisible(newOpenState.open);
     this.setState(newOpenState);
     this.props.callbackParent(newOpenState);
   },
+  setVisible(open) {
+    const visibleClass = open ? 'open' : '';
+
+    return this.setState({visibleClass});
+  },
   componentWillReceiveProps(nextProps) {
     const {open, page} = nextProps;
+
     if (this.state.open !== open) {
       this.setState({open});
     }
@@ -39,6 +46,8 @@ export default React.createClass({
     if (this.state.page !== page) {
       this.setState({page});
     }
+
+    this.setVisible(open);
   },
   setPageLinks(page) {
     const {route, name, id} = page;
@@ -51,16 +60,15 @@ export default React.createClass({
     }
   },
   render() {
-    const {pages, openClassName} = this.props;
-    const {open, page} = this.state;
-    const openClass = open ? openClassName : '';
+    const {pages} = this.props;
+    const {open, page, visibleClass} = this.state;
 
     return (
       <header>
         <div className={`logo-${page}`}>
           <img src='src/assets/images/site/ev-av.png' />
         </div>
-        <nav className={openClass}>
+        <nav className={visibleClass}>
           <div className={`burger-${page}`} onClick={this.handleClick}>
             <span className='fa fa-bars'></span>
           </div>
