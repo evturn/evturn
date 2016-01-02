@@ -62,7 +62,7 @@ export default React.createClass({
       <div className='work'>
         <div className='project-header'>Projects</div>
         <div className='project-thumbs'>
-          <Tiles projects={thumbs} active={id} />
+          <Tiles projects={thumbs} activeId={id} />
         </div>
         <div className='project-carousel'>
           <Carousel images={projectSlides} />

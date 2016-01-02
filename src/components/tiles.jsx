@@ -1,26 +1,68 @@
 import {Link} from 'react-router';
 
-export default React.createClass({
+const Thumbnail = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
+  getInitialState() {
+    return {
+      classname: 'thumb',
+      activeId: this.props.activeId
+    };
+  },
+  componentWillReceiveProps(nextProps) {
+    return this.setState({
+      activeId: nextProps.activeId
+    });
+  },
+  applyActive(id) {
+    if (id !== this.state.activeId) {
+      return 'thumb';
+    } else {
+      return 'thumb-active';
+    }
+  },
   render() {
-    const {projects, active} = this.props;
+    const {id, image} = this.props.project;
+    const classname = this.applyActive(id);
+
+    return (
+      <li className={classname}>
+        <Link to={`work/${id}`}>
+          <div className='frame'>
+            <img src={image} />
+            <div className='shadow' />
+          </div>
+        </Link>
+      </li>
+    );
+  }
+});
+
+export default React.createClass({
+  getInitialState() {
+    return {
+      activeId: this.props.activeId
+    };
+  },
+  componentWillReceiveProps(nextProps) {
+    return this.setState({
+      activeId: nextProps.activeId
+    });
+  },
+  render() {
+    const {projects} = this.props;
+    const {activeId} = this.state;
 
     return (
       <ul className='tiles'>
         {projects.map((obj, i) => {
-          const activeClass = obj.id === active ? 'thumb-active' : 'thumb';
-
           return (
-            <li key={i} className={activeClass}>
-              <Link to={`work/${obj.id}`}>
-                <div className='frame'>
-                  <img src={obj.image} />
-                  <div className='shadow' />
-                </div>
-              </Link>
-            </li>
+            <Thumbnail
+              key={i}
+              project={obj}
+              activeId={activeId}
+            />
           );
         })}
       </ul>
