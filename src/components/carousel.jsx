@@ -48,7 +48,7 @@ export default React.createClass({
     this.afterTransition();
   },
   afterTransition() {
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       return this.setState({
         active: this.state.images[this.state.counter],
         previous: this.state.images[this.state.counter],
@@ -57,31 +57,26 @@ export default React.createClass({
       });
     }, 1000);
   },
-  setTimer() {
-    this.timer = setInterval(() => {
+  start() {
+    this.interval = setInterval(() => {
       this.beforeTransition();
     }, 4000);
   },
-  clearTimer() {
-    return clearInterval(this.timer);
-  },
-  restart() {
-    this.clearTimer();
-    this.setTimer();
+  clearTimers() {
+    clearInterval(this.interval);
+    clearTimeout(this.timeout);
   },
   getInitialState() {
     return this.resetState(this.props.images);
   },
   componentWillUnmount() {
-    return this.clearTimer();
+    return this.clearTimers();
   },
-  componentDidMount() {
-    return this.setTimer();
-  },
-  componentWillReceiveProps(newProps) {
-    if (this.state.images !== newProps.images) {
-      this.setState(this.resetState(newProps.images));
-      this.restart();
+  componentWillReceiveProps(nextProps) {
+    if (this.state.images !== nextProps.images) {
+      this.clearTimers();
+      this.setState(this.resetState(nextProps.images));
+      this.start();
     }
   },
   render() {
