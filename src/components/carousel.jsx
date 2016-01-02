@@ -1,5 +1,3 @@
-import {default as CarouselSlide} from 'components/carousel-slide';
-
 export default React.createClass({
   resetState(images) {
     return {
@@ -15,13 +13,13 @@ export default React.createClass({
   beforeRender(image) {
     const {enter, leave, active} = this.state;
     if (image === enter) {
-      return 'enter';
+      return 'slide enter';
     } else if (image === leave) {
-      return 'leave';
+      return 'slide leave';
     } else if (image === active) {
-      return 'active';
+      return 'slide active';
     } else {
-      return 'inactive';
+      return 'slide inactive';
     }
   },
   beforeTransition() {
@@ -85,9 +83,7 @@ export default React.createClass({
     return (
       <div className='carousel'>
         {images.map((image, i) => {
-          const activeClass = this.beforeRender(image);
-
-          return <CarouselSlide key={i} active={activeClass} image={image} />;
+          return <div key={i} className={this.beforeRender(image)}><img src={image} /></div>;
         })}
       </div>
     );
