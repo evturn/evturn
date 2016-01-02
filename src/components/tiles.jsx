@@ -5,16 +5,19 @@ export default React.createClass({
     router: React.PropTypes.func
   },
   render() {
-    const {items} = this.props;
+    const {projects, active} = this.props;
 
     return (
       <ul className='tiles'>
-        {items.map((obj, i) => {
+        {projects.map((obj, i) => {
+          const activeClass = obj.id === active ? 'thumb-active' : 'thumb';
+
           return (
-            <li key={i} className='tile'>
+            <li key={i} className={activeClass}>
               <Link to={`work/${obj.id}`}>
                 <div className='frame'>
-                  <img className='img-scale' src={`src/${obj.thumbnail}`} />
+                  <img src={obj.image} />
+                  <div className='shadow' />
                 </div>
               </Link>
             </li>

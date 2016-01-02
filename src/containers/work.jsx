@@ -34,15 +34,23 @@ export default React.createClass({
     }
   },
   render() {
-    const {images, name, description, links, tech} = this.state.project;
+    const {images, name, description, links, tech, id} = this.state.project;
     const {projects} = this.props;
-    const slides = images.map((image) => { return `src/${image}`; });
+    const thumbs = projects.map((project) => {
+      return {
+        id: project.id,
+        image: `src/${project.thumbnail}`
+      };
+    });
+    const slides = images.map((image) => {
+      return `src/${image}`;
+    });
 
     return (
       <div className='work'>
         <div className='project-header'>Projects</div>
         <div className='project-thumbs'>
-          <Tiles items={projects}/>
+          <Tiles projects={thumbs} active={id} />
         </div>
         <div className='project-carousel'>
           <Carousel images={slides} />
