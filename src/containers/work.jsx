@@ -34,14 +34,8 @@ export default React.createClass({
     }
   },
   render() {
+    const {images, name, description, links, tech} = this.state.project;
     const {projects} = this.props;
-    const {
-      images,
-      name,
-      description,
-      links,
-      tech
-    } = this.state.project;
     const slides = images.map((image) => { return `src/${image}`; });
 
     return (

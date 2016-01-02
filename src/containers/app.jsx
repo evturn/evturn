@@ -1,6 +1,6 @@
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
-// import 'sources/google-analytics';
+import 'sources/google-analytics';
 import 'styles/style.less';
 
 export default React.createClass({
@@ -18,6 +18,7 @@ export default React.createClass({
     }
   },
   componentDidMount() {
+    console.log(this.props);
     return this.setState({
       page: this.props.routes[1].name
     });
