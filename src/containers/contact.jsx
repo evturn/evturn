@@ -1,7 +1,7 @@
 import {default as __links} from 'sources/links';
 import {default as IconLinks} from 'components/icon-links';
 
-export default React.createClass({
+export const Contact = React.createClass({
   getDefaultProps() {
     return {
       links: __links

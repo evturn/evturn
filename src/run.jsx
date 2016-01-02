@@ -1,13 +1,14 @@
+import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute} from 'react-router';
 import {createHashHistory} from 'history';
-import {default as App} from 'containers/app';
-import {default as Home} from 'containers/home';
-import {default as About} from 'containers/about';
-import {default as Contact} from 'containers/contact';
-import {default as Work} from'containers/work';
+import {App} from 'containers/app';
+import {Home} from 'containers/home';
+import {About} from 'containers/about';
+import {Contact} from 'containers/contact';
+import {Work} from'containers/work';
 
 const router = (
-  <Router history={createHashHistory()}>
+  <Router history={createHashHistory({queryKey: false})}>
     <Route component={App} path='/' >
       <IndexRoute component={Home} name='home' />
       <Route component={About} path='about' name='about' />
@@ -17,4 +18,4 @@ const router = (
   </Router>
 );
 
-React.render(router, document.getElementById('site-container'));
+ReactDOM.render(router, document.getElementById('site-container'));

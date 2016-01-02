@@ -4,7 +4,7 @@ import {AboutTech} from 'containers/about/about-tech';
 import {AboutBio} from 'containers/about/about-bio';
 import {AboutHeader} from 'containers/about/about-header';
 
-export default React.createClass({
+export const About = React.createClass({
   render() {
     return (
       <div className='about'>

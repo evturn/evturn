@@ -4,7 +4,7 @@ import {default as Header} from 'components/header';
 import 'sources/google-analytics';
 import 'styles/style.less';
 
-export default React.createClass({
+export const App = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -28,6 +28,7 @@ export default React.createClass({
   },
   render() {
     const {page} = this.state;
+
     return (
       <div>
         <Spinner />

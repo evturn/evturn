@@ -4,7 +4,7 @@ import {WorkTech} from 'containers/work/work-tech';
 import {WorkMeta} from 'containers/work/work-meta';
 import {setProject} from 'helpers';
 
-export default React.createClass({
+export const Work = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },

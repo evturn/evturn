@@ -9,7 +9,7 @@
     "dist": "webpack --progress --env=dist",
     "serve:dev": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
-    "dev": "node server.js --env=dev"
+    "dev": "node server.js --progress --inline --env=dev"
   },
   "repository": {
     "type": "git",
