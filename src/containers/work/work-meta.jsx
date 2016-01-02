@@ -13,7 +13,6 @@ export const WorkMeta = React.createClass({
   },
   setupLinks() {
     const {links} = this.state;
-    console.log(links);
     if (links === null) {
       return null;
     }

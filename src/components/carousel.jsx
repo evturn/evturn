@@ -5,7 +5,6 @@ export default React.createClass({
     return {
       images: images,
       active: images[0],
-      total: images.length - 1,
       counter: 0,
       enqueue: 1,
       previous: null,
@@ -26,21 +25,15 @@ export default React.createClass({
     }
   },
   beforeTransition() {
-    const nextIsFirst = this.state.enqueue === 0;
-    const nextIsLast = this.state.enqueue === this.state.total;
-    const nextIsNotLast = this.state.enqueue < this.state.total;
-    const activeIsNotLast = this.state.counter !== this.state.total;
-    const noneIsLast = nextIsNotLast && activeIsNotLast;
-    const showFirst = {counter: 0, enqueue: 1};
-    const showNext = {counter: this.state.counter + 1, enqueue: this.state.enqueue + 1};
-    const showLast = {counter: this.state.counter + 1, enqueue: 0};
+    const {counter, enqueue, images} = this.state;
+    const total = images.length - 1;
 
-    if (noneIsLast) {
-      this.setState(showNext);
-    } else if (nextIsLast) {
-      this.setState(showLast);
-    } else if (nextIsFirst) {
-      this.setState(showFirst);
+    if (enqueue < total && counter !== total) {
+      this.setState({counter: counter + 1, enqueue: enqueue + 1});
+    } else if (enqueue === total) {
+      this.setState({counter: counter + 1, enqueue: 0});
+    } else if (enqueue === 0) {
+      this.setState({counter: 0, enqueue: 1});
     }
 
     this.runTransition();
