@@ -3,6 +3,9 @@ import {default as Overlay} from 'components/overlay';
 import {default as Nav} from 'components/nav';
 
 export default React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   getInitialState() {
     return {
       page: this.props.page,
@@ -12,13 +15,13 @@ export default React.createClass({
   onChildChanged(newOpenState) {
     return this.setState(newOpenState);
   },
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(nextProps) {
     return this.setState({
-      page: newProps.page
+      page: nextProps.page
     });
   },
   render() {
-    const {page, open} = this.state;
+    const {open, page} = this.state;
 
     return (
       <div>

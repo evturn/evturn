@@ -1,9 +1,11 @@
 export default React.createClass({
   onLoaded() {
     window.addEventListener('DOMContentLoaded', () => {
-      return this.setState({
-        hidden: true
-      });
+      setTimeout(() => {
+        return this.setState({
+          hidden: true
+        });
+      }, 2000);
     });
   },
   getInitialState() {

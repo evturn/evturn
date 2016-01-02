@@ -13,11 +13,11 @@ export default React.createClass({
       page: 'home'
     };
   },
-  componentWillReceiveProps(newProps) {
-    const newPage = newProps.routes[1].name;
-    if (this.state.page !== newPage) {
+  componentWillReceiveProps(nextProps) {
+    const route = nextProps.routes[1].name;
+    if (this.state.page !== route) {
       return this.setState({
-        page: newPage
+        page: route
       });
     }
   },
@@ -28,7 +28,6 @@ export default React.createClass({
   },
   render() {
     const {page} = this.state;
-
     return (
       <div>
         <Spinner />
