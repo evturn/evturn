@@ -17,6 +17,7 @@ export default React.createClass({
   },
   getInitialState() {
     return {
+      page: this.props.page,
       open: this.props.initialOpen
     };
   },
@@ -29,10 +30,13 @@ export default React.createClass({
     this.props.callbackParent(newOpenState);
   },
   componentWillReceiveProps(nextProps) {
-    if (this.state.open !== nextProps.open) {
-      return this.setState({
-        open: nextProps.open
-      });
+    const {open, page} = nextProps;
+    if (this.state.open !== open) {
+      this.setState({open});
+    }
+
+    if (this.state.page !== page) {
+      this.setState({page});
     }
   },
   setPageLinks(page) {
@@ -47,28 +51,36 @@ export default React.createClass({
   },
   render() {
     const {pages, openClassName} = this.props;
-    const {open} = this.state;
+    const {open, page} = this.state;
     const openClass = open ? openClassName : '';
 
     return (
-      <div className={openClass}>
-        <nav className='menu'>
-          <div className='menu-header'>
-            <div className='menu-icon' onClick={this.handleClick}>
-              <span className='fa fa-times'></span>
-            </div>
+      <header>
+        <div className={`logo-${page}`}>
+          <img src='src/images/site/ev-av.png' />
+        </div>
+        <nav className={openClass}>
+          <div className={`burger-${page}`} onClick={this.handleClick}>
+            <span className='fa fa-bars'></span>
           </div>
-          <ul className='flex'>
-            {pages.map((page, i) => {
-              return (
-                <li key={i} className='menu-item' onClick={this.handleClick}>
-                  {this.setPageLinks(page)}
-                </li>
-                );
-            })}
-          </ul>
+          <div className='menu'>
+            <div className='menu-header'>
+              <div className='menu-icon' onClick={this.handleClick}>
+                <span className='fa fa-times'></span>
+              </div>
+            </div>
+            <ul className='flex'>
+              {pages.map((page, i) => {
+                return (
+                  <li key={i} className='menu-item' onClick={this.handleClick}>
+                    {this.setPageLinks(page)}
+                  </li>
+                  );
+              })}
+            </ul>
+          </div>
         </nav>
-      </div>
+      </header>
     );
   }
 });

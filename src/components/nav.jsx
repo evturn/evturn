@@ -29,15 +29,13 @@ export default React.createClass({
   },
   render() {
     const {page} = this.state;
-    const logo = `logo-${page}`;
-    const burger = `burger-${page}`;
 
     return (
       <div>
-        <div className={logo}>
-          <img className='img-scale' src='src/images/site/ev-av.png' />
+        <div className={`logo-${page}`}>
+          <img src='src/images/site/ev-av.png' />
         </div>
-        <div className={burger} onClick={this.handleClick}>
+        <div className={`burger-${page}`} onClick={this.handleClick}>
           <span className='fa fa-bars'></span>
         </div>
       </div>

@@ -30,19 +30,12 @@ export default React.createClass({
           open={open}
           callbackParent={this.onChildChanged}
         />
-        <header>
-          <Nav
-            initialOpen={open}
-            open={open}
-            callbackParent={this.onChildChanged}
-            page={page}
-          />
-          <Menu
-            initialOpen={open}
-            open={open}
-            callbackParent={this.onChildChanged}
-          />
-        </header>
+        <Menu
+          initialOpen={open}
+          open={open}
+          callbackParent={this.onChildChanged}
+          page={page}
+        />
       </div>
     );
   }
