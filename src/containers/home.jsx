@@ -1,5 +1,6 @@
-import {default as __videos} from 'sources/videos';
 import {default as Video} from 'components/video';
+import {HomeBanner} from 'containers/home/home-banner';
+import {default as __videos} from 'sources/videos';
 
 export default React.createClass({
   getDefaultProps() {
@@ -14,11 +15,8 @@ export default React.createClass({
 
     return (
       <div className='home'>
-        <Video playlist={videos}/>
-        <div className='home-banner'>
-          <h3 className='home-title'>{title}</h3>
-          <h3 className='home-description'>{description}</h3>
-        </div>
+        <Video playlist={videos} />
+        <HomeBanner title={title} description={description} />
       </div>
     );
   }
