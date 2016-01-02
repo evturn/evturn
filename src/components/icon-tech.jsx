@@ -16,6 +16,7 @@ export const TechItems = React.createClass({
             <Icon
               key={i}
               icon={obj.icon}
+              classname={obj.icon}
               caption={obj.name}
               width={width}
             />
