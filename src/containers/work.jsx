@@ -56,7 +56,7 @@ export default React.createClass({
         <div className='project-info'>
           <div className='project-title'>{name}</div>
           <div className='project-description'>{description}</div>
-          {this.hasLinks(links)}
+          <div className='project-links'>{this.hasLinks(links)}</div>
         </div>
         <div className='project-tech'>
           <div className='project-title'>Made with</div>

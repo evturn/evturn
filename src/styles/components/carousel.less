@@ -5,8 +5,11 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  border-bottom: 1px solid fade(#cccccc, 60);
-  border-top: 1px solid fade(#cccccc, 60);
+  border-bottom: 1px solid fade(@tx-accent, 60);
+  border-top: 1px solid fade(@tx-accent, 60);
+  @media(@tablet-portrait) {
+    border-left: 1px solid fade(@tx-accent, 60);
+  }
 }
 
 .slide {
