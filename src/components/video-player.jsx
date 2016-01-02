@@ -1,43 +1,12 @@
 export const VideoPlayer = React.createClass({
-  beginPlayback() {
-    const {current} = this.state;
-    const {playlist} = this.props;
-
-    this.player.src = playlist[current];
-    this.player.play;
-    this.player.playbackRate = 0.5;
-  },
-  onVideoEnded() {
-    this.player.addEventListener('ended', () => {
-      this.setNextVideo();
-    });
-  },
-  onVideoPlay() {
-    this.player.addEventListener('playing', () => {
-      const readyState = {contentReady: true};
-      this.setState(readyState);
-      this.props.onContentReady(readyState);
-    });
-  },
-  setNextVideo() {
-    const {playlist} = this.props;
-    const {current} = this.state;
-
-    if (current === playlist.length - 1) {
-      this.setState({current: 0});
-    } else {
-      this.setState({current: current + 1});
-    }
-
-    this.beginPlayback();
-  },
   getDefaultProps() {
     return {
       autoPlay: true,
       muted: true,
       type: 'video/mp4',
       preload: 'auto',
-      poster: 'src/assets/images/site/banana-plants.png'
+      poster: 'src/assets/images/site/banana-plants.png',
+      playbackRate: 0.5
     };
   },
   getInitialState() {
@@ -50,12 +19,54 @@ export const VideoPlayer = React.createClass({
   componentDidMount() {
     this.onVideoEnded();
     this.onVideoPlay();
-    this.beginPlayback();
+    this.onVideoError();
+  },
+  componentWillReceiveProps(nextProps) {
+    if (this.state.contentReady !== nextProps.contentReady) {
+      return this.setState({
+        contentReady: nextProps.contentReady
+      });
+    }
+  },
+  onVideoEnded() {
+    this.player.addEventListener('ended', () => {
+      this.setVideoSrc();
+    });
+  },
+  onVideoPlay() {
+    this.player.addEventListener('playing', () => {
+      this.player.playbackRate = this.props.playbackRate;
+      this.props.onContentReady({contentReady: false});
+    });
+  },
+  onVideoError() {
+    setTimeout(() => {
+      if (!this.state.contentReady) {
+        return this.props.onContentReady({contentReady: true});
+      }
+    }, 5000);
+  },
+  setVideoSrc() {
+    const {playlist} = this.props;
+    const {current} = this.state;
+
+    if (current === playlist.length - 1) {
+      this.setState({current: 0});
+    } else {
+      this.setState({current: current + 1});
+    }
+
+    this.player.src = playlist[current];
+    this.player.playbackRate = this.props.playbackRate;
   },
   render() {
     return (
       <div className='animated fadeIn'>
-        <video ref={(player) => this.player = player} {...this.props} {...this.state}></video>
+        <video
+          ref={(player) => this.player = player}
+          {...this.props}
+          {...this.state}
+        />
       </div>
     );
   }

@@ -20,22 +20,26 @@ export const Home = React.createClass({
   onContentReady(readyState) {
     return this.setState(readyState);
   },
-  componentDidMount() {
-    setTimeout(() => {
-      if (!this.state.contentReady) {
-        return this.setState({contentReady: true});
-      }
-    }, 4000);
-  },
   render() {
     const {title, description, playlist} = this.props;
     const {page, contentReady} = this.state;
 
     return (
       <div className='home'>
-        <Spinner page={page} contentReady={contentReady} onContentReady={this.onContentReady} />
-        <VideoPlayer playlist={playlist} contentReady={contentReady} onContentReady={this.onContentReady} />
-        <HomeBanner title={title} description={description} />
+        <Spinner
+          page={page}
+          contentReady={contentReady}
+        />
+        <VideoPlayer
+          playlist={playlist}
+          contentReady={contentReady}
+          onContentReady={this.onContentReady}
+        />
+        <HomeBanner
+          contentReady={contentReady}
+          title={title}
+          description={description}
+        />
       </div>
     );
   }

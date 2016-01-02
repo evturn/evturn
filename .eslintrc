@@ -23,6 +23,7 @@
     "no-trailing-spaces": [
       1, { "skipBlankLines": true }
     ],
+    "no-debugger": 0,
     "no-undef": 0,
     "no-unused-vars": 0,
     "no-underscore-dangle": 0,
