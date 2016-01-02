@@ -46,7 +46,9 @@ export default React.createClass({
 
     return (
       <div className='work'>
-        <Carousel images={slides} />
+        <div className='project-carousel'>
+          <Carousel images={slides} />
+        </div>
         <div className='project-details'>
           <div className='project-info'>
             <div className='project-title'>{name}</div>
@@ -55,10 +57,10 @@ export default React.createClass({
           <div className='project-links'>
             {this.hasLinks(links)}
           </div>
-        </div>
-        <div className='project-tech'>
-          <div className='project-title'>Made with</div>
-          <ProjectTech items={tech} width={'item-25'} />
+          <div className='project-tech'>
+            <div className='project-title'>Made with</div>
+            <ProjectTech items={tech} width={'item-25'} />
+          </div>
         </div>
         <div className='projects'>
           <div className='projects-header'>Projects</div>

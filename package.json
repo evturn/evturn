@@ -5,11 +5,11 @@
   "main": "",
   "scripts": {
     "clean": "rimraf dist/*",
-    "dist": "webpack --env=dist",
     "lint": "eslint ./src",
-    "serve": "node server.js --env=dev",
+    "dist": "webpack --env=dist",
+    "serve:dev": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
-    "start": "node server.js --env=dev"
+    "dev": "node server.js --env=dev"
   },
   "repository": {
     "type": "git",

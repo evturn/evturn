@@ -98,9 +98,7 @@ export default React.createClass({
         {images.map((image, i) => {
           const activeClass = this.beforeRender(image);
 
-          return (
-            <CarouselSlide key={i} active={activeClass} image={image} />
-          );
+          return <CarouselSlide key={i} active={activeClass} image={image} />;
         })}
       </div>
     );
