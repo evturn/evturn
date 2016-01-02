@@ -1,6 +1,6 @@
 import {default as Carousel} from 'components/carousel';
 import {TechItems as ProjectTech} from 'components/icon-tech';
-import {default as Thumbnails} from 'components/thumbnails';
+import {default as Thumbnail} from 'components/thumbnail';
 import {default as IconLinks} from 'components/icon-links';
 import {setProjectCarouselSlides, setProjectThumbnails, getRelativePath, setProject, setFeaturedProjects} from 'helpers';
 
@@ -27,7 +27,11 @@ const WorkThumbnails = React.createClass({
 
     return (
       <div className='project-thumbs'>
-        <Thumbnails projects={thumbs} activeId={activeId} />
+        <ul className='tiles'>
+          {thumbs.map((obj, i) => {
+            return <Thumbnail key={i} project={obj} activeId={activeId} />;
+          })}
+        </ul>
       </div>
     );
   }

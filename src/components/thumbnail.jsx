@@ -1,6 +1,6 @@
 import {Link} from 'react-router';
 
-const Thumbnail = React.createClass({
+export default React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -31,37 +31,6 @@ const Thumbnail = React.createClass({
           </div>
         </Link>
       </li>
-    );
-  }
-});
-
-export default React.createClass({
-  getInitialState() {
-    return {
-      activeId: this.props.activeId
-    };
-  },
-  componentWillReceiveProps(nextProps) {
-    return this.setState({
-      activeId: nextProps.activeId
-    });
-  },
-  render() {
-    const {projects} = this.props;
-    const {activeId} = this.state;
-
-    return (
-      <ul className='tiles'>
-        {projects.map((obj, i) => {
-          return (
-            <Thumbnail
-              key={i}
-              project={obj}
-              activeId={activeId}
-            />
-          );
-        })}
-      </ul>
     );
   }
 });
