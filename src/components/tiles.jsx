@@ -11,7 +11,7 @@ export default React.createClass({
       <ul className='tiles'>
         {items.map((obj, i) => {
           return (
-            <li key={i} className='project-thumb'>
+            <li key={i} className='tile'>
               <Link to={`work/${obj.id}`}>
                 <div className='frame'>
                   <img className='img-scale' src={`src/${obj.thumbnail}`} />
