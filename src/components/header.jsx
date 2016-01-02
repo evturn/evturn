@@ -1,6 +1,5 @@
 import {default as Menu} from 'components/menu';
 import {default as Overlay} from 'components/overlay';
-import {default as Nav} from 'components/nav';
 
 export default React.createClass({
   contextTypes: {

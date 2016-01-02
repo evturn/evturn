@@ -1,7 +1,7 @@
 import {default as Carousel} from 'components/carousel';
 import {TechItems as ProjectTech} from 'components/icon-tech';
 import {default as Tiles} from 'components/tiles';
-import {default as Links} from 'components/links';
+import {default as IconLinks} from 'components/icon-links';
 import {setProject, setFeaturedProjects} from 'helpers';
 
 export default React.createClass({
@@ -9,7 +9,7 @@ export default React.createClass({
     router: React.PropTypes.func
   },
   hasLinks(links) {
-    return links === null ? '' : <Links items={links} circles={false} />;
+    return links === null ? '' : <IconLinks items={links} classname={'square'} />;
   },
   getDefaultProps() {
     return {

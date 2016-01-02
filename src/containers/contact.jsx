@@ -1,5 +1,5 @@
 import {default as __links} from 'sources/links';
-import {default as Links} from 'components/links';
+import {default as IconLinks} from 'components/icon-links';
 
 export default React.createClass({
   getDefaultProps() {
@@ -12,7 +12,7 @@ export default React.createClass({
 
     return (
       <div className='backdrop animated fadeIn'>
-        <Links items={links} circles={true} />
+        <IconLinks items={links} classname={'circle'} />
       </div>
     );
   }
