@@ -36,7 +36,7 @@ export const VideoPlayer = React.createClass({
   onVideoPlay() {
     this.player.addEventListener('playing', () => {
       this.player.playbackRate = this.props.playbackRate;
-      this.props.onContentReady({contentReady: false});
+      this.props.onContentReady({contentReady: true});
     });
   },
   onVideoError() {

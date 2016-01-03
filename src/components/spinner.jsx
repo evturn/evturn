@@ -12,29 +12,29 @@ export const Spinner = React.createClass({
     };
   },
   componentWillReceiveProps(nextProps) {
-    return this.setState({
-      contentReady: nextProps.contentReady
-    });
+    if (this.state.contentReady !== nextProps.contentReady) {
+      return this.setState({
+        contentReady: nextProps.contentReady,
+        hidden: 'hidden'
+      });
+    }
   },
-  removeFromDOM() {
+  componentDidMount() {
     return this.setState({
-      display: 'animated fadeOut'
+      display: 'fadeOut'
     });
   },
   render() {
     const {image} = this.props;
-    const {contentReady} = this.state;
-    const display = contentReady ? this.removeFromDOM() : null;
+    const {display, hidden} = this.state;
 
     return (
-
-        <div className={`spinner ${display}`}>
-          <div className='animation'></div>
-          <div className={`spinner-logo ${display}`}>
-            <img className='spinner-image' src={image} />
-          </div>
+      <div className={`spinner animated ${display} ${hidden}`}>
+        <div className='animation'></div>
+        <div className='spinner-logo'>
+          <img className='spinner-image' src={image} />
         </div>
-
+      </div>
     );
   }
 });

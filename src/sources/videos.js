@@ -1,8 +1,5 @@
 'use strict';
 export default [
-  'src/sources/vidz.m4v',
-  'src/sources/vidz.m4v',
-  'src/sources/vidz.m4v',
   'https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1',
   'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1',
   'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1',
