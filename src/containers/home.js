@@ -1,4 +1,3 @@
-import {Spinner} from 'components/spinner';
 import {VideoPlayer} from 'components/video-player';
 import {HomeBanner} from 'containers/home/home-banner';
 import {default as __videos} from 'sources/videos';
@@ -12,34 +11,21 @@ export const Home = React.createClass({
     };
   },
   getInitialState() {
-    return {
-      contentReady: false,
-      page: this.props.page
-    };
+    return { spinning: this.props.spinning };
   },
-  onContentReady(readyState) {
-    return this.setState(readyState);
+  onContentLoaded(readyState) {
+    this.props.onInitialLoad(readyState);
   },
   render() {
-    const {title, description, playlist} = this.props;
-    const {page, contentReady} = this.state;
-
     return (
       <div className='home'>
-        <Spinner
-          page={page}
-          contentReady={contentReady}
-        />
         <VideoPlayer
-          playlist={playlist}
-          contentReady={contentReady}
-          onContentReady={this.onContentReady}
-        />
+          playlist={this.props.playlist}
+          onContentLoaded={this.onContentLoaded} />
         <HomeBanner
-          contentReady={contentReady}
-          title={title}
-          description={description}
-        />
+          contentReady={this.props.spinning}
+          title={this.props.title}
+          description={this.props.description} />
       </div>
     );
   }
