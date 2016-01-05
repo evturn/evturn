@@ -24,12 +24,15 @@ export const App = React.createClass({
     this.setState({ page: this.props.routes[1].name });
   },
   render() {
-    const child = !this.state.page === 'home' ? this.props.children : this.renderChild();
+    const isHome = this.state.page === 'home';
+    const child = isHome ? this.renderChild() : this.props.children;
+    const spinner = isHome ? <Spinner spinning={this.state.spinning} /> : null;
+    const header = !this.state.spinning ? <Header {...this.props} {...this.state} /> : null;
 
     return (
       <div>
-        <Spinner spinning={this.state.spinning} />
-        <Header {...this.props} {...this.state} />
+        {spinner}
+        {header}
         {child}
         <Footer {...this.props} {...this.state} />
       </div>
