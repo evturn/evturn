@@ -1,20 +1,24 @@
 export const Spinner = React.createClass({
   getDefaultProps() {
-    return {
-      image: 'src/assets/images/site/ev-av.png'
-    };
+    return { image: 'src/assets/images/site/ev-av.png' };
   },
   getInitialState() {
     return {
       animation: '',
-      spinning: this.props.spinning
+      ready: this.props.ready
     };
   },
   componentWillReceiveProps(nextProps) {
-    if (nextProps.spinning === false) {
-      this.setState({spinning: nextProps.spinning});
-      this.endAnimation();
+    if (this.state.ready) {
+      return;
+    } else if (nextProps.ready === true && this.state.animation === '') {
+      this.setState({
+        ready: nextProps.ready,
+        animation: 'animated fadeOut'
+      });
     }
+
+    setTimeout(() => this.setState({ animation: 'hidden' }), 2000);
   },
   render() {
     return (
@@ -25,12 +29,5 @@ export const Spinner = React.createClass({
         </div>
       </div>
     );
-  },
-  endAnimation() {
-    this.setState({animation: 'animated fadeOut'});
-    setTimeout(() => this.hideSpinner(), 2000);
-  },
-  hideSpinner() {
-    this.setState({animation: 'hidden'});
   }
 });

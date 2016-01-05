@@ -14,12 +14,14 @@ export const VideoPlayer = React.createClass({
     return {
       current: 0,
       src: this.props.playlist[0],
-      playing: false
+      ready: this.props.ready
     };
   },
   componentDidMount() {
-    this.onVideoEnded();
-    this.onVideoPlay();
+    this.addListeners();
+  },
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ready: nextProps.ready });
   },
   render() {
     return (
@@ -31,23 +33,20 @@ export const VideoPlayer = React.createClass({
       </div>
     );
   },
-  onVideoEnded() {
+  addListeners() {
     this.player.addEventListener('ended', () => this.setVideoSrc());
-  },
-  onVideoPlay() {
-      this.player.addEventListener('playing', () => {
-        if (!this.state.playing) {
-          this.props.onContentLoaded(true);
-          this.setState({playing: true});
-          this.player.playbackRate = this.props.playbackRate;
-        }
-      });
+    this.player.addEventListener('playing', () => {
+      if (!this.state.ready) {
+        this.props.onReady(true);
+        this.player.playbackRate = this.props.playbackRate;
+      }
+    });
   },
   setVideoSrc() {
     if (this.state.current === this.props.playlist.length - 1) {
-      this.setState({current: 0});
+      this.setState({ current: 0 });
     } else {
-      this.setState({current: this.state.current + 1});
+      this.setState({ current: this.state.current + 1 });
     }
 
     this.player.src = this.props.playlist[this.state.current];
