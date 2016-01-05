@@ -6,6 +6,7 @@ import {Home} from 'containers/home';
 import {About} from 'containers/about';
 import {Contact} from 'containers/contact';
 import {Work} from'containers/work';
+import 'styles/style.less';
 
 const router = (
   <Router history={createHashHistory({queryKey: false})}>

@@ -2,7 +2,6 @@
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import 'sources/google-analytics';
-import 'styles/style.less';
 
 export const App = React.createClass({
   componentWillReceiveProps(nextProps) {

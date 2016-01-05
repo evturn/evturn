@@ -18,7 +18,7 @@ export const Spinner = React.createClass({
       });
     }
 
-    setTimeout(() => this.setState({ animation: 'hidden' }), 2000);
+    setTimeout(() => this.setState({ animation: 'hidden' }), 1000);
   },
   render() {
     return (
