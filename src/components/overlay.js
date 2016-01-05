@@ -1,27 +1,27 @@
 export default React.createClass({
+  getDefaultProps() {
+    return {
+      visible: 'overlay'
+    };
+  },
   getInitialState() {
     return {
-      open: this.props.initialOpen
+      open: this.props.open
     };
   },
   handleClick() {
-    const newOpenState = {
-      open: !this.state.open
-    };
-
-    this.setState(newOpenState);
-    this.props.callbackParent(newOpenState);
+    this.props.callbackParent({ open: false });
   },
-  componentWillReceiveProps(newProps) {
-    if (this.state.open !== newProps.open) {
+  componentWillReceiveProps(nextProps) {
+    if (this.state.open !== nextProps.open) {
       this.setState({
-        open: newProps.open
+        open: nextProps.open
       });
     }
   },
   render() {
-    const openClass = this.state.open ? 'overlay' : '';
+    const open = this.state.open ? this.props.visible : '';
 
-    return <div className={openClass} onClick={this.handleClick} />;
+    return <div className={open} onClick={this.handleClick} />;
   }
 });

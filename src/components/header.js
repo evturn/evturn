@@ -20,13 +20,10 @@ export default React.createClass({
     });
   },
   render() {
-    const {open, page} = this.state;
-
     return (
       <div>
         <Overlay
-          initialOpen={this.state.open}
-          open={open}
+          open={this.state.open}
           callbackParent={this.onChildChanged}
         />
         <Menu
