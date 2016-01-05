@@ -2,52 +2,32 @@ import {IndexLink, Link} from 'react-router';
 import {getRelativePath} from 'helpers';
 
 export default React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
   getDefaultProps() {
     return {
+      visible: { 'right': '0' },
+      hidden: { 'right': '-21em' },
       pages: [
-        {name: 'Home',    route: '/'      , id: 1},
-        {name: 'Work',    route: 'work'   , id: 2},
-        {name: 'About',   route: 'about'  , id: 3},
-        {name: 'Contact', route: 'contact', id: 4}
+        { name: 'Home',    route: '/'      , id: 1 },
+        { name: 'Work',    route: 'work'   , id: 2 },
+        { name: 'About',   route: 'about'  , id: 3 },
+        { name: 'Contact', route: 'contact', id: 4 }
       ]
     };
   },
   getInitialState() {
     return {
       page: this.props.page,
-      open: this.props.initialOpen,
-      visibleClass: ''
+      open: this.props.open
     };
   },
   handleClick() {
-    const newOpenState = {
-      open: !this.state.open
-    };
-
-    this.setVisible(newOpenState.open);
-    this.setState(newOpenState);
-    this.props.callbackParent(newOpenState);
-  },
-  setVisible(open) {
-    const visibleClass = open ? 'open' : '';
-
-    return this.setState({visibleClass});
+    this.props.callbackParent({ open: !this.state.open });
   },
   componentWillReceiveProps(nextProps) {
-    const {open, page} = nextProps;
-
-    if (this.state.open !== open) {
-      this.setState({open});
-    }
-
-    if (this.state.page !== page) {
-      this.setState({page});
-    }
-
-    this.setVisible(open);
+    this.setState({
+      open: nextProps.open,
+      page: nextProps.page
+    });
   },
   setPageLinks(page) {
     const {route, name, id} = page;
@@ -60,26 +40,25 @@ export default React.createClass({
     }
   },
   render() {
-    const {pages} = this.props;
-    const {open, page, visibleClass} = this.state;
+    const open = this.state.open ? this.props.visible : this.props.hidden;
 
     return (
       <header>
-        <div className={`logo-${page}`}>
+        <div className={`logo-${this.state.page}`}>
           <img src='src/assets/images/site/ev-av.png' />
         </div>
-        <nav className={visibleClass}>
-          <div className={`burger-${page}`} onClick={this.handleClick}>
+        <nav>
+          <div className={`burger-${this.state.page}`} onClick={this.handleClick}>
             <span className='fa fa-bars'></span>
           </div>
-          <div className='menu'>
+          <div style={open} className='menu'>
             <div className='menu-header'>
               <div className='menu-icon' onClick={this.handleClick}>
                 <span className='fa fa-times'></span>
               </div>
             </div>
             <ul className='flex'>
-              {pages.map((page, i) => {
+              {this.props.pages.map((page, i) => {
                 return (
                   <li key={i} className='menu-item' onClick={this.handleClick}>
                     {this.setPageLinks(page)}

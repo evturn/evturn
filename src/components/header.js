@@ -11,8 +11,8 @@ export default React.createClass({
       open: false
     };
   },
-  onChildChanged(newOpenState) {
-    return this.setState(newOpenState);
+  onChildChanged(openState) {
+    return this.setState(openState);
   },
   componentWillReceiveProps(nextProps) {
     return this.setState({
@@ -25,15 +25,14 @@ export default React.createClass({
     return (
       <div>
         <Overlay
-          initialOpen={open}
+          initialOpen={this.state.open}
           open={open}
           callbackParent={this.onChildChanged}
         />
         <Menu
-          initialOpen={open}
-          open={open}
+          open={this.state.open}
           callbackParent={this.onChildChanged}
-          page={page}
+          page={this.state.page}
         />
       </div>
     );
