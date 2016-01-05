@@ -4,12 +4,6 @@ import {default as Header} from 'components/header';
 import 'sources/google-analytics';
 
 const Wrapper = React.createClass({
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({
-  //     page: nextProps.page,
-  //     component: nextProps.component
-  //   });
-  // },
   render() {
     return (
       <div>
