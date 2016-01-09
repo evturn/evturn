@@ -13,6 +13,14 @@ export default class Home extends Component {
     this.videos = __videos;
     this.title = 'Evan Turner';
     this.description = 'Web Developer';
+    this.state = { banner: null };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        banner: <HomeBanner title={this.title} description={this.description} />
+      });
+    }, 100);
   }
   render() {
     return (
@@ -20,10 +28,7 @@ export default class Home extends Component {
         <AltContainer stores={[VideoStore]}>
           <Video videos={this.videos}/>
         </AltContainer>
-        <HomeBanner
-          title={this.title}
-          description={this.description}
-        />
+        {this.state.banner}
       </div>
     );
   }

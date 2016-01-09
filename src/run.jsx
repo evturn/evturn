@@ -2,9 +2,9 @@ import 'styles/style.less';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute} from 'react-router';
 import {createHashHistory} from 'history';
-import App from 'containers/app';
-import Home from 'containers/home';
-import Work from'containers/work';
+import App from 'containers/App';
+import Home from 'containers/Home';
+import Work from'containers/Work';
 import {About} from 'containers/about';
 import {Contact} from 'containers/contact';
 
