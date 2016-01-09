@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import Carousel from 'components/Carousel';
-import WorkThumbnails from 'containers/work/work-thumbnails';
+import Thumbnails from 'components/Thumbnails';
 import {WorkTech} from 'containers/work/work-tech';
 import {WorkMeta} from 'containers/work/work-meta';
 import AltContainer from 'alt-container';
@@ -31,7 +31,7 @@ export default class Work extends Component {
       <AltContainer stores={[ProjectStore]}>
         <div className='work'>
           <div className='project-header'>Projects</div>
-          <WorkThumbnails thumbs={thumbs} activeId={activeId} />
+          <Thumbnails thumbs={thumbs} activeId={activeId} />
           <AltContainer stores={[CarouselStore]}>
             <Carousel images={images} />
           </AltContainer>

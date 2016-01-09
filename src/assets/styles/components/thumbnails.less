@@ -1,0 +1,63 @@
+.tile {
+  width: 12.5%;
+  transition: 0.3s;
+}
+
+.thumb {
+  .tile;
+  &:hover {
+    @media(min-width: 1024px) {
+      .thumb-active;
+    }
+  }
+}
+
+.thumb-active {
+  .tile;
+  transform: scale(1.07);
+  .shadow {
+    opacity: 0.3;
+  }
+}
+
+.project-thumbs {
+  width: 100%;
+  .tiles {
+    .flex;
+    overflow: auto;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+}
+
+img {
+  .img-scale;
+}
+
+.frame {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin: 2.5px;
+  @media (@tablet-portrait) {
+    margin: 5px;
+  }
+}
+
+.frame:hover .shadow {
+  @media(@tablet) {
+    opacity: 0.3;
+  }
+}
+
+.shadow {
+  box-shadow: inset 0px -196px 198px -142px rgba(0, 0, 0, 0.3);
+  transition: all 0.7s ease;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
