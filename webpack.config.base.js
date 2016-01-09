@@ -22,11 +22,13 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
+      actions:    path.join(__dirname, './src/actions/'),
       containers: path.join(__dirname, './src/containers/'),
       components: path.join(__dirname, './src/components/'),
       helpers:    path.join(__dirname, './src/helpers/'),
       sources:    path.join(__dirname, './src/sources/'),
       images:     path.join(__dirname, './src/assets/images/'),
+      stores:    path.join(__dirname, './src/stores/'),
       styles:     path.join(__dirname, './src/assets/styles/')
     }
   },

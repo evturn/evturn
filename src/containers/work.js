@@ -1,45 +1,37 @@
+import {Component} from 'react';
 import {WorkCarousel} from 'containers/work/work-carousel';
 import {WorkThumbnails} from 'containers/work/work-thumbnails';
 import {WorkTech} from 'containers/work/work-tech';
 import {WorkMeta} from 'containers/work/work-meta';
-import {setProject} from 'helpers';
+import AppStore from 'stores/AppStore';
+import AppActions from 'actions/AppActions';
 
-export const Work = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
-  getDefaultProps() {
-    return {
-      title: 'Projects'
+export default class Work extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      project: AppActions.setProject(),
+      activeId: props.params.id
     };
-  },
-  getInitialState() {
-    return {
-      project: setProject(),
-      activeId: this.props.params.id
-    };
-  },
+  }
   componentWillReceiveProps(nextProps) {
-    const projectId = nextProps.params.id;
-
-    return this.setState({
-      project: setProject(projectId),
-      activeId: projectId
-    });
-  },
+    return AppActions.setProject(nextProps.params.id);
+  }
   render() {
-    const {title} = this.props;
-    const {images, name, description, links, tech, id} = this.state.project;
-    const {activeId} = this.state;
+    const {
+      images, name, description,
+      links, tech, id
+    } = this.state.project;
 
     return (
       <div className='work'>
-        <div className='project-header'>{title}</div>
-        <WorkThumbnails activeId={activeId} />
+        <div className='project-header'>Projects</div>
+        <WorkThumbnails activeId={this.state.activeId} />
         <WorkCarousel images={images} />
         <WorkMeta name={name} description={description} links={links} />
         <WorkTech items={tech}/>
       </div>
     );
   }
-});
+}

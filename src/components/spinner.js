@@ -1,4 +1,4 @@
-export const Spinner = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return { image: 'src/assets/images/site/ev-av.png' };
   },

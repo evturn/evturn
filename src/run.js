@@ -1,12 +1,12 @@
+import 'styles/style.less';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute} from 'react-router';
 import {createHashHistory} from 'history';
-import {App} from 'containers/app';
-import {Home} from 'containers/home';
+import App from 'containers/app';
+import Home from 'containers/home';
+import Work from'containers/work';
 import {About} from 'containers/about';
 import {Contact} from 'containers/contact';
-import {Work} from'containers/work';
-import 'styles/style.less';
 
 const router = (
   <Router history={createHashHistory({queryKey: false})}>

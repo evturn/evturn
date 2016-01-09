@@ -1,9 +1,9 @@
-import {Spinner} from 'components/spinner';
+import Spinner from 'components/spinner';
 import {VideoPlayer} from 'components/video-player';
 import {HomeBanner} from 'containers/home/home-banner';
 import {default as __videos} from 'sources/videos';
 
-export const Home = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       title: 'Evan Turner',
@@ -24,10 +24,12 @@ export const Home = React.createClass({
         <VideoPlayer
           ready={this.state.ready}
           onReady={this.onReady}
-          playlist={this.props.playlist} />
+          playlist={this.props.playlist}
+        />
         <HomeBanner
           title={this.props.title}
-          description={this.props.description} />
+          description={this.props.description}
+        />
       </div>
     );
   },
