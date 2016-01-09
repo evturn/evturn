@@ -13,7 +13,6 @@ export default class Work extends Component {
     super(props);
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     if (this.props.params.id !== nextProps.params.id) {
       ProjectActions.setProject(nextProps.params.id);
     }

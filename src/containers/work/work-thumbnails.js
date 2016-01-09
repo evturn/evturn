@@ -9,9 +9,7 @@ export default class WorkThumbnails extends Component {
     const thumbnails = this.renderThumbs();
     return (
       <div className='project-thumbs'>
-        <ul className='tiles'>
-          {thumbnails}
-        </ul>
+        <ul className='tiles'>{thumbnails}</ul>
       </div>
     );
   }

@@ -9,6 +9,7 @@ class ProjectStore {
     this.bindActions(ProjectActions);
     this.software = __tech;
     this.projects = __projects;
+    this.thumbnails = null;
   }
   static all() {
     const internalState = this.getState();
@@ -17,35 +18,32 @@ class ProjectStore {
   static next(id) {
     this.setProject(id);
   }
-  setFeaturedTech() {
-    return getFeatured(this.software);
-  }
-  getFeatured(dataSource) {
-    const featured = [];
-
-    for (let obj of dataSource) {
-      obj.featured ? featured.push(obj) : '';
-    }
-    return featured;
-  }
-  setProject(projectId = 1) {
-    const tech = [];
+  getProjectById(id) {
     let found = false;
     let result = this.projects.filter((p) => {
-      if (p.id === parseInt(projectId)) {
+      if (p.id === parseInt(id)) {
         found = true;
         return p;
       }
     });
 
-    if (!found) {
-      result = this.projects[0];
-    }
+    if (!found) { result = this.projects[0]; }
+    if (Array.isArray(result)) { [result] = result; }
 
-    if (Array.isArray(result)) {
-      [result] = result;
-    }
-    for (let id of result.techIds) {
+    return result;
+  }
+  setThumbnails() {
+    this.thumbnails = this.projects.map((thumb) => {
+      return {
+        id: thumb.id,
+        image: this.getRelativePath(thumb.thumbnail)
+      };
+    });
+  }
+  setTech(ids) {
+    const tech = [];
+
+    for (let id of ids) {
       for (let obj of this.software) {
         if (id === obj.id) {
           tech.push(obj);
@@ -53,17 +51,21 @@ class ProjectStore {
       }
     }
 
-    const thumbnails = this.projects.map((thumb) => {
-      return {
-        id: thumb.id,
-        image: this.getRelativePath(thumb.thumbnail)
-      };
-    });
-
-    const images = result.images.map((image) => {
+    return tech;
+  }
+  setSlides(images) {
+    return images.map((image) => {
       return this.getRelativePath(image);
     });
+  }
+  setProject(projectId = 1) {
+    if (this.thumbnails === null) {
+      this.setThumbnails();
+    }
 
+    const result = this.getProjectById(projectId);
+    const tech = this.setTech(result.techIds);
+    const images = this.setSlides(result.images);
     const project = assign({}, {
       images: images,
       tech: tech,
@@ -72,18 +74,10 @@ class ProjectStore {
       id: result.id,
       links: result.links,
       activeId: result.id,
-      thumbs: thumbnails
+      thumbs: this.thumbnails
     });
 
     this.setState(project);
-
-  }
-  getTechItems() {
-    return this.software.filter((obj) => {
-      return obj.featured;
-    }).map((obj) => {
-      return obj;
-    });
   }
   getRelativePath(absolutePath) {
     const prefix = 'src/assets/';
