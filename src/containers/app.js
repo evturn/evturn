@@ -11,6 +11,7 @@ export default class App extends Component {
     this.state = {
       page: props.routes[1].name,
       header: null,
+      view: null,
       footer: null
     };
   }
@@ -25,6 +26,7 @@ export default class App extends Component {
     setTimeout(() => {
       this.setState({
         header: <Header page={this.state.page} />,
+        view: this.props.children,
         footer: <Footer page={this.state.page} />
       });
     }, 100);
@@ -34,7 +36,7 @@ export default class App extends Component {
       <div>
         <Spinner />
         {this.state.header}
-        {this.props.children}
+        {this.state.view}
         {this.state.footer}
       </div>
     );
