@@ -7,7 +7,6 @@ const baseConfig = require('./webpack.config.base');
 const config = _.merge({
   entry: path.join(__dirname, './src/run'),
   cache: false,
-  devtool: 'sourcemap',
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({

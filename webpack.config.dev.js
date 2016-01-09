@@ -13,7 +13,7 @@ const config = _.merge({
   ],
   debug: true,
   cache: true,
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
