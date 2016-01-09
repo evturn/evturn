@@ -5,20 +5,11 @@ export default React.createClass({
   getInitialState() {
     return {
       animation: '',
-      ready: this.props.ready
+      ready: false
     };
   },
-  componentWillReceiveProps(nextProps) {
-    if (this.state.ready) {
-      return;
-    } else if (nextProps.ready === true && this.state.animation === '') {
-      this.setState({
-        ready: nextProps.ready,
-        animation: 'animated fadeOut'
-      });
-    }
-
-    setTimeout(() => this.setState({ animation: 'hidden' }), 1000);
+  componentDidMount() {
+    setTimeout(() => this.removeSpinner(), 2000);
   },
   render() {
     return (
@@ -29,5 +20,13 @@ export default React.createClass({
         </div>
       </div>
     );
+  },
+  removeSpinner() {
+    this.setState({
+      ready: true,
+      animation: 'animated fadeOut'
+    });
+
+    setTimeout(() => this.setState({ animation: 'hidden' }), 1000);
   }
 });
