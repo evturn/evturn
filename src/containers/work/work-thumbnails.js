@@ -1,35 +1,34 @@
-import {default as Thumbnail} from 'components/thumbnail';
-import {setProjectThumbnails, setFeaturedProjects} from 'helpers';
+import {Component} from 'react';
+import {Link} from 'react-router';
 
-export const WorkThumbnails = React.createClass({
-  getDefaultProps() {
-    return {
-      projects: setFeaturedProjects()
-    };
-  },
-  getInitialState() {
-    return {
-      activeId : this.props.activeId
-    };
-  },
-  componentWillReceiveProps(nextProps) {
-    return this.setState({
-      activeId: nextProps.activeId
-    });
-  },
+export default class WorkThumbnails extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
-    const {projects} = this.props;
-    const {activeId} = this.state;
-    const thumbs = setProjectThumbnails(projects);
-
+    const thumbnails = this.renderThumbs();
     return (
       <div className='project-thumbs'>
         <ul className='tiles'>
-          {thumbs.map((obj, i) => {
-            return <Thumbnail key={i} project={obj} activeId={activeId} />;
-          })}
+          {thumbnails}
         </ul>
       </div>
     );
   }
-});
+  renderThumbs() {
+    return this.props.thumbs.map((obj, i) => {
+      const classname = obj.id === this.props.activeId ?  'thumb-active' : 'thumb';
+
+      return (
+        <li key={i} className={classname}>
+          <Link to={`work/${obj.id}`}>
+            <div className='frame'>
+              <img src={obj.image} />
+              <div className='shadow' />
+            </div>
+          </Link>
+        </li>
+      );
+    });
+  }
+}

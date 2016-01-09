@@ -1,6 +1,4 @@
-import AltContainer from 'alt-container';
 import {Component} from 'react';
-import AppStore from 'stores/AppStore';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import 'sources/google-analytics';
@@ -21,11 +19,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      <AltContainer store={AppStore}>
         <Header page={this.state.page} />
         {this.props.children}
         <Footer page={this.state.page} />
-      </AltContainer>
       </div>
     );
   }
