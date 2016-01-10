@@ -32,9 +32,9 @@ export default class App extends Component {
     return (
       <div>
         <Spinner />
-        <Header className={visibility} page={this.state.page} />
+        <Header classname={visibility} page={this.state.page} />
         {this.props.children}
-        <Footer className={visibility} page={this.state.page} />
+        <Footer classname={visibility} page={this.state.page} />
       </div>
     );
   }

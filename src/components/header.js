@@ -8,7 +8,8 @@ export default React.createClass({
   getInitialState() {
     return {
       page: this.props.page,
-      open: false
+      open: false,
+      classname: this.props.classname
     };
   },
   onChildChanged(openState) {
@@ -16,12 +17,13 @@ export default React.createClass({
   },
   componentWillReceiveProps(nextProps) {
     return this.setState({
-      page: nextProps.page
+      page: nextProps.page,
+      classname: nextProps.classname
     });
   },
   render() {
     return (
-      <div>
+      <div className={this.state.classname}>
         <Overlay
           open={this.state.open}
           callbackParent={this.onChildChanged}
