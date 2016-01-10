@@ -7,6 +7,9 @@ import Home from 'containers/Home';
 import Work from'containers/Work';
 import {About} from 'containers/about';
 import Contact from 'containers/Contact';
+import Spinner from 'components/Spinner';
+
+ReactDOM.render(<Spinner />, document.getElementById('kurt-loader'));
 
 const router = (
   <Router history={createHashHistory({queryKey: false})}>
