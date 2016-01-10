@@ -9,9 +9,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      page: props.routes[1].name,
-      header: null,
-      footer: null
+      page: props.routes[1].name ,
+      hidden: true
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -24,18 +23,18 @@ export default class App extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        header: <Header page={this.state.page} />,
-        footer: <Footer page={this.state.page} />
+        hidden: false
       });
-    }, 100);
+    }, 1000);
   }
   render() {
+    const visibility = this.state.hidden ? 'hidden' : '';
     return (
       <div>
         <Spinner />
-        {this.state.header}
+        <Header className={visibility} page={this.state.page} />
         {this.props.children}
-        {this.state.footer}
+        <Footer className={visibility} page={this.state.page} />
       </div>
     );
   }
