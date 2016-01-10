@@ -1,5 +1,4 @@
 import {Component} from 'react';
-import Spinner from 'components/Spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import 'sources/google-analytics';
@@ -22,7 +21,6 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Spinner />
         <Header page={this.state.page} />
         {this.props.children}
         <Footer page={this.state.page} />
