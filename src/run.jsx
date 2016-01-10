@@ -6,7 +6,7 @@ import App from 'containers/App';
 import Home from 'containers/Home';
 import Work from'containers/Work';
 import {About} from 'containers/about';
-import {Contact} from 'containers/contact';
+import Contact from 'containers/Contact';
 
 const router = (
   <Router history={createHashHistory({queryKey: false})}>

@@ -63,7 +63,7 @@ export default React.createClass({
                   <li key={i} className='menu-item' onClick={this.handleClick}>
                     {this.setPageLinks(page)}
                   </li>
-                  );
+                );
               })}
             </ul>
           </div>

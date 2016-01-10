@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import Spinner from 'components/spinner';
+import Spinner from 'components/Spinner';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import 'sources/google-analytics';
@@ -9,8 +9,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      page: props.routes[1].name ,
-      hidden: true
+      page: props.routes[1].name
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -20,21 +19,13 @@ export default class App extends Component {
       this.setState({ page: route });
     }
   }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        hidden: false
-      });
-    }, 1000);
-  }
   render() {
-    const visibility = this.state.hidden ? 'hidden' : '';
     return (
       <div>
         <Spinner />
-        <Header classname={visibility} page={this.state.page} />
+        <Header page={this.state.page} />
         {this.props.children}
-        <Footer classname={visibility} page={this.state.page} />
+        <Footer page={this.state.page} />
       </div>
     );
   }

@@ -11,20 +11,18 @@ export default React.createClass({
   getInitialState() {
     return {
       page: `footer-${this.props.page}`,
-      blend: this.shouldApplyBlend(this.props),
-      classname: this.props.classname
+      blend: this.shouldApplyBlend(this.props)
     };
   },
   componentWillReceiveProps(nextProps) {
     return this.setState({
       page: `footer-${nextProps.page}`,
-      blend: this.shouldApplyBlend(nextProps),
-      classname: nextProps.classname
+      blend: this.shouldApplyBlend(nextProps)
     });
   },
   render() {
     return (
-      <footer className={`${this.state.page} ${this.state.classname}`}>
+      <footer className={this.state.page}>
         {this.state.blend}
         <div className='footer-text'>
           <span className='copyright'>{this.props.text}</span>
