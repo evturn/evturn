@@ -10,6 +10,22 @@
   height: 100%;
 }
 
+.project-carousel {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  @media(@tablet-portrait) {
+    float: right;
+    width: 70%;
+    height: 300px;
+    margin: 15px;
+    border: 1px solid fade(@tx-accent, 60);
+  }
+  @media(@tablet) {
+    height: 450px;
+  }
+}
+
 .slide {
   position: absolute;
   top: 0;

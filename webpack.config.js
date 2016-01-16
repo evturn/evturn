@@ -3,7 +3,8 @@ const port = 3000;
 const publicPath = '/dist/';
 const webpack = require('webpack');
 const assetsPath = path.join(__dirname, 'src', 'assets');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const WriteFilePlugin = require('write-file-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const merge = require('webpack-merge');
 
@@ -74,6 +75,7 @@ if (TARGET === 'start' || !TARGET) {
     cache: true,
     devtool: 'eval-source-map',
     devServer: {
+      outputPath: PATHS.dist,
       historyApiFallback: true,
       hot: true,
       inline: true,
@@ -84,15 +86,18 @@ if (TARGET === 'start' || !TARGET) {
     },
     module: {
       loaders: LOADERS.concat([
-        { test: /\.less$/,
-          loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
+        {
+          test: /\.less$/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]' +
             '&sourceMap!autoprefixer-loader!less?sourceMap&outputStyle=expanded' +
-            '&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, '..', 'src', 'less'))
+            '&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, '..', 'src', 'less')))
         }
       ])
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
+      new WriteFilePlugin(),
+      new ExtractTextPlugin('styles/app.css'),
       new WebpackNotifierPlugin()
     ]
   });

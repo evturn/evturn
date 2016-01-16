@@ -25,6 +25,7 @@ export default class Work extends Component {
     ProjectActions.setProject(this.props.params.id);
   }
   render() {
+    console.log('fuck');
     const {
       images, activeId, name,
       description, tech, links,

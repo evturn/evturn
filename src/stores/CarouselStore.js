@@ -11,13 +11,13 @@ class CarouselStore {
   }
   static getClassname(image) {
     if (image === this.getState().enter) {
-      return 'slide enter';
+      return 'enter';
     } else if (image === this.getState().leave) {
-      return 'slide leave';
+      return 'leave';
     } else if (image === this.getState().active) {
-      return 'slide active';
+      return 'active';
     } else {
-      return 'slide inactive';
+      return 'inactive';
     }
   }
   insertImageGroup(images) {

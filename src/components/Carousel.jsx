@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
-import Slide from 'components/Slide';
+import React from 'react';
 import CarouselStore from 'stores/CarouselStore';
 import CarouselActions from 'actions/CarouselActions';
+import classNames from 'classnames/bind';
+import styles from 'styles/components/carousel.less';
 
-export default class Carousel extends Component {
+const cx = classNames.bind(styles);
+
+export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -22,18 +25,22 @@ export default class Carousel extends Component {
     const slides = this.renderSlides(this.props.images);
 
     return (
-      <div className='project-carousel'>
-        <div className='carousel'>
-          {slides}
+      <div className={cx('project-carousel')}>
+        <div className={cx('carousel')}>
+          {this.renderSlides()}
         </div>
       </div>
     );
   }
   renderSlides(images) {
-    return images.map((image, i) => {
+    return this.props.images.map((image, i) => {
       const classname = CarouselStore.getClassname(image);
 
-      return <Slide key={i} image={image} classname={classname} />;
+      return (
+        <div key={i} className={cx('slide', classname)}>
+          <img src={image} />
+        </div>
+      );
     });
   }
 }
