@@ -8,7 +8,6 @@ class ProjectStore {
   constructor() {
     this.bindActions(ProjectActions);
     this.software = __tech;
-    this.projects = __projects;
     this.thumbnails = null;
   }
   static all() {
@@ -20,23 +19,23 @@ class ProjectStore {
   }
   getProjectById(id) {
     let found = false;
-    let result = this.projects.filter((p) => {
+    let result = __projects.filter((p) => {
       if (p.id === parseInt(id)) {
         found = true;
         return p;
       }
     });
 
-    if (!found) { result = this.projects[0]; }
+    if (!found) { result = __projects[0]; }
     if (Array.isArray(result)) { [result] = result; }
 
     return result;
   }
   setThumbnails() {
-    this.thumbnails = this.projects.map((thumb) => {
+    this.thumbnails = __projects.map((project) => {
       return {
-        id: thumb.id,
-        image: this.getRelativePath(thumb.thumbnail)
+        id: project.id,
+        image: this.getRelativePath(project.thumbnail)
       };
     });
   }
@@ -63,7 +62,7 @@ class ProjectStore {
       this.setThumbnails();
     }
 
-    const result = this.getProjectById(projectId);
+    const result = __projects[projectId - 1];
     const tech = this.setTech(result.techIds);
     const images = this.setSlides(result.images);
     const project = assign({}, {

@@ -6,7 +6,7 @@
 }
 
 .spinner {
-  background-color: #5FA3C0;
+  background-color: @bg-accent;
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -28,7 +28,7 @@
     right: 0;
     padding: 20px;
     border-radius: 50%;
-    background: rgba(255,255,255,.65);
+    background: fade(@bg-light, 65);
     width: 140px;
     height: 140px;
     @media(@tablet) {
@@ -55,7 +55,7 @@
     margin-bottom: -45px;
     border-radius: 100%;
     animation: rotation 0.6s infinite linear;
-    @media(min-width: 1024px) {
+    @media(@tablet) {
       top: 15%;
     }
   }

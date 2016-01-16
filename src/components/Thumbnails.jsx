@@ -16,14 +16,13 @@ export default class Thumbnails extends React.Component {
     return (
       <div className={cx('project-thumbs')}>
         <ul className={cx('tiles')}>{this.projects.map((project, i) => {
-
           const activeClass = cx({
             'thumb-active': project.id === this.activeId,
             'thumb': project.id !== this.activeId
           });
 
           return (
-            <li key={i} className={activeClass}>
+            <li key={i} className={activeClass} onClick={() => this.activeId = project.id}>
               <Link to={`work/${project.id}`}>
                 <div className={cx('frame')}>
                   <img src={project.image} />

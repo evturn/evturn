@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Carousel from 'components/Carousel';
 import Thumbnails from 'components/Thumbnails';
-import {WorkTech} from 'containers/work/work-tech';
-import {WorkMeta} from 'containers/work/work-meta';
+import TechIcons from 'components/TechIcons';
+import IconLinks from 'components/icon-links';
 import AltContainer from 'alt-container';
 import ProjectActions from 'actions/ProjectActions';
 import ProjectStore from 'stores/ProjectStore';
@@ -15,6 +15,8 @@ const cx = classNames.bind(styles);
 export default class Work extends Component {
   constructor(props) {
     super(props);
+
+    this.techTitle = 'Made with';
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
@@ -25,7 +27,6 @@ export default class Work extends Component {
     ProjectActions.setProject(this.props.params.id);
   }
   render() {
-    console.log('fuck');
     const {
       images, activeId, name,
       description, tech, links,
@@ -40,10 +41,20 @@ export default class Work extends Component {
           <AltContainer stores={[CarouselStore]}>
             <Carousel images={images} />
           </AltContainer>
-          <WorkMeta name={name} description={description} links={links} />
-          <WorkTech items={tech} />
+          <div className={cx('project-info')}>
+            <div className={cx('project-title')}>{name}</div>
+            <div className={cx('project-description')}>{description}</div>
+            {links ? this.renderLinks(links) : null}
+          </div>
+          <div className={cx('project-tech')}>
+            <div className={cx('project-title')}>{this.techTitle}</div>
+            <TechIcons items={tech} width={'item-25'} />
+          </div>
         </div>
       </AltContainer>
     );
+  }
+  renderLinks(links) {
+    return <div className={cx('project-links')}><IconLinks items={links} classname={'square'} /></div>;
   }
 }
