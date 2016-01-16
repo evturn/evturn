@@ -74,7 +74,7 @@ class ProjectStore {
       id: result.id,
       links: result.links,
       activeId: result.id,
-      thumbs: this.thumbnails
+      projects: this.thumbnails
     });
 
     this.setState(project);

@@ -70,15 +70,15 @@
 
 	var _Work2 = _interopRequireDefault(_Work);
 
-	var _About = __webpack_require__(304);
+	var _About = __webpack_require__(307);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Contact = __webpack_require__(310);
+	var _Contact = __webpack_require__(313);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _Spinner = __webpack_require__(312);
+	var _Spinner = __webpack_require__(315);
 
 	var _Spinner2 = _interopRequireDefault(_Spinner);
 
@@ -28425,25 +28425,33 @@
 
 	var _Thumbnails2 = _interopRequireDefault(_Thumbnails);
 
-	var _workTech = __webpack_require__(295);
+	var _workTech = __webpack_require__(296);
 
-	var _workMeta = __webpack_require__(299);
+	var _workMeta = __webpack_require__(300);
 
 	var _altContainer = __webpack_require__(251);
 
 	var _altContainer2 = _interopRequireDefault(_altContainer);
 
-	var _ProjectActions = __webpack_require__(302);
+	var _ProjectActions = __webpack_require__(303);
 
 	var _ProjectActions2 = _interopRequireDefault(_ProjectActions);
 
-	var _ProjectStore = __webpack_require__(303);
+	var _ProjectStore = __webpack_require__(304);
 
 	var _ProjectStore2 = _interopRequireDefault(_ProjectStore);
 
 	var _CarouselStore = __webpack_require__(291);
 
 	var _CarouselStore2 = _interopRequireDefault(_CarouselStore);
+
+	var _bind = __webpack_require__(238);
+
+	var _bind2 = _interopRequireDefault(_bind);
+
+	var _work = __webpack_require__(305);
+
+	var _work2 = _interopRequireDefault(_work);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28452,6 +28460,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var cx = _bind2.default.bind(_work2.default);
 
 	var Work = (function (_Component) {
 	  _inherits(Work, _Component);
@@ -28485,20 +28495,20 @@
 	      var description = _ProjectStore$all.description;
 	      var tech = _ProjectStore$all.tech;
 	      var links = _ProjectStore$all.links;
-	      var thumbs = _ProjectStore$all.thumbs;
+	      var projects = _ProjectStore$all.projects;
 
 	      return _react2.default.createElement(
 	        _altContainer2.default,
 	        { stores: [_ProjectStore2.default] },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'work' },
+	          { className: cx('work') },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'project-header' },
+	            { className: cx('project-header') },
 	            'Projects'
 	          ),
-	          _react2.default.createElement(_Thumbnails2.default, { thumbs: thumbs, activeId: activeId }),
+	          _react2.default.createElement(_Thumbnails2.default, { projects: projects, activeId: activeId }),
 	          _react2.default.createElement(
 	            _altContainer2.default,
 	            { stores: [_CarouselStore2.default] },
@@ -28820,9 +28830,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Thumbnail = __webpack_require__(294);
+	var _reactRouter = __webpack_require__(167);
 
-	var _Thumbnail2 = _interopRequireDefault(_Thumbnail);
+	var _bind = __webpack_require__(238);
+
+	var _bind2 = _interopRequireDefault(_bind);
+
+	var _thumbnails = __webpack_require__(294);
+
+	var _thumbnails2 = _interopRequireDefault(_thumbnails);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28832,116 +28848,74 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Thumbnails = (function (_Component) {
-	  _inherits(Thumbnails, _Component);
+	var cx = _bind2.default.bind(_thumbnails2.default);
+
+	var Thumbnails = (function (_React$Component) {
+	  _inherits(Thumbnails, _React$Component);
 
 	  function Thumbnails(props) {
 	    _classCallCheck(this, Thumbnails);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Thumbnails).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Thumbnails).call(this, props));
+
+	    _this.projects = props.projects;
+	    _this.activeId = props.activeId;
+	    return _this;
 	  }
 
 	  _createClass(Thumbnails, [{
 	    key: 'render',
 	    value: function render() {
-	      var thumbnails = this.renderThumbnails();
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'project-thumbs' },
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'tiles' },
-	          thumbnails
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'renderThumbnails',
-	    value: function renderThumbnails() {
 	      var _this2 = this;
 
-	      return this.props.thumbs.map(function (obj, i) {
-	        var classname = obj.id === _this2.props.activeId ? 'thumb-active' : 'thumb';
-	        var path = 'work/' + obj.id;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: cx('project-thumbs') },
+	        _react2.default.createElement(
+	          'ul',
+	          { className: cx('tiles') },
+	          this.projects.map(function (project, i) {
 
-	        return _react2.default.createElement(_Thumbnail2.default, {
-	          key: i,
-	          classname: classname,
-	          path: path,
-	          image: obj.image
-	        });
-	      });
+	            var activeClass = cx({
+	              'thumb-active': project.id === _this2.activeId,
+	              'thumb': project.id !== _this2.activeId
+	            });
+
+	            return _react2.default.createElement(
+	              'li',
+	              { key: i, className: activeClass },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: 'work/' + project.id },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: cx('frame') },
+	                  _react2.default.createElement('img', { src: project.image }),
+	                  _react2.default.createElement('div', { className: cx('shadow') })
+	                )
+	              )
+	            );
+	          })
+	        )
+	      );
 	    }
 	  }]);
 
 	  return Thumbnails;
-	})(_react.Component);
+	})(_react2.default.Component);
 
 	exports.default = Thumbnails;
 
 /***/ },
 /* 294 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = undefined;
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(167);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Thumbnail = (function (_Component) {
-	  _inherits(Thumbnail, _Component);
-
-	  function Thumbnail(props) {
-	    _classCallCheck(this, Thumbnail);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Thumbnail).call(this, props));
-	  }
-
-	  _createClass(Thumbnail, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'li',
-	        { className: this.props.classname },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: this.props.path },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'frame' },
-	            _react2.default.createElement('img', { src: this.props.image }),
-	            _react2.default.createElement('div', { className: 'shadow' })
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Thumbnail;
-	})(_react.Component);
-
-	exports.default = Thumbnail;
+	// removed by extract-text-webpack-plugin
+	module.exports = {"no-scrollbar":"no-scrollbar__1CMPv","img-shadow":"img-shadow__1GJ1L","img-scale":"img-scale__181Ne","flip-vertical":"flip-vertical__GxA_n","flex":"flex__2cVNu","li-center":"li-center__1Td2m","item":"item__24ZJq","item-20":"item-20__3E-jP","item-25":"item-25__3xMog","item-33":"item-33__2f6Ts","item-50":"item-50__3dg4U","icon":"icon__3WoXG","icon-accent":"icon-accent__34rfu","text":"text__10vPl","caption":"caption__20uXG","flip-horizontal":"flip-horizontal__3ga85","tile":"tile__3scRd","thumb":"thumb__18Xxd","shadow":"shadow__Gnviv","thumb-active":"thumb-active__2FPvS","project-thumbs":"project-thumbs__3639P","tiles":"tiles__1ZNUt","frame":"frame__1_GY7"};
 
 /***/ },
-/* 295 */
+/* 295 */,
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28955,7 +28929,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TechIcons = __webpack_require__(296);
+	var _TechIcons = __webpack_require__(297);
 
 	var _TechIcons2 = _interopRequireDefault(_TechIcons);
 
@@ -28996,7 +28970,7 @@
 	});
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29020,7 +28994,7 @@
 
 	var _FontIcon2 = _interopRequireDefault(_FontIcon);
 
-	var _common = __webpack_require__(297);
+	var _common = __webpack_require__(298);
 
 	var _common2 = _interopRequireDefault(_common);
 
@@ -29077,15 +29051,15 @@
 	exports.default = TechIcons;
 
 /***/ },
-/* 297 */
+/* 298 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"no-scrollbar":"no-scrollbar__32aOD","img-shadow":"img-shadow__28eRf","img-scale":"img-scale__3AZaa","flip-vertical":"flip-vertical__1QBk_","flex":"flex__n5hj3","li-center":"li-center__2Okfg","item":"item__2tLTC","item-20":"item-20__2-KYX","item-25":"item-25__3KUh3","item-33":"item-33__3gvcP","item-50":"item-50__ozdep","icon":"icon__xxbfh","icon-accent":"icon-accent__8czug","text":"text__1o8xJ","caption":"caption__3Xlhr","flip-horizontal":"flip-horizontal__1nVYG"};
 
 /***/ },
-/* 298 */,
-/* 299 */
+/* 299 */,
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29101,7 +29075,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _iconLinks = __webpack_require__(300);
+	var _iconLinks = __webpack_require__(301);
 
 	var _iconLinks2 = _interopRequireDefault(_iconLinks);
 
@@ -29153,7 +29127,7 @@
 	});
 
 /***/ },
-/* 300 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29166,7 +29140,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _iconLink = __webpack_require__(301);
+	var _iconLink = __webpack_require__(302);
 
 	var _iconLink2 = _interopRequireDefault(_iconLink);
 
@@ -29195,7 +29169,7 @@
 	});
 
 /***/ },
-/* 301 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29235,7 +29209,7 @@
 	});
 
 /***/ },
-/* 302 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29253,7 +29227,7 @@
 	exports.default = _alt2.default.generateActions('setProject');
 
 /***/ },
-/* 303 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29282,7 +29256,7 @@
 
 	var _tech2 = _interopRequireDefault(_tech);
 
-	var _ProjectActions = __webpack_require__(302);
+	var _ProjectActions = __webpack_require__(303);
 
 	var _ProjectActions2 = _interopRequireDefault(_ProjectActions);
 
@@ -29421,7 +29395,7 @@
 	        id: result.id,
 	        links: result.links,
 	        activeId: result.id,
-	        thumbs: this.thumbnails
+	        projects: this.thumbnails
 	      });
 
 	      this.setState(project);
@@ -29452,7 +29426,15 @@
 	exports.default = _alt2.default.createStore(ProjectStore, 'ProjectStore');
 
 /***/ },
-/* 304 */
+/* 305 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"no-scrollbar":"no-scrollbar__3p4z_","img-shadow":"img-shadow__x_6r0","img-scale":"img-scale__2hzcb","flip-vertical":"flip-vertical__356k6","work":"work__1vwA0","project-carousel":"project-carousel__5D10e","project-info":"project-info__3U3P7","project-links":"project-links__1yQTk","project-tech":"project-tech__2DmS7","project-title":"project-title__1fSV6","project-header":"project-header__2MaEy","project-description":"project-description__1jOfN"};
+
+/***/ },
+/* 306 */,
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29468,17 +29450,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TechIcons = __webpack_require__(296);
+	var _TechIcons = __webpack_require__(297);
 
 	var _TechIcons2 = _interopRequireDefault(_TechIcons);
 
-	var _StatCounters = __webpack_require__(305);
+	var _StatCounters = __webpack_require__(308);
 
 	var _StatCounters2 = _interopRequireDefault(_StatCounters);
 
 	var _helpers = __webpack_require__(239);
 
-	var _stats = __webpack_require__(307);
+	var _stats = __webpack_require__(310);
 
 	var _stats2 = _interopRequireDefault(_stats);
 
@@ -29486,7 +29468,7 @@
 
 	var _bind2 = _interopRequireDefault(_bind);
 
-	var _about = __webpack_require__(308);
+	var _about = __webpack_require__(311);
 
 	var _about2 = _interopRequireDefault(_about);
 
@@ -29587,7 +29569,7 @@
 	exports.default = About;
 
 /***/ },
-/* 305 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29603,7 +29585,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _StatCounter = __webpack_require__(306);
+	var _StatCounter = __webpack_require__(309);
 
 	var _StatCounter2 = _interopRequireDefault(_StatCounter);
 
@@ -29611,7 +29593,7 @@
 
 	var _bind2 = _interopRequireDefault(_bind);
 
-	var _common = __webpack_require__(297);
+	var _common = __webpack_require__(298);
 
 	var _common2 = _interopRequireDefault(_common);
 
@@ -29666,7 +29648,7 @@
 	exports.default = StatCounters;
 
 /***/ },
-/* 306 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29743,7 +29725,7 @@
 	exports.default = StatCounter;
 
 /***/ },
-/* 307 */
+/* 310 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29770,15 +29752,15 @@
 	}];
 
 /***/ },
-/* 308 */
+/* 311 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"no-scrollbar":"no-scrollbar__2gYq2","img-shadow":"img-shadow__uiKvd","img-scale":"img-scale__2DK19","flip-vertical":"flip-vertical__3jiNl","about":"about__3LE5P","header":"header__3TCBz","about-image":"about-image__1zzPD","bio":"bio__1r9m4","about-info":"about-info__HB8Or","about-header":"about-header__1UpZ1","paragraph":"paragraph__3OodF","about-tech":"about-tech__2R2MS","about-stats":"about-stats__3jQIo"};
 
 /***/ },
-/* 309 */,
-/* 310 */
+/* 312 */,
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29794,11 +29776,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _links = __webpack_require__(311);
+	var _links = __webpack_require__(314);
 
 	var _links2 = _interopRequireDefault(_links);
 
-	var _iconLinks = __webpack_require__(300);
+	var _iconLinks = __webpack_require__(301);
 
 	var _iconLinks2 = _interopRequireDefault(_iconLinks);
 
@@ -29839,7 +29821,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 311 */
+/* 314 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29870,7 +29852,7 @@
 	}];
 
 /***/ },
-/* 312 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29890,7 +29872,7 @@
 
 	var _bind2 = _interopRequireDefault(_bind);
 
-	var _spinner = __webpack_require__(313);
+	var _spinner = __webpack_require__(316);
 
 	var _spinner2 = _interopRequireDefault(_spinner);
 
@@ -29970,7 +29952,7 @@
 	exports.default = Spinner;
 
 /***/ },
-/* 313 */
+/* 316 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

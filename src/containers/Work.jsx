@@ -7,6 +7,10 @@ import AltContainer from 'alt-container';
 import ProjectActions from 'actions/ProjectActions';
 import ProjectStore from 'stores/ProjectStore';
 import CarouselStore from 'stores/CarouselStore';
+import classNames from 'classnames/bind';
+import styles from 'styles/containers/work.less';
+
+const cx = classNames.bind(styles);
 
 export default class Work extends Component {
   constructor(props) {
@@ -24,14 +28,14 @@ export default class Work extends Component {
     const {
       images, activeId, name,
       description, tech, links,
-      thumbs
+      projects
      } = ProjectStore.all();
 
     return (
       <AltContainer stores={[ProjectStore]}>
-        <div className='work'>
-          <div className='project-header'>Projects</div>
-          <Thumbnails thumbs={thumbs} activeId={activeId} />
+        <div className={cx('work')}>
+          <div className={cx('project-header')}>Projects</div>
+          <Thumbnails projects={projects} activeId={activeId} />
           <AltContainer stores={[CarouselStore]}>
             <Carousel images={images} />
           </AltContainer>
