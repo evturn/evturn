@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Carousel from 'components/Carousel';
 import Thumbnails from 'components/Thumbnails';
 import TechIcons from 'components/TechIcons';
-import IconLinks from 'components/icon-links';
+import FontIcon from 'components/FontIcon';
 import AltContainer from 'alt-container';
 import ProjectActions from 'actions/ProjectActions';
 import ProjectStore from 'stores/ProjectStore';
@@ -55,6 +55,20 @@ export default class Work extends Component {
     );
   }
   renderLinks(links) {
-    return <div className={cx('project-links')}><IconLinks items={links} classname={'square'} /></div>;
+    return (
+      <div className={cx('project-links')}>
+        <ul className={cx('squares')}>{links.map((link, i) => {
+          return (
+            <li key={i} className={cx('square')}>
+              <div className={cx('icon')}>
+                <a href={link.url} target="_blank">
+                  <FontIcon type={'fa'} name={link.icon} />
+                </a>
+              </div>
+            </li>
+          );
+        })}</ul>
+      </div>
+    );
   }
 }

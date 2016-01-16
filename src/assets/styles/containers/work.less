@@ -1,5 +1,6 @@
 @import '../variables.less';
 @import '../mixins.less';
+@import '../common.less';
 
 .work {
   .clearfix;
@@ -49,4 +50,44 @@
 
 .project-links ul {
   margin: 15px;
+}
+
+.squares {
+  .flex;
+  float: right;
+}
+
+
+/* list item */
+.square {
+  .item;
+}
+
+/* icon */
+.square .icon {
+  background-color: #231f20;
+  transition: 0.1s;
+  line-height: 65px;
+  height: 65px;
+  width: 65px;
+  margin: 5px;
+  font-size: 27px;
+}
+
+.square:hover .icon {
+  @media(min-width: 1024px) {
+    background-color: #ffffff;
+    border: 1px #cccccc;
+  }
+}
+
+.square a {
+  transition: 0.1s;
+  color: #ffffff;
+}
+
+.square:hover a {
+  @media(min-width: 1024px) {
+    color: #5FA3C0;
+  }
 }
