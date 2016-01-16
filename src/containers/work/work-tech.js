@@ -1,5 +1,5 @@
 import React from 'react';
-import {TechItems as ProjectTech} from 'components/icon-tech';
+import TechIcons from 'components/TechIcons';
 
 export const WorkTech = React.createClass({
   getDefaultProps() {
@@ -24,7 +24,7 @@ export const WorkTech = React.createClass({
     return (
       <div className='project-tech'>
         <div className='project-title'>{title}</div>
-        <ProjectTech items={items} width={'item-25'} />
+        <TechIcons items={items} width={'item-25'} />
       </div>
     );
   }

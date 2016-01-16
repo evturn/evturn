@@ -25,8 +25,8 @@ export default [
     featured: true
   },{
     name: 'Webpack',
-    icon: 'evcon evcon-webpack',
-    color: 'evcon evcon-webpack',
+    icon: 'evcon-webpack',
+    color: 'evcon-webpack',
     featured: true,
     id: 19
   },{
@@ -37,14 +37,14 @@ export default [
     featured: true
   },{
     name: 'Babel',
-    icon: 'evcon evcon-babel',
-    color: 'evcon evcon-babel',
+    icon: 'evcon-babel',
+    color: 'evcon-babel',
     featured: true,
     id: 20
   },{
     name: 'Handlebars',
-    icon: 'evcon evcon-handlebars',
-    color: 'evcon evcon-handlebars',
+    icon: 'evcon-handlebars',
+    color: 'evcon-handlebars',
     featured: true,
     id: 18
   },{
@@ -79,8 +79,8 @@ export default [
     featured: false
   }, {
     name: 'Express.js',
-    icon: 'evcon evcon-express',
-    color: 'evcon evcon-express',
+    icon: 'evcon-express',
+    color: 'evcon-express',
     id: 12,
     featured: true
   }, {

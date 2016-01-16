@@ -54,7 +54,8 @@ const common = {
       sources:    path.join(__dirname, './src/sources/'),
       images:     path.join(__dirname, './src/assets/images/'),
       stores:     path.join(__dirname, './src/stores/'),
-      styles:     path.join(__dirname, './src/assets/styles/')
+      styles:     path.join(__dirname, './src/assets/styles/'),
+      fonts:      path.join(__dirname, './src/assets/styles/fonts')
     }
   }
 };

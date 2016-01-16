@@ -5,7 +5,7 @@ import {createHashHistory} from 'history';
 import App from 'containers/App';
 import Home from 'containers/Home';
 import Work from'containers/Work';
-import {About} from 'containers/about';
+import About from 'containers/About';
 import Contact from 'containers/Contact';
 import Spinner from 'components/Spinner';
 

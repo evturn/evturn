@@ -1,5 +1,6 @@
 import React from 'react';
 import {IndexLink, Link} from 'react-router';
+import FontIcon from 'components/FontIcon';
 import {getRelativePath} from 'helpers';
 import classNames from 'classnames/bind';
 import styles from 'styles/components/nav.less';
@@ -54,12 +55,12 @@ export default React.createClass({
         </div>
         <nav>
           <div className={cx(`burger-${this.state.page}`)} onClick={this.handleClick}>
-            <span className='fa fa-bars'></span>
+            <FontIcon type={'fa'} name={'fa-bars'} />
           </div>
           <div style={open} className={cx('menu')}>
             <div className={cx('menu-header')}>
               <div className={cx('menu-icon')} onClick={this.handleClick}>
-                <span className='fa fa-times'></span>
+                <FontIcon type={'fa'} name={'fa-times'} />
               </div>
             </div>
             <ul className={cx('flex')}>

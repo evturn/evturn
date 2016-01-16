@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {default as Footer} from 'components/footer';
-import {default as Header} from 'components/header';
+import React from 'react';
+import Footer from 'components/footer';
+import Header from 'components/header';
 import 'styles/base.less';
 import 'sources/google-analytics';
 
-export default class App extends Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
 
