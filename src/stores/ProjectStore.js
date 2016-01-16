@@ -57,12 +57,12 @@ class ProjectStore {
       return this.getRelativePath(image);
     });
   }
-  setProject(projectId = 1) {
+  setProject(projectId) {
     if (this.thumbnails === null) {
       this.setThumbnails();
     }
 
-    const result = __projects[projectId - 1];
+    const result = __projects[!projectId ? 0 : projectId - 1];
     const tech = this.setTech(result.techIds);
     const images = this.setSlides(result.images);
     const project = assign({}, {
