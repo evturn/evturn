@@ -4,7 +4,6 @@ import styles from 'styles/components/overlay.less';
 
 const cx = classNames.bind(styles);
 
-
 export default React.createClass({
   getInitialState() {
     return {

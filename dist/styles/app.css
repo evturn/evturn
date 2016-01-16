@@ -2233,6 +2233,77 @@
 .fa-fonticons__1ZIMO:before {
   content: "\F280";
 }
+.no-scrollbar__2s8yl ::-webkit-scrollbar {
+  display: none;
+}
+.img-shadow__1JYWQ {
+  box-shadow: 0px -3px 4px -4px rgba(0, 0, 0, 0.4);
+}
+.img-scale__j0Azl {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.flip-vertical__2cQlB {
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  -ms-filter: flipv;
+  /*IE*/
+  -webkit-filter: flipv;
+          filter: flipv;
+}
+.footer__1p-Gv {
+  color: #231f20;
+  background-color: #ffffff;
+  padding: 30px 15px;
+  position: relative;
+}
+.blend__2GkuM {
+  padding: 80px;
+  position: absolute;
+  height: 80px;
+  top: -160px;
+  right: 0;
+  left: 0;
+  background: -webkit-linear-gradient(top, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  -ms-filter: flipv;
+  /*IE*/
+  -webkit-filter: flipv;
+          filter: flipv;
+}
+.work__1y6D_,
+.about__1T8G9 {
+  color: #231f20;
+  background-color: #ffffff;
+  padding: 30px 15px;
+  position: relative;
+}
+.home__1uqKM {
+  display: none;
+}
+.contact__312VP {
+  color: #231f20;
+  background-color: #ffffff;
+  padding: 30px 15px;
+  position: relative;
+  bottom: 0;
+}
+.copyright__1KHXD {
+  vertical-align: super;
+}
+.devicon-react-plain-wordmark__2ZQSb {
+  vertical-align: bottom;
+}
+.footer-text__2xBgr {
+  position: absolute;
+  font-size: 12px;
+  left: 15px;
+  top: 20px;
+  vertical-align: sub;
+}
 .no-scrollbar__1MOXc ::-webkit-scrollbar {
   display: none;
 }
@@ -4222,4 +4293,28 @@ img {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+@-webkit-keyframes fadeOut__2khCY {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut__2khCY {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fade-out__FiMXa {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeOut__2khCY;
+  animation-name: fadeOut__2khCY;
 }

@@ -21,8 +21,7 @@ export default class Spinner extends React.Component {
     const animation = cx({
       'spinner': true,
       'hidden': this.state.done,
-      'animated': this.state.ready,
-      'fadeOut': this.state.ready
+      'fade-out': this.state.ready
     });
     return (
       <div className={animation}>
