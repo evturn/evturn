@@ -7,16 +7,17 @@ const cx = classNames.bind(styles);
 
 export default class StatCounters extends React.Component {
   render() {
-    console.log(this);
     return (
       <ul className={cx('flex')}>
         {this.props.items.map((item, i) => {
-          <li key={i} className={cx('item-50')}>
-            <div className={cx('icon-accent')}>
-              <StatCounter number={item.number} />
-            </div>
-            <div className={cx('caption')}>{item.caption}</div>
-          </li>
+          return (
+            <li key={i} className={cx('item-50')}>
+              <div className={cx('icon-accent')}>
+                <StatCounter classname={cx('text')} number={item.number} />
+              </div>
+              <div className={cx('caption')}>{item.caption}</div>
+            </li>
+          );
         })}
       </ul>
     );

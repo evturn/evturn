@@ -2,7 +2,7 @@ import React from 'react';
 import TechIcons from 'components/TechIcons';
 import StatCounters from 'components/StatCounters';
 import {getTechItems} from 'helpers';
-import __stats from 'sources/stats';
+import {default as __stats} from 'sources/stats';
 import classNames from 'classnames/bind';
 import styles from 'styles/containers/about.less';
 
@@ -17,6 +17,7 @@ export default class About extends React.Component {
     this.title = 'Development';
     this.techTitle = 'Tools';
     this.statsTitle = 'Statistics';
+    this.stats = __stats;
   }
   render() {
     return (
@@ -43,11 +44,10 @@ export default class About extends React.Component {
     );
   }
   renderStats() {
-    const stats = __stats;
     return (
       <div className={cx('about-stats')}>
         <div className={cx('about-header')}>{this.statsTitle}</div>
-        <StatCounters items={stats} />
+        <StatCounters items={this.stats} />
       </div>
     );
   }

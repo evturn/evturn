@@ -29513,6 +29513,7 @@
 	    _this.title = 'Development';
 	    _this.techTitle = 'Tools';
 	    _this.statsTitle = 'Statistics';
+	    _this.stats = _stats2.default;
 	    return _this;
 	  }
 
@@ -29567,7 +29568,6 @@
 	  }, {
 	    key: 'renderStats',
 	    value: function renderStats() {
-	      var stats = _stats2.default;
 	      return _react2.default.createElement(
 	        'div',
 	        { className: cx('about-stats') },
@@ -29576,7 +29576,7 @@
 	          { className: cx('about-header') },
 	          this.statsTitle
 	        ),
-	        _react2.default.createElement(_StatCounters2.default, { items: stats })
+	        _react2.default.createElement(_StatCounters2.default, { items: this.stats })
 	      );
 	    }
 	  }]);
@@ -29641,13 +29641,13 @@
 	        'ul',
 	        { className: cx('flex') },
 	        this.props.items.map(function (item, i) {
-	          _react2.default.createElement(
+	          return _react2.default.createElement(
 	            'li',
 	            { key: i, className: cx('item-50') },
 	            _react2.default.createElement(
 	              'div',
 	              { className: cx('icon-accent') },
-	              _react2.default.createElement(_StatCounter2.default, { number: item.number })
+	              _react2.default.createElement(_StatCounter2.default, { classname: cx('text'), number: item.number })
 	            ),
 	            _react2.default.createElement(
 	              'div',
@@ -29693,34 +29693,31 @@
 	var StatCounter = (function (_React$Component) {
 	  _inherits(StatCounter, _React$Component);
 
-	  function StatCounter() {
+	  function StatCounter(props) {
 	    _classCallCheck(this, StatCounter);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(StatCounter).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(StatCounter).call(this, props));
+
+	    _this.state = { count: 0 };
+	    return _this;
 	  }
 
 	  _createClass(StatCounter, [{
-	    key: 'constuctor',
-	    value: function constuctor(props) {
-
-	      this.state = { count: 0 };
-	    }
-	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      return this.increment();
+	      this.increment();
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      return clearTimeout(this.incTimer);
+	      clearTimeout(this.incTimer);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'span',
-	        null,
+	        'div',
+	        { className: this.props.classname },
 	        this.state.count
 	      );
 	    }

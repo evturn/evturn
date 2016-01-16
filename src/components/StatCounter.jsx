@@ -1,18 +1,19 @@
 import React from 'react';
 
 export default class StatCounter extends React.Component {
-  constuctor(props) {
+  constructor(props) {
+    super(props);
 
     this.state = { count: 0 };
   }
   componentDidMount() {
-    return this.increment();
+    this.increment();
   }
   componentWillUnmount() {
-    return clearTimeout(this.incTimer);
+    clearTimeout(this.incTimer);
   }
   render() {
-    return <span>{this.state.count}</span>;
+    return <div className={this.props.classname}>{this.state.count}</div>;
   }
   increment() {
     if (this.state.count >= this.props.number) {
