@@ -24,7 +24,7 @@ export default [
     techIds: [1, 13, 14, 20]
   },{
     name: 'Marshallz Blog',
-    description: `This blog continuously produces new posts authored by bots. These bots get their content by scraping text documents, washing machine manuals, and other sources followed by taking fragments and applying a Markov Chain to create nonsensical sentences. Before publishing, a randomly selected word from the content is used to search Giphy and retrieve a related images which is then included in the post. In addition to the website, these same "authors" post new content to Twitter under their own accounts.`,
+    description: `Built using React and Redux, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots have are assigned their own API keys and destinations for by scraping text various documents, such as news articles and washing machine manuals. Fragments of sentences are collected and sent through a process that creates a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences are used to search Giphy and retrieve an image which is then included in the post.`,
     id: 2,
     slug: 'marshallz',
     links: [
@@ -47,7 +47,7 @@ export default [
       'images/apps/marshallz-4.png'
     ],
     featured: true,
-    techIds: [1, 14, 12, 15, 10, 18, 19, 20]
+    techIds: [1, 7, 19, 20, 10, 12, 13]
   },
   {
     name: 'Made In Music',
@@ -85,7 +85,8 @@ export default [
     thumbnail: 'images/apps/bfs-tn.jpg',
     images: [
       'images/apps/bfs-1.png',
-      'images/apps/bfs-2.png'
+      'images/apps/bfs-2.png',
+      'images/apps/bfs-3.png'
     ],
     featured: true,
     techIds: [21, 13]
