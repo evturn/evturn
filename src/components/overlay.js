@@ -1,11 +1,11 @@
 import React from 'react';
+import classNames from 'classnames/bind';
+import styles from 'styles/components/overlay.less';
+
+const cx = classNames.bind(styles);
+
 
 export default React.createClass({
-  getDefaultProps() {
-    return {
-      visible: 'overlay'
-    };
-  },
   getInitialState() {
     return {
       open: this.props.open
@@ -22,7 +22,7 @@ export default React.createClass({
     }
   },
   render() {
-    const open = this.state.open ? this.props.visible : '';
+    const open = cx({'overlay': this.state.open});
 
     return <div className={open} onClick={this.handleClick} />;
   }

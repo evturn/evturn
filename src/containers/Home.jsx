@@ -1,34 +1,32 @@
 import AltContainer from 'alt-container';
-import React, {Component} from 'react';
+import React from 'react';
 import Video from 'components/Video';
 import VideoActions from 'actions/VideoActions';
 import VideoStore from 'stores/VideoStore';
 import __videos from 'sources/videos';
-import {HomeBanner} from 'containers/home/home-banner';
+import classNames from 'classnames/bind';
+import styles from 'styles/containers/home.less';
 
-export default class Home extends Component {
+const cx = classNames.bind(styles);
+
+export default class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.videos = __videos;
     this.title = 'Evan Turner';
     this.description = 'Web Developer';
-    this.state = { banner: null };
-  }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        banner: <HomeBanner title={this.title} description={this.description} />
-      });
-    }, 100);
   }
   render() {
     return (
-      <div className='home'>
+      <div className={cx('home')}>
         <AltContainer stores={[VideoStore]}>
           <Video videos={this.videos}/>
         </AltContainer>
-        {this.state.banner}
+        <div className={cx('home-banner')}>
+          <h3 className={cx('home-title')}>{this.title}</h3>
+          <h3 className={cx('home-description')}>{this.description}</h3>
+        </div>
       </div>
     );
   }

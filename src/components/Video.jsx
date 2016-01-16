@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import VideoStore from 'stores/VideoStore';
 import VideoActions from 'actions/VideoActions';
-
+import styles from 'styles/components/video.less';
 
 export default class Video extends Component {
   constructor(props) {

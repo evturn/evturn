@@ -1,6 +1,10 @@
 import React from 'react';
 import {IndexLink, Link} from 'react-router';
 import {getRelativePath} from 'helpers';
+import classNames from 'classnames/bind';
+import styles from 'styles/components/nav.less';
+
+const cx = classNames.bind(styles);
 
 export default React.createClass({
   getDefaultProps() {
@@ -45,23 +49,23 @@ export default React.createClass({
 
     return (
       <header>
-        <div className={`logo-${this.state.page}`}>
+        <div className={cx(`logo-${this.state.page}`)}>
           <img src='src/assets/images/site/ev-av.png' />
         </div>
         <nav>
-          <div className={`burger-${this.state.page}`} onClick={this.handleClick}>
+          <div className={cx(`burger-${this.state.page}`)} onClick={this.handleClick}>
             <span className='fa fa-bars'></span>
           </div>
-          <div style={open} className='menu'>
-            <div className='menu-header'>
-              <div className='menu-icon' onClick={this.handleClick}>
+          <div style={open} className={cx('menu')}>
+            <div className={cx('menu-header')}>
+              <div className={cx('menu-icon')} onClick={this.handleClick}>
                 <span className='fa fa-times'></span>
               </div>
             </div>
-            <ul className='flex'>
+            <ul className={cx('flex')}>
               {this.props.pages.map((page, i) => {
                 return (
-                  <li key={i} className='menu-item' onClick={this.handleClick}>
+                  <li key={i} className={cx('menu-item')} onClick={this.handleClick}>
                     {this.setPageLinks(page)}
                   </li>
                 );

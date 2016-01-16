@@ -13,38 +13,33 @@ const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist')
 }
+const LOADERS = [
+  {
+    test: /\.js$|\.jsx$/,
+    loaders: ['babel'],
+    include: PATHS.src
+  },{
+    test: /\.json$/,
+    loader: "json-loader"
+  },{
+    test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'url-loader'
+  },{
+    test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'file-loader'
+  },{
+    test: /\.woff2(\?\S*)?$/,
+    loader: 'url-loader?limit=100000'
+  }
+];
 
 const common = {
   port: port,
   debug: true,
   output: {
     path: PATHS.dist,
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: publicPath
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$|\.jsx$/,
-        loaders: ['babel'],
-        include: PATHS.src
-      },{
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!'
-      },{
-        test: /\.less$/,
-        loader: 'style-loader!css-loader!!less-loader'
-      },{
-        test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader'
-      },{
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
-      },{
-        test: /\.woff2(\?\S*)?$/,
-        loader: 'url-loader?limit=100000'
-      }
-    ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.less'],
@@ -67,11 +62,13 @@ const common = {
 
 if (TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
-    entry: [
-      `webpack-dev-server/client?http://127.0.0.1:${port}`,
-      'webpack/hot/only-dev-server',
-      PATHS.src
-    ],
+    entry: {
+      app: [
+        `webpack-dev-server/client?http://127.0.0.1:${port}`,
+        'webpack/hot/only-dev-server',
+        PATHS.src
+      ]
+    },
     debug: true,
     cache: true,
     devtool: 'eval-source-map',
@@ -84,6 +81,15 @@ if (TARGET === 'start' || !TARGET) {
       host: process.env.HOST,
       port: process.env.PORT
     },
+    module: {
+      loaders: LOADERS.concat([
+        { test: /\.less$/,
+          loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
+            '&sourceMap!autoprefixer-loader!less?sourceMap&outputStyle=expanded' +
+            '&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, '..', 'src', 'less'))
+        }
+      ])
+    },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new WebpackNotifierPlugin()
@@ -93,14 +99,25 @@ if (TARGET === 'start' || !TARGET) {
 
 if (TARGET === 'build:webpack' || !TARGET) {
   module.exports = merge(common, {
-    entry: PATHS.src,
+    entry: {
+      app: PATHS.src
+    },
     preLoaders: [{
       test: /\.js$|\.jsx$/,
       exclude: /node_modules/,
       loaders: ['eslint']
     }],
+    module: {
+      loaders: LOADERS.concat([
+        {
+          test: /\.less$/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]!autoprefixer-loader!less?includePaths[]='
+            + encodeURIComponent(path.resolve(__dirname, '..', 'src', 'less')))
+        }
+      ])
+    },
     plugins: [
-      new ExtractTextPlugin('styles/main.css')
+      new ExtractTextPlugin('styles/app.css')
     ]
   });
 }

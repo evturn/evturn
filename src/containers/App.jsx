@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
+import 'styles/base.less';
 import 'sources/google-analytics';
 
 export default class App extends Component {

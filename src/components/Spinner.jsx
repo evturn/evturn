@@ -1,24 +1,34 @@
-import React, {Component} from 'react';
+import React from 'react';
+import classNames from 'classnames/bind';
+import styles from 'styles/components/spinner.less';
 
-export default class Spinner extends Component {
+const cx = classNames.bind(styles);
+
+export default class Spinner extends React.Component {
   constructor(props) {
     super(props);
 
     this.image = 'src/assets/images/site/ev-av.png';
     this.state = {
-      animation: 'spinner',
-      ready: false
+      ready: false,
+      done: false
     };
   }
   componentDidMount() {
     setTimeout(() => this.removeSpinner(), 2000);
   }
   render() {
+    const animation = cx({
+      'spinner': true,
+      'hidden': this.state.done,
+      'animated': this.state.ready,
+      'fadeOut': this.state.ready
+    });
     return (
-      <div className={this.state.animation}>
-        <div className='animation'></div>
-        <div className='spinner-logo'>
-          <img className='spinner-image' src={this.image} />
+      <div className={animation}>
+        <div className={cx('animation')}></div>
+        <div className={cx('spinner-logo')}>
+          <img className={cx('spinner-image')} src={this.image} />
         </div>
       </div>
     );
@@ -26,9 +36,8 @@ export default class Spinner extends Component {
   removeSpinner() {
     this.setState({
       ready: true,
-      animation: 'spinner animated fadeOut'
     });
 
-    setTimeout(() => this.setState({ animation: 'hidden' }), 1000);
+    setTimeout(() => this.setState({ done: true }), 1000);
   }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
-
-import {default as Menu} from 'components/menu';
-import {default as Overlay} from 'components/overlay';
+import Menu from 'components/menu';
+import Overlay from 'components/overlay';
 
 export default React.createClass({
   contextTypes: {
