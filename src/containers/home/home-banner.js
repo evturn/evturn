@@ -1,3 +1,4 @@
+import React from 'react';
 export const HomeBanner = React.createClass({
   render() {
     return (

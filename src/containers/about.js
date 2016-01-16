@@ -1,3 +1,4 @@
+import React from 'react';
 import {AboutInfo} from 'containers/about/about-info';
 import {AboutStats} from 'containers/about/about-stats';
 import {AboutTech} from 'containers/about/about-tech';

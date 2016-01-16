@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import Carousel from 'components/Carousel';
 import Thumbnails from 'components/Thumbnails';
 import {WorkTech} from 'containers/work/work-tech';

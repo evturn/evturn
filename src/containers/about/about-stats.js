@@ -1,3 +1,4 @@
+import React from 'react';
 import {CounterItems} from 'components/icon-count';
 import {AboutTitle} from 'containers/about/about-title';
 import {default as __stats} from 'sources/stats';

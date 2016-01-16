@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default  React.createClass({
   render() {
     const {width, classname, icon, text, caption} = this.props;

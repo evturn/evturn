@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import Slide from 'components/Slide';
 import CarouselStore from 'stores/CarouselStore';
 import CarouselActions from 'actions/CarouselActions';

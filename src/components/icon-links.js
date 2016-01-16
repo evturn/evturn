@@ -1,3 +1,4 @@
+import React from 'react';
 import {default as IconLink} from 'components/icon-link';
 
 export default React.createClass({

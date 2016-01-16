@@ -1,3 +1,4 @@
+import React from 'react';
 export const AboutHeader = React.createClass({
   getDefaultProps() {
     return {

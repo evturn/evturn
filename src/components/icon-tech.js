@@ -1,3 +1,4 @@
+import React from 'react';
 import {default as Icon} from 'components/icon';
 
 export const TechItems = React.createClass({

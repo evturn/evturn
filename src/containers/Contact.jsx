@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import __links from 'sources/links';
 import {default as IconLinks} from 'components/icon-links';
 

@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import {default as Footer} from 'components/footer';
 import {default as Header} from 'components/header';
 import 'sources/google-analytics';

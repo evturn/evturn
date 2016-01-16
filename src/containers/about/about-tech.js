@@ -1,3 +1,4 @@
+import React from 'react';
 import {TechItems} from 'components/icon-tech';
 import {AboutTitle} from 'containers/about/about-title';
 import {getTechItems} from 'helpers';

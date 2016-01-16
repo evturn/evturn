@@ -1,3 +1,4 @@
+import React from 'react';
 import {AboutTitle} from 'containers/about/about-title';
 
 export const AboutBio = React.createClass({

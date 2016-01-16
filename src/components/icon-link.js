@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default React.createClass({
   render() {
     const {classname, url, icon} = this.props;

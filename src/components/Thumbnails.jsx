@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import Thumbnail from 'components/Thumbnail';
 
 export default class Thumbnails extends Component {

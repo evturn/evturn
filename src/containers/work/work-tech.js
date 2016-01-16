@@ -1,3 +1,4 @@
+import React from 'react';
 import {TechItems as ProjectTech} from 'components/icon-tech';
 
 export const WorkTech = React.createClass({

@@ -4,7 +4,10 @@
   "description": "A website about me for you.",
   "main": "",
   "scripts": {
-    "clean": "rimraf dist/*",
+    "clean": "rimraf dist",
+    "start": "node server.js",
+    "build:webpack": "webpack --progress --colors",
+    "build": "npm run clean && npm run build:webpack",
     "lint": "eslint ./src",
     "dist": "webpack --progress --env=dist",
     "serve:dev": "node server.js --env=dev",
@@ -27,6 +30,7 @@
   },
   "homepage": "https://github.com/evturn/evturn.github.io",
   "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.3.26",
     "babel-eslint": "^4.1.6",
     "babel-loader": "^6.2.0",
@@ -54,6 +58,7 @@
     "html-webpack-template": "^2.5.1",
     "image-webpack-loader": "^1.6.2",
     "isparta-instrumenter-loader": "^1.0.0",
+    "json-loader": "^0.5.4",
     "less": "^2.5.3",
     "less-loader": "^2.0.0",
     "minimist": "^1.2.0",
@@ -70,6 +75,7 @@
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
     "webpack-hot-middleware": "^2.4.1",
+    "webpack-merge": "^0.7.3",
     "webpack-notifier": "^1.2.1"
   },
   "dependencies": {

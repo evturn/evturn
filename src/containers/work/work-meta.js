@@ -1,3 +1,4 @@
+import React from 'react';
 import {default as IconLinks} from 'components/icon-links';
 
 export const WorkMeta = React.createClass({
