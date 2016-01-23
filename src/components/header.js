@@ -1,11 +1,11 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 import Menu from 'components/menu';
-import Overlay from 'components/overlay';
+import styles from 'styles/components/overlay.less';
+
+const cx = classNames.bind(styles);
 
 export default React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
   getInitialState() {
     return {
       page: this.props.page,
@@ -23,9 +23,9 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <Overlay
-          open={this.state.open}
-          callbackParent={this.onChildChanged}
+        <div
+          className={cx({'overlay': this.state.open})}
+          onClick={() => this.onChildChanged({open: !this.state.open})}
         />
         <Menu
           open={this.state.open}
