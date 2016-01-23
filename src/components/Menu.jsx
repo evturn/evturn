@@ -7,31 +7,28 @@ import styles from 'styles/components/nav.less';
 
 const cx = classNames.bind(styles);
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      visible: { 'right': '0' },
-      hidden: { 'right': '-21em' },
-      pages: [
-        { name: 'Home',    route: '/'      , id: 1 },
-        { name: 'Work',    route: 'work'   , id: 2 },
-        { name: 'About',   route: 'about'  , id: 3 },
-        { name: 'Contact', route: 'contact', id: 4 }
-      ]
+export default class Menu extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.pages = [
+      { name: 'Home',    route: '/'      , id: 1 },
+      { name: 'Work',    route: 'work'   , id: 2 },
+      { name: 'About',   route: 'about'  , id: 3 },
+      { name: 'Contact', route: 'contact', id: 4 }
+    ];
+
+    this.state = {
+      page: props.page,
+      open: props.open
     };
-  },
-  getInitialState() {
-    return {
-      page: this.props.page,
-      open: this.props.open
-    };
-  },
+  }
   componentWillReceiveProps(nextProps) {
     this.setState({
       open: nextProps.open,
       page: nextProps.page
     });
-  },
+  }
   setPageLinks(page) {
     const {route, name, id} = page;
 
@@ -41,9 +38,13 @@ export default React.createClass({
       default:
         return <Link to={route}>{name}</Link>;
     }
-  },
+  }
   render() {
-    const open = this.state.open ? this.props.visible : this.props.hidden;
+    const open = cx({
+      'menu': true,
+      'in': this.state.open,
+      'out': !this.state.open
+    });
 
     return (
       <header>
@@ -57,7 +58,7 @@ export default React.createClass({
             onClick={() => this.props.toggleMenu()}>
             <FontIcon type={'fa'} name={'fa-bars'} />
           </div>
-          <div style={open} className={cx('menu')}>
+          <div className={open}>
             <div className={cx('menu-header')}>
               <div
                 className={cx('menu-icon')}
@@ -66,7 +67,7 @@ export default React.createClass({
               </div>
             </div>
             <ul className={cx('flex')}>
-              {this.props.pages.map((page, i) => {
+              {this.pages.map((page, i) => {
                 return (
                   <li key={i} className={cx('menu-item')}
                     onClick={() => this.props.toggleMenu()}>
@@ -80,4 +81,4 @@ export default React.createClass({
       </header>
     );
   }
-});
+}
