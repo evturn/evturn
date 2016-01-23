@@ -10,13 +10,13 @@ export default class Video extends Component {
     this.src = props.src;
     this.ready = props.ready;
   }
+  componentWillMount() {
+    VideoActions.init(this.props.videos);
+  }
   componentDidMount() {
     this.onVideoReady();
     this.onVideoEnded();
     this.onVideoTimeout();
-  }
-  componentWillMount() {
-    VideoActions.init(this.props.videos);
   }
   render() {
     const {...props} = VideoStore.all();

@@ -16,7 +16,9 @@ export default class App extends React.Component {
     const route = nextProps.routes[1].name;
 
     if (this.state.page !== route) {
-      this.setState({ page: route });
+      this.setState({
+        page: route
+      });
     }
   }
   render() {
