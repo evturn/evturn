@@ -6,7 +6,7 @@ import styles from 'styles/common.less';
 const cx = classNames.bind(styles);
 
 export default class TechIcons extends React.Component {
-  render () {
+  render() {
     return (
       <ul className={cx('flex')}>
         {this.props.items.map((item, i) => {

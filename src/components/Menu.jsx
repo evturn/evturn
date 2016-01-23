@@ -1,7 +1,6 @@
 import React from 'react';
 import {IndexLink, Link} from 'react-router';
 import FontIcon from 'components/FontIcon';
-import {getRelativePath} from 'helpers';
 import classNames from 'classnames/bind';
 import styles from 'styles/components/nav.less';
 
@@ -28,16 +27,6 @@ export default class Menu extends React.Component {
       open: nextProps.open,
       page: nextProps.page
     });
-  }
-  setPageLinks(page) {
-    const {route, name, id} = page;
-
-    switch (id) {
-      case 1:
-        return <IndexLink to={route}>{name}</IndexLink>;
-      default:
-        return <Link to={route}>{name}</Link>;
-    }
   }
   render() {
     const open = cx({
@@ -66,19 +55,34 @@ export default class Menu extends React.Component {
                 <FontIcon type={'fa'} name={'fa-times'} />
               </div>
             </div>
-            <ul className={cx('flex')}>
-              {this.pages.map((page, i) => {
-                return (
-                  <li key={i} className={cx('menu-item')}
-                    onClick={() => this.props.toggleMenu()}>
-                    {this.setPageLinks(page)}
-                  </li>
-                );
-              })}
-            </ul>
+            {this.renderMenuLinks()}
           </div>
         </nav>
       </header>
+    );
+  }
+  setPageLinks(page) {
+    const {route, name, id} = page;
+
+    switch (id) {
+      case 1:
+        return <IndexLink to={route}>{name}</IndexLink>;
+      default:
+        return <Link to={route}>{name}</Link>;
+    }
+  }
+  renderMenuLinks() {
+    return (
+      <ul className={cx('flex')}>{this.pages.map((page, i) => {
+        return (
+          <li
+            key={i}
+            className={cx('menu-item')}
+            onClick={() => this.props.toggleMenu()}>
+            {this.setPageLinks(page)}
+          </li>
+        );
+      })}</ul>
     );
   }
 }
