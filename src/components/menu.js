@@ -26,9 +26,6 @@ export default React.createClass({
       open: this.props.open
     };
   },
-  handleClick() {
-    this.props.callbackParent({ open: !this.state.open });
-  },
   componentWillReceiveProps(nextProps) {
     this.setState({
       open: nextProps.open,
@@ -50,23 +47,29 @@ export default React.createClass({
 
     return (
       <header>
-        <div className={cx(`logo-${this.state.page}`)}>
+        <div
+          className={cx(`logo-${this.state.page}`)}>
           <img src='src/assets/images/site/ev-av.png' />
         </div>
         <nav>
-          <div className={cx(`burger-${this.state.page}`)} onClick={this.handleClick}>
+          <div
+            className={cx(`burger-${this.state.page}`)}
+            onClick={() => this.props.toggleMenu()}>
             <FontIcon type={'fa'} name={'fa-bars'} />
           </div>
           <div style={open} className={cx('menu')}>
             <div className={cx('menu-header')}>
-              <div className={cx('menu-icon')} onClick={this.handleClick}>
+              <div
+                className={cx('menu-icon')}
+                onClick={() => this.props.toggleMenu()}>
                 <FontIcon type={'fa'} name={'fa-times'} />
               </div>
             </div>
             <ul className={cx('flex')}>
               {this.props.pages.map((page, i) => {
                 return (
-                  <li key={i} className={cx('menu-item')} onClick={this.handleClick}>
+                  <li key={i} className={cx('menu-item')}
+                    onClick={() => this.props.toggleMenu()}>
                     {this.setPageLinks(page)}
                   </li>
                 );

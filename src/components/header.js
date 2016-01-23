@@ -5,34 +5,41 @@ import styles from 'styles/components/overlay.less';
 
 const cx = classNames.bind(styles);
 
-export default React.createClass({
-  getInitialState() {
-    return {
-      page: this.props.page,
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      page: props.page,
       open: false
     };
-  },
+  }
   onChildChanged(openState) {
     return this.setState(openState);
-  },
+  }
+  toggleMenu = () => {
+    this.setState({
+      open: !this.state.open
+    });
+  };
   componentWillReceiveProps(nextProps) {
     return this.setState({
       page: nextProps.page
     });
-  },
+  }
   render() {
     return (
       <div>
         <div
           className={cx({'overlay': this.state.open})}
-          onClick={() => this.onChildChanged({open: !this.state.open})}
+          onClick={() => this.toggleMenu()}
         />
         <Menu
           open={this.state.open}
-          callbackParent={this.onChildChanged}
+          toggleMenu={this.toggleMenu}
           page={this.state.page}
         />
       </div>
     );
   }
-});
+}
