@@ -48,7 +48,7 @@ export default class Work extends Component {
           </div>
           <div className={cx('project-tech')}>
             <div className={cx('project-title')}>{this.techTitle}</div>
-            <TechIcons items={tech} width={'item-25'} />
+            <TechIcons items={tech} width={'item-20'} />
           </div>
         </div>
       </AltContainer>
