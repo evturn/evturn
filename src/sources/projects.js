@@ -24,7 +24,7 @@ export default [
     techIds: [1, 13, 14, 20]
   },{
     name: 'Marshallz Blog',
-    description: `Built using React and Redux, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots have are assigned their own API keys and destinations for by scraping text various documents, such as news articles and washing machine manuals. Fragments of sentences are collected and sent through a process that creates a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences are used to search Giphy and retrieve an image which is then included in the post.`,
+    description: `Built using React and Redux, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots are assigned their own API keys and destinations for scraping text various documents, such as news articles and washing machine manuals. Fragments of these sentences are collected and ran through a process creating a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences are used to search Giphy and retrieve an image which is then included in the post.`,
     id: 2,
     slug: 'marshallz',
     links: [
