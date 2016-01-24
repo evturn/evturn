@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import Carousel from 'components/Carousel';
-import Thumbnails from 'components/Thumbnails';
-import TechIcons from 'components/TechIcons';
-import FontIcon from 'components/FontIcon';
 import AltContainer from 'alt-container';
 import ProjectActions from 'actions/ProjectActions';
 import ProjectStore from 'stores/ProjectStore';
 import CarouselStore from 'stores/CarouselStore';
+import Carousel from 'components/Carousel';
+import Thumbnails from 'components/Thumbnails';
+import TechIcons from 'components/TechIcons';
+import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
 import styles from 'styles/containers/work.less';
 

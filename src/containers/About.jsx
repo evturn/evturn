@@ -1,8 +1,8 @@
 import React from 'react';
 import TechIcons from 'components/TechIcons';
 import StatCounters from 'components/StatCounters';
-import {getTechItems} from 'helpers';
-import {default as __stats} from 'sources/stats';
+import __tech from 'sources/tech';
+import __stats from 'sources/stats';
 import classNames from 'classnames/bind';
 import styles from 'styles/containers/about.less';
 
@@ -17,6 +17,7 @@ export default class About extends React.Component {
     this.title = 'Development';
     this.techTitle = 'Tools';
     this.statsTitle = 'Statistics';
+    this.tech = __tech;
     this.stats = __stats;
   }
   render() {
@@ -34,8 +35,16 @@ export default class About extends React.Component {
       </div>
     );
   }
+  getTechItems() {
+    return this.tech.filter((obj) => {
+      return obj.featured;
+    }).map((obj) => {
+      return obj;
+    });
+  }
   renderTech() {
-    const tech = getTechItems();
+    const tech = this.getTechItems();
+
     return (
       <div className={cx('about-tech')}>
         <div className={cx('about-header')}>{this.techTitle}</div>
