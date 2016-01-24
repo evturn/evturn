@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "node server.js",
+    "start": "node src/dev-server.js",
     "build:webpack": "webpack --progress --colors",
     "build": "npm run clean && npm run build:webpack",
     "watch": "npm run start && webpack --watch --progress --colors",
