@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AltContainer from 'alt-container';
 import ProjectActions from 'actions/ProjectActions';
 import ProjectStore from 'stores/ProjectStore';
@@ -12,7 +12,7 @@ import styles from 'styles/containers/work.less';
 
 const cx = classNames.bind(styles);
 
-export default class Work extends Component {
+export default class Work extends React.Component {
   constructor(props) {
     super(props);
 
