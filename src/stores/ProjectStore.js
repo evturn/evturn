@@ -1,5 +1,4 @@
 import alt from '../libs/alt';
-import assign from 'object-assign';
 import __projects from 'sources/projects';
 import __tech from 'sources/tech';
 import ProjectActions from 'actions/ProjectActions';
@@ -65,7 +64,7 @@ class ProjectStore {
     const result = __projects[!projectId ? 0 : projectId - 1];
     const tech = this.setTech(result.techIds);
     const images = this.setSlides(result.images);
-    const project = assign({}, {
+    const project = Object.assign({}, {
       images: images,
       tech: tech,
       name: result.name,

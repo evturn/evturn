@@ -1,4 +1,3 @@
-import assign from 'object-assign';
 import alt from '../libs/alt';
 import VideoActions from 'actions/VideoActions';
 

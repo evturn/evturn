@@ -1,25 +1,46 @@
 const path = require('path');
-const port = 3000;
-const publicPath = '/dist/';
 const webpack = require('webpack');
-const assetsPath = path.join(__dirname, 'src', 'assets');
-const WriteFilePlugin = require('write-file-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const WebpackNotifierPlugin = require('webpack-notifier');
 const merge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 const TARGET = process.env.npm_lifecycle_event;
-console.log(TARGET);
+const PORT = 3000;
+const HOST = 'localhost';
 const PATHS = {
   src: path.join(__dirname, 'src'),
-  dist: path.join(__dirname, 'dist')
-}
+  dist: path.join(__dirname, 'dist'),
+  output: path.join(__dirname, 'dist'),
+  publicPath: '/'
+};
+
+const common = {
+  port: PORT,
+  debug: true,
+  output: {
+    path: PATHS.output,
+    filename: 'js/[name].js',
+    publicPath: PATHS.publicPath
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.less'],
+    modulesDirectories: ['src', 'node_modules'],
+    alias: {
+      actions:    path.join(__dirname, './src/actions/'),
+      containers: path.join(__dirname, './src/containers/'),
+      components: path.join(__dirname, './src/components/'),
+      sources:    path.join(__dirname, './src/sources/'),
+      images:     path.join(__dirname, './src/assets/images/'),
+      stores:     path.join(__dirname, './src/stores/'),
+      styles:     path.join(__dirname, './src/assets/styles/'),
+      fonts:      path.join(__dirname, './src/assets/styles/fonts')
+    }
+  }
+};
+
 const LOADERS = [
   {
-    test: /\.js$|\.jsx$/,
-    loaders: ['babel'],
-    include: PATHS.src
-  },{
     test: /\.json$/,
     loader: "json-loader"
   },{
@@ -34,58 +55,39 @@ const LOADERS = [
   }
 ];
 
-const common = {
-  port: port,
-  debug: true,
-  output: {
-    path: PATHS.dist,
-    filename: '[name].js',
-    publicPath: publicPath
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.less'],
-    modulesDirectories: [
-      'src', 'node_modules'
-    ],
-    alias: {
-      actions:    path.join(__dirname, './src/actions/'),
-      containers: path.join(__dirname, './src/containers/'),
-      components: path.join(__dirname, './src/components/'),
-      sources:    path.join(__dirname, './src/sources/'),
-      images:     path.join(__dirname, './src/assets/images/'),
-      stores:     path.join(__dirname, './src/stores/'),
-      styles:     path.join(__dirname, './src/assets/styles/'),
-      fonts:      path.join(__dirname, './src/assets/styles/fonts')
-    }
-  }
-};
 
-
-if (TARGET === 'start' || !TARGET) {
+if (TARGET === 'dev' || !TARGET) {
   module.exports = merge(common, {
-    entry: {
-      app: [
-        `webpack-dev-server/client?http://127.0.0.1:${port}`,
-        'webpack/hot/only-dev-server',
-        PATHS.src
-      ]
-    },
     debug: true,
     cache: true,
     devtool: 'eval-source-map',
+    entry: {
+      app: [
+        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
+        PATHS.src
+      ]
+    },
+    context: PATHS.src,
     devServer: {
-      outputPath: PATHS.dist,
+      outputPath: PATHS.output,
       historyApiFallback: true,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
       hot: true,
       inline: true,
       progress: true,
       stats: 'errors-only',
-      host: process.env.HOST,
-      port: process.env.PORT
+      port: PORT,
+      host: 'localhost'
     },
     module: {
       loaders: LOADERS.concat([
         {
+          test: /\.js$|\.jsx$/,
+          loader: 'babel',
+          exclude: /node_modules/
+        },{
           test: /\.less$/,
           loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]' +
             '&sourceMap!autoprefixer-loader!less?sourceMap&outputStyle=expanded' +
@@ -95,26 +97,27 @@ if (TARGET === 'start' || !TARGET) {
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
       new WriteFilePlugin(),
-      new ExtractTextPlugin('styles/app.css'),
+      new ExtractTextPlugin('css/app.css'),
       new WebpackNotifierPlugin()
     ]
   });
 }
 
-if (TARGET === 'build:webpack' || !TARGET) {
+if (TARGET === 'build' || !TARGET) {
   module.exports = merge(common, {
     entry: {
       app: PATHS.src
     },
-    preLoaders: [{
-      test: /\.js$|\.jsx$/,
-      exclude: /node_modules/,
-      loaders: ['eslint']
-    }],
     module: {
       loaders: LOADERS.concat([
         {
+          test: /\.js$|\.jsx$/,
+          loader: 'babel',
+          exclude: /node_modules/,
+          include: __dirname
+        },{
           test: /\.less$/,
           loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]!autoprefixer-loader!less?includePaths[]='
             + encodeURIComponent(path.resolve(__dirname, '..', 'src', 'less')))
@@ -122,7 +125,13 @@ if (TARGET === 'build:webpack' || !TARGET) {
       ])
     },
     plugins: [
-      new ExtractTextPlugin('styles/app.css')
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      }),
+      new ExtractTextPlugin('css/app.css'),
+      new webpack.optimize.UglifyJsPlugin({minimize: true})
     ]
   });
 }

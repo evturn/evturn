@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute} from 'react-router';
@@ -9,7 +10,7 @@ import About from 'containers/About';
 import Contact from 'containers/Contact';
 import Spinner from 'components/Spinner';
 
-ReactDOM.render(<Spinner />, document.getElementById('kurt-loader'));
+// ReactDOM.render(<Spinner />, document.getElementById('kurt-loader'));
 
 const router = (
   <Router history={createHashHistory({queryKey: false})}>

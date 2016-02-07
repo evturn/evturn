@@ -17,7 +17,7 @@ export default [
     icon: 'devicon-less-plain-wordmark',
     color: 'devicon-less-plain-wordmark',
     id: 15,
-    featured: true
+    featured: false
   },{
     name: 'Gulp.js',
     icon: 'devicon-gulp-plain',
@@ -40,13 +40,13 @@ export default [
     name: 'Babel',
     icon: 'evcon-babel',
     color: 'evcon-babel',
-    featured: true,
+    featured: false,
     id: 20
   },{
     name: 'Handlebars',
     icon: 'evcon-handlebars',
     color: 'evcon-handlebars',
-    featured: true,
+    featured: false,
     id: 18
   },{
     name: 'MongoDB',
@@ -89,7 +89,7 @@ export default [
     icon: 'devicon-sass-original',
     color: 'devicon-sass-original colored',
     id: 13,
-    featured: true
+    featured: false
   },{
     name: 'Rails',
     icon: 'devicon-rails-plain-wordmark',

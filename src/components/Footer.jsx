@@ -9,7 +9,7 @@ export default class Footer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.text = '© 2015 evturn.com built with ';
+    this.text = '© 2016 evturn.com built with ';
     this.state = {
       page: props.page,
       blend: props.page === 'contact'
