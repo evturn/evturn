@@ -30,7 +30,7 @@ const common = {
       actions:    path.join(__dirname, './src/shared/actions/'),
       containers: path.join(__dirname, './src/shared/containers/'),
       components: path.join(__dirname, './src/shared/components/'),
-      sources:    path.join(__dirname, './src/shared/sources/'),
+      sources:    path.join(__dirname, './src/server/data/'),
       stores:     path.join(__dirname, './src/shared/stores/'),
       images:     path.join(__dirname, './src/client/assets/images/'),
       css:        path.join(__dirname, './src/client/assets/less/'),
