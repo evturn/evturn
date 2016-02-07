@@ -9,7 +9,7 @@ const TARGET = process.env.npm_lifecycle_event;
 const PORT = 3000;
 const HOST = 'localhost';
 const PATHS = {
-  src: path.join(__dirname, 'src'),
+  src: path.join(__dirname, 'src/client'),
   dist: path.join(__dirname, 'dist'),
   output: path.join(__dirname, 'dist'),
   publicPath: '/'
@@ -27,14 +27,14 @@ const common = {
     extensions: ['', '.js', '.jsx', '.less'],
     modulesDirectories: ['src', 'node_modules'],
     alias: {
-      actions:    path.join(__dirname, './src/actions/'),
-      containers: path.join(__dirname, './src/containers/'),
-      components: path.join(__dirname, './src/components/'),
-      sources:    path.join(__dirname, './src/sources/'),
-      images:     path.join(__dirname, './src/assets/images/'),
-      stores:     path.join(__dirname, './src/stores/'),
-      styles:     path.join(__dirname, './src/assets/styles/'),
-      fonts:      path.join(__dirname, './src/assets/styles/fonts')
+      actions:    path.join(__dirname, './src/shared/actions/'),
+      containers: path.join(__dirname, './src/shared/containers/'),
+      components: path.join(__dirname, './src/shared/components/'),
+      sources:    path.join(__dirname, './src/shared/sources/'),
+      stores:     path.join(__dirname, './src/shared/stores/'),
+      images:     path.join(__dirname, './src/client/assets/images/'),
+      css:        path.join(__dirname, './src/client/assets/less/'),
+      fonts:      path.join(__dirname, './src/client/assets/less/fonts')
     }
   }
 };

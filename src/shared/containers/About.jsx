@@ -4,7 +4,7 @@ import StatCounters from 'components/StatCounters';
 import __tech from 'sources/tech';
 import __stats from 'sources/stats';
 import classNames from 'classnames/bind';
-import styles from 'styles/containers/about.less';
+import styles from 'css/containers/about.less';
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +12,7 @@ export default class About extends React.Component {
   constructor(props) {
     super(props);
 
-    this.image = 'src/assets/images/site/skel.gif';
+    this.image = 'src/client/assets/images/site/skel.gif';
     this.text = 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.';
     this.title = 'Development';
     this.techTitle = 'Tools';

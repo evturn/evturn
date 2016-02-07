@@ -17,7 +17,7 @@ class VideoStore {
     this.muted = true;
     this.type = 'video/mp4';
     this.preload = 'auto';
-    this.poster = 'src/assets/images/site/banana-plants.png';
+    this.poster = 'src/client/assets/images/site/banana-plants.png';
     this.playbackRate = 0.5;
     this.playlist = videos;
     this.current = 0;

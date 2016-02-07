@@ -8,7 +8,7 @@ import Thumbnails from 'components/Thumbnails';
 import TechIcons from 'components/TechIcons';
 import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
-import styles from 'styles/containers/work.less';
+import styles from 'css/containers/work.less';
 
 const cx = classNames.bind(styles);
 

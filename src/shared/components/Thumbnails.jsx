@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import classNames from 'classnames/bind';
-import styles from 'styles/components/thumbnails.less';
+import styles from 'css/components/thumbnails.less';
 
 const cx = classNames.bind(styles);
 

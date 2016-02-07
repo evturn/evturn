@@ -1,7 +1,7 @@
 import React from 'react';
 import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
-import styles from 'styles/components/footer.less';
+import styles from 'css/components/footer.less';
 
 const cx = classNames.bind(styles);
 

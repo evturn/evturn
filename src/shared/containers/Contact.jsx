@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import __links from 'sources/links';
 import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
-import styles from 'styles/containers/contact.less';
+import styles from 'css/containers/contact.less';
 
 const cx = classNames.bind(styles);
 

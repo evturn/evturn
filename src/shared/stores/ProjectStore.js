@@ -78,7 +78,7 @@ class ProjectStore {
     this.setState(project);
   }
   getRelativePath(absolutePath) {
-    const prefix = 'src/assets/';
+    const prefix = 'src/client/assets/';
 
     return `${prefix}${absolutePath}`;
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import StatCounter from 'components/StatCounter';
 import classNames from 'classnames/bind';
-import styles from 'styles/common.less';
+import styles from 'css/common.less';
 
 const cx = classNames.bind(styles);
 

@@ -5,7 +5,7 @@ import VideoActions from 'actions/VideoActions';
 import VideoStore from 'stores/VideoStore';
 import __videos from 'sources/videos';
 import classNames from 'classnames/bind';
-import styles from 'styles/containers/home.less';
+import styles from 'css/containers/home.less';
 
 const cx = classNames.bind(styles);
 

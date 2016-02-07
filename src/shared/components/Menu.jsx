@@ -2,7 +2,7 @@ import React from 'react';
 import {IndexLink, Link} from 'react-router';
 import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
-import styles from 'styles/components/nav.less';
+import styles from 'css/components/nav.less';
 
 const cx = classNames.bind(styles);
 
@@ -39,7 +39,7 @@ export default class Menu extends React.Component {
       <header>
         <div
           className={cx(`logo-${this.state.page}`)}>
-          <img src='src/assets/images/site/ev-av.png' />
+          <img src='src/client/assets/images/site/ev-av.png' />
         </div>
         <nav>
           <div

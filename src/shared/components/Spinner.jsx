@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import styles from 'styles/components/spinner.less';
+import styles from 'css/components/spinner.less';
 
 const cx = classNames.bind(styles);
 
@@ -8,7 +8,7 @@ export default class Spinner extends React.Component {
   constructor(props) {
     super(props);
 
-    this.image = 'src/assets/images/site/ev-av.png';
+    this.image = 'src/client/assets/images/site/ev-av.png';
     this.state = {
       ready: false,
       done: false

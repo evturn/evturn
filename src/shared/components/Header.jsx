@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from 'components/Menu';
 import classNames from 'classnames/bind';
-import styles from 'styles/components/overlay.less';
+import styles from 'css/components/overlay.less';
 
 const cx = classNames.bind(styles);
 

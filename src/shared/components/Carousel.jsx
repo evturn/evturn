@@ -2,7 +2,7 @@ import React from 'react';
 import CarouselStore from 'stores/CarouselStore';
 import CarouselActions from 'actions/CarouselActions';
 import classNames from 'classnames/bind';
-import styles from 'styles/components/carousel.less';
+import styles from 'css/components/carousel.less';
 
 const cx = classNames.bind(styles);
 
