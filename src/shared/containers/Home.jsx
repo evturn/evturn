@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { next, connectStoreDispatch } from 'actions/video';
+import { next } from 'actions/video';
 import Spinner from 'components/Spinner';
 import VideoPlayer from 'components/VideoPlayer';
 import classNames from 'classnames/bind';
@@ -11,8 +11,6 @@ const cx = classNames.bind(styles);
 class Home extends Component {
   constructor(props) {
     super(props);
-
-    connectStoreDispatch(props.dispatch);
   }
   render() {
     return (

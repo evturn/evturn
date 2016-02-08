@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { updateRoute } from 'actions/app';
+import store from 'shared/store';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import 'css/base.less';
@@ -10,16 +11,16 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.dispatch = props.dispatch;
+    this.dispatch = store.dispatch;
   }
   componentDidMount() {
     this.dispatch(updateRoute(this.props.routes[1].name));
   }
-  componentWillUpdate(prevProps) {
-    const route = this.props.routes[1].name;
+  componentWillReceiveProps(nextProps) {
+    const page = nextProps.routes[1].name;
 
-    if (prevProps.page !== route) {
-      this.dispatch(updateRoute(route));
+    if (page !== this.props.page) {
+      this.dispatch(updateRoute(page));
     }
   }
   render() {

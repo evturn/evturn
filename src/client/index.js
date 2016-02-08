@@ -4,10 +4,9 @@ import { render } from 'react-dom';
 import { Router, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import { Provider } from 'react-redux';
-import configureStore from 'shared/store';
+import store from 'shared/store';
 import routes from 'shared/routes';
 
-const store = configureStore();
 const history = useRouterHistory(createHashHistory)({ queryKey: false });
 
 render(

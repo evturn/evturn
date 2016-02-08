@@ -15,7 +15,7 @@ class VideoPlayer extends Component {
     unmount();
   }
   render() {
-    const { src } = this.props;
+    const { src, playbackRate } = this.props;
 
     return (
       <video
@@ -36,8 +36,8 @@ class VideoPlayer extends Component {
   listenForVideoPlay() {
     this.player.addEventListener(
       'playing', () => {
-        play()
-        this.player.playbackRate = this.props.playbackRate;
+        play();
+        this.player.playbackRate = 0.6;
       }
     );
   }

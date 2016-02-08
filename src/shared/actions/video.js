@@ -1,3 +1,5 @@
+import store from 'shared/store';
+
 const videoMounted   = () => { return { type: 'VIDEO_MOUNTED' } };
 const videoLoading   = () => { return { type: 'VIDEO_LOADING' } };
 const videoPlaying   = () => { return { type: 'VIDEO_PLAYING' } };
@@ -8,7 +10,9 @@ const videoUnmounted = () => { return { type: 'VIDEO_UNMOUNTED' } };
 const videoNext      = () => { return { type: 'VIDEO_NEXT' } };
 const hideSpinner    = () => { return { type: 'HIDE_SPINNER' } };
 
-let dispatch;
+
+const dispatch = store.dispatch;
+
 let mounted = false;
 let timer = null;
 
@@ -19,8 +23,6 @@ function createTimeout(action, duration) {
 const createTimer = () => timer = createTimeout(videoTimeout, 3000);
 const clearTimer = () => clearTimeout(timer);
 const removeSpinner = () => createTimeout(hideSpinner, 1000);
-
-export const connectStoreDispatch = (storeDispatch) => dispatch = storeDispatch;
 
 export const load = () => {
   if (window.innerWidth < 600) {
