@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { IndexLink, Link } from 'react-router';
 import { menuVisibilty } from 'actions/site';
+import SiteNavigationLinks from 'components/SiteNavigationLinks';
 import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
 import styles from 'css/components/nav.less';
@@ -20,8 +20,7 @@ class SiteNavigation extends Component {
     });
     return (
       <header>
-        <div
-          className={cx(`logo-${this.props.page}`)}>
+        <div className={cx(`logo-${this.props.page}`)}>
           <img src='src/client/assets/images/site/ev-av.png' />
         </div>
         <nav>
@@ -38,34 +37,10 @@ class SiteNavigation extends Component {
                 <FontIcon type={'fa'} name={'fa-times'} />
               </div>
             </div>
-            {this.renderMenuLinks()}
+            <SiteNavigationLinks pages={this.props.pages} />
           </div>
         </nav>
       </header>
-    );
-  }
-  setPageLinks(page) {
-    const {route, name, id} = page;
-
-    switch (id) {
-      case 1:
-        return <IndexLink to={route}>{name}</IndexLink>;
-      default:
-        return <Link to={route}>{name}</Link>;
-    }
-  }
-  renderMenuLinks() {
-    return (
-      <ul className={cx('flex')}>{this.props.pages.map((page, i) => {
-        return (
-          <li
-            key={i}
-            className={cx('menu-item')}
-            onClick={() => menuVisibilty()}>
-            {this.setPageLinks(page)}
-          </li>
-        );
-      })}</ul>
     );
   }
 }

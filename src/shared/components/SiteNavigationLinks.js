@@ -1,0 +1,25 @@
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { IndexLink, Link } from 'react-router';
+import { menuVisibilty } from 'actions/site';
+import classNames from 'classnames/bind';
+import styles from 'css/components/nav.less';
+
+const cx = classNames.bind(styles);
+
+export default ({ pages }) => {
+  return (
+    <ul className={cx('flex')}>{pages.map((page, i) => {
+      const { route, name, id } = page;
+      const link = id === 1 ?
+        <IndexLink to={route}>{name}</IndexLink> :
+        <Link to={route}>{name}</Link>;
+
+      return (
+        <li key={i} className={cx('menu-item')} onClick={() => menuVisibilty()}>
+          {link}
+        </li>
+      );
+    })}</ul>
+  );
+}
