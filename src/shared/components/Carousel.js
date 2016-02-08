@@ -11,7 +11,6 @@ class Carousel extends Component {
     super(props);
   }
   componentDidMount() {
-    console.log(this.props.images);
     init(this.props.images);
   }
   componentWillReceiveProps(nextProps) {
@@ -23,8 +22,6 @@ class Carousel extends Component {
     performCleanUp();
   }
   render() {
-    const slides = this.renderSlides(this.props.images);
-
     return (
       <div className={cx('project-carousel')}>
         <div className={cx('carousel')}>

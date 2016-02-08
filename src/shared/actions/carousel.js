@@ -30,16 +30,3 @@ export const performCleanUp = () => {
   clearTimeout(timeout);
   dispatch(carouselUnmounted());
 };
-
-export const assignClassName = (image) => {
-  console.log(store.getState().enter);
-  if (image === store.getState().enter) {
-    return 'enter';
-  } else if (image === store.getState().leave) {
-    return 'leave';
-  } else if (image === store.getState().active) {
-    return 'active';
-  } else {
-    return 'inactive';
-  }
-};

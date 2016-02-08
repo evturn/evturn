@@ -1,45 +1,44 @@
-import React from 'react';
-import Menu from 'components/Menu';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { menuVisibilty } from 'actions/site';
+import SiteNavigation from 'components/SiteNavigation';
 import classNames from 'classnames/bind';
 import styles from 'css/components/overlay.less';
 
 const cx = classNames.bind(styles);
 
-export default class Header extends React.Component {
+class Header extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      page: props.page,
-      open: false
-    };
-  }
-  onChildChanged(openState) {
-    return this.setState(openState);
-  }
-  toggleMenu = () => {
-    this.setState({
-      open: !this.state.open
-    });
-  };
-  componentWillReceiveProps(nextProps) {
-    return this.setState({
-      page: nextProps.page
-    });
   }
   render() {
+    const { open, page, pages } = this.props;
     return (
       <div>
         <div
-          className={cx({'overlay': this.state.open})}
-          onClick={() => this.toggleMenu()}
+          className={cx({'overlay': open})}
+          onClick={() => menuVisibilty()}
         />
-        <Menu
-          open={this.state.open}
-          toggleMenu={this.toggleMenu}
-          page={this.state.page}
+        <SiteNavigation
+          open={open}
+          page={page}
+          pages={pages}
         />
       </div>
     );
   }
 }
+
+Header.propTypes = {
+  page: PropTypes.string,
+  open: PropTypes.bool
+};
+
+function mapStateToProps(state) {
+  return {
+    page: state.site.page,
+    open: state.site.open
+  };
+}
+
+export default connect(mapStateToProps)(Header);

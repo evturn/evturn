@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { updateRoute } from 'actions/app';
-import store from 'shared/store';
+import { init, setRouteAsPage } from 'actions/site';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import 'css/base.less';
@@ -10,25 +9,29 @@ import 'sources/google-analytics';
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.dispatch = store.dispatch;
   }
-  componentDidMount() {
-    this.dispatch(updateRoute(this.props.routes[1].name));
+  componentWillMount() {
+    init(this.props.routes[1].name);
   }
   componentWillReceiveProps(nextProps) {
     const page = nextProps.routes[1].name;
 
     if (page !== this.props.page) {
-      this.dispatch(updateRoute(page));
+      setRouteAsPage(page);
     }
   }
   render() {
+    const { pages, page } = this.props;
     return (
       <div>
-        <Header page={this.props.page} />
+        <Header
+          page={page}
+          pages={pages}
+        />
         {this.props.children}
-        <Footer page={this.props.page} />
+        <Footer
+          page={page}
+        />
       </div>
     );
   }
@@ -36,11 +39,14 @@ class App extends Component {
 
 App.propTypes = {
   page: PropTypes.string,
-  dispatch: PropTypes.func
+  pages: PropTypes.array
 };
 
 function mapStateToProps(state) {
-  return { page: state.site.page };
+  return {
+    page: state.site.page,
+    pages: state.site.pages
+  };
 }
 
 export default connect(mapStateToProps)(App);
