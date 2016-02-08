@@ -10,7 +10,6 @@ class VideoPlayer extends Component {
     this.dispatch = props.dispatch;
   }
   componentDidMount() {
-
     load(this.dispatch);
     this.attachListeners();
   }
@@ -18,7 +17,7 @@ class VideoPlayer extends Component {
     unmount(this.dispatch);
   }
   render() {
-    const { autoPlay, muted, src } = this.props;
+    const { src } = this.props;
 
     return (
       <video
@@ -26,8 +25,8 @@ class VideoPlayer extends Component {
         poster="src/client/assets/images/site/banana-plants.png"
         type="video/mp4"
         preload="auto"
-        autoPlay={autoPlay}
-        muted={muted}
+        autoPlay={true}
+        muted={true}
         src={src}
       />
     );

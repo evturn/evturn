@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import styles from 'css/components/spinner.less';
 
 const cx = classNames.bind(styles);
 
-export default class Spinner extends React.Component {
+export default class Spinner extends Component {
   constructor(props) {
     super(props);
 

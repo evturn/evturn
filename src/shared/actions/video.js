@@ -1,59 +1,19 @@
-export const VIDEO_LOADING = 'VIDEO_LOADING';
-export const VIDEO_PLAYING = 'VIDEO_PLAYING';
-export const VIDEO_ENDED = 'VIDEO_ENDED';
-export const VIDEO_TIMEOUT = 'VIDEO_TIMEOUT';
-export const VIDEO_ABORTED = 'VIDEO_ABORTED';
-
-const videoLoading = () => {
-  return {
-    type: VIDEO_LOADING
-  };
-};
-
-const videoPlaying = () => {
-  return {
-    type: VIDEO_PLAYING
-  };
-};
-
-
-const videoEnded = () => {
-  return {
-    type: VIDEO_ENDED
-  };
-};
-
-const videoTimeout = () => {
-  return {
-    type: VIDEO_TIMEOUT
-  };
-};
-
-const videoAborted = () => {
-  return {
-    type: VIDEO_ABORTED
-  };
-};
-
-const videoUnmounted = () => {
-  return {
-    type: 'VIDEO_UNMOUNTED'
-  };
-};
+const videoLoading   = () => { return { type: 'VIDEO_LOADING' } };
+const videoPlaying   = () => { return { type: 'VIDEO_PLAYING' } };
+const videoEnded     = () => { return { type: 'VIDEO_ENDED' } };
+const videoTimeout   = () => { return { type: 'VIDEO_TIMEOUT' } };
+const videoAborted   = () => { return { type: 'VIDEO_ABORTED' } };
+const videoUnmounted = () => { return { type: 'VIDEO_UNMOUNTED' } };
 
 const timer = {
-
   timeout: null,
-
   start(dispatch) {
     this.timeout = setTimeout(() => dispatch(videoTimeout()), 3000);
   },
-
   clear() {
     clearTimeout(this.timeout);
     this.timeout = null;
   }
-
 };
 
 export function load(dispatch) {

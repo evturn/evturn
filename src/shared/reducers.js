@@ -3,10 +3,6 @@ import videos from 'sources/videos';
 
 function video(state = {
   total: videos.length - 1,
-  type: 'video/mp4',
-  preload: 'auto',
-  autoPlay: true,
-  muted: true,
   playbackRate: 0.6,
   id: null,
   src: null,
@@ -49,9 +45,7 @@ function video(state = {
 }
 
 
-function site(state = {
-  page: null
-}, action) {
+function site(state = { page: null }, action) {
   switch (action.type) {
     case 'PAGE_UPDATE':
       return Object.assign({}, state, {
