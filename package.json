@@ -53,9 +53,6 @@
     "write-file-webpack-plugin": "^2.1.2"
   },
   "dependencies": {
-    "alt": "^0.18.1",
-    "alt-container": "^1.0.0",
-    "alt-utils": "^1.0.0",
     "babel-core": "^6.3.26",
     "babel-eslint": "^4.1.6",
     "babel-loader": "^6.2.0",

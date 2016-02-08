@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-// import CarouselStore from 'stores/CarouselStore';
-// import CarouselActions from 'actions/CarouselActions';
 import { connect } from 'react-redux';
 import { init, performCleanUp, assignClassName } from 'actions/carousel';
 import classNames from 'classnames/bind';
@@ -12,17 +10,17 @@ class Carousel extends Component {
   constructor(props) {
     super(props);
   }
-  componentWillUnmount() {
-    performCleanUp();
+  componentDidMount() {
+    console.log(this.props.images);
+    init(this.props.images);
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.images !== nextProps.images) {
       init(nextProps.images);
     }
   }
-  componentDidMount() {
-    console.log(this.props.images);
-    init(this.props.images);
+  componentWillUnmount() {
+    performCleanUp();
   }
   render() {
     const slides = this.renderSlides(this.props.images);
