@@ -1,7 +1,8 @@
 export default function site(state = {
   page: null,
   pages: [],
-  open: false
+  open: false,
+  mounted: false
 }, action) {
   switch (action.type) {
     case 'INIT_LOCALS':
@@ -9,6 +10,10 @@ export default function site(state = {
         page: action.page,
         pages: action.pages,
         open: state.open
+      });
+    case 'SITE_MOUNTED':
+      return Object.assign({}, state, {
+        mounted: true
       });
     case 'PAGE_TRANSITION':
       return Object.assign({}, state, {

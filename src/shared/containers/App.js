@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { init, setRouteAsPage } from 'actions/site';
+import { init, setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import SiteOverlay from 'components/SiteOverlay';
 import 'css/base.less';
 import 'sources/google-analytics';
 
@@ -13,6 +14,9 @@ class App extends Component {
   componentWillMount() {
     init(this.props.routes[1].name);
   }
+  componentDidMount() {
+    setSiteMounted();
+  }
   componentWillReceiveProps(nextProps) {
     const page = nextProps.routes[1].name;
 
@@ -21,12 +25,23 @@ class App extends Component {
     }
   }
   render() {
-    const { pages, page } = this.props;
+    const { pages, page, open, mounted } = this.props;
+
+    if (!mounted) {
+      return <div />
+    }
+
     return (
       <div>
+        <SiteOverlay
+          open={open}
+          toggle={menuVisibility}
+        />
         <Header
+          open={open}
           page={page}
           pages={pages}
+          toggle={menuVisibility}
         />
         {this.props.children}
         <Footer
@@ -39,13 +54,17 @@ class App extends Component {
 
 App.propTypes = {
   page: PropTypes.string,
-  pages: PropTypes.array
+  pages: PropTypes.array,
+  open: PropTypes.bool,
+  mounted: PropTypes.bool
 };
 
 function mapStateToProps(state) {
   return {
     page: state.site.page,
-    pages: state.site.pages
+    pages: state.site.pages,
+    open: state.site.open,
+    mounted: state.site.mounted
   };
 }
 

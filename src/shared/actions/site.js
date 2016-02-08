@@ -15,6 +15,12 @@ const initLocals = (page) => {
   };
 };
 
+const siteMounted = () => {
+  return {
+    type: 'SITE_MOUNTED'
+  };
+};
+
 const pageTransition = page => {
   return {
     type: 'PAGE_TRANSITION',
@@ -32,4 +38,5 @@ const dispatch = store.dispatch;
 
 export const init = page => dispatch(initLocals());
 export const setRouteAsPage = page => dispatch(pageTransition(page));
-export const menuVisibilty = () => dispatch(toggleMenu());
+export const menuVisibility = () => dispatch(toggleMenu());
+export const setSiteMounted = () => dispatch(siteMounted());
