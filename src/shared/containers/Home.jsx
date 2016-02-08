@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { next, connectStoreDispatch } from 'actions/video';
 import Spinner from 'components/Spinner';
 import VideoPlayer from 'components/VideoPlayer';
 import classNames from 'classnames/bind';
@@ -7,13 +8,15 @@ import styles from 'css/containers/home.less';
 
 const cx = classNames.bind(styles);
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
+
+    connectStoreDispatch(props.dispatch);
   }
   render() {
     return (
-      <div className={cx('home')}>
+      <div className={cx('home')} onClick={() => next()}>
         <VideoPlayer />
         <Spinner />
         <div className={cx('home-banner')}>
@@ -24,3 +27,9 @@ export default class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  dispatch: PropTypes.func
+};
+
+export default connect()(Home);

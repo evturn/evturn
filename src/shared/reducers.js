@@ -53,6 +53,12 @@ function video(state = {
       return Object.assign({}, state, {
         done: true
       });
+    case 'VIDEO_NEXT':
+      const skipToId = state.id === null || state.id === state.total ? 0 : state.id + 1;
+      return Object.assign({}, state, {
+        id: skipToId,
+        src: videos[skipToId]
+      });
     default:
       return state;
   }

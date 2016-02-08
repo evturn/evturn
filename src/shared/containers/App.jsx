@@ -15,10 +15,10 @@ class App extends Component {
   componentDidMount() {
     this.dispatch(updateRoute(this.props.routes[1].name));
   }
-  componentWillReceiveProps(nextProps) {
-    const route = nextProps.routes[1].name;
+  componentWillUpdate(prevProps) {
+    const route = this.props.routes[1].name;
 
-    if (this.props.page !== nextProps.route) {
+    if (prevProps.page !== route) {
       this.dispatch(updateRoute(route));
     }
   }

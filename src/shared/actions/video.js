@@ -5,6 +5,7 @@ const videoEnded     = () => { return { type: 'VIDEO_ENDED' } };
 const videoTimeout   = () => { return { type: 'VIDEO_TIMEOUT' } };
 const videoAborted   = () => { return { type: 'VIDEO_ABORTED' } };
 const videoUnmounted = () => { return { type: 'VIDEO_UNMOUNTED' } };
+const videoNext      = () => { return { type: 'VIDEO_NEXT' } };
 const hideSpinner    = () => { return { type: 'HIDE_SPINNER' } };
 
 let dispatch;
@@ -33,11 +34,12 @@ export const load = () => {
 
 export const play = () => {
   if (!mounted) {
-    clearTimer()
+    clearTimer();
     dispatch(videoMounted());
+    removeSpinner();
   }
   dispatch(videoPlaying());
-  removeSpinner();
+  mounted = true;
 };
 
 export const end = () => {
@@ -48,4 +50,8 @@ export const end = () => {
 export const unmount = () => {
   clearTimer();
   dispatch(videoUnmounted());
+};
+
+export const next = () => {
+  dispatch(videoNext());
 };

@@ -1,13 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { play, end, load, unmount, connectStoreDispatch } from 'actions/video';
+import { play, end, load, unmount } from 'actions/video';
 import styles from 'css/components/video.less';
 
 class VideoPlayer extends Component {
   constructor(props) {
     super(props);
-
-    connectStoreDispatch(props.dispatch);
   }
   componentDidMount() {
     load();
