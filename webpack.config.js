@@ -64,6 +64,7 @@ if (TARGET === 'dev' || !TARGET) {
     entry: {
       app: [
         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
+        'webpack/hot/only-dev-server',
         PATHS.src
       ]
     },
@@ -71,22 +72,20 @@ if (TARGET === 'dev' || !TARGET) {
     devServer: {
       outputPath: PATHS.output,
       historyApiFallback: true,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers: { 'Access-Control-Allow-Origin': '*' },
       hot: true,
-      inline: true,
+      stats: { colors: true },
       progress: true,
-      stats: 'errors-only',
       port: PORT,
-      host: 'localhost'
+      host: HOST
     },
     module: {
       loaders: LOADERS.concat([
         {
           test: /\.js$|\.jsx$/,
-          loader: 'babel',
-          exclude: /node_modules/
+          loaders: ['react-hot', 'babel'],
+          exclude: /node_modules/,
+          include: __dirname
         },{
           test: /\.less$/,
           loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]' +
