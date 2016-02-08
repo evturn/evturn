@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setProject } from 'actions/project';
-import AltContainer from 'alt-container';
-import CarouselStore from 'stores/CarouselStore';
 import Carousel from 'components/Carousel';
 import Thumbnails from 'components/Thumbnails';
 import TechIcons from 'components/TechIcons';
@@ -26,9 +24,8 @@ class Work extends Component {
   }
   render() {
     const {
-      slides, tech, name, links,
-      description, id, thumbnails,
-      mounted
+      slides, tech, name, description,
+      id, links, thumbnails, mounted
      } = this.props;
 
      if (!mounted) { return <div />; }
@@ -40,9 +37,7 @@ class Work extends Component {
           thumbnails={thumbnails}
           id={id}
         />
-        <AltContainer stores={[CarouselStore]}>
-          <Carousel images={slides} />
-        </AltContainer>
+        <Carousel images={slides} />
         <div className={cx('project-info')}>
           <div className={cx('project-title')}>{name}</div>
           <div className={cx('project-description')}>{description}</div>
