@@ -7,9 +7,15 @@ function video(state = {
   id: null,
   src: null,
   status: null,
-  ready: false
+  ready: false,
+  done: false,
+  mounted: false
 }, action) {
   switch (action.type) {
+    case 'VIDEO_MOUNTED':
+      return Object.assign({}, state, {
+        status: 'mounted'
+      });
     case 'VIDEO_LOADING':
       const nextId = state.id === null || state.id === state.total ? 0 : state.id + 1;
       return Object.assign({}, state, {
@@ -33,17 +39,21 @@ function video(state = {
     case 'VIDEO_TIMEOUT':
       return Object.assign({}, state, {
         status: 'timeout',
-        ready: false
+        done: true
       });
     case 'VIDEO_ABORTED':
       return Object.assign({}, state, {
-        status: 'aborted'
+        status: 'aborted',
+        done: true
+      });
+    case 'HIDE_SPINNER':
+      return Object.assign({}, state, {
+        done: true
       });
     default:
       return state;
   }
 }
-
 
 function site(state = { page: null }, action) {
   switch (action.type) {

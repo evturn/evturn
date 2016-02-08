@@ -1,42 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from 'css/components/spinner.less';
 
 const cx = classNames.bind(styles);
 
-export default class Spinner extends Component {
+class Spinner extends Component {
   constructor(props) {
     super(props);
-
-    this.image = 'src/client/assets/images/site/ev-av.png';
-    this.state = {
-      ready: false,
-      done: false
-    };
-  }
-  componentDidMount() {
-    setTimeout(() => this.removeSpinner(), 2000);
+    this.dispatch = props.dispatch;
   }
   render() {
     const animation = cx({
       'spinner': true,
-      'hidden': this.state.done,
-      'fade-out': this.state.ready
+      'fade-out': this.props.ready,
+      'hidden': this.props.done
     });
     return (
       <div className={animation}>
         <div className={cx('animation')}></div>
         <div className={cx('spinner-logo')}>
-          <img className={cx('spinner-image')} src={this.image} />
+          <img className={cx('spinner-image')} src="src/client/assets/images/site/ev-av.png" />
         </div>
       </div>
     );
   }
-  removeSpinner() {
-    this.setState({
-      ready: true,
-    });
-
-    setTimeout(() => this.setState({ done: true }), 1000);
-  }
 }
+
+Spinner.propTypes = {
+  ready: PropTypes.bool,
+  done: PropTypes.bool
+};
+
+function mapStateToProps(state) {
+  return {
+    ready: state.video.ready,
+    done: state.video.done
+  };
+}
+
+export default connect(mapStateToProps)(Spinner);

@@ -3130,7 +3130,7 @@ button:focus {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 11000;
+  z-index: 999999;
   position: fixed;
 }
 .spinner__2xm0t .spinner-logo__3pIFV {
