@@ -1,74 +1,87 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { setProject } from 'actions/project';
 import AltContainer from 'alt-container';
-import ProjectActions from 'actions/ProjectActions';
-import ProjectStore from 'stores/ProjectStore';
 import CarouselStore from 'stores/CarouselStore';
 import Carousel from 'components/Carousel';
 import Thumbnails from 'components/Thumbnails';
 import TechIcons from 'components/TechIcons';
-import FontIcon from 'components/FontIcon';
+import ProjectLinks from 'components/ProjectLinks';
 import classNames from 'classnames/bind';
 import styles from 'css/containers/work.less';
 
 const cx = classNames.bind(styles);
 
-export default class Work extends React.Component {
+class Work extends Component {
   constructor(props) {
     super(props);
-
-    this.techTitle = 'Made with';
+  }
+  componentWillMount() {
+    setProject(this.props.params.id);
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
-      ProjectActions.setProject(nextProps.params.id);
+      setProject(nextProps.params.id);
     }
-  }
-  componentWillMount() {
-    ProjectActions.setProject(this.props.params.id);
   }
   render() {
     const {
-      images, activeId, name,
-      description, tech, links,
-      projects
-     } = ProjectStore.all();
+      slides, tech, name, links,
+      description, id, thumbnails,
+      mounted
+     } = this.props;
+
+     if (!mounted) { return <div />; }
 
     return (
-      <AltContainer stores={[ProjectStore]}>
-        <div className={cx('work')}>
-          <div className={cx('project-header')}>Projects</div>
-          <Thumbnails projects={projects} activeId={activeId} />
-          <AltContainer stores={[CarouselStore]}>
-            <Carousel images={images} />
-          </AltContainer>
-          <div className={cx('project-info')}>
-            <div className={cx('project-title')}>{name}</div>
-            <div className={cx('project-description')}>{description}</div>
-            {links ? this.renderLinks(links) : null}
-          </div>
-          <div className={cx('project-tech')}>
-            <div className={cx('project-title')}>{this.techTitle}</div>
-            <TechIcons items={tech} width={'item-20'} />
-          </div>
+      <div className={cx('work')}>
+        <div className={cx('project-header')}>Projects</div>
+        <Thumbnails
+          thumbnails={thumbnails}
+          id={id}
+        />
+        <AltContainer stores={[CarouselStore]}>
+          <Carousel images={slides} />
+        </AltContainer>
+        <div className={cx('project-info')}>
+          <div className={cx('project-title')}>{name}</div>
+          <div className={cx('project-description')}>{description}</div>
+          <ProjectLinks links={links} />
         </div>
-      </AltContainer>
-    );
-  }
-  renderLinks(links) {
-    return (
-      <div className={cx('project-links')}>
-        <ul className={cx('squares')}>{links.map((link, i) => {
-          return (
-            <li key={i} className={cx('square')}>
-              <div className={cx('icon')}>
-                <a href={link.url} target="_blank">
-                  <FontIcon type={'fa'} name={link.icon} />
-                </a>
-              </div>
-            </li>
-          );
-        })}</ul>
+        <div className={cx('project-tech')}>
+          <div className={cx('project-title')}>Made with</div>
+          <TechIcons
+            items={tech}
+            width={'item-20'}
+          />
+        </div>
       </div>
     );
   }
 }
+
+Work.propTypes = {
+  slides: PropTypes.array,
+  tech: PropTypes.array,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  links: PropTypes.array,
+  id: PropTypes.number,
+  thumbnails: PropTypes.array,
+  mounted: PropTypes.bool
+};
+
+function mapStateToProps(state) {
+  return {
+    slides: state.project.slides,
+    tech: state.project.tech,
+    name: state.project.name,
+    description: state.project.description,
+    id: state.project.id,
+    links: state.project.links,
+    thumbnails: state.project.thumbnails,
+    mounted: state.project.mounted
+  }
+}
+
+export default connect(mapStateToProps)(Work);

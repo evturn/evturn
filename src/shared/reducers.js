@@ -1,6 +1,34 @@
 import { combineReducers } from 'redux';
 import videos from 'sources/videos';
 
+function project(state = {
+  thumbnails: [],
+  slides: [],
+  tech: [],
+  total: null,
+  name: null,
+  description: null,
+  id: null,
+  links: null,
+  mounted: false
+}, action) {
+  switch (action.type) {
+    case 'PROJECT_LOADED':
+      return Object.assign({}, state, {
+        tech: action.tech,
+        slides: action.slides,
+        name: action.name,
+        description: action.description,
+        id: action.id,
+        links: action.links,
+        thumbnails: action.thumbnails,
+        mounted: true
+      });
+    default:
+      return state;
+  }
+}
+
 function video(state = {
   total: videos.length - 1,
   playbackRate: 0.6,
@@ -75,6 +103,6 @@ function site(state = { page: null }, action) {
   }
 }
 
-const rootReducer = combineReducers({ video, site });
+const rootReducer = combineReducers({ video, site, project });
 
 export default rootReducer;
