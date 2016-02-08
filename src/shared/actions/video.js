@@ -15,21 +15,13 @@ function createTimeout(action, duration) {
   return setTimeout(() => dispatch(action()), duration);
 }
 
-const createTimer = () => {
-  timer = createTimeout(videoTimeout, 3000);
-};
+const createTimer = () => timer = createTimeout(videoTimeout, 3000);
+const clearTimer = () => clearTimeout(timer);
+const removeSpinner = () => createTimeout(hideSpinner, 1000);
 
-const clearTimer = () => {
-  clearTimeout(timer);
-};
+export const connectStoreDispatch = (storeDispatch) => dispatch = storeDispatch;
 
-const removeSpinner = () => {
-  createTimeout(hideSpinner, 1000);
-};
-
-export function load(storeDispatch) {
-  dispatch = storeDispatch;
-
+export const load = () => {
   if (window.innerWidth < 600) {
     removeSpinner();
     dispatch(videoAborted());
@@ -37,22 +29,23 @@ export function load(storeDispatch) {
     createTimer();
     dispatch(videoLoading());
   }
-}
+};
 
-export function play(dispatch) {
+export const play = () => {
   if (!mounted) {
     clearTimer()
     dispatch(videoMounted());
   }
   dispatch(videoPlaying());
-}
+  removeSpinner();
+};
 
-export function end(dispatch) {
+export const end = () => {
   dispatch(videoEnded());
   dispatch(videoLoading());
-}
+};
 
-export function unmount(dispatch) {
+export const unmount = () => {
   clearTimer();
   dispatch(videoUnmounted());
-}
+};

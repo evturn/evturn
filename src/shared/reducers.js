@@ -34,7 +34,10 @@ function video(state = {
       });
     case 'VIDEO_UNMOUNTED':
       return Object.assign({}, state, {
-        status: 'unmounted'
+        status: 'unmounted',
+        id: null,
+        src: null,
+        mounted: false
       });
     case 'VIDEO_TIMEOUT':
       return Object.assign({}, state, {
