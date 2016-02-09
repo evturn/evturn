@@ -10,8 +10,6 @@ const cx = classNames.bind(styles);
 class About extends Component {
   constructor(props) {
     super(props);
-
-    this.text = 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.';
   }
   render() {
     return (
@@ -21,7 +19,7 @@ class About extends Component {
         </div>
         <div className={cx('bio')}>
           <div className={cx('about-header')}>Development</div>
-          <div className={cx('paragraph')}>{this.text}</div>
+          <div className={cx('paragraph')}>{this.props.bio}</div>
         </div>
         <div className={cx('about-info')}>
           {this.renderTech()}
@@ -59,13 +57,15 @@ class About extends Component {
 
 About.propTypes = {
   tech: PropTypes.array,
-  stats: PropTypes.array
+  stats: PropTypes.array,
+  bio: PropTypes.string
 };
 
 function mapStateToProps(state) {
   return {
     tech: state.site.tech,
-    stats: state.site.stats
+    stats: state.site.stats,
+    bio: state.site.bio
   };
 }
 

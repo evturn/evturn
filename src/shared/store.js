@@ -9,6 +9,7 @@ import links from 'sources/links';
 import stats from 'sources/stats';
 import tech from 'sources/tech';
 import projects from 'sources/projects';
+import text from 'sources/text';
 
 const initialState = {
   site: {
@@ -16,7 +17,8 @@ const initialState = {
     contact: links,
     stats: stats,
     tech: tech,
-    projects: projects
+    projects: projects,
+    bio: text
   },
   video: {
     total: videos.length - 1,
