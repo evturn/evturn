@@ -4,10 +4,11 @@ import styles from 'css/containers/about.less';
 
 const cx = classNames.bind(styles);
 
-export default () => {
+export default ({ text }) => {
   return (
-    <div className={cx('header')}>
-      <img className={cx('about-image')} src="src/client/assets/images/site/skel.gif" />
+    <div className={cx('bio')}>
+      <div className={cx('about-header')}>Development</div>
+      <div className={cx('paragraph')}>{text}</div>
     </div>
   );
 }
