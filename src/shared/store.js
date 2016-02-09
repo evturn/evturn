@@ -5,10 +5,12 @@ import rootReducer from 'reducers';
 
 import videos from 'sources/videos';
 import nav from 'sources/nav';
+import links from 'sources/links';
 
 const initialState = {
   site: {
     pages: nav,
+    contact: links
   },
   video: {
     total: videos.length - 1,

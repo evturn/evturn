@@ -1,14 +1,12 @@
 export default function site(state = {
   page: null,
-  pages: [],
-  open: false,
   mounted: false
 }, action) {
   switch (action.type) {
     case 'INIT_LOCALS':
       return Object.assign({}, state, {
-        page: action.page,
-        open: state.open
+        open: false,
+        contact: state.contact
       });
     case 'SITE_MOUNTED':
       return Object.assign({}, state, {
