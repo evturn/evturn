@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { getFeaturedTech } from 'actions/site';
 import TechIcons from 'components/TechIcons';
 import StatCounters from 'components/StatCounters';
 import classNames from 'classnames/bind';
@@ -22,50 +23,31 @@ class About extends Component {
           <div className={cx('paragraph')}>{this.props.bio}</div>
         </div>
         <div className={cx('about-info')}>
-          {this.renderTech()}
-          {this.renderStats()}
+          <div className={cx('about-tech')}>
+            <div className={cx('about-header')}>Tools</div>
+            <TechIcons items={this.props.featuredTech} width={'item-20'} />
+          </div>
+          <div className={cx('about-stats')}>
+            <div className={cx('about-header')}>Statistics</div>
+            <StatCounters items={this.props.stats} />
+          </div>
         </div>
-      </div>
-    );
-  }
-  getTechItems() {
-    return this.props.tech.filter((obj) => {
-      return obj.featured;
-    }).map((obj) => {
-      return obj;
-    });
-  }
-  renderTech() {
-    const tech = this.getTechItems();
-
-    return (
-      <div className={cx('about-tech')}>
-        <div className={cx('about-header')}>Tools</div>
-        <TechIcons items={tech} width={'item-20'} />
-      </div>
-    );
-  }
-  renderStats() {
-    return (
-      <div className={cx('about-stats')}>
-        <div className={cx('about-header')}>Statistics</div>
-        <StatCounters items={this.props.stats} />
       </div>
     );
   }
 }
 
 About.propTypes = {
-  tech: PropTypes.array,
   stats: PropTypes.array,
-  bio: PropTypes.string
+  bio: PropTypes.string,
+  featuredTech: PropTypes.array
 };
 
 function mapStateToProps(state) {
   return {
-    tech: state.site.tech,
-    stats: state.site.stats,
-    bio: state.site.bio
+    featuredTech: state.site.about.featuredTech,
+    stats: state.site.about.stats,
+    bio: state.site.about.bio
   };
 }
 

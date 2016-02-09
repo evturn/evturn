@@ -3,11 +3,6 @@ export default function site(state = {
   mounted: false
 }, action) {
   switch (action.type) {
-    case 'INIT_LOCALS':
-      return Object.assign({}, state, {
-        open: false,
-        contact: state.contact
-      });
     case 'SITE_MOUNTED':
       return Object.assign({}, state, {
         mounted: true

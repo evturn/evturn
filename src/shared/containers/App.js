@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { init, setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
+import { setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import SiteOverlay from 'components/SiteOverlay';
@@ -10,9 +10,6 @@ import 'sources/google-analytics';
 class App extends Component {
   constructor(props) {
     super(props);
-  }
-  componentWillMount() {
-    init(this.props.routes[1].name);
   }
   componentDidMount() {
     setSiteMounted();

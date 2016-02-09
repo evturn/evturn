@@ -8,6 +8,7 @@ import nav from 'sources/nav';
 import links from 'sources/links';
 import stats from 'sources/stats';
 import tech from 'sources/tech';
+import featuredTech from 'sources/featuredTech';
 import projects from 'sources/projects';
 import text from 'sources/text';
 
@@ -17,8 +18,13 @@ const initialState = {
     contact: links,
     stats: stats,
     tech: tech,
+    about: {
+      bio: text,
+      featuredTech: featuredTech,
+      stats: stats
+    },
     projects: projects,
-    bio: text
+
   },
   video: {
     total: videos.length - 1,

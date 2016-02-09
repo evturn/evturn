@@ -1,13 +1,9 @@
 import store from 'shared/store';
 
-const initLocals = (page) => {
-  return {
-    type: 'INIT_LOCALS',
-    page
-  };
-};
+const dispatch = store.dispatch;
+const getState = store.getState;
 
-const siteMounted = () => {
+const siteMounted = (featuredTech) => {
   return {
     type: 'SITE_MOUNTED'
   };
@@ -26,9 +22,8 @@ const toggleMenu = () => {
   };
 };
 
-const dispatch = store.dispatch;
-
-export const init = page => dispatch(initLocals());
 export const setRouteAsPage = page => dispatch(pageTransition(page));
+
 export const menuVisibility = () => dispatch(toggleMenu());
+
 export const setSiteMounted = () => dispatch(siteMounted());
