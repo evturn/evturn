@@ -8,7 +8,6 @@ export default function site(state = {
     case 'INIT_LOCALS':
       return Object.assign({}, state, {
         page: action.page,
-        pages: action.pages,
         open: state.open
       });
     case 'SITE_MOUNTED':

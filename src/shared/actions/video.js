@@ -10,7 +10,6 @@ const videoUnmounted = () => { return { type: 'VIDEO_UNMOUNTED' } };
 const videoNext      = () => { return { type: 'VIDEO_NEXT' } };
 const hideSpinner    = () => { return { type: 'HIDE_SPINNER' } };
 
-
 const dispatch = store.dispatch;
 
 let mounted = false;

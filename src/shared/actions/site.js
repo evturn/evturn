@@ -1,17 +1,9 @@
 import store from 'shared/store';
 
-const pages = [
-  { name: 'Home',    route: '/'      , id: 1 },
-  { name: 'Work',    route: 'work'   , id: 2 },
-  { name: 'About',   route: 'about'  , id: 3 },
-  { name: 'Contact', route: 'contact', id: 4 }
-];
-
 const initLocals = (page) => {
   return {
     type: 'INIT_LOCALS',
-    page,
-    pages
+    page
   };
 };
 

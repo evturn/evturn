@@ -1,7 +1,6 @@
-import videos from 'sources/videos';
-
 export default function video(state = {
-  total: videos.length - 1,
+  playlist: [],
+  total: 0,
   playbackRate: 0.6,
   id: null,
   src: null,
@@ -19,7 +18,7 @@ export default function video(state = {
       const nextId = state.id === null || state.id === state.total ? 0 : state.id + 1;
       return Object.assign({}, state, {
         id: nextId,
-        src: videos[nextId],
+        src: state.playlist[nextId],
         status: 'loading'
       });
     case 'VIDEO_PLAYING':
@@ -56,7 +55,7 @@ export default function video(state = {
       const skipToId = state.id === null || state.id === state.total ? 0 : state.id + 1;
       return Object.assign({}, state, {
         id: skipToId,
-        src: videos[skipToId]
+        src: state.playlist[skipToId]
       });
     default:
       return state;

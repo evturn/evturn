@@ -15,7 +15,7 @@ class VideoPlayer extends Component {
     unmount();
   }
   render() {
-    const { src, playbackRate } = this.props;
+    const { src } = this.props;
 
     return (
       <video
