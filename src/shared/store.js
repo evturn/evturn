@@ -6,11 +6,17 @@ import rootReducer from 'reducers';
 import videos from 'sources/videos';
 import nav from 'sources/nav';
 import links from 'sources/links';
+import stats from 'sources/stats';
+import tech from 'sources/tech';
+import projects from 'sources/projects';
 
 const initialState = {
   site: {
     pages: nav,
-    contact: links
+    contact: links,
+    stats: stats,
+    tech: tech,
+    projects: projects
   },
   video: {
     total: videos.length - 1,
