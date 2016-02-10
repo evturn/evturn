@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setProject } from 'actions/project';
+import ProjectDetails from 'components/ProjectDetails';
 import Carousel from 'components/Carousel';
-import Thumbnails from 'components/Thumbnails';
+import WorkNavigation from 'components/WorkNavigation';
 import TechIcons from 'components/TechIcons';
 import ProjectLinks from 'components/ProjectLinks';
 import classNames from 'classnames/bind';
@@ -33,14 +34,16 @@ class Work extends Component {
     return (
       <div className={cx('work')}>
         <div className={cx('project-header')}>Projects</div>
-        <Thumbnails
-          thumbnails={thumbnails}
+        <WorkNavigation
+          items={thumbnails}
           id={id}
         />
         <Carousel images={slides} />
         <div className={cx('project-info')}>
-          <div className={cx('project-title')}>{name}</div>
-          <div className={cx('project-description')}>{description}</div>
+          <ProjectDetails
+            name={name}
+            description={description}
+          />
           <ProjectLinks links={links} />
         </div>
         <div className={cx('project-tech')}>

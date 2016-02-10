@@ -18,7 +18,6 @@ const initialState = {
     contact: {
       links: links
     },
-    stats: stats,
     tech: tech,
     about: {
       bio: text,

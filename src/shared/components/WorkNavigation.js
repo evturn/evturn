@@ -5,10 +5,10 @@ import styles from 'css/components/thumbnails.less';
 
 const cx = classNames.bind(styles);
 
-export default ({ thumbnails, id }) => {
+export default ({ items, id }) => {
   return (
     <div className={cx('project-thumbs')}>
-      <ul className={cx('tiles')}>{thumbnails.map((project, i) => {
+      <ul className={cx('tiles')}>{items.map((project, i) => {
         const active = cx({
           'thumb-active': project.id === id,
           'thumb': project.id !== id
