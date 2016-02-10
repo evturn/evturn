@@ -1,5 +1,4 @@
 @import '../variables.less';
-@import '../mixins.less';
 
 .footer {
   color: @tx-dark;
@@ -15,7 +14,7 @@
   top: -160px;
   right: 0;
   left: 0;
-  background: linear-gradient(to bottom, rgba(red(#ffffff), green(#ffffff), blue(#ffffff),100) 0%,rgba(red(#ffffff), green(#ffffff), blue(#ffffff),0) 100%);
+  background: linear-gradient(to bottom, rgba(red(@bg-light), green(@bg-light), blue(@bg-light),100) 0%,rgba(red(@bg-light), green(@bg-light), blue(@bg-light),0) 100%);
   .flip-vertical;
 }
 
@@ -47,4 +46,13 @@
   left: 15px;
   top: 20px;
   vertical-align: sub;
+}
+
+.flip-vertical {
+  -moz-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  transform: scaleY(-1);
+  -ms-filter: flipv;
+  filter: flipv;
 }

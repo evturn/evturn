@@ -56,7 +56,7 @@ export const Image = props => {
   const { src, classname, ...rest } = props;
 
   return (
-    <img className={cx('img-scale', classname)} src={src} {...rest} />
+    <img className={cx('image', classname)} src={src} {...rest} />
   );
 }
 
@@ -73,5 +73,21 @@ export const ListItem = props => {
 
   return (
     <li style={ {width} } className={cx('list-item', classname)} {...rest}>{children}</li>
+  );
+}
+
+export const IconContainer = props => {
+  const { classname, children, ...rest } = props;
+
+  return (
+    <div className={cx('icon-container', classname)} {...rest}>{children}</div>
+  );
+}
+
+export const IconCaption  = props => {
+  const { classname, children, ...rest } = props;
+
+  return (
+    <div className={cx('icon-caption', classname)} {...rest}>{children}</div>
   );
 }

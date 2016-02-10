@@ -1,11 +1,10 @@
 @import '../variables.less';
-@import '../mixins.less';
 
 .hidden {
   display: none;
 }
 
-.spinner {
+.root {
   background-color: @bg-light;
   width: 100vw;
   height: 100vh;
@@ -15,51 +14,51 @@
   left: 0;
   z-index: 999999;
   position: fixed;
+}
 
+.image {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
 
-  .spinner-logo {
-    animation-delay: 1.5s;
-    animation-duration: 1.4s;
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    top: 30%;
-    right: 0;
+.logo {
+  animation-delay: 1.5s;
+  animation-duration: 1.4s;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  top: 30%;
+  right: 0;
+  padding: 20px;
+  border-radius: 50%;
+  background: fade(@bg-accent, 20);
+  width: 140px;
+  height: 140px;
+
+  @media(@tablet) {
+    top: 15%;
     padding: 20px;
-    border-radius: 50%;
-    background: fade(@bg-accent, 20);
     width: 140px;
     height: 140px;
-    @media(@tablet) {
-      top: 15%;
-      padding: 20px;
-      width: 140px;
-      height: 140px;
-    }
+  }
+}
+
+.animation {
+  position: relative;
+  top: 30%;
+  width: 140px;
+  height: 140px;
+  margin:0 auto;
+  margin-bottom: -45px;
+  border-radius: 100%;
+  animation: rotation 1s infinite linear;
+
+  @media(@tablet) {
+    top: 15%;
   }
 
-  .spiner-image {
-    .img-scale;
-    margin: 0 auto;
-    width: 100px;
-    height: 100px;
-  }
-
-  .animation {
-    position: relative;
-    top: 30%;
-    width: 140px;
-    height: 140px;
-    margin:0 auto;
-    margin-bottom: -45px;
-    border-radius: 100%;
-    animation: rotation 1s infinite linear;
-    @media(@tablet) {
-      top: 15%;
-    }
-  }
-
-  .animation:before {
+  &:before {
     content: "";
     display: block;
     position: absolute;
@@ -74,7 +73,7 @@
     border-radius: 100%;
   }
 
-  .animation ::-webkit-scrollbar {
+  & ::-webkit-scrollbar {
     display: none;
   }
 }

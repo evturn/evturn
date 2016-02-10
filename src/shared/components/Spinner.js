@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from 'css/components/spinner.less';
+import { Image } from 'components/reuseables'
 
 const cx = classNames.bind(styles);
 
@@ -12,15 +13,15 @@ class Spinner extends Component {
   }
   render() {
     const animation = cx({
-      'spinner': true,
+      'root': true,
       'fade-out': this.props.ready,
       'hidden': this.props.done
     });
     return (
       <div className={animation}>
         <div className={cx('animation')}></div>
-        <div className={cx('spinner-logo')}>
-          <img className={cx('spinner-image')} src="src/client/assets/images/site/ev-av.png" />
+        <div className={cx('logo')}>
+          <Image classname={cx('image')} src="src/client/assets/images/site/ev-av.png" />
         </div>
       </div>
     );

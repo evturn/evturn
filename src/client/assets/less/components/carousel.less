@@ -1,16 +1,6 @@
 @import '../variables.less';
-@import '../mixins.less';
 
-.carousel {
-  .clearfix;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.project-carousel {
+.root {
   width: 100%;
   height: 200px;
   overflow: hidden;
@@ -24,6 +14,13 @@
   @media(@tablet) {
     height: 450px;
   }
+}
+
+.carousel {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .slide {
@@ -50,10 +47,6 @@
   &.leave {
     animation: fadeout 1s linear;
   }
-}
-
-img {
-  .img-scale;
 }
 
 @keyframes fadein {

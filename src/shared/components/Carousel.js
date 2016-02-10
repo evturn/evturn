@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { init, performCleanUp, assignClassName } from 'actions/carousel';
 import classNames from 'classnames/bind';
 import styles from 'css/components/carousel.less';
+import { AbsoluteContainer, Image, SectionContainer } from 'components/reuseables'
 
 const cx = classNames.bind(styles);
 
@@ -23,11 +24,11 @@ class Carousel extends Component {
   }
   render() {
     return (
-      <div className={cx('project-carousel')}>
-        <div className={cx('carousel')}>
+      <SectionContainer classname={cx('root')}>
+        <SectionContainer classname={cx('carousel')}>
           {this.renderSlides()}
-        </div>
-      </div>
+        </SectionContainer>
+      </SectionContainer>
     );
   }
   renderSlides() {
@@ -44,9 +45,9 @@ class Carousel extends Component {
       }
 
       return (
-        <div key={i} className={cx('slide', classname)}>
-          <img src={image} />
-        </div>
+        <AbsoluteContainer key={i} classname={cx('slide', classname)}>
+          <Image src={image} />
+        </AbsoluteContainer>
       );
     });
   }

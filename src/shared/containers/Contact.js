@@ -1,8 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import ContactLinks from 'components/ContactLinks';
+import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
 import styles from 'css/containers/contact.less';
+import {
+  UnorderedList, ListItem,
+  SectionContainer, PageContainer
+} from 'components/reuseables';
 
 const cx = classNames.bind(styles);
 
@@ -12,9 +16,19 @@ class Contact extends Component {
   }
   render() {
     return (
-      <div className={cx('backdrop', 'fade-in')}>
-        <ContactLinks items={this.props.links} />
-      </div>
+      <PageContainer classname={cx('root')}>
+        <UnorderedList classname={cx('list')}>{this.props.links.map((link, i) => {
+          return (
+            <ListItem key={i} classname={cx('item')}>
+              <SectionContainer classname={cx('icon')}>
+                <a href={link.url} target="_blank">
+                  <FontIcon type={'fa'} name={link.icon} />
+                </a>
+              </SectionContainer>
+            </ListItem>
+          );
+        })}</UnorderedList>
+      </PageContainer>
     );
   }
 }

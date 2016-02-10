@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class StatCounter extends React.Component {
+export default class StatCounter extends Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +13,12 @@ export default class StatCounter extends React.Component {
     clearTimeout(this.incTimer);
   }
   render() {
-    return <div className={this.props.classname}>{this.state.count}</div>;
+    const font = {
+      fontSize: '23px',
+      lineHeight: '55px'
+    };
+
+    return <div style={font}>{this.state.count}</div>;
   }
   increment() {
     if (this.state.count >= this.props.number) {

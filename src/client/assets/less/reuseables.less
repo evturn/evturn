@@ -1,4 +1,4 @@
-@import 'mixins.less';
+@import 'variables.less';
 
 // Containers
 
@@ -43,7 +43,6 @@
   text-align: center;
 }
 
-
 // Text
 
 .header {
@@ -65,10 +64,52 @@
 }
 
 
+// Icon
+
+.icon-container {
+  height: 65px;
+  margin: 5px;
+  background-color: @bg-accent;
+  color: @tx-light;
+
+  span {
+    line-height: 1.5em;
+    height: 65px;
+    width: 65px;
+  }
+
+  .text {
+    font-size: 23px;
+    line-height: 55px;
+  }
+}
+
+.icon-caption {
+  color: @tx-light;
+  position: absolute;
+  top: 70%;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+}
+
+
 // Image
 
 .image {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.clearfix() {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
