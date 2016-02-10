@@ -3,34 +3,33 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import rootReducer from 'reducers';
 
-import videos from 'sources/videos';
-import nav from 'sources/nav';
-import links from 'sources/links';
-import stats from 'sources/stats';
-import featuredTech from 'sources/featuredTech';
-import { projects, projectsNav } from 'sources/featuredProjects';
-import text from 'sources/text';
+import VIDEOS from 'db/videos';
+import NAV from 'db/nav';
+import LINKS from 'db/links';
+import STATS from 'db/stats';
+import TEXT from 'db/text';
+import { projects, projectsNav, featuredTech } from 'data';
 
 const initialState = {
   site: {
-    pages: nav,
+    pages: NAV,
     contact: {
-      links: links
+      links: LINKS
     },
     about: {
-      bio: text,
+      bio: TEXT,
       featuredTech: featuredTech,
-      stats: stats
+      stats: STATS
     },
   },
   work: {
     projects: projects,
     projectsNav: projectsNav,
-    project: projects[0]
+    project: [ projects ]
   },
   video: {
-    total: videos.length - 1,
-    playlist: videos
+    total: VIDEOS.length - 1,
+    playlist: VIDEOS
   },
   carousel: {},
 };

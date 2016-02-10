@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { init, performCleanUp, assignClassName } from 'actions/carousel';
 import classNames from 'classnames/bind';
-import styles from 'css/components/carousel.less';
+import styles from 'less/components/carousel.less';
 import { AbsoluteContainer, Image, SectionContainer } from 'components/reuseables'
 
 const cx = classNames.bind(styles);

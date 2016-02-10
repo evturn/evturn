@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Image, UnorderedList, ListItem } from 'components/reuseables';
 import classNames from 'classnames/bind';
-import styles from 'css/components/project-navigation.less';
+import styles from 'less/components/project-navigation.less';
 
 const cx = classNames.bind(styles);
 

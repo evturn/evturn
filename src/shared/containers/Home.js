@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { next } from 'actions/video';
 import classNames from 'classnames/bind';
-import styles from 'css/containers/home.less';
+import styles from 'less/containers/home.less';
 import Spinner from 'components/Spinner';
 import VideoPlayer from 'components/VideoPlayer';
 import { FullPageContainer, AbsoluteContainer } from 'components/reuseables';

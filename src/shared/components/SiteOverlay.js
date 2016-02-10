@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import styles from 'css/components/nav.less';
+import styles from 'less/components/nav.less';
 
 const cx = classNames.bind(styles);
 

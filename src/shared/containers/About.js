@@ -6,7 +6,7 @@ import {
 import TechIcons from 'components/TechIcons';
 import StatCounters from 'components/StatCounters';
 import classNames from 'classnames/bind';
-import styles from 'css/containers/about.less';
+import styles from 'less/containers/about.less';
 
 
 const cx = classNames.bind(styles);

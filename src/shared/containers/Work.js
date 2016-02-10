@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setProject } from 'actions/project';
-import {
-  TextHeader, TextTitle, TextParagraph,
-  SectionContainer, PageContainer
- } from 'components/reuseables';
+import classNames from 'classnames/bind';
+import styles from 'less/containers/work.less';
 import ProjectNavigation from 'components/ProjectNavigation';
 import Carousel from 'components/Carousel';
 import TechIcons from 'components/TechIcons';
 import ProjectLinks from 'components/ProjectLinks';
-import classNames from 'classnames/bind';
-import styles from 'css/containers/work.less';
+import {
+  TextHeader, TextTitle, TextParagraph,
+  SectionContainer, PageContainer
+ } from 'components/reuseables';
 
 const cx = classNames.bind(styles);
 

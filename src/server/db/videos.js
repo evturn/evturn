@@ -1,4 +1,3 @@
-'use strict';
 export default [
   'https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1',
   'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1',

@@ -1,5 +1,26 @@
-import PROJECTS from 'sources/projects';
-import TECH from 'sources/tech';
+import PROJECTS from 'db/projects';
+import TECH from 'db/tech';
+
+const setFeaturedTech = () => {
+  return TECH.filter(obj => {
+    return obj.featured;
+  }).map(obj => {
+    return obj;
+  });
+};
+
+
+
+const PATH = 'src/client/assets/';
+
+const setThumbnails = () => {
+  return PROJECTS.map(project => {
+    return {
+      id: project.id,
+      image: `${PATH}${project.thumbnail}`
+    };
+  });
+};
 
 const setProjectTech = (techIds) => {
   const tech = [];
@@ -15,17 +36,6 @@ const setProjectTech = (techIds) => {
   return tech;
 };
 
-const PATH = 'src/client/assets/';
-
-function setThumbnails() {
-  return PROJECTS.map(project => {
-    return {
-      id: project.id,
-      image: `${PATH}${project.thumbnail}`
-    };
-  });
-};
-
 const setFeaturedProjects = () => {
   return PROJECTS.map(project => {
     const { techIds, images, ...props } = project;
@@ -39,3 +49,4 @@ const setFeaturedProjects = () => {
 
 export const projectsNav = setThumbnails();
 export const projects = setFeaturedProjects();
+export const featuredTech = setFeaturedTech();

@@ -4,11 +4,11 @@ import { setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import SiteOverlay from 'components/SiteOverlay';
-import 'style/reset.css';
-import 'style/base.css';
-import 'style/fa.css';
-import 'style/devicon.css';
-import 'sources/google-analytics';
+import 'css/reset.css';
+import 'css/base.css';
+import 'css/fa.css';
+import 'css/devicon.css';
+import 'db/google-analytics';
 
 class App extends Component {
   constructor(props) {

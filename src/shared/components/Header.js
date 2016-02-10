@@ -1,7 +1,7 @@
 import React from 'react';
 import { IndexLink, Link } from 'react-router';
 import classNames from 'classnames/bind';
-import styles from 'css/components/nav.less';
+import styles from 'less/components/nav.less';
 import {
   UnorderedList, AbsoluteContainer,
   Image, ListItem, SectionContainer, Icon

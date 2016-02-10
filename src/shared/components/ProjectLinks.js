@@ -1,7 +1,7 @@
 import React from 'react';
 import { UnorderedList, ListItem, SectionContainer, Icon } from 'components/reuseables';
 import classNames from 'classnames/bind';
-import styles from 'css/containers/work.less';
+import styles from 'less/containers/work.less';
 
 const cx = classNames.bind(styles);
 

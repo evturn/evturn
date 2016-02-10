@@ -27,16 +27,16 @@ const common = {
     extensions: ['', '.js', '.jsx', '.less'],
     modulesDirectories: ['src', 'node_modules'],
     alias: {
+      shared:     path.join(__dirname, './src/shared/'),
       actions:    path.join(__dirname, './src/shared/actions/'),
       containers: path.join(__dirname, './src/shared/containers/'),
       components: path.join(__dirname, './src/shared/components/'),
       reducers:   path.join(__dirname, './src/shared/reducers/'),
-      shared:     path.join(__dirname, './src/shared/'),
-      sources:    path.join(__dirname, './src/server/data/'),
-      stores:     path.join(__dirname, './src/shared/stores/'),
       images:     path.join(__dirname, './src/client/assets/images/'),
-      style:      path.join(__dirname, './src/client/assets/css/'),
-      css:        path.join(__dirname, './src/client/assets/less/')
+      css:        path.join(__dirname, './src/client/assets/css/'),
+      less:       path.join(__dirname, './src/client/assets/less/'),
+      data:       path.join(__dirname, './src/server/data/'),
+      db:         path.join(__dirname, './src/server/db/')
     }
   }
 };
