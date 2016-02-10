@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setProject } from 'actions/project';
-import ProjectDetails from 'components/ProjectDetails';
-import Carousel from 'components/Carousel';
+import { TextHeader, TextTitle, TextParagraph } from 'components/reuseables/text';
+import { Section, Page } from 'components/reuseables/containers';
 import WorkNavigation from 'components/WorkNavigation';
+import Carousel from 'components/Carousel';
 import TechIcons from 'components/TechIcons';
 import ProjectLinks from 'components/ProjectLinks';
 import classNames from 'classnames/bind';
@@ -32,28 +33,20 @@ class Work extends Component {
      if (!mounted) { return <div />; }
 
     return (
-      <div className={cx('work')}>
-        <div className={cx('project-header')}>Projects</div>
-        <WorkNavigation
-          items={thumbnails}
-          id={id}
-        />
+      <Page>
+        <TextHeader text={'Projects'} />
+        <WorkNavigation items={thumbnails} id={id} />
         <Carousel images={slides} />
-        <div className={cx('project-info')}>
-          <ProjectDetails
-            name={name}
-            description={description}
-          />
-          <ProjectLinks links={links} />
-        </div>
+        <Section>
+          <TextTitle text={'Projects'} text={name} />
+          <TextParagraph text={description} />
+          <ProjectLinks items={links} />
+        </Section>
         <div className={cx('project-tech')}>
-          <div className={cx('project-title')}>Made with</div>
-          <TechIcons
-            items={tech}
-            width={'item-20'}
-          />
+          <TextTitle text={'Projects'} text={'Made with'} />
+          <TechIcons items={tech} width={'item-20'} />
         </div>
-      </div>
+      </Page>
     );
   }
 }

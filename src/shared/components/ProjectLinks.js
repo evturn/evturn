@@ -5,12 +5,12 @@ import styles from 'css/containers/work.less';
 
 const cx = classNames.bind(styles);
 
-export default ({links}) => {
-  if (!links) { return <div />; }
+export default ({ items }) => {
+  if (!items) { return <div />; }
 
   return (
     <div className={cx('project-links')}>
-      <ul className={cx('squares')}>{links.map((link, i) => {
+      <ul className={cx('squares')}>{items.map((link, i) => {
         return (
           <li key={i} className={cx('square')}>
             <div className={cx('icon')}>
