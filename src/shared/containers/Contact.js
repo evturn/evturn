@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
 import styles from 'css/containers/contact.less';
 import {
-  UnorderedList, ListItem,
+  UnorderedList, ListItem, Icon,
   SectionContainer, PageContainer
 } from 'components/reuseables';
 
@@ -22,7 +21,7 @@ class Contact extends Component {
             <ListItem key={i} classname={cx('item')}>
               <SectionContainer classname={cx('icon')}>
                 <a href={link.url} target="_blank">
-                  <FontIcon type={'fa'} name={link.icon} />
+                  <Icon classname={link.icon} />
                 </a>
               </SectionContainer>
             </ListItem>

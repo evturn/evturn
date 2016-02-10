@@ -36,8 +36,7 @@ const common = {
       stores:     path.join(__dirname, './src/shared/stores/'),
       images:     path.join(__dirname, './src/client/assets/images/'),
       style:      path.join(__dirname, './src/client/assets/css/'),
-      css:        path.join(__dirname, './src/client/assets/less/'),
-      fonts:      path.join(__dirname, './src/client/assets/less/fonts')
+      css:        path.join(__dirname, './src/client/assets/less/')
     }
   }
 };

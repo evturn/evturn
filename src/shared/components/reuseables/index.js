@@ -92,6 +92,14 @@ export const IconContainer = props => {
   );
 }
 
+export const Icon = props => {
+  const { classname, ...rest } = props;
+
+  return (
+    <span className={classname} {...rest}></span>
+  );
+}
+
 export const IconCaption  = props => {
   const { classname, children, ...rest } = props;
 

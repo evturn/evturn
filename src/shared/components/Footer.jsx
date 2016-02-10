@@ -1,7 +1,7 @@
 import React from 'react';
-import FontIcon from 'components/FontIcon';
 import classNames from 'classnames/bind';
 import styles from 'css/components/footer.less';
+import { Icon } from 'components/reuseables';
 
 const cx = classNames.bind(styles);
 
@@ -27,7 +27,7 @@ export default class Footer extends React.Component {
         <div className={cx({ 'blend': this.state.blend })} />
         <div className={cx('footer-text')}>
           <span className={cx('copyright')}>{this.text}</span>
-          <FontIcon name={'devicon-react-plain-wordmark'} />
+          <Icon classname={'devicon-react-plain-wordmark'} />
         </div>
       </footer>
     );

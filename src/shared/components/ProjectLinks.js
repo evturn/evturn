@@ -1,6 +1,5 @@
 import React from 'react';
-import FontIcon from 'components/FontIcon';
-import { UnorderedList, ListItem, SectionContainer } from 'components/reuseables';
+import { UnorderedList, ListItem, SectionContainer, Icon } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'css/containers/work.less';
 
@@ -15,7 +14,7 @@ export default ({ items }) => {
         <ListItem key={i} className={cx('item')}>
           <SectionContainer className={cx('icon')}>
             <a href={link.url} target="_blank">
-              <FontIcon type={'fa'} name={link.icon} />
+              <Icon classname={link.icon} />
             </a>
           </SectionContainer>
         </ListItem>

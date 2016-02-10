@@ -8,10 +8,10 @@ export default [
     links: [
       {
         url: 'http://drivepublishing.com',
-        icon: 'fa-link'
+        icon: 'fa fa-link'
       }, {
         url: 'https://github.com/drivepublishing/drivepublishing.github.io',
-        icon: 'fa-github'
+        icon: 'fa fa-github'
       }
     ],
     thumbnail: 'images/apps/drive-tn.png',
@@ -30,13 +30,13 @@ export default [
     links: [
       {
         url: 'http://marshallz.com',
-        icon: 'fa-link'
+        icon: 'fa fa-link'
       }, {
         url: 'https://github.com/evturn/marshallz',
-        icon: 'fa-github'
+        icon: 'fa fa-github'
       }, {
         url: 'http://twitter.com/marshallzBlog',
-        icon: 'fa-twitter'
+        icon: 'fa fa-twitter'
       }
     ],
     thumbnail: 'images/apps/marshallz-tn.png',
@@ -57,10 +57,10 @@ export default [
     links: [
       {
         url: 'http://madeinmusic.co',
-        icon: 'fa-link'
+        icon: 'fa fa-link'
       }, {
         url: 'https://github.com/evturn/madeinmusic.co',
-        icon: 'fa-github'
+        icon: 'fa fa-github'
       }
     ],
     thumbnail: 'images/apps/mim-tn.png',
@@ -79,7 +79,7 @@ export default [
     links: [
       {
         url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-        icon: 'fa-link'
+        icon: 'fa fa-link'
       }
     ],
     thumbnail: 'images/apps/bfs-tn.jpg',
@@ -98,10 +98,10 @@ export default [
     links: [
       {
         url: 'http://ramenbuffet.com',
-        icon: 'fa-link'
+        icon: 'fa fa-link'
       }, {
         url: 'https://github.com/evturn/ramen-buffet',
-        icon: 'fa-github'
+        icon: 'fa fa-github'
       }
     ],
     thumbnail: 'images/apps/rb-tn.png',
@@ -120,7 +120,7 @@ export default [
     links: [
       {
         url: 'https://github.com/faquet/bots/tree/api-init',
-        icon: 'fa-github'
+        icon: 'fa fa-github'
       }
     ],
     thumbnail: 'images/apps/bots-tn.png',
@@ -138,7 +138,7 @@ export default [
     links: [
       {
         url: 'https://github.com/piqueapp/piqueapp.github.io',
-        icon: 'fa-github'
+        icon: 'fa fa-github'
       }
     ],
     thumbnail: 'images/apps/pique-tn.png',

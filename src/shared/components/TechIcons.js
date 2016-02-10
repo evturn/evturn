@@ -1,9 +1,8 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import FontIcon from 'components/FontIcon';
 import {
   UnorderedList, ListItem,
- IconContainer, IconCaption
+ IconContainer, IconCaption, Icon
 } from 'components/reuseables';
 
 export default ({ items, width }) => {
@@ -13,7 +12,7 @@ export default ({ items, width }) => {
         return (
           <ListItem key={i} width={width}>
             <IconContainer>
-              <FontIcon name={item.icon} />
+              <Icon classname={item.icon} />
             </IconContainer>
             <IconCaption>{item.name}</IconCaption>
           </ListItem>
