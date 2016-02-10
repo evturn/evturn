@@ -5,36 +5,48 @@ import styles from 'css/reuseables.less';
 const cx = classNames.bind(styles);
 
 export const PageContainer = props => {
+  const { children, classname } = props;
+
   return (
-    <div className={cx('page')}>{props.children}</div>
+    <div className={cx('page', classname)}>{children}</div>
   );
 }
 
 export const SectionContainer = props => {
+  const { children, classname } = props;
+
   return (
-    <div className={cx('section')}>{props.children}</div>
+    <div className={cx('section', classname)}>{children}</div>
   );
 }
 
-export const TextHeader = ({ text }) => {
+export const TextHeader = props => {
+  const { text, classname } = props;
+
   return (
-    <div className={cx('header')}>{text}</div>
+    <div className={cx('header', classname)}>{text}</div>
   );
 }
 
-export const TextTitle = ({ text }) => {
+export const TextTitle = props => {
+  const { text, classname } = props;
+
   return (
-    <div className={cx('title')}>{text}</div>
+    <div className={cx('title', classname)}>{text}</div>
   );
 }
 
-export const TextParagraph = ({ text }) => {
+export const TextParagraph = props => {
+  const { text, classname } = props;
+
   return (
-    <div className={cx('paragraph')}>{text}</div>
+    <div className={cx('paragraph', classname)}>{text}</div>
   );
 }
 
-export const Image = ({ src, classname }) => {
+export const Image = props => {
+  const { src, classname } = props;
+
   return (
     <img className={cx('img-scale', classname)} src={src} />
   );
