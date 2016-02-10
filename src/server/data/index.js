@@ -1,19 +1,9 @@
 import PROJECTS from 'db/projects';
 import TECH from 'db/tech';
 
-const setFeaturedTech = () => {
-  return TECH.filter(obj => {
-    return obj.featured;
-  }).map(obj => {
-    return obj;
-  });
-};
-
-
-
 const PATH = 'src/client/assets/';
 
-const setThumbnails = () => {
+const setProjectsNav = () => {
   return PROJECTS.map(project => {
     return {
       id: project.id,
@@ -22,31 +12,31 @@ const setThumbnails = () => {
   });
 };
 
-const setProjectTech = (techIds) => {
-  const tech = [];
-
-  for (let id of techIds) {
-    for (let obj of TECH) {
-      if (id === obj.id) {
-        tech.push(obj);
-      }
-    }
-  }
-
-  return tech;
+const filterFeaturedTech = () => {
+  return TECH.filter(obj => {
+    return obj.featured;
+  }).map(obj => {
+    return obj;
+  });
 };
 
-const setFeaturedProjects = () => {
+const filterProjectTech = (ids) => {
+  return TECH.filter(o => {
+    return ids.indexOf(o.id) !== -1 ? true : false;
+  });
+};
+
+const setProjects = () => {
   return PROJECTS.map(project => {
     const { techIds, images, ...props } = project;
 
     return Object.assign({}, props, {
-      tech: setProjectTech(techIds),
+      tech: filterProjectTech(techIds),
       slides: images.map(image => `${PATH}${image}`)
     });
   });
 };
 
-export const projectsNav = setThumbnails();
-export const projects = setFeaturedProjects();
-export const featuredTech = setFeaturedTech();
+export const projectsNav = setProjectsNav();
+export const projects = setProjects();
+export const featuredTech = filterFeaturedTech();
