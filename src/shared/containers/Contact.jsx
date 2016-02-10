@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import FontIcon from 'components/FontIcon';
+import ContactLinks from 'components/ContactLinks';
 import classNames from 'classnames/bind';
 import styles from 'css/containers/contact.less';
 
@@ -13,17 +13,7 @@ class Contact extends Component {
   render() {
     return (
       <div className={cx('backdrop', 'fade-in')}>
-        <ul className={cx('circles')}>{this.props.links.map((link, i) => {
-          return (
-            <li key={i} className={cx('circle')}>
-              <div className={cx('icon')}>
-                <a href={link.url} target="_blank">
-                  <FontIcon type={'fa'} name={link.icon} />
-                </a>
-              </div>
-            </li>
-          );
-        })}</ul>
+        <ContactLinks items={this.props.links} />
       </div>
     );
   }
@@ -35,7 +25,7 @@ Contact.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    links: state.site.contact
+    links: state.site.contact.links
   };
 }
 

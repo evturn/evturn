@@ -15,7 +15,9 @@ import text from 'sources/text';
 const initialState = {
   site: {
     pages: nav,
-    contact: links,
+    contact: {
+      links: links
+    },
     stats: stats,
     tech: tech,
     about: {
