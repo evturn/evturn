@@ -60,6 +60,24 @@ export const TextParagraph = props => {
   );
 }
 
+export const AppImage = props => {
+  const { src, classname, ...rest } = props;
+  const PATH = 'src/client/assets/images/apps/';
+
+  return (
+    <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />
+  );
+}
+
+export const SiteImage = props => {
+  const { src, classname, ...rest } = props;
+  const PATH = 'src/client/assets/images/site/';
+
+  return (
+    <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />
+  );
+}
+
 export const Image = props => {
   const { src, classname, ...rest } = props;
 

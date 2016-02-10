@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Image, UnorderedList, ListItem } from 'components/reuseables';
+import { AppImage, UnorderedList, ListItem } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'less/components/project-navigation.less';
 
@@ -14,7 +14,7 @@ export default ({ items, id }) => {
           key={i}
           classname={cx('item', {'active': project.id === id})}>
           <Link to={`work/${project.id}`}>
-            <Image src={project.image} />
+            <AppImage src={project.image} />
             <div className={cx('overlay')} />
           </Link>
         </ListItem>
