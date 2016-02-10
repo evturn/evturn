@@ -35,6 +35,7 @@ const common = {
       sources:    path.join(__dirname, './src/server/data/'),
       stores:     path.join(__dirname, './src/shared/stores/'),
       images:     path.join(__dirname, './src/client/assets/images/'),
+      style:      path.join(__dirname, './src/client/assets/css/'),
       css:        path.join(__dirname, './src/client/assets/less/'),
       fonts:      path.join(__dirname, './src/client/assets/less/fonts')
     }
@@ -43,6 +44,9 @@ const common = {
 
 const LOADERS = [
   {
+    test: /\.css$/,
+    loaders: ['style', 'css']
+  },{
     test: /\.json$/,
     loader: "json-loader"
   },{

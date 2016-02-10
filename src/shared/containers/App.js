@@ -4,7 +4,10 @@ import { setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import SiteOverlay from 'components/SiteOverlay';
-import 'css/base.less';
+import 'style/reset.css';
+import 'style/base.css';
+import 'style/fa.css';
+import 'style/devicon.css';
 import 'sources/google-analytics';
 
 class App extends Component {
