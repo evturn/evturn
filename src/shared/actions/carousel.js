@@ -17,16 +17,18 @@ let interval;
 let timeout;
 const createInterval = () => interval = setInterval(() => dispatch(carouselTransitioning()), 4000);
 const createTimeout = () => timeout = setTimeout(() => dispatch(carouselStablized()), 1000);
-
-export const init = (images) => {
+const clearTimers = () => {
   clearInterval(interval);
   clearTimeout(timeout);
+};
+
+export const init = (images) => {
+  clearTimers();
   dispatch(carouselPopulated(images));
   createInterval();
 };
 
 export const performCleanUp = () => {
-  clearInterval(interval);
-  clearTimeout(timeout);
+  clearTimers();
   dispatch(carouselUnmounted());
 };
