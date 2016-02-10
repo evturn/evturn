@@ -4,13 +4,13 @@ import styles from 'css/reuseables.less';
 
 const cx = classNames.bind(styles);
 
-export const Page = props => {
+export const PageContainer = props => {
   return (
     <div className={cx('page')}>{props.children}</div>
   );
 }
 
-export const Section = props => {
+export const SectionContainer = props => {
   return (
     <div className={cx('section')}>{props.children}</div>
   );

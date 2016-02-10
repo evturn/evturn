@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setProject } from 'actions/project';
 import {
   TextHeader, TextTitle, TextParagraph,
-  Section, Page
+  SectionContainer, PageContainer
  } from 'components/reuseables';
 import WorkNavigation from 'components/WorkNavigation';
 import Carousel from 'components/Carousel';
@@ -35,20 +35,20 @@ class Work extends Component {
      if (!mounted) { return <div />; }
 
     return (
-      <Page>
+      <PageContainer>
         <TextHeader text={'Projects'} />
         <WorkNavigation items={thumbnails} id={id} />
         <Carousel images={slides} />
-        <Section>
+        <SectionContainer>
           <TextTitle text={'Projects'} text={name} />
           <TextParagraph text={description} />
           <ProjectLinks items={links} />
-        </Section>
-        <div className={cx('project-tech')}>
+        </SectionContainer>
+        <SectionContainer>
           <TextTitle text={'Projects'} text={'Made with'} />
           <TechIcons items={tech} width={'item-20'} />
-        </div>
-      </Page>
+        </SectionContainer>
+      </PageContainer>
     );
   }
 }

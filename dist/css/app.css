@@ -3921,18 +3921,6 @@ img {
 .project-tech__3tL2y {
   width: 100%;
 }
-.project-tech__3tL2y {
-  zoom: 1;
-  position: relative;
-}
-.project-tech__3tL2y:before,
-.project-tech__3tL2y:after {
-  content: " ";
-  display: table;
-}
-.project-tech__3tL2y:after {
-  clear: both;
-}
 .project-links__xAAR5 ul {
   margin: 15px;
 }
