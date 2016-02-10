@@ -8,19 +8,17 @@ const cx = classNames.bind(styles);
 
 export default ({ items, id }) => {
   return (
-    <div className={cx('project-thumbs')}>
-      <UnorderedList classname={cx('list')}>{items.map((project, i) => {
-        return (
-          <ListItem
-            key={i}
-            classname={cx('item', {'active': project.id === id})}>
-            <Link to={`work/${project.id}`}>
-              <Image src={project.image} />
-              <div className={cx('overlay')} />
-            </Link>
-          </ListItem>
-        );
-      })}</UnorderedList>
-    </div>
+    <UnorderedList classname={cx('list')}>{items.map((project, i) => {
+      return (
+        <ListItem
+          key={i}
+          classname={cx('item', {'active': project.id === id})}>
+          <Link to={`work/${project.id}`}>
+            <Image src={project.image} />
+            <div className={cx('overlay')} />
+          </Link>
+        </ListItem>
+      );
+    })}</UnorderedList>
   );
 }

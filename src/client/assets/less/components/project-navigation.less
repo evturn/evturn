@@ -1,19 +1,6 @@
 @import '../variables.less';
-@import '../mixins.less';
-@import '../common.less';
-
-
-.active {
-  transform: scale(1);
-  .overlay {
-    opacity: 0.3;
-    box-shadow: none;
-  }
-}
 
 .list {
-  overflow: auto;
-  text-align: center;
   transition: all 0.3s ease;
   padding: 10px;
 }
@@ -37,10 +24,13 @@
   }
 }
 
-.project-thumbs {
-  width: 100%;
+.active {
+  transform: scale(1);
+  .overlay {
+    opacity: 0.3;
+    box-shadow: none;
+  }
 }
-
 
 .overlay {
   box-shadow: inset 0px -196px 198px -142px rgba(0, 0, 0, 0.6);
