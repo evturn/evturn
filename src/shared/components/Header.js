@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import styles from 'less/components/nav.less';
 import {
   UnorderedList, AbsoluteContainer,
-  Image, ListItem, SectionContainer, Icon
+  SiteImage, ListItem, SectionContainer, Icon
 } from 'components/reuseables';
 
 const cx = classNames.bind(styles);
@@ -13,7 +13,7 @@ export default ({ open, page, pages, toggle }) => {
   return (
     <header>
       <AbsoluteContainer classname={cx('logo', page)}>
-        <Image src="src/client/assets/images/site/ev-av.png" />
+        <SiteImage src="ev-av.png" />
       </AbsoluteContainer>
       <AbsoluteContainer classname={cx('burger', page)} onClick={() => toggle()}>
         <Icon classname={'fa fa-bars'} />
