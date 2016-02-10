@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { next } from 'actions/video';
-import Spinner from 'components/Spinner';
-import VideoPlayer from 'components/VideoPlayer';
 import classNames from 'classnames/bind';
 import styles from 'css/containers/home.less';
+import Spinner from 'components/Spinner';
+import VideoPlayer from 'components/VideoPlayer';
+import { FullPageContainer, AbsoluteContainer } from 'components/reuseables';
 
 const cx = classNames.bind(styles);
 
@@ -14,14 +15,14 @@ class Home extends Component {
   }
   render() {
     return (
-      <div className={cx('home')} onClick={() => next()}>
+      <FullPageContainer onClick={() => next()}>
         <VideoPlayer />
         <Spinner />
-        <div className={cx('home-banner')}>
+        <AbsoluteContainer classname={cx('banner')}>
           <h3 className={cx('home-title')}>Evan Turner</h3>
           <h3 className={cx('home-description')}>Developer</h3>
-        </div>
-      </div>
+        </AbsoluteContainer>
+      </FullPageContainer>
     );
   }
 }

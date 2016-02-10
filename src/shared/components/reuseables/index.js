@@ -12,6 +12,14 @@ export const PageContainer = props => {
   );
 }
 
+export const FullPageContainer = props => {
+  const { children, classname, ...rest } = props;
+
+  return (
+    <div className={cx('full-page', classname)} {...rest}>{children}</div>
+  );
+}
+
 export const SectionContainer = props => {
   const { children, classname, ...rest } = props;
 

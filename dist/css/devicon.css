@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'devicon';
-  src: url('../../fonts/devicon.woff') format('woff');
+  src: url('../fonts/devicon.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'evcon';
-  src: url('../../fonts/evcon.woff') format('woff');
+  src: url('../fonts/evcon.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
