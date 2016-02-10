@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setProject } from 'actions/project';
-import { TextHeader, TextTitle, TextParagraph } from 'components/reuseables/text';
-import { Section, Page } from 'components/reuseables/containers';
+import {
+  TextHeader, TextTitle, TextParagraph,
+  Section, Page
+ } from 'components/reuseables';
 import WorkNavigation from 'components/WorkNavigation';
 import Carousel from 'components/Carousel';
 import TechIcons from 'components/TechIcons';

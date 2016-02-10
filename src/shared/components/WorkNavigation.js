@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Image } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'css/components/thumbnails.less';
 
@@ -18,7 +19,7 @@ export default ({ items, id }) => {
           <li key={i} className={active}>
             <Link to={`work/${project.id}`}>
               <div className={cx('frame')}>
-                <img src={project.image} />
+                <Image src={project.image} />
                 <div className={cx('shadow')} />
               </div>
             </Link>
