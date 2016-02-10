@@ -39,3 +39,19 @@ export const Image = ({ src, classname }) => {
     <img className={cx('img-scale', classname)} src={src} />
   );
 }
+
+export const UnorderedList = props => {
+  const { classname, children } = props;
+
+  return (
+    <ul className={cx('unordered-list', classname)}>{children}</ul>
+  );
+}
+
+export const ListItem = props => {
+  const { width, classname, children } = props;
+
+  return (
+    <li style={ {width} } className={cx('list-item', classname)}>{children}</li>
+  );
+}

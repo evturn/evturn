@@ -5,7 +5,7 @@ import {
   TextHeader, TextTitle, TextParagraph,
   SectionContainer, PageContainer
  } from 'components/reuseables';
-import WorkNavigation from 'components/WorkNavigation';
+import ProjectNavigation from 'components/ProjectNavigation';
 import Carousel from 'components/Carousel';
 import TechIcons from 'components/TechIcons';
 import ProjectLinks from 'components/ProjectLinks';
@@ -37,16 +37,16 @@ class Work extends Component {
     return (
       <PageContainer>
         <TextHeader text={'Projects'} />
-        <WorkNavigation items={thumbnails} id={id} />
+        <ProjectNavigation items={thumbnails} id={id} />
         <Carousel images={slides} />
         <SectionContainer>
-          <TextTitle text={'Projects'} text={name} />
+          <TextTitle text={name} />
           <TextParagraph text={description} />
           <ProjectLinks items={links} />
         </SectionContainer>
         <SectionContainer>
-          <TextTitle text={'Projects'} text={'Made with'} />
-          <TechIcons items={tech} width={'item-20'} />
+          <TextTitle text={'Made with'} />
+          <TechIcons items={tech} width={'20%'} />
         </SectionContainer>
       </PageContainer>
     );

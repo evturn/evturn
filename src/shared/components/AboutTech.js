@@ -9,7 +9,7 @@ export default ({ items }) => {
   return (
     <div className={cx('about-tech')}>
       <div className={cx('about-header')}>Tools</div>
-      <TechIcons items={items} width={'item-20'} />
+      <TechIcons items={items} width={'20%'} />
     </div>
   );
 }
