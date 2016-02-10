@@ -1,51 +1,49 @@
 export default function video(state = {
-  playlist: [],
-  total: 0,
-  playbackRate: 0.6,
-  id: null,
-  src: null,
-  status: null,
   ready: false,
   done: false,
+  playing: false,
+  loading: false,
   mounted: false
 }, action) {
   switch (action.type) {
     case 'VIDEO_MOUNTED':
       return Object.assign({}, state, {
-        status: 'mounted'
+        mounted: true
       });
     case 'VIDEO_LOADING':
-      const nextId = state.id === null || state.id === state.total ? 0 : state.id + 1;
+      const nextId = state.id === undefined || state.id === state.total ? 0 : state.id + 1;
       return Object.assign({}, state, {
         id: nextId,
         src: state.playlist[nextId],
-        status: 'loading'
+        loading: true
       });
     case 'VIDEO_PLAYING':
       return Object.assign({}, state, {
-        status: 'playing',
-        ready: true
+        ready: true,
+        loading: false,
+        playing: true
       });
     case 'VIDEO_ENDED':
       return Object.assign({}, state, {
-        status: 'ended'
+        playing: false
       });
     case 'VIDEO_UNMOUNTED':
       return Object.assign({}, state, {
-        status: 'unmounted',
-        id: null,
+        id: undefined,
         src: null,
-        mounted: false
+        mounted: false,
+        loading: false,
+        playing: false
       });
     case 'VIDEO_TIMEOUT':
       return Object.assign({}, state, {
-        status: 'timeout',
-        done: true
+        done: true,
+        loading: false
       });
     case 'VIDEO_ABORTED':
       return Object.assign({}, state, {
-        status: 'aborted',
-        done: true
+        done: true,
+        loading: false
       });
     case 'HIDE_SPINNER':
       return Object.assign({}, state, {
@@ -55,7 +53,9 @@ export default function video(state = {
       const skipToId = state.id === null || state.id === state.total ? 0 : state.id + 1;
       return Object.assign({}, state, {
         id: skipToId,
-        src: state.playlist[skipToId]
+        src: state.playlist[skipToId],
+        loading: true,
+        playing: false
       });
     default:
       return state;

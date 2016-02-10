@@ -7,9 +7,8 @@ import videos from 'sources/videos';
 import nav from 'sources/nav';
 import links from 'sources/links';
 import stats from 'sources/stats';
-import tech from 'sources/tech';
 import featuredTech from 'sources/featuredTech';
-import projects from 'sources/projects';
+import { projects, projectsNav } from 'sources/featuredProjects';
 import text from 'sources/text';
 
 const initialState = {
@@ -18,27 +17,22 @@ const initialState = {
     contact: {
       links: links
     },
-    tech: tech,
     about: {
       bio: text,
       featuredTech: featuredTech,
       stats: stats
     },
+  },
+  work: {
     projects: projects,
-
+    projectsNav: projectsNav,
+    project: projects[0]
   },
   video: {
     total: videos.length - 1,
-    playlist: videos,
-    id: null,
-    src: null,
-    status: null,
-    ready: false,
-    done: false,
-    mounted: false
+    playlist: videos
   },
   carousel: {},
-  project: {}
 };
 
 const logger = createLogger();

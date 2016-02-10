@@ -32,6 +32,8 @@ class Work extends Component {
       id, links, thumbnails, mounted
      } = this.props;
 
+     console.log(this);
+
      if (!mounted) { return <div />; }
 
     return (
@@ -66,14 +68,14 @@ Work.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    slides: state.project.slides,
-    tech: state.project.tech,
-    name: state.project.name,
-    description: state.project.description,
-    id: state.project.id,
-    links: state.project.links,
-    thumbnails: state.project.thumbnails,
-    mounted: state.project.mounted
+    slides: state.work.project.slides,
+    tech: state.work.project.tech,
+    name: state.work.project.name,
+    description: state.work.project.description,
+    id: state.work.project.id,
+    links: state.work.project.links,
+    thumbnails: state.work.projectsNav,
+    mounted: state.work.mounted
   }
 }
 
