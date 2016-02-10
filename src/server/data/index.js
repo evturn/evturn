@@ -1,7 +1,13 @@
 import PROJECTS from 'db/projects';
 import TECH from 'db/tech';
 
-const PATH = 'src/client/assets/';
+const PATH = {
+  images: 'src/client/assets/images/apps/'
+};
+
+function resolvePath(file) {
+  return `${PATH.images}${file}`;
+}
 
 function filterFeaturedTech() {
   return TECH.filter(obj => obj.featured).map(obj => obj);
@@ -15,7 +21,7 @@ function setProjectsNav() {
   return PROJECTS.map(obj => {
     return {
       id: obj.id,
-      image: `${PATH}${obj.thumbnail}`
+      image: resolvePath(obj.thumbnail)
     };
   });
 }
@@ -26,7 +32,7 @@ function setProjects() {
 
     return Object.assign({}, props, {
       tech: filterProjectTech(techIds),
-      slides: images.map(image => `${PATH}${image}`)
+      slides: images.map(image => resolvePath(image))
     });
   });
 }

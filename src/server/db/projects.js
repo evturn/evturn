@@ -13,11 +13,11 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: 'images/apps/drive-tn.png',
+    thumbnail: 'drive-tn.png',
     images: [
-      'images/apps/drive-1.png',
-      'images/apps/drive-2.png',
-      'images/apps/drive-3.png'
+      'drive-1.png',
+      'drive-2.png',
+      'drive-3.png'
     ],
     featured: true,
     techIds: [1, 13, 14, 20]
@@ -38,12 +38,12 @@ export default [
         icon: 'fa fa-twitter'
       }
     ],
-    thumbnail: 'images/apps/marshallz-tn.png',
+    thumbnail: 'marshallz-tn.png',
     images: [
-      'images/apps/marshallz-1.png',
-      'images/apps/marshallz-2.png',
-      'images/apps/marshallz-3.png',
-      'images/apps/marshallz-4.png'
+      'marshallz-1.png',
+      'marshallz-2.png',
+      'marshallz-3.png',
+      'marshallz-4.png'
     ],
     featured: true,
     techIds: [1, 7, 19, 20, 10, 12, 13]
@@ -62,11 +62,11 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: 'images/apps/mim-tn.png',
+    thumbnail: 'mim-tn.png',
     images: [
-      'images/apps/mim-1.png',
-      'images/apps/mim-2.png',
-      'images/apps/mim-3.png'
+      'mim-1.png',
+      'mim-2.png',
+      'mim-3.png'
     ],
     featured: true,
     techIds: [1, 3, 14, 12, 10, 15, 20]
@@ -81,11 +81,11 @@ export default [
         icon: 'fa fa-link'
       }
     ],
-    thumbnail: 'images/apps/bfs-tn.jpg',
+    thumbnail: 'bfs-tn.jpg',
     images: [
-      'images/apps/bfs-1.png',
-      'images/apps/bfs-2.png',
-      'images/apps/bfs-3.png'
+      'bfs-1.png',
+      'bfs-2.png',
+      'bfs-3.png'
     ],
     featured: true,
     techIds: [21, 13]
@@ -103,11 +103,11 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: 'images/apps/rb-tn.png',
+    thumbnail: 'rb-tn.png',
     images: [
-      'images/apps/ramen-buffet-1.png',
-      'images/apps/ramen-buffet-2.png',
-      'images/apps/ramen-buffet-3.png'
+      'ramen-buffet-1.png',
+      'ramen-buffet-2.png',
+      'ramen-buffet-3.png'
     ],
     featured: true,
     techIds: [1, 3, 14, 12, 10, 15, 18, 20]
@@ -122,10 +122,10 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: 'images/apps/bots-tn.png',
+    thumbnail: 'bots-tn.png',
     images: [
-      'images/apps/bots-1.png',
-      'images/apps/bots-2.png'
+      'bots-1.png',
+      'bots-2.png'
     ],
     featured: true,
     techIds: [1, 14, 12]
@@ -140,12 +140,12 @@ export default [
         icon: 'fa fa-github'
       }
     ],
-    thumbnail: 'images/apps/pique-tn.png',
+    thumbnail: 'pique-tn.png',
     images: [
-      'images/apps/pique-1.jpg',
-      'images/apps/pique-2.png',
-      'images/apps/pique-3.png',
-      'images/apps/pique-4.png'
+      'pique-1.jpg',
+      'pique-2.png',
+      'pique-3.png',
+      'pique-4.png'
     ],
     featured: true,
     techIds : [16, 17]
@@ -155,10 +155,10 @@ export default [
     id: 8,
     slug: 'whereto',
     links: null,
-    thumbnail: 'images/apps/whereto-tn.png',
+    thumbnail: 'whereto-tn.png',
     images: [
-      'images/apps/whereto-2.png',
-      'images/apps/whereto-1.png'
+      'whereto-2.png',
+      'whereto-1.png'
     ],
     featured: true,
     techIds: [1, 14, 12, 10, 13]
