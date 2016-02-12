@@ -103,7 +103,7 @@ if (TARGET === 'dev' || !TARGET) {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
       new WriteFilePlugin(),
-      new ExtractTextPlugin('css/app.css'),
+      new ExtractTextPlugin('css/[name].css'),
       new WebpackNotifierPlugin()
     ]
   });
@@ -130,11 +130,9 @@ if (TARGET === 'build' || !TARGET) {
     },
     plugins: [
       new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production')
-        }
+        'process.env.NODE_ENV': '"production"'
       }),
-      new ExtractTextPlugin('css/app.css'),
+      new ExtractTextPlugin('css/[name].css'),
       new webpack.optimize.UglifyJsPlugin({minimize: true})
     ]
   });
