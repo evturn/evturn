@@ -15,7 +15,9 @@ class Home extends Component {
   }
   render() {
     return (
-      <FullPageContainer onClick={() => next()}>
+      <FullPageContainer
+        className={cx('root')}
+        onClick={() => next()}>
         <VideoPlayer />
         <Spinner />
         <AbsoluteContainer classname={cx('banner')}>

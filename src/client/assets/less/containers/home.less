@@ -1,5 +1,21 @@
 @import '../variables.less';
 
+.root {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-position-x: 50%;
+  background-image: url('images/site/banana-plants.png');
+  @media(@tablet) {
+    background-position-y: 40%;
+    background-position-x: 0%;
+  }
+}
+
 .banner {
   top: 65%;
   right: 0;
