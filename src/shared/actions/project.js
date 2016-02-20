@@ -1,4 +1,4 @@
-import store from 'shared/store';
+import store from '../store';
 
 const dispatch = store.dispatch;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import styles from 'less/reuseables.less';
+import styles from '../../../client/assets/less/reuseables.less';
 
 const cx = classNames.bind(styles);
 
@@ -62,7 +62,7 @@ export const TextParagraph = props => {
 
 export const AppImage = props => {
   const { src, classname, ...rest } = props;
-  const PATH = 'src/client/assets/images/apps/';
+  const PATH = 'dist/img/apps/';
 
   return (
     <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />
@@ -71,7 +71,7 @@ export const AppImage = props => {
 
 export const SiteImage = props => {
   const { src, classname, ...rest } = props;
-  const PATH = 'src/client/assets/images/site/';
+  const PATH = 'dist/img/site/';
 
   return (
     <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />

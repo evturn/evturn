@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from 'less/containers/contact.less';
+import styles from '../../client/assets/less/containers/contact.less';
 import {
   UnorderedList, ListItem, Icon,
   SectionContainer, PageContainer
-} from 'components/reuseables';
+} from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 

@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { init, performCleanUp, assignClassName } from 'actions/carousel';
+import { init, performCleanUp, assignClassName } from '../actions/carousel';
 import classNames from 'classnames/bind';
-import styles from 'less/components/carousel.less';
-import { AbsoluteContainer, AppImage, SectionContainer } from 'components/reuseables'
+import styles from '../../client/assets/less/components/carousel.less';
+import { AbsoluteContainer, AppImage, SectionContainer } from './reuseables';
 
 const cx = classNames.bind(styles);
 

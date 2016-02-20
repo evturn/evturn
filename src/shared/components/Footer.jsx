@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import styles from 'less/components/footer.less';
-import { Icon } from 'components/reuseables';
+import styles from '../../client/assets/less/components/footer.less';
+import { Icon } from './reuseables';
 
 const cx = classNames.bind(styles);
 

@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Glengary NF Regular';
+  src: url('../fonts/glengary-nf-regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'devicon';
   src: url('../fonts/devicon.woff') format('woff');
   font-weight: normal;

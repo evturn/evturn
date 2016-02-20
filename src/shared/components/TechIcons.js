@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import {
   UnorderedList, ListItem,
  IconContainer, IconCaption, Icon
-} from 'components/reuseables';
+} from './reuseables';
 
 export default ({ items, width }) => {
   return (

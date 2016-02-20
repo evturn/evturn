@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import video from 'reducers/video';
-import site from 'reducers/site';
-import work from 'reducers/work';
-import carousel from 'reducers/carousel';
+import video from './video';
+import site from './site';
+import work from './work';
+import carousel from './carousel';
 
 const rootReducer = combineReducers({ video, site, work, carousel });
 

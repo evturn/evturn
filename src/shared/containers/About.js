@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from 'less/containers/about.less';
-import TechIcons from 'components/TechIcons';
-import StatCounters from 'components/StatCounters';
+import styles from '../../client/assets/less/containers/about.less';
+import TechIcons from '../components/TechIcons';
+import StatCounters from '../components/StatCounters';
 import {
   TextHeader, TextParagraph, SiteImage,
   PageContainer, SectionContainer
-} from 'components/reuseables';
+} from '../components/reuseables';
 
 
 const cx = classNames.bind(styles);

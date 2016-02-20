@@ -1,14 +1,14 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
-import rootReducer from 'reducers';
+import rootReducer from './reducers';
 
-import VIDEOS from 'db/videos';
-import NAV from 'db/nav';
-import LINKS from 'db/links';
-import STATS from 'db/stats';
-import TEXT from 'db/text';
-import { projects, projectsNav, featuredTech } from 'data';
+import VIDEOS from '../server/db/videos';
+import NAV from '../server/db/nav';
+import LINKS from '../server/db/links';
+import STATS from '../server/db/stats';
+import TEXT from '../server/db/text';
+import { projects, projectsNav, featuredTech } from '../server/data';
 
 const initialState = {
   site: {

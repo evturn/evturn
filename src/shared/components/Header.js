@@ -1,11 +1,11 @@
 import React from 'react';
 import { IndexLink, Link } from 'react-router';
 import classNames from 'classnames/bind';
-import styles from 'less/components/nav.less';
+import styles from '../../client/assets/less/components/nav.less';
 import {
   UnorderedList, AbsoluteContainer,
   SiteImage, ListItem, SectionContainer, Icon
-} from 'components/reuseables';
+} from './reuseables';
 
 const cx = classNames.bind(styles);
 

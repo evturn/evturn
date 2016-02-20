@@ -1,5 +1,5 @@
-import PROJECTS from 'db/projects';
-import TECH from 'db/tech';
+import PROJECTS from '../db/projects';
+import TECH from '../db/tech';
 
 function filterFeaturedTech() {
   return TECH.filter(obj => obj.featured).map(obj => obj);
