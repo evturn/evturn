@@ -20,7 +20,7 @@ class VideoPlayer extends Component {
     return (
       <video
         ref={(player) => this.player = player}
-        poster="src/client/assets/images/site/banana-plants.png"
+        poster="dist/img/site/banana-plants.png"
         type="video/mp4"
         preload="auto"
         autoPlay={true}
