@@ -22,7 +22,7 @@ class About extends Component {
     return (
       <PageContainer classname={cx('root')}>
         <SectionContainer classname={cx('header')}>
-          <SiteImage src="skel.gif" />
+          <SiteImage src="ev-av.png" />
         </SectionContainer>
         <SectionContainer classname={cx('bio')}>
           <TextHeader classname={cx('center')} text={'Development'} />
