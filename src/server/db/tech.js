@@ -39,7 +39,7 @@ export default [
     name: 'Babel',
     icon: 'evcon-babel',
     color: 'evcon-babel',
-    featured: false,
+    featured: true,
     id: 20
   },{
     name: 'Handlebars',
@@ -130,5 +130,11 @@ export default [
     color: 'devicon-bootstrap-plain colored',
     id: 5,
     featured: false
+  }, {
+    name: 'CSS Preprocessors',
+    icon: 'devicon-css3-plain-wordmark',
+    color: 'devicon-css3-plain-wordmark',
+    id: 23,
+    featured: true
   }
 ];

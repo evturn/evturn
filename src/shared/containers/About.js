@@ -31,7 +31,7 @@ class About extends Component {
         <SectionContainer>
           <div className={cx('tech')}>
             <TextHeader classname={cx('center')} text={'Tools'} />
-            <TechIcons items={featuredTech} width={'20%'} />
+            <TechIcons items={featuredTech} width={'25%'} />
           </div>
           <div className={cx('stats')}>
             <TextHeader classname={cx('center')} text={'Statistics'} />
