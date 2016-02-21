@@ -41,7 +41,7 @@ const LOADERS = [
   },{
     test: /\.less$/,
     loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]!less?includePaths[]='
-      + encodeURIComponent(path.resolve(__dirname, 'src', 'client', 'assets', 'less')))
+      + encodeURIComponent(path.resolve(__dirname, 'src', 'client', 'less')))
   }
 ];
 
@@ -71,8 +71,8 @@ module.exports = {
         components: path.join(__dirname, './src/shared/components/'),
         reducers:   path.join(__dirname, './src/shared/reducers/'),
         images:     path.join(__dirname, './dist/img/'),
-        css:        path.join(__dirname, './src/client/assets/css/'),
-        less:       path.join(__dirname, './src/client/assets/less/'),
+        css:        path.join(__dirname, './src/client/css/'),
+        less:       path.join(__dirname, './src/client/less/'),
         data:       path.join(__dirname, './src/server/data/'),
         db:         path.join(__dirname, './src/server/db/')
     }

@@ -25,9 +25,9 @@ module.exports = {
       app: ['./src/client', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true']
     },
     output: {
-      path: PATHS.output,    // The output directory as absolute path
+      path: PATHS.output,          // The output directory as absolute path
       filename: '../js/[name].js', // The filename of the entry chunk as relative path inside the output.path directory
-      publicPath: '/build/' // The output path from the view of the Javascript
+      publicPath: '/build/'        // The output path from the view of the Javascript
     },
     devServer: {
       outputPath: PATHS.output,
@@ -68,7 +68,7 @@ module.exports = {
           test: /\.less$/,
           loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
             '&sourceMap!less?sourceMap&outputStyle=expanded' +
-            '&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, 'src', 'client', 'assets', 'less'))
+            '&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, 'src', 'client', 'less'))
         }
       ]
     },
@@ -82,8 +82,8 @@ module.exports = {
         components: path.join(__dirname, './src/shared/components/'),
         reducers:   path.join(__dirname, './src/shared/reducers/'),
         images:     path.join(__dirname, './dist/img/'),
-        css:        path.join(__dirname, './src/client/assets/css/'),
-        less:       path.join(__dirname, './src/client/assets/less/'),
+        css:        path.join(__dirname, './src/client/css/'),
+        less:       path.join(__dirname, './src/client/less/'),
         data:       path.join(__dirname, './src/server/data/'),
         db:         path.join(__dirname, './src/server/db/')
       }

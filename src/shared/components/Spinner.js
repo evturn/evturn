@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from '../../client/assets/less/components/spinner.less';
+import styles from '../../client/less/components/spinner.less';
 import { SiteImage } from './reuseables';
 
 const cx = classNames.bind(styles);

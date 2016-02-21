@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from '../../client/assets/less/containers/contact.less';
+import styles from '../../client/less/containers/contact.less';
 import {
   UnorderedList, ListItem, Icon,
   SectionContainer, PageContainer

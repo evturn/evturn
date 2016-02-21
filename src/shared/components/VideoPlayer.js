@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { play, end, load, unmount } from '../actions/video';
-import styles from '../../client/assets/less/components/video.less';
+import styles from '../../client/less/components/video.less';
 
 class VideoPlayer extends Component {
   constructor(props) {

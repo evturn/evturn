@@ -3,8 +3,7 @@ import StatCounter from './StatCounter';
 import classNames from 'classnames/bind';
 import {
   UnorderedList, ListItem, SectionContainer,
-  IconContainer, IconCaption
-} from './reuseables';
+  IconContainer, IconCaption } from './reuseables';
 
 export default class StatCounters extends React.Component {
   render() {

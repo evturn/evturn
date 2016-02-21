@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { IndexLink, Link } from 'react-router';
 import { next } from '../actions/video';
 import classNames from 'classnames/bind';
-import styles from '../../client/assets/less/containers/home.less';
+import styles from '../../client/less/containers/home.less';
 import Spinner from '../components/Spinner';
 import VideoPlayer from '../components/VideoPlayer';
 import {

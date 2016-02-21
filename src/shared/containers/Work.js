@@ -2,15 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setProject } from '../actions/project';
 import classNames from 'classnames/bind';
-import styles from '../../client/assets/less/containers/work.less';
+import styles from '../../client/less/containers/work.less';
 import ProjectNavigation from '../components/ProjectNavigation';
 import Carousel from '../components/Carousel';
 import TechIcons from '../components/TechIcons';
 import ProjectLinks from '../components/ProjectLinks';
 import {
   TextHeader, TextTitle, TextParagraph,
-  SectionContainer, PageContainer
- } from '../components/reuseables';
+  SectionContainer, PageContainer } from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 

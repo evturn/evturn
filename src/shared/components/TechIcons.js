@@ -2,8 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import {
   UnorderedList, ListItem,
- IconContainer, IconCaption, Icon
-} from './reuseables';
+ IconContainer, IconCaption, Icon } from './reuseables';
 
 export default ({ items, width }) => {
   return (
