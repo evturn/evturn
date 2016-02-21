@@ -20,34 +20,34 @@ class Home extends Component {
     const { pages } = this.props;
     return (
       <FullPageContainer className={cx('root')}>
-      <div className={cx('mobile')}>
-        <div className={cx('top', 'header')}>
-          <div className={cx('head')} />
-          <div className={cx('subhead')} />
+        <div className={cx('lg')} onClick={() => next()}>
+          <Spinner />
+          <VideoPlayer />
+          <div className={cx('title')}>
+            <SiteImage src='title-white.svg' />
+            <div className={cx('subtitle')} />
+          </div>
         </div>
-        <div className={cx('image')}>
-          <SiteImage classname={cx('top', 'img-sm')} src='ev-av.png' />
-        </div>
-        <UnorderedList classname={cx('top')}>{pages.map((page, i) => {
-          const { route, name, id } = page;
 
-          if (id !== 1) {
-            return (
-              <ListItem key={i} className={cx('item')} onClick={() => toggle()}>
-                <Link to={route} children={name} />
-              </ListItem>
-            );
-          }
-        })}</UnorderedList>
-        <div className={cx('overlay')} />
-      </div>
-      <div onClick={() => next()}>
-        <Spinner />
-        <VideoPlayer />
-        <div className={cx('title')}>
-          <SiteImage classname={cx('img-lg')} src='title-white.svg' />
+        <div className={cx('sm')}>
+          <div className={cx('title')}>
+            <SiteImage src='title-white.svg' />
+            <div className={cx('subtitle')} />
+          </div>
+          <SiteImage className={cx('av')} src='ev-av.png' />
+          <UnorderedList className={cx('top')}>{pages.map((page, i) => {
+            const { route, name, id } = page;
+
+            if (id !== 1) {
+              return (
+                <ListItem key={i} className={cx('item')} onClick={() => toggle()}>
+                  <Link to={route} children={name} />
+                </ListItem>
+              );
+            }
+          })}</UnorderedList>
+          <div className={cx('overlay')} />
         </div>
-      </div>
       </FullPageContainer>
     );
   }

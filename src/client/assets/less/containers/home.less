@@ -12,87 +12,24 @@
   background-position-x: 50%;
   background-image: url('images/site/banana-plants.png');
   border: 3px solid @tx-light;
+
   @media(@break) {
     border: none;
-    background-image: url('images/site/banana-plants.png');
     background-color: transparent;
     background-position-y: 40%;
     background-position-x: 0%;
   }
 }
 
-.title {
-  position: absolute;
-  margin: 0 auto;
-  top: 33.333333333%;
-  right: 0;
-  left: 0;
-  text-align: center;
-  color: @tx-light;
-  z-index: 5;
-  font-family: @font-glengary;
-  height: auto;
-  height: 100%;
-  display: block;
-  width: 80%;
-  @media(@break) {
-    width: 60%;
-  }
-}
-
-.header {
-  font-size: 25px;
-  margin-top: 25px;
-  text-transform: uppercase;
-  text-align: center;
-  color: @tx-light;
-
-}
-
-.head {
-  font-family: @font-helv;
-  letter-spacing: -2px;
-  &:after {
-    content: 'Evan Turner';
-  }
-}
-
-.subhead {
-  font-family: @font-helv-neue;
-  font-weight: 300;
-  &:after {
-    content: 'Developer';
-  }
-}
-
-.mobile {
-  display: block;
-  @media(@break) {
-    display: none;
-  }
-}
-
-.img-lg {
+.lg {
   display: none;
   @media(@break) {
     display: block;
   }
 }
 
-.image {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.img-sm {
+.sm {
   display: block;
-  width: 160px;
-  height: 160px;
-  padding: 30px;
-  margin: 0 auto;
-  background-color: @bg-light;
-  border-radius: 50%;
-  overflow: hidden;
   @media(@break) {
     display: none;
   }
@@ -101,6 +38,69 @@
 .top {
   position: relative;
   z-index: 100;
+}
+
+.sm .title {
+  .top();
+  font-size: 25px;
+  margin: 35px auto 10px auto;
+  text-transform: uppercase;
+  text-align: center;
+  color: @tx-light;
+  width: 250px;
+}
+
+.lg .title {
+  position: absolute;
+  margin: 0 auto;
+  top: 33.333333333%;
+  right: 0;
+  left: 0;
+  text-align: center;
+  color: @tx-light;
+  z-index: 5;
+  font-family: @font-mer;
+  height: auto;
+  height: 100%;
+  display: block;
+  width: 80%;
+
+  @media(@break) {
+    width: 60%;
+  }
+}
+
+.subtitle {
+  text-transform: uppercase;
+  text-align: right;
+  margin-top: -4%;
+  padding-right: 4%;
+  font-family: @font-mer;
+  font-size: 12px;
+
+  &:before {
+    content: "developer";
+  }
+
+  @media(@break) {
+    font-size: 2vw;
+  }
+}
+
+.av {
+  .top();
+  display: block;
+  width: 160px;
+  height: 160px;
+  padding: 30px;
+  margin: 0 auto;
+  top: 20px;
+  background-color: @bg-light;
+  border-radius: 50%;
+  overflow: hidden;
+  @media(@break) {
+    display: none;
+  }
 }
 
 .overlay {
@@ -112,9 +112,10 @@
   right: 0;
   left: 0;
   z-index: 50;
+  @media(@break) {
+    display: none;
+  }
 }
-
-
 
 .item {
   display: block;
@@ -128,40 +129,12 @@
   padding-top: 21px;
   padding-bottom: 21px;
   border-bottom: 1px solid fade(@tx-light, 70);
+
   &:first-child {
+    margin-top: 50px;
     border-top: 1px solid fade(@tx-light, 70);
   }
   a {
     color: @tx-light;
   }
 }
-
-.uppercase {
-  margin-bottom: -10px;
-  font-size: 18vw;
-  font-weight: 500;
-}
-
-.E {
-  .uppercase();
-  letter-spacing: -18px;
-  &:after {
-    content: "E";
-  }
-}
-
-.T {
-  .uppercase();
-  letter-spacing: -16px;
-  &:after {
-    content: "T";
-  }
-}
-
-.low {
-  vertical-align: bottom;
-  font-size: 12vw;
-  font-weight: 500;
-  letter-spacing: 0px;
-}
-
