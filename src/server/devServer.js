@@ -1,10 +1,10 @@
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('../../webpack.config.dev.js');
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from '../../webpack.config.dev.js';
 
 const PORT = 3000;
 const HOST = process.env.HOST || '127.0.0.1';
@@ -26,7 +26,7 @@ if (ENV === 'development') {
 }
 
 app.get('*', function(req, res) {
-  res.status(200).sendFile( path.join( __dirname, '..', '..', 'dist', 'index.html' ));
+  res.status(200).sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
