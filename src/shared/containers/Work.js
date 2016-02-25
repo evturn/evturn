@@ -31,8 +31,6 @@ class Work extends Component {
       id, links, thumbnails, mounted
      } = this.props;
 
-     console.log(this);
-
      if (!mounted) { return <div />; }
 
     return (
