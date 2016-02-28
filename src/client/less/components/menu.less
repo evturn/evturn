@@ -38,7 +38,7 @@
   z-index: 999;
   height: 100%;
   transition: 0.4s;
-  background-color: @bg-primary;
+  background-color: @bg-secondary;
   a {
     color: @tx-light;
   }
@@ -53,11 +53,12 @@
   text-transform: uppercase;
   text-align: center;
   overflow: auto;
-  font-weight: bold;
   line-height: 19px;
   font-size: 19px;
   padding-top: 21px;
   padding-bottom: 21px;
+  font-family: @font-helv-neue;
+  font-weight: 500;
   border-bottom: 1px solid @tx-light;
   &:first-child {
     border-top: 1px solid @tx-light;
@@ -74,5 +75,11 @@
   height: 60px;
   width: 60px;
   font-size: 25px;
-  background-color: @bg-light;
+  color: @tx-light;
+  font-weight: 200;
+  background-color: transparent;
+
+  img {
+    padding: 15%;
+  }
 }

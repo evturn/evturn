@@ -24,7 +24,7 @@ export default ({ open, page, pages, toggle }) => {
       <nav className={cx('menu', {'in': open, 'out': !open})}>
         <SectionContainer>
           <SectionContainer classname={cx('close')} onClick={() => toggle()}>
-            <Icon className={'fa fa-times'} />
+            <SiteImage src={'close-light.png'} />
           </SectionContainer>
         </SectionContainer>
         <UnorderedList>{pages.map((page, i) => {
