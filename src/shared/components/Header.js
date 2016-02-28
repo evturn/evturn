@@ -15,14 +15,16 @@ export default ({ open, page, pages, toggle }) => {
       <AbsoluteContainer classname={cx('logo', page)}>
         <SiteImage src="ev-av.png" />
       </AbsoluteContainer>
-      <AbsoluteContainer classname={cx('burger', page)} onClick={() => toggle()}>
-        <Icon classname={'fa fa-bars'} />
+      <AbsoluteContainer
+        classname={cx('burger', page)}
+        onClick={() => toggle()}>
+        <Icon className={'fa fa-bars'} />
       </AbsoluteContainer>
 
       <nav className={cx('menu', {'in': open, 'out': !open})}>
         <SectionContainer>
           <SectionContainer classname={cx('close')} onClick={() => toggle()}>
-            <Icon classname={'fa fa-times'} />
+            <Icon className={'fa fa-times'} />
           </SectionContainer>
         </SectionContainer>
         <UnorderedList>{pages.map((page, i) => {

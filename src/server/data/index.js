@@ -1,4 +1,4 @@
-import PROJECTS from '../db/projects';
+import PROJECTS from '../db/work-web';
 import TECH from '../db/tech';
 
 function filterFeaturedTech() {

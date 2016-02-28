@@ -80,6 +80,7 @@ class Work extends Component {
             </div>
           </div>
         </div>
+
         <div className={cx('other')}>Projects</div>
         <ProjectNavigation items={thumbnails} id={id} />
       </div>

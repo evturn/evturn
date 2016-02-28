@@ -90,50 +90,35 @@ export default [
     ],
     featured: true,
     techIds: [21]
-  }, {
-    name: 'Ramen Buffet',
-    description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
-    id: 5,
-    slug: 'rb',
-    links: [
-      {
-        url: 'http://ramenbuffet.com',
-        icon: 'fa fa-link'
-      }, {
-        url: 'https://github.com/evturn/ramen-buffet',
-        icon: 'fa fa-github'
-      }
-    ],
-    thumbnail: 'rb-tn.png',
-    images: [
-      'ramen-buffet-1.png',
-      'ramen-buffet-2.png',
-      'ramen-buffet-3.png'
-    ],
-    featured: true,
-    techIds: [1, 3, 10, 18]
   },{
-    name: 'Slackbots',
-    description: `A package designed to create instances of new Bots on Slack. The API is abstracted away from the user in order to easily create interactions with the team's channel. By extending Node's native Event Emitter, the bot is connected and notified of all chatroom activity.`,
-    id: 6,
-    slug: 'slackbots',
+    name: 'Nutty Goodness',
+    description: 'Nutty Goodness is a producer of healthy snacks made from all-natural fruit & nuts. I developed a brand new website for teh company which was led by New York City based product design and development shop Born & Raised.',
+    id: 5,
+    slug: 'nutty-goodness',
     links: [
       {
-        url: 'https://github.com/faquet/bots/tree/api-init',
-        icon: 'fa fa-github'
+        url: 'http://nuttygoodness.com',
+        icon: 'fa fa-link'
+      },{
+        url: 'http://wearebnr.com',
+        icon: 'fa fa-bold'
       }
     ],
-    thumbnail: 'bots-tn.png',
+    thumbnail: 'ng-tn.png',
     images: [
-      'bots-1.png',
-      'bots-2.png'
+      'ng-1.png',
+      'ng-2.png',
+      'ng-3.png',
+      'ng-4.png',
+      'ng-5.png'
     ],
     featured: true,
-    techIds: [1]
+    techIds: [14]
+
   },{
     name: 'Pique',
     description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
-    id: 7,
+    id: 6,
     slug: 'pique',
     links: [
       {
@@ -151,10 +136,10 @@ export default [
     featured: true,
     techIds : [16, 17]
   }, {
-    name: 'WhereTO',
+    name: 'Where TO',
     description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
-    id: 8,
-    slug: 'whereto',
+    id: 7,
+    slug: 'where-to',
     links: null,
     thumbnail: 'whereto-tn.png',
     images: [
@@ -163,5 +148,27 @@ export default [
     ],
     featured: true,
     techIds: [1, 10]
+  },{
+    name: 'Ramen Buffet',
+    description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
+    id: 8,
+    slug: 'ramen-buffet',
+    links: [
+      {
+        url: 'http://ramenbuffet.com',
+        icon: 'fa fa-link'
+      }, {
+        url: 'https://github.com/evturn/ramen-buffet',
+        icon: 'fa fa-github'
+      }
+    ],
+    thumbnail: 'rb-tn.png',
+    images: [
+      'ramen-buffet-1.png',
+      'ramen-buffet-2.png',
+      'ramen-buffet-3.png'
+    ],
+    featured: true,
+    techIds: [1, 3, 10, 18]
   }
 ];
