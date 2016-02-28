@@ -17,7 +17,8 @@ export default [
     images: [
       'drive-1.png',
       'drive-2.png',
-      'drive-3.png'
+      'drive-3.png',
+      'drive-4.png'
     ],
     featured: true,
     techIds: [1, 13, 14, 20]
