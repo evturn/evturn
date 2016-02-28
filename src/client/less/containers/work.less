@@ -1,44 +1,64 @@
 @import '../variables.less';
 
-
-
 .page {
   .clearfix();
   position: relative;
   height: 100%;
 
-  .header {
+  .page-header {
+    background-color: @bg-secondary;
+    padding-left: 10px;
     height: 60px;
     font-size: 30px;
     line-height: 60px;
     font-family: @font-helv-neue;
+    color: @tx-light;
+    overflow: hidden;
+  }
+
+  .page-title {
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
+    max-width: 1000px;
+  }
+}
+
+.image {
+  width: 730px;
+  position: absolute;
+  top: -110px;
+  left: -390px;
+  @media(@tablet) {
+    width: 750px;
+    top: -120px;
+    left: -60px;
   }
 }
 
 .categories {
+  position: relative;
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  background-color: @bg-primary;
+  background-color: tint(@bg-primary, 90);
 
   .item {
     display: inline-block;
     width: 102px;
-    color: @tx-light;
     font-family: @font-helv-neue;
     font-weight: 300;
     text-align: center;
-
+    a {
+      color: @tx-dark;
+    }
     span {
       font-size: 1.5em;
     }
   }
 
   .title {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 

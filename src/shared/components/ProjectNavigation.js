@@ -13,7 +13,7 @@ export default ({ items, id }) => {
         <ListItem
           key={i}
           classname={cx('item', {'active': project.id === id})}>
-          <Link to={`work/${project.id}`}>
+          <Link to={`/work/web/${project.id}`}>
             <AppImage src={project.image} />
             <div className={cx('overlay')} />
           </Link>
