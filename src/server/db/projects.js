@@ -21,7 +21,7 @@ export default [
       'drive-4.png'
     ],
     featured: true,
-    techIds: [1, 13, 14, 20]
+    techIds: [1]
   },{
     name: 'Marshallz Blog',
     description: `Built using React and Redux, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots are assigned their own API keys and destinations for scraping text various documents, such as news articles and washing machine manuals. Fragments of these sentences are collected and ran through a process creating a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences are used to search Giphy and retrieve an image which is then included in the post.`,
@@ -47,7 +47,7 @@ export default [
       'marshallz-4.png'
     ],
     featured: true,
-    techIds: [1, 7, 19, 20, 10, 12, 13]
+    techIds: [1, 7, 10]
   },
   {
     name: 'Made In Music',
@@ -70,7 +70,7 @@ export default [
       'mim-3.png'
     ],
     featured: true,
-    techIds: [1, 3, 14, 12, 10, 15, 20]
+    techIds: [1, 3, 10]
   }, {
     name: 'Brooklyn Friends School',
     description: `I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.`,
@@ -89,7 +89,7 @@ export default [
       'bfs-3.png'
     ],
     featured: true,
-    techIds: [21, 13]
+    techIds: [21]
   }, {
     name: 'Ramen Buffet',
     description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
@@ -111,7 +111,7 @@ export default [
       'ramen-buffet-3.png'
     ],
     featured: true,
-    techIds: [1, 3, 14, 12, 10, 15, 18, 20]
+    techIds: [1, 3, 10, 18]
   },{
     name: 'Slackbots',
     description: `A package designed to create instances of new Bots on Slack. The API is abstracted away from the user in order to easily create interactions with the team's channel. By extending Node's native Event Emitter, the bot is connected and notified of all chatroom activity.`,
@@ -129,7 +129,7 @@ export default [
       'bots-2.png'
     ],
     featured: true,
-    techIds: [1, 14, 12]
+    techIds: [1]
   },{
     name: 'Pique',
     description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
@@ -162,6 +162,6 @@ export default [
       'whereto-1.png'
     ],
     featured: true,
-    techIds: [1, 14, 12, 10, 13]
+    techIds: [1, 10]
   }
 ];

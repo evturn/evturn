@@ -28,7 +28,7 @@
   margin: 0 auto;
   width: 100%;
   height: 110px;
-  @media(@break) {
+  @media(@tablet) {
     width: 25%;
     width: auto;
     height: auto;
@@ -64,9 +64,9 @@
 }
 
 .item .icon:hover {
-  @media(@break) {
+  @media(@tablet) {
     background-color: @bg-light;
-    color: @tx-accent;
+    color: @tx-primary;
     transition: all 0.1s ease;
   }
 }
@@ -79,7 +79,7 @@
 }
 
 .item:hover a {
-  color: @tx-accent;
+  color: @tx-secondary;
 }
 
 @-webkit-keyframes fadeIn {

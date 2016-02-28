@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'Node.js',
+    name: 'Node',
     icon: 'devicon-nodejs-plain',
     color: 'devicon-nodejs-plain colored',
     id: 1,
@@ -18,7 +18,7 @@ export default [
     id: 15,
     featured: false
   },{
-    name: 'Gulp.js',
+    name: 'Gulp',
     icon: 'devicon-gulp-plain',
     color: 'devicon-gulp-plain',
     id: 14,
@@ -78,7 +78,7 @@ export default [
     id: 11,
     featured: false
   }, {
-    name: 'Express.js',
+    name: 'Express',
     icon: 'evcon-express',
     color: 'evcon-express',
     id: 12,

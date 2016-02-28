@@ -1,22 +1,28 @@
 @import '../variables.less';
 
 .root {
+  position: relative;
+  overflow: hidden;
+  .clearfix();
   width: 100%;
   height: 200px;
-  overflow: hidden;
-  @media(@tablet-portrait) {
-    float: right;
-    width: 70%;
-    height: 300px;
-    margin: 15px;
-    border: 1px solid fade(@tx-accent, 60);
-  }
+  border-top: 1px solid fade(@tx-primary, 60);
+  border-bottom: 1px solid fade(@tx-primary, 60);
   @media(@tablet) {
-    height: 450px;
+    margin-top: 0;
+    float: right;
+    width: 60%;
+    height: 300px;
+    border: 1px solid fade(@tx-primary, 60);
+  }
+  @media(@desktop) {
+    height: 373px;
   }
 }
 
 .carousel {
+  .clearfix();
+  position: absolute;
   display: block;
   overflow: hidden;
   width: 100%;

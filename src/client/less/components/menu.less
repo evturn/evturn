@@ -25,7 +25,7 @@
   top: 0;
   left: 0;
   transition: 0.3s;
-  @media(@break) {
+  @media(@tablet) {
     background-color: fade(@bg-light, 65);
   }
 }
@@ -38,7 +38,7 @@
   z-index: 999;
   height: 100%;
   transition: 0.4s;
-  background-color: @bg-accent;
+  background-color: @bg-primary;
   a {
     color: @tx-light;
   }
@@ -58,9 +58,9 @@
   font-size: 19px;
   padding-top: 21px;
   padding-bottom: 21px;
-  border-bottom: 1px solid fade(@tx-light, 70);
+  border-bottom: 1px solid @tx-light;
   &:first-child {
-    border-top: 1px solid fade(@tx-light, 70);
+    border-top: 1px solid @tx-light;
   }
 }
 

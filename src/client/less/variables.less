@@ -13,14 +13,30 @@
 @font-mer:               'Merriweather';
 @font-sans:              'Source Sans Pro', sans;
 @font-helv:              'Helvetica', Arial, sans-serif;
-@font-helv-neue:         'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-helv-neue:         'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
 @font-size-icon:         14px;
 @font-size-evcon:        42px;
 
 // Colors
-@tx-accent:              #5FA3C0;
-@bg-accent:              #5FA3C0;
-@tx-light:               #ffffff;
-@bg-light:               #ffffff;
-@tx-dark:                #231f20;
-@bg-dark:                #231f20;
+
+@tx-primary:             #7C7C87;
+@bg-primary:             #7C7C87;
+@tx-secondary:           #000033;
+@bg-secondary:           #000033;
+@tx-light:               #FFFFFF;
+@bg-light:               #FFFFFF;
+@tx-dark:                #0C0C0D;
+@bg-dark:                #0C0C0D;
+
+
+.clearfix() {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

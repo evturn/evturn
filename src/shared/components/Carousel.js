@@ -24,11 +24,11 @@ class Carousel extends Component {
   }
   render() {
     return (
-      <SectionContainer classname={cx('root')}>
-        <SectionContainer classname={cx('carousel')}>
+      <div className={cx('root')}>
+        <div className={cx('carousel')}>
           {this.renderSlides()}
-        </SectionContainer>
-      </SectionContainer>
+        </div>
+      </div>
     );
   }
   renderSlides() {
@@ -45,9 +45,9 @@ class Carousel extends Component {
       }
 
       return (
-        <AbsoluteContainer key={i} classname={cx('slide', classname)}>
+        <div key={i} className={cx('slide', classname)}>
           <AppImage src={image} />
-        </AbsoluteContainer>
+        </div>
       );
     });
   }

@@ -1,24 +1,20 @@
 .burger {
-  top: 25px;
-  right: 25px;
-  height: 47px;
-  width: 47px;
+  top: 0;
+  right: 0;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  margin: 0 auto;
   z-index: 3;
   cursor: pointer;
   font-size: 40px;
   text-align: center;
-  @media(@tablet) {
-    opacity: 0.7;
-    transition: 0.3s;
-  }
+  opacity: 1;
 
-  &:hover {
-    opacity: 1;
-  }
   &.home {
     display: none;
     color: @tx-dark;
-    @media(@break) {
+    @media(@tablet) {
       display: block;
       color: @tx-light;
     }
@@ -29,7 +25,7 @@
   }
 
   &.work {
-    color: @tx-accent;
+    color: @tx-dark;
     position: fixed;
   }
 
