@@ -13,6 +13,7 @@ class Work extends Component {
   constructor(props) {
     super(props);
 
+    this.active = { 'color': '#7C7C87' };
     this.header = [
       {
         title: 'Web',
@@ -46,7 +47,7 @@ class Work extends Component {
           {this.header.map((item, i) => {
             return (
               <ListItem key={i} className={cx('item')}>
-                <Link to={item.route} >
+                <Link to={item.route} activeStyle={this.active}>
                   <Icon className={item.icon} />
                   <div className={cx('title')}>{item.title}</div>
                 </Link>
