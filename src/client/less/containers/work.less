@@ -102,14 +102,14 @@
       display: block;
       text-transform: uppercase;
       font-family: @font-helv-neue;
-      font-size: 20px;
+      font-size: 26px;
       text-align: left;
     }
 
     &.link {
       display: inline-block;
       text-align: left;
-      width: 30px;
+      width: 50px;
       margin-top: 10px;
       margin-right: 10px;
 
@@ -166,10 +166,12 @@
 }
 
 .other {
-  margin-top: 10px;
   margin-left: 10px;
-  margin-right: 10px;
+  max-width: 1000px;
   border-bottom: 1px solid fade(@tx-primary, 40);
   text-transform: uppercase;
   font-family: @font-helv-neue;
+  @media(@tablet) {
+    margin: 10px auto;
+  }
 }
