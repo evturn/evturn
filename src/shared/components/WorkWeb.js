@@ -5,9 +5,7 @@ import { Link } from 'react-router';
 import styles from '../../client/less/containers/work.less';
 import ProjectNavigation from '../components/ProjectNavigation';
 import Carousel from './Carousel';
-import {
-  TextHeader, TextTitle, TextParagraph,
-  SectionContainer, PageContainer, Icon, UnorderedList, ListItem } from '../components/reuseables';
+import { Icon, UnorderedList, ListItem } from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 

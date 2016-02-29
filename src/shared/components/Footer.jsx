@@ -5,31 +5,10 @@ import { Icon } from './reuseables';
 
 const cx = classNames.bind(styles);
 
-export default class Footer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.text = '© 2016 evturn.com built with ';
-    this.state = {
-      page: props.page,
-      blend: props.page === 'contact'
-    };
-  }
-  componentWillReceiveProps(nextProps) {
-    return this.setState({
-      page: nextProps.page,
-      blend: nextProps.page === 'contact'
-    });
-  }
-  render() {
-    return (
-      <footer className={cx(this.state.page)}>
-        <div className={cx({ 'blend': this.state.blend })} />
-        <div className={cx('footer-text')}>
-          <span className={cx('copyright')}>{this.text}</span>
-          <Icon classname={'devicon-react-plain-wordmark'} />
-        </div>
-      </footer>
-    );
-  }
+export default ({ page }) => {
+  return (
+    <footer className={cx('footer', page)}>
+      <div className={cx('text')}>Evan Turner | evturn.com  <Icon className={'fa fa-copyright'} /> 2016 built with <Icon className={cx('icon', 'devicon-react-plain-wordmark')} /></div>
+    </footer>
+  );
 }

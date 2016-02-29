@@ -92,7 +92,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'node_modules/html-webpack-template/index.ejs',
       title: 'Evan Turner | Developer',
-      appMountId: 'site-container',
+      appMountId: 'app',
       inject: false,
       filename: '../index.html',
       favicon: './dist/img/site/favicon.jpg'

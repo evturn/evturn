@@ -13,5 +13,5 @@ render(
     <Router history={history}>
       {routes}
     </Router>
-  </Provider>, document.getElementById('site-container')
+  </Provider>, document.getElementById('app')
 );

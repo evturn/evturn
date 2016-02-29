@@ -1,12 +1,14 @@
 @import '../variables.less';
 
 .root {
-  min-height: 90vh;
+  height: 100%;
+  padding-top: 20px;
   margin: 0 auto;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 50%;
+  overflow-y: hidden;
   background-image: url('images/site/banana-plants.png');
   .fade-in;
   @media(@tablet) {
@@ -16,9 +18,13 @@
 }
 
 .list {
-  min-height: 100vh;
+  padding-top: 30px;
+  min-height: 90vh;
   text-align: center;
-  padding-top: 20%;
+  @media(@tablet) {
+    padding-top: 170px;
+  }
+
 }
 
 .item {
@@ -49,13 +55,15 @@
   font-size: 4em;
   border-radius: 50%;
   background-color: @bg-light;
-  @media(min-width: 700px) {
+
+  @media(@tablet) {
     width: 150px;
     height: 150px;
     line-height: 150px;
     font-size: 6em;
   }
-  @media(min-width: 1024px) {
+
+  @media(@tablet) {
     width: 200px;
     height: 200px;
     line-height: 200px;
@@ -64,10 +72,10 @@
 }
 
 .item .icon:hover {
+
   @media(@tablet) {
     background-color: @bg-light;
     color: @tx-primary;
-    transition: all 0.1s ease;
   }
 }
 

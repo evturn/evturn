@@ -1,58 +1,36 @@
 @import '../variables.less';
 
 .footer {
-  color: @tx-dark;
-  background-color: @bg-light;
-  padding: 30px 15px;
   position: relative;
-}
-
-.blend {
-  padding: 80px;
-  position: absolute;
-  height: 80px;
-  top: -160px;
+  height: 40px;
+  bottom: 0px;
   right: 0;
   left: 0;
-  background: linear-gradient(to bottom, rgba(red(@bg-light), green(@bg-light), blue(@bg-light),100) 0%,rgba(red(@bg-light), green(@bg-light), blue(@bg-light),0) 100%);
-  .flip-vertical;
+  background-color: @bg-light;
+  color: @tx-primary;
+  font-size: 12px;
+  width: 100%;
 }
 
-.work,
-.about {
-  .footer;
+.text {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+span.icon {
+  vertical-align: middle;
+  font-size: 1.5em;
 }
 
 .home {
   display: none;
 }
 
-.contact {
-  .footer;
-  bottom: 0;
-}
-
-.copyright {
-  vertical-align: super;
-}
-
-.devicon-react-plain-wordmark {
-  vertical-align: bottom;
-}
-
-.footer-text {
+.footer.contact {
   position: absolute;
-  font-size: 12px;
-  left: 15px;
-  top: 20px;
-  vertical-align: sub;
-}
-
-.flip-vertical {
-  -moz-transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-  -o-transform: scaleY(-1);
-  transform: scaleY(-1);
-  -ms-filter: flipv;
-  filter: flipv;
+  background-color: transparent;
+  color: @tx-light;
 }

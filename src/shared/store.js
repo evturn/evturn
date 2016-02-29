@@ -8,6 +8,8 @@ import NAV from '../server/db/nav';
 import LINKS from '../server/db/links';
 import STATS from '../server/db/stats';
 import TEXT from '../server/db/text';
+import IOS from '../server/db/work-ios';
+import OSS from '../server/db/work-oss';
 import { projects, projectsNav, featuredTech } from '../server/data';
 
 const initialState = {
@@ -25,7 +27,9 @@ const initialState = {
   work: {
     projects: projects,
     projectsNav: projectsNav,
-    project: [ projects ]
+    project: [ projects ],
+    iOS: IOS,
+    OSS: OSS
   },
   video: {
     total: VIDEOS.length - 1,

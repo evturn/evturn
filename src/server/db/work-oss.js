@@ -1,13 +1,16 @@
 export default [
   {
-    name: 'Slackbots',
-    description: `This package allows for developers to easily create customized instances of new Bots on Slack. This API uses Web Sockets and the native Node Event Emitter to send messages in real time. Once configured all chatroom activity can be used to trigger your bot's behavior.`,
+    name: 'Sentence Generator',
+    description: `I built a web application that generates its own original content every few minutes with virtually no involvement from a human being. The specific part of the program that consistently produces new content was a Markov-chain inspired sentence generator. After a year of only existing as a part of a larger app, I published the sentence generator portion as a installable package for other Node developers.`,
     id: 1,
-    slug: 'slackbots',
+    slug: 'sentence-generator',
     links: [
       {
-        url: 'https://github.com/faquet/bots',
+        url: 'https://github.com/evturn/sentence-generator',
         icon: 'fa fa-github'
+      },{
+        url: 'https://www.npmjs.com/package/sentence-generator',
+        icon: 'fa fa-code-fork'
       }
     ]
   },{
@@ -21,21 +24,18 @@ export default [
         icon: 'fa fa-github'
       }, {
         url: 'https://www.npmjs.com/package/@evturn/proto',
-        icon: 'fa fa-code'
+        icon: 'fa fa-code-fork'
       }
     ]
   },{
-    name: 'Sentence Generator',
-    description: `I built a web application that generates its own original content every few minutes with virtually no involvement from a human being. The specific part of the program that consistently produces new content was a Markov-chain inspired sentence generator. After a year of only existing as a part of a larger app, I published the sentence generator portion as a installable package for other Node developers.`,
+    name: 'Slackbots',
+    description: `This package allows for developers to easily create customized instances of new Bots on Slack. This API uses Web Sockets and the native Node Event Emitter to send messages in real time. Once configured all chatroom activity can be used to trigger your bot's behavior.`,
     id: 3,
-    slug: 'sentence-generator',
+    slug: 'slackbots',
     links: [
       {
-        url: 'https://github.com/evturn/sentence-generator',
+        url: 'https://github.com/faquet/bots',
         icon: 'fa fa-github'
-      },{
-        url: 'https://www.npmjs.com/package/sentence-generator',
-        icon: 'fa fa-code'
       }
     ]
   },{
@@ -49,7 +49,7 @@ export default [
         icon: 'fa fa-github'
       },{
         url: 'https://www.npmjs.com/package/babel-preset-evturn',
-        icon: 'fa fa-code'
+        icon: 'fa fa-code-fork'
       }
     ]
   }

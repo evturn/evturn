@@ -12,6 +12,9 @@ const cx = classNames.bind(styles);
 export default ({ open, page, pages, toggle }) => {
   return (
     <header>
+      <div className={cx('page-header')}>
+        <SiteImage className={cx('image')} src='title-white.svg' />
+      </div>
       <AbsoluteContainer classname={cx('logo', page)}>
         <SiteImage src="ev-av.png" />
       </AbsoluteContainer>

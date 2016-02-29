@@ -32,7 +32,7 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div className={'site'}>
         <SiteOverlay
           open={open}
           toggle={menuVisibility}

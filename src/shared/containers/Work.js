@@ -4,12 +4,8 @@ import { Link } from 'react-router';
 import { setProject } from '../actions/project';
 import classNames from 'classnames/bind';
 import styles from '../../client/less/containers/work.less';
-import ProjectNavigation from '../components/ProjectNavigation';
-import Carousel from '../components/Carousel';
-import TechIcons from '../components/TechIcons';
 import WorkWeb from '../components/WorkWeb';
-import {
-  SiteImage, Icon, UnorderedList, ListItem } from '../components/reuseables';
+import { Icon, UnorderedList, ListItem } from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 
@@ -29,7 +25,7 @@ class Work extends Component {
       },{
         title: 'Open Source',
         route: 'work/oss',
-        icon: 'fa fa-terminal'
+        icon: 'fa fa-code-fork'
       }
     ];
   }
@@ -37,8 +33,6 @@ class Work extends Component {
     setProject(this.props.params.id);
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.params.id);
-    console.log(this.props.params.id);
     if (this.props.params.id !== nextProps.params.id) {
       setProject(nextProps.params.id);
     }
@@ -48,10 +42,6 @@ class Work extends Component {
 
     return (
       <div className={cx('page')}>
-        <div className={cx('page-header')}>
-          <SiteImage className={cx('image')} src='title-white.svg' />
-
-        </div>
         <UnorderedList className={cx('categories')}>
           {this.header.map((item, i) => {
             return (
@@ -79,7 +69,9 @@ Work.propTypes = {
   links: PropTypes.array,
   id: PropTypes.number,
   thumbnails: PropTypes.array,
-  mounted: PropTypes.bool
+  mounted: PropTypes.bool,
+  iOS: PropTypes.array,
+  OSS: PropTypes.array
 };
 
 function mapStateToProps(state) {
@@ -91,7 +83,9 @@ function mapStateToProps(state) {
     id: state.work.project.id,
     links: state.work.project.links,
     thumbnails: state.work.projectsNav,
-    mounted: state.work.mounted
+    mounted: state.work.mounted,
+    iOS: state.work.iOS,
+    OSS: state.work.OOS
   }
 }
 

@@ -4,6 +4,8 @@ import App from './containers/App';
 import Home from './containers/Home';
 import Work from'./containers/Work';
 import WorkWeb from'./components/WorkWeb';
+import WorkIOS from'./components/WorkIOS';
+import WorkOSS from'./components/WorkOSS';
 import About from './containers/About';
 import Contact from './containers/Contact';
 
@@ -15,6 +17,8 @@ export default (
     <Route component={Work} path='work' name='work'>
       <IndexRoute component={WorkWeb} />
       <Route component={WorkWeb} path='/work/web(/:id)' />
+      <Route component={WorkIOS} path='/work/ios' />
+      <Route component={WorkOSS} path='/work/oss' />
     </Route>
   </Route>
 );
