@@ -8,13 +8,19 @@
   height: 200px;
   border-top: 1px solid fade(@tx-primary, 60);
   border-bottom: 1px solid fade(@tx-primary, 60);
+
+  @media (min-width: 600px) {
+    height: 300px;
+  }
+
   @media(@tablet) {
     margin-top: 0;
     float: right;
     width: 60%;
-    height: 300px;
+    height: 350px;
     border: 1px solid fade(@tx-primary, 60);
   }
+
   @media(@desktop) {
     height: 373px;
   }
