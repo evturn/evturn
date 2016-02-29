@@ -1,5 +1,5 @@
 export default [
- {
+  {
     name: 'Drive Publishing',
     description: `Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.`,
     id: 1,
@@ -48,52 +48,10 @@ export default [
     ],
     featured: true,
     techIds: [1, 7, 10]
-  },
-  {
-    name: 'Made In Music',
-    description: `This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.`,
-    id: 3,
-    slug: 'mim',
-    links: [
-      {
-        url: 'http://madeinmusic.co',
-        icon: 'fa fa-link'
-      }, {
-        url: 'https://github.com/evturn/madeinmusic.co',
-        icon: 'fa fa-github'
-      }
-    ],
-    thumbnail: 'mim-tn.png',
-    images: [
-      'mim-1.png',
-      'mim-2.png',
-      'mim-3.png'
-    ],
-    featured: true,
-    techIds: [1, 3, 10]
-  }, {
-    name: 'Brooklyn Friends School',
-    description: `I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.`,
-    id: 4,
-    slug: 'bfs',
-    links: [
-      {
-        url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-        icon: 'fa fa-link'
-      }
-    ],
-    thumbnail: 'bfs-tn.jpg',
-    images: [
-      'bfs-1.png',
-      'bfs-2.png',
-      'bfs-3.png'
-    ],
-    featured: true,
-    techIds: [21]
   },{
     name: 'Nutty Goodness',
-    description: 'Nutty Goodness is a producer of healthy snacks made from all-natural fruit & nuts. I developed a brand new website for teh company which was led by New York City based product design and development shop Born & Raised.',
-    id: 5,
+    description: 'Nutty Goodness is a producer of healthy snacks made from all-natural fruit & nuts. I developed a brand new website for the company which was led by New York City based product design and development shop Born & Raised.',
+    id: 3,
     slug: 'nutty-goodness',
     links: [
       {
@@ -116,9 +74,28 @@ export default [
     techIds: [14]
 
   },{
+    name: 'Brooklyn Friends School',
+    description: `I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.`,
+    id: 4,
+    slug: 'bfs',
+    links: [
+      {
+        url: 'http://smkkstudios.com/work/brooklynfriendsschool',
+        icon: 'fa fa-link'
+      }
+    ],
+    thumbnail: 'bfs-tn.jpg',
+    images: [
+      'bfs-1.png',
+      'bfs-2.png',
+      'bfs-3.png'
+    ],
+    featured: true,
+    techIds: [21]
+  },{
     name: 'Pique',
     description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
-    id: 6,
+    id: 5,
     slug: 'pique',
     links: [
       {
@@ -135,7 +112,29 @@ export default [
     ],
     featured: true,
     techIds : [16, 17]
-  }, {
+  },{
+    name: 'Made In Music',
+    description: `This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.`,
+    id: 6,
+    slug: 'mim',
+    links: [
+      {
+        url: 'http://madeinmusic.co',
+        icon: 'fa fa-link'
+      }, {
+        url: 'https://github.com/evturn/madeinmusic.co',
+        icon: 'fa fa-github'
+      }
+    ],
+    thumbnail: 'mim-tn.png',
+    images: [
+      'mim-1.png',
+      'mim-2.png',
+      'mim-3.png'
+    ],
+    featured: true,
+    techIds: [1, 3, 10]
+  },{
     name: 'Where TO',
     description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
     id: 7,
