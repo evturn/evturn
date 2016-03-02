@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { play, end, load, unmount } from '../actions/video';
 import styles from '../../client/less/components/video.less';
+import img from 'images/site/transparent.png';
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class VideoPlayer extends Component {
     return (
       <video
         ref={(player) => this.player = player}
-        poster="dist/img/site/transparent.png"
+        poster={img}
         type="video/mp4"
         preload="auto"
         autoPlay={true}

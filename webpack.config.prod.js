@@ -7,13 +7,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
-  output: path.join(__dirname, 'dist', 'build'),
-  clean: [
-    path.join(__dirname, 'dist', 'build'),
-    path.join(__dirname, 'dist', 'css'),
-    path.join(__dirname, 'dist', 'js')
-  ],
-  publicPath: '/dist/'
+  output: path.join(__dirname, 'dist'),
+  clean: [ path.join(__dirname, 'dist') ],
+  publicPath: 'dist/'
 };
 const EXTENSIONS = ['', '.js', '.jsx', '.less'];
 const MODULES_DIRS = ['app', 'node_modules'];
@@ -30,11 +26,18 @@ const LOADERS = [
     test: /\.json$/,
     loader: 'json-loader'
   },{
-    test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    test: /\.(eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     loader: 'url-loader'
   },{
     test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     loader: 'file-loader'
+  },{
+    test: /.*\.(gif|png|jpe?g|svg)$/i,
+    loaders: [
+      'file?hash=sha512&digest=hex&name=img/[hash].[ext]',
+      'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
+    ],
+    exclude: /less/
   },{
     test: /\.woff2(\?\S*)?$/,
     loader: 'url-loader?limit=100000'
@@ -54,7 +57,7 @@ module.exports = {
   },
   output: {
     path: PATHS.output,           // The output directory as absolute path
-    filename: '../js/[name].js',        // The filename of the entry chunk as relative path inside the output.path directory
+    filename: '/js/[name].js',    // The filename of the entry chunk as relative path inside the output.path directory
     publicPath: PATHS.publicPath  // The output path from the view of the Javascript
 
   },
@@ -70,7 +73,7 @@ module.exports = {
         containers: path.join(__dirname, './src/shared/containers/'),
         components: path.join(__dirname, './src/shared/components/'),
         reducers:   path.join(__dirname, './src/shared/reducers/'),
-        images:     path.join(__dirname, './dist/img/'),
+        images:     path.join(__dirname, './src/client/img/'),
         css:        path.join(__dirname, './src/client/css/'),
         less:       path.join(__dirname, './src/client/less/'),
         data:       path.join(__dirname, './src/server/data/'),
@@ -80,7 +83,7 @@ module.exports = {
   plugins: [
     new CleanPlugin(PATHS.clean),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('../css/app.css'),
+    new ExtractTextPlugin('/css/app.css'),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false
@@ -90,12 +93,12 @@ module.exports = {
       'process.env.NODE_ENV': '"production"'
     }),
     new HtmlWebpackPlugin({
-      template: 'node_modules/html-webpack-template/index.ejs',
+      template: 'index.html',
       title: 'Evan Turner | Developer',
       appMountId: 'app',
       inject: false,
-      filename: '../index.html',
-      favicon: './dist/img/site/favicon.jpg'
+      filename: 'index.html',
+      favicon: 'src/client/img/site/favicon.jpg'
     })
   ]
 };

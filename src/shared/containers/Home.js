@@ -4,11 +4,10 @@ import { IndexLink, Link } from 'react-router';
 import { next } from '../actions/video';
 import classNames from 'classnames/bind';
 import styles from '../../client/less/containers/home.less';
+import img from 'images/site/banana-plants.png';
 import Spinner from '../components/Spinner';
 import VideoPlayer from '../components/VideoPlayer';
-import {
-  FullPageContainer, SiteImage,
-  UnorderedList, ListItem } from '../components/reuseables';
+import { SiteImage, UnorderedList, ListItem } from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +18,8 @@ class Home extends Component {
   render() {
     const { pages } = this.props;
     return (
-      <FullPageContainer className={cx('root')}>
+
+      <div style={{  backgroundImage: `url('${img}')` }} className={cx('root')}>
         <div className={cx('lg')} onClick={() => next()}>
           <Spinner />
           <VideoPlayer />
@@ -48,7 +48,7 @@ class Home extends Component {
           })}</UnorderedList>
           <div className={cx('overlay')} />
         </div>
-      </FullPageContainer>
+      </div>
     );
   }
 }

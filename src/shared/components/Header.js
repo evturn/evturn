@@ -4,20 +4,19 @@ import classNames from 'classnames/bind';
 import styles from '../../client/less/components/nav.less';
 import {
   UnorderedList, AbsoluteContainer,
-  SiteImage, ListItem, SectionContainer, Icon
-} from './reuseables';
+  SiteImage, ListItem, SectionContainer, Icon } from './reuseables';
 
 const cx = classNames.bind(styles);
 
 export default ({ open, page, pages, toggle }) => {
+  const navbar = (
+    <div className={cx('page-header')}>
+      <SiteImage className={cx('image')} src='title-white.svg' />
+    </div>
+  );
   return (
     <header>
-      <div className={cx('page-header')}>
-        <SiteImage className={cx('image')} src='title-white.svg' />
-      </div>
-      <AbsoluteContainer classname={cx('logo', page)}>
-        <SiteImage src="ev-av.png" />
-      </AbsoluteContainer>
+      {page !== 'home' ? navbar : null}
       <AbsoluteContainer
         classname={cx('burger', page)}
         onClick={() => toggle()}>

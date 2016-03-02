@@ -62,7 +62,7 @@ export const TextParagraph = props => {
 
 export const AppImage = props => {
   const { src, classname, ...rest } = props;
-  const PATH = 'dist/img/apps/';
+  const PATH = 'src/client/img/apps/';
 
   return (
     <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />
@@ -71,7 +71,7 @@ export const AppImage = props => {
 
 export const SiteImage = props => {
   const { src, classname, ...rest } = props;
-  const PATH = 'dist/img/site/';
+  const PATH = 'src/client/img/site/';
 
   return (
     <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />

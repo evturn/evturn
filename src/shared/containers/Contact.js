@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from '../../client/less/containers/contact.less';
+import img from 'images/site/banana-plants.png';
 import {
   UnorderedList, ListItem, Icon,
   SectionContainer, PageContainer
@@ -15,7 +16,7 @@ class Contact extends Component {
   }
   render() {
     return (
-      <PageContainer classname={cx('root')}>
+      <div style={{  backgroundImage: `url('${img}')` }} className={cx('root')}>
         <UnorderedList classname={cx('list')}>{this.props.links.map((link, i) => {
           return (
             <ListItem key={i} classname={cx('item')}>
@@ -27,7 +28,7 @@ class Contact extends Component {
             </ListItem>
           );
         })}</UnorderedList>
-      </PageContainer>
+      </div>
     );
   }
 }

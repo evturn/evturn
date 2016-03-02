@@ -8,8 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PORT = 3000;
 const PATHS = {
   app: path.join(__dirname, 'src'),
-  output: path.join(__dirname, 'dist', 'build'),
-  publicPath: '/build/'
+  output: path.join(__dirname, 'dist'),
+  publicPath: 'dist/'
 };
 const EXTENSIONS = ['', '.js', '.jsx', '.less'];
 const MODULES_DIRS = ['app', 'node_modules'];
@@ -25,9 +25,9 @@ module.exports = {
       app: ['./src/client', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true']
     },
     output: {
-      path: PATHS.output,          // The output directory as absolute path
-      filename: '../js/[name].js', // The filename of the entry chunk as relative path inside the output.path directory
-      publicPath: '/build/'        // The output path from the view of the Javascript
+      path: PATHS.output,           // The output directory as absolute path
+      filename: 'js/[name].js',     // The filename of the entry chunk as relative path inside the output.path directory
+      publicPath: PATHS.publicPath  // The output path from the view of the Javascript
     },
     devServer: {
       outputPath: PATHS.output,
@@ -54,9 +54,9 @@ module.exports = {
           loaders: ['style', 'css']
         },{
           test: /\.json$/,
-          loader: "json-loader"
+          loader: 'json-loader'
         },{
-          test: /\.(jpg|svg|png|jpg|gif|eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          test: /\.(gif|png|jpe?g|svg|eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: 'url-loader'
         },{
           test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -81,7 +81,7 @@ module.exports = {
         containers: path.join(__dirname, './src/shared/containers/'),
         components: path.join(__dirname, './src/shared/components/'),
         reducers:   path.join(__dirname, './src/shared/reducers/'),
-        images:     path.join(__dirname, './dist/img/'),
+        images:     path.join(__dirname, './src/client/img/'),
         css:        path.join(__dirname, './src/client/css/'),
         less:       path.join(__dirname, './src/client/less/'),
         data:       path.join(__dirname, './src/server/data/'),
@@ -93,17 +93,17 @@ module.exports = {
       new NpmInstallPlugin({ save: true }),
       new webpack.NoErrorsPlugin(),
       new WriteFilePlugin(),
-      new ExtractTextPlugin('../css/app.css'),
+      new ExtractTextPlugin('css/app.css'),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"development"'
       }),
       new HtmlWebpackPlugin({
-        template: 'node_modules/html-webpack-template/index.ejs',
+        template: 'index.html',
         title: 'Evan Turner | Developer',
         appMountId: 'app',
         inject: false,
-        filename: '../index.html',
-        favicon: './dist/img/site/favicon.jpg'
+        filename: 'index.html',
+        favicon: 'src/client/img/site/favicon.jpg'
       })
     ]
 };
