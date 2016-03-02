@@ -18,6 +18,18 @@ export default [
     id: 15,
     featured: false
   },{
+    name: 'JavaScript',
+    icon: 'devicon-javascript-plain',
+    color: 'devicon-javascript-plain',
+    id: 24,
+    featured: true
+  },{
+    name: 'iOS',
+    icon: 'fa fa-apple',
+    color: 'fa fa-apple',
+    id: 25,
+    featured: true
+  },{
     name: 'Gulp',
     icon: 'devicon-gulp-plain',
     color: 'devicon-gulp-plain',
@@ -82,7 +94,7 @@ export default [
     icon: 'evcon-express',
     color: 'evcon-express',
     id: 12,
-    featured: true
+    featured: false
   }, {
     name: 'Sass',
     icon: 'devicon-sass-original',
@@ -130,7 +142,7 @@ export default [
     color: 'devicon-bootstrap-plain colored',
     id: 5,
     featured: false
-  }, {
+  },{
     name: 'CSS Preprocessors',
     icon: 'devicon-css3-plain-wordmark',
     color: 'devicon-css3-plain-wordmark',
