@@ -2,6 +2,8 @@ export default [
   'https://www.dropbox.com/s/ibiy6fwqjyb5uaw/vid-7.m4v?dl=1',
   'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1',
   'https://www.dropbox.com/s/pinkna2jree0czu/vid-1.m4v?dl=1',
+  'https://www.dropbox.com/s/wd5zt4mj1s6duyt/vid-23.m4v?dl=1',
+  'https://www.dropbox.com/s/e9crqmruokitmzr/vid-22.m4v?dl=1',
   'https://www.dropbox.com/s/0c507odqgqwjqv2/vid-3.m4v?dl=1',
   'https://www.dropbox.com/s/p56i6t3gxwbypbs/vid-16.m4v?dl=1',
   'https://www.dropbox.com/s/23upki10se8ve37/vid-15.m4v?dl=1',
