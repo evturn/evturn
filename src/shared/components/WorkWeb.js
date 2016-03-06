@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import WorkWebNav from 'components/WorkWebNav';
+import WorkWebCarousel from 'components/WorkWebCarousel';
 import classNames from 'classnames/bind';
 import styles from 'less/components/work-web.less';
-import WorkWebNav from 'components/WorkWebNav';
-import Carousel from 'components/Carousel';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +20,7 @@ class WorkWeb extends Component {
     return (
       <div>
         <div className={cx('project')}>
-          <Carousel images={slides} />
+          <WorkWebCarousel images={slides} />
 
           <div className={cx('detail')}>
             <div className={cx('name')}>{name}</div>

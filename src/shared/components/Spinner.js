@@ -9,7 +9,6 @@ const cx = classNames.bind(styles);
 class Spinner extends Component {
   constructor(props) {
     super(props);
-    this.dispatch = props.dispatch;
   }
   render() {
     const animation = cx({

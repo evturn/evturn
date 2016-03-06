@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setRouteAsPage, menuVisibility, setSiteMounted } from '../actions/site';
-import Footer from 'components/Footer';
+import SiteFooter from 'components/SiteFooter';
 import Header from 'components/Header';
 import SiteOverlay from 'components/SiteOverlay';
 import 'css/reset.css';
@@ -44,7 +44,7 @@ class App extends Component {
           toggle={menuVisibility}
         />
         {this.props.children}
-        <Footer
+        <SiteFooter
           page={page}
         />
       </div>
