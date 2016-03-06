@@ -6,9 +6,6 @@ const cx = classNames.bind(styles);
 
 export default ({ open, toggle }) => {
   return (
-    <div
-      className={cx({'overlay': open})}
-      onClick={() => toggle()}
-    />
+    <div className={cx({'overlay': open})} onClick={toggle} />
   );
 }

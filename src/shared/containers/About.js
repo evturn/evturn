@@ -1,10 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { SiteImage } from '../components/reuseables';
 import classNames from 'classnames/bind';
 import styles from '../../client/less/containers/about.less';
-import StatCounters from '../components/StatCounters';
-import { TextHeader, TextParagraph, SiteImage } from '../components/reuseables';
-
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +11,7 @@ class About extends Component {
     super(props);
   }
   render() {
-    const { bio, featuredTech, stats } = this.props;
+    const { bio, featuredTech } = this.props;
 
     return (
       <div className={cx('root')}>
@@ -22,13 +20,15 @@ class About extends Component {
         </div>
         <div className={cx('details')}>
           <div className={cx('bio')}>
-            <TextHeader classname={cx('center')} text={'Development'} />
-            <TextParagraph classname={cx('paragraph')} text={bio} />
+            <div className={cx('title')}>Development</div>
+            <div className={cx('paragraph')}>{bio}</div>
           </div>
           <div className={cx('tech')}>
-            <ul className={cx('list')}>{featuredTech.map((item, i) => {
-              return <li key={i} className={cx('item')}><span className={cx('icon', item.icon)} /></li>;
-            })}</ul>
+            <ul className={cx('list')}>{featuredTech.map(item =>
+              <li key={item.icon} className={cx('item')}>
+                <span className={cx('icon', item.icon)} />
+              </li>
+            )}</ul>
           </div>
         </div>
       </div>
@@ -37,7 +37,6 @@ class About extends Component {
 }
 
 About.propTypes = {
-  stats: PropTypes.array,
   bio: PropTypes.string,
   featuredTech: PropTypes.array
 };
@@ -45,7 +44,6 @@ About.propTypes = {
 function mapStateToProps(state) {
   return {
     featuredTech: state.site.about.featuredTech,
-    stats: state.site.about.stats,
     bio: state.site.about.bio
   };
 }
