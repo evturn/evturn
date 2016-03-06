@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const PATHS = require('../wp').PATHS;
 const extensions = require('../wp').extensions;
@@ -77,6 +78,7 @@ module.exports = {
       'process.env.NODE_ENV': '"production"',
       'window.__DEV__': false
     }),
-    new HtmlWebpackPlugin(plugin.html)
+    new HtmlWebpackPlugin(plugin.html),
+    new CopyWebpackPlugin(plugin.copy)
   ]
 };

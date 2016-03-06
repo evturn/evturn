@@ -9,16 +9,16 @@ export const AppImage = props => {
   const PATH = 'src/client/img/apps/';
 
   return (
-    <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />
+    <img className={cx('image')} src={src} {...rest} />
   );
 }
 
 export const SiteImage = props => {
   const { src, classname, ...rest } = props;
-  const PATH = 'src/client/img/site/';
+  const PATH = 'src/client/img/work/';
 
   return (
-    <img className={cx('image', classname)} src={`${PATH}${src}`} {...rest} />
+    <img className={cx('image')} src={src} {...rest} />
   );
 }
 

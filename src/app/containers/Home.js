@@ -4,8 +4,6 @@ import { IndexLink, Link } from 'react-router';
 import { next } from 'actions/video';
 import Spinner from 'components/Spinner';
 import VideoPlayer from 'components/VideoPlayer';
-import { SiteImage } from 'components/reuseables';
-import img from 'images/site/banana-plants.png';
 import classNames from 'classnames/bind';
 import styles from 'less/containers/home.less';
 
@@ -19,23 +17,23 @@ class Home extends Component {
     const { mobileNav } = this.props;
 
     return (
-      <div style={{  backgroundImage: `url('${img}')` }} className={cx('root')}>
+      <div style={{ backgroundImage: `url(${require('site-images/banana-plants.png')})` }} className={cx('root')}>
         <div className={cx('lg')} onClick={next}>
           <Spinner />
           <VideoPlayer />
           <div className={cx('title')}>
-            <SiteImage src='title-white.svg' />
+            <img className="img" src="dist/img/title-white.svg" />
             <div className={cx('subtitle')} />
           </div>
         </div>
 
         <div className={cx('sm')}>
           <div className={cx('title')}>
-            <SiteImage src='title-white.svg' />
+            <img className="img" src="dist/img/title-white.svg" />
             <div className={cx('subtitle')} />
           </div>
 
-          <SiteImage className={cx('av')} src='ev-av.png' />
+          <img className={cx('av')} src={require('site-images/ev-av.png')} />
 
           <ul className={cx('top')}>{mobileNav.map(page =>
             <li key={page.name} className={cx('item')}>

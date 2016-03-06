@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import img from 'images/site/banana-plants.png';
 import classNames from 'classnames/bind';
 import styles from 'less/containers/contact.less';
 
@@ -12,7 +11,7 @@ class Contact extends Component {
   }
   render() {
     return (
-      <div style={{ backgroundImage: `url('${img}')` }} className={cx('root')}>
+      <div style={{ backgroundImage: `url(${require('site-images/banana-plants.png')})` }} className={cx('root')}>
         <ul className={cx('icons')}>{this.props.links.map(link =>
           <li key={link.icon} className={cx('item')}>
             <a href={link.url} target="_blank"><span className={link.icon} /></a>

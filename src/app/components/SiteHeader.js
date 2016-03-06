@@ -1,6 +1,5 @@
 import React from 'react';
 import { IndexLink, Link } from 'react-router';
-import { SiteImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'less/components/site-header.less';
 
@@ -11,7 +10,7 @@ export default ({ open, page, pages, toggle }) => {
     <header>
       {page !== 'home' ? (
         <div className={cx('navbar')}>
-          <SiteImage className={cx('image')} src='title-white.svg' />
+          <img className={cx('image')} src="dist/img/title-white.svg" />
         </div>
       ) : null}
 
@@ -22,7 +21,7 @@ export default ({ open, page, pages, toggle }) => {
       <nav className={cx('menu', {'in': open, 'out': !open})}>
         <div className={cx('menu-header')}>
           <div className={cx('close')} onClick={toggle}>
-            <SiteImage src={'close-light.png'} />
+            <img className="img" src={require('site-images/close-light.png')} />
           </div>
         </div>
 

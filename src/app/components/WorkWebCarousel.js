@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { init, performCleanUp } from 'actions/carousel';
-import { AppImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'less/components/work-web-carousel.less';
 
@@ -28,7 +27,7 @@ class WorkWebCarousel extends Component {
 
         <div className={cx('carousel')}>{this.props.images.map(image =>
           <div key={image} className={cx('slide', this.assignClassName(image))}>
-            <AppImage src={image} />
+            <img className="img" src={image} />
           </div>
         )}</div>
 

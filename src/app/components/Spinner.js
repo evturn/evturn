@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { SiteImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'less/components/spinner.less';
 
@@ -20,7 +19,7 @@ class Spinner extends Component {
       <div className={animation}>
         <div className={cx('animation')}></div>
         <div className={cx('logo')}>
-          <SiteImage classname={cx('image')} src="ev-av.png" />
+          <img className={cx('image')} src={require('site-images/ev-av.png')} />
         </div>
       </div>
     );

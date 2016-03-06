@@ -19,7 +19,7 @@ function setProjectsNav() {
   return web.map(obj => {
     return {
       id: obj.id,
-      image: obj.thumbnail
+      image: require(`work-images/${obj.thumbnail}`)
     };
   });
 }
@@ -30,7 +30,7 @@ function setProjects() {
 
     return Object.assign({}, props, {
       tech: filterProjectTech(techIds),
-      slides: images
+      slides: images.map(filename => require(`work-images/${filename}`))
     });
   });
 }

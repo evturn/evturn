@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { SiteImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'less/containers/about.less';
 
@@ -16,7 +15,7 @@ class About extends Component {
     return (
       <div className={cx('root')}>
         <div className={cx('av')}>
-          <div className={cx('image')}><SiteImage src="ev-av.png" /></div>
+          <div className={cx('image')}><img className="img" src={require('site-images/ev-av.png')} /></div>
         </div>
         <div className={cx('details')}>
           <div className={cx('bio')}>

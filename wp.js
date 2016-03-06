@@ -18,16 +18,18 @@ exports.PATHS = {
 };
 
 exports.alias = {
-  actions:    path.join(__dirname, './src/app/actions/'),
-  containers: path.join(__dirname, './src/app/containers/'),
-  components: path.join(__dirname, './src/app/components/'),
-  reducers:   path.join(__dirname, './src/app/reducers/'),
-  store:      path.join(__dirname, './src/app/store/'),
-  routes:     path.join(__dirname, './src/app/routes'),
-  images:     path.join(__dirname, './src/client/img/'),
-  css:        path.join(__dirname, './src/client/css/'),
-  less:       path.join(__dirname, './src/client/less/'),
-  db:         path.join(__dirname, './src/server/db/')
+  actions:       path.join(__dirname, './src/app/actions/'),
+  containers:    path.join(__dirname, './src/app/containers/'),
+  components:    path.join(__dirname, './src/app/components/'),
+  reducers:      path.join(__dirname, './src/app/reducers/'),
+  store:         path.join(__dirname, './src/app/store/'),
+  routes:        path.join(__dirname, './src/app/routes'),
+  images:        path.join(__dirname, './src/client/img/'),
+  css:           path.join(__dirname, './src/client/css/'),
+  less:          path.join(__dirname, './src/client/less/'),
+  db:            path.join(__dirname, './src/server/db/'),
+  'work-images': path.join(__dirname, './src/client/img/work/'),
+  'site-images': path.join(__dirname, './src/client/img/site/')
 };
 
 exports.plugin = {
@@ -42,7 +44,13 @@ exports.plugin = {
   clean: {
     root: __dirname,
     verbose: true
-  }
+  },
+  copy: [
+    {
+      from: 'src/client/img/site/title-white.svg',
+      to: 'img/title-white.svg'
+    }
+  ]
 };
 
 exports.extensions = ['', '.js', '.jsx', '.less'];
