@@ -43,18 +43,16 @@ class Work extends Component {
 
     return (
       <div className={cx('page')}>
-        <UnorderedList className={cx('categories')}>
-          {this.header.map((item, i) => {
-            return (
-              <ListItem key={i} className={cx('item')}>
-                <Link to={item.route} activeStyle={this.active}>
-                  <Icon className={item.icon} />
-                  <div className={cx('title')}>{item.title}</div>
-                </Link>
-              </ListItem>
-            );
-          })}
-        </UnorderedList>
+        <UnorderedList className={cx('categories')}>{this.header.map((item, i) => {
+          return (
+            <ListItem key={i} className={cx('item')}>
+              <Link to={item.route} activeClassName={cx('active')}>
+                <Icon className={item.icon} />
+                <div className={cx('title')}>{item.title}</div>
+              </Link>
+            </ListItem>
+          );
+        })}</UnorderedList>
 
         {this.props.children}
       </div>

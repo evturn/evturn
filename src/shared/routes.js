@@ -16,9 +16,11 @@ export default (
     <Route component={Contact} path='contact' name='contact' />
     <Route component={Work} path='work' name='work'>
       <IndexRoute component={WorkWeb} />
-      <Route component={WorkWeb} path='/work/web(/:id)' />
-      <Route component={WorkIOS} path='/work/ios' />
-      <Route component={WorkOSS} path='/work/oss' />
+      <Route component={WorkWeb} path='web'>
+        <Route component={WorkWeb} path=':id' />
+      </Route>
+      <Route component={WorkIOS} path='ios' />
+      <Route component={WorkOSS} path='oss' />
     </Route>
   </Route>
 );
