@@ -12,22 +12,6 @@ const cx = classNames.bind(styles);
 class Work extends Component {
   constructor(props) {
     super(props);
-
-    this.header = [
-      {
-        title: 'Web',
-        route: 'work/web',
-        icon: 'fa fa-laptop'
-      },{
-        title: 'iOS',
-        route: 'work/ios',
-        icon: 'fa fa-mobile'
-      },{
-        title: 'Open Source',
-        route: 'work/oss',
-        icon: 'fa fa-code-fork'
-      }
-    ];
   }
   componentWillMount() {
     setProject(this.props.params.id);
@@ -40,19 +24,14 @@ class Work extends Component {
   render() {
     return (
       <div className={cx('page')}>
-        <ul className={cx('categories')}>{this.header.map(item => {
-          const { route, icon, title } = item;
-
-          return (
-            <li key={title} className={cx('item')}>
-              <Link to={route} activeClassName={cx('active')}>
-                <span className={icon} />
-                <div className={cx('title')}>{title}</div>
-              </Link>
-            </li>
-          );
-
-        })}</ul>
+        <ul className={cx('categories')}>{this.props.nav.map(item =>
+          <li key={item.title} className={cx('item')}>
+            <Link to={item.route} activeClassName={cx('active')}>
+              <span className={item.icon} />
+              <div className={cx('title')}>{item.title}</div>
+            </Link>
+          </li>
+        )}</ul>
 
         {this.props.children}
       </div>
@@ -61,6 +40,7 @@ class Work extends Component {
 }
 
 Work.propTypes = {
+  nav: PropTypes.array,
   slides: PropTypes.array,
   tech: PropTypes.array,
   name: PropTypes.string,
@@ -75,6 +55,7 @@ Work.propTypes = {
 
 function mapStateToProps(state) {
   return {
+    nav: state.work.nav,
     slides: state.work.project.slides,
     tech: state.work.project.tech,
     name: state.work.project.name,

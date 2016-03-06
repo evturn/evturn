@@ -1,7 +1,8 @@
 export default function work(state = {
   mounted: false,
   OSS: [],
-  iOS: []
+  iOS: [],
+  nav: []
 }, action) {
   switch (action.type) {
     case 'PROJECT_LOADED':
