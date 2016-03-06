@@ -16,11 +16,13 @@ class WorkOSS extends Component {
           <div className={cx('content')}>
             <div className={cx('name')}>{item.name}</div>
             <div className={cx('desc')}>{item.description}</div>
+
             <ul className={cx('links')}>{item.links.map(link =>
               <li key={link.url} className={cx('link')}>
                 <a href={link.url} target="_blank"><span className={link.icon} /></a>
               </li>
             )}</ul>
+
           </div>
         </li>
       )}</ul>

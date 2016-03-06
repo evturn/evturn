@@ -14,8 +14,8 @@ class WorkWeb extends Component {
   }
   render() {
     const {
-      slides, tech, name, description,
-      id, links, thumbnails, mounted } = this.props;
+      slides, tech, links, name,
+      id, description, thumbnails } = this.props;
 
     return (
       <div>

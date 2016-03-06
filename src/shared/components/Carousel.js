@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { init, performCleanUp, assignClassName } from 'actions/carousel';
+import { init, performCleanUp } from 'actions/carousel';
+import { AppImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
-import styles from 'less/components/carousel.less';
-import { AbsoluteContainer, AppImage, SectionContainer } from 'components/reuseables';
+import styles from 'less/components/work-web-carousel.less';
 
 const cx = classNames.bind(styles);
 
@@ -25,31 +25,29 @@ class Carousel extends Component {
   render() {
     return (
       <div className={cx('root')}>
-        <div className={cx('carousel')}>
-          {this.renderSlides()}
-        </div>
+
+        <div className={cx('carousel')}>{this.props.images.map(image =>
+          <div key={image} className={cx('slide', this.assignClassName(image))}>
+            <AppImage src={image} />
+          </div>
+        )}</div>
+
       </div>
     );
   }
-  renderSlides() {
-    return this.props.images.map((image, i) => {
-      let classname;
-      if (image === this.props.enter) {
-        classname = 'enter';
-      } else if (image === this.props.leave) {
-        classname = 'leave';
-      } else if (image === this.props.active) {
-        classname = 'active';
-      } else {
-        classname = 'inactive';
-      }
+  assignClassName(image) {
+    const { enter, leave, active } = this.props;
 
-      return (
-        <div key={i} className={cx('slide', classname)}>
-          <AppImage src={image} />
-        </div>
-      );
-    });
+    switch (image) {
+      case enter:
+        return 'enter'
+      case leave:
+        return 'leave'
+      case active:
+        return 'active'
+      default:
+        return 'inactive'
+    }
   }
 }
 

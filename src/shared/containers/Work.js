@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { setProject } from 'actions/project';
 import WorkWeb from 'components/WorkWeb';
-import { UnorderedList, ListItem } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'less/containers/work.less';
 
@@ -24,6 +23,7 @@ class Work extends Component {
   render() {
     return (
       <div className={cx('page')}>
+
         <ul className={cx('categories')}>{this.props.nav.map(item =>
           <li key={item.title} className={cx('item')}>
             <Link to={item.route} activeClassName={cx('active')}>
