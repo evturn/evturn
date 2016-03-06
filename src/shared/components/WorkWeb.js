@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import classNames from 'classnames/bind';
 import { Link } from 'react-router';
+import classNames from 'classnames/bind';
 import styles from '../../client/less/components/work-web.less';
 import WorkWebNav from '../components/WorkWebNav';
 import Carousel from './Carousel';
-import { List, ListItem } from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 
@@ -47,15 +46,6 @@ class WorkWeb extends Component {
         <WorkWebNav items={thumbnails} id={id} />
       </div>
     );
-  }
-  renderLinks() {
-    if (this.props.links) {
-      return this.props.links.map(link =>
-        <li key={link.icon} className={cx('item', 'link')}>
-          <a href={link.url} target="_blank"><span className={link.icon} /></a>
-        </li>
-      );
-    }
   }
 }
 

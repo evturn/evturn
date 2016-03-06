@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from '../../client/less/containers/contact.less';
 import img from 'images/site/banana-plants.png';
-import {
-  List, ListItem, Icon,
-  SectionContainer, PageContainer
-} from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 
