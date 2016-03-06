@@ -1,4 +1,6 @@
-import { siteNav, workNav, bio, contactLinks } from 'db/elements';
+import {
+  siteNav, mobileNav,
+  workNav, bio, contactLinks } from 'db/elements';
 import videos from 'db/videos';
 import iOS from 'db/work-ios';
 import OSS from 'db/work-oss';
@@ -39,6 +41,7 @@ const aboutTech = filterFeaturedTech();
 
 export default {
   site: {
+    mobileNav: mobileNav,
     pages: siteNav,
     contact: {
       links: contactLinks

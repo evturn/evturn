@@ -5,6 +5,12 @@ export const siteNav = [
   { name: 'Contact', route: 'contact',  id: 4 }
 ];
 
+export const mobileNav = [
+  { name: 'Work',    route: 'work/web' },
+  { name: 'About',   route: 'about'    },
+  { name: 'Contact', route: 'contact'  }
+];
+
 export const workNav = [
   {
     title: 'Web',

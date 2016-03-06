@@ -1,8 +1,8 @@
 import React from 'react';
 import { IndexLink, Link } from 'react-router';
+import { SiteImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
 import styles from 'less/components/site-header.less';
-import { SiteImage } from 'components/reuseables';
 
 const cx = classNames.bind(styles);
 

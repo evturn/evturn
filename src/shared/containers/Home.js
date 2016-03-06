@@ -2,12 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { IndexLink, Link } from 'react-router';
 import { next } from 'actions/video';
-import classNames from 'classnames/bind';
-import styles from 'less/containers/home.less';
-import img from 'images/site/banana-plants.png';
 import Spinner from 'components/Spinner';
 import VideoPlayer from 'components/VideoPlayer';
-import { SiteImage, UnorderedList, ListItem } from 'components/reuseables';
+import { SiteImage } from 'components/reuseables';
+import img from 'images/site/banana-plants.png';
+import classNames from 'classnames/bind';
+import styles from 'less/containers/home.less';
 
 const cx = classNames.bind(styles);
 
@@ -16,11 +16,11 @@ class Home extends Component {
     super(props);
   }
   render() {
-    const { pages } = this.props;
-    return (
+    const { mobileNav } = this.props;
 
+    return (
       <div style={{  backgroundImage: `url('${img}')` }} className={cx('root')}>
-        <div className={cx('lg')} onClick={() => next()}>
+        <div className={cx('lg')} onClick={next}>
           <Spinner />
           <VideoPlayer />
           <div className={cx('title')}>
@@ -34,18 +34,15 @@ class Home extends Component {
             <SiteImage src='title-white.svg' />
             <div className={cx('subtitle')} />
           </div>
-          <SiteImage className={cx('av')} src='ev-av.png' />
-          <UnorderedList className={cx('top')}>{pages.map((page, i) => {
-            const { route, name, id } = page;
 
-            if (id !== 1) {
-              return (
-                <ListItem key={i} className={cx('item')} onClick={() => toggle()}>
-                  <Link to={route} children={name} />
-                </ListItem>
-              );
-            }
-          })}</UnorderedList>
+          <SiteImage className={cx('av')} src='ev-av.png' />
+
+          <ul className={cx('top')}>{mobileNav.map(page =>
+            <li key={page.id} className={cx('item')}>
+              <Link to={page.route}>{page.name}</Link>
+            </li>
+          )}</ul>
+
           <div className={cx('overlay')} />
         </div>
       </div>
@@ -54,18 +51,12 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  page: PropTypes.string,
-  pages: PropTypes.array,
-  open: PropTypes.bool,
-  mounted: PropTypes.bool
+  mobileNav: PropTypes.array
 };
 
 function mapStateToProps(state) {
   return {
-    page: state.site.page,
-    pages: state.site.pages,
-    open: state.site.open,
-    mounted: state.site.mounted
+    mobileNav: state.site.mobileNav
   };
 }
 
