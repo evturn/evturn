@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { SiteImage } from '../components/reuseables';
+import { SiteImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
-import styles from '../../client/less/containers/about.less';
+import styles from 'less/containers/about.less';
 
 const cx = classNames.bind(styles);
 

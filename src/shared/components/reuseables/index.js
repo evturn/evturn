@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import styles from '../../../client/less/reuseables.less';
+import styles from 'less/reuseables.less';
 
 const cx = classNames.bind(styles);
 

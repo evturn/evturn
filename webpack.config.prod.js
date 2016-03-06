@@ -2,7 +2,6 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
-const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
@@ -78,10 +77,11 @@ module.exports = {
         containers: path.join(__dirname, './src/shared/containers/'),
         components: path.join(__dirname, './src/shared/components/'),
         reducers:   path.join(__dirname, './src/shared/reducers/'),
+        store:      path.join(__dirname, './src/shared/store/'),
+        routes:     path.join(__dirname, './src/shared/routes'),
         images:     path.join(__dirname, './src/client/img/'),
         css:        path.join(__dirname, './src/client/css/'),
         less:       path.join(__dirname, './src/client/less/'),
-        data:       path.join(__dirname, './src/server/data/'),
         db:         path.join(__dirname, './src/server/db/')
     }
   },

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { AppImage } from './reuseables';
+import { AppImage } from 'components/reuseables';
 import classNames from 'classnames/bind';
-import styles from '../../client/less/components/work-web-nav.less';
+import styles from 'less/components/work-web-nav.less';
 
 const cx = classNames.bind(styles);
 

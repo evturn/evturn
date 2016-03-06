@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { setProject } from '../actions/project';
+import { setProject } from 'actions/project';
+import WorkWeb from 'components/WorkWeb';
+import { UnorderedList, ListItem } from 'components/reuseables';
 import classNames from 'classnames/bind';
-import styles from '../../client/less/containers/work.less';
-import WorkWeb from '../components/WorkWeb';
-import { UnorderedList, ListItem } from '../components/reuseables';
+import styles from 'less/containers/work.less';
 
 const cx = classNames.bind(styles);
 

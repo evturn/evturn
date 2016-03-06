@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import classNames from 'classnames/bind';
-import styles from '../../client/less/components/work-web.less';
-import WorkWebNav from '../components/WorkWebNav';
-import Carousel from './Carousel';
+import styles from 'less/components/work-web.less';
+import WorkWebNav from 'components/WorkWebNav';
+import Carousel from 'components/Carousel';
 
 const cx = classNames.bind(styles);
 

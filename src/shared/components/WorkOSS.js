@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { UnorderedList, ListItem } from '../components/reuseables';
+import { UnorderedList, ListItem } from 'components/reuseables';
 import classNames from 'classnames/bind';
-import styles from '../../client/less/components/work-oss.less';
+import styles from 'less/components/work-oss.less';
 
 const cx = classNames.bind(styles);
 

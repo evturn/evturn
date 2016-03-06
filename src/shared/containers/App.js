@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setRouteAsPage, menuVisibility, setSiteMounted } from '../actions/site';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import SiteOverlay from '../components/SiteOverlay';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import SiteOverlay from 'components/SiteOverlay';
 import 'css/reset.css';
 import 'css/base.css';
 import 'css/fa.css';
 import 'css/devicon.css';
-import '../../server/db/google-analytics';
+import 'db/google-analytics';
 
 class App extends Component {
   constructor(props) {

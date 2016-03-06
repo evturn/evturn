@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import { Router, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import { Provider } from 'react-redux';
-import store from '../shared/store';
-import routes from '../shared/routes';
+import store from 'store';
+import routes from 'routes';
 
 const history = useRouterHistory(createHashHistory)({ queryKey: false });
 

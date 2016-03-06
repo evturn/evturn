@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from '../../client/less/components/work-ios.less';
-import { AppImage, UnorderedList, ListItem } from '../components/reuseables';
+import styles from 'less/components/work-ios.less';
+import { AppImage, UnorderedList, ListItem } from 'components/reuseables';
 
 const cx = classNames.bind(styles);
 

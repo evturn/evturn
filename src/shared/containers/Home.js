@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { IndexLink, Link } from 'react-router';
-import { next } from '../actions/video';
+import { next } from 'actions/video';
 import classNames from 'classnames/bind';
-import styles from '../../client/less/containers/home.less';
+import styles from 'less/containers/home.less';
 import img from 'images/site/banana-plants.png';
-import Spinner from '../components/Spinner';
-import VideoPlayer from '../components/VideoPlayer';
-import { SiteImage, UnorderedList, ListItem } from '../components/reuseables';
+import Spinner from 'components/Spinner';
+import VideoPlayer from 'components/VideoPlayer';
+import { SiteImage, UnorderedList, ListItem } from 'components/reuseables';
 
 const cx = classNames.bind(styles);
 

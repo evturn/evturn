@@ -1,9 +1,9 @@
-import { siteNav, workNav, bio, contactLinks } from '../../server/db/elements';
-import videos from '../../server/db/videos';
-import iOS from '../../server/db/work-ios';
-import OSS from '../../server/db/work-oss';
-import web from '../../server/db/work-web';
-import TECH from '../../server/db/tech';
+import { siteNav, workNav, bio, contactLinks } from 'db/elements';
+import videos from 'db/videos';
+import iOS from 'db/work-ios';
+import OSS from 'db/work-oss';
+import web from 'db/work-web';
+import TECH from 'db/tech';
 
 function filterFeaturedTech() {
   return TECH.filter(obj => obj.featured).map(obj => obj);

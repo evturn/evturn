@@ -1,4 +1,4 @@
-import store from '../store';
+import store from 'store';
 
 const videoMounted   = () => { return { type: 'VIDEO_MOUNTED' } };
 const videoLoading   = () => { return { type: 'VIDEO_LOADING' } };
