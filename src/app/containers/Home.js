@@ -38,7 +38,7 @@ class Home extends Component {
           <SiteImage className={cx('av')} src='ev-av.png' />
 
           <ul className={cx('top')}>{mobileNav.map(page =>
-            <li key={page.id} className={cx('item')}>
+            <li key={page.name} className={cx('item')}>
               <Link to={page.route}>{page.name}</Link>
             </li>
           )}</ul>
