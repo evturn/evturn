@@ -23,7 +23,5 @@ const toggleMenu = () => {
 };
 
 export const setRouteAsPage = page => dispatch(pageTransition(page));
-
 export const menuVisibility = () => dispatch(toggleMenu());
-
 export const setSiteMounted = () => dispatch(siteMounted());

@@ -7,9 +7,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
-  output: path.join(__dirname, 'dist'),
   clean: [ path.join(__dirname, 'dist') ],
-  publicPath: 'dist/'
+  output: path.join(__dirname, 'dist', 'build'),
+  publicPath: '/dist/',
+  static: {
+    js: '../js/[name].js',
+    css: '../css/app.css',
+    img: '../img/[hash].[ext]'
+  }
 };
 const EXTENSIONS = ['', '.js', '.jsx', '.less'];
 const MODULES_DIRS = ['app', 'node_modules'];
@@ -34,7 +39,7 @@ const LOADERS = [
   },{
     test: /.*\.(gif|png|jpe?g|svg)$/i,
     loaders: [
-      'file?hash=sha512&digest=hex&name=img/[hash].[ext]',
+      `file?hash=sha512&digest=hex&name=${PATHS.static.img}`,
       'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
     ],
     exclude: /less/
@@ -57,7 +62,7 @@ module.exports = {
   },
   output: {
     path: PATHS.output,           // The output directory as absolute path
-    filename: '/js/[name].js',    // The filename of the entry chunk as relative path inside the output.path directory
+    filename: PATHS.static.js,    // The filename of the entry chunk as relative path inside the output.path directory
     publicPath: PATHS.publicPath  // The output path from the view of the Javascript
 
   },
@@ -83,7 +88,7 @@ module.exports = {
   plugins: [
     new CleanPlugin(PATHS.clean),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('/css/app.css'),
+    new ExtractTextPlugin(PATHS.static.css),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false
@@ -93,12 +98,12 @@ module.exports = {
       'process.env.NODE_ENV': '"production"'
     }),
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'node_modules/html-webpack-template/index.ejs',
       title: 'Evan Turner | Developer',
       appMountId: 'app',
       inject: false,
       filename: 'index.html',
-      favicon: 'src/client/img/site/favicon.jpg'
+      favicon: './src/client/img/site/favicon.jpg'
     })
   ]
 };

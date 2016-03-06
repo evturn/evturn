@@ -8,8 +8,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PORT = 3000;
 const PATHS = {
   app: path.join(__dirname, 'src'),
-  output: path.join(__dirname, 'dist'),
-  publicPath: 'dist/'
+  output: path.join(__dirname, 'dist', 'build'),
+  publicPath: '/build/',
+  static: {
+    js: '../js/[name].js',
+    css: '../css/app.css'
+  }
 };
 const EXTENSIONS = ['', '.js', '.jsx', '.less'];
 const MODULES_DIRS = ['app', 'node_modules'];
@@ -26,7 +30,7 @@ module.exports = {
     },
     output: {
       path: PATHS.output,           // The output directory as absolute path
-      filename: 'js/[name].js',     // The filename of the entry chunk as relative path inside the output.path directory
+      filename: PATHS.static.js,    // The filename of the entry chunk as relative path inside the output.path directory
       publicPath: PATHS.publicPath  // The output path from the view of the Javascript
     },
     devServer: {
@@ -93,17 +97,17 @@ module.exports = {
       new NpmInstallPlugin({ save: true }),
       new webpack.NoErrorsPlugin(),
       new WriteFilePlugin(),
-      new ExtractTextPlugin('css/app.css'),
+      new ExtractTextPlugin(PATHS.static.css),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"development"'
       }),
       new HtmlWebpackPlugin({
-        template: 'index.html',
+        template: 'node_modules/html-webpack-template/index.ejs',
         title: 'Evan Turner | Developer',
         appMountId: 'app',
         inject: false,
         filename: 'index.html',
-        favicon: 'src/client/img/site/favicon.jpg'
+        favicon: './src/client/img/site/favicon.jpg'
       })
     ]
 };
