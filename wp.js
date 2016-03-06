@@ -17,13 +17,12 @@ exports.PATHS = {
 };
 
 exports.alias = {
-  shared:     path.join(__dirname, './src/shared/'),
-  actions:    path.join(__dirname, './src/shared/actions/'),
-  containers: path.join(__dirname, './src/shared/containers/'),
-  components: path.join(__dirname, './src/shared/components/'),
-  reducers:   path.join(__dirname, './src/shared/reducers/'),
-  store:      path.join(__dirname, './src/shared/store/'),
-  routes:     path.join(__dirname, './src/shared/routes'),
+  actions:    path.join(__dirname, './src/app/actions/'),
+  containers: path.join(__dirname, './src/app/containers/'),
+  components: path.join(__dirname, './src/app/components/'),
+  reducers:   path.join(__dirname, './src/app/reducers/'),
+  store:      path.join(__dirname, './src/app/store/'),
+  routes:     path.join(__dirname, './src/app/routes'),
   images:     path.join(__dirname, './src/client/img/'),
   css:        path.join(__dirname, './src/client/css/'),
   less:       path.join(__dirname, './src/client/less/'),
