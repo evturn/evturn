@@ -4,6 +4,23 @@ import styles from '../../../client/less/reuseables.less';
 
 const cx = classNames.bind(styles);
 
+
+export const List = props => {
+  const { children, ...rest } = props;
+
+  return (
+    <ul className={cx('unordered-list')} {...rest}>{children}</ul>
+  );
+};
+
+export const ListItem = props => {
+  const { width, children, ...rest } = props;
+
+  return (
+    <li style={{ width }} className={cx('list-item')} {...rest}>{children}</li>
+  );
+};
+
 export const PageContainer = props => {
   const { children, classname, ...rest } = props;
 
@@ -91,14 +108,6 @@ export const UnorderedList = props => {
 
   return (
     <ul className={cx('unordered-list', classname)} {...rest}>{children}</ul>
-  );
-}
-
-export const ListItem = props => {
-  const { width, classname, children, ...rest } = props;
-
-  return (
-    <li style={ {width} } className={cx('list-item', classname)} {...rest}>{children}</li>
   );
 }
 

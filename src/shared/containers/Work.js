@@ -5,7 +5,7 @@ import { setProject } from '../actions/project';
 import classNames from 'classnames/bind';
 import styles from '../../client/less/containers/work.less';
 import WorkWeb from '../components/WorkWeb';
-import { Icon, UnorderedList, ListItem } from '../components/reuseables';
+import { UnorderedList, ListItem } from '../components/reuseables';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +13,6 @@ class Work extends Component {
   constructor(props) {
     super(props);
 
-    this.active = { 'color': '#7C7C87' };
     this.header = [
       {
         title: 'Web',
@@ -39,19 +38,20 @@ class Work extends Component {
     }
   }
   render() {
-    if (!this.props.mounted) { return <div />; }
-
     return (
       <div className={cx('page')}>
-        <UnorderedList className={cx('categories')}>{this.header.map((item, i) => {
+        <UnorderedList className={cx('categories')}>{this.header.map(item => {
+          const { route, icon, title } = item;
+
           return (
-            <ListItem key={i} className={cx('item')}>
-              <Link to={item.route} activeClassName={cx('active')}>
-                <Icon className={item.icon} />
-                <div className={cx('title')}>{item.title}</div>
+            <ListItem key={title} className={cx('item')}>
+              <Link to={route} activeClassName={cx('active')}>
+                <span className={icon} />
+                <div className={cx('title')}>{title}</div>
               </Link>
             </ListItem>
           );
+
         })}</UnorderedList>
 
         {this.props.children}

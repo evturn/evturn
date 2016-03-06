@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import styles from '../../client/less/containers/contact.less';
 import img from 'images/site/banana-plants.png';
 import {
-  UnorderedList, ListItem, Icon,
+  List, ListItem, Icon,
   SectionContainer, PageContainer
 } from '../components/reuseables';
 
@@ -16,18 +16,16 @@ class Contact extends Component {
   }
   render() {
     return (
-      <div style={{  backgroundImage: `url('${img}')` }} className={cx('root')}>
-        <UnorderedList classname={cx('list')}>{this.props.links.map((link, i) => {
+      <div style={{ backgroundImage: `url('${img}')` }} className={cx('root')}>
+        <List className={cx('list')}>{this.props.links.map((link, i) => {
           return (
-            <ListItem key={i} classname={cx('item')}>
-              <SectionContainer classname={cx('icon')}>
-                <a href={link.url} target="_blank">
-                  <Icon classname={link.icon} />
-                </a>
+            <ListItem key={i} className={cx('item')}>
+              <SectionContainer className={cx('icon')}>
+                <a href={link.url} target="_blank"><span className={link.icon} /></a>
               </SectionContainer>
             </ListItem>
           );
-        })}</UnorderedList>
+        })}</List>
       </div>
     );
   }

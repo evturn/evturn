@@ -1,0 +1,54 @@
+@import '../variables.less';
+
+.active {
+  transform: scale(1);
+  .overlay {
+    opacity: 0.3;
+    box-shadow: none;
+  }
+}
+
+.projects {
+  .flex();
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  text-align: center;
+}
+
+.item {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  text-align: center;
+  transition: 0.3s;
+  transform: scale(0.93);
+  width: 20%;
+
+  @media(@tablet) {
+    width: 12.5%
+  }
+
+  .active {
+    transform: scale(1);
+  }
+
+  &:hover a {
+    @media(@tablet) {
+      .active;
+    }
+  }
+}
+
+.overlay {
+  box-shadow: inset 0px -196px 198px -142px rgba(0, 0, 0, 0.6);
+  transition: all 0.7s ease;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
