@@ -26,7 +26,7 @@ if (ENV === 'development') {
 }
 
 app.get('*', function(req, res) {
-  res.status(200).sendFile(path.join(__dirname, '..', '..', 'dist', 'build', 'index.html'));
+  res.status(200).sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {

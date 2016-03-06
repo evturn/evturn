@@ -8,11 +8,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PORT = 3000;
 const PATHS = {
   app: path.join(__dirname, 'src'),
-  output: path.join(__dirname, 'dist', 'build'),
+  output: path.join(__dirname, 'dist'),
   publicPath: '/build/',
   static: {
-    js: '../js/[name].js',
-    css: '../css/app.css'
+    js: 'js/[name].js',
+    css: 'css/app.css'
   }
 };
 const EXTENSIONS = ['', '.js', '.jsx', '.less'];
@@ -99,7 +99,8 @@ module.exports = {
       new WriteFilePlugin(),
       new ExtractTextPlugin(PATHS.static.css),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"development"'
+        'process.env.NODE_ENV': '"development"',
+        'window.__DEV__': true
       }),
       new HtmlWebpackPlugin({
         template: 'node_modules/html-webpack-template/index.ejs',

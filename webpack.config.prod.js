@@ -8,12 +8,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PATHS = {
   app: path.join(__dirname, 'src'),
   clean: [ path.join(__dirname, 'dist') ],
-  output: path.join(__dirname, 'dist', 'build'),
-  publicPath: '/dist/',
+  output: path.join(__dirname, 'dist'),
+  publicPath: 'dist/',
   static: {
-    js: '../js/[name].js',
-    css: '../css/app.css',
-    img: '../img/[hash].[ext]'
+    js: 'js/[name].js',
+    css: 'css/app.css',
+    img: 'img/[hash].[ext]'
   }
 };
 const EXTENSIONS = ['', '.js', '.jsx', '.less'];
@@ -95,7 +95,8 @@ module.exports = {
       }
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env.NODE_ENV': '"production"',
+      'window.__DEV__': false
     }),
     new HtmlWebpackPlugin({
       template: 'node_modules/html-webpack-template/index.ejs',
