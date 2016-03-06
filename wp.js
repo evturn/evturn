@@ -13,6 +13,7 @@ exports.PATHS = {
     css: 'css/app.css',
     img: 'img/[hash].[ext]'
   },
+  clean: ['dist'],
   root: __dirname
 };
 
@@ -37,6 +38,10 @@ exports.plugin = {
     inject: false,
     filename: 'index.html',
     favicon: './src/client/img/site/favicon.jpg'
+  },
+  clean: {
+    root: __dirname,
+    verbose: true
   }
 };
 

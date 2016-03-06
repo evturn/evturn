@@ -1,8 +1,9 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const PATHS = require('../wp').PATHS;
 const extensions = require('../wp').extensions;
 const modulesDirectories = require('../wp').modulesDirectories;
@@ -64,7 +65,7 @@ module.exports = {
     alias: alias
   },
   plugins: [
-    new CleanPlugin(PATHS.clean),
+    new CleanPlugin(PATHS.clean, plugin.clean),
     new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin(PATHS.static.css),
     new webpack.optimize.UglifyJsPlugin({
