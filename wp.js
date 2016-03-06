@@ -1,7 +1,5 @@
 const path = require('path');
 
-exports.extensions = ['', '.js', '.jsx', '.less'];
-exports.modulesDirectories = ['app', 'node_modules'];
 exports.PATHS = {
   app: path.join(__dirname, 'src'),
   output: path.join(__dirname, 'dist'),
@@ -43,23 +41,5 @@ exports.plugin = {
   }
 };
 
-// const loaders = [
-//   {
-//     test: /\.js$|\.jsx$/,
-//     loader: 'babel',
-//     exclude: /node_modules/,
-//     include: PATHS.app
-//   },{
-//     test: /\.css$/,
-//     loaders: ['style', 'css']
-//   },{
-//     test: /\.json$/,
-//     loader: 'json-loader'
-//   },{
-//     test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-//     loader: 'file-loader'
-//   },{
-//     test: /\.woff2(\?\S*)?$/,
-//     loader: 'url-loader?limit=100000'
-//   }
-// ];
+exports.extensions = ['', '.js', '.jsx', '.less'];
+exports.modulesDirectories = ['app', 'node_modules'];
