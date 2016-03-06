@@ -3,42 +3,72 @@
 .items {
   display: block;
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   text-align: center;
   font-family: @font-helv-neue;
+
+  @media(@tablet) {
+    width: 85%;
+  }
 }
 
 .item {
-  vertical-align: top;
-  margin: 40px;
-  padding: 0;
   display: inline-block;
+  vertical-align: top;
+  padding: 40px;
   text-align: center;
+  @media(@tablet) {
+    height: 400px;
+  }
+
 }
 
-.name {
-  font-size: 26px;
-  max-width: 300px;
-  margin-bottom: 10px;
-}
+.content {
+  position: relative;
+  height: 100%;
+  width: 300px;
+  padding-bottom: 40px;
 
-.desc {
-  max-width: 300px;
-  font-size: 18px;
-  text-align: justify;
+  @media(@tablet) {
+    padding-bottom: 20px;
+  }
 }
 
 .links {
+  position: absolute;
   text-align: right;
-  margin-top: 15px;
+  bottom: 0;
+  right: 0;
 }
 
 .link {
   display: inline-block;
-  margin-right: 15px;
+  margin-left: 15px;
+
+  @media(@tablet) {
+    margin-left: 20px;
+  }
+
   span {
-    font-size: 20px;
+    font-size: 32px;
+
+    @media(@tablet) {
+      font-size: 29px;
+    }
   }
+
   a {
-    color: @tx-primary;
+    color: @tx-secondary;
   }
+}
+
+.name {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 18px;
+  text-align: justify;
 }
