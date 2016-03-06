@@ -4,7 +4,7 @@ import path from 'path';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../../webpack.config.dev.js';
+import webpackConfig from '../webpack.config.dev.js';
 
 const PORT = 3000;
 const HOST = process.env.HOST || '127.0.0.1';

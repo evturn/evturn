@@ -3,34 +3,26 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const PORT = 3000;
-const PATHS = {
-  app: path.join(__dirname, 'src'),
-  output: path.join(__dirname, 'dist'),
-  publicPath: '/build/',
-  static: {
-    js: 'js/[name].js',
-    css: 'css/app.css'
-  }
-};
-const EXTENSIONS = ['', '.js', '.jsx', '.less'];
-const MODULES_DIRS = ['app', 'node_modules'];
+const PATHS = require('../wp').PATHS;
+const extensions = require('../wp').extensions;
+const modulesDirectories = require('../wp').modulesDirectories;
+const alias = require('../wp').alias;
+const plugin = require('../wp').plugin;
 
 module.exports = {
     debug: true,
     cache: true,
     devtool: 'eval-source-map',
     name: 'browser',
-    context: __dirname,
-    contentBase: __dirname,
+    context: PATHS.root,
+    contentBase: PATHS.root,
     entry: {
       app: ['./src/client', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true']
     },
     output: {
-      path: PATHS.output,           // The output directory as absolute path
-      filename: PATHS.static.js,    // The filename of the entry chunk as relative path inside the output.path directory
-      publicPath: PATHS.publicPath  // The output path from the view of the Javascript
+      path: PATHS.output,              // The output directory as absolute path
+      filename: PATHS.static.js,       // The filename of the entry chunk as relative path inside the output.path directory
+      publicPath: PATHS.publicPath.dev // The output path from the view of the Javascript
     },
     devServer: {
       outputPath: PATHS.output,
@@ -42,7 +34,7 @@ module.exports = {
       inline: true,
       progress: true,
       stats: 'errors-only',
-      port: PORT,
+      port: 3000,
       host: 'localhost'
     },
     module: {
@@ -71,26 +63,14 @@ module.exports = {
           test: /\.less$/,
           loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
             '&sourceMap!less?sourceMap&outputStyle=expanded' +
-            '&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, 'src', 'client', 'less'))
+            '&includePaths[]=' + encodeURIComponent(PATHS.less)
         }
       ]
     },
     resolve: {
-      extensions: EXTENSIONS,
-      modulesDirectories: MODULES_DIRS,
-      alias: {
-        shared:     path.join(__dirname, './src/shared/'),
-        actions:    path.join(__dirname, './src/shared/actions/'),
-        containers: path.join(__dirname, './src/shared/containers/'),
-        components: path.join(__dirname, './src/shared/components/'),
-        reducers:   path.join(__dirname, './src/shared/reducers/'),
-        store:      path.join(__dirname, './src/shared/store/'),
-        routes:     path.join(__dirname, './src/shared/routes'),
-        images:     path.join(__dirname, './src/client/img/'),
-        css:        path.join(__dirname, './src/client/css/'),
-        less:       path.join(__dirname, './src/client/less/'),
-        db:         path.join(__dirname, './src/server/db/')
-      }
+      extensions: extensions,
+      modulesDirectories: modulesDirectories,
+      alias: alias
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
@@ -101,13 +81,6 @@ module.exports = {
         'process.env.NODE_ENV': '"development"',
         'window.__DEV__': true
       }),
-      new HtmlWebpackPlugin({
-        template: 'node_modules/html-webpack-template/index.ejs',
-        title: 'Evan Turner | Developer',
-        appMountId: 'app',
-        inject: false,
-        filename: 'index.html',
-        favicon: './src/client/img/site/favicon.jpg'
-      })
+      new HtmlWebpackPlugin(plugin.html)
     ]
 };
