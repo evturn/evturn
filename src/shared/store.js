@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import rootReducer from './reducers';
 
 import VIDEOS from '../server/db/videos';
@@ -38,10 +38,7 @@ const initialState = {
   carousel: {},
 };
 
-const logger = createLogger();
-const thunk = thunkMiddleware;
-const middleware = applyMiddleware(logger, thunk);
-
+const middleware = !window.__DEV__ ?  applyMiddleware(thunk) : applyMiddleware(thunk, logger());
 const store = createStore(rootReducer, initialState, middleware);
 
 export default store;
