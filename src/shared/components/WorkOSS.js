@@ -9,8 +9,6 @@ const cx = classNames.bind(styles);
 class WorkOSS extends Component {
   constructor(props) {
     super(props);
-
-    console.log(props);
   }
   render() {
     return (
