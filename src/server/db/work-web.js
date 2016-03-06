@@ -6,11 +6,13 @@ export default [
     slug: 'drive',
     links: [
       {
+        name: 'Website',
         url: 'http://drivepublishing.com',
-        icon: 'fa fa-link'
+        icon: 'fa fa-chrome'
       }, {
+        name: 'Github',
         url: 'https://github.com/drivepublishing/drivepublishing.github.io',
-        icon: 'fa fa-github'
+        icon: 'fa fa-github-square'
       }
     ],
     thumbnail: 'drive-tn.png',
@@ -29,12 +31,15 @@ export default [
     slug: 'marshallz',
     links: [
       {
+        name: 'Website',
         url: 'http://marshallz.com',
-        icon: 'fa fa-link'
+        icon: 'fa fa-chrome'
       }, {
+        name: 'Github',
         url: 'https://github.com/evturn/marshallz',
-        icon: 'fa fa-github'
+        icon: 'fa fa-github-square'
       }, {
+        name: 'Twitter',
         url: 'http://twitter.com/marshallzBlog',
         icon: 'fa fa-twitter'
       }
@@ -55,11 +60,13 @@ export default [
     slug: 'nutty-goodness',
     links: [
       {
+        name: 'Website',
         url: 'http://nuttygoodness.com',
-        icon: 'fa fa-link'
+        icon: 'fa fa-chrome'
       },{
+        name: 'B&R',
         url: 'http://wearebnr.com',
-        icon: 'fa fa-bold'
+        icon: 'fa fa-circle-o'
       }
     ],
     thumbnail: 'ng-tn.png',
@@ -80,8 +87,13 @@ export default [
     slug: 'bfs',
     links: [
       {
+        name: 'Website',
+        url: 'http://brooklynfriends.org/',
+        icon: 'fa fa-chrome'
+      },{
+        name: 'SMKK',
         url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-        icon: 'fa fa-link'
+        icon: 'fa fa-circle-o'
       }
     ],
     thumbnail: 'bfs-tn.jpg',
@@ -99,8 +111,9 @@ export default [
     slug: 'pique',
     links: [
       {
+        name: 'Github',
         url: 'https://github.com/piqueapp/piqueapp.github.io',
-        icon: 'fa fa-github'
+        icon: 'fa fa-github-square'
       }
     ],
     thumbnail: 'pique-tn.png',
@@ -119,11 +132,13 @@ export default [
     slug: 'mim',
     links: [
       {
+        name: 'Website',
         url: 'http://madeinmusic.co',
-        icon: 'fa fa-link'
+        icon: 'fa fa-chrome'
       }, {
+        name: 'Github',
         url: 'https://github.com/evturn/madeinmusic.co',
-        icon: 'fa fa-github'
+        icon: 'fa fa-github-square'
       }
     ],
     thumbnail: 'mim-tn.png',
@@ -154,11 +169,13 @@ export default [
     slug: 'ramen-buffet',
     links: [
       {
+        name: 'Website',
         url: 'http://ramenbuffet.com',
-        icon: 'fa fa-link'
+        icon: 'fa fa-chrome'
       }, {
+        name: 'Github',
         url: 'https://github.com/evturn/ramen-buffet',
-        icon: 'fa fa-github'
+        icon: 'fa fa-github-square'
       }
     ],
     thumbnail: 'rb-tn.png',

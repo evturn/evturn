@@ -18,38 +18,35 @@ class WorkWeb extends Component {
       slides, tech, name, description,
       id, links, thumbnails, mounted } = this.props;
 
-    if (!mounted) { return <div />; }
-
     return (
       <div>
-        <div className={cx('featured')}>
-          <div className={cx('header')}>
-            <ul className={cx('project-header')}>
-              <li className={cx('item', 'name')}>{name}</li>
-              {links ? links.map(link =>
-                <li key={link.url} className={cx('item', 'link')}>
-                 <a href={link.url} target="_blank"><span className={link.icon} /></a>
-                </li>
-              ) : null}
-            </ul>
-          </div>
+        <div className={cx('project')}>
 
           <Carousel images={slides} />
 
           <div className={cx('detail')}>
+
+            <div className={cx('name')}>{name}</div>
             <div className={cx('desc')}>{description}</div>
-            <div className={cx('tech')}>
-              <ul className={cx('tech-list')}>{tech.map(item =>
-                <ListItem key={item.name} className={cx('item')}>
-                  <span className={item.icon} />
-                  <div className={cx('title')}>{item.name}</div>
-                </ListItem>
-              )}</ul>
-            </div>
+
+
+            {links ? <ul className={cx('links')}>{links.map(link =>
+              <li key={link.url} className={cx('item')}>
+                <a href={link.url} target="_blank"><span className={link.icon} /></a>
+                <div className={cx('title')}>{link.name}</div>
+              </li>
+            )}</ul> : null}
+
+            <ul className={cx('tech')}>{tech.map(item =>
+              <li key={item.name} className={cx('item')}>
+                <span className={item.icon} />
+                <div className={cx('title')}>{item.name}</div>
+              </li>
+            )}</ul>
+
           </div>
         </div>
 
-        <div className={cx('other')}>Projects</div>
         <WorkWebNav items={thumbnails} id={id} />
       </div>
     );
