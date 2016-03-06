@@ -2,9 +2,12 @@
 
 .root {
   .clearfix();
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
   height: 100%;
   margin: 0 auto;
-  position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 50%;
@@ -17,77 +20,59 @@
   }
 }
 
-.list {
-  padding-top: 30px;
-  min-height: 90vh;
+.icons {
+  .flex();
+  position: absolute;
+  margin: 0 auto;
   text-align: center;
-  @media(@tablet) {
-    padding-top: 170px;
-  }
+  top: 100px;
+  right: 0;
+  left: 0;
+  height: 80%;
+  max-width: 1000px;
 
+  @media(@tablet) {
+    top: 35%;
+  }
 }
 
 .item {
-  display: inline-block;
-  overflow: auto;
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-  height: 110px;
-  @media(@tablet) {
-    width: 25%;
-    width: auto;
-    height: auto;
-  }
-  span {
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.item .icon {
   color: @tx-dark;
-  display: inline-block;
+  display: block;
+  position: relative;
   transition: all 0.1s ease;
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
-  font-size: 4em;
-  border-radius: 50%;
-  background-color: @bg-light;
+  width: 100%;
 
   @media(@tablet) {
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
-    font-size: 6em;
+    display: inline-block;
+    width: 25%;
   }
 
-  @media(@tablet) {
-    width: 200px;
-    height: 200px;
-    line-height: 200px;
-    font-size: 8em;
+  a {
+    position: relative;
+    color: @tx-dark;
   }
-}
 
-.item .icon:hover {
-
-  @media(@tablet) {
+  span {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 4em;
+    border-radius: 50%;
     background-color: @bg-light;
-    color: @tx-primary;
+
+    @media(@tablet) {
+      width: 150px;
+      height: 150px;
+      line-height: 150px;
+      font-size: 6em;
+
+      &:hover {
+        background-color: @bg-light;
+        color: @tx-primary;
+      }
+    }
   }
-}
-
-.item a {
-  color: @tx-dark;
-  position: absolute;
-  right: 0;
-  left: 0;
-}
-
-.item:hover a {
-  color: @tx-secondary;
 }
 
 @-webkit-keyframes fadeIn {

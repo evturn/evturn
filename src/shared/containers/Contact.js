@@ -17,15 +17,11 @@ class Contact extends Component {
   render() {
     return (
       <div style={{ backgroundImage: `url('${img}')` }} className={cx('root')}>
-        <List className={cx('list')}>{this.props.links.map((link, i) => {
-          return (
-            <ListItem key={i} className={cx('item')}>
-              <SectionContainer className={cx('icon')}>
-                <a href={link.url} target="_blank"><span className={link.icon} /></a>
-              </SectionContainer>
-            </ListItem>
-          );
-        })}</List>
+        <ul className={cx('icons')}>{this.props.links.map(link =>
+          <li key={link.icon} className={cx('item')}>
+            <a href={link.url} target="_blank"><span className={link.icon} /></a>
+          </li>
+        )}</ul>
       </div>
     );
   }

@@ -21,14 +21,11 @@ class WorkWeb extends Component {
     return (
       <div>
         <div className={cx('project')}>
-
           <Carousel images={slides} />
 
           <div className={cx('detail')}>
-
             <div className={cx('name')}>{name}</div>
             <div className={cx('desc')}>{description}</div>
-
 
             {links ? <ul className={cx('links')}>{links.map(link =>
               <li key={link.url} className={cx('item')}>
