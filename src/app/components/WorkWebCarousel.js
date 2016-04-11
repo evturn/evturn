@@ -2,14 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { init, performCleanUp } from 'actions/carousel';
 import classNames from 'classnames/bind';
-import styles from 'less/components/work-web-carousel.less';
+import css from 'less/components/work-web-carousel.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class WorkWebCarousel extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     init(this.props.images);
   }
@@ -22,15 +19,19 @@ class WorkWebCarousel extends Component {
     performCleanUp();
   }
   render() {
+    const { images } = this.props;
+
+    const carouselSlides = (
+      <div className={cx('carousel')}>{images.map(image =>
+        <div key={image} className={cx('slide', this.assignClassName(image))}>
+          <img className="img" src={image} />
+        </div>
+      )}</div>
+    );
+
     return (
       <div className={cx('root')}>
-
-        <div className={cx('carousel')}>{this.props.images.map(image =>
-          <div key={image} className={cx('slide', this.assignClassName(image))}>
-            <img className="img" src={image} />
-          </div>
-        )}</div>
-
+        {carouselSlides}
       </div>
     );
   }
@@ -57,12 +58,10 @@ WorkWebCarousel.propTypes = {
   active: PropTypes.string
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     enter: state.carousel.enter,
     leave: state.carousel.leave,
     active: state.carousel.active
-  }
-}
-
-export default connect(mapStateToProps)(WorkWebCarousel);
+  })
+)(WorkWebCarousel);
