@@ -4,46 +4,52 @@ import { Link } from 'react-router';
 import WorkWebNav from 'components/WorkWebNav';
 import WorkWebCarousel from 'components/WorkWebCarousel';
 import classNames from 'classnames/bind';
-import styles from 'less/components/work-web.less';
+import css from 'less/components/work-web.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class WorkWeb extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {
       slides, tech, links, name,
       id, description, thumbnails } = this.props;
 
+    const projectName = <div className={cx('name')}>{name}</div>;
+    const projectDesc = <div className={cx('desc')}>{description}</div>;
+    const projectLinks = (
+      links ? (
+        <ul className={cx('links')}>{links.map(link =>
+          <li key={link.url} className={cx('item')}>
+            <a href={link.url} target="_blank"><span className={link.icon} /></a>
+            <div className={cx('title')}>{link.name}</div>
+          </li>
+        )}</ul>
+      ) : null
+    );
+    const projectTech = (
+      <ul className={cx('tech')}>{tech.map(item =>
+        <li key={item.name} className={cx('item')}>
+          <span className={item.icon} />
+          <div className={cx('title')}>{item.name}</div>
+        </li>
+      )}</ul>
+    );
+
     return (
       <div>
+
         <div className={cx('project')}>
           <WorkWebCarousel images={slides} />
-
           <div className={cx('detail')}>
-            <div className={cx('name')}>{name}</div>
-            <div className={cx('desc')}>{description}</div>
-
-            {links ? <ul className={cx('links')}>{links.map(link =>
-              <li key={link.url} className={cx('item')}>
-                <a href={link.url} target="_blank"><span className={link.icon} /></a>
-                <div className={cx('title')}>{link.name}</div>
-              </li>
-            )}</ul> : null}
-
-            <ul className={cx('tech')}>{tech.map(item =>
-              <li key={item.name} className={cx('item')}>
-                <span className={item.icon} />
-                <div className={cx('title')}>{item.name}</div>
-              </li>
-            )}</ul>
-
+            {projectName}
+            {projectDesc}
+            {projectLinks}
+            {projectTech}
           </div>
         </div>
 
         <WorkWebNav items={thumbnails} id={id} />
+
       </div>
     );
   }
@@ -61,8 +67,8 @@ WorkWeb.propTypes = {
   mounted: PropTypes.bool
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     slides: state.work.project.slides,
     tech: state.work.project.tech,
     name: state.work.project.name,
@@ -71,7 +77,5 @@ function mapStateToProps(state) {
     links: state.work.project.links,
     thumbnails: state.work.projectsNav,
     mounted: state.work.mounted
-  }
-}
-
-export default connect(mapStateToProps)(WorkWeb);
+  })
+)(WorkWeb);
