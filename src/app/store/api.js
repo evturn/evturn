@@ -7,37 +7,21 @@ import OSS from 'db/work-oss';
 import web from 'db/work-web';
 import TECH from 'db/tech';
 
-function filterFeaturedTech() {
-  return TECH.filter(obj => obj.featured).map(obj => obj);
-}
+const createWebProjectsNav = project => ({
+  id: project.id,
+  image: require(`work-images/${project.thumbnail}`)
+});
 
-function filterProjectTech(ids) {
-  return TECH.filter(o => ids.indexOf(o.id) !== -1 ? true : false);
-}
+const createWebProject = project => {
+  const { techIds, images, ...props } = project;
 
-function setProjectsNav() {
-  return web.map(obj => {
-    return {
-      id: obj.id,
-      image: require(`work-images/${obj.thumbnail}`)
-    };
+  return Object.assign({}, props, {
+    tech: TECH.filter(techItem => techIds.indexOf(techItem.id) !== -1),
+    slides: images.map(filename => require(`work-images/${filename}`))
   });
 }
 
-function setProjects() {
-  return web.map(project => {
-    const { techIds, images, ...props } = project;
-
-    return Object.assign({}, props, {
-      tech: filterProjectTech(techIds),
-      slides: images.map(filename => require(`work-images/${filename}`))
-    });
-  });
-}
-
-const projects = setProjects();
-const projectsNav = setProjectsNav();
-const aboutTech = filterFeaturedTech();
+const projects = web.map(createWebProject);
 
 export default {
   site: {
@@ -48,13 +32,13 @@ export default {
     },
     about: {
       bio: bio,
-      featuredTech: aboutTech
+      featuredTech: TECH.filter(techItem => techItem.featured)
     },
   },
   work: {
     nav: workNav,
     projects: projects,
-    projectsNav: projectsNav,
+    projectsNav: web.map(createWebProjectsNav),
     project: [ projects ],
     iOS: iOS,
     OSS: OSS
