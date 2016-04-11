@@ -1,14 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from 'less/components/spinner.less';
+import css from 'less/components/spinner.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class Spinner extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const animation = cx({
       'root': true,
@@ -31,11 +28,9 @@ Spinner.propTypes = {
   done: PropTypes.bool
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     ready: state.video.ready,
     done: state.video.done
-  };
-}
-
-export default connect(mapStateToProps)(Spinner);
+  })
+)(Spinner);
