@@ -1,14 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from 'less/components/work-oss.less';
+import css from 'less/components/work-oss.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class WorkOSS extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <ul className={cx('items')}>{this.props.OSS.map(item =>
@@ -34,10 +31,8 @@ WorkOSS.propTypes = {
   OSS: PropTypes.array
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     OSS: state.work.OSS
-  };
-}
-
-export default connect(mapStateToProps)(WorkOSS);
+  })
+)(WorkOSS);
