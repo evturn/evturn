@@ -1,28 +1,32 @@
+require('babel-register')({
+  only: /webpack/
+});
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const PATHS = require('../wp').PATHS;
-const extensions = require('../wp').extensions;
-const modulesDirectories = require('../wp').modulesDirectories;
-const alias = require('../wp').alias;
-const plugin = require('../wp').plugin;
+const config = require('./base');
+const PATHS = config.PATHS;
+const alias = config.alias;
+const plugin = config.plugin;
+const extensions = config.extensions;
+const modulesDirectories = config.modulesDirectories;
 
 module.exports = {
   name: 'browser',
   devtool: 'source-map',
   context: PATHS.root,
   entry: {
-    app: './src/client'
+    app: './src/app'
   },
   output: {
-    path: PATHS.output,                // The output directory as absolute path
-    filename: PATHS.static.js,         // The filename of the entry chunk as relative path inside the output.path directory
-    publicPath: PATHS.publicPath.prod  // The output path from the view of the Javascript
-
+    path: PATHS.dest,
+    filename: PATHS.static.js,
+    publicPath: PATHS.publicPath
   },
   module: {
     loaders: [
@@ -30,7 +34,7 @@ module.exports = {
         test: /\.js$|\.jsx$/,
         loader: 'babel',
         exclude: /node_modules/,
-        include: PATHS.app
+        include: PATHS.src
       },{
         test: /\.css$/,
         loaders: ['style', 'css']
@@ -60,13 +64,9 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    extensions: extensions,
-    modulesDirectories: modulesDirectories,
-    alias: alias
-  },
+  resolve: { extensions, modulesDirectories, alias },
   plugins: [
-    new CleanPlugin(PATHS.clean, plugin.clean),
+    new CleanWebpackPlugin(['dist'], { root: path.join(__dirname, '..', '..') }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin(PATHS.static.css),
     new webpack.optimize.UglifyJsPlugin({
@@ -79,6 +79,11 @@ module.exports = {
       'window.__DEV__': false
     }),
     new HtmlWebpackPlugin(plugin.html),
-    new CopyWebpackPlugin(plugin.copy)
+    new CopyWebpackPlugin([
+      {
+        from: path.join(__dirname, '..', 'client', 'img', 'site/title-white.svg'),
+        to: 'img/title-white.svg'
+      }
+    ])
   ]
 };
