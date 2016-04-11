@@ -1,14 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from 'less/components/work-ios.less';
+import css from 'less/components/work-ios.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 export default class WorkIOS extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <ul className={cx('items')}>{this.props.iOS.map(item =>
@@ -25,10 +22,8 @@ WorkIOS.propTypes = {
   OSS: PropTypes.array
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     iOS: state.work.iOS
-  };
-}
-
-export default connect(mapStateToProps)(WorkIOS);
+  })
+)(WorkIOS);
