@@ -4,12 +4,10 @@ import { play, end, load, unmount } from 'actions/video';
 import styles from 'less/components/video.less';
 
 class VideoPlayer extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     load();
-    this.attachListeners();
+    this.listenForVideoPlay();
+    this.listenForVideoEnd();
   }
   componentWillUnmount() {
     unmount();
@@ -19,7 +17,7 @@ class VideoPlayer extends Component {
 
     return (
       <video
-        ref={(player) => this.player = player}
+        ref={player => this.player = player}
         poster={require('site-images/transparent.png')}
         type="video/mp4"
         preload="auto"
@@ -29,13 +27,10 @@ class VideoPlayer extends Component {
       />
     );
   }
-  attachListeners() {
-    this.listenForVideoPlay();
-    this.listenForVideoEnd();
-  }
   listenForVideoPlay() {
     this.player.addEventListener(
-      'playing', () => {
+      'playing',
+      () => {
         play();
         this.player.playbackRate = 0.6;
       }
@@ -43,7 +38,8 @@ class VideoPlayer extends Component {
   }
   listenForVideoEnd() {
     this.player.addEventListener(
-      'ended', () => end()
+      'ended',
+      () => end()
     );
   }
 }
@@ -62,8 +58,8 @@ VideoPlayer.propTypes = {
   dispatch: PropTypes.func
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     total:  state.video.total,
     type: state.video.type,
     preload:  state.video.preload,
@@ -74,7 +70,5 @@ function mapStateToProps(state) {
     src:  state.video.src,
     status: state.video.status,
     ready:  state.video.ready
-  }
-}
-
-export default connect(mapStateToProps)(VideoPlayer)
+  })
+)(VideoPlayer)
