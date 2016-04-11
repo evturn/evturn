@@ -4,7 +4,7 @@ const PATHS = {
   src: path.join(__dirname, '..'),
   dest: path.join(__dirname, '..', '..', 'dist'),
   publicPath: 'dist/',
-  less: path.resolve(__dirname, '..', 'client', 'less'),
+  less: path.resolve(__dirname, '..', 'assets', 'less'),
   static: {
     js: 'js/[name].js',
     css: 'css/app.css',
@@ -21,11 +21,11 @@ const alias = {
   store:         path.join(__dirname, '..', 'app',    'store/'),
   db:            path.join(__dirname, '..', 'app',    'store', 'data/'),
   routes:        path.join(__dirname, '..', 'app',    'routes'),
-  images:        path.join(__dirname, '..', 'client', 'img/'),
-  css:           path.join(__dirname, '..', 'client', 'css/'),
-  less:          path.join(__dirname, '..', 'client', 'less/'),
-  'work-images': path.join(__dirname, '..', 'client', 'img', 'work/'),
-  'site-images': path.join(__dirname, '..', 'client', 'img', 'site/')
+  images:        path.join(__dirname, '..', 'assets', 'img/'),
+  css:           path.join(__dirname, '..', 'assets', 'css/'),
+  less:          path.join(__dirname, '..', 'assets', 'less/'),
+  'work-images': path.join(__dirname, '..', 'assets', 'img', 'work/'),
+  'site-images': path.join(__dirname, '..', 'assets', 'img', 'site/')
 };
 
 const plugin = {
@@ -35,7 +35,7 @@ const plugin = {
     appMountId: 'app',
     inject: false,
     filename: 'index.html',
-    favicon: './src/client/img/site/favicon.jpg'
+    favicon: './src/assets/img/site/favicon.jpg'
   }
 };
 

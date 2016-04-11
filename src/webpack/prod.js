@@ -81,7 +81,7 @@ module.exports = {
     new HtmlWebpackPlugin(plugin.html),
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, '..', 'client', 'img', 'site/title-white.svg'),
+        from: path.join(__dirname, '..', 'assets', 'img', 'site/title-white.svg'),
         to: 'img/title-white.svg'
       }
     ])
