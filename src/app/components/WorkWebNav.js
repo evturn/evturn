@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames/bind';
-import styles from 'less/components/work-web-nav.less';
+import css from 'less/components/work-web-nav.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 export default ({ items, id }) => {
   return (
