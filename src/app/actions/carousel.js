@@ -1,34 +1,30 @@
 import store from 'store';
 
-const carouselPopulated = (images) => {
-  return {
-    type: 'CAROUSEL_POPULATED',
-    images
-  }
+const actions = {
+  carouselPopulated:     images => ({ type: 'CAROUSEL_POPULATED', images }),
+  carouselTransitioning: ()     => ({ type: 'CAROUSEL_TRANSITIONING' }),
+  carouselStablized:     ()     => ({ type: 'CAROUSEL_STABLIZED' }),
+  carouselUnmounted:     ()     => ({ type: 'CAROUSEL_UNMOUNTED' })
 };
-
-const carouselTransitioning = () => { return { type: 'CAROUSEL_TRANSITIONING' } };
-const carouselStablized     = () => { return { type: 'CAROUSEL_STABLIZED' } };
-const carouselUnmounted     = () => { return { type: 'CAROUSEL_UNMOUNTED' } };
 
 const dispatch = store.dispatch;
 
 let interval;
 let timeout;
-const createInterval = () => interval = setInterval(() => dispatch(carouselTransitioning()), 4000);
-const createTimeout = () => timeout = setTimeout(() => dispatch(carouselStablized()), 1000);
+const createInterval = () => interval = setInterval(() => dispatch(actions.carouselTransitioning()), 4000);
+const createTimeout = () => timeout = setTimeout(() => dispatch(actions.carouselStablized()), 1000);
 const clearTimers = () => {
   clearInterval(interval);
   clearTimeout(timeout);
 };
 
-export const init = (images) => {
+export const initCarousel = images => dispatch => {
   clearTimers();
-  dispatch(carouselPopulated(images));
+  dispatch(actions.carouselPopulated(images));
   createInterval();
 };
 
 export const performCleanUp = () => {
   clearTimers();
-  dispatch(carouselUnmounted());
+  dispatch(actions.carouselUnmounted());
 };
