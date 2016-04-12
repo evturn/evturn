@@ -5,7 +5,8 @@ export default function slideshow(state= {}, action) {
         item: action.payload,
         slides: {
           items: action.payload.images,
-          total: action.payload.images.length
+          total: action.payload.images.length,
+          active: action.payload.images[0]
         },
         mounted: true
       });
