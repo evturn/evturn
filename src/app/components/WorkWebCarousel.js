@@ -19,7 +19,9 @@ class WorkWebCarousel extends Component {
     }
   }
   componentWillUnmount() {
-    performCleanUp();
+    const { dispatch } = this.props;
+
+    dispatch(performCleanUp());
   }
   render() {
     const { images } = this.props;

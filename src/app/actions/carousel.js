@@ -24,7 +24,7 @@ export const initCarousel = images => dispatch => {
   createInterval();
 };
 
-export const performCleanUp = () => {
+export const performCleanUp = () => dispatch => {
   clearTimers();
   dispatch(actions.carouselUnmounted());
 };
