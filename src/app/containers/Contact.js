@@ -1,17 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from 'less/containers/contact.less';
+import css from 'less/containers/contact.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class Contact extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
-      <div style={{ backgroundImage: `url(${require('site-images/banana-plants.png')})` }} className={cx('root')}>
+      <div
+        style={{ backgroundImage: `url(${require('site-images/banana-plants.png')})` }}
+        className={cx('root')}>
         <ul className={cx('icons')}>{this.props.links.map(link =>
           <li key={link.icon} className={cx('item')}>
             <a href={link.url} target="_blank"><span className={link.icon} /></a>
@@ -26,10 +25,8 @@ Contact.propTypes = {
   links: PropTypes.array
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     links: state.site.contact.links
-  };
-}
-
-export default connect(mapStateToProps)(Contact);
+  })
+)(Contact);

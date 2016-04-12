@@ -8,9 +8,6 @@ import 'css/style.css';
 import 'db/google-analytics';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     setSiteMounted();
   }
@@ -50,13 +47,11 @@ App.propTypes = {
   mounted: PropTypes.bool
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     page: state.site.page,
     pages: state.site.pages,
     open: state.site.open,
     mounted: state.site.mounted
-  };
-}
-
-export default connect(mapStateToProps)(App);
+  })
+)(App);

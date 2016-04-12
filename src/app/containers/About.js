@@ -1,21 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import styles from 'less/containers/about.less';
+import css from 'less/containers/about.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class About extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { bio, featuredTech } = this.props;
 
     return (
       <div className={cx('root')}>
         <div className={cx('av')}>
-          <div className={cx('image')}><img className="img" src={require('site-images/ev-av.png')} /></div>
+          <div className={cx('image')}>
+            <img className="img" src={require('site-images/ev-av.png')} />
+          </div>
         </div>
         <div className={cx('details')}>
           <div className={cx('bio')}>
@@ -40,11 +39,9 @@ About.propTypes = {
   featuredTech: PropTypes.array
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     featuredTech: state.site.about.featuredTech,
     bio: state.site.about.bio
-  };
-}
-
-export default connect(mapStateToProps)(About);
+  })
+)(About);

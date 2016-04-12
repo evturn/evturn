@@ -5,14 +5,11 @@ import { next } from 'actions/video';
 import Spinner from 'components/Spinner';
 import VideoPlayer from 'components/VideoPlayer';
 import classNames from 'classnames/bind';
-import styles from 'less/containers/home.less';
+import css from 'less/containers/home.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { mobileNav } = this.props;
 
@@ -52,10 +49,8 @@ Home.propTypes = {
   mobileNav: PropTypes.array
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     mobileNav: state.site.mobileNav
-  };
-}
-
-export default connect(mapStateToProps)(Home);
+  })
+)(Home);

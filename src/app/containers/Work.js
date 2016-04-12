@@ -4,14 +4,11 @@ import { Link } from 'react-router';
 import { setProject } from 'actions/project';
 import WorkWeb from 'components/WorkWeb';
 import classNames from 'classnames/bind';
-import styles from 'less/containers/work.less';
+import css from 'less/containers/work.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
 class Work extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentWillMount() {
     setProject(this.props.params.id);
   }
@@ -53,8 +50,8 @@ Work.propTypes = {
   OSS: PropTypes.array
 };
 
-function mapStateToProps(state) {
-  return {
+export default connect(
+  state => ({
     nav: state.work.nav,
     slides: state.work.project.slides,
     tech: state.work.project.tech,
@@ -66,7 +63,5 @@ function mapStateToProps(state) {
     mounted: state.work.mounted,
     iOS: state.work.iOS,
     OSS: state.work.OOS
-  }
-}
-
-export default connect(mapStateToProps)(Work);
+  })
+)(Work);
