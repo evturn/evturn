@@ -1,51 +1,72 @@
-import {
-  siteNav, mobileNav,
-  workNav, bio, contactLinks } from 'db/elements';
 import videos from 'db/videos';
 import iOS from 'db/work-ios';
 import OSS from 'db/work-oss';
-import web from 'db/work-web';
+import WEB from 'db/work-web';
 import TECH from 'db/tech';
+import {
+  siteNav, mobileNav,
+  workNav, bio, contactLinks } from 'db/elements';
 
-const createWebProjectsNav = project => ({
-  id: project.id,
-  image: require(`work-images/${project.thumbnail}`)
-});
+const createWebProjectsNav = project => {
+  const { id, thumbnail } = project;
+
+  return {
+    image: require(`work-images/${thumbnail}`),
+    id
+  };
+};
 
 const createWebProject = project => {
   const { techIds, images, ...props } = project;
 
   return Object.assign({}, props, {
     tech: TECH.filter(techItem => techIds.indexOf(techItem.id) !== -1),
-    slides: images.map(filename => require(`work-images/${filename}`))
+    images: images.map(filename => require(`work-images/${filename}`))
   });
 }
 
-const projects = web.map(createWebProject);
+const featuredTech = TECH.filter(x => x.featured);
+const web = WEB.map(createWebProject);
+const carouselNav = WEB.map(createWebProjectsNav);
 
 export default {
+
   site: {
-    mobileNav: mobileNav,
     pages: siteNav,
+    mobileNav,
     contact: {
       links: contactLinks
     },
     about: {
-      bio: bio,
-      featuredTech: TECH.filter(techItem => techItem.featured)
+      bio,
+      featuredTech
     },
+    work: {
+      nav: workNav,
+      web,
+      iOS,
+      OSS
+    }
   },
-  work: {
-    nav: workNav,
-    projects: projects,
-    projectsNav: web.map(createWebProjectsNav),
-    project: [ projects ],
-    iOS: iOS,
-    OSS: OSS
+
+  slideshow: {
+    nav: carouselNav,
+    slides: {
+      items: [],
+      active: null,
+      next: null,
+      entering: null,
+      leaving: null,
+      total: null,
+      previous: null
+    },
+    item: {},
+    mounted: false
   },
+
   video: {
     total: videos.length - 1,
     playlist: videos
-  },
-  carousel: {},
+  }
+
 };

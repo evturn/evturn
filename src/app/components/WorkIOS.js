@@ -24,6 +24,6 @@ WorkIOS.propTypes = {
 
 export default connect(
   state => ({
-    iOS: state.work.iOS
+    iOS: state.site.work.iOS
   })
 )(WorkIOS);

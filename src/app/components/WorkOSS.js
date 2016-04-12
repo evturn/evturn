@@ -33,6 +33,6 @@ WorkOSS.propTypes = {
 
 export default connect(
   state => ({
-    OSS: state.work.OSS
+    OSS: state.site.work.OSS
   })
 )(WorkOSS);
