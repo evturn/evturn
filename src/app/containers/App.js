@@ -5,7 +5,7 @@ import { setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
 import SiteFooter from 'components/SiteFooter';
 import SiteHeader from 'components/SiteHeader';
 import css from 'less/components/site-header.less';
-import 'css/style.css';
+import 'less/global/style.less';
 import 'db/google-analytics';
 
 const cx = classNames.bind(css);

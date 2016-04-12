@@ -59,8 +59,15 @@ module.exports = {
         loader: 'url-loader?limit=100000'
       },{
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]!less?includePaths[]='
-          + encodeURIComponent(PATHS.less))
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+        include: /global/
+      },{
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader?module&localIdentName=[local]__[hash:base64:5]' +
+          '!less?includePaths[]=' + encodeURIComponent(PATHS.less)),
+        exclude: /global/
       }
     ]
   },
