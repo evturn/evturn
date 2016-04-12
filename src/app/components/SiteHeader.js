@@ -1,41 +1,65 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { IndexLink, Link } from 'react-router';
+import { menuVisibility } from 'actions/site';
 import classNames from 'classnames/bind';
-import styles from 'less/components/site-header.less';
+import css from 'less/components/site-header.less';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(css);
 
-export default ({ open, page, pages, toggle }) => {
-  return (
-    <header>
-      {page !== 'home' ? (
-        <div className={cx('navbar')}>
-          <img className={cx('image')} src="dist/img/title-white.svg" />
-        </div>
-      ) : null}
+class SiteHeader extends Component {
+  render() {
+    const { dispatch, page, pages, open } = this.props;
 
-      <div className={cx('navbar-burger', page)} onClick={toggle}>
-        <span className={'fa fa-bars'} />
-      </div>
+    const toggleHeader = () => dispatch(menuVisibility());
 
-      <nav className={cx('menu', {'in': open, 'out': !open})}>
-        <div className={cx('menu-header')}>
-          <div className={cx('close')} onClick={toggle}>
-            <img className="img" src={require('site-images/close-light.png')} />
+    return (
+      <header>
+        {page !== 'home' ? (
+          <div className={cx('navbar')}>
+            <img className={cx('image')} src="dist/img/title-white.svg" />
           </div>
+        ) : null}
+
+        <div className={cx('navbar-burger', page)} onClick={toggleHeader}>
+          <span className={'fa fa-bars'} />
         </div>
 
-        <ul className={cx('menu-links')}>{pages.map(item =>
-          <li key={item.id} className={cx('item')} onClick={toggle}>
-            {item.id === 1 ? (
-              <IndexLink to={item.route}>{item.name}</IndexLink>
-            ) : (
-              <Link to={item.route}>{item.name}</Link>
-            )}
-          </li>
-        )}</ul>
+        <nav className={cx('menu', {'in': open, 'out': !open})}>
+          <div className={cx('menu-header')}>
+            <div className={cx('close')} onClick={toggleHeader}>
+              <img className="img" src={require('site-images/close-light.png')} />
+            </div>
+          </div>
 
-      </nav>
-    </header>
-  );
+          <ul className={cx('menu-links')}>{pages.map(item =>
+            <li key={item.id} className={cx('item')} onClick={toggleHeader}>
+              {item.id === 1 ? (
+                <IndexLink to={item.route}>{item.name}</IndexLink>
+              ) : (
+                <Link to={item.route}>{item.name}</Link>
+              )}
+            </li>
+          )}</ul>
+
+        </nav>
+      </header>
+    );
+  }
 }
+
+SiteHeader.propTypes = {
+  page: PropTypes.string,
+  pages: PropTypes.array,
+  open: PropTypes.bool,
+  dispatch: PropTypes.func
+};
+
+export default connect(
+  state=> ({
+    page: state.site.page,
+    pages: state.site.pages,
+    open: state.site.open
+  })
+)(SiteHeader);
+

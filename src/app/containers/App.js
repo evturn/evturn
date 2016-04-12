@@ -1,35 +1,40 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames/bind';
 import { setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
 import SiteFooter from 'components/SiteFooter';
 import SiteHeader from 'components/SiteHeader';
-import SiteOverlay from 'components/SiteOverlay';
+import css from 'less/components/site-header.less';
 import 'css/style.css';
 import 'db/google-analytics';
 
+const cx = classNames.bind(css);
+
 class App extends Component {
   componentDidMount() {
-    setSiteMounted();
+    const { dispatch } = this.props;
+
+    dispatch(setSiteMounted());
   }
   componentWillReceiveProps(nextProps) {
-    const page = nextProps.routes[1].name;
+    const { dispatch, page } = this.props;
+    const nextPage = nextProps.routes[1].name;
 
-    if (page !== this.props.page) {
-      setRouteAsPage(page);
+    if (page !== nextPage) {
+      dispatch(setRouteAsPage(nextPage));
     }
   }
   render() {
-    const { pages, page, open, mounted } = this.props;
+    const { dispatch, pages, page, open } = this.props;
 
     return (
       <div className="site">
-        <SiteOverlay open={open} toggle={menuVisibility} />
+        <div className={cx({'overlay': open})} onClick={() => dispatch(menuVisibility())} />
 
         <SiteHeader
           open={open}
           page={page}
           pages={pages}
-          toggle={menuVisibility}
         />
 
         {this.props.children}
@@ -44,7 +49,8 @@ App.propTypes = {
   page: PropTypes.string,
   pages: PropTypes.array,
   open: PropTypes.bool,
-  mounted: PropTypes.bool
+  mounted: PropTypes.bool,
+  dispatch: PropTypes.func
 };
 
 export default connect(
