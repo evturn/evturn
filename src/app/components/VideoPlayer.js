@@ -8,7 +8,9 @@ class VideoPlayer extends Component {
     mountVideoPlayer(this.player);
   }
   componentWillUnmount() {
-    unmountVideoPlayer();
+    const { dispatch } = this.props;
+
+    dispatch(unmountVideoPlayer());
   }
   render() {
     const { src } = this.props;

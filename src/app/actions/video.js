@@ -1,13 +1,13 @@
 import store from 'store';
 
 const actions = {
-  videoLoading:   () => ({ type: 'VIDEO_LOADING' }),
-  videoPlaying:   () => ({ type: 'VIDEO_PLAYING' }),
-  videoTimeout:   () => ({ type: 'VIDEO_TIMEOUT' }),
-  videoAborted:   () => ({ type: 'VIDEO_ABORTED' }),
-  videoUnmounted: () => ({ type: 'VIDEO_UNMOUNTED' }),
-  videoNext:      () => ({ type: 'VIDEO_NEXT' }),
-  hideSpinner:    () => ({ type: 'HIDE_SPINNER' })
+  videoLoading:   _ => ({ type: 'VIDEO_LOADING' }),
+  videoPlaying:   _ => ({ type: 'VIDEO_PLAYING' }),
+  videoTimeout:   _ => ({ type: 'VIDEO_TIMEOUT' }),
+  videoAborted:   _ => ({ type: 'VIDEO_ABORTED' }),
+  videoUnmounted: _ => ({ type: 'VIDEO_UNMOUNTED' }),
+  videoNext:      _ => ({ type: 'VIDEO_NEXT' }),
+  hideSpinner:    _ => ({ type: 'HIDE_SPINNER' })
 };
 
 const dispatch = store.dispatch;
@@ -30,7 +30,7 @@ export const next = () => {
   dispatch(actions.videoNext());
 };
 
-export const unmountVideoPlayer = () => {
+export const unmountVideoPlayer = _ => dispatch => {
   videoPlayer.clear();
   dispatch(actions.videoUnmounted());
 };
