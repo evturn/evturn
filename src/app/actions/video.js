@@ -1,58 +1,80 @@
 import store from 'store';
 
-const videoMounted   = () => ({ type: 'VIDEO_MOUNTED' });
-const videoLoading   = () => ({ type: 'VIDEO_LOADING' });
-const videoPlaying   = () => ({ type: 'VIDEO_PLAYING' });
-const videoEnded     = () => ({ type: 'VIDEO_ENDED' });
-const videoTimeout   = () => ({ type: 'VIDEO_TIMEOUT' });
-const videoAborted   = () => ({ type: 'VIDEO_ABORTED' });
-const videoUnmounted = () => ({ type: 'VIDEO_UNMOUNTED' });
-const videoNext      = () => ({ type: 'VIDEO_NEXT' });
-const hideSpinner    = () => ({ type: 'HIDE_SPINNER' });
+const actions = {
+  videoLoading:   () => ({ type: 'VIDEO_LOADING' }),
+  videoPlaying:   () => ({ type: 'VIDEO_PLAYING' }),
+  videoTimeout:   () => ({ type: 'VIDEO_TIMEOUT' }),
+  videoAborted:   () => ({ type: 'VIDEO_ABORTED' }),
+  videoUnmounted: () => ({ type: 'VIDEO_UNMOUNTED' }),
+  videoNext:      () => ({ type: 'VIDEO_NEXT' }),
+  hideSpinner:    () => ({ type: 'HIDE_SPINNER' })
+};
 
 const dispatch = store.dispatch;
 
-let mounted = false;
-let timer = null;
+const videoPlayer = {
+  mounted: false,
+  timer: null,
+  clear() { clearTimeout(this.timer); }
+};
 
-function createTimeout(action, duration) {
-  return setTimeout(() => dispatch(action()), duration);
+function startTimeoutCounter() {
+  videoPlayer.timer = setTimeout(() => dispatch(actions.videoTimeout()), 3000)
 }
 
-const createTimer = () => timer = createTimeout(videoTimeout, 3000);
-const clearTimer = () => clearTimeout(timer);
-const removeSpinner = () => createTimeout(hideSpinner, 1000);
-
-export const load = () => {
-  if (window.innerWidth < 600) {
-    removeSpinner();
-    dispatch(videoAborted());
-  } else {
-    createTimer();
-    dispatch(videoLoading());
-  }
-};
-
-export const play = () => {
-  if (!mounted) {
-    clearTimer();
-    dispatch(videoMounted());
-    removeSpinner();
-  }
-  dispatch(videoPlaying());
-  mounted = true;
-};
-
-export const end = () => {
-  dispatch(videoEnded());
-  dispatch(videoLoading());
-};
-
-export const unmount = () => {
-  clearTimer();
-  dispatch(videoUnmounted());
-};
+function clearTimeoutCounter() {
+  videoPlayer.clear();
+}
 
 export const next = () => {
-  dispatch(videoNext());
+  dispatch(actions.videoNext());
 };
+
+export const unmountVideoPlayer = () => {
+  videoPlayer.clear();
+  dispatch(actions.videoUnmounted());
+};
+
+export function mountVideoPlayer(player) {
+  startTimeoutCounter();
+
+  if (window.innerWidth < 600) {
+    preventVideoLoading();
+  } else {
+    beginVideoLoading();
+  }
+
+  player.addEventListener('playing',
+    () => {
+      emitVideoPlayback();
+      player.playbackRate = 0.6;
+    }
+  );
+
+  player.addEventListener('ended',
+    () => dispatch(actions.videoLoading())
+  );
+};
+
+function hideSpinner() {
+  clearTimeoutCounter();
+  setTimeout(() => dispatch(actions.hideSpinner()), 1000);
+}
+
+function preventVideoLoading() {
+  hideSpinner();
+  dispatch(actions.videoAborted());
+}
+
+function beginVideoLoading() {
+  dispatch(actions.videoLoading());
+}
+
+function emitVideoPlayback() {
+  if (!videoPlayer.mounted) {
+    hideSpinner();
+  }
+
+  videoPlayer.mounted = true;
+  dispatch(actions.videoPlaying());
+}

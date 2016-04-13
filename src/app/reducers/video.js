@@ -2,20 +2,16 @@ export default function video(state = {
   ready: false,
   done: false,
   playing: false,
-  loading: false,
-  mounted: false
+  loading: false
 }, action) {
   switch (action.type) {
-    case 'VIDEO_MOUNTED':
-      return Object.assign({}, state, {
-        mounted: true
-      });
     case 'VIDEO_LOADING':
       const nextId = state.id === undefined || state.id === state.total ? 0 : state.id + 1;
       return Object.assign({}, state, {
         id: nextId,
         src: state.playlist[nextId],
-        loading: true
+        loading: true,
+        playing: false
       });
     case 'VIDEO_PLAYING':
       return Object.assign({}, state, {
@@ -23,15 +19,10 @@ export default function video(state = {
         loading: false,
         playing: true
       });
-    case 'VIDEO_ENDED':
-      return Object.assign({}, state, {
-        playing: false
-      });
     case 'VIDEO_UNMOUNTED':
       return Object.assign({}, state, {
         id: undefined,
         src: null,
-        mounted: false,
         loading: false,
         playing: false
       });
