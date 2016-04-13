@@ -1,5 +1,3 @@
-import store from 'store';
-
 const actions = {
   videoLoading:   _ => ({ type: 'VIDEO_LOADING' }),
   videoPlaying:   _ => ({ type: 'VIDEO_PLAYING' }),
@@ -10,43 +8,33 @@ const actions = {
   hideSpinner:    _ => ({ type: 'HIDE_SPINNER' })
 };
 
-const dispatch = store.dispatch;
-
 const videoPlayer = {
   mounted: false,
   timer: null,
   clear() { clearTimeout(this.timer); }
 };
 
-function startTimeoutCounter() {
-  videoPlayer.timer = setTimeout(() => dispatch(actions.videoTimeout()), 3000)
+const hideSpinner = () => dispatch => {
+  videoPlayer.clear();
+  setTimeout(() => dispatch(actions.hideSpinner()), 1000);
 }
 
-function clearTimeoutCounter() {
-  videoPlayer.clear();
-}
-
-export const next = () => {
-  dispatch(actions.videoNext());
+const preventVideoLoading = () => dispatch => {
+  dispatch(actions.videoAborted());
+  dispatch(hideSpinner());
 };
 
-export const unmountVideoPlayer = _ => dispatch => {
-  videoPlayer.clear();
-  dispatch(actions.videoUnmounted());
-};
-
-export function mountVideoPlayer(player) {
-  startTimeoutCounter();
-
-  if (window.innerWidth < 600) {
-    preventVideoLoading();
-  } else {
-    beginVideoLoading();
-  }
+const beginVideoLoading = player => dispatch => {
+  dispatch(actions.videoLoading());
 
   player.addEventListener('playing',
     () => {
-      emitVideoPlayback();
+      if (!videoPlayer.mounted) {
+        videoPlayer.mounted = true;
+        dispatch(hideSpinner());
+      }
+
+      dispatch(actions.videoPlaying());
       player.playbackRate = 0.6;
     }
   );
@@ -56,25 +44,20 @@ export function mountVideoPlayer(player) {
   );
 };
 
-function hideSpinner() {
-  clearTimeoutCounter();
-  setTimeout(() => dispatch(actions.hideSpinner()), 1000);
-}
+export const mountVideoPlayer = player => dispatch => {
+  videoPlayer.timer = setTimeout(() => dispatch(actions.videoTimeout()), 3000)
 
-function preventVideoLoading() {
-  hideSpinner();
-  dispatch(actions.videoAborted());
-}
-
-function beginVideoLoading() {
-  dispatch(actions.videoLoading());
-}
-
-function emitVideoPlayback() {
-  if (!videoPlayer.mounted) {
-    hideSpinner();
+  if (window.innerWidth < 600) {
+    dispatch(preventVideoLoading());
+  } else {
+    dispatch(beginVideoLoading(player));
   }
+};
 
-  videoPlayer.mounted = true;
-  dispatch(actions.videoPlaying());
-}
+
+export const skipToNextVideo = () => dispatch => dispatch(actions.videoNext());
+
+export const unmountVideoPlayer = () => dispatch => {
+  videoPlayer.clear();
+  dispatch(actions.videoUnmounted());
+};

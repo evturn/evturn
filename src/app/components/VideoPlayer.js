@@ -5,7 +5,9 @@ import 'less/components/video.less';
 
 class VideoPlayer extends Component {
   componentDidMount() {
-    mountVideoPlayer(this.player);
+    const { dispatch } = this.props;
+
+    dispatch(mountVideoPlayer(this.player));
   }
   componentWillUnmount() {
     const { dispatch } = this.props;

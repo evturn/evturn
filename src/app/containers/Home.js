@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { IndexLink, Link } from 'react-router';
-import { next } from 'actions/video';
+import { skipToNextVideo } from 'actions/video';
 import Spinner from 'components/Spinner';
 import VideoPlayer from 'components/VideoPlayer';
 import classNames from 'classnames/bind';
@@ -11,12 +11,12 @@ const cx = classNames.bind(css);
 
 class Home extends Component {
   render() {
-    const { mobileNav } = this.props;
+    const { dispatch, mobileNav } = this.props;
     const background = {
       backgroundImage: `url(${require('site-images/banana-plants.png')})`
     };
     const desktop = (
-      <div className={cx('lg')} onClick={next}>
+      <div className={cx('lg')} onClick={() => dispatch(skipToNextVideo())}>
         <Spinner />
         <VideoPlayer />
         <div className={cx('title')}>

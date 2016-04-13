@@ -28,7 +28,7 @@ export default function video(state = {
       });
     case 'VIDEO_TIMEOUT':
       return Object.assign({}, state, {
-        done: true,
+        ready: true,
         loading: false
       });
     case 'VIDEO_ABORTED':
