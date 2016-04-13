@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { initCarousel, performCleanUp } from 'actions/slideshow';
+import { startPresentation, unmountSlideshow } from 'actions/slideshow';
 import classNames from 'classnames/bind';
 import css from 'less/components/work-web-carousel.less';
 
@@ -8,61 +8,49 @@ const cx = classNames.bind(css);
 
 class WorkWebCarousel extends Component {
   componentDidMount() {
-    const { items, dispatch } = this.props;
-    dispatch(initCarousel(items));
+    const { dispatch, slides } = this.props;
+
+    dispatch(startPresentation(slides))
   }
   componentWillReceiveProps(nextProps) {
-    const { items, dispatch } = this.props;
+    const { dispatch, slides } = this.props;
 
-    if (items !== nextProps.items) {
-      dispatch(initCarousel(nextProps.items));
+    if (slides.items !== nextProps.slides.items) {
+      dispatch(startPresentation(nextProps.slides))
     }
   }
   componentWillUnmount() {
     const { dispatch } = this.props;
 
-    dispatch(performCleanUp());
+    dispatch(unmountSlideshow());
   }
   render() {
-    const { items } = this.props;
-
-    const carouselSlides = (
-      <div className={cx('carousel')}>{items.map(image =>
-        <div key={image} className={cx('slide', this.assignClassName(image))}>
-          <img className="img" src={image} />
-        </div>
-      )}</div>
-    );
+    const { slides } = this.props;
 
     return (
       <div className={cx('root')}>
-        {carouselSlides}
+        <div className={cx('carousel')}>{slides.items.map((item, i)=>
+          <div key={i} className={cx('slide', { 'active': slides.active === i})}>
+            <img className="img" src={item}/>
+          </div>
+        )}</div>
       </div>
     );
-  }
-  assignClassName(image) {
-    const { enter, leave, active } = this.props;
-
-    switch (image) {
-      case enter:
-        return 'enter'
-      case leave:
-        return 'leave'
-      case active:
-        return 'active'
-      default:
-        return 'inactive'
-    }
   }
 }
 
 WorkWebCarousel.propTypes = {
   slides: PropTypes.object,
+  active: PropTypes.number,
+  presentations: PropTypes.array,
   dispatch: PropTypes.func
 };
 
 export default connect(
   state => ({
-    slides: state.slideshow.slides
+    slides: state.slideshow.slides,
+    active: state.slideshow.slides.active,
+    presentations: state.slideshow.presentations
   })
 )(WorkWebCarousel);
+

@@ -1,14 +1,14 @@
 import store from 'store';
 
-const videoMounted   = () => { return { type: 'VIDEO_MOUNTED' } };
-const videoLoading   = () => { return { type: 'VIDEO_LOADING' } };
-const videoPlaying   = () => { return { type: 'VIDEO_PLAYING' } };
-const videoEnded     = () => { return { type: 'VIDEO_ENDED' } };
-const videoTimeout   = () => { return { type: 'VIDEO_TIMEOUT' } };
-const videoAborted   = () => { return { type: 'VIDEO_ABORTED' } };
-const videoUnmounted = () => { return { type: 'VIDEO_UNMOUNTED' } };
-const videoNext      = () => { return { type: 'VIDEO_NEXT' } };
-const hideSpinner    = () => { return { type: 'HIDE_SPINNER' } };
+const videoMounted   = () => ({ type: 'VIDEO_MOUNTED' });
+const videoLoading   = () => ({ type: 'VIDEO_LOADING' });
+const videoPlaying   = () => ({ type: 'VIDEO_PLAYING' });
+const videoEnded     = () => ({ type: 'VIDEO_ENDED' });
+const videoTimeout   = () => ({ type: 'VIDEO_TIMEOUT' });
+const videoAborted   = () => ({ type: 'VIDEO_ABORTED' });
+const videoUnmounted = () => ({ type: 'VIDEO_UNMOUNTED' });
+const videoNext      = () => ({ type: 'VIDEO_NEXT' });
+const hideSpinner    = () => ({ type: 'HIDE_SPINNER' });
 
 const dispatch = store.dispatch;
 

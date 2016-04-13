@@ -1,37 +1,33 @@
 const actions = {
-  loadProject:           payload => ({ type: 'LOAD_SLIDESHOW', payload }),
-  carouselPopulated:     images  => ({ type: 'CAROUSEL_POPULATED', images }),
-  carouselTransitioning: ()      => ({ type: 'CAROUSEL_TRANSITIONING' }),
-  carouselStablized:     ()      => ({ type: 'CAROUSEL_STABLIZED' }),
-  carouselUnmounted:     ()      => ({ type: 'CAROUSEL_UNMOUNTED' }),
+  loadPresentation: id      => ({ type: 'LOAD_PRESENTATION', id }),
+  transitionNext:   active  => ({ type: 'TRANSITION_NEXT', active }),
+  unmountSlideshow: ()      => ({ type: 'UNMOUNT_SLIDESHOW' }),
 };
 
-let timeout;
-let interval;
+export const loadPresentation = id => dispatch => {
+  const presentationId = !id ? 0 : id - 1;
 
-export const loadProject = id => dispatch => {
-  const projects = store.getState().site.work.web;
-  const i = !id ? 0 : id - 1;
-
-  dispatch(actions.loadProject(projects[i]));
+  dispatch(actions.loadPresentation(presentationId));
 };
 
-export const initCarousel = images => dispatch => {
-  clearTimers();
-  dispatch(actions.carouselPopulated(images));
-  interval = setInterval(() => dispatch(actions.carouselTransitioning()), 4000);
+const carousel = {
+  interval: null,
+  timeout: null,
+  clear() { clearInterval(this.interval) }
 };
 
-export const performCleanUp = () => dispatch => {
-  clearTimers();
-  dispatch(actions.carouselUnmounted());
+export const unmountSlideshow = () => dispatch => {
+  carousel.clear();
+  dispatch(actions.unmountSlideshow());
 };
 
-function clearTimers() {
-  clearInterval(interval);
-  clearTimeout(timeout);
-}
+export const startPresentation = slides => dispatch => {
+  const { items, total } = slides;
+  let count = 0;
 
-function createTimeout() {
-  timeout = setTimeout(() => dispatch(actions.carouselStablized()), 1000);
-}
+  carousel.clear();
+  carousel.interval = setInterval(() => {
+    count = count === total ? 0 : count + 1;
+    dispatch(actions.transitionNext(count));
+  }, 4000);
+};

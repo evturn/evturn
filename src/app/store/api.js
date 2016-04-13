@@ -4,8 +4,8 @@ import OSS from 'db/work-oss';
 import WEB from 'db/work-web';
 import TECH from 'db/tech';
 import {
-  siteNav, mobileNav,
-  workNav, bio, contactLinks } from 'db/elements';
+  siteNav, mobileNav, bio,
+  workNav, contactLinks } from 'db/elements';
 
 const createWebProjectsNav = project => {
   const { id, thumbnail } = project;
@@ -43,27 +43,14 @@ export default {
     },
     work: {
       nav: workNav,
-      web,
       iOS,
       OSS
     }
   },
-
   slideshow: {
     nav: carouselNav,
-    slides: {
-      items: [],
-      active: null,
-      next: null,
-      entering: null,
-      leaving: null,
-      total: null,
-      previous: null
-    },
-    item: {},
-    mounted: false
+    presentations: web
   },
-
   video: {
     total: videos.length - 1,
     playlist: videos

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { loadProject } from 'actions/slideshow';
+import { loadPresentation } from 'actions/slideshow';
 import classNames from 'classnames/bind';
 import css from 'less/containers/work.less';
 
@@ -9,16 +9,15 @@ const cx = classNames.bind(css);
 
 class Work extends Component {
   componentWillMount() {
-    const { params: { id }, dispatch } = this.props;
+    const { dispatch, params } = this.props;
 
-    dispatch(loadProject(id));
+    dispatch(loadPresentation(params.id));
   }
   componentWillReceiveProps(nextProps) {
-    const { params, dispatch } = this.props;
-    const { params: { id } } = nextProps;
+    const { dispatch, params } = this.props;
 
-    if (params.id !== id) {
-      dispatch(loadProject(id));
+    if (params.id !== nextProps.params.id) {
+      dispatch(loadPresentation(nextProps.params.id));
     }
   }
   render() {

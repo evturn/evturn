@@ -37,27 +37,17 @@
 
 .slide {
   position: absolute;
+  transition: all 1s ease;
+  transition-duration: 1s;
+  opacity: 0;
   top: 0;
   right: 0;
   left: 0;
   height: 100%;
   overflow: hidden;
-}
 
-.slide {
-  transition: all 1s ease;
-  transition-duration: 1s;
-  &.inactive {
-    opacity: 0;
-  }
   &.active {
     opacity: 1;
-  }
-  &.enter {
-    animation: fadein 1s linear;
-  }
-  &.leave {
-    animation: fadeout 1s linear;
   }
 }
 

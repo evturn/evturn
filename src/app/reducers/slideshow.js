@@ -1,64 +1,33 @@
-export default function slideshow(state= {}, action) {
+export default function slideshow(state = {}, action) {
   switch (action.type) {
-    case 'LOAD_SLIDESHOW':
-      return Object.assign({}, state, {
-        item: action.payload,
-        slides: {
-          items: action.payload.images,
-          total: action.payload.images.length,
-          active: action.payload.images[0]
-        },
-        mounted: true
-      });
-    case 'CAROUSEL_POPULATED':
-      return Object.assign({}, state, {
-        images: action.images,
-        total: action.images.length - 1,
-        index: 0,
-        nextIndex: 1,
-        active: action.images[0]
-      });
-    case 'CAROUSEL_TRANSITIONING':
-      let newIndex;
-      let newNextIndex;
+    case 'LOAD_PRESENTATION': {
+      const current = state.presentations[action.id];
 
-      if (state.nextIndex < state.total && state.index !== state.total) {
-        newIndex = state.index + 1;
-        newNextIndex = state.nextIndex + 1;
-      } else if (state.nextIndex === state.total) {
-        newIndex = state.index + 1;
-        newNextIndex = 0;
-      } else if (state.nextIndex === 0) {
-        newIndex = 0;
-        newNextIndex = 1;
-      }
       return Object.assign({}, state, {
-        previous: state.previous,
-        index: newIndex,
-        nextIndex: newNextIndex,
-        enter: state.images[newIndex],
-        leave: state.previous,
-        active: null
+        currentPresentation: current,
+        slides: {
+          items: current.images,
+          total: current.images.length -1,
+          active: 0
+        }
       });
-    case 'CAROUSEL_STABLIZED':
+    }
+    case 'TRANSITION_NEXT':
       return Object.assign({}, state, {
-        previous: state.images[state.index],
-        active: state.images[state.index],
-        enter: null,
-        leave: null
+        slides: {
+          ...state.slides,
+          active: action.active
+        }
       });
-    case 'CAROUSEL_UNMOUNTED':
+    case 'UNMOUNT_SLIDESHOW':
       return Object.assign({}, state, {
-        images: [],
-        total: null,
-        index: null,
-        nextIndex: null,
-        active: null,
-        previous: null,
-        enter: null,
-        leave: null
+        slides: {
+          ...state.slides,
+          active: 0
+        }
       });
     default:
       return state;
   }
 }
+

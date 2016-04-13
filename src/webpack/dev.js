@@ -77,7 +77,7 @@ module.exports = {
     new ExtractTextPlugin(PATHS.static.css),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"development"',
-      'window.__DEV__': true
+      __DEV__: true
     }),
     new HtmlWebpackPlugin(plugin.html)
   ]

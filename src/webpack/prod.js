@@ -83,7 +83,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
-      'window.__DEV__': false
+      __DEV__: false
     }),
     new HtmlWebpackPlugin(plugin.html),
     new CopyWebpackPlugin([

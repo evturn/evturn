@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import classNames from 'classnames/bind';
-import { setRouteAsPage, menuVisibility, setSiteMounted } from 'actions/site';
+import { setRouteAsPage, toggleMenu } from 'actions/site';
 import SiteFooter from 'components/SiteFooter';
 import SiteHeader from 'components/SiteHeader';
+import classNames from 'classnames/bind';
 import css from 'less/components/site-header.less';
 import 'less/global/style.less';
 import 'db/google-analytics';
@@ -11,16 +11,16 @@ import 'db/google-analytics';
 const cx = classNames.bind(css);
 
 class App extends Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
+  componentWillMount() {
+    const { dispatch, routes } = this.props;
 
-    dispatch(setSiteMounted());
+    dispatch(setRouteAsPage(routes[1].name));
   }
   componentWillReceiveProps(nextProps) {
-    const { dispatch, page } = this.props;
+    const { dispatch, routes } = this.props;
     const nextPage = nextProps.routes[1].name;
 
-    if (page !== nextPage) {
+    if (routes[1].name !== nextPage) {
       dispatch(setRouteAsPage(nextPage));
     }
   }
@@ -29,13 +29,9 @@ class App extends Component {
 
     return (
       <div className="site">
-        <div className={cx({'overlay': open})} onClick={() => dispatch(menuVisibility())} />
+        <div className={cx({'overlay': open})} onClick={() => dispatch(toggleMenu())} />
 
-        <SiteHeader
-          open={open}
-          page={page}
-          pages={pages}
-        />
+        <SiteHeader open={open} page={page} pages={pages} />
 
         {this.props.children}
 
