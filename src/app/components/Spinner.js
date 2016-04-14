@@ -7,10 +7,11 @@ const cx = classNames.bind(css);
 
 class Spinner extends Component {
   render() {
+    const { ready, done } = this.props;
     const animation = cx({
       'root': true,
-      'fade-out': this.props.ready,
-      'hidden': this.props.done
+      'fade-out': ready,
+      'hidden': done
     });
     return (
       <div className={animation}>
