@@ -6,41 +6,21 @@ const actions = {
   unmountVideoPlayer: _ => ({ type: 'UNMOUNT_VIDEO_PLAYER' })
 };
 
-const videoPlayer = {
-  timer: null,
-  clear() { clearTimeout(this.timer); }
-};
-
 const killLoadingScreen = () => dispatch => {
-  videoPlayer.clear();
   dispatch(actions.fadeLoadingScreen({ ready: true }));
   setTimeout(() => dispatch(actions.killLoadingScreen({ done: true })), 1000);
 };
 
-const setLoadingTimeout = () => dispatch => {
-  videoPlayer.timer = setTimeout(() => dispatch(killLoadingScreen()), 3000)
-}
-
-export const loadNextVideo = () => dispatch => dispatch(actions.loadNextVideo());
-
-export const unmountVideoPlayer = () => dispatch => {
-  videoPlayer.clear();
-  dispatch(actions.unmountVideoPlayer());
-};
-
-export const mountVideoPlayer = player => dispatch => {
+const initializeVideoPlayer = player => dispatch => {
+  const timeout = setTimeout(() => dispatch(killLoadingScreen()), 3000);
   let initialized = false;
 
-  if (window.innerWidth < 600) {
-    return dispatch(killLoadingScreen());
-  }
-
   dispatch(actions.mountVideoPlayer());
-  dispatch(setLoadingTimeout());
 
   player.addEventListener('playing',
     () => {
       if (!initialized) {
+        clearTimeout(timeout);
         dispatch(killLoadingScreen());
         initialized = true;
       }
@@ -52,5 +32,18 @@ export const mountVideoPlayer = player => dispatch => {
   player.addEventListener('ended',
     () => dispatch(actions.loadNextVideo())
   );
+}
+
+export const mountVideoPlayer = player => dispatch => {
+  if (window.innerWidth < 600) {
+    return dispatch(killLoadingScreen());
+  }
+
+  dispatch(initializeVideoPlayer(player));
 };
 
+export const unmountVideoPlayer = () => dispatch => {
+  dispatch(actions.unmountVideoPlayer());
+};
+
+export const loadNextVideo = () => dispatch => dispatch(actions.loadNextVideo());
