@@ -11,6 +11,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = require('./base');
 const PATHS = config.PATHS;
+const loaders = config.loaders;
 const alias = config.alias;
 const plugin = config.plugin;
 const extensions = config.extensions;
@@ -29,24 +30,10 @@ module.exports = {
     publicPath: PATHS.publicPath
   },
   module: {
-    loaders: [
+    loaders: loaders.concat([
       {
-        test: /\.js$|\.jsx$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        include: PATHS.src
-      },{
-        test: /\.css$/,
-        loaders: ['style', 'css']
-      },{
-        test: /\.json$/,
-        loader: 'json-loader'
-      },{
         test: /\.(eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader'
-      },{
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
       },{
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loaders: [
@@ -55,13 +42,6 @@ module.exports = {
         ],
         exclude: /less/
       },{
-        test: /\.woff2(\?\S*)?$/,
-        loader: 'url-loader?limit=100000'
-      },{
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
-        include: /global/
-      },{
         test: /\.less$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
@@ -69,7 +49,7 @@ module.exports = {
           '!less?includePaths[]=' + encodeURIComponent(PATHS.less)),
         exclude: /global/
       }
-    ]
+    ])
   },
   resolve: { extensions, modulesDirectories, alias },
   plugins: [

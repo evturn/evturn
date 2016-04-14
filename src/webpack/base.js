@@ -1,4 +1,5 @@
 import path from 'path';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const PATHS = {
   src: path.join(__dirname, '..'),
@@ -12,6 +13,31 @@ const PATHS = {
   },
   root: path.join(__dirname, '..', '..')
 };
+
+const loaders = [
+  {
+    test: /\.js$|\.jsx$/,
+    loader: 'babel',
+    exclude: /node_modules/,
+    include: PATHS.src
+  },{
+    test: /\.css$/,
+    loaders: ['style', 'css']
+  },{
+    test: /\.json$/,
+    loader: 'json-loader'
+  },{
+    test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'file-loader'
+  },{
+    test: /\.woff2(\?\S*)?$/,
+    loader: 'url-loader?limit=100000'
+  },{
+    test: /\.less$/,
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+    include: /global/
+  }
+];
 
 const alias = {
   actions:       path.join(__dirname, '..', 'app',    'actions/'),
@@ -42,4 +68,4 @@ const plugin = {
 const extensions = ['', '.js', '.jsx', '.less'];
 const modulesDirectories = ['app', 'node_modules'];
 
-export { PATHS, alias, plugin, extensions, modulesDirectories };
+export { PATHS, loaders, alias, plugin, extensions, modulesDirectories };

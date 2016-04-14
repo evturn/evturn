@@ -3,7 +3,9 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WriteFilePlugin from 'write-file-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { PATHS, alias, plugin, extensions, modulesDirectories } from './base';
+import {
+  PATHS, loaders, alias, plugin,
+  extensions, modulesDirectories } from './base';
 
 module.exports = {
   debug: true,
@@ -35,31 +37,10 @@ module.exports = {
     host: 'localhost'
   },
   module: {
-    loaders: [
+    loaders: loaders.concat([
       {
-        test: /\.js$|\.jsx$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        include: PATHS.src
-      },{
-        test: /\.css$/,
-        loaders: ['style', 'css']
-      },{
-        test: /\.json$/,
-        loader: 'json-loader'
-      },{
         test: /\.(gif|png|jpe?g|svg|eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader'
-      },{
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
-      },{
-        test: /\.woff2(\?\S*)?$/,
-        loader: 'url-loader?limit=100000'
-      },{
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
-        include: /global/
       },{
         test: /\.less$/,
         loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
@@ -67,7 +48,7 @@ module.exports = {
           '&includePaths[]=' + encodeURIComponent(PATHS.less),
         exclude: /global/
       }
-    ]
+    ])
   },
   resolve: { extensions, modulesDirectories, alias },
   plugins: [
