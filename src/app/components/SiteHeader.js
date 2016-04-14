@@ -9,7 +9,7 @@ const cx = classNames.bind(css);
 
 class SiteHeader extends Component {
   render() {
-    const { dispatch, page, pages, open } = this.props;
+    const { dispatch, page, nav, open } = this.props;
 
     const toggleHeader = () => dispatch(toggleMenu());
 
@@ -32,7 +32,7 @@ class SiteHeader extends Component {
             </div>
           </div>
 
-          <ul className={cx('menu-links')}>{pages.map(item =>
+          <ul className={cx('menu-links')}>{nav.map(item =>
             <li key={item.id} className={cx('item')} onClick={toggleHeader}>
               {item.id === 1 ? (
                 <IndexLink to={item.route}>{item.name}</IndexLink>

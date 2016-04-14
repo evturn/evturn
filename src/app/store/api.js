@@ -32,7 +32,7 @@ const carouselNav = WEB.map(createWebProjectsNav);
 export default {
 
   site: {
-    pages: siteNav,
+    nav: siteNav,
     mobileNav,
     contact: {
       links: contactLinks

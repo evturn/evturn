@@ -25,13 +25,13 @@ class App extends Component {
     }
   }
   render() {
-    const { dispatch, pages, page, open } = this.props;
+    const { dispatch, nav, page, open } = this.props;
 
     return (
       <div className="site">
         <div className={cx({'overlay': open})} onClick={() => dispatch(toggleMenu())} />
 
-        <SiteHeader open={open} page={page} pages={pages} />
+        <SiteHeader open={open} page={page} nav={nav} />
 
         {this.props.children}
 
@@ -43,17 +43,15 @@ class App extends Component {
 
 App.propTypes = {
   page: PropTypes.string,
-  pages: PropTypes.array,
+  nav: PropTypes.array,
   open: PropTypes.bool,
-  mounted: PropTypes.bool,
   dispatch: PropTypes.func
 };
 
 export default connect(
   state => ({
     page: state.site.page,
-    pages: state.site.pages,
+    nav: state.site.nav,
     open: state.site.open,
-    mounted: state.site.mounted
   })
 )(App);
