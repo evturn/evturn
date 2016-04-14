@@ -2,24 +2,26 @@
 
 .items {
   display: block;
+  .clearfix();
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
   text-align: center;
   font-family: @font-helv-neue;
-
-  @media(@tablet) {
-    width: 85%;
-  }
 }
 
 .item {
-  display: inline-block;
+  display: block;
   vertical-align: top;
-  padding: 40px;
   text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+
   @media(@tablet) {
-    height: 400px;
+    display: inline-block;
+    float: left;
+    height: 270px;
+    width: 33.3333333333%;
   }
 
 }
@@ -27,11 +29,16 @@
 .content {
   position: relative;
   height: 100%;
-  width: 300px;
+  max-width: 300px;
   padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
 
   @media(@tablet) {
     padding-bottom: 20px;
+    margin-left: 40px;
+    margin-right: auto;
   }
 }
 
@@ -40,6 +47,10 @@
   text-align: right;
   bottom: 0;
   right: 0;
+
+  @media(@tablet) {
+    bottom: -20px;
+  }
 }
 
 .link {

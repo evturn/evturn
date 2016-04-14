@@ -1,7 +1,7 @@
 export default [
   {
     name: 'Sentence Generator',
-    description: `I built a web application that generates its own original content every few minutes with virtually no involvement from a human being. The specific part of the program that consistently produces new content was a Markov-chain inspired sentence generator. After a year of only existing as a part of a larger app, I published the sentence generator portion as a installable package for other Node developers.`,
+    description: `Extracted from a web application I built that continuously generates automated text content for blog posts. The specific part of the program is an implementation of a Markov-chain. The sentence generator portion is available as a installable package for Node developers.`,
     id: 1,
     slug: 'sentence-generator',
     links: [
@@ -10,13 +10,27 @@ export default [
         icon: 'fa fa-github'
       },{
         url: 'https://www.npmjs.com/package/sentence-generator',
-        icon: 'fa fa-code-fork'
+        icon: 'evcon-npm'
+      }
+    ]
+  },{
+    name: 'Object Iterable',
+    description: `Create a new object containing the same properties of any given source object along with an @@iterator method to make use of the default iteration behavior (such as for-of) that built-in iterables like Array or Map have.`,
+    id: 2,
+    slug: 'object-iterable',
+    links: [
+      {
+        url: 'https://github.com/evturn/object-iterable',
+        icon: 'fa fa-github'
+      },{
+        url: 'https://www.npmjs.com/package/object-iterable',
+        icon: 'evcon-npm'
       }
     ]
   },{
     name: 'Proto',
-    description: `I wrote a very small library which allows JavaScript developers to easily inherit and copy properties from one object to another. This bit of software uses "Prototypes as classes", an idea inspired by author and developer Dr. Axel Rauschmayer, with the approach that JavaScript prototypes served as better classes than constructor functions.`,
-    id: 2,
+    description: `A small utility for inheriting and/or copying properties from one JavaScript object to another using prototypes without constructor functions.`,
+    id: 3,
     slug: 'proto',
     links: [
       {
@@ -24,13 +38,13 @@ export default [
         icon: 'fa fa-github'
       }, {
         url: 'https://www.npmjs.com/package/@evturn/proto',
-        icon: 'fa fa-code-fork'
+        icon: 'evcon-npm'
       }
     ]
   },{
     name: 'Slackbots',
     description: `This package allows for developers to easily create customized instances of new Bots on Slack. This API uses Web Sockets and the native Node Event Emitter to send messages in real time. Once configured all chatroom activity can be used to trigger your bot's behavior.`,
-    id: 3,
+    id: 4,
     slug: 'slackbots',
     links: [
       {
@@ -40,8 +54,8 @@ export default [
     ]
   },{
     name: 'Babel Preset',
-    description: `I published a preset of plugins that I commonly use to compile new and experimental features of the JavaScript specification into code that is backwards compatible for most JavaScript engines.`,
-    id: 4,
+    description: `A preset of Babel plugins used to compile new and proposed features of the JavaScript specification into backwards compatible code for browser engines.`,
+    id: 5,
     slug: 'sentence-generator',
     links: [
       {
@@ -49,7 +63,7 @@ export default [
         icon: 'fa fa-github'
       },{
         url: 'https://www.npmjs.com/package/babel-preset-evturn',
-        icon: 'fa fa-code-fork'
+        icon: 'evcon-npm'
       }
     ]
   }

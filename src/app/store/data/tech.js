@@ -28,6 +28,12 @@ export default [
     icon: 'fa fa-apple',
     color: 'fa fa-apple',
     id: 25,
+    featured: false
+  },{
+    name: 'Swift',
+    icon: 'evcon-swift',
+    color: 'evcon-swift',
+    id: 26,
     featured: true
   },{
     name: 'Gulp',
@@ -46,7 +52,7 @@ export default [
     icon: 'devicon-backbonejs-plain',
     color: 'devicon-backbonejs-plain colored',
     id: 3,
-    featured: true
+    featured: false
   },{
     name: 'Babel',
     icon: 'evcon-babel',
