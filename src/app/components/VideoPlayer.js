@@ -32,18 +32,12 @@ class VideoPlayer extends Component {
 }
 
 VideoPlayer.propTypes = {
-  total: PropTypes.number,
-  playbackRate: PropTypes.number,
-  id: PropTypes.number,
   src: PropTypes.string,
   dispatch: PropTypes.func
 };
 
 export default connect(
   state => ({
-    total:  state.video.total,
-    playbackRate: state.video.playbackRate,
-    id: state.video.id,
     src:  state.video.src
   })
 )(VideoPlayer)

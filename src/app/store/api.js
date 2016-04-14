@@ -52,7 +52,6 @@ export default {
     presentations: web
   },
   video: {
-    total: videos.length - 1,
     playlist: videos
   }
 

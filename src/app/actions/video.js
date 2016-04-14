@@ -1,63 +1,56 @@
 const actions = {
-  videoLoading:   _ => ({ type: 'VIDEO_LOADING' }),
-  videoPlaying:   _ => ({ type: 'VIDEO_PLAYING' }),
-  videoTimeout:   _ => ({ type: 'VIDEO_TIMEOUT' }),
-  videoAborted:   _ => ({ type: 'VIDEO_ABORTED' }),
-  videoUnmounted: _ => ({ type: 'VIDEO_UNMOUNTED' }),
-  videoNext:      _ => ({ type: 'VIDEO_NEXT' }),
-  hideSpinner:    _ => ({ type: 'HIDE_SPINNER' })
+  mountVideoPlayer:   _ => ({ type: 'MOUNT_VIDEO_PLAYER' }),
+  fadeLoadingScreen:  _ => ({ type: 'FADE_LOADING_SCREEN' }),
+  killLoadingScreen:  _ => ({ type: 'KILL_LOADING_SCREEN' }),
+  loadNextVideo:      _ => ({ type: 'LOAD_NEXT_VIDEO' }),
+  unmountVideoPlayer: _ => ({ type: 'UNMOUNT_VIDEO_PLAYER' })
 };
 
 const videoPlayer = {
-  mounted: false,
   timer: null,
   clear() { clearTimeout(this.timer); }
 };
 
-const hideSpinner = () => dispatch => {
+const killLoadingScreen = () => dispatch => {
   videoPlayer.clear();
-  setTimeout(() => dispatch(actions.hideSpinner()), 1000);
-}
-
-const preventVideoLoading = () => dispatch => {
-  dispatch(actions.videoAborted());
-  dispatch(hideSpinner());
+  dispatch(actions.fadeLoadingScreen({ ready: true }));
+  setTimeout(() => dispatch(actions.killLoadingScreen({ done: true })), 1000);
 };
 
-const beginVideoLoading = player => dispatch => {
-  dispatch(actions.videoLoading());
+const setLoadingTimeout = () => dispatch => {
+  videoPlayer.timer = setTimeout(() => dispatch(killLoadingScreen()), 3000)
+}
+
+export const loadNextVideo = () => dispatch => dispatch(actions.loadNextVideo());
+
+export const unmountVideoPlayer = () => dispatch => {
+  videoPlayer.clear();
+  dispatch(actions.unmountVideoPlayer());
+};
+
+export const mountVideoPlayer = player => dispatch => {
+  let initialized = false;
+
+  if (window.innerWidth < 600) {
+    return dispatch(killLoadingScreen());
+  }
+
+  dispatch(actions.mountVideoPlayer());
+  dispatch(setLoadingTimeout());
 
   player.addEventListener('playing',
     () => {
-      if (!videoPlayer.mounted) {
-        videoPlayer.mounted = true;
-        dispatch(hideSpinner());
+      if (!initialized) {
+        dispatch(killLoadingScreen());
+        initialized = true;
       }
 
-      dispatch(actions.videoPlaying());
       player.playbackRate = 0.6;
     }
   );
 
   player.addEventListener('ended',
-    () => dispatch(actions.videoLoading())
+    () => dispatch(actions.loadNextVideo())
   );
 };
 
-export const mountVideoPlayer = player => dispatch => {
-  videoPlayer.timer = setTimeout(() => dispatch(actions.videoTimeout()), 3000)
-
-  if (window.innerWidth < 600) {
-    dispatch(preventVideoLoading());
-  } else {
-    dispatch(beginVideoLoading(player));
-  }
-};
-
-
-export const skipToNextVideo = () => dispatch => dispatch(actions.videoNext());
-
-export const unmountVideoPlayer = () => dispatch => {
-  videoPlayer.clear();
-  dispatch(actions.videoUnmounted());
-};
