@@ -1,13 +1,13 @@
-import path from 'path';
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import WriteFilePlugin from 'write-file-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path'
+import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import WriteFilePlugin from 'write-file-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import {
   PATHS, loaders, alias, plugin,
-  extensions, modulesDirectories } from './base';
+  extensions, modulesDirectories } from './base'
 
-module.exports = {
+export default {
   debug: true,
   cache: true,
   devtool: 'eval-source-map',
@@ -62,4 +62,4 @@ module.exports = {
     }),
     new HtmlWebpackPlugin(plugin.html)
   ]
-};
+}

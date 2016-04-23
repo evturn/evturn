@@ -1,23 +1,15 @@
-require('babel-register')({
-  only: /webpack/
-});
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+import path from 'path'
+import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import WriteFilePlugin from 'write-file-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
+import {
+  PATHS, loaders, alias, plugin,
+  extensions, modulesDirectories } from './base'
 
-const config = require('./base');
-const PATHS = config.PATHS;
-const loaders = config.loaders;
-const alias = config.alias;
-const plugin = config.plugin;
-const extensions = config.extensions;
-const modulesDirectories = config.modulesDirectories;
-
-module.exports = {
+export default webpack({
   name: 'browser',
   devtool: 'source-map',
   context: PATHS.root,
@@ -73,4 +65,14 @@ module.exports = {
       }
     ])
   ]
-};
+}, (err, stats) => {
+  if (err) {
+    const jsonStats = stats.toJson();
+
+    if (jsonStats.errors.length > 0) {
+      console.log(json.errors);
+    }
+  }
+
+  console.log(stats.toString({ colors: true }))
+})
