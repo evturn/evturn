@@ -150,9 +150,32 @@ export default [
     featured: true,
     techIds: [1, 3, 10]
   },{
+    name: 'Gin & Tectonic',
+    description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
+    id: 7,
+    slug: 'gin-tectonic',
+    links: [
+      {
+        name: 'Website',
+        url: 'http://evturn.com/gin-tectonic',
+        icon: 'fa fa-chrome'
+      }, {
+        name: 'Github',
+        url: 'https://github.com/evturn/gin-tectonic',
+        icon: 'fa fa-github-square'
+      }
+    ],
+    thumbnail: 'tectonic-tn.png',
+    images: [
+      'tectonic-1.png',
+      'tectonic-2.png'
+    ],
+    featured: true,
+    techIds: [1, 27, 28]
+  },{
     name: 'Where TO',
     description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
-    id: 7,
+    id: 8,
     slug: 'where-to',
     links: null,
     thumbnail: 'whereto-tn.png',
@@ -165,7 +188,7 @@ export default [
   },{
     name: 'Ramen Buffet',
     description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
-    id: 8,
+    id: 9,
     slug: 'ramen-buffet',
     links: [
       {

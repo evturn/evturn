@@ -160,5 +160,11 @@ export default [
     color: 'devicon-css3-plain-wordmark',
     id: 23,
     featured: true
+  },{
+    name: 'Web Socket',
+    icon: 'evcon-web-socket',
+    color: 'evcon-web-socket',
+    id: 28,
+    featured: false
   }
 ];

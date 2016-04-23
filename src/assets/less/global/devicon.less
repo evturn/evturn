@@ -13,10 +13,14 @@
 }
 
 @font-face {
-  font-family: 'evcon';
-  src: url('../../fonts/evcon.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'evcon';
+    src: url('../../fonts/evcon.eot');
+    src: url('../../fonts/evcon.eot') format('embedded-opentype'),
+         url('../../fonts/evcon.ttf') format('truetype'),
+         url('../../fonts/evcon.woff') format('woff'),
+         url('../../fonts/evcon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 [class^="evcon-"],
@@ -47,32 +51,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.evcon-web-socket:before {
+    content: "\e903";
+}
 .evcon-rxjs:before {
-  content: "\e902";
+    content: "\e902";
 }
-
 .evcon-npm:before {
-  content: "\e900";
+    content: "\e900";
 }
-
 .evcon-swift:before {
-  content: "\e901";
+    content: "\e901";
 }
-
 .evcon-webpack:before {
-  content: "\e600";
+    content: "\e600";
 }
-
 .evcon-babel:before {
-  content: "\e601";
+    content: "\e601";
 }
-
 .evcon-express:before {
-  content: "\e602";
+    content: "\e602";
 }
-
 .evcon-handlebars:before {
-  content: "\e603";
+    content: "\e603";
 }
 
 .devicon-amazonwebservices-original:before,
