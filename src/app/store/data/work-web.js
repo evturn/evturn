@@ -23,7 +23,7 @@ export default [
       'drive-4.png'
     ],
     featured: true,
-    techIds: [1]
+    techIds: [1, 14, 13]
   },{
     name: 'Marshallz Blog',
     description: `Built using React, Redux, and RxJS, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots are assigned their own API keys and destinations for scraping text various documents, such as news articles and washing machine manuals. Fragments of these sentences are collected and run through a process creating a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences is used to search Giphy and retrieve an image which is then included in the post.`,
@@ -52,7 +52,7 @@ export default [
       'marshallz-4.png'
     ],
     featured: true,
-    techIds: [1, 7, 10, 27]
+    techIds: [1, 7, 10, 27, 19, 15, 19]
   },{
     name: 'Nutty Goodness',
     description: 'Nutty Goodness is a producer of healthy snacks made from all-natural fruit & nuts. I developed a brand new website for the company which was led by New York City based product design and development shop Born & Raised.',
@@ -78,7 +78,7 @@ export default [
       'ng-5.png'
     ],
     featured: true,
-    techIds: [14]
+    techIds: [1, 14, 15]
 
   },{
     name: 'Brooklyn Friends School',
@@ -103,32 +103,11 @@ export default [
       'bfs-3.png'
     ],
     featured: true,
-    techIds: [21]
-  },{
-    name: 'Pique',
-    description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
-    id: 5,
-    slug: 'pique',
-    links: [
-      {
-        name: 'Github',
-        url: 'https://github.com/piqueapp/piqueapp.github.io',
-        icon: 'fa fa-github-square'
-      }
-    ],
-    thumbnail: 'pique-tn.png',
-    images: [
-      'pique-1.jpg',
-      'pique-2.png',
-      'pique-3.png',
-      'pique-4.png'
-    ],
-    featured: true,
-    techIds : [16, 17]
+    techIds: [21, 13]
   },{
     name: 'Made In Music',
     description: `This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.`,
-    id: 6,
+    id: 5,
     slug: 'mim',
     links: [
       {
@@ -148,11 +127,11 @@ export default [
       'mim-3.png'
     ],
     featured: true,
-    techIds: [1, 3, 10]
+    techIds: [1, 3, 10, 14, 15]
   },{
     name: 'Gin & Tectonic',
     description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
-    id: 7,
+    id: 6,
     slug: 'gin-tectonic',
     links: [
       {
@@ -171,7 +150,28 @@ export default [
       'tectonic-2.png'
     ],
     featured: true,
-    techIds: [1, 27, 28]
+    techIds: [1, 27, 28, 15, 19]
+  },{
+    name: 'Pique',
+    description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
+    id: 7,
+    slug: 'pique',
+    links: [
+      {
+        name: 'Github',
+        url: 'https://github.com/piqueapp/piqueapp.github.io',
+        icon: 'fa fa-github-square'
+      }
+    ],
+    thumbnail: 'pique-tn.png',
+    images: [
+      'pique-1.jpg',
+      'pique-2.png',
+      'pique-3.png',
+      'pique-4.png'
+    ],
+    featured: true,
+    techIds : [16, 17]
   },{
     name: 'Where TO',
     description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
@@ -184,7 +184,7 @@ export default [
       'whereto-1.png'
     ],
     featured: true,
-    techIds: [1, 10]
+    techIds: [1, 10, 13]
   },{
     name: 'Ramen Buffet',
     description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
@@ -208,6 +208,6 @@ export default [
       'ramen-buffet-3.png'
     ],
     featured: true,
-    techIds: [1, 3, 10, 18]
+    techIds: [1, 3, 10, 18, 15]
   }
 ];

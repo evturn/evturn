@@ -2,169 +2,146 @@ export default [
   {
     name: 'Node',
     icon: 'devicon-nodejs-plain',
-    color: 'devicon-nodejs-plain colored',
     id: 1,
     featured: true
   },{
     name: 'React',
     icon: 'devicon-react-plain-wordmark',
-    color: 'devicon-react-plain-wordmark',
     id: 7,
     featured: true
   },{
     name: 'Less',
     icon: 'devicon-less-plain-wordmark',
-    color: 'devicon-less-plain-wordmark',
     id: 15,
     featured: false
   },{
     name: 'JavaScript',
     icon: 'devicon-javascript-plain',
-    color: 'devicon-javascript-plain',
     id: 24,
     featured: true
   },{
     name: 'iOS',
     icon: 'fa fa-apple',
-    color: 'fa fa-apple',
     id: 25,
     featured: false
   },{
     name: 'Swift',
     icon: 'evcon-swift',
-    color: 'evcon-swift',
     id: 26,
     featured: true
   },{
     name: 'RxJS',
     icon: 'evcon-rxjs',
-    color: 'evcon-rxjs',
     id: 27,
     featured: true
   },{
     name: 'Gulp',
     icon: 'devicon-gulp-plain',
-    color: 'devicon-gulp-plain',
     id: 14,
     featured: true
   },{
     name: 'Webpack',
     icon: 'evcon-webpack',
-    color: 'evcon-webpack',
     featured: true,
     id: 19
   },{
     name: 'Backbone',
     icon: 'devicon-backbonejs-plain',
-    color: 'devicon-backbonejs-plain colored',
     id: 3,
     featured: false
   },{
     name: 'Babel',
     icon: 'evcon-babel',
-    color: 'evcon-babel',
     featured: true,
     id: 20
   },{
     name: 'Handlebars',
     icon: 'evcon-handlebars',
-    color: 'evcon-handlebars',
     featured: false,
     id: 18
   },{
     name: 'MongoDB',
     icon: 'devicon-mongodb-plain',
-    color: 'devicon-mongodb-plain colored',
     id: 10,
     featured: true
   },{
     name: 'git',
     icon: 'devicon-git-plain',
-    color: 'devicon-git-plain colored',
     id: 6,
     featured: true
   },{
     name: 'Digital Ocean',
     icon: 'devicon-ubuntu-plain',
-    color: 'devicon-ubuntu-plain colored',
     id: 8,
     featured: true
   }, {
     name: 'Firebase',
     icon: 'fa fa-database one-half-em',
-    color: 'fa fa-database one-half-em',
     id: 9,
     featured: false
   },{
     name: 'Underscore.js',
     icon: 'fa fa-minus one-half-em',
-    color: 'fa fa-minus one-half-em',
     id: 11,
     featured: false
   }, {
     name: 'Express',
     icon: 'evcon-express',
-    color: 'evcon-express',
     id: 12,
     featured: false
   }, {
     name: 'Sass',
     icon: 'devicon-sass-original',
-    color: 'devicon-sass-original colored',
     id: 13,
     featured: false
   },{
     name: 'Rails',
     icon: 'devicon-rails-plain-wordmark',
-    color: 'devicon-rails-plain-wordmark',
     id: 16,
     featured: false
   }, {
     name: 'PostgreSQL',
     icon: 'devicon-postgresql-plain-wordmark',
-    color: 'devicon-postgresql-plain-wordmark',
     id: 17,
     featured: false
   },{
     name: 'Wordpress',
-    icon: 'fa fa-wordpress',
-    color: 'fa fa-wordpress',
+    icon: 'devicon-wordpress-plain',
     id: 21
   }, {
     name: 'Photoshop',
     icon: 'devicon-photoshop-plain',
-    color: 'devicon-photoshop-plain colored',
     id: 22,
     featured: true
   },{
     name: 'AngularJS',
     icon: 'devicon-angularjs-plain',
-    color: 'devicon-angularjs-plain colored',
     id: 2,
     featured: false
   },{
     name: 'jQuery',
     icon: 'devicon-jquery-plain',
-    color: 'devicon-jquery-plain colored',
     id: 4,
     featured: false
   },{
     name: 'Bootstrap',
     icon: 'devicon-bootstrap-plain',
-    color: 'devicon-bootstrap-plain colored',
     id: 5,
     featured: false
   },{
     name: 'CSS Preprocessors',
     icon: 'devicon-css3-plain-wordmark',
-    color: 'devicon-css3-plain-wordmark',
     id: 23,
     featured: true
   },{
     name: 'Web Socket',
     icon: 'evcon-web-socket',
-    color: 'evcon-web-socket',
     id: 28,
+    featured: false
+  },{
+    name: 'Browserify',
+    icon: 'evcon-browserify',
+    id: 29,
     featured: false
   }
 ];
