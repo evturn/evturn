@@ -26,7 +26,7 @@ export default [
     techIds: [1]
   },{
     name: 'Marshallz Blog',
-    description: `Built using React and Redux, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots are assigned their own API keys and destinations for scraping text various documents, such as news articles and washing machine manuals. Fragments of these sentences are collected and run through a process creating a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences is used to search Giphy and retrieve an image which is then included in the post.`,
+    description: `Built using React, Redux, and RxJS, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots are assigned their own API keys and destinations for scraping text various documents, such as news articles and washing machine manuals. Fragments of these sentences are collected and run through a process creating a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences is used to search Giphy and retrieve an image which is then included in the post.`,
     id: 2,
     slug: 'marshallz',
     links: [
@@ -52,7 +52,7 @@ export default [
       'marshallz-4.png'
     ],
     featured: true,
-    techIds: [1, 7, 10]
+    techIds: [1, 7, 10, 27]
   },{
     name: 'Nutty Goodness',
     description: 'Nutty Goodness is a producer of healthy snacks made from all-natural fruit & nuts. I developed a brand new website for the company which was led by New York City based product design and development shop Born & Raised.',

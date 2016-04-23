@@ -36,6 +36,12 @@ export default [
     id: 26,
     featured: true
   },{
+    name: 'RxJS',
+    icon: 'evcon-rxjs',
+    color: 'evcon-rxjs',
+    id: 27,
+    featured: true
+  },{
     name: 'Gulp',
     icon: 'devicon-gulp-plain',
     color: 'devicon-gulp-plain',
