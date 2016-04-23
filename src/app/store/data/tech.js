@@ -173,4 +173,4 @@ export default [
     slug: 'browserify',
     featured: false
   }
-];
+]

@@ -210,4 +210,4 @@ export default [
     featured: true,
     tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']
   }
-];
+]

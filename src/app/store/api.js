@@ -3,61 +3,56 @@ import iOS from 'db/work-ios';
 import OSS from 'db/work-oss';
 import WEB from 'db/work-web';
 import TECH from 'db/tech';
-import {
-  siteNav, mobileNav, bio,
-  workNav, contactLinks } from 'db/elements';
+import { nav, work, about, contact } from 'db/locals';
 
 const createWebProjectsNav = ({ id, thumbnail }) => ({
   image: require(`work-images/${thumbnail}`),
   id
 });
 
-const createWebProject = ({ tech, images, ...props }) => {
+const filterTechByName = items => {
+  return TECH.filter(x => {
+    let match = false
 
-  return Object.assign({}, props, {
-    tech: TECH.filter(item => {
-      let match = false;
+    items.map(item => {
+      if (item === x.slug) {
+        match = true
+      }
+    })
 
-      tech.map(x => {
-        if (x === item.slug) {
-          match = true;
-        }
-      })
-
-      return match;
-    }),
-    images: images.map(filename => require(`work-images/${filename}`))
-  });
+    return match
+  })
 }
 
-const featuredTech = TECH.filter(x => x.featured);
-const web = WEB.map(createWebProject);
-const carouselNav = WEB.map(createWebProjectsNav);
+const createWebProject = ({ tech, images, ...props }) => {
+  return Object.assign({}, props, {
+    tech: filterTechByName(tech),
+    images: images.map(filename => require(`work-images/${filename}`))
+  })
+}
 
 export default {
-
   site: {
-    nav: siteNav,
-    mobileNav,
+    nav: nav.desktop,
+    mobileNav: nav.mobile,
     contact: {
-      links: contactLinks
+      links: contact.links
     },
     about: {
-      bio,
-      featuredTech
+      bio: about.bio,
+      featuredTech: filterTechByName(about.tech)
     },
     work: {
-      nav: workNav,
+      nav: work.nav,
       iOS,
       OSS
     }
   },
   slideshow: {
-    nav: carouselNav,
-    presentations: web
+    nav: WEB.map(createWebProjectsNav),
+    presentations: WEB.map(createWebProject)
   },
   video: {
     playlist: videos
   }
-
-};
+}
