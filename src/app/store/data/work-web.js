@@ -23,7 +23,7 @@ export default [
       'drive-4.png'
     ],
     featured: true,
-    techIds: [1, 14, 13]
+    tech: ['node', 'gulp', 'sass']
   },{
     name: 'Marshallz Blog',
     description: `Built using React, Redux, and RxJS, this program continuously produces new content in the form of blog posts and tweets authored by bots. These bots are assigned their own API keys and destinations for scraping text various documents, such as news articles and washing machine manuals. Fragments of these sentences are collected and run through a process creating a Markov Chain resulting nonsensical sentences. If the bot is publishing to the blog, content from these sentences is used to search Giphy and retrieve an image which is then included in the post.`,
@@ -52,7 +52,7 @@ export default [
       'marshallz-4.png'
     ],
     featured: true,
-    techIds: [1, 7, 10, 27, 19, 15, 19]
+    tech: ['node', 'react', 'mongodb', 'rxjs', 'webpack', 'less']
   },{
     name: 'Nutty Goodness',
     description: 'Nutty Goodness is a producer of healthy snacks made from all-natural fruit & nuts. I developed a brand new website for the company which was led by New York City based product design and development shop Born & Raised.',
@@ -78,7 +78,7 @@ export default [
       'ng-5.png'
     ],
     featured: true,
-    techIds: [1, 14, 15]
+    tech: ['node', 'gulp', 'less']
 
   },{
     name: 'Brooklyn Friends School',
@@ -103,7 +103,7 @@ export default [
       'bfs-3.png'
     ],
     featured: true,
-    techIds: [21, 13]
+    tech: ['wordpress', 'sass']
   },{
     name: 'Made In Music',
     description: `This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.`,
@@ -127,7 +127,7 @@ export default [
       'mim-3.png'
     ],
     featured: true,
-    techIds: [1, 3, 10, 14, 15]
+    tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
   },{
     name: 'Gin & Tectonic',
     description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
@@ -150,7 +150,7 @@ export default [
       'tectonic-2.png'
     ],
     featured: true,
-    techIds: [1, 27, 28, 15, 19]
+    tech: ['node', 'rxjs', 'web-socket', 'less', 'webpack']
   },{
     name: 'Pique',
     description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
@@ -171,7 +171,7 @@ export default [
       'pique-4.png'
     ],
     featured: true,
-    techIds : [16, 17]
+    tech : ['rails', 'postgresql']
   },{
     name: 'Where TO',
     description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
@@ -184,7 +184,7 @@ export default [
       'whereto-1.png'
     ],
     featured: true,
-    techIds: [1, 10, 13]
+    tech: ['node', 'mongodb', 'sass']
   },{
     name: 'Ramen Buffet',
     description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
@@ -208,6 +208,6 @@ export default [
       'ramen-buffet-3.png'
     ],
     featured: true,
-    techIds: [1, 3, 10, 18, 15]
+    tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']
   }
 ];

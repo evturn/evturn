@@ -7,20 +7,25 @@ import {
   siteNav, mobileNav, bio,
   workNav, contactLinks } from 'db/elements';
 
-const createWebProjectsNav = project => {
-  const { id, thumbnail } = project;
+const createWebProjectsNav = ({ id, thumbnail }) => ({
+  image: require(`work-images/${thumbnail}`),
+  id
+});
 
-  return {
-    image: require(`work-images/${thumbnail}`),
-    id
-  };
-};
-
-const createWebProject = project => {
-  const { techIds, images, ...props } = project;
+const createWebProject = ({ tech, images, ...props }) => {
 
   return Object.assign({}, props, {
-    tech: TECH.filter(techItem => techIds.indexOf(techItem.id) !== -1),
+    tech: TECH.filter(item => {
+      let match = false;
+
+      tech.map(x => {
+        if (x === item.slug) {
+          match = true;
+        }
+      })
+
+      return match;
+    }),
     images: images.map(filename => require(`work-images/${filename}`))
   });
 }
