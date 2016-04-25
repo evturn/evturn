@@ -7,8 +7,7 @@ const actions = {
 }
 
 export const loadPresentation = id => dispatch => {
-  const $id = Observable.from(id)
-    .map(id => !id ? 0 : id - 1)
+  const $id = Observable.from(!id ? [0] : [id - 1])
     .subscribe(x => dispatch(actions.LOAD_PRESENTATION(x)))
 }
 
