@@ -31,6 +31,6 @@ WorkWebNav.propTypes = {
 export default connect(
   state => ({
     nav: state.slideshow.nav,
-    id: state.slideshow.currentPresentation.id
+    id: state.slideshow.project.id
   })
 )(WorkWebNav);

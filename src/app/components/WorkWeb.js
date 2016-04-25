@@ -11,15 +11,15 @@ const cx = classNames.bind(css);
 
 class WorkWeb extends Component {
   render() {
-    const { currentPresentation, nav } = this.props;
+    const { project, nav } = this.props;
 
     return (
       <div>
         <div className={cx('project')}>
           <WorkWebCarousel />
-          <WorkWebDetails {...currentPresentation} />
+          <WorkWebDetails {...project} />
         </div>
-        <WorkWebNav items={nav} id={currentPresentation.id} />
+        <WorkWebNav items={nav} id={project.id} />
       </div>
     );
   }
@@ -27,14 +27,14 @@ class WorkWeb extends Component {
 
 
 WorkWeb.propTypes = {
-  currentPresentation: PropTypes.object,
+  project: PropTypes.object,
   nav: PropTypes.array,
   dispatch: PropTypes.func
 };
 
 export default connect(
   state => ({
-    currentPresentation: state.slideshow.currentPresentation,
+    project: state.slideshow.project,
     nav: state.slideshow.nav
   })
 )(WorkWeb);

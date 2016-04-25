@@ -1,10 +1,10 @@
 export default function slideshow(state = {}, action) {
   switch (action.type) {
-    case 'LOAD_PRESENTATION': {
+    case 'LOAD_SLIDESHOW': {
       const current = state.presentations[action.id];
 
       return Object.assign({}, state, {
-        currentPresentation: current,
+        project: current,
         slides: {
           items: current.images,
           total: current.images.length -1,
@@ -12,7 +12,7 @@ export default function slideshow(state = {}, action) {
         }
       });
     }
-    case 'TRANSITION_NEXT':
+    case 'UPDATE_ACTIVE_SLIDE':
       return Object.assign({}, state, {
         slides: {
           ...state.slides,

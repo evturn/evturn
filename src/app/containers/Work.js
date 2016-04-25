@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { loadPresentation } from 'actions/slideshow';
+import { loadSlideshow } from 'actions/slideshow';
 import classNames from 'classnames/bind';
 import css from 'less/containers/work.less';
 
@@ -11,13 +11,13 @@ class Work extends Component {
   componentWillMount() {
     const { dispatch, params } = this.props;
 
-    dispatch(loadPresentation(params.id));
+    dispatch(loadSlideshow(params.id));
   }
   componentWillReceiveProps(nextProps) {
     const { dispatch, params } = this.props;
 
     if (params.id !== nextProps.params.id) {
-      dispatch(loadPresentation(nextProps.params.id));
+      dispatch(loadSlideshow(nextProps.params.id));
     }
   }
   render() {

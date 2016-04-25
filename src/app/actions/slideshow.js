@@ -1,34 +1,34 @@
 import { Observable } from 'rx'
 
 const actions = {
-  LOAD_PRESENTATION: id      => ({ type: 'LOAD_PRESENTATION', id }),
-  TRANSITION_NEXT:   active  => ({ type: 'TRANSITION_NEXT', active }),
-  UNMOUNT_SLIDESHOW: ()      => ({ type: 'UNMOUNT_SLIDESHOW' }),
+  LOAD_SLIDESHOW:       id  => ({ type: 'LOAD_SLIDESHOW', id }),
+  UPDATE_ACTIVE_SLIDE: idx  => ({ type: 'UPDATE_ACTIVE_SLIDE', active: idx }),
+  UNMOUNT_SLIDESHOW:     _  => ({ type: 'UNMOUNT_SLIDESHOW' })
 }
 
-export const loadPresentation = id => dispatch => {
+let subscription$ = null
+
+export const loadSlideshow = id => dispatch => {
+  if (subscription$ !== null) {
+    subscription$.dispose()
+  }
   const $id = Observable.from(!id ? [0] : [id - 1])
-    .subscribe(x => dispatch(actions.LOAD_PRESENTATION(x)))
+    .subscribe(x => dispatch(actions.LOAD_SLIDESHOW(x)))
 }
 
-const carousel = {
-  interval: null,
-  timeout: null,
-  clear() { clearInterval(this.interval) }
+export const startPresentation = ({ total }) => dispatch => {
+  const interval$ = Observable.interval(4000)
+    .take(total)
+    .repeat()
+
+  subscription$ = interval$.subscribe(x => dispatch(actions.UPDATE_ACTIVE_SLIDE(x)))
 }
 
 export const unmountSlideshow = () => dispatch => {
-  carousel.clear()
+  if (subscription$ !== null) {
+    subscription$.dispose()
+    subscription$ = null
+  }
+
   dispatch(actions.UNMOUNT_SLIDESHOW())
-}
-
-export const startPresentation = slides => dispatch => {
-  const { items, total } = slides
-  let count = 0
-
-  carousel.clear()
-  carousel.interval = setInterval(() => {
-    count = count === total ? 0 : count + 1
-    dispatch(actions.TRANSITION_NEXT(count))
-  }, 4000)
 }
