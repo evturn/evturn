@@ -1,7 +1,7 @@
 const actions = {
-  toggleMenu:       () => ({ type: 'TOGGLE_MENU' }),
-  pageTransition: page => ({ type: 'PAGE_TRANSITION', page })
+  TOGGLE_MENU:           _ => ({ type: 'TOGGLE_MENU' }),
+  PAGE_TRANSITION: payload => ({ type: 'PAGE_TRANSITION', payload })
 };
 
-export const setRouteAsPage = page => dispatch => dispatch(actions.pageTransition(page));
-export const toggleMenu = () => dispatch => dispatch(actions.toggleMenu());
+export const pageTransition = props => dispatch => dispatch(actions.PAGE_TRANSITION(props));
+export const toggleMenu = _ => dispatch => dispatch(actions.TOGGLE_MENU());

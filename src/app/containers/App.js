@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { setRouteAsPage, toggleMenu } from 'actions/site';
+import { pageTransition, toggleMenu } from 'actions/site';
 import SiteFooter from 'components/SiteFooter';
 import SiteHeader from 'components/SiteHeader';
 import classNames from 'classnames/bind';
@@ -14,14 +14,14 @@ class App extends Component {
   componentWillMount() {
     const { dispatch, routes } = this.props;
 
-    dispatch(setRouteAsPage(routes[1].name));
+    dispatch(pageTransition({ page: routes[1].name, }));
   }
   componentWillReceiveProps(nextProps) {
     const { dispatch, routes } = this.props;
     const nextPage = nextProps.routes[1].name;
 
     if (routes[1].name !== nextPage) {
-      dispatch(setRouteAsPage(nextPage));
+      dispatch(pageTransition({ page: nextPage }));
     }
   }
   render() {
@@ -45,6 +45,7 @@ App.propTypes = {
   page: PropTypes.string,
   nav: PropTypes.array,
   open: PropTypes.bool,
+  params: PropTypes.object,
   dispatch: PropTypes.func
 };
 
@@ -53,5 +54,6 @@ export default connect(
     page: state.site.page,
     nav: state.site.nav,
     open: state.site.open,
+    params: state.site.params
   })
 )(App);

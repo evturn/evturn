@@ -16,7 +16,7 @@ export const loadSlideshow = id => dispatch => {
     .subscribe(x => dispatch(actions.LOAD_SLIDESHOW(x)))
 }
 
-export const startPresentation = ({ total }) => dispatch => {
+export const updateActiveSlide = ({ total }) => dispatch => {
   const interval$ = Observable.interval(4000)
     .take(total)
     .repeat()

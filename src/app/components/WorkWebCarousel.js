@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { startPresentation, unmountSlideshow } from 'actions/slideshow';
+import { updateActiveSlide, unmountSlideshow } from 'actions/slideshow';
 import classNames from 'classnames/bind';
 import css from 'less/components/work-web-carousel.less';
 
@@ -10,13 +10,13 @@ class WorkWebCarousel extends Component {
   componentDidMount() {
     const { dispatch, slides } = this.props;
 
-    dispatch(startPresentation(slides))
+    dispatch(updateActiveSlide(slides))
   }
   componentWillReceiveProps(nextProps) {
     const { dispatch, slides } = this.props;
 
     if (slides.items !== nextProps.slides.items) {
-      dispatch(startPresentation(nextProps.slides))
+      dispatch(updateActiveSlide(nextProps.slides))
     }
   }
   componentWillUnmount() {

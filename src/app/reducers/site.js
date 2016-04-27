@@ -1,15 +1,9 @@
-export default function site(state = {
-  page: null,
-  mounted: false
-}, action) {
+export default function site(state = {}, action) {
   switch (action.type) {
-    case 'SITE_MOUNTED':
-      return Object.assign({}, state, {
-        mounted: true
-      });
     case 'PAGE_TRANSITION':
+      console.log(action)
       return Object.assign({}, state, {
-        page: action.page
+        ...action.payload
       });
     case 'TOGGLE_MENU':
       return Object.assign({}, state, {
