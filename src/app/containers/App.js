@@ -1,31 +1,31 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { pageTransition, toggleMenu } from 'actions/site';
-import SiteFooter from 'components/SiteFooter';
-import SiteHeader from 'components/SiteHeader';
-import classNames from 'classnames/bind';
-import css from 'less/components/site-header.less';
-import 'less/global/style.less';
-import 'db/google-analytics';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { pageTransition, toggleMenu } from 'actions/site'
+import SiteFooter from 'components/SiteFooter'
+import SiteHeader from 'components/SiteHeader'
+import classNames from 'classnames/bind'
+import css from 'less/components/site-header.less'
+import 'less/global/style.less'
+import 'db/google-analytics'
 
-const cx = classNames.bind(css);
+const cx = classNames.bind(css)
 
 class App extends Component {
   componentWillMount() {
-    const { dispatch, routes } = this.props;
+    const { dispatch, routes } = this.props
 
-    dispatch(pageTransition({ page: routes[1].name, }));
+    dispatch(pageTransition({ page: routes[1].name, }))
   }
   componentWillReceiveProps(nextProps) {
-    const { dispatch, routes } = this.props;
-    const nextPage = nextProps.routes[1].name;
+    const { dispatch, routes } = this.props
+    const nextPage = nextProps.routes[1].name
 
     if (routes[1].name !== nextPage) {
-      dispatch(pageTransition({ page: nextPage }));
+      dispatch(pageTransition({ page: nextPage }))
     }
   }
   render() {
-    const { dispatch, nav, page, open } = this.props;
+    const { dispatch, nav, page, open } = this.props
 
     return (
       <div className="site">
@@ -37,7 +37,7 @@ class App extends Component {
 
         <SiteFooter page={page} />
       </div>
-    );
+    )
   }
 }
 
@@ -47,7 +47,7 @@ App.propTypes = {
   open: PropTypes.bool,
   params: PropTypes.object,
   dispatch: PropTypes.func
-};
+}
 
 export default connect(
   state => ({
@@ -56,4 +56,4 @@ export default connect(
     open: state.site.open,
     params: state.site.params
   })
-)(App);
+)(App)

@@ -50,7 +50,7 @@ export default {
   },
   slideshow: {
     nav: WEB.map(createWebProjectsNav),
-    presentations: WEB.map(createWebProject)
+    projects: WEB.map(createWebProject)
   },
   video: {
     playlist: videos

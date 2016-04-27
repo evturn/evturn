@@ -1,0 +1,131 @@
+@import '../variables.less';
+
+.root {
+  position: relative;
+  overflow: hidden;
+  .clearfix();
+  width: 100%;
+  height: 200px;
+  border-top: 1px solid fade(@tx-primary, 60);
+  border-bottom: 1px solid fade(@tx-primary, 60);
+
+  @media (min-width: 600px) {
+    height: 300px;
+  }
+
+  @media(@tablet) {
+    margin-top: 0;
+    float: right;
+    width: 60%;
+    height: 350px;
+    border: 1px solid fade(@tx-primary, 60);
+  }
+
+  @media(@desktop) {
+    height: 373px;
+  }
+}
+
+img {
+  .image();
+}
+
+.carousel {
+  .clearfix();
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  transition: all 1s ease;
+  transition-duration: 1s;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@keyframes fadeout {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+.project {
+  .clearfix();
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+
+  @media(@tablet) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.projects {
+  .flex();
+  max-width: 1200px;
+  transition: all 0.3s ease;
+  margin: 10px auto;
+  padding: 0;
+  text-align: center;
+
+  .active {
+    transform: scale(1);
+    .overlay {
+      opacity: 0.3;
+      box-shadow: none;
+    }
+  }
+}
+
+.thumb {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  text-align: center;
+  transition: 0.3s;
+  transform: scale(0.93);
+  width: 20%;
+
+  @media(@tablet) {
+    width: 12.5%
+  }
+
+  &.active {
+    transform: scale(1);
+  }
+
+  &:hover a {
+    @media(@tablet) {
+      .active;
+    }
+  }
+}
+
+.overlay {
+  box-shadow: inset 0px -196px 198px -142px rgba(0, 0, 0, 0.6);
+  transition: all 0.7s ease;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
