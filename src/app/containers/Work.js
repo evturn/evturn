@@ -1,56 +1,42 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { loadSlideshow } from 'actions/slideshow';
-import classNames from 'classnames/bind';
-import css from 'less/containers/work.less';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router'
+import classNames from 'classnames/bind'
+import css from 'less/containers/work.less'
 
-const cx = classNames.bind(css);
+const cx = classNames.bind(css)
 
 class Work extends Component {
-  componentWillMount() {
-    const { dispatch, params } = this.props;
-
-    dispatch(loadSlideshow(params.id));
-  }
-  componentWillReceiveProps(nextProps) {
-    const { dispatch, params } = this.props;
-
-    if (params.id !== nextProps.params.id) {
-      dispatch(loadSlideshow(nextProps.params.id));
-    }
-  }
   render() {
-    const { nav } = this.props;
+    const { nav } = this.props
 
     const workPageNav = (
-      <ul className={cx('categories')}>{nav.map(item =>
-        <li key={item.title} className={cx('item')}>
-          <Link to={item.route} activeClassName={cx('active')}>
-            <span className={item.icon} />
-            <div className={cx('title')}>{item.title}</div>
+      <ul className={cx('categories')}>{nav.map(x =>
+        <li key={x.title} className={cx('item')}>
+          <Link to={x.route} activeClassName={cx('active')}>
+            <span className={x.icon} />
+            <div className={cx('title')}>{x.title}</div>
           </Link>
         </li>
       )}</ul>
-    );
+    )
 
     return (
       <div className={cx('page')}>
         {workPageNav}
         {this.props.children}
       </div>
-    );
+    )
   }
 }
 
 Work.propTypes = {
   nav: PropTypes.array,
-  params: PropTypes.object,
-  dispatch: PropTypes.func
-};
+  params: PropTypes.object
+}
 
 export default connect(
   state => ({
     nav: state.site.work.nav
   })
-)(Work);
+)(Work)

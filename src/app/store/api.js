@@ -6,7 +6,7 @@ import TECH from 'db/tech';
 import { nav, work, about, contact } from 'db/locals';
 
 const createWebProjectsNav = ({ id, thumbnail }) => ({
-  image: require(`work-images/${thumbnail}`),
+  src: require(`work-images/${thumbnail}`),
   id
 });
 
@@ -27,7 +27,12 @@ const filterTechByName = items => {
 const createWebProject = ({ tech, images, ...props }) => {
   return Object.assign({}, props, {
     tech: filterTechByName(tech),
-    images: images.map(filename => require(`work-images/${filename}`))
+    images: images.map((x, i) => {
+      return {
+        src: require(`work-images/${x}`),
+        active: i === 0
+      }
+    })
   })
 }
 

@@ -1,49 +1,47 @@
 import { Observable } from 'rx'
-import store from 'store'
+import { dispatch, getState } from 'store'
 
-const actions = {
-  LOAD_SLIDESHOW:      payload  => ({ type: 'LOAD_SLIDESHOW', payload }),
-  UPDATE_ACTIVE_SLIDE: payload  => ({ type: 'UPDATE_ACTIVE_SLIDE', payload }),
-  UNMOUNT_SLIDESHOW:         _  => ({ type: 'UNMOUNT_SLIDESHOW' })
+const LOAD_SLIDESHOW      = payload  => ({ type: 'LOAD_SLIDESHOW', payload })
+const UPDATE_ACTIVE_SLIDE = payload  => ({ type: 'UPDATE_ACTIVE_SLIDE', payload })
+const UNMOUNT_SLIDESHOW   =       _  => ({ type: 'UNMOUNT_SLIDESHOW' })
+
+const loadProjectToCarousel = x => {
+  dispatch(LOAD_SLIDESHOW({
+    project: x,
+    id: x.id,
+    images: x.images.map((x, i) => {
+      x.active = i === 0
+      return x
+    })
+  }))
+
+  return x
 }
 
-let subscription$ = null
-
-export const loadSlideshow = id => dispatch => {
-  if (subscription$ !== null) {
-    subscription$.dispose()
-  }
-
-  const projects$ = Observable.from(store.getState().slideshow.projects)
-    .filter(x => {
-      const match = !id ? 1 : id
-
-      return x.id === parseInt(match)
+const setIntervalOnCarousel = x => {
+  return Observable.interval(4000)
+    .take(x.images.length)
+    .repeat()
+    .map(interval => {
+      return x.images.map((image, i) => {
+        image.active = interval === i
+        return image
+      })
     })
-    .map(x => {
-      return {
-        project: x,
-        id: x.id,
-        items: x.images,
-        total: x.images.length,
-        active: 0
-      }
-    })
-    .map(x => {
-      dispatch(actions.LOAD_SLIDESHOW(x))
-
-      return x.total
-    })
-    .flatMap(x => Observable.interval(4000).take(x).repeat())
-
-    subscription$ = projects$.subscribe(x => dispatch(actions.UPDATE_ACTIVE_SLIDE({ active: x })))
 }
 
-export const unmountSlideshow = () => dispatch => {
-  if (subscription$ !== null) {
-    subscription$.dispose()
-    subscription$ = null
-  }
+export const createSlideshow = id => {
+  const pid = !isNaN(parseInt(id)) ? parseInt(id) : 1
+  const projects$ = Observable.from(getState().slideshow.projects)
+  const project$ = projects$
+    .filter(x => x.id === pid)
+    .map(loadProjectToCarousel)
+    .flatMap(setIntervalOnCarousel)
 
-  dispatch(actions.UNMOUNT_SLIDESHOW())
+  return project$.subscribe(x => dispatch(UPDATE_ACTIVE_SLIDE({ images: x })))
+}
+
+export const tearDownCarousel = subscription$ => {
+  subscription$.dispose()
+  dispatch(UNMOUNT_SLIDESHOW())
 }
