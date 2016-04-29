@@ -1,22 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { mountVideoPlayer, unmountVideoPlayer } from 'actions/video';
+import { mountPlayer, unmountPlayer } from 'actions/video';
 import 'less/components/video.less';
 
-class VideoPlayer extends Component {
+class Video extends Component {
   componentDidMount() {
-    const { dispatch } = this.props;
-
-    dispatch(mountVideoPlayer(this.player));
+    mountPlayer(this.player)
   }
   componentWillUnmount() {
-    const { dispatch } = this.props;
-
-    dispatch(unmountVideoPlayer());
+    unmountPlayer()
   }
   render() {
-    const { src } = this.props;
-
     return (
       <video
         ref={player => this.player = player}
@@ -25,13 +19,13 @@ class VideoPlayer extends Component {
         preload="auto"
         autoPlay={true}
         muted={true}
-        src={src}
+        src={this.props.src}
       />
     );
   }
 }
 
-VideoPlayer.propTypes = {
+Video.propTypes = {
   src: PropTypes.string,
   dispatch: PropTypes.func
 };
@@ -40,4 +34,4 @@ export default connect(
   state => ({
     src:  state.video.src
   })
-)(VideoPlayer)
+)(Video)

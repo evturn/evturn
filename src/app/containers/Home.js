@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { IndexLink, Link } from 'react-router';
-import { loadNextVideo } from 'actions/video';
 import Spinner from 'components/Spinner';
-import VideoPlayer from 'components/VideoPlayer';
+import Video from 'components/Video';
 import classNames from 'classnames/bind';
 import css from 'less/containers/home.less';
 
@@ -16,9 +15,9 @@ class Home extends Component {
       backgroundImage: `url(${require('site-images/banana-plants.png')})`
     };
     const desktop = (
-      <div className={cx('lg')} onClick={() => dispatch(loadNextVideo())}>
+      <div className={cx('lg')}>
         <Spinner />
-        <VideoPlayer />
+        <Video />
         <div className={cx('title')}>
           <img className="img" src="dist/img/title-white.svg" />
           <div className={cx('subtitle')} />
