@@ -21,7 +21,7 @@ class Video extends Component {
         muted={true}
         src={this.props.src}
       />
-    );
+    )
   }
 }
 
