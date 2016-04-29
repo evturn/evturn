@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { mountPlayer, unmountPlayer } from 'actions/video';
-import 'less/components/video.less';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { mountPlayer, unmountPlayer } from 'actions/video'
+import 'less/components/video.less'
 
 class Video extends Component {
   componentDidMount() {
@@ -26,12 +26,9 @@ class Video extends Component {
 }
 
 Video.propTypes = {
-  src: PropTypes.string,
-  dispatch: PropTypes.func
-};
+  src: PropTypes.string
+}
 
 export default connect(
-  state => ({
-    src:  state.video.src
-  })
+  state => ({ src:  state.video.src })
 )(Video)
