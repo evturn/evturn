@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import classNames from 'classnames/bind';
-import css from 'less/containers/contact.less';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import classNames from 'classnames/bind'
+import css from 'less/containers/contact.less'
 
-const cx = classNames.bind(css);
+const cx = classNames.bind(css)
 
 class Contact extends Component {
   render() {
@@ -17,16 +17,14 @@ class Contact extends Component {
           </li>
         )}</ul>
       </div>
-    );
+    )
   }
 }
 
 Contact.propTypes = {
   links: PropTypes.array
-};
+}
 
 export default connect(
-  state => ({
-    links: state.site.contact.links
-  })
-)(Contact);
+  state => ({ links: state.site.contact.links })
+)(Contact)

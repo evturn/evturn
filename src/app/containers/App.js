@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { pageTransition, toggleMenu } from 'actions/site'
-import SiteFooter from 'components/SiteFooter'
-import SiteHeader from 'components/SiteHeader'
+import Footer from 'components/Footer'
+import Header from 'components/Header'
 import classNames from 'classnames/bind'
 import css from 'less/components/site-header.less'
 import 'less/global/style.less'
@@ -12,30 +12,27 @@ const cx = classNames.bind(css)
 
 class App extends Component {
   componentWillMount() {
-    const { dispatch, routes } = this.props
+    const { routes } = this.props
 
-    dispatch(pageTransition({ page: routes[1].name, }))
+    pageTransition({ page: routes[1].name })
   }
   componentWillReceiveProps(nextProps) {
-    const { dispatch, routes } = this.props
+    const { routes } = this.props
     const nextPage = nextProps.routes[1].name
 
     if (routes[1].name !== nextPage) {
-      dispatch(pageTransition({ page: nextPage }))
+      pageTransition({ page: nextPage })
     }
   }
   render() {
-    const { dispatch, nav, page, open } = this.props
+    const { nav, page, open } = this.props
 
     return (
       <div className="site">
-        <div className={cx({'overlay': open})} onClick={() => dispatch(toggleMenu())} />
-
-        <SiteHeader open={open} page={page} nav={nav} />
-
+        <div className={cx({'overlay': open})} onClick={toggleMenu} />
+        <Header open={open} page={page} nav={nav} />
         {this.props.children}
-
-        <SiteFooter page={page} />
+        <Footer page={page} />
       </div>
     )
   }
@@ -45,8 +42,7 @@ App.propTypes = {
   page: PropTypes.string,
   nav: PropTypes.array,
   open: PropTypes.bool,
-  params: PropTypes.object,
-  dispatch: PropTypes.func
+  params: PropTypes.object
 }
 
 export default connect(

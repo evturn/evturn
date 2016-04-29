@@ -36,7 +36,5 @@ Work.propTypes = {
 }
 
 export default connect(
-  state => ({
-    nav: state.site.work.nav
-  })
+  state => ({ nav: state.site.work.nav })
 )(Work)

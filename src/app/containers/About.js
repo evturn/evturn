@@ -1,13 +1,13 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import classNames from 'classnames/bind';
-import css from 'less/containers/about.less';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import classNames from 'classnames/bind'
+import css from 'less/containers/about.less'
 
-const cx = classNames.bind(css);
+const cx = classNames.bind(css)
 
 class About extends Component {
   render() {
-    const { bio, featuredTech } = this.props;
+    const { bio, featuredTech } = this.props
 
     return (
       <div className={cx('root')}>
@@ -30,18 +30,18 @@ class About extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
 About.propTypes = {
   bio: PropTypes.string,
   featuredTech: PropTypes.array
-};
+}
 
 export default connect(
   state => ({
     featuredTech: state.site.about.featuredTech,
     bio: state.site.about.bio
   })
-)(About);
+)(About)

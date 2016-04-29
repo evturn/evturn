@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import classNames from 'classnames/bind';
-import css from 'less/components/work-web.less';
+import React, { Component } from 'react'
+import classNames from 'classnames/bind'
+import css from 'less/components/work-web.less'
 
-const cx = classNames.bind(css);
+const cx = classNames.bind(css)
 
 export default class WorkWebDetails extends Component {
   render() {
