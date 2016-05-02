@@ -5,6 +5,8 @@ import WriteFilePlugin from 'write-file-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
+import precss from 'precss'
+import autoprefixer from 'autoprefixer'
 import {
   PATHS, loaders, alias, plugin,
   extensions, modulesDirectories } from './base'
@@ -37,13 +39,14 @@ export default webpack({
         test: /\.less$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader?module&localIdentName=[local]__[hash:base64:5]' +
+          'css-loader?module&localIdentName=[local]__[hash:base64:5]&importLoaders=1!postcss-loader' +
           '!less?includePaths[]=' + encodeURIComponent(PATHS.less)),
         exclude: /global/
       }
     ])
   },
   resolve: { extensions, modulesDirectories, alias },
+  postcss: _ => [precss, autoprefixer],
   plugins: [
     new CleanWebpackPlugin(['dist'], { root: path.join(__dirname, '..', '..') }),
     new webpack.optimize.OccurenceOrderPlugin(),
