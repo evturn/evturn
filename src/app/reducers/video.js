@@ -10,7 +10,6 @@ export default function video(state = {
         ...action.payload
       })
     case 'MOUNT_VIDEO_PLAYER':
-      console.log(action.payload)
       return Object.assign({}, state, {
         ...action.payload
       })
