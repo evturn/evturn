@@ -9,7 +9,7 @@ const PATHS = {
   static: {
     js: 'js/[name].js',
     css: 'css/app.css',
-    img: 'img/[hash].[ext]'
+    img: 'img/[name].[ext]'
   },
   root: path.join(__dirname, '..', '..')
 };
@@ -34,7 +34,7 @@ const loaders = [
     loader: 'url-loader?limit=100000'
   },{
     test: /\.less$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader'),
     include: /global/
   }
 ];
