@@ -1,14 +1,14 @@
-import videos from 'db/videos';
-import iOS from 'db/work-ios';
-import OSS from 'db/work-oss';
-import WEB from 'db/work-web';
-import TECH from 'db/tech';
-import { nav, work, about, contact } from 'db/locals';
+import videos from 'db/videos'
+import iOS from 'db/work-ios'
+import OSS from 'db/work-oss'
+import WEB from 'db/work-web'
+import TECH from 'db/tech'
+import { nav, work, about, contact } from 'db/locals'
 
 const createWebProjectsNav = ({ id, thumbnail }) => ({
   src: require(`work-images/${thumbnail}`),
   id
-});
+})
 
 const filterTechByName = items => {
   return TECH.filter(x => {

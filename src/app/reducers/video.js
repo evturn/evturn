@@ -1,36 +1,37 @@
 export default function video(state = {
+  initialized: false,
   ready: false,
-  done: false
+  done: false,
+  id: 0,
 }, action) {
   switch (action.type) {
-    case 'MOUNT_VIDEO_PLAYER':
+    case 'INITIALIZE_PLAYER':
       return Object.assign({}, state, {
-        total: state.playlist.length - 1,
-        id: 0,
-        src: state.playlist[0]
-      });
+        ...action.payload
+      })
+    case 'MOUNT_VIDEO_PLAYER':
+      console.log(action.payload)
+      return Object.assign({}, state, {
+        ...action.payload
+      })
     case 'FADE_LOADING_SCREEN':
       return Object.assign({}, state, {
-        ready: true
-      });
+        ...action.payload
+      })
     case 'KILL_LOADING_SCREEN':
       return Object.assign({}, state, {
-        done: true
-      });
+        ...action.payload
+      })
     case 'LOAD_NEXT_VIDEO': {
-      const id = state.id === state.total ? 0 : state.id + 1;
-
       return Object.assign({}, state, {
-        id,
-        src: state.playlist[id]
-      });
+        ...action.payload
+      })
     }
     case 'UNMOUNT_VIDEO_PLAYER':
       return Object.assign({}, state, {
-        id: 0,
-        src: null
-      });
+        ...action.payload
+      })
     default:
-      return state;
+      return state
   }
 }

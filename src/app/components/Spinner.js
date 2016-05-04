@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import classNames from 'classnames/bind';
-import css from 'less/components/spinner.less';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import classNames from 'classnames/bind'
+import css from 'less/components/spinner.less'
 
-const cx = classNames.bind(css);
+const cx = classNames.bind(css)
 
 class Spinner extends Component {
   render() {
@@ -27,11 +27,11 @@ class Spinner extends Component {
 Spinner.propTypes = {
   ready: PropTypes.bool,
   done: PropTypes.bool
-};
+}
 
 export default connect(
   state => ({
     ready: state.video.ready,
     done: state.video.done
   })
-)(Spinner);
+)(Spinner)

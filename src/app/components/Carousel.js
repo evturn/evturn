@@ -6,7 +6,7 @@ import { createSlideshow, tearDownCarousel } from 'actions/slideshow'
 import classNames from 'classnames/bind'
 import css from 'less/components/carousel.less'
 
-const cx = classNames.bind(css);
+const cx = classNames.bind(css)
 
 class Carousel extends Component {
   subscription$;
