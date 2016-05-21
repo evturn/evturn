@@ -33,7 +33,7 @@ const mapStateToProps = ({ video }) => ({
   src:  video.src
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   mountPlayer: player => dispatch(mountPlayer(player)),
   unmountPlayer: _ => dispatch(unmountPlayer())
 })

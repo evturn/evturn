@@ -1,4 +1,4 @@
-import { LOAD_SLIDESHOW, UPDATE_ACTIVE_SLIDE, UNMOUNT_SLIDESHOW } from 'actions/slideshow'
+import { LOAD_SLIDESHOW, UPDATE_ACTIVE_SLIDE, TEAR_DOWN_CAROUSEL } from 'actions/slideshow'
 
 export default function slideshow(state = {}, action) {
   switch (action.type) {
@@ -15,7 +15,7 @@ export default function slideshow(state = {}, action) {
         ...action.payload
       })
 
-    case UNMOUNT_SLIDESHOW:
+    case TEAR_DOWN_CAROUSEL:
       return Object.assign({}, state, {
         active: 0
       })

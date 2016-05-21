@@ -87,7 +87,7 @@ const mapStateToProps = ({ slideshow }) => ({
   nav: slideshow.nav
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   createSlideshow: id => dispatch(createSlideshow(id)),
   tearDownCarousel: _ => dispatch(tearDownCarousel())
 })

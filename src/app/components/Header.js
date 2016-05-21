@@ -59,7 +59,7 @@ const mapStateToProps = ({ site }) => ({
   open: site.open
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   toggleMenu: _ => dispatch(toggleMenu())
 })
 

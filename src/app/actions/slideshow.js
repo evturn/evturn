@@ -2,10 +2,18 @@ import * as Rx from 'rxjs'
 
 export const LOAD_SLIDESHOW = 'LOAD_SLIDESHOW'
 export const UPDATE_ACTIVE_SLIDE = 'UPDATE_ACTIVE_SLIDE'
-export const UNMOUNT_SLIDESHOW = 'UNMOUNT_SLIDESHOW'
+export const TEAR_DOWN_CAROUSEL = 'TEAR_DOWN_CAROUSEL'
+
+export const tearDownCarousel = _ => (
+  (actions, store) => Rx.Observable.of({ type: TEAR_DOWN_CAROUSEL })
+)
 
 export const createSlideshow = id => (
   (actions, store) => {
+    store.dispatch(
+      actions => Rx.Observable.of({ type: TEAR_DOWN_CAROUSEL })
+    )
+
     const selection$ = Rx.Observable.of(id)
       .map(x => !isNaN(parseInt(x)) ? parseInt(x) : 1)
       .flatMap(id => (
@@ -37,13 +45,7 @@ export const createSlideshow = id => (
           ))
       ))
       .map(x => ({ type: UPDATE_ACTIVE_SLIDE, payload: { images: x } }))
+      .takeUntil(actions.ofType(TEAR_DOWN_CAROUSEL))
 
     return Rx.Observable.merge(slideshow$, interval$)
 })
-
-export const tearDownCarousel = subscription$ => (
-  (actions, store) => {
-    subscription$.unsubscribe()
-    return Rx.Observable.of({ type: UNMOUNT_SLIDESHOW })
-  }
-)

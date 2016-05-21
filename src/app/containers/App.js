@@ -52,7 +52,7 @@ const mapStateToProps = ({ site }) => ({
   params: site.params
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   pageTransition: page => dispatch(pageTransition(page)),
   toggleMenu: _ => dispatch(toggleMenu())
 })
