@@ -81,9 +81,36 @@ export default [
     tech: ['node', 'gulp', 'less']
 
   },{
+    name: 'Golfweek',
+    description: 'A complete rebuild of Golfweek.com which included a customized CMS. Designed and built by New York City based product design and development shops Born & Raised and Gigareef.',
+    id: 4,
+    slug: 'golfweek',
+    links: [
+      {
+        name: 'Website',
+        url: 'http://golfweek.com',
+        icon: 'fa fa-chrome'
+      },{
+        name: 'B&R',
+        url: 'http://wearebnr.com',
+        icon: 'fa fa-circle-o'
+      },{
+        name: 'Gigareef',
+        url: 'http://gigareef.com',
+        icon: 'fa fa-circle-o'
+      }
+    ],
+    thumbnail: 'gw-tn.png',
+    images: [
+      'gw-1.png',
+      'gw-2.png'
+    ],
+    featured: true,
+    tech: ['wordpress', 'gulp', 'less']
+  },{
     name: 'Brooklyn Friends School',
     description: `I collaborated in the development of the frontend builds that SM&KK Studios had designed for a complete refresh of the Brooklyn Friends School brand.`,
-    id: 4,
+    id: 5,
     slug: 'bfs',
     links: [
       {
@@ -107,7 +134,7 @@ export default [
   },{
     name: 'Made In Music',
     description: `This website uses the Keystone.js CMS through Node and Express along with MongoDB. This app is currently running ECMAScript 2015 via transpilation by Babel.`,
-    id: 5,
+    id: 6,
     slug: 'mim',
     links: [
       {
@@ -129,9 +156,9 @@ export default [
     featured: true,
     tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
   },{
-    name: 'Gin & Tectonic',
+    name: 'Tectonic',
     description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
-    id: 6,
+    id: 7,
     slug: 'gin-tectonic',
     links: [
       {
@@ -154,7 +181,7 @@ export default [
   },{
     name: 'Pique',
     description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
-    id: 7,
+    id: 8,
     slug: 'pique',
     links: [
       {
@@ -175,7 +202,7 @@ export default [
   },{
     name: 'Where TO',
     description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
-    id: 8,
+    id: 9,
     slug: 'where-to',
     links: null,
     thumbnail: 'whereto-tn.png',
@@ -188,7 +215,7 @@ export default [
   },{
     name: 'Ramen Buffet',
     description: `Ramen Buffet manages multiple lists of tasks or todos. Within these lists, tasks can be sorted by importance, priority, or status.`,
-    id: 9,
+    id: 10,
     slug: 'ramen-buffet',
     links: [
       {

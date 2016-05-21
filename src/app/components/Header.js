@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { IndexLink, Link } from 'react-router'
+import { Link } from 'react-router'
 import { toggleMenu } from 'actions/site'
 import classNames from 'classnames/bind'
 import css from 'less/components/site-header.less'
