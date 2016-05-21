@@ -52,7 +52,7 @@ export default [
       'marshallz-4.png'
     ],
     featured: true,
-    tech: ['node', 'react', 'mongodb', 'rxjs', 'webpack', 'less']
+    tech: ['node', 'react', 'redux', 'mongodb', 'rxjs', 'webpack', 'less']
   },{
     name: 'Nutty Goodness',
     description: 'Nutty Goodness is a producer of healthy snacks made from all-natural fruit & nuts. I developed a brand new website for the company which was led by New York City based product design and development shop Born & Raised.',
@@ -123,7 +123,7 @@ export default [
         icon: 'fa fa-circle-o'
       }
     ],
-    thumbnail: 'bfs-tn.jpg',
+    thumbnail: 'bfs-tn.png',
     images: [
       'bfs-1.png',
       'bfs-2.png',
@@ -192,7 +192,7 @@ export default [
     ],
     thumbnail: 'pique-tn.png',
     images: [
-      'pique-1.jpg',
+      'pique-1.png',
       'pique-2.png',
       'pique-3.png',
       'pique-4.png'
