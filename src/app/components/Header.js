@@ -14,27 +14,25 @@ class Header extends Component {
     return (
       <header>
         {page !== 'home' ? (
-          <div className={cx('navbar')}>
-            <Link to="/">
-              <img className={cx('image')} src="dist/img/title-white.svg" />
-            </Link>
+          <div className={cx('nav')}>
+            <Link to='/'><img src="dist/img/title-white.svg" /></Link>
           </div>
         ) : null}
 
-        <div className={cx('navbar-burger', page)} onClick={toggleMenu}>
+        <div className={cx('burger', { home: page === 'home' })} onClick={toggleMenu}>
           <span className={'fa fa-bars'} />
         </div>
 
         <nav className={cx('menu', {'in': open, 'out': !open})}>
-          <div className={cx('menu-header')}>
+          <div className={cx('header')}>
             <div className={cx('close')} onClick={toggleMenu}>
               <img className="img" src={require('site-images/close-light.png')} />
             </div>
           </div>
 
-          <ul className={cx('menu-links')}>{nav.map(item =>
-            <li key={item.id} className={cx('item')} onClick={toggleMenu}>
-              <Link to={item.route}>{item.name}</Link>
+          <ul className={cx('links')}>{nav.map((x, i) =>
+            <li key={i} className={cx('item')} onClick={toggleMenu}>
+              <Link to={x.route}>{x.name}</Link>
             </li>
           )}</ul>
 

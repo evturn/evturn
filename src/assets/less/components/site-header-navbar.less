@@ -1,4 +1,4 @@
-.navbar {
+.nav {
   background-color: @bg-secondary;
   padding-left: 10px;
   height: 60px;
@@ -11,9 +11,23 @@
   right: 0;
   left: 0;
   position: absolute;
+
+  img {
+    .img();
+    width: 730px;
+    position: absolute;
+    top: -110px;
+    left: -390px;
+
+    @media(@tablet) {
+      width: 750px;
+      top: -120px;
+      left: -60px;
+    }
+  }
 }
 
-.navbar-burger {
+.burger {
   .clearfix();
   position: absolute;
   top: 0;
@@ -27,25 +41,13 @@
   font-size: 40px;
   text-align: center;
   opacity: 1;
+  color: @tx-light;
 
   &.home {
     display: none;
-    color: @tx-dark;
+
     @media(@tablet) {
       display: block;
-      color: @tx-light;
     }
-  }
-
-  &.contact {
-    color: @tx-light;
-  }
-
-  &.work {
-    color: @tx-light;
-  }
-
-  &.about {
-    color: @tx-light;
   }
 }
