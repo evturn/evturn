@@ -15,7 +15,9 @@ class Header extends Component {
       <header>
         {page !== 'home' ? (
           <div className={cx('navbar')}>
-            <img className={cx('image')} src="dist/img/title-white.svg" />
+            <Link to="/">
+              <img className={cx('image')} src="dist/img/title-white.svg" />
+            </Link>
           </div>
         ) : null}
 
@@ -32,11 +34,7 @@ class Header extends Component {
 
           <ul className={cx('menu-links')}>{nav.map(item =>
             <li key={item.id} className={cx('item')} onClick={toggleMenu}>
-              {item.id === 1 ? (
-                <IndexLink to={item.route}>{item.name}</IndexLink>
-              ) : (
-                <Link to={item.route}>{item.name}</Link>
-              )}
+              <Link to={item.route}>{item.name}</Link>
             </li>
           )}</ul>
 
