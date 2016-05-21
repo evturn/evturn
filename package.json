@@ -4,7 +4,7 @@
   "description": "A website about me for you.",
   "main": "",
   "scripts": {
-    "start": "NODE_ENV=development babel-node src/webpack/server.js",
+    "start": "NODE_ENV=development babel-node src/webpack",
     "build": "NODE_ENV=production babel-node src/webpack",
     "static": "open index.html"
   },
@@ -51,6 +51,7 @@
     "clean-webpack-plugin": "^0.1.8",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
+    "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.15.0",

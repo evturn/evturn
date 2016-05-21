@@ -16,10 +16,7 @@ const thunkmasterFlex = ({ dispatch, getState }) => {
 let middleware = applyMiddleware(thunkmasterFlex)
 
 if (__DEV__) {
-  middleware = compose(
-    applyMiddleware(thunkmasterFlex, logger()),
-    window.devToolsExtension()
-  )
+  middleware = compose(applyMiddleware(thunkmasterFlex, logger()))
 }
 
 const store = createStore(rootReducer, initialState, middleware)

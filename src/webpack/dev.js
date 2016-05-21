@@ -1,10 +1,9 @@
-import path from 'path'
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import WriteFilePlugin from 'write-file-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import {
-  PATHS, loaders, alias, plugin,
+  PATHS, devLoaders, alias, plugin,
   extensions, modulesDirectories } from './base'
 
 export default {
@@ -13,20 +12,20 @@ export default {
   devtool: 'eval-source-map',
   name: 'browser',
   context: PATHS.root,
+  contentBase: PATHS.root,
   entry: {
     app: [
-      './src/app',
+      '../app',
       'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
     ]
   },
   output: {
-    path: PATHS.dest,
+    path: PATHS.output,
     filename: PATHS.static.js,
     publicPath: PATHS.publicPath
   },
-  contentBase: PATHS.root,
   devServer: {
-    outputPath: PATHS.dest,
+    outputPath: PATHS.output,
     historyApiFallback: true,
     headers: { 'Access-Control-Allow-Origin': '*', },
     hot: true,
@@ -36,30 +35,17 @@ export default {
     port: 3000,
     host: 'localhost'
   },
-  module: {
-    loaders: loaders.concat([
-      {
-        test: /\.(gif|png|jpe?g|svg|eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader'
-      },{
-        test: /\.less$/,
-        loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
-          '&sourceMap!less?sourceMap&outputStyle=expanded' +
-          '&includePaths[]=' + encodeURIComponent(PATHS.less),
-        exclude: /global/
-      }
-    ])
-  },
+  module: { loaders: devLoaders },
   resolve: { extensions, modulesDirectories, alias },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new WriteFilePlugin(),
+    new WriteFilePlugin({ log: false }),
     new ExtractTextPlugin(PATHS.static.css),
+    new HtmlWebpackPlugin(plugin.html),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"development"',
       __DEV__: true
-    }),
-    new HtmlWebpackPlugin(plugin.html)
+    })
   ]
 }
