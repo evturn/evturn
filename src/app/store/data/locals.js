@@ -66,11 +66,11 @@ export const about = {
     'rxjs',
     'gulp',
     'webpack',
-    'babel',
+    'redux',
     'mongodb',
     'git',
     'ubuntu',
     'photoshop',
-    'css'
+    'less'
   ]
 }

@@ -27,7 +27,7 @@ export const devLoaders = [
     test: /\.(gif|png|jpe?g|svg|eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     loader: 'url-loader'
   },{
-    test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    test: /\.(eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     loader: 'file-loader'
   },{
     test: /\.woff2(\?\S*)?$/,
@@ -58,7 +58,7 @@ export const prodLoaders = [
     test: /\.(eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     loader: 'url-loader'
   },{
-    test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    test: /\.(eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     loader: 'file-loader'
   },{
     test: /\.woff2(\?\S*)?$/,

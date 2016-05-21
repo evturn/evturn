@@ -13,7 +13,6 @@ import {
 
 export default webpack({
   name: 'browser',
-  devtool: 'source-map',
   target: 'web',
   context: PATHS.root,
   entry: {

@@ -7,7 +7,7 @@ import rootReducer from 'reducers'
 let middleware = applyMiddleware(reduxObservable())
 
 if (__DEV__) {
-  middleware = compose(applyMiddleware(reduxObservable(), logger()), window.devToolsExtension())
+  middleware = compose(applyMiddleware(reduxObservable(), logger()))
 }
 
 const store = createStore(
