@@ -13,11 +13,11 @@ class Home extends Component {
     const { mobileNav } = this.props
     const mobile = (
       <div className={cx('sm')}>
+        <img className={cx('av')} src={require('site-images/ev-av.png')} />
         <div className={cx('title')}>
           <img className="img" src="dist/img/title-white.svg" />
           <div className={cx('subtitle')} />
         </div>
-        <img className={cx('av')} src={require('site-images/ev-av.png')} />
         <ul className={cx('top')}>{mobileNav.map(x =>
           <li key={x.name} className={cx('item')}>
             <Link to={x.route}>{x.name}</Link>

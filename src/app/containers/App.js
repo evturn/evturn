@@ -6,7 +6,7 @@ import Header from 'components/Header'
 import classNames from 'classnames/bind'
 import css from 'less/components/site-header.less'
 import 'less/global/style.less'
-import 'db/google-analytics'
+import 'data/google-analytics'
 
 const cx = classNames.bind(css)
 

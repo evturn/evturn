@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind'
-import css from 'less/components/site-footer.less'
+import css from 'less/components/footer.less'
 
 const cx = classNames.bind(css)
 

@@ -93,7 +93,7 @@ export const alias = {
   components:    path.join(__dirname, '..', 'app',    'components/'),
   reducers:      path.join(__dirname, '..', 'app',    'reducers/'),
   store:         path.join(__dirname, '..', 'app',    'store/'),
-  db:            path.join(__dirname, '..', 'app',    'store', 'data/'),
+  data:          path.join(__dirname, '..', 'app',    'store', 'data/'),
   routes:        path.join(__dirname, '..', 'app',    'routes'),
   images:        path.join(__dirname, '..', 'assets', 'img/'),
   css:           path.join(__dirname, '..', 'assets', 'css/'),

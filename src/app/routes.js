@@ -7,13 +7,11 @@ import Carousel from'components/Carousel'
 import WorkIOS from'components/WorkIOS'
 import WorkOSS from'components/WorkOSS'
 import About from 'containers/About'
-import Contact from 'containers/Contact'
 
 export default (
   <Route component={App} path='/'>
     <IndexRoute component={Home} name='home' />
     <Route component={About} path='about' name='about' />
-    <Route component={Contact} path='contact' name='contact' />
     <Route component={Work} path='work' name='work'>
       <IndexRoute component={Carousel} />
       <Route component={Carousel} path='web'>

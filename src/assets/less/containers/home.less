@@ -32,20 +32,33 @@
 
 .sm {
   display: block;
+  margin-top: 32%;
+
   @media(@tablet) {
     display: none;
+  }
+
+  .top {
+    text-align: center;
+  }
+
+  .item {
+    display: inline-block;
+    width: 30%;
+    border: none;
   }
 }
 
 .top {
   position: relative;
   z-index: 100;
+  text-align: center;
 }
 
 .sm .title {
   .top();
   font-size: 25px;
-  margin: 35px auto 10px auto;
+  margin: 0 auto 10px auto;
   text-transform: uppercase;
   text-align: center;
   color: @tx-light;
@@ -97,23 +110,25 @@
   padding: 30px;
   margin: 0 auto;
   top: 20px;
-  background-color: @bg-light;
+  background-color: fade(@bg-light, 50);
   border-radius: 50%;
   overflow: hidden;
+
   @media(@tablet) {
     display: none;
   }
 }
 
 .overlay {
-  background-color: @bg-dark;
-  opacity: .8;
-  height: 100%;
   position: absolute;
+  background-color: @bg-dark;
+  opacity: .95;
+  height: 100%;
   top: 0;
   right: 0;
   left: 0;
   z-index: 50;
+
   @media(@tablet) {
     display: none;
   }
@@ -123,19 +138,15 @@
   display: block;
   width: 100%;
   text-transform: uppercase;
+  font-family: @font-helv-neue;
   text-align: center;
   overflow: auto;
-  font-weight: bold;
   line-height: 19px;
   font-size: 19px;
   padding-top: 21px;
   padding-bottom: 21px;
   border-bottom: 1px solid fade(@tx-light, 70);
 
-  &:first-child {
-    margin-top: 50px;
-    border-top: 1px solid fade(@tx-light, 70);
-  }
   a {
     color: @tx-light;
   }
