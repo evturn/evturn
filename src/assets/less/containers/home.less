@@ -25,6 +25,7 @@
 
 .lg {
   display: none;
+
   @media(@tablet) {
     display: block;
   }
@@ -32,7 +33,7 @@
 
 .sm {
   display: block;
-  margin-top: 32%;
+  margin-top: 22%;
 
   @media(@tablet) {
     display: none;
@@ -63,6 +64,10 @@
   text-align: center;
   color: @tx-light;
   width: 250px;
+
+  img {
+    .img();
+  }
 }
 
 .lg .title {

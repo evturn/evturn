@@ -21,12 +21,12 @@ class About extends Component {
           <div className={cx('details')}>
             <div className={cx('bio')}>
               <div className={cx('title')}>Development</div>
-              <div className={cx('paragraph')}>{bio}</div>
+              <div className={cx('text')}>{bio}</div>
             </div>
             <div className={cx('tech')}>
-              <ul className={cx('list')}>{featuredTech.map(item =>
-                <li key={item.icon} className={cx('item')}>
-                  <span className={cx('icon', item.icon)} />
+              <ul className={cx('list')}>{featuredTech.map((x, i) =>
+                <li key={i} className={cx('item')}>
+                  <span className={cx('icon', x.icon)} />
                 </li>
               )}</ul>
             </div>

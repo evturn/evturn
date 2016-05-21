@@ -11,15 +11,16 @@ const cx = classNames.bind(css)
 class Home extends Component {
   render() {
     const { mobileNav } = this.props
+
     const mobile = (
       <div className={cx('sm')}>
         <img className={cx('av')} src={require('site-images/ev-av.png')} />
         <div className={cx('title')}>
-          <img className="img" src="dist/img/title-white.svg" />
+          <img src="dist/img/title-white.svg" />
           <div className={cx('subtitle')} />
         </div>
-        <ul className={cx('top')}>{mobileNav.map(x =>
-          <li key={x.name} className={cx('item')}>
+        <ul className={cx('top')}>{mobileNav.map((x, i) =>
+          <li key={i} className={cx('item')}>
             <Link to={x.route}>{x.name}</Link>
           </li>
         )}</ul>
@@ -32,7 +33,7 @@ class Home extends Component {
         <Spinner />
         <Video />
         <div className={cx('title')}>
-          <img className="img" src="dist/img/title-white.svg" />
+          <img src="dist/img/title-white.svg" />
           <div className={cx('subtitle')} />
         </div>
       </div>
