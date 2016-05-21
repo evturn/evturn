@@ -12,12 +12,12 @@ const cx = classNames.bind(css)
 
 class App extends Component {
   componentWillMount() {
-    const { routes } = this.props
+    const { routes, pageTransition } = this.props
 
     pageTransition({ page: routes[1].name })
   }
   componentWillReceiveProps(nextProps) {
-    const { routes } = this.props
+    const { routes, pageTransition } = this.props
     const nextPage = nextProps.routes[1].name
 
     if (routes[1].name !== nextPage) {
@@ -25,7 +25,7 @@ class App extends Component {
     }
   }
   render() {
-    const { nav, page, open } = this.props
+    const { nav, page, open, toggleMenu } = this.props
 
     return (
       <div className="site">
@@ -45,11 +45,16 @@ App.propTypes = {
   params: PropTypes.object
 }
 
-export default connect(
-  state => ({
-    page: state.site.page,
-    nav: state.site.nav,
-    open: state.site.open,
-    params: state.site.params
-  })
-)(App)
+const mapStateToProps = ({ site }) => ({
+  page: site.page,
+  nav: site.nav,
+  open: site.open,
+  params: site.params
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  pageTransition: page => dispatch(pageTransition(page)),
+  toggleMenu: _ => dispatch(toggleMenu())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

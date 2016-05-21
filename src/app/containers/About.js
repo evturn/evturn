@@ -39,9 +39,9 @@ About.propTypes = {
   featuredTech: PropTypes.array
 }
 
-export default connect(
-  state => ({
-    featuredTech: state.site.about.featuredTech,
-    bio: state.site.about.bio
-  })
-)(About)
+const mapStateToProps = ({ site }) => ({
+  featuredTech: site.about.featuredTech,
+  bio: site.about.bio
+})
+
+export default connect(mapStateToProps)(About)

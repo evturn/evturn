@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { IndexLink, Link } from 'react-router'
+import { Link } from 'react-router'
 import Spinner from 'components/Spinner'
 import Video from 'components/Video'
 import classNames from 'classnames/bind'
@@ -53,6 +53,8 @@ Home.propTypes = {
   mobileNav: PropTypes.array
 }
 
-export default connect(
-  state => ({ mobileNav: state.site.mobileNav })
-)(Home)
+const mapStateToProps = ({ site }) => ({
+  mobileNav: site.mobileNav
+})
+
+export default connect(mapStateToProps)(Home)

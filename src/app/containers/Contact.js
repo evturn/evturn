@@ -25,6 +25,8 @@ Contact.propTypes = {
   links: PropTypes.array
 }
 
-export default connect(
-  state => ({ links: state.site.contact.links })
-)(Contact)
+const mapStateToProps = ({ site }) => ({
+  links: site.contact.links
+})
+
+export default connect(mapStateToProps)(Contact)

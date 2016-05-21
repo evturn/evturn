@@ -12,19 +12,21 @@ class Carousel extends Component {
   subscription$;
 
   componentWillMount() {
-    this.subscription$ = createSlideshow(this.props.params.id)
+    const { createSlideshow, params } = this.props
+    this.subscription$ = createSlideshow(params.id)
   }
 
   componentWillReceiveProps(nextProps) {
-    const { params } = this.props
+    const { createSlideshow, params } = this.props
 
     if (params.id !== nextProps.params.id) {
-      this.subscription$.dispose()
+      this.subscription$.unsubscribe()
       this.subscription$ = createSlideshow(nextProps.params.id)
     }
   }
 
   componentWillUnmount() {
+    const { tearDownCarousel } = this.props
     tearDownCarousel(this.subscription$)
   }
 
@@ -77,14 +79,20 @@ Carousel.propTypes = {
   nav: PropTypes.array,
 }
 
-export default connect(
-  state => ({
-    project: state.slideshow.project,
-    images: state.slideshow.images,
-    active: state.slideshow.active,
-    id: state.slideshow.id,
-    total: state.slideshow.total,
-    projects: state.slideshow.projects,
-    nav: state.slideshow.nav
-  })
-)(Carousel)
+const mapStateToProps = ({ slideshow }) => ({
+  project: slideshow.project,
+  images: slideshow.images,
+  active: slideshow.active,
+  id: slideshow.id,
+  total: slideshow.total,
+  projects: slideshow.projects,
+  nav: slideshow.nav
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  createSlideshow: id => dispatch(createSlideshow(id)),
+  tearDownCarousel: subscription => dispatch(tearDownCarousel(subscription))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carousel)
+

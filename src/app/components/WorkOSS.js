@@ -33,6 +33,8 @@ WorkOSS.propTypes = {
   OSS: PropTypes.array
 }
 
-export default connect(
-  state => ({ OSS: state.site.work.OSS })
-)(WorkOSS)
+const mapStateToProps = ({ site }) => ({
+  OSS: site.work.OSS
+})
+
+export default connect(mapStateToProps)(WorkOSS)

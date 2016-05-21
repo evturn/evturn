@@ -22,6 +22,6 @@ WorkIOS.propTypes = {
   OSS: PropTypes.array
 }
 
-export default connect(
-  state => ({ iOS: state.site.work.iOS })
-)(WorkIOS)
+const mapStateToProps = ({ site }) => ({ iOS: site.work.iOS })
+
+export default connect(mapStateToProps)(WorkIOS)

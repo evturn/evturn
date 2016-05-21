@@ -29,9 +29,9 @@ Spinner.propTypes = {
   done: PropTypes.bool
 }
 
-export default connect(
-  state => ({
-    ready: state.video.ready,
-    done: state.video.done
-  })
-)(Spinner)
+const mapStateToProps = ({ video }) => ({
+  ready: video.ready,
+  done: video.done
+})
+
+export default connect(mapStateToProps)(Spinner)

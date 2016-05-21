@@ -1,47 +1,48 @@
-import { Observable } from 'rx'
-import { dispatch, getState } from 'store'
+import * as Rx from 'rxjs'
 
-const LOAD_SLIDESHOW      = payload  => ({ type: 'LOAD_SLIDESHOW', payload })
-const UPDATE_ACTIVE_SLIDE = payload  => ({ type: 'UPDATE_ACTIVE_SLIDE', payload })
-const UNMOUNT_SLIDESHOW   =       _  => ({ type: 'UNMOUNT_SLIDESHOW' })
+export const LOAD_SLIDESHOW = 'LOAD_SLIDESHOW'
+export const UPDATE_ACTIVE_SLIDE = 'UPDATE_ACTIVE_SLIDE'
+export const UNMOUNT_SLIDESHOW = 'UNMOUNT_SLIDESHOW'
 
-const loadProjectToCarousel = x => {
-  dispatch(LOAD_SLIDESHOW({
-    project: x,
-    id: x.id,
-    images: x.images.map((x, i) => {
-      x.active = i === 0
-      return x
-    })
-  }))
+export const createSlideshow = id => (
+  (actions, store) => {
+    const slideshow$ = Rx.Observable.of(id)
+      .map(x => !isNaN(parseInt(x)) ? parseInt(x) : 1)
+      .flatMap(id => (
+        Rx.Observable.from(store.getState().slideshow.projects)
+          .filter(app => app.id === id)
+          .map(project => ({
+            project,
+            id: project.id,
+            images: project.images.map((x, i) => {
+              x.active = i === 0
+              return x
+            })
+          }))
+      ))
 
-  return x
-}
+    slideshow$.map(payload => ({ type: LOAD_SLIDESHOW, payload }))
 
-const setIntervalOnCarousel = x => {
-  return Observable.interval(4000)
-    .take(x.images.length)
-    .repeat()
-    .map(interval => {
-      return x.images.map((image, i) => {
-        image.active = interval === i
-        return image
-      })
-    })
-}
+    slideshow$
+      .flatMap(x => (
+        Rx.Observable.interval(4000)
+          .take(x.images.length)
+          .repeat()
+          .map(interval => (
+            x.images.map((image, i) => {
+              image.active = interval === i
+              return image
+            })
+          ))
+      ))
+      .map(x => ({ type: UPDATE_ACTIVE_SLIDE, payload: { images: x } }))
 
-export const createSlideshow = id => {
-  const pid = !isNaN(parseInt(id)) ? parseInt(id) : 1
-  const projects$ = Observable.from(getState().slideshow.projects)
-  const project$ = projects$
-    .filter(x => x.id === pid)
-    .map(loadProjectToCarousel)
-    .flatMap(setIntervalOnCarousel)
+    return slideshow$
+})
 
-  return project$.subscribe(x => dispatch(UPDATE_ACTIVE_SLIDE({ images: x })))
-}
-
-export const tearDownCarousel = subscription$ => {
-  subscription$.dispose()
-  dispatch(UNMOUNT_SLIDESHOW())
-}
+export const tearDownCarousel = subscription$ => (
+  (actions, store) => {
+    subscription$.unsubscribe()
+    return Rx.Observable.of({ type: UNMOUNT_SLIDESHOW })
+  }
+)

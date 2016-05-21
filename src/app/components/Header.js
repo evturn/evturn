@@ -9,7 +9,7 @@ const cx = classNames.bind(css)
 
 class Header extends Component {
   render() {
-    const { page, nav, open } = this.props
+    const { page, nav, open, toggleMenu } = this.props
 
     const navbar = page !== 'home' ?
       <div className={cx('nav')}>
@@ -53,10 +53,14 @@ Header.propTypes = {
   open: PropTypes.bool
 }
 
-export default connect(
-  state=> ({
-    page: state.site.page,
-    pages: state.site.pages,
-    open: state.site.open
-  })
-)(Header)
+const mapStateToProps = ({ site }) => ({
+  page: site.page,
+  pages: site.pages,
+  open: site.open
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleMenu: _ => dispatch(toggleMenu())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

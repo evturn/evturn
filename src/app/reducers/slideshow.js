@@ -1,19 +1,25 @@
+import { LOAD_SLIDESHOW, UPDATE_ACTIVE_SLIDE, UNMOUNT_SLIDESHOW } from 'actions/slideshow'
+
 export default function slideshow(state = {}, action) {
   switch (action.type) {
-    case 'LOAD_SLIDESHOW': {
+
+    case LOAD_SLIDESHOW: {
       return Object.assign({}, state, {
         ...action.payload,
         active: 0
       })
     }
-    case 'UPDATE_ACTIVE_SLIDE':
+
+    case UPDATE_ACTIVE_SLIDE:
       return Object.assign({}, state, {
         ...action.payload
       })
-    case 'UNMOUNT_SLIDESHOW':
+
+    case UNMOUNT_SLIDESHOW:
       return Object.assign({}, state, {
         active: 0
       })
+
     default:
       return state
   }

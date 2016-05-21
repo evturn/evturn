@@ -35,6 +35,8 @@ Work.propTypes = {
   params: PropTypes.object
 }
 
-export default connect(
-  state => ({ nav: state.site.work.nav })
-)(Work)
+const mapStateToProps = ({ site }) => ({
+  nav: site.work.nav
+})
+
+export default connect(mapStateToProps)(Work)

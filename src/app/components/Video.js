@@ -5,10 +5,10 @@ import 'less/components/video.less'
 
 class Video extends Component {
   componentDidMount() {
-    mountPlayer(this.player)
+    this.props.mountPlayer(this.player)
   }
   componentWillUnmount() {
-    unmountPlayer()
+    this.props.unmountPlayer()
   }
   render() {
     return (
@@ -29,6 +29,13 @@ Video.propTypes = {
   src: PropTypes.string
 }
 
-export default connect(
-  state => ({ src:  state.video.src })
-)(Video)
+const mapStateToProps = ({ video }) => ({
+  src:  video.src
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  mountPlayer: player => dispatch(mountPlayer(player)),
+  unmountPlayer: _ => dispatch(unmountPlayer())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Video)
