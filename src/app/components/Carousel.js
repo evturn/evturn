@@ -9,25 +9,23 @@ import css from 'less/components/carousel.less'
 const cx = classNames.bind(css)
 
 class Carousel extends Component {
-  subscription$;
 
   componentWillMount() {
     const { createSlideshow, params } = this.props
-    this.subscription$ = createSlideshow(params.id)
+    createSlideshow(params.id)
   }
 
   componentWillReceiveProps(nextProps) {
     const { createSlideshow, params } = this.props
 
     if (params.id !== nextProps.params.id) {
-      this.subscription$.unsubscribe()
-      this.subscription$ = createSlideshow(nextProps.params.id)
+      createSlideshow(nextProps.params.id)
     }
   }
 
   componentWillUnmount() {
     const { tearDownCarousel } = this.props
-    tearDownCarousel(this.subscription$)
+    tearDownCarousel()
   }
 
   render() {
@@ -91,7 +89,7 @@ const mapStateToProps = ({ slideshow }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createSlideshow: id => dispatch(createSlideshow(id)),
-  tearDownCarousel: subscription => dispatch(tearDownCarousel(subscription))
+  tearDownCarousel: _ => dispatch(tearDownCarousel())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Carousel)
