@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import WorkWebDetails from 'components/WorkWebDetails'
-import { createSlideshow, tearDownCarousel } from 'actions/slideshow'
 import classNames from 'classnames/bind'
+
+import WorkWebDetails from 'components/WorkWebDetails'
+import { createSlideshow, tearDownCarousel } from 'containers/Work/actions'
+
 import css from 'less/components/carousel.less'
 
 const cx = classNames.bind(css)

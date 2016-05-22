@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { toggleMenu } from 'actions/site'
 import classNames from 'classnames/bind'
+
+import { toggleMenu } from 'containers/App/actions'
+
 import css from 'less/components/site-header.less'
 
 const cx = classNames.bind(css)

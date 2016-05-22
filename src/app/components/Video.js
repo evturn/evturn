@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { mountPlayer, unmountPlayer } from 'actions/video'
+
+import { mountPlayer, unmountPlayer } from 'containers/Home/actions'
+
 import 'less/components/video.less'
 
 class Video extends Component {
