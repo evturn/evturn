@@ -1,12 +1,16 @@
 header {
   height: 60px;
+
+  @media(@tablet) {
+    height: 80px;
+  }
 }
 
 .nav {
   background-color: @bg-secondary;
   padding-left: 10px;
-  height: 60px;
   font-size: 30px;
+  height: 60px;
   line-height: 60px;
   font-family: @font-helv-neue;
   color: @tx-light;
@@ -15,6 +19,10 @@ header {
   right: 0;
   left: 0;
   position: absolute;
+
+  @media(@tablet) {
+    height: 80px;
+  }
 
   img {
     .img();
@@ -25,7 +33,7 @@ header {
 
     @media(@tablet) {
       width: 750px;
-      top: -120px;
+      top: -81px;
       left: -60px;
     }
   }

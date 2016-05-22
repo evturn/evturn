@@ -13,10 +13,11 @@ class Header extends Component {
   render() {
     const { page, nav, open, toggleMenu } = this.props
 
-    const navbar = page !== 'home' ?
+    const navbar = page !== 'home' ? (
       <div className={cx('nav')}>
         <Link to='/'><img src="dist/img/title-white.svg" /></Link>
-      </div> : null
+      </div>
+    ) : null
 
     const burger = (
       <div className={cx('burger', { home: page === 'home' })} onClick={toggleMenu}>
