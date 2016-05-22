@@ -4,21 +4,27 @@ import { reduxObservable } from 'redux-observable'
 import createReducer from './reducers'
 import logger from 'redux-logger'
 
+const observableMiddleware = reduxObservable()
 const devtools = __DEV__ ? logger : (_ = noop => noop)
 
-const middlewares = [
-  reduxObservable()
-]
+const configureStore = (initialState, history) => {
+  const middlewares = [
+    observableMiddleware,
+    routerMiddleware(history),
+    devtools()
+  ]
 
+  const enhancers = [
+    applyMiddleware(...middlewares)
+  ]
 
-const configureStore = initialState => {
-  const enhancers = applyMiddleware(...middlewares, devtools())
-
-  return createStore(
+  const store = createStore(
     createReducer(),
     initialState,
-    compose(enhancers)
+    compose(...enhancers)
   )
+
+  return store
 }
 
 export default configureStore
