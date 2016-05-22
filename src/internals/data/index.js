@@ -1,9 +1,9 @@
-import videos from 'data/videos'
-import iOS from 'data/ios'
-import OSS from 'data/oss'
-import WEB from 'data/web'
-import TECH from 'data/tech'
-import { nav, work, about, contact } from 'data/site'
+import videos from './videos'
+import iOS from './ios'
+import OSS from './oss'
+import WEB from './web'
+import TECH from './tech'
+import { nav, work, about, contact } from './site'
 
 const createWebProjectsNav = ({ id, thumbnail }) => ({
   src: require(`work-images/${thumbnail}`),

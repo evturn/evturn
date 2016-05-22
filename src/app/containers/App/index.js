@@ -1,9 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { pageTransition, toggleMenu } from 'actions/site'
+import classNames from 'classnames/bind'
+
+import { pageTransition, toggleMenu } from './actions'
+
 import Footer from 'components/Footer'
 import Header from 'components/Header'
-import classNames from 'classnames/bind'
+
 import css from 'less/components/site-header.less'
 import 'less/global/style.less'
 import 'data/google-analytics'

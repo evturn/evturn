@@ -6,11 +6,11 @@ import css from 'less/components/work-ios.less'
 
 const cx = classNames.bind(css)
 
-export default class WorkIOS extends Component {
+class IOS extends Component {
   render() {
     return (
-      <ul className={cx('items')}>{this.props.iOS.map(x =>
-        <li key={x.name} className={cx('item')}>
+      <ul className={cx('items')}>{this.props.iOS.map((x, i) =>
+        <li key={i} className={cx('item')}>
           <div className={cx('name')}>{x.name}</div>
           <img className="img" src={require(`work-images/${x.image}`)} />
         </li>
@@ -19,10 +19,8 @@ export default class WorkIOS extends Component {
   }
 }
 
-WorkIOS.propTypes = {
-  OSS: PropTypes.array
-}
+const mapStateToProps = ({ site}) => ({
+  iOS: site.work.iOS
+})
 
-const mapStateToProps = ({ site }) => ({ iOS: site.work.iOS })
-
-export default connect(mapStateToProps)(WorkIOS)
+export default connect(mapStateToProps)(IOS)

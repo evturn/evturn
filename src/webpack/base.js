@@ -1,7 +1,7 @@
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-export const PATHS = {
+const PATHS = {
   app: path.join(__dirname, '..', '..', 'src'),
   output: path.join(__dirname, '..', '..', 'dist'),
   publicPath: 'dist/',
@@ -14,7 +14,7 @@ export const PATHS = {
   root: __dirname
 }
 
-export const devLoaders = [
+const devLoaders = [
   {
     test: /\.js$|\.jsx$/,
     loader: 'babel',
@@ -45,7 +45,7 @@ export const devLoaders = [
   }
 ]
 
-export const prodLoaders = [
+const prodLoaders = [
   {
     test: /\.js$|\.jsx$/,
     loader: 'babel',
@@ -84,25 +84,25 @@ export const prodLoaders = [
   }
 ]
 
-export const extensions = ['', '.js', '.jsx', '.less'];
-export const modulesDirectories = ['app', 'node_modules'];
+const extensions = ['', '.js', '.jsx', '.less'];
+const modulesDirectories = ['app', 'node_modules'];
 
-export const alias = {
-  actions:       path.join(__dirname, '..', 'app',    'actions/'),
-  containers:    path.join(__dirname, '..', 'app',    'containers/'),
-  components:    path.join(__dirname, '..', 'app',    'components/'),
-  reducers:      path.join(__dirname, '..', 'app',    'reducers/'),
-  store:         path.join(__dirname, '..', 'app',    'store/'),
-  data:          path.join(__dirname, '..', 'app',    'store', 'data/'),
-  routes:        path.join(__dirname, '..', 'app',    'routes'),
-  images:        path.join(__dirname, '..', 'assets', 'img/'),
-  css:           path.join(__dirname, '..', 'assets', 'css/'),
-  less:          path.join(__dirname, '..', 'assets', 'less/'),
-  'work-images': path.join(__dirname, '..', 'assets', 'img', 'work/'),
-  'site-images': path.join(__dirname, '..', 'assets', 'img', 'site/')
+const alias = {
+  actions:       path.join(__dirname, '..', 'app',       'actions/'),
+  containers:    path.join(__dirname, '..', 'app',       'containers/'),
+  components:    path.join(__dirname, '..', 'app',       'components/'),
+  reducers:      path.join(__dirname, '..', 'app',       'reducers/'),
+  store:         path.join(__dirname, '..', 'app',       'store/'),
+  data:          path.join(__dirname, '..', 'internals', 'data/'),
+  routes:        path.join(__dirname, '..', 'app',       'routes'),
+  images:        path.join(__dirname, '..', 'assets',    'img/'),
+  css:           path.join(__dirname, '..', 'assets',    'css/'),
+  less:          path.join(__dirname, '..', 'assets',    'less/'),
+  'work-images': path.join(__dirname, '..', 'assets',    'img', 'work/'),
+  'site-images': path.join(__dirname, '..', 'assets',    'img', 'site/')
 }
 
-export const plugin = {
+const plugin = {
   html: {
     template: '../../index.html',
     title: 'Evan Turner | Developer',
@@ -110,4 +110,14 @@ export const plugin = {
     inject: false,
     favicon: '../assets/img/site/favicon.jpg'
   }
+}
+
+export {
+  PATHS,
+  devLoaders,
+  prodLoaders,
+  extensions,
+  modulesDirectories,
+  alias,
+  plugin
 }

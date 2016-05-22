@@ -14,4 +14,4 @@ function createReducer() {
   })
 }
 
-export default rootReducer
+export default createReducer

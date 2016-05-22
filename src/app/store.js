@@ -1,19 +1,24 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import { routerMiddleware } from 'react-router-redux'
 import { reduxObservable } from 'redux-observable'
-import rootReducer from 'reducers'
+import createReducer from './reducers'
 import logger from 'redux-logger'
-import initialState from 'data'
 
-let middleware = applyMiddleware(reduxObservable())
+const devtools = __DEV__ ? logger : (_ = noop => noop)
 
-if (__DEV__) {
-  middleware = compose(applyMiddleware(reduxObservable(), logger()))
+const middlewares = [
+  reduxObservable()
+]
+
+
+const configureStore = initialState => {
+  const enhancers = applyMiddleware(...middlewares, devtools())
+
+  return createStore(
+    createReducer(),
+    initialState,
+    compose(enhancers)
+  )
 }
 
-const store = createStore(
-  rootReducer,
-  initialState,
-  middleware
-)
-
-export default store
+export default configureStore

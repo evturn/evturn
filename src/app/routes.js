@@ -8,7 +8,7 @@ import WorkIOS from'components/WorkIOS'
 import WorkOSS from'components/WorkOSS'
 import About from 'containers/About'
 
-export default (
+const createRoutes = _ => (
   <Route component={App} path='/'>
     <IndexRoute component={Home} name='home' />
     <Route component={About} path='about' name='about' />
@@ -22,3 +22,5 @@ export default (
     </Route>
   </Route>
 )
+
+export default createRoutes

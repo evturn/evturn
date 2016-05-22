@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import classNames from 'classnames/bind'
+
 import Spinner from 'components/Spinner'
 import Video from 'components/Video'
-import classNames from 'classnames/bind'
+
 import css from 'less/containers/home.less'
 
 const cx = classNames.bind(css)
