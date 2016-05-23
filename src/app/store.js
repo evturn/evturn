@@ -5,7 +5,7 @@ import createReducer from './reducers'
 import logger from 'redux-logger'
 
 const observableMiddleware = reduxObservable()
-const devtools = __DEV__ ? logger : (_ = noop => noop)
+const devtools = __DEV__ ? logger : (_ => noop => noop)
 
 const configureStore = (initialState, history) => {
   const middlewares = [
