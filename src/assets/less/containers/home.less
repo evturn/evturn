@@ -13,7 +13,6 @@
   right: 0;
   height: 100%;
   background-position-x: 50%;
-  border: 3px solid @tx-light;
 
   @media(@tablet) {
     border: none;
@@ -23,41 +22,16 @@
   }
 }
 
+
 .lg {
-  display: none;
-
-  @media(@tablet) {
-    display: block;
-  }
-}
-
-.sm {
   display: block;
-  margin-top: 22%;
-
-  @media(@tablet) {
-    display: none;
-  }
-
-  .top {
-    text-align: center;
-  }
-
-  .item {
-    display: inline-block;
-    width: 30%;
-    border: none;
-  }
+  margin-top: 140px;
 }
 
-.top {
+
+.lg .title {
   position: relative;
   z-index: 100;
-  text-align: center;
-}
-
-.sm .title {
-  .top();
   font-size: 25px;
   margin: 0 auto 10px auto;
   text-transform: uppercase;
@@ -65,28 +39,24 @@
   color: @tx-light;
   width: 250px;
 
+  @media(@tablet) {
+    position: absolute;
+    margin: 0 auto;
+    top: 33.333333333%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: @tx-light;
+    z-index: 5;
+    font-family: @font-mer;
+    height: auto;
+    height: 100%;
+    display: block;
+    width: 60%;
+  }
+
   img {
     .img();
-  }
-}
-
-.lg .title {
-  position: absolute;
-  margin: 0 auto;
-  top: 33.333333333%;
-  right: 0;
-  left: 0;
-  text-align: center;
-  color: @tx-light;
-  z-index: 5;
-  font-family: @font-mer;
-  height: auto;
-  height: 100%;
-  display: block;
-  width: 80%;
-
-  @media(@tablet) {
-    width: 60%;
   }
 }
 
@@ -107,26 +77,9 @@
   }
 }
 
-.av {
-  .top();
-  display: block;
-  width: 160px;
-  height: 160px;
-  padding: 30px;
-  margin: 0 auto;
-  top: 20px;
-  background-color: fade(@bg-light, 50);
-  border-radius: 50%;
-  overflow: hidden;
-
-  @media(@tablet) {
-    display: none;
-  }
-}
-
 .overlay {
   position: absolute;
-  background-color: @bg-dark;
+  background-color: #606970;
   opacity: .95;
   height: 100%;
   top: 0;
@@ -136,23 +89,5 @@
 
   @media(@tablet) {
     display: none;
-  }
-}
-
-.item {
-  display: block;
-  width: 100%;
-  text-transform: uppercase;
-  font-family: @font-helv-neue;
-  text-align: center;
-  overflow: auto;
-  line-height: 19px;
-  font-size: 19px;
-  padding-top: 21px;
-  padding-bottom: 21px;
-  border-bottom: 1px solid fade(@tx-light, 70);
-
-  a {
-    color: @tx-light;
   }
 }

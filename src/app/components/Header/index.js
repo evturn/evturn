@@ -16,20 +16,23 @@ class Header extends Component {
     return (
       <header>
 
-        <div className={cx('nav')}>
-          <div className={cx('diamond')} />
+        <div className={css.nav}>
+          <div className={css.diamond} />
+          <div className={css.logo}>
+            <img src="src/assets/img/site/ev-av.svg" />
+          </div>
         </div>
-        <div className={cx('sub-nav')} />
+        <div className={css['sub-nav']} />
 
         <div className={cx('burger', { home: page === 'home' })} onClick={toggleMenu}>
-          <span className={'fa fa-bars'} />
+
         </div>
 
         <nav className={cx('menu', { 'in': open, 'out': !open })}>
-          <ul className={cx('links')}>
+          <ul className={css.links}>
             <li><span className="fa fa-times" /></li>
             {nav.map((x, i) =>
-              <li key={i} className={cx('item')} onClick={toggleMenu}>
+              <li key={i} className={css.items} onClick={toggleMenu}>
                 <Link to={x.route}>{x.name}</Link>
               </li>
             )}

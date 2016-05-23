@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import { mountPlayer, unmountPlayer } from 'containers/Home/actions'
 
+import Spinner from 'components/Spinner'
+
 import 'less/components/video.less'
 
 class Video extends Component {
