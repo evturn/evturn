@@ -45,7 +45,9 @@ export default webpack({
       }
     ]),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"',
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
       __DEV__: false
     }),
     new HtmlWebpackPlugin(plugin.html)

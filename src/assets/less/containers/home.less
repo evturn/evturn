@@ -1,6 +1,6 @@
 @import '../variables.less';
 
-.root {
+._root {
   .clearfix();
   height: 100vh;
   width: 100vw;
@@ -22,18 +22,40 @@
   }
 }
 
+video {
+  width: 100%;
+}
 
-.lg {
+.root {
+  background-color: @bg-matte;
+  width: 100vw;
+  height: 100vh;
+}
+
+.video {
   display: block;
-  margin-top: 140px;
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  width: 100%;
+  background-size: cover;
+  background-position-y: 40%;
+  background-repeat: no-repeat;
+
+  @media(@tablet) {
+    height: 500px;
+  }
 }
 
 
-.lg .title {
-  position: relative;
+.title {
+  position: absolute;
   z-index: 100;
   font-size: 25px;
-  margin: 0 auto 10px auto;
+  margin: 70px auto 10px auto;
+  top: 0;
+  right: 0;
+  left: 0;
   text-transform: uppercase;
   text-align: center;
   color: @tx-light;
@@ -42,7 +64,7 @@
   @media(@tablet) {
     position: absolute;
     margin: 0 auto;
-    top: 33.333333333%;
+    top: 130px;
     right: 0;
     left: 0;
     text-align: center;

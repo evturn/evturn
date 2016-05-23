@@ -61,7 +61,9 @@ export default {
     new ExtractTextPlugin(PATHS.static.css),
     new HtmlWebpackPlugin(plugin.html),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"development"',
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
       __DEV__: true
     })
   ],

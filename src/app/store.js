@@ -5,14 +5,16 @@ import createReducer from './reducers'
 import logger from 'redux-logger'
 
 const observableMiddleware = reduxObservable()
-const devtools = __DEV__ ? logger : (_ => noop => noop)
 
 const configureStore = (initialState, history) => {
   const middlewares = [
     observableMiddleware,
-    routerMiddleware(history),
-    devtools()
+    routerMiddleware(history)
   ]
+
+  if (__DEV__) {
+    middlewares.push(logger())
+  }
 
   const enhancers = [
     applyMiddleware(...middlewares)
