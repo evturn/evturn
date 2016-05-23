@@ -21,25 +21,28 @@ const devLoaders = [
     exclude: /node_modules/,
     include: PATHS.app
   },{
-    test: /\.json$/,
-    loader: 'json-loader'
+    test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
   },{
-    test: /\.(gif|png|jpe?g|svg|eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-    loader: 'url-loader'
+    test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
   },{
-    test: /\.(eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-    loader: 'file-loader'
+    test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/octet-stream',
   },{
-    test: /\.woff2(\?\S*)?$/,
-    loader: 'url-loader?limit=100000'
+    test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]',
   },{
-      test: /\.css$/,
-      exclude: /node_modules/,
-      loader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader!',
+    test: /\.css$/,
+    exclude: /node_modules/,
+    loader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader!',
   },{
-      test: /\.css$/,
-      include: /node_modules/,
-      loaders: ['style-loader', 'css-loader'],
+    test: /\.css$/,
+    include: /node_modules/,
+    loaders: ['style-loader', 'css-loader'],
+  },{
+    test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
+    loader: 'url-loader?limit=10000',
   },{
     test: /\.less$/,
     loader: ExtractTextPlugin.extract(
@@ -52,6 +55,9 @@ const devLoaders = [
       '&sourceMap!less?sourceMap&outputStyle=expanded' +
       '&includePaths[]=' + encodeURIComponent(PATHS.less),
     exclude: /global/
+  },{
+    test: /\.json$/,
+    loader: 'json-loader'
   }
 ]
 
@@ -65,21 +71,20 @@ const prodLoaders = [
     test: /\.json$/,
     loader: 'json-loader'
   },{
-    test: /\.(eot|ttf|woff|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-    loader: 'url-loader'
+    test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
+    loader: 'url-loader?limit=10000',
   },{
-    test: /\.(eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-    loader: 'file-loader'
+    test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
   },{
-    test: /\.woff2(\?\S*)?$/,
-    loader: 'url-loader?limit=100000'
+    test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
   },{
-    test: /.*\.(gif|png|jpe?g|svg)$/i,
-    loaders: [
-      `file?hash=sha512&digest=hex&name=${PATHS.static.img}`,
-      'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-    ],
-    exclude: /less/
+    test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/octet-stream',
+  },{
+    test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file?name=fonts/[name].[hash].[ext]',
   },{
     test: /\.css$/,
     loader: ExtractTextPlugin.extract(

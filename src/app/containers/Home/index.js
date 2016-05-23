@@ -6,7 +6,7 @@ import { mountPlayer, unmountPlayer } from 'containers/Home/actions'
 
 import Spinner from 'components/Spinner'
 
-import css from 'less/containers/home.less'
+import css from './style.less'
 
 class Home extends Component {
   componentDidMount() {
