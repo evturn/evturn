@@ -33,7 +33,7 @@ class Home extends Component {
 
     const desktop = (
       <div className={cx('lg')}>
-        <Spinner />
+
         <Video />
         <div className={cx('title')}>
           <img src="dist/img/title-white.svg" />
@@ -53,6 +53,7 @@ class Home extends Component {
   }
 }
 
+//         <Spinner />
 Home.propTypes = {
   mobileNav: PropTypes.array
 }

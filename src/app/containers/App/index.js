@@ -1,17 +1,17 @@
 import React, { Component, PropTypes } from 'react'
+
+import 'sanitize.css/sanitize.css'
+
 import { connect } from 'react-redux'
-import classNames from 'classnames/bind'
 
 import { pageTransition, toggleMenu } from './actions'
 
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 
-import css from 'less/components/site-header.less'
-import 'less/global/style.less'
+import cx from 'classnames'
+import './style.css'
 import 'data/google-analytics'
-
-const cx = classNames.bind(css)
 
 class App extends Component {
   componentWillMount() {

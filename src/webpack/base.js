@@ -33,8 +33,18 @@ const devLoaders = [
     test: /\.woff2(\?\S*)?$/,
     loader: 'url-loader?limit=100000'
   },{
+      test: /\.css$/,
+      exclude: /node_modules/,
+      loader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader!',
+  },{
+      test: /\.css$/,
+      include: /node_modules/,
+      loaders: ['style-loader', 'css-loader'],
+  },{
     test: /\.less$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader'),
+    loader: ExtractTextPlugin.extract(
+      'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader!less-loader'
+    ),
     include: /global/
   },{
     test: /\.less$/,
@@ -71,6 +81,12 @@ const prodLoaders = [
     ],
     exclude: /less/
   },{
+    test: /\.css$/,
+    loader: ExtractTextPlugin.extract(
+      'style-loader',
+      'css-loader?modules&importLoaders=1!postcss-loader'
+    )
+  },{
     test: /\.less$/,
     loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader'),
     include: /global/
@@ -78,8 +94,8 @@ const prodLoaders = [
     test: /\.less$/,
     loader: ExtractTextPlugin.extract(
       'style-loader',
-      'css-loader?module&localIdentName=[local]__[hash:base64:5]&importLoaders=1!postcss-loader' +
-      '!less?includePaths[]=' + encodeURIComponent(PATHS.less)),
+      'css-loader?modules&importLoaders=1!postcss-loader!less-loader'
+    ),
     exclude: /global/
   }
 ]
