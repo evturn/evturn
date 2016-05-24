@@ -1,22 +1,24 @@
-import path from 'path'
-import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import WriteFilePlugin from 'write-file-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
-import precss from 'precss'
-import autoprefixer from 'autoprefixer'
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const precss = require('precss')
+const autoprefixer = require('autoprefixer')
 
-import cssnext from 'postcss-cssnext'
-import postcssFocus from 'postcss-focus'
-import postcssReporter from 'postcss-reporter'
+const cssnext = require('postcss-cssnext')
+const postcssFocus = require('postcss-focus')
+const postcssReporter = require('postcss-reporter')
 
-import {
-  PATHS, prodLoaders, alias, plugin,
-  extensions, modulesDirectories } from './base'
+const base = require('./base')
+const PATHS = base.PATHS
+const prodLoaders = base.prodLoaders
+const plugin = base.plugin
+const resolve = base.resolve
 
-export default webpack({
+module.exports = webpack({
   name: 'browser',
   target: 'web',
   context: PATHS.root,
@@ -32,7 +34,7 @@ export default webpack({
   },
 
   module: { loaders: prodLoaders },
-  resolve: { extensions, modulesDirectories, alias },
+  resolve,
   postcss:  _ => ([
     postcssFocus(),
     cssnext({
@@ -44,7 +46,7 @@ export default webpack({
     new CleanWebpackPlugin(['build'], {
       root: path.join(__dirname, '..', '..')
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {

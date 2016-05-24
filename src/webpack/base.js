@@ -1,5 +1,5 @@
-import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const PATHS = {
   app: path.join(__dirname, '..', '..', 'src'),
@@ -19,7 +19,8 @@ const devLoaders = [
     test: /\.js$|\.jsx$/,
     loader: 'babel',
     exclude: /node_modules/,
-    include: PATHS.app
+    include: PATHS.app,
+    query: { presets: ['react-hmre'] }
   },{
     test: /\.json$/,
     loader: 'json-loader'
@@ -95,22 +96,35 @@ const prodLoaders = [
   }
 ]
 
-const extensions = ['', '.js', '.jsx', '.less'];
-const modulesDirectories = ['app', 'node_modules'];
-
-const alias = {
-  actions:       path.join(__dirname, '..', 'app',       'actions/'),
-  containers:    path.join(__dirname, '..', 'app',       'containers/'),
-  components:    path.join(__dirname, '..', 'app',       'components/'),
-  reducers:      path.join(__dirname, '..', 'app',       'reducers/'),
-  store:         path.join(__dirname, '..', 'app',       'store/'),
-  data:          path.join(__dirname, '..', 'internals', 'data/'),
-  routes:        path.join(__dirname, '..', 'app',       'routes'),
-  images:        path.join(__dirname, '..', 'assets',    'img/'),
-  css:           path.join(__dirname, '..', 'assets',    'css/'),
-  less:          path.join(__dirname, '..', 'assets',    'less/'),
-  'work-images': path.join(__dirname, '..', 'assets',    'img', 'work/'),
-  'site-images': path.join(__dirname, '..', 'assets',    'img', 'site/')
+const resolve = {
+  modules: [
+    'app',
+    'node_modules'
+  ],
+  extensions: [
+    '',
+    '.js',
+    '.jsx',
+    '.less',
+  ],
+  packageMains: [
+    'jsnext:main',
+    'main',
+  ],
+  alias: {
+    actions:       path.join(__dirname, '..', 'app',       'actions/'),
+    containers:    path.join(__dirname, '..', 'app',       'containers/'),
+    components:    path.join(__dirname, '..', 'app',       'components/'),
+    reducers:      path.join(__dirname, '..', 'app',       'reducers/'),
+    store:         path.join(__dirname, '..', 'app',       'store/'),
+    data:          path.join(__dirname, '..', 'internals', 'data/'),
+    routes:        path.join(__dirname, '..', 'app',       'routes'),
+    images:        path.join(__dirname, '..', 'assets',    'img/'),
+    css:           path.join(__dirname, '..', 'assets',    'css/'),
+    less:          path.join(__dirname, '..', 'assets',    'less/'),
+    'work-images': path.join(__dirname, '..', 'assets',    'img', 'work/'),
+    'site-images': path.join(__dirname, '..', 'assets',    'img', 'site/')
+  }
 }
 
 const plugin = {
@@ -123,12 +137,10 @@ const plugin = {
   }
 }
 
-export {
+module.exports = {
   PATHS,
   devLoaders,
   prodLoaders,
-  extensions,
-  modulesDirectories,
-  alias,
+  resolve,
   plugin
 }

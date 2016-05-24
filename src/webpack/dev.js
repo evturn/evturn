@@ -1,23 +1,20 @@
-import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import WriteFilePlugin from 'write-file-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import path from 'path'
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
-import cssnext from 'postcss-cssnext'
-import postcssFocus from 'postcss-focus'
-import postcssReporter from 'postcss-reporter'
+const cssnext = require('postcss-cssnext')
+const postcssFocus = require('postcss-focus')
+const postcssReporter = require('postcss-reporter')
 
-import {
-  PATHS,
-  devLoaders,
-  alias,
-  plugin,
-  extensions,
-  modulesDirectories
-} from './base'
+const base = require('./base')
+const PATHS = base.PATHS
+const devLoaders = base.devLoaders
+const plugin = base.plugin
+const resolve = base.resolve
 
-export default {
+module.exports = {
   entry: [
     'webpack-hot-middleware/client',
     path.join(process.cwd(), 'src/app')
@@ -43,7 +40,7 @@ export default {
 
   module: { loaders: devLoaders },
 
-  resolve: { extensions, modulesDirectories, alias },
+  resolve,
 
   postcss:  _ => ([
     postcssFocus(),
