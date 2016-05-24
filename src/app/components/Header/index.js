@@ -11,12 +11,24 @@ const cx = classNames.bind(css)
 export default ({ open, nav, toggleMenu, ready }) => (
   <header>
     <div className={css.nav}>
+
+      <div className={css.pages}>
+        {nav.desktop.map((x, i) =>
+          <div key={i} className={css.page}>
+            <Link
+              to={x.route}
+              children={x.name}
+            />
+          </div>
+      )}</div>
+
       <div className={css.diamond} />
       <div className={cx('logo', { 'wait': !ready })}>
         <Link to="/">
           <img src={require('site-images/ev-av.svg')} />
         </Link>
       </div>
+
     </div>
     <div className={css['sub-nav']} />
 

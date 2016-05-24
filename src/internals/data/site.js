@@ -1,7 +1,12 @@
 export const nav = {
   desktop: [
-    { name: 'Projects', route: 'work/web' },
-    { name: 'About',    route: 'about' }
+    {
+      name: 'Projects',
+      route: 'work/web'
+    },{
+      name: 'About',
+      route: 'about'
+    }
   ],
   mobile: [
     { name: 'fa fa-times' },

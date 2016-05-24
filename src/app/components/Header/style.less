@@ -82,6 +82,36 @@ header {
   }
 }
 
+.pages {
+  display: none;
+
+  @media(@tablet) {
+    display: block;
+    position: relative;
+    max-width: 440px;
+    margin: 0 auto;
+    z-index: 1001;
+  }
+
+  .page {
+    height: 80px;
+    text-transform: uppercase;
+    line-height: 80px;
+
+    &:first-child {
+      float: left;
+    }
+
+    &:nth-child(2)  {
+      float: right;
+    }
+
+    a {
+      color: @tx-light;
+    }
+  }
+}
+
 .burger {
   position: absolute;
   top: 0;
