@@ -19,7 +19,6 @@ const ProjectsMenu = ({ sections }) => (
   </div>
 )
 
-
 class Projects extends Component {
   render() {
     return (

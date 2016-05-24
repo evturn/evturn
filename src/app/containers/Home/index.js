@@ -31,7 +31,7 @@ class Home extends Component {
       <div className={css.root}>
         <div
           className={css.video}
-          style={{backgroundImage: `url(${img.bg})`}}>
+          style={{ backgroundImage: `url(${img.bg})` }}>
           <video
             ref={player => this.player = player}
             poster={img.poster}

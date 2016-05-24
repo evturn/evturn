@@ -38,8 +38,10 @@ const createWebProject = ({ tech, images, ...props }) => {
 
 export default {
   site: {
-    nav: nav.desktop,
-    mobileNav: nav.mobile,
+    nav: {
+      desktop: nav.desktop,
+      mobile: nav.mobile
+    },
     contact: {
       links: contact.links
     },

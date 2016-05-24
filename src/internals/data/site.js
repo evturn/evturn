@@ -1,12 +1,13 @@
 export const nav = {
   desktop: [
-    { name: 'Home',    route: '/'      ,  id: 1 },
-    { name: 'Work',    route: 'work/web', id: 2 },
-    { name: 'About',   route: 'about'  ,  id: 3 }
+    { name: 'Projects', route: 'work/web' },
+    { name: 'About',    route: 'about' }
   ],
   mobile: [
-    { name: 'Work',    route: 'work/web' },
-    { name: 'About',   route: 'about'    }
+    { name: 'fa fa-times' },
+    { name: 'Home',     route: '/' },
+    { name: 'Projects', route: 'work/web' },
+    { name: 'About',    route: 'about' }
   ]
 }
 
