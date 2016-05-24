@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 const PATHS = {
   app: path.join(__dirname, '..', '..', 'src'),
   output: path.join(__dirname, '..', '..', 'dist'),
-  publicPath: 'dist/',
+  publicPath: '/',
   less: path.resolve(__dirname, '..', 'assets', 'less'),
   static: {
     js: 'js/[name].js',
@@ -128,7 +128,7 @@ const plugin = {
     template: '../../index.html',
     title: 'Evan Turner | Developer',
     appMountId: 'app',
-    inject: false,
+    inject: true,
     favicon: '../assets/img/site/favicon.jpg'
   }
 }

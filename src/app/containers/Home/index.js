@@ -35,7 +35,7 @@ class Home extends Component {
               src={this.props.src}
             />
             <div className={css.title}>
-              <img src="dist/img/title-white.svg" />
+              <img src={require('site-images/title-white.svg')} />
               <div className={css.subtitle} />
             </div>
             <div className={css.overlay} />

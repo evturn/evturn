@@ -19,7 +19,7 @@ class Header extends Component {
         <div className={css.nav}>
           <div className={css.diamond} />
           <div className={css.logo}>
-            <img src="src/assets/img/site/ev-av.svg" />
+            <img src={require('site-images/ev-av.svg')} />
           </div>
         </div>
         <div className={css['sub-nav']} />

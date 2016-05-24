@@ -15,19 +15,22 @@ export default webpack({
   name: 'browser',
   target: 'web',
   context: PATHS.root,
-  entry: {
-    app: '../app'
-  },
+
+  entry: [
+    path.join(process.cwd(), 'src/app'),
+  ],
+
   output: {
-    path: PATHS.output,
-    filename: PATHS.static.js,
-    publicPath: PATHS.publicPath
+    path: path.resolve(process.cwd(), 'build'),
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].chunk.js',
   },
+
   module: { loaders: prodLoaders },
   resolve: { extensions, modulesDirectories, alias },
   postcss: _ => [precss, autoprefixer],
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
+    new CleanWebpackPlugin(['dist', 'build'], {
       root: path.join(__dirname, '..', '..')
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -37,7 +40,7 @@ export default webpack({
         warnings: false
       }
     }),
-    new ExtractTextPlugin(PATHS.static.css),
+    new ExtractTextPlugin('[name].[contenthash].css'),
     new CopyWebpackPlugin([
       {
         from: path.join(__dirname, '..', 'assets', 'img', 'site/title-white.svg'),

@@ -19,19 +19,19 @@ import {
 export default {
   entry: {
     app: [
-      '../app',
-      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
+      'webpack-hot-middleware/client',
+      path.join(process.cwd(), 'src/app')
     ]
   },
 
   output: {
-    path: PATHS.output,
-    filename: PATHS.static.js,
-    publicPath: PATHS.publicPath
+    path: path.resolve(process.cwd(), 'build'),
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
   },
 
   devServer: {
-    outputPath: PATHS.output,
+    outputPath: path.resolve(process.cwd(), 'build'),
     historyApiFallback: true,
     headers: { 'Access-Control-Allow-Origin': '*', },
     hot: true,
