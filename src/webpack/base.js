@@ -21,6 +21,12 @@ const devLoaders = [
     exclude: /node_modules/,
     include: PATHS.app
   },{
+    test: /\.json$/,
+    loader: 'json-loader'
+  },{
+    test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
+    loader: 'url-loader?limit=10000',
+  },{
     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
     loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
   },{
@@ -35,30 +41,17 @@ const devLoaders = [
   },{
     test: /\.css$/,
     exclude: /node_modules/,
-    loader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader!',
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
   },{
     test: /\.css$/,
     include: /node_modules/,
-    loaders: ['style-loader', 'css-loader'],
-  },{
-    test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
-    loader: 'url-loader?limit=10000',
-  },{
-    test: /\.less$/,
-    loader: ExtractTextPlugin.extract(
-      'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader!less-loader'
-    ),
-    include: /global/
+    loaders: ['style-loader', 'css-loader']
   },{
     test: /\.less$/,
     loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
       '&sourceMap!less?sourceMap&outputStyle=expanded' +
-      '&includePaths[]=' + encodeURIComponent(PATHS.less),
-    exclude: /global/
-  },{
-    test: /\.json$/,
-    loader: 'json-loader'
-  }
+      '&includePaths[]=' + encodeURIComponent(PATHS.less)
+  },
 ]
 
 const prodLoaders = [
@@ -87,21 +80,18 @@ const prodLoaders = [
     loader: 'file?name=fonts/[name].[hash].[ext]',
   },{
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract(
-      'style-loader',
-      'css-loader?modules&importLoaders=1!postcss-loader'
-    )
+    exclude: /node_modules/,
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
   },{
-    test: /\.less$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader'),
-    include: /global/
+    test: /\.css$/,
+    include: /node_modules/,
+    loaders: ['style-loader', 'css-loader']
   },{
     test: /\.less$/,
     loader: ExtractTextPlugin.extract(
       'style-loader',
       'css-loader?modules&importLoaders=1!postcss-loader!less-loader'
-    ),
-    exclude: /global/
+    )
   }
 ]
 

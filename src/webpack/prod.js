@@ -7,6 +7,11 @@ import CleanWebpackPlugin from 'clean-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import precss from 'precss'
 import autoprefixer from 'autoprefixer'
+
+import cssnext from 'postcss-cssnext'
+import postcssFocus from 'postcss-focus'
+import postcssReporter from 'postcss-reporter'
+
 import {
   PATHS, prodLoaders, alias, plugin,
   extensions, modulesDirectories } from './base'
@@ -28,7 +33,13 @@ export default webpack({
 
   module: { loaders: prodLoaders },
   resolve: { extensions, modulesDirectories, alias },
-  postcss: _ => [precss, autoprefixer],
+  postcss:  _ => ([
+    postcssFocus(),
+    cssnext({
+      browsers: [ 'last 2 versions', 'IE > 10' ],
+    }),
+    postcssReporter({ clearMessages: true })
+  ]),
   plugins: [
     new CleanWebpackPlugin(['build'], {
       root: path.join(__dirname, '..', '..')

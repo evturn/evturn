@@ -10,19 +10,7 @@ import createRoutes from './routes'
 
 import initialState from 'data'
 
-import FontFaceObserver from 'fontfaceobserver'
-
 import 'containers/App/style.css'
-
-const fonts = [
-  new FontFaceObserver('Merriweather'),
-  new FontFaceObserver('devicon'),
-  new FontFaceObserver('Source Sans Pro'),
-  new FontFaceObserver('evcon'),
-  new FontFaceObserver('Raleway')
-]
-
-Promise.all(fonts).then(_ =>  console.log('We got them fonts dog.'));
 
 const browserHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 

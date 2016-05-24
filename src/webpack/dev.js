@@ -2,6 +2,7 @@ import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import WriteFilePlugin from 'write-file-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import path from 'path'
 
 import cssnext from 'postcss-cssnext'
 import postcssFocus from 'postcss-focus'
@@ -46,19 +47,19 @@ export default {
 
   resolve: { extensions, modulesDirectories, alias },
 
-  postcssPlugins: [
+  postcss:  _ => ([
     postcssFocus(),
     cssnext({
       browsers: [ 'last 2 versions', 'IE > 10' ],
     }),
     postcssReporter({ clearMessages: true })
-  ],
+  ]),
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new WriteFilePlugin({ log: false }),
-    new ExtractTextPlugin(PATHS.static.css),
+    new ExtractTextPlugin('[name].[contenthash].css'),
     new HtmlWebpackPlugin(plugin.html),
     new webpack.DefinePlugin({
       'process.env': {
