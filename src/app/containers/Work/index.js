@@ -1,24 +1,27 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import classNames from 'classnames/bind'
 
-import css from 'less/containers/work.less'
-
-const cx = classNames.bind(css)
+import css from './style.less'
 
 class Work extends Component {
   render() {
     return (
-      <div className={cx('page')}>
-        <ul className={cx('categories')}>{this.props.nav.map((x, i) =>
-          <li key={i} className={cx('item')}>
-            <Link to={x.route} activeClassName={cx('active')}>
-              <span className={x.icon} />
-              <div className={cx('title')}>{x.title}</div>
-            </Link>
-          </li>
-        )}</ul>
+      <div className={css.work}>
+
+        <div className={css.nav}>
+          <div className={css.wrap}>
+            <ul className={css.sections}>{this.props.nav.map((x, i) =>
+              <li key={i} className={css.li}>
+                <Link to={x.route} activeClassName={css.active}>
+                  <span className={x.icon} />
+                  <div className={css.name}>{x.title}</div>
+                </Link>
+              </li>
+            )}</ul>
+          </div>
+        </div>
+
         {this.props.children}
       </div>
     )
