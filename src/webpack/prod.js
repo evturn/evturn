@@ -30,7 +30,7 @@ export default webpack({
   resolve: { extensions, modulesDirectories, alias },
   postcss: _ => [precss, autoprefixer],
   plugins: [
-    new CleanWebpackPlugin(['dist', 'build'], {
+    new CleanWebpackPlugin(['build'], {
       root: path.join(__dirname, '..', '..')
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -41,12 +41,6 @@ export default webpack({
       }
     }),
     new ExtractTextPlugin('[name].[contenthash].css'),
-    new CopyWebpackPlugin([
-      {
-        from: path.join(__dirname, '..', 'assets', 'img', 'site/title-white.svg'),
-        to: 'img/title-white.svg'
-      }
-    ]),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),

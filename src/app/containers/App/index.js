@@ -10,7 +10,7 @@ import Footer from 'components/Footer'
 import Header from 'components/Header'
 
 import cx from 'classnames'
-import './style.css'
+
 import 'data/google-analytics'
 
 class App extends Component {
