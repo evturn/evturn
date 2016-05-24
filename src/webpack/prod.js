@@ -18,7 +18,7 @@ const prodLoaders = base.prodLoaders
 const plugin = base.plugin
 const resolve = base.resolve
 
-module.exports = webpack({
+module.exports = {
   name: 'browser',
   target: 'web',
   context: PATHS.root,
@@ -53,6 +53,7 @@ module.exports = webpack({
         warnings: false
       }
     }),
+    new HtmlWebpackPlugin(plugin.html),
     new ExtractTextPlugin('[name].[contenthash].css'),
     new webpack.DefinePlugin({
       'process.env': {
@@ -62,14 +63,4 @@ module.exports = webpack({
     }),
     new HtmlWebpackPlugin(plugin.html)
   ]
-}, (err, stats) => {
-  if (err) {
-    const jsonStats = stats.toJson();
-
-    if (jsonStats.errors.length > 0) {
-      console.log(json.errors);
-    }
-  }
-
-  console.log(stats.toString({ colors: true }))
-})
+}
