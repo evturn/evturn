@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import classNames from 'classnames/bind'
 
 import WorkWebDetails from 'components/WorkWebDetails'
-import { createSlideshow, tearDownCarousel } from 'containers/Work/actions'
+import { createSlideshow, tearDownCarousel } from 'containers/Projects/actions'
 
 import css from 'less/components/carousel.less'
 

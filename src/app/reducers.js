@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux'
 
 import globalReducer from 'containers/App/reducer'
 import videoReducer from 'containers/Home/reducer'
-import slideshowReducer from 'containers/Work/reducer'
+import slideshowReducer from 'containers/Projects/reducer'
 
 function createReducer() {
   return combineReducers({
