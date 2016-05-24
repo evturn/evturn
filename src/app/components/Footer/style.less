@@ -1,0 +1,36 @@
+@import url('../../../assets/less/variables.less');
+
+.footer {
+  position: absolute;
+  height: 40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  color: #cfcfcf;
+  font-size: 12px;
+}
+
+.text {
+  display: block;
+  position: relative;
+  line-height: 40px;
+}
+
+.overlay {
+  overflow: hidden;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+
+  @media(min-width: 1024px) {
+    background-color: #ffffff;
+    opacity: 0.6;
+  }
+}

@@ -11,15 +11,17 @@ const cx = classNames.bind(css)
 
 class Header extends Component {
   render() {
-    const { page, nav, open, toggleMenu } = this.props
+    const { page, nav, open, toggleMenu, ready } = this.props
 
     return (
       <header>
 
         <div className={css.nav}>
           <div className={css.diamond} />
-          <div className={css.logo}>
-            <img src={require('site-images/ev-av.svg')} />
+          <div className={cx('logo', { 'wait': !ready })}>
+            <Link to="/">
+              <img src={require('site-images/ev-av.svg')} />
+            </Link>
           </div>
         </div>
         <div className={css['sub-nav']} />
@@ -49,10 +51,11 @@ Header.propTypes = {
   open: PropTypes.bool
 }
 
-const mapStateToProps = ({ site }) => ({
+const mapStateToProps = ({ site, video }) => ({
   page: site.page,
   pages: site.pages,
-  open: site.open
+  open: site.open,
+  ready: video.ready
 })
 
 const mapDispatchToProps = dispatch => ({

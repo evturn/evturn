@@ -1,43 +1,40 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import classNames from 'classnames/bind'
 
-import css from 'less/containers/about.less'
-
-const cx = classNames.bind(css)
+import css from './style.less'
 
 class About extends Component {
   render() {
     const { bio, featuredTech, links } = this.props
 
     return (
-      <div className={cx('root')}>
+      <div className={css.root}>
 
-        <div className={cx('about')}>
-          <div className={cx('av')}>
-            <div className={cx('image')}>
-              <img className="img" src={require('site-images/ev-av.png')} />
+        <div className={css.about}>
+          <div className={css.av}>
+            <div className={css.image}>
+              <img className="img" src={require('site-images/ev-av.svg')} />
             </div>
           </div>
-          <div className={cx('details')}>
-            <div className={cx('bio')}>
-              <div className={cx('title')}>Development</div>
-              <div className={cx('text')}>{bio}</div>
+          <div className={css.details}>
+            <div className={css.bio}>
+              <div className={css.title}>Development</div>
+              <div className={css.text}>{bio}</div>
             </div>
-            <div className={cx('tech')}>
-              <ul className={cx('list')}>{featuredTech.map((x, i) =>
-                <li key={i} className={cx('item')}>
-                  <span className={cx('icon', x.icon)} />
+            <div className={css.tech}>
+              <ul className={css.list}>{featuredTech.map((x, i) =>
+                <li key={i} className={css.item}>
+                  <span className={x.icon} />
                 </li>
               )}</ul>
             </div>
           </div>
         </div>
 
-        <div className={cx('contact')}>
-          <div className={cx('title')}>Contact</div>
-          <ul className={cx('links')}>{links.map((x, i) =>
-            <li key={i} className={cx('link')}>
+        <div className={css.contact}>
+          <div className={css.title}>Contact</div>
+          <ul className={css.links}>{links.map((x, i) =>
+            <li key={i} className={css.link}>
               <a href={x.url} target="_blank"><span className={x.icon} /></a>
             </li>
           )}</ul>

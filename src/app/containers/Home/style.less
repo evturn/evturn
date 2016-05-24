@@ -1,13 +1,24 @@
 @import url('../../../assets/less/variables.less');
 
 video {
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%)
+}
+
+video::-webkit-media-controls {
+  display: none !important;
 }
 
 .root {
   background-color: @bg-matte;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
 
 .video {
@@ -30,7 +41,7 @@ video {
   position: absolute;
   z-index: 100;
   font-size: 25px;
-  margin: 70px auto 10px auto;
+  margin: 50px auto 10px auto;
   top: 0;
   right: 0;
   left: 0;
@@ -50,7 +61,6 @@ video {
     z-index: 5;
     font-family: @font-mer;
     height: auto;
-    height: 100%;
     display: block;
     width: 60%;
   }

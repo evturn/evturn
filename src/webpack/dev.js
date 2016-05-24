@@ -18,12 +18,10 @@ import {
 } from './base'
 
 export default {
-  entry: {
-    app: [
-      'webpack-hot-middleware/client',
-      path.join(process.cwd(), 'src/app')
-    ]
-  },
+  entry: [
+    'webpack-hot-middleware/client',
+    path.join(process.cwd(), 'src/app')
+  ],
 
   output: {
     path: path.resolve(process.cwd(), 'build'),

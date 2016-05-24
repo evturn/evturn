@@ -28,15 +28,6 @@
     font-style: normal;
 }
 
-body.fontsLoaded {
-  font-family: 'evcon';
-}
-
-#app {
-  position: relative;
-  min-height: 100vh;
-}
-
 .img {
   width: 100%;
   height: auto;
@@ -46,6 +37,11 @@ body.fontsLoaded {
 body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+#app,
+.site {
+  height: 100%;
 }
 
 a {
@@ -58,7 +54,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  position: relative;
   box-sizing: border-box;
 }
 
@@ -104,24 +99,6 @@ a:focus {
 
 button:focus {
   outline: 0;
-}
-
-.overlay {
-  overflow: hidden;
-  position: fixed;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.6;
-  top: 0;
-  left: 0;
-  transition: 0.3s;
-
-  @media(min-width: 1024px) {
-    background-color: #ffffff;
-    opacity: 0.6;
-  }
 }
 
 [class^="evcon-"],

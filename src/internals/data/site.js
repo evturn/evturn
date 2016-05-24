@@ -48,7 +48,7 @@ export const contact = {
     }, {
       name: 'twitter',
       url: 'http://twitter.com/evturn',
-      icon: 'fa fa-twitter',
+      icon: 'fa fa-twitter-square',
       featured: true
     }
   ]

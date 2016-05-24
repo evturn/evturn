@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 
 import { pageTransition, toggleMenu } from './actions'
 
-import Footer from 'components/Footer'
-import Header from 'components/Header'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 import cx from 'classnames'
 
@@ -32,10 +32,9 @@ class App extends Component {
 
     return (
       <div className="site">
-        <div className={cx({'overlay': open})} onClick={toggleMenu} />
         <Header open={open} page={page} nav={nav} />
         {this.props.children}
-        <Footer page={page} />
+        <Footer open={open} toggleMenu={toggleMenu} />
       </div>
     )
   }
