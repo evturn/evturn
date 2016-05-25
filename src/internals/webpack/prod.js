@@ -4,19 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const cssnext = require('postcss-cssnext')
-const postcssFocus = require('postcss-focus')
-const postcssReporter = require('postcss-reporter')
-
-const base = require('./base')
-const prodLoaders = base.prodLoaders
-const resolve = base.resolve
-
-module.exports = {
-  name: 'browser',
-  target: 'web',
+module.exports = require('./base')({
   context: path.join(process.cwd(), 'src/app'),
-
   entry: [
     path.join(process.cwd(), 'src/app'),
   ],
@@ -27,45 +16,40 @@ module.exports = {
     chunkFilename: '[name].[chunkhash].chunk.js'
   },
 
-  module: {
-    loaders: prodLoaders
-  },
-
-  resolve,
-
-  postcss:  _ => ([
-    postcssFocus(),
-    cssnext({
-      browsers: [ 'last 2 versions', 'IE > 10' ],
-    }),
-    postcssReporter({ clearMessages: true })
-  ]),
+  loaders: [
+    {
+      test: /\.js$|\.jsx$/,
+      loader: 'babel',
+      exclude: /node_modules/,
+      include: path.join(process.cwd(), 'src'),
+    },{
+      test: /\.less$/,
+      loader: ExtractTextPlugin.extract(
+        'style-loader',
+        'css-loader?modules&importLoaders=1!postcss-loader!less-loader'
+      )
+    }
+  ],
 
   plugins: [
     new CleanWebpackPlugin(['build'], {
       root: path.join(process.cwd())
     }),
-
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.DedupePlugin(),
-
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false
       }
     }),
-
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'src/app/index.html',
       title: 'Evan Turner | Developer',
       filename: '../index.html',
       appMountId: 'app',
-      inject: true,
-      favicon: '../assets/img/site/favicon.jpg'
+      inject: true
     }),
-
     new ExtractTextPlugin('[name].[contenthash].css'),
-
     new webpack.DefinePlugin({
       __DEV__: false,
       'process.env': {
@@ -73,4 +57,4 @@ module.exports = {
       }
     })
   ]
-}
+})
