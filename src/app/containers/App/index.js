@@ -19,6 +19,7 @@ class App extends Component {
       nav,
       open,
       ready,
+      hex,
       toggleMenu
     } = this.props
 
@@ -36,6 +37,7 @@ class App extends Component {
         <Footer
           open={open}
           toggleMenu={toggleMenu}
+          hex={hex}
         />
       </div>
     )
@@ -47,8 +49,9 @@ App.propTypes = {
   nav: PropTypes.object,
   open: PropTypes.bool,
   ready: PropTypes.bool,
-  params: PropTypes.object,
   toggleMenu: PropTypes.func,
+  hex: PropTypes.string,
+  params: PropTypes.object,
   children: React.PropTypes.node,
 }
 
@@ -56,7 +59,8 @@ const mapStateToProps = ({ site, video }) => ({
   params: site.params,
   nav: site.nav,
   open: site.open,
-  ready: video.ready
+  ready: video.ready,
+  hex: site.hex
 })
 
 const mapDispatchToProps = dispatch => ({

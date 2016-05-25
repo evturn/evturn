@@ -7,13 +7,13 @@ import {
 } from './constants'
 
 export const tearDownCarousel = _ => (
-  (actions, store) => Rx.Observable.of({ type: TEAR_DOWN_CAROUSEL })
+  (actions, store) => Rx.Observable.of({ type: TEAR_DOWN_CAROUSEL, payload: { id: null } })
 )
 
 export const createSlideshow = id => (
   (actions, store) => {
     store.dispatch(
-      actions => Rx.Observable.of({ type: TEAR_DOWN_CAROUSEL })
+      actions => Rx.Observable.of({ type: TEAR_DOWN_CAROUSEL, payload: { id: 0 } })
     )
 
     const selection$ = Rx.Observable.of(id)

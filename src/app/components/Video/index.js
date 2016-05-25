@@ -8,7 +8,7 @@ import { changeHex } from 'containers/App/actions'
 import css from './style.less'
 
 const img = {
-  bg: require('site-images/banana-plants.png'),
+  bp: require('site-images/banana-plants.png'),
   av: require('site-images/ev-av.svg'),
   poster: require('site-images/transparent.png'),
   title: require('site-images/title-white.svg')
@@ -35,7 +35,7 @@ class Video extends Component {
     return (
       <div
         className={css.video}
-        style={{ backgroundImage: `url(${img.bg})` }}>
+        style={{ backgroundImage: `url(${img.bp})` }}>
 
         <video
           ref={player => this.player = player}

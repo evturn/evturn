@@ -23,16 +23,19 @@ video::-webkit-media-controls {
   height: 200px;
   width: 100%;
   margin-bottom: 30px;
-  background-size: cover;
+  background-size: 140%;
   background-position-y: 40%;
   background-repeat: no-repeat;
 
   @media(min-width: 600px) {
-    height: 480px
+    height: 480px;
+    background-size: 200%;
+    background-position-x: 40%;
   }
 
   @media(@tablet) {
     height: 500px;
+    background-size: 120%;
   }
 }
 
@@ -49,7 +52,7 @@ video::-webkit-media-controls {
   color: @tx-light;
   width: 250px;
 
-  @media(@tablet) {
+  @media(min-width: 600px) {
     position: absolute;
     margin: 0 auto;
     top: 130px;
@@ -57,7 +60,6 @@ video::-webkit-media-controls {
     left: 0;
     text-align: center;
     color: @tx-light;
-    z-index: 5;
     font-family: @font-mer;
     height: auto;
     display: block;

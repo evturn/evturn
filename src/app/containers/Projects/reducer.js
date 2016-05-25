@@ -17,7 +17,7 @@ function slideshowReducer(state = {}, action) {
       })
     case TEAR_DOWN_CAROUSEL:
       return Object.assign({}, state, {
-        active: 0
+        ...action.payload
       })
     default:
       return state
