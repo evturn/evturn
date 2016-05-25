@@ -48,7 +48,8 @@ App.propTypes = {
   open: PropTypes.bool,
   ready: PropTypes.bool,
   params: PropTypes.object,
-  toggleMenu: PropTypes.func
+  toggleMenu: PropTypes.func,
+  children: React.PropTypes.node,
 }
 
 const mapStateToProps = ({ site, video }) => ({
