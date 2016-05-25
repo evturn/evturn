@@ -66,7 +66,7 @@ const prodLoaders = [
     loader: 'json-loader'
   },{
     test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
-    loader: 'url-loader?limit=10000',
+    loader: 'url-loader?name=img/[hash].[ext]&limit=3000',
   },{
     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
     loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
@@ -129,8 +129,9 @@ const resolve = {
 
 const plugin = {
   html: {
-    template: '../../index.html',
+    template: '../internals/index.html',
     title: 'Evan Turner | Developer',
+    filename: '../index.html',
     appMountId: 'app',
     inject: true,
     favicon: '../assets/img/site/favicon.jpg'

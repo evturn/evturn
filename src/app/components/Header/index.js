@@ -25,7 +25,7 @@ export default ({ open, nav, toggleMenu, ready }) => (
       <div className={css.diamond} />
       <div className={cx('logo', { 'wait': !ready })}>
         <Link to="/">
-          <img src={require('site-images/ev-av.svg')} />
+          <img src={`build/` + require('site-images/ev-av.svg')} />
         </Link>
       </div>
 

@@ -1,9 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+import { skipVideoInitialization } from 'containers/Home/actions'
+
 import css from './style.less'
 
 class About extends Component {
+  componentDidMount() {
+    if (!this.props.initialized) {
+      this.props.skipVideoInitialization(1000)
+    }
+  }
+
   render() {
     const { bio, featuredTech, links } = this.props
 
@@ -13,7 +21,7 @@ class About extends Component {
         <div className={css.about}>
           <div className={css.av}>
             <div className={css.image}>
-              <img className="img" src={require('site-images/ev-av.svg')} />
+              <img className="img" src={`build/` + require('site-images/ev-av.svg')} />
             </div>
           </div>
           <div className={css.details}>
@@ -48,13 +56,21 @@ class About extends Component {
 About.propTypes = {
   bio: PropTypes.string,
   featuredTech: PropTypes.array,
-  links: PropTypes.array
+  links: PropTypes.array,
+  initialized: PropTypes.bool
 }
 
-const mapStateToProps = ({ site }) => ({
+const mapStateToProps = ({ site, video }) => ({
   featuredTech: site.about.featuredTech,
   bio: site.about.bio,
-  links: site.contact.links
+  links: site.contact.links,
+  initialized: video.initialized
 })
 
-export default connect(mapStateToProps)(About)
+const mapDispatchToProps = dispatch => ({
+  skipVideoInitialization: duration => (
+    dispatch(skipVideoInitialization(duration))
+  )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(About)

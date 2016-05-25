@@ -30,7 +30,7 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), 'build'),
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
+    chunkFilename: '[name].[chunkhash].chunk.js'
   },
 
   module: { loaders: prodLoaders },

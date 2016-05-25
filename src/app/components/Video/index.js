@@ -8,10 +8,10 @@ import { changeHex } from 'containers/App/actions'
 import css from './style.less'
 
 const img = {
-  bp: require('site-images/banana-plants.png'),
-  av: require('site-images/ev-av.svg'),
-  poster: require('site-images/transparent.png'),
-  title: require('site-images/title-white.svg')
+  bp: `build/` + require('site-images/banana-plants.png'),
+  av: `build/` + require('site-images/ev-av.svg'),
+  poster: `build/` + require('site-images/transparent.png'),
+  title: `build/` + require('site-images/title-white.svg')
 }
 
 class Video extends Component {

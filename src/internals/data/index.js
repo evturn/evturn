@@ -6,7 +6,7 @@ import TECH from './tech'
 import { nav, work, about, contact } from './site'
 
 const createWebProjectsNav = ({ id, thumbnail }) => ({
-  src: require(`work-images/${thumbnail}`),
+  src: `build/` + require(`work-images/${thumbnail}`),
   id
 })
 
@@ -29,7 +29,7 @@ const createWebProject = ({ tech, images, ...props }) => {
     tech: filterTechByName(tech),
     images: images.map((x, i) => {
       return {
-        src: require(`work-images/${x}`),
+        src: `build/` + require(`work-images/${x}`),
         active: i === 0
       }
     })
