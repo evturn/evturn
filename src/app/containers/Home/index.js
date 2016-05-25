@@ -10,13 +10,10 @@ class Home extends Component {
     const {
       thumbnails,
       id,
-      hex
     } = this.props
 
     return (
-      <div
-        className={css.root}
-        style={{ backgroundColor: hex }}>
+      <div className={css.root}>
 
         {this.props.children}
 
@@ -33,14 +30,12 @@ class Home extends Component {
 Home.propTypes = {
   children: React.PropTypes.node,
   thumbnails: PropTypes.array,
-  id: PropTypes.number,
-  hex: PropTypes.string
+  id: PropTypes.number
 }
 
 const mapStateToProps = ({ slideshow, site }) => ({
   thumbnails: slideshow.nav,
-  id: slideshow.id,
-  hex: site.hex
+  id: slideshow.id
 })
 
 export default connect(mapStateToProps)(Home)

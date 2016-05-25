@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import LoadingIndicator from 'components/LoadingIndicator'
 import { mountPlayer, unmountPlayer } from 'containers/Home/actions'
-import { changeHex } from 'containers/App/actions'
 
 import css from './style.less'
 
@@ -16,13 +15,11 @@ const img = {
 
 class Video extends Component {
   componentDidMount() {
-    this.props.changeHex(true)
     this.props.mountPlayer(this.player)
   }
 
   componentWillUnmount() {
     this.props.unmountPlayer()
-    this.props.changeHex(false)
   }
 
   render() {
@@ -77,8 +74,7 @@ const mapStateToProps = ({ video }) => ({
 
 const mapDispatchToProps = dispatch => ({
   mountPlayer: player => dispatch(mountPlayer(player)),
-  unmountPlayer: _ => dispatch(unmountPlayer()),
-  changeHex: bool => dispatch(changeHex(bool))
+  unmountPlayer: _ => dispatch(unmountPlayer())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Video)
