@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 import { skipVideoInitialization } from 'containers/Home/actions'
+import { createSlideshow, tearDownCarousel } from 'containers/Projects/actions'
+import { changeHex } from 'containers/App/actions'
 
 import css from './style.less'
 
@@ -22,10 +24,29 @@ export const ProjectSections = ({ sections }) => (
 )
 
 class Projects extends Component {
+  componentWillMount() {
+    const { createSlideshow, params } = this.props
+    createSlideshow(params.id)
+  }
+
   componentDidMount() {
+    this.props.changeHex(false)
     if (!this.props.initialized) {
       this.props.skipVideoInitialization(1000)
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { createSlideshow, params } = this.props
+
+    if (params.id !== nextProps.params.id) {
+      createSlideshow(nextProps.params.id)
+    }
+  }
+
+  componentWillUnmount() {
+    const { tearDownCarousel } = this.props
+    tearDownCarousel()
   }
 
   render() {
@@ -39,6 +60,8 @@ class Projects extends Component {
 }
 
 Projects.propTypes = {
+  children: React.PropTypes.node,
+  params: PropTypes.object,
   nav: PropTypes.array,
   params: PropTypes.object,
   iOS: PropTypes.array,
@@ -50,10 +73,13 @@ const mapStateToProps = ({ site, video }) => ({
   nav: site.work.nav,
   iOS: site.work.iOS,
   OSS: site.work.OSS,
-  initialized: video.initialized
+  initialized: video.initialized,
 })
 
 const mapDispatchToProps = dispatch => ({
+  changeHex: bool => dispatch(changeHex(bool)),
+  createSlideshow: id => dispatch(createSlideshow(id)),
+  tearDownCarousel: _ => dispatch(tearDownCarousel()),
   skipVideoInitialization: duration => (
     dispatch(skipVideoInitialization(duration))
   )

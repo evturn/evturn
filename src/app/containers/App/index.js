@@ -4,7 +4,7 @@ import 'sanitize.css/sanitize.css'
 
 import { connect } from 'react-redux'
 
-import { pageTransition, toggleMenu } from './actions'
+import { toggleMenu } from './actions'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'

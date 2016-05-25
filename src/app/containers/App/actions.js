@@ -2,13 +2,13 @@ import * as Rx from 'rxjs'
 
 import {
   TOGGLE_MENU,
-  PAGE_TRANSITION
+  CHANGE_HEX
 } from './constants'
 
-export const pageTransition = page => (
+export const changeHex = bool => (
   (actions, store) => (
-    Rx.Observable.of(page)
-      .map(x => ({ type: PAGE_TRANSITION, payload: page }))
+    Rx.Observable.of(bool)
+      .map(hex => ({ type: CHANGE_HEX, payload: { hex } }))
   )
 )
 

@@ -1,18 +1,20 @@
 import {
   TOGGLE_MENU,
-  PAGE_TRANSITION
+  CHANGE_HEX
 } from './constants'
 
 function appReducer(state = {}, action) {
   switch (action.type) {
-    case PAGE_TRANSITION:
+    case CHANGE_HEX:
       return Object.assign({}, state, {
-        ...action.payload
+        hex: action.payload.hex ? '#212121' : '#ffffff'
       })
+
     case TOGGLE_MENU:
       return Object.assign({}, state, {
         open: !state.open
       })
+
     default:
       return state
   }

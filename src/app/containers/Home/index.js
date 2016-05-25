@@ -1,35 +1,22 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { createSlideshow, tearDownCarousel } from 'containers/Projects/actions'
 import Thumbnails from 'components/Thumbnails'
 
 import css from './style.less'
 
 class Home extends Component {
-  componentWillMount() {
-    const { createSlideshow, params } = this.props
-    createSlideshow(params.id)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { createSlideshow, params } = this.props
-
-    if (params.id !== nextProps.params.id) {
-      createSlideshow(nextProps.params.id)
-    }
-  }
-
-  componentWillUnmount() {
-    const { tearDownCarousel } = this.props
-    tearDownCarousel()
-  }
-
   render() {
-    const { thumbnails, id } = this.props
+    const {
+      thumbnails,
+      id,
+      hex
+    } = this.props
 
     return (
-      <div className={css.root}>
+      <div
+        className={css.root}
+        style={{ backgroundColor: hex }}>
 
         {this.props.children}
 
@@ -44,19 +31,16 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  params: PropTypes.object,
+  children: React.PropTypes.node,
   thumbnails: PropTypes.array,
-  id: PropTypes.number
+  id: PropTypes.number,
+  hex: PropTypes.string
 }
 
-const mapStateToProps = ({ slideshow }) => ({
+const mapStateToProps = ({ slideshow, site }) => ({
   thumbnails: slideshow.nav,
-  id: slideshow.id
+  id: slideshow.id,
+  hex: site.hex
 })
 
-const mapDispatchToProps = dispatch => ({
-  createSlideshow: id => dispatch(createSlideshow(id)),
-  tearDownCarousel: _ => dispatch(tearDownCarousel())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(Home)
