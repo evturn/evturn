@@ -1,0 +1,52 @@
+@import url('../../../assets/less/variables.less');
+
+.ul {
+  .flex();
+  position: relative;
+  max-width: 1200px;
+  transition: all 0.3s ease;
+  margin: 10px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+
+  .active {
+    transform: scale(1);
+    .overlay {
+      opacity: 0.3;
+      box-shadow: none;
+    }
+  }
+}
+
+.thumb {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  text-align: center;
+  transition: 0.3s;
+  transform: scale(0.93);
+  width: 20%;
+
+  &.active {
+    transform: scale(1);
+  }
+
+  &:hover a {
+    @media(@tablet) {
+      .active;
+    }
+  }
+}
+
+.overlay {
+  box-shadow: inset 0px -196px 198px -142px rgba(0, 0, 0, 0.6);
+  transition: all 0.7s ease;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

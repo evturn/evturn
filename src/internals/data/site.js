@@ -1,4 +1,4 @@
-export const nav = {
+const nav = {
   desktop: [
     {
       name: 'Projects',
@@ -9,14 +9,22 @@ export const nav = {
     }
   ],
   mobile: [
-    { name: 'fa fa-times' },
-    { name: 'Home',     route: '/' },
-    { name: 'Projects', route: 'work/web' },
-    { name: 'About',    route: 'about' }
+    {
+      name: 'fa fa-times'
+    },{
+      name: 'Home',
+      route: '/'
+    },{
+      name: 'Projects',
+      route: 'work/web'
+    },{
+      name: 'About',
+      route: 'about'
+    }
   ]
 }
 
-export const work = {
+const work = {
   nav: [
     {
       title: 'Web',
@@ -34,7 +42,7 @@ export const work = {
   ]
 }
 
-export const contact = {
+const contact = {
   links: [
     {
       name: 'email',
@@ -60,7 +68,7 @@ export const contact = {
   ]
 }
 
-export const about = {
+const about = {
   bio: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
   tech: [
     'node',
@@ -77,4 +85,11 @@ export const about = {
     'photoshop',
     'less'
   ]
+}
+
+export {
+  nav,
+  work,
+  contact,
+  about
 }

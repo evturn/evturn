@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 import css from './style.less'
 
-const ProjectsMenu = ({ sections }) => (
+export const ProjectSections = ({ sections }) => (
   <div className={css.nav}>
     <div className={css.sections}>
       <ul className={css.ul}>{sections.map((x, i) =>
@@ -23,7 +23,7 @@ class Projects extends Component {
   render() {
     return (
       <div className={css.projects}>
-        <ProjectsMenu sections={this.props.nav} />
+        <ProjectSections sections={this.props.nav} />
         {this.props.children}
       </div>
     )

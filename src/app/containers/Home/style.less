@@ -1,5 +1,12 @@
 @import url('../../../assets/less/variables.less');
 
+:root {
+  position: relative;
+  background-color: transparent !important;
+  min-height: 100vh;
+  height: auto;
+}
+
 video {
   position: absolute;
   top: 50%;
@@ -30,6 +37,7 @@ video::-webkit-media-controls {
   background-size: cover;
   background-position-y: 40%;
   background-repeat: no-repeat;
+  margin-bottom: 100px;
 
   @media(@tablet) {
     height: 500px;
