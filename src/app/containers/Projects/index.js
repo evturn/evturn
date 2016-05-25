@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
+import { skipVideoInitialization } from 'containers/Home/actions'
+
 import css from './style.less'
 
 export const ProjectSections = ({ sections }) => (
@@ -20,6 +22,12 @@ export const ProjectSections = ({ sections }) => (
 )
 
 class Projects extends Component {
+  componentDidMount() {
+    if (!this.props.initialized) {
+      this.props.skipVideoInitialization(1000)
+    }
+  }
+
   render() {
     return (
       <div className={css.projects}>
@@ -34,13 +42,21 @@ Projects.propTypes = {
   nav: PropTypes.array,
   params: PropTypes.object,
   iOS: PropTypes.array,
-  OSS: PropTypes.array
+  OSS: PropTypes.array,
+  initialized: PropTypes.bool
 }
 
-const mapStateToProps = ({ site }) => ({
+const mapStateToProps = ({ site, video }) => ({
   nav: site.work.nav,
   iOS: site.work.iOS,
   OSS: site.work.OSS,
+  initialized: video.initialized
 })
 
-export default connect(mapStateToProps)(Projects)
+const mapDispatchToProps = dispatch => ({
+  skipVideoInitialization: duration => (
+    dispatch(skipVideoInitialization(duration))
+  )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Projects)

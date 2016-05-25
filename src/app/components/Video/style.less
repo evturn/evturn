@@ -19,12 +19,15 @@ video::-webkit-media-controls {
   display: block;
   position: relative;
   overflow: hidden;
-  height: 180px;
+  height: 200px;
   width: 100%;
   background-size: cover;
   background-position-y: 40%;
   background-repeat: no-repeat;
-  margin-bottom: 100px;
+
+  @media(min-width: 600px) {
+    height: 480px
+  }
 
   @media(@tablet) {
     height: 500px;

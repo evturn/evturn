@@ -31,15 +31,21 @@ const timeoutWithAbort = duration => actions => (
     .takeUntil(actions.ofType(INITIALIZE_PLAYER))
 )
 
-export const mountPlayer = player => (
-  (actions, store) => {
-    const bailOnInitialize$ = Rx.Observable.merge(
-      completeFadeWithTime(800),
-      beginFade()
-    )
+const bailOnInitialize = duration => (
+  Rx.Observable.merge(
+    completeFadeWithTime(duration),
+    beginFade()
+  )
+)
 
+const skipVideoInitialization = duration => (
+  (actions, store) => bailOnInitialize(duration)
+)
+
+const mountPlayer = player => (
+  (actions, store) => {
     if (window.innerWidth <= 1024) {
-      return bailOnInitialize$
+      return bailOnInitialize(800)
     }
 
     store.dispatch(timeoutWithAbort(3000))
@@ -73,9 +79,15 @@ export const mountPlayer = player => (
   }
 )
 
-export const unmountPlayer = _ => (
+const unmountPlayer = _ => (
   (actions, store) => (
     Rx.Observable.of({ src: null, id: 0 })
       .map(payload => ({ type: UNMOUNT_VIDEO_PLAYER, payload }))
   )
 )
+
+export {
+  skipVideoInitialization,
+  mountPlayer,
+  unmountPlayer
+}
