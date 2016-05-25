@@ -4,7 +4,7 @@
   "description": "A website about me for you.",
   "main": "",
   "scripts": {
-    "start": "NODE_ENV=development babel-node src/webpack",
+    "start": "NODE_ENV=development babel-node src/internals/webpack",
     "build": "NODE_ENV=production webpack --config src/internals/webpack/prod.js --color -p",
     "static": "open index.html"
   },

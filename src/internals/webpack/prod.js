@@ -4,8 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+const cssnext = require('postcss-cssnext')
+const postcssFocus = require('postcss-focus')
+const postcssReporter = require('postcss-reporter')
+
 module.exports = require('./base')({
-  context: path.join(process.cwd(), 'src/app'),
   entry: [
     path.join(process.cwd(), 'src/app'),
   ],
@@ -43,7 +46,7 @@ module.exports = require('./base')({
       }
     }),
     new HtmlWebpackPlugin({
-      template: 'src/app/index.html',
+      template: 'index.html',
       title: 'Evan Turner | Developer',
       filename: '../index.html',
       appMountId: 'app',
@@ -56,5 +59,15 @@ module.exports = require('./base')({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       }
     })
-  ]
+  ],
+
+  postcss:  _ => ([
+    postcssFocus(),
+    cssnext({
+      browsers: [ 'last 2 versions', 'IE > 10' ],
+    }),
+    postcssReporter({
+      clearMessages: true
+    })
+  ])
 })

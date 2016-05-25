@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
@@ -16,9 +17,10 @@ const hotMiddleware = webpackHotMiddleware(compiler)
 
 app.use(devMiddleware)
 app.use(hotMiddleware)
-app.use(express.static(path.join(__dirname, '..', '..')))
 
-app.get('*', (req, res, next) => {
+app.use(express.static(path.join(__dirname, '..', '..', '..')))
+
+app.get('*', (req, res) => {
   res.send('index.html')
 })
 

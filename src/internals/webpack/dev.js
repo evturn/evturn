@@ -1,20 +1,19 @@
+const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
 
 const cssnext = require('postcss-cssnext')
 const postcssFocus = require('postcss-focus')
 const postcssReporter = require('postcss-reporter')
 
-const base = require('./base')
-const PATHS = base.PATHS
-const devLoaders = base.devLoaders
-const plugin = base.plugin
-const resolve = base.resolve
+module.exports = require('./base')({
+  debug: true,
+  cache: true,
+  devtool: 'inline-source-map',
+  contentBase: path.join(process.cwd()),
 
-module.exports = {
   entry: [
     'webpack-hot-middleware/client',
     path.join(process.cwd(), 'src/app')
@@ -25,6 +24,21 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
   },
+
+  loaders: [
+    {
+      test: /\.js$|\.jsx$/,
+      loader: 'babel',
+      exclude: /node_modules/,
+      include: path.join(process.cwd(), 'src'),
+      query: { presets: ['react-hmre'] }
+    },{
+      test: /\.less$/,
+      loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
+        '&sourceMap!less?sourceMap&outputStyle=expanded' +
+        '&includePaths[]=' + encodeURIComponent(path.resolve(process.cwd(), 'src', 'assets', 'less'))
+    }
+  ],
 
   devServer: {
     outputPath: path.resolve(process.cwd(), 'build'),
@@ -38,9 +52,23 @@ module.exports = {
     host: 'localhost'
   },
 
-  module: { loaders: devLoaders },
-
-  resolve,
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new WriteFilePlugin({ log: false }),
+    new ExtractTextPlugin('[name].[contenthash].css'),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      inject: true,
+      filename: '../index.html'
+    }),
+    new webpack.DefinePlugin({
+      __DEV__: true,
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      }
+    })
+  ],
 
   postcss:  _ => ([
     postcssFocus(),
@@ -48,26 +76,5 @@ module.exports = {
       browsers: [ 'last 2 versions', 'IE > 10' ],
     }),
     postcssReporter({ clearMessages: true })
-  ]),
-
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new WriteFilePlugin({ log: false }),
-    new ExtractTextPlugin('[name].[contenthash].css'),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-      __DEV__: true
-    })
-  ],
-
-  debug: true,
-  cache: true,
-  devtool: 'inline-source-map',
-  name: 'browser',
-  target: 'web',
-  context: PATHS.root,
-  contentBase: PATHS.root
-}
+  ])
+})
