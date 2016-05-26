@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import classNames from 'classnames/bind'
 
+
 import Menu from 'components/Menu'
 import css from './style.less'
 
 const cx = classNames.bind(css)
 
-export default ({ open, nav, toggleMenu, ready }) => (
+export default ({ open, nav, toggleMenu, children }) => (
   <header>
     <div className={css.nav}>
 
@@ -23,15 +24,12 @@ export default ({ open, nav, toggleMenu, ready }) => (
       )}</div>
 
       <div className={css.diamond} />
-      <div className={cx('logo', { 'wait': !ready })}>
-        <Link to="/">
-          <img src={`build/` + require('site-images/ev-av.svg')} />
-        </Link>
-      </div>
+
+      {children}
 
     </div>
-    <div className={css['sub-nav']} />
 
+    <div className={css['sub-nav']} />
     <div className={css.burger} onClick={toggleMenu}>
       <span className="fa fa-bars" />
     </div>

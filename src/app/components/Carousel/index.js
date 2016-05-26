@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import classNames from 'classnames/bind'
 
+import Thumbnails from 'components/Thumbnails'
 import WorkWebDetails from 'components/WorkWebDetails'
 
 import css from './style.less'
@@ -15,6 +16,7 @@ class Carousel extends Component {
       project,
       images,
       id,
+      thumbnails
     } = this.props
 
     const carouselSlide = images ? (
@@ -32,32 +34,37 @@ class Carousel extends Component {
     ) : '...'
 
     return (
-      <div className={cx('slideshow')}>
-        {carouselSlide}
-        {projectDetails}
+      <div>
+        <div className={cx('slideshow')}>
+          {carouselSlide}
+          {projectDetails}
+        </div>
+
+        <Thumbnails
+          nav={thumbnails}
+          id={id}
+        />
       </div>
     )
   }
 }
 
 Carousel.propTypes = {
+  thumbnails: PropTypes.array,
+  id: PropTypes.number,
   project: PropTypes.object,
   images: PropTypes.array
 }
 
 const mapStateToProps = ({ slideshow }) => ({
+  thumbnails: slideshow.nav,
+  id: slideshow.id,
   project: slideshow.project,
   images: slideshow.images,
   active: slideshow.active,
   total: slideshow.total,
-  projects: slideshow.projects,
-
+  projects: slideshow.projects
 })
 
-const mapDispatchToProps = dispatch => ({
-  createSlideshow: id => dispatch(createSlideshow(id)),
-  tearDownCarousel: _ => dispatch(tearDownCarousel())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Carousel)
+export default connect(mapStateToProps)(Carousel)
 

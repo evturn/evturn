@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
 import Home from './containers/Home'
-import Video from 'components/Video'
 
 import Projects from'./containers/Projects'
 import Carousel from'components/Carousel'
@@ -13,21 +12,17 @@ import About from './containers/About'
 const createRoutes = _ => (
   <Route component={App} path='/'>
 
-    <Route component={Home}>
+    <IndexRoute component={Home} />
 
-      <IndexRoute component={Video} />
-
-      <Route component={Projects} path='work'>
-
-        <IndexRoute component={Carousel} />
-        <Route component={Carousel} path='web'>
-          <Route component={Carousel} path=':id' />
-        </Route>
-        <Route component={WorkIOS} path='ios' />
-        <Route component={WorkOSS} path='oss' />
+    <Route component={Projects} path='work'>
+      <IndexRoute component={Carousel} />
+      <Route component={Carousel} path='web'>
+        <Route component={Carousel} path=':id' />
       </Route>
-
+      <Route component={WorkIOS} path='ios' />
+      <Route component={WorkOSS} path='oss' />
     </Route>
+
     <Route component={About} path='about' />
   </Route>
 )

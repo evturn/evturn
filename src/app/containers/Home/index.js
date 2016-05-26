@@ -1,26 +1,79 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import Thumbnails from 'components/Thumbnails'
+import LoadingIndicator from 'components/LoadingIndicator'
+import Sections from 'components/Sections'
+import { mountPlayer, unmountPlayer } from 'containers/Home/actions'
 
 import css from './style.less'
 
+const img = {
+  bp: `build/` + require('site-images/banana-plants.png'),
+  av: `build/` + require('site-images/ev-av.svg'),
+  poster: `build/` + require('site-images/transparent.png'),
+  title: `build/` + require('site-images/title-white.svg')
+}
+
 class Home extends Component {
+  componentDidMount() {
+    this.props.mountPlayer(this.player)
+  }
+
+  componentWillUnmount() {
+    this.props.unmountPlayer()
+  }
+
   render() {
     const {
       thumbnails,
       id,
+      src,
+      ready,
+      done,
+      sections
     } = this.props
 
     return (
       <div className={css.root}>
 
-        {this.props.children}
+        <div
+          className={css.fullpage}
+          style={{ backgroundImage: `url(${img.bp})` }}>
 
-        <Thumbnails
-          nav={thumbnails}
-          id={id}
-        />
+          <video
+            ref={player => this.player = player}
+            poster={img.poster}
+            type="video/mp4"
+            preload="auto"
+            autoPlay="true"
+            muted="true"
+            src={src}
+          />
+
+          <LoadingIndicator
+            img={img.av}
+            ready={ready}
+            done={done}
+          />
+
+          <div className={css.sections}>
+            <Sections sections={sections} />
+          </div>
+
+          <div className={css.cover}>
+
+            <div className={css.logo}>
+              <img src={img.av} />
+            </div>
+
+            <div className={css.title}>
+              <img src={img.title} />
+              <div className={css.subtitle} />
+            </div>
+
+          </div>
+          <div className={css.overlay} />
+        </div>
 
       </div>
     )
@@ -28,14 +81,22 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  children: React.PropTypes.node,
-  thumbnails: PropTypes.array,
-  id: PropTypes.number
+  src: PropTypes.string,
+  ready: PropTypes.bool,
+  done: PropTypes.bool,
+  sections: PropTypes.array
 }
 
-const mapStateToProps = ({ slideshow, site }) => ({
-  thumbnails: slideshow.nav,
-  id: slideshow.id
+const mapStateToProps = ({ video, site }) => ({
+  src:  video.src,
+  ready: video.ready,
+  done: video.done,
+  sections: site.work.nav
 })
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps = dispatch => ({
+  mountPlayer: player => dispatch(mountPlayer(player)),
+  unmountPlayer: _ => dispatch(unmountPlayer())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

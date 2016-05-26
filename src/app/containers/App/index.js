@@ -8,6 +8,7 @@ import { toggleMenu } from './actions'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Logo from 'components/Logo'
 
 import cx from 'classnames'
 
@@ -19,37 +20,41 @@ class App extends Component {
       nav,
       open,
       ready,
-      toggleMenu
+      toggleMenu,
+      mobile
     } = this.props
 
     return (
       <div className="site">
+
         <Header
           nav={nav}
           open={open}
-          ready={ready}
           toggleMenu={toggleMenu}
-        />
+          mobile={mobile}>
+          <Logo
+            ready={ready}
+            mobile={mobile}
+          />
+        </Header>
 
         {this.props.children}
 
-        <Footer
-          open={open}
-          toggleMenu={toggleMenu}
-        />
+        <div className={`${open ? 'overlay' : ''}`} />
       </div>
     )
   }
 }
 
 App.propTypes = {
+  params: PropTypes.object,
+  children: React.PropTypes.node,
   page: PropTypes.string,
   nav: PropTypes.object,
   open: PropTypes.bool,
   ready: PropTypes.bool,
   toggleMenu: PropTypes.func,
-  params: PropTypes.object,
-  children: React.PropTypes.node,
+  mobile: PropTypes.bool
 }
 
 const mapStateToProps = ({ site, video }) => ({
@@ -57,6 +62,7 @@ const mapStateToProps = ({ site, video }) => ({
   nav: site.nav,
   open: site.open,
   ready: video.ready,
+  mobile: video.mobile
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -5,7 +5,8 @@ import {
   FADE_LOADING_SCREEN,
   LOAD_NEXT_VIDEO,
   UNMOUNT_VIDEO_PLAYER,
-  ADJUST_PLAYBACK_RATE
+  ADJUST_PLAYBACK_RATE,
+  BAIL_ON_INITIALIZE
 } from './constants'
 
 const initialState = {
@@ -26,7 +27,10 @@ function videoReducer(state = initialState, action) {
       return Object.assign({}, state, {
         ...action.payload
       })
-
+    case BAIL_ON_INITIALIZE:
+      return Object.assign({}, state, {
+        ...action.payload
+      })
     case ADJUST_PLAYBACK_RATE:
     default:
       return state

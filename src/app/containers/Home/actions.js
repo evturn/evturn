@@ -6,6 +6,7 @@ import {
   KILL_LOADING_SCREEN ,
   FADE_LOADING_SCREEN,
   LOAD_NEXT_VIDEO,
+  BAIL_ON_INITIALIZE,
   UNMOUNT_VIDEO_PLAYER,
   ADJUST_PLAYBACK_RATE
 } from './constants'
@@ -31,8 +32,14 @@ const timeoutWithAbort = duration => actions => (
     .takeUntil(actions.ofType(INITIALIZE_PLAYER))
 )
 
+const setToMobile = _ => (
+  Rx.Observable.of({ mobile: true })
+    .map(payload => ({ type: BAIL_ON_INITIALIZE, payload }))
+)
+
 const bailOnInitialize = duration => (
   Rx.Observable.merge(
+    setToMobile(),
     completeFadeWithTime(duration),
     beginFade()
   )
@@ -81,7 +88,7 @@ const mountPlayer = player => (
 
 const unmountPlayer = _ => (
   (actions, store) => (
-    Rx.Observable.of({ src: null, id: 0 })
+    Rx.Observable.of({ src: null, id: 0, mobile: false })
       .map(payload => ({ type: UNMOUNT_VIDEO_PLAYER, payload }))
   )
 )

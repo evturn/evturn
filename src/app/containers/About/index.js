@@ -1,22 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { skipVideoInitialization } from 'containers/Home/actions'
+import Footer from 'components/Footer'
 
 import css from './style.less'
 
 class About extends Component {
-  componentDidMount() {
-    if (!this.props.initialized) {
-      this.props.skipVideoInitialization(1000)
-    }
-  }
-
   render() {
     const { bio, featuredTech, links } = this.props
 
     return (
-      <div className={css.root}>
+      <div className={`${css.root} wrap`}>
 
         <div className={css.about}>
           <div className={css.av}>
@@ -48,6 +42,7 @@ class About extends Component {
           )}</ul>
         </div>
 
+        <Footer />
       </div>
     )
   }
@@ -56,21 +51,13 @@ class About extends Component {
 About.propTypes = {
   bio: PropTypes.string,
   featuredTech: PropTypes.array,
-  links: PropTypes.array,
-  initialized: PropTypes.bool
+  links: PropTypes.array
 }
 
 const mapStateToProps = ({ site, video }) => ({
   featuredTech: site.about.featuredTech,
   bio: site.about.bio,
-  links: site.contact.links,
-  initialized: video.initialized
+  links: site.contact.links
 })
 
-const mapDispatchToProps = dispatch => ({
-  skipVideoInitialization: duration => (
-    dispatch(skipVideoInitialization(duration))
-  )
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(About)
+export default connect(mapStateToProps)(About)
