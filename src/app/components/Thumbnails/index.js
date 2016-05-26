@@ -11,7 +11,8 @@ const Thumbnails = ({ nav, id }) => (
     <ul className={css.ul}>{nav.map((x, i)=>
       <li
         key={i}
-        className={cx('thumb', { 'active': x.id === id })}>
+        className={cx('thumb', { 'active': x.id === id })}
+        onClick={_ => window.scrollTo(0, 0)}>
         <Link to={`/work/web/${x.id}`}>
           <img src={x.src} />
           <div className={css.overlay} />
