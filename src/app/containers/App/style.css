@@ -41,9 +41,11 @@ body {
 
 .wrap {
   padding-top: 103px;
+}
 
-  @media(@tablet) {
-    padding-top: 183px;
+@media (min-width: 1024px) {
+  .wrap {
+    padding-top: 118px;
   }
 }
 
@@ -82,13 +84,14 @@ video::-webkit-media-controls {
   top: 0;
   left: 0;
   transition: 0.3s;
+}
 
-  @media(min-width: 1024px) {
+@media (min-width: 1024px) {
+  .overlay {
     background-color: #ffffff;
     opacity: 0.6;
   }
 }
-
 
 a {
   text-decoration: none;
