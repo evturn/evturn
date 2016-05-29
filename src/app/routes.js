@@ -9,7 +9,7 @@ import Carousel from'components/Carousel'
 import IOS from './components/IOS'
 import OSS from './components/OSS'
 
-const createRoutes = _ => (
+const createRoutes = ({ site }) => (
   <Route component={App} path='/'>
 
     <IndexRoute component={Home} />
@@ -19,8 +19,8 @@ const createRoutes = _ => (
       <Route component={Carousel} path='web'>
         <Route component={Carousel} path=':id' />
       </Route>
-      <Route component={IOS} path='ios' />
-      <Route component={OSS} path='oss' />
+      <Route component={_ => IOS(site.work.iOS)} path='ios' />
+      <Route component={_ => OSS(site.work.OSS)} path='oss' />
     </Route>
 
     <Route component={About} path='about' />

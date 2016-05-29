@@ -16,7 +16,7 @@ const browserHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 
 const store = configureStore(initialState, browserHistory)
 const history = syncHistoryWithStore(browserHistory, store)
-const routes = createRoutes()
+const routes = createRoutes(initialState)
 
 render(
   <Provider store={store}>

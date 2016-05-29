@@ -22,6 +22,7 @@
 @value tx-dark-gray:           #808080;
 @value borderGray:             #696874;
 @value borderGrayFade:         rgba(207, 207, 207, 0.15);
+@value border-gray-40:         rgba(207, 207, 207, 0.4);
 
 @value bg-accent-80:           rgba(210, 3, 0, 0.8);
 @value bg-light-20:            rgba(255, 255, 255, 0.2);
