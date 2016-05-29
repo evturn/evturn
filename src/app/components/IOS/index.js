@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
+
 import css from './style.css'
 
 export default iOS => (

@@ -2,7 +2,7 @@
 
 @value tablet from global;
 @value font-helv-neue from global;
-@value bg-sections, tx-matte, tx-primary from global;
+@value bg-sections, tx-matte, tx-dark-gray from global;
 
 .nav {
   display: block;
@@ -59,10 +59,11 @@
 
 .li a {
   color: tx-matte;
+  transition: all 0.3s ease;
 }
 
-.li a.action {
-  color: tx-primary;
+.li a.active {
+  color: tx-dark-gray;
   cursor: default;
 }
 

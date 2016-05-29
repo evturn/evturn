@@ -6,7 +6,7 @@ import css from './style.css'
 
 const cx = classNames.bind(css)
 
-const Thumbnails = ({ nav, id }) => (
+export default ({ nav, id }) => (
   <div className={css.root}>
     <ul className={css.ul}>{nav.map((x, i)=>
       <li
@@ -21,5 +21,3 @@ const Thumbnails = ({ nav, id }) => (
     )}</ul>
   </div>
 )
-
-export default Thumbnails
