@@ -1,13 +1,18 @@
-@import '../variables.less';
+@value global '../../style.css';
+
+@value tablet from global;
+@value clearfix from global;
+@value font-helv-neue from global;
+@value tx-secondary from global;
 
 .items {
   display: block;
-  .clearfix();
+  composes: clearfix;
   width: 100%;
   max-width: 1000px;
   margin: 40px auto 0 auto;
   text-align: center;
-  font-family: @font-helv-neue;
+  font-family: font-helv-neue;
 }
 
 .item {
@@ -16,14 +21,15 @@
   text-align: center;
   margin-bottom: 40px;
   width: 100%;
+}
 
-  @media(@tablet) {
+@media tablet {
+  .item {
     display: inline-block;
     float: left;
-    height: 270px;
+    height: 340px;
     width: 33.3333333333%;
   }
-
 }
 
 .content {
@@ -34,8 +40,10 @@
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
+}
 
-  @media(@tablet) {
+@media tablet {
+  .content {
     padding-bottom: 20px;
     margin-left: 40px;
     margin-right: auto;
@@ -47,8 +55,10 @@
   text-align: right;
   bottom: 0;
   right: 0;
+}
 
-  @media(@tablet) {
+@media tablet {
+  .links {
     bottom: -20px;
   }
 }
@@ -56,22 +66,26 @@
 .link {
   display: inline-block;
   margin-left: 15px;
+}
 
-  @media(@tablet) {
+@media tablet {
+  .link {
     margin-left: 20px;
   }
+}
 
-  span {
-    font-size: 32px;
+.link span {
+  font-size: 32px;
+}
 
-    @media(@tablet) {
-      font-size: 29px;
-    }
+@media tablet {
+  .link span {
+    font-size: 29px;
   }
+}
 
-  a {
-    color: @tx-secondary;
-  }
+.link a {
+  color: tx-secondary;
 }
 
 .name {

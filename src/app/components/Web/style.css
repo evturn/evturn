@@ -1,0 +1,136 @@
+@value global '../../style.css';
+
+@value tablet, desktop, break from global;
+@value clearfix, flex from global;
+@value font-helv-neue from global;
+@value tx-primary, borderGray from global;
+
+.image {
+  width: 730px;
+  position: absolute;
+  top: -110px;
+  left: -390px;
+}
+
+@media tablet {
+  .image {
+    width: 750px;
+    top: -120px;
+    left: -60px;
+  }
+}
+
+.detail {
+  position: relative;
+  padding: 20px 20px 0px;
+  composes: clearfix;
+}
+
+@media break {
+  .detail {
+    padding: 25px 40px 0px;
+  }
+}
+
+@media tablet {
+  .detail {
+    width: auto;
+    float: left;
+    width: 40%;
+    padding: 0 20px;
+  }
+}
+
+.name {
+  display: block;
+  position: relative;
+  font-size: 26px;
+  font-family: font-helv-neue;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+@media break {
+  .name {
+    float: left;
+    width: 50%;
+    margin-bottom: 10px;
+  }
+}
+
+@media tablet {
+  .name {
+    float: none;
+    width: auto;
+  }
+}
+
+.desc {
+  position: relative;
+  line-height: 24px;
+  text-align: justify;
+  font-family: font-helv-neue;
+}
+
+@media break {
+  .desc {
+    float: right;
+    width: 50%;
+  }
+}
+
+@media tablet {
+  .desc {
+    width: auto;
+    margin-top: 0;
+    float: none;
+    min-height: 220px;
+  }
+}
+
+.tech {
+  border-top: 1px solid borderGray;
+}
+
+.links,
+.tech {
+  composes: flex;
+  position: relative;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+@media break {
+  .links,
+  .tech {
+    width: 250px;
+  }
+}
+
+@media tablet {
+  .links,
+  .tech {
+    width: auto;
+  }
+}
+
+
+.links .item,
+.tech .item {
+  display: inline-block;
+  text-align: center;
+  font-size: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.links .item span,
+.tech .item span {
+  font-size: 2.5em;
+  line-height: 45px;
+}
+
+.links .item a,
+.tech .item a {
+  color: tx-primary;
+}

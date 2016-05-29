@@ -5,7 +5,7 @@ import LoadingIndicator from 'components/LoadingIndicator'
 import Sections from 'components/Sections'
 import { mountPlayer, unmountPlayer } from 'containers/Home/actions'
 
-import css from './style.less'
+import css from './style.css'
 
 const img = {
   bp: `build/` + require('site-images/banana-plants.png'),

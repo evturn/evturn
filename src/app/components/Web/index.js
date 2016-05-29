@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classNames from 'classnames/bind'
 
-import css from 'less/components/work-web.less'
+import css from './style.css'
 
 const cx = classNames.bind(css)
 

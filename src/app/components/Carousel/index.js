@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 import classNames from 'classnames/bind'
 
 import Thumbnails from 'components/Thumbnails'
-import WorkWebDetails from 'components/WorkWebDetails'
+import Web from 'components/Web'
 
-import css from './style.less'
+import css from './style.css'
 
 const cx = classNames.bind(css)
 
@@ -30,7 +30,7 @@ class Carousel extends Component {
     ) : 'Loading...'
 
     const projectDetails = project ? (
-      <WorkWebDetails {...project} />
+      <Web {...project} />
     ) : '...'
 
     return (

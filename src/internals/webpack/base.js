@@ -40,10 +40,6 @@ module.exports = ({
           loader: 'file?name=fonts/[name].[hash].[ext]',
         },{
           test: /\.css$/,
-          exclude: /node_modules/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-        },{
-          test: /\.css$/,
           include: /node_modules/,
           loaders: ['style-loader', 'css-loader']
         },

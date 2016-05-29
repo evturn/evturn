@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import css from './style.less'
+import css from './style.css'
 
 const Sections = ({ sections }) => (
   <div className={css.nav}>

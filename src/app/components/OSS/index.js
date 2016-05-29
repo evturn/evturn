@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames/bind'
 
-import css from 'less/components/work-oss.less'
+import css from './style.css'
 
 const cx = classNames.bind(css)
 

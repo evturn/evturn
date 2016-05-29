@@ -1,4 +1,7 @@
-@import url('../../../assets/less/variables.less');
+@value global: '../../style.css';
+
+@value tablet from global;
+@value flex from global;
 
 .root {
   position: relative;
@@ -7,22 +10,23 @@
 }
 
 .ul {
-  .flex();
   position: relative;
+  composes: flex;
   max-width: 1200px;
   transition: all 0.3s ease;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
   text-align: center;
+}
 
-  .active {
-    transform: scale(1);
-    .overlay {
-      opacity: 0.3;
-      box-shadow: none;
-    }
-  }
+.ul .active {
+  transform: scale(1);
+}
+
+.ul .active .overlay {
+  opacity: 0.3;
+  box-shadow: none;
 }
 
 .thumb {
@@ -32,22 +36,15 @@
   text-align: center;
   transition: 0.3s;
   transform: scale(0.93);
-  // width: 20%;
   width: 33.333333333%;
+}
 
-  img {
-    border-radius: 4px;
-  }
+.thumb img {
+  border-radius: 4px;
+}
 
-  &.active {
-    transform: scale(1);
-  }
-
-  &:hover a {
-    @media(@tablet) {
-      .active;
-    }
-  }
+.thumb.active {
+  transform: scale(1);
 }
 
 .overlay {

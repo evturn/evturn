@@ -3,14 +3,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import classNames from 'classnames/bind'
 
-
 import Menu from 'components/Menu'
-import css from './style.less'
+import css from './style.css'
 
 const cx = classNames.bind(css)
 
 export default ({ open, nav, toggleMenu, children }) => (
-  <header>
+  <header className={css.root}>
     <div className={css.nav}>
 
       <div className={css.pages}>

@@ -1,20 +1,25 @@
-@import '../variables.less';
+@value global '../../style.css';
+
+@value tablet from global;
+@value font-helv-neue from global;
 
 .items {
   display: block;
   margin: 0 auto;
   text-align: center;
-  font-family: @font-helv-neue;
+  font-family: font-helv-neue;
 }
 
 .item {
   width: 200px;
   display: block;
   margin: 40px auto;
+}
 
-  @media(@tablet) {
-    margin: 40px;
+@media tablet {
+  .item {
     display: inline-block;
+    margin: 40px;
   }
 }
 

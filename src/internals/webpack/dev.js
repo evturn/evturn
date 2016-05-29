@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const cssnext = require('postcss-cssnext')
 const postcssFocus = require('postcss-focus')
 const postcssReporter = require('postcss-reporter')
+const values = require('postcss-modules-values')
 
 module.exports = require('./base')({
   debug: true,
@@ -33,10 +34,9 @@ module.exports = require('./base')({
       include: path.join(process.cwd(), 'src'),
       query: { presets: ['react-hmre'] }
     },{
-      test: /\.less$/,
-      loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
-        '&sourceMap!less?sourceMap&outputStyle=expanded' +
-        '&includePaths[]=' + encodeURIComponent(path.resolve(process.cwd(), 'src', 'assets', 'less'))
+      test: /\.css$/,
+      exclude: /node_modules/,
+      loader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader'
     }
   ],
 
@@ -71,6 +71,7 @@ module.exports = require('./base')({
   ],
 
   postcss:  _ => ([
+    values,
     postcssFocus(),
     cssnext({
       browsers: [ 'last 2 versions', 'IE > 10' ],

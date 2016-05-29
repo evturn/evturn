@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 
 import Footer from 'components/Footer'
 
-import css from './style.less'
+import css from './style.css'
 
 class About extends Component {
   render() {
     const { bio, featuredTech, links } = this.props
 
     return (
-      <div className={`${css.root} wrap`}>
+      <div className={`${css.root} ${css.wrap}`}>
 
         <div className={css.about}>
           <div className={css.av}>

@@ -1,0 +1,97 @@
+@value global: '../../style.css';
+
+@value break, tablet, desktop from global;
+@value borderGray from global;
+@value clearfix: clearfix from global;
+
+.slideshow {
+  composes: clearfix;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+@media tablet {
+  .slideshow {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  composes: clearfix;
+  width: 100%;
+  height: 200px;
+  border-top: 1px solid borderGray;
+  border-bottom: 1px solid borderGray;
+}
+
+@media break {
+  .carousel {
+    height: 400px;
+  }
+}
+
+@media tablet {
+  .carousel {
+    margin-top: 0;
+    float: right;
+    width: 60%;
+    height: 365px;
+    border: 1px solid borderGray;
+  }
+}
+
+@media desktop {
+  .carousel {
+    height: 390px;
+  }
+}
+
+.slides {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  composes: clearfix;
+  transition: all 1s ease;
+  transition-duration: 1s;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+@keyframes fadein {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+

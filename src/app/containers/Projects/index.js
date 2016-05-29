@@ -5,7 +5,7 @@ import Sections from 'components/Sections'
 import Footer from 'components/Footer'
 import { createSlideshow, tearDownCarousel } from 'containers/Projects/actions'
 
-import css from './style.less'
+import css from './style.css'
 
 class Projects extends Component {
   componentWillMount() {
@@ -28,7 +28,7 @@ class Projects extends Component {
 
   render() {
     return (
-      <div className={`${css.root} wrap`}>
+      <div className={`${css.root} ${css.wrap}`}>
         <Sections sections={this.props.nav} />
         {this.props.children}
         <Footer />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import css from './style.less'
+import css from './style.css'
 import av from 'site-images/ev-av.svg'
 import skel from 'site-images/skel.gif'
 

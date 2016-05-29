@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const cssnext = require('postcss-cssnext')
 const postcssFocus = require('postcss-focus')
 const postcssReporter = require('postcss-reporter')
+const values = require('postcss-modules-values')
 
 module.exports = require('./base')({
   entry: [
@@ -26,10 +27,11 @@ module.exports = require('./base')({
       exclude: /node_modules/,
       include: path.join(process.cwd(), 'src'),
     },{
-      test: /\.less$/,
+      test: /\.css$/,
+      exclude: /node_modules/,
       loader: ExtractTextPlugin.extract(
         'style-loader',
-        'css-loader?modules&importLoaders=1!postcss-loader!less-loader'
+        'css-loader?modules&importLoaders=1!postcss-loader'
       )
     }
   ],
@@ -62,6 +64,7 @@ module.exports = require('./base')({
   ],
 
   postcss:  _ => ([
+    values,
     postcssFocus(),
     cssnext({
       browsers: [ 'last 2 versions', 'IE > 10' ],
