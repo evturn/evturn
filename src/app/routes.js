@@ -9,9 +9,8 @@ import Web from'./components/Web'
 import IOS from './components/IOS'
 import OSS from './components/OSS'
 
-const createRoutes = ({ site, slideshow }) => (
+const createRoutes = ({ site }) => (
   <Route component={App} path='/'>
-
     <IndexRoute component={Home} />
 
     <Route component={Projects} path='work'>
@@ -19,11 +18,11 @@ const createRoutes = ({ site, slideshow }) => (
       <Route component={Web} path='web'>
         <Route component={Web} path=':id' />
       </Route>
-      <Route component={_ => IOS(site.work.iOS)} path='ios' />
-      <Route component={_ => OSS(site.work.OSS)} path='oss' />
+      <Route component={_ => IOS(site)} path='ios' />
+      <Route component={_ => OSS(site)} path='oss' />
     </Route>
 
-    <Route component={About} path='about' />
+    <Route component={_ => About(site)} path='about' />
   </Route>
 )
 

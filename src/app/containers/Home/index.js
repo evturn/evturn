@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
+import Video from 'components/Video'
 import LoadingIndicator from 'components/LoadingIndicator'
 import Sections from 'components/Sections'
-import { mountPlayer, unmountPlayer } from 'containers/Home/actions'
 
 import css from './style.css'
 
@@ -15,40 +15,23 @@ const img = {
   title: `build/` + require('site-images/title-white.svg')
 }
 
+const backgroundImage = { backgroundImage: `url(${img.bp})` }
+
 class Home extends Component {
-  componentDidMount() {
-    this.props.mountPlayer(this.player)
-  }
-
-  componentWillUnmount() {
-    this.props.unmountPlayer()
-  }
-
   render() {
-    const {
-      thumbnails,
-      id,
-      src,
-      ready,
-      done,
-      sections
-    } = this.props
+    const { src, ready, done, sections } = this.props
 
     return (
       <div className={css.root}>
-
         <div
           className={css.fullpage}
-          style={{ backgroundImage: `url(${img.bp})` }}>
+          style={backgroundImage}>
 
-          <video
-            ref={player => this.player = player}
-            poster={img.poster}
-            type="video/mp4"
-            preload="auto"
-            autoPlay="true"
-            muted="true"
+          <Video
             src={src}
+            ready={ready}
+            done={done}
+            poster={img.poster}
           />
 
           <LoadingIndicator
@@ -74,7 +57,6 @@ class Home extends Component {
 
           <div className={css.overlay} />
         </div>
-
       </div>
     )
   }
@@ -91,12 +73,7 @@ const mapStateToProps = ({ video, site }) => ({
   src:  video.src,
   ready: video.ready,
   done: video.done,
-  sections: site.work.nav
+  sections: site.sections
 })
 
-const mapDispatchToProps = dispatch => ({
-  mountPlayer: player => dispatch(mountPlayer(player)),
-  unmountPlayer: _ => dispatch(unmountPlayer())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(Home)

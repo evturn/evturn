@@ -3,15 +3,16 @@ import { connect } from 'react-redux'
 
 import Sections from 'components/Sections'
 import Footer from 'components/Footer'
-
 import css from './style.css'
 
 class Projects extends Component {
   render() {
     return (
       <div className={`${css.root} ${css.wrap}`}>
-        <Sections sections={this.props.nav} />
+        <Sections sections={this.props.sections} />
+
         {this.props.children}
+
         <Footer />
       </div>
     )
@@ -19,14 +20,11 @@ class Projects extends Component {
 }
 
 Projects.propTypes = {
-  children: React.PropTypes.node,
-  params: PropTypes.object,
-  nav: PropTypes.array,
-  params: PropTypes.object
+  sections: PropTypes.array
 }
 
 const mapStateToProps = ({ site }) => ({
-  nav: site.work.nav
+  sections: site.sections
 })
 
 export default connect(mapStateToProps)(Projects)

@@ -2,7 +2,7 @@ import React from 'react'
 
 import css from './style.css'
 
-export default iOS => (
+export default ({ iOS }) => (
   <ul className={css.items}>{iOS.map((x, i) =>
     <li key={i} className={css.item}>
       <div className={css.name}>{x.name}</div>

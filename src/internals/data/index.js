@@ -2,30 +2,33 @@ import iOS from './ios'
 import OSS from './oss'
 import WEB from './web'
 import TECH from './tech'
+import sections from './sections'
+import contact from './contact'
 import { groupA, groupB } from './videos'
-import { nav, work, about, contact } from './site'
+import { mobile, desktop } from './nav'
+import { copy, tools } from './about'
 
-const getTechItems = items => (
+const filterTechItems = items => (
   TECH.filter(x => items.filter(item => item === x.slug)[0])
 )
 
+const createSlides = (x, i) => ({
+  src: `build/` + require(`work-images/${x}`),
+  active: i === 0
+})
+
+const createThumbnails = ({ thumbnail, id }) => ({
+  src: `build/` + require(`work-images/${thumbnail}`),
+  id
+})
+
 const assembleProjects = _ => {
-  const createProjectSlides = (x, i) => ({
-    src: `build/` + require(`work-images/${x}`),
-    active: i === 0
-  })
-
-  const nav = WEB.map(({ id, thumbnail }) => ({
-    src: `build/` + require(`work-images/${thumbnail}`),
-    id
+  const nav = WEB.map(createThumbnails)
+  const projects = WEB.map(x => ({
+    ...x,
+    images: x.images.map(createSlides),
+    tech: filterTechItems(x.tech)
   }))
-
-  const projects = WEB.map(({ tech, images, ...props }) => (
-    Object.assign({}, props, {
-      tech: getTechItems(tech),
-      images: images.map(createProjectSlides)
-    })
-  ))
 
   return {
     nav,
@@ -52,21 +55,15 @@ const assembleVideos = _ => {
 
 const assembleSiteStatics = _ => ({
   nav: {
-    desktop: nav.desktop,
-    mobile: nav.mobile
+    desktop,
+    mobile
   },
-  contact: {
-    links: contact.links
-  },
-  about: {
-    bio: about.bio,
-    featuredTech: getTechItems(about.tech)
-  },
-  work: {
-    nav: work.nav,
-    iOS,
-    OSS
-  }
+  contact,
+  copy: copy.join(' '),
+  tools: filterTechItems(tools),
+  iOS,
+  OSS,
+  sections
 })
 
 export default {

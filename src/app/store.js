@@ -26,6 +26,13 @@ const configureStore = (initialState, history) => {
     compose(...enhancers)
   )
 
+  if (module.hot) {
+    module.hot.accept('./reducers', _ => {
+      const nextRootReducer = require('./reducers').default
+      store.replaceReducer(nextRootReducer)
+    })
+  }
+
   return store
 }
 
