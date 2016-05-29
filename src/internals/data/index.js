@@ -5,82 +5,72 @@ import TECH from './tech'
 import { groupA, groupB } from './videos'
 import { nav, work, about, contact } from './site'
 
-const createWebProjectsNav = ({ id, thumbnail }) => ({
-  src: `build/` + require(`work-images/${thumbnail}`),
-  id
-})
+const getTechItems = items => (
+  TECH.filter(x => items.filter(item => item === x.slug)[0])
+)
 
-const filterTechByName = items => {
-  return TECH.filter(x => {
-    let match = false
-
-    items.map(item => {
-      if (item === x.slug) {
-        match = true
-      }
-    })
-
-    return match
+const assembleProjects = _ => {
+  const createProjectSlides = (x, i) => ({
+    src: `build/` + require(`work-images/${x}`),
+    active: i === 0
   })
+
+  const nav = WEB.map(({ id, thumbnail }) => ({
+    src: `build/` + require(`work-images/${thumbnail}`),
+    id
+  }))
+
+  const projects = WEB.map(({ tech, images, ...props }) => (
+    Object.assign({}, props, {
+      tech: getTechItems(tech),
+      images: images.map(createProjectSlides)
+    })
+  ))
+
+  return {
+    nav,
+    projects
+  }
 }
 
-const createWebProject = ({ tech, images, ...props }) => {
-  return Object.assign({}, props, {
-    tech: filterTechByName(tech),
-    images: images.map((x, i) => {
-      return {
-        src: `build/` + require(`work-images/${x}`),
-        active: i === 0
-      }
-    })
-  })
-}
-
-const shuffleAndMerge = (groupA, groupB) => {
+const assembleVideos = _ => {
   const head = []
 
-  function shuffle() {
+  const shuffle = _ => {
     const vid = groupA[Math.floor(Math.random() * groupA.length)]
     const exists = head.filter(x => x === vid)[0]
 
-    if (!exists) {
-      head.push(vid)
-    } else {
-      shuffle()
-    }
+    !exists ? head.push(vid) : shuffle()
   }
 
   while(head.length !== groupA.length) {
     shuffle()
   }
 
-  return head.concat(groupB)
+  return { playlist: head.concat(groupB) }
 }
 
-export default {
-  site: {
-    nav: {
-      desktop: nav.desktop,
-      mobile: nav.mobile
-    },
-    contact: {
-      links: contact.links
-    },
-    about: {
-      bio: about.bio,
-      featuredTech: filterTechByName(about.tech)
-    },
-    work: {
-      nav: work.nav,
-      iOS,
-      OSS
-    }
+const assembleSiteStatics = _ => ({
+  nav: {
+    desktop: nav.desktop,
+    mobile: nav.mobile
   },
-  slideshow: {
-    nav: WEB.map(createWebProjectsNav),
-    projects: WEB.map(createWebProject)
+  contact: {
+    links: contact.links
   },
-  video: {
-    playlist: shuffleAndMerge(groupA, groupB)
+  about: {
+    bio: about.bio,
+    featuredTech: getTechItems(about.tech)
+  },
+  work: {
+    nav: work.nav,
+    iOS,
+    OSS
   }
+})
+
+export default {
+  site: assembleSiteStatics(),
+  slideshow: assembleProjects(),
+  video: assembleVideos()
 }
