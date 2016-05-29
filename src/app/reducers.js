@@ -6,7 +6,7 @@ import videoReducer from 'containers/Home/reducer'
 import slideshowReducer from 'containers/Projects/reducer'
 import { LOCATION_CHANGE } from 'react-router-redux'
 
-function routeReducer(state = {
+function routeReducer(state={
   locationBeforeTransitions: null
 }, action) {
   switch (action.type) {
@@ -17,7 +17,7 @@ function routeReducer(state = {
       })
 
     default:
-      return state;
+      return state
   }
 }
 

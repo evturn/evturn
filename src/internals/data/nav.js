@@ -10,7 +10,7 @@ export const desktop = [
 
 export const mobile = [
   {
-    name: 'fa fa-times'
+    name: require('site-images/close-light.svg')
   },{
     name: 'Home',
     route: '/'

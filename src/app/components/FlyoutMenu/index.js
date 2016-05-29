@@ -18,7 +18,7 @@ export default ({ open, nav, toggleMenu }) => (
         {nav.map((x, i) =>
           <li key={i} className={css.li} onClick={toggleMenu}>{x.route ?
             <Link to={x.route} children={x.name} /> :
-            <span className={x.name} />
+            <img src={x.name} />
           }</li>
         )}
       </ul>

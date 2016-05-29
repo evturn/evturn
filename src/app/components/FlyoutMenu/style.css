@@ -61,6 +61,14 @@
   color: tx-light;
 }
 
+.li img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+}
+
 .li:last-child {
   border-bottom: 1px solid borderGrayFade;
 }
