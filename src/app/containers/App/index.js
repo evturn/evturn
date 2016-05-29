@@ -8,7 +8,7 @@ import { toggleMenu } from './actions'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import Logo from 'components/Logo'
+
 
 import cx from 'classnames'
 
@@ -31,12 +31,9 @@ class App extends Component {
           nav={nav}
           open={open}
           toggleMenu={toggleMenu}
-          mobile={mobile}>
-          <Logo
-            ready={ready}
-            mobile={mobile}
-          />
-        </Header>
+          mobile={mobile}
+          ready={ready}
+        />
 
         {this.props.children}
 

@@ -1,37 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router'
 
-import Menu from 'components/Menu'
+import Navbar from 'components/Navbar'
+import FlyoutMenu from 'components/FlyoutMenu'
+
 import css from './style.css'
 
-export default ({ open, nav, toggleMenu, children }) => (
+export default ({ open, nav, toggleMenu, ready, mobile }) => (
   <header className={css.root}>
-    <div className={css.nav}>
+    <Navbar
+      nav={nav.desktop}
+      ready={ready}
+      mobile={mobile}
+    />
 
-      <div className={css.pages}>
-        {nav.desktop.map((x, i) =>
-          <div key={i} className={css.page}>
-            <Link
-              to={x.route}
-              children={x.name}
-            />
-          </div>
-      )}</div>
+    <div className={css.subnav} />
 
-      <div className={css.diamond} />
-
-      {children}
-
-    </div>
-
-    <div className={css['sub-nav']} />
-    <div className={css.burger} onClick={toggleMenu}>
-      <span className="fa fa-bars" />
-    </div>
-
-    <Menu
-      open={open}
+    <FlyoutMenu
       nav={nav.mobile}
+      open={open}
       toggleMenu={toggleMenu}
     />
   </header>
