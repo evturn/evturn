@@ -1,23 +1,21 @@
 @value global: '../../../style.css';
 
 @value tablet from global;
-@value flex from global;
+@value clearfix, flex from global;
 
 .root {
   position: relative;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .ul {
   position: relative;
   composes: flex;
-  max-width: 1200px;
+  composes: clearfix;
   transition: all 0.3s ease;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  text-align: center;
 }
 
 .ul .active {
@@ -35,8 +33,16 @@
   vertical-align: top;
   text-align: center;
   transition: 0.3s;
+  margin: 0 auto;
   transform: scale(0.93);
   width: 33.333333333%;
+  float: left;
+}
+
+@media tablet {
+  .thumb {
+    width: 20%
+  }
 }
 
 .thumb img {
