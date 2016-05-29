@@ -1,8 +1,8 @@
-import videos from './videos'
 import iOS from './ios'
 import OSS from './oss'
 import WEB from './web'
 import TECH from './tech'
+import { groupA, groupB } from './videos'
 import { nav, work, about, contact } from './site'
 
 const createWebProjectsNav = ({ id, thumbnail }) => ({
@@ -36,6 +36,27 @@ const createWebProject = ({ tech, images, ...props }) => {
   })
 }
 
+const shuffleAndMerge = (groupA, groupB) => {
+  const head = []
+
+  function shuffle() {
+    const vid = groupA[Math.floor(Math.random() * groupA.length)]
+    const exists = head.filter(x => x === vid)[0]
+
+    if (!exists) {
+      head.push(vid)
+    } else {
+      shuffle()
+    }
+  }
+
+  while(head.length !== groupA.length) {
+    shuffle()
+  }
+
+  return head.concat(groupB)
+}
+
 export default {
   site: {
     nav: {
@@ -60,6 +81,6 @@ export default {
     projects: WEB.map(createWebProject)
   },
   video: {
-    playlist: videos
+    playlist: shuffleAndMerge(groupA, groupB)
   }
 }
