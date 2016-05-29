@@ -1,14 +1,14 @@
-(function(i,s,o,g,r,a,m){
-  i['GoogleAnalyticsObject']=r;
-  i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)
+(function(_,e,v,t,u,r,n){
+  _['GoogleAnalyticsObject']=u;
+  _[u]=_[u]||function(){
+    (_[u].q=_[u].q||[]).push(arguments)
   },
-  i[r].l=1*new Date();
-  a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];
-  a.async=1;
-  a.src=g;
-  m.parentNode.insertBefore(a,m)
+  _[u].l=1*new Date();
+  r=e.createElement(v),
+  n=e.getElementsByTagName(v)[0];
+  r.async=1;
+  r.src=t;
+  n.parentNode.insertBefore(r,n)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-58635966-1', 'auto');
