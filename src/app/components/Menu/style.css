@@ -17,7 +17,7 @@
   transition: 0.4s;
 }
 
-.root&.open {
+.root.open {
   right: 0;
 }
 

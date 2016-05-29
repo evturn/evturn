@@ -1,9 +1,6 @@
 import React from 'react'
-import classNames from 'classnames/bind'
 
 import css from './style.css'
-
-const cx = classNames.bind(css)
 
 export default _ => (
   <footer className={css.footer}>

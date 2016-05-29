@@ -1,12 +1,8 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 import { Link } from 'react-router'
-import classNames from 'classnames/bind'
 
 import Menu from 'components/Menu'
 import css from './style.css'
-
-const cx = classNames.bind(css)
 
 export default ({ open, nav, toggleMenu, children }) => (
   <header className={css.root}>
