@@ -38,9 +38,9 @@
 ////////////////
 @value mobile:                 (min-width: 320px);
 @value break:                  (min-width: 600px);
-@value tablet-portrait:        (min-width: 768px);
-@value tablet:                 (min-width: 1024px);
-@value desktop:                (min-width: 1440px);
+@value tablet-portrait:        (min-width: 769px);
+@value tablet:                 (min-width: 1025px);
+@value desktop:                (min-width: 1441px);
 @value desktop-lg:             (min-width: 1920px);
 
 ////////////////

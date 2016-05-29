@@ -1,20 +1,22 @@
 import React, { Component, PropTypes } from 'react'
-
-import 'sanitize.css/sanitize.css'
-
 import { connect } from 'react-redux'
-
-import { toggleMenu } from './actions'
-
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-
-
 import cx from 'classnames'
 
+import 'sanitize.css/sanitize.css'
 import 'data/google-analytics'
 
+import { toggleMenu } from './actions'
+import { skipVideoInitialization } from 'containers/Home/actions'
+
+import Header from '../../components/Header'
+
 class App extends Component {
+  componentWillMount() {
+    if (this.props.route.length > 1) {
+      this.props.skipVideoInitialization(800)
+    }
+  }
+
   render() {
     const {
       nav,
@@ -37,7 +39,6 @@ class App extends Component {
 
         {this.props.children}
 
-        <div className={`${open ? 'overlay' : ''}`} />
       </div>
     )
   }
@@ -54,16 +55,18 @@ App.propTypes = {
   mobile: PropTypes.bool
 }
 
-const mapStateToProps = ({ site, video }) => ({
+const mapStateToProps = ({ site, video, route }) => ({
   params: site.params,
   nav: site.nav,
   open: site.open,
   ready: video.ready,
-  mobile: video.mobile
+  mobile: video.mobile,
+  route: route.locationBeforeTransitions.pathname
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleMenu: _ => dispatch(toggleMenu())
+  toggleMenu: _ => dispatch(toggleMenu()),
+  skipVideoInitialization: duration => dispatch(skipVideoInitialization(duration))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

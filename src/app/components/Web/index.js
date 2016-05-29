@@ -1,28 +1,73 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router'
+
+import {
+  createSlideshow,
+  tearDownCarousel
+} from 'containers/Projects/actions'
+
+import Details from './Details'
+import Carousel from './Carousel'
+import Thumbnails from './Thumbnails'
 
 import css from './style.css'
 
-export default ({ tech, links, name, id, description }) => (
-  <div className={css.root}>
-    <div className={css.name}>{name}</div>
-    <div className={css.desc}>{description}</div>
+class Web extends Component {
+  componentWillMount() {
+    const { createSlideshow, params } = this.props
+    createSlideshow(params.id)
+  }
 
-    {links ?
-      <ul className={css.links}>{links.map((x, i)=>
-        <li key={i} className={css.item}>
-          <a className={css.ext} href={x.url} target="_blank">
-            <span className={x.icon} />
-          </a>
-          <div className={css.caption}>{x.name}</div>
-        </li>
-      )}</ul> : null}
+  componentWillReceiveProps(nextProps) {
+    const { createSlideshow, params } = this.props
 
-    <ul className={css.tech}>{tech.map((x, i) =>
-      <li key={i} className={css.item}>
-        <span className={x.icon} />
-        <div className={css.caption}>{x.name}</div>
-      </li>
-    )}</ul>
+    if (params.id !== nextProps.params.id) {
+      createSlideshow(nextProps.params.id)
+    }
+  }
 
-  </div>
-)
+  componentWillUnmount() {
+    const { tearDownCarousel } = this.props
+    tearDownCarousel()
+  }
+
+  render () {
+    const { images, nav, project, id } = this.props
+
+    return (
+      <div>
+        <div className={css.slideshow}>
+          {images ? <Carousel images={images} /> : null}
+          {project ? <Details {...project} /> : null}
+        </div>
+
+        <Thumbnails
+          nav={this.props.nav}
+          id={this.props.id}
+        />
+      </div>
+    )
+  }
+}
+
+Web.propTypes = {
+  nav: PropTypes.array,
+  id: PropTypes.number,
+  project: PropTypes.object,
+  images: PropTypes.array
+}
+
+const mapStateToProps = ({ slideshow }) => ({
+  nav: slideshow.nav,
+  id: slideshow.id,
+  project: slideshow.project,
+  images: slideshow.images
+})
+
+const mapDispatchToProps = dispatch => ({
+  createSlideshow: id => dispatch(createSlideshow(id)),
+  tearDownCarousel: _ => dispatch(tearDownCarousel())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Web)

@@ -5,19 +5,19 @@ import Home from './containers/Home'
 import About from './containers/About'
 import Projects from'./containers/Projects'
 
-import Carousel from'components/Carousel'
+import Web from'./components/Web'
 import IOS from './components/IOS'
 import OSS from './components/OSS'
 
-const createRoutes = ({ site }) => (
+const createRoutes = ({ site, slideshow }) => (
   <Route component={App} path='/'>
 
     <IndexRoute component={Home} />
 
     <Route component={Projects} path='work'>
-      <IndexRoute component={Carousel} />
-      <Route component={Carousel} path='web'>
-        <Route component={Carousel} path=':id' />
+      <IndexRoute component={Web} />
+      <Route component={Web} path='web'>
+        <Route component={Web} path=':id' />
       </Route>
       <Route component={_ => IOS(site.work.iOS)} path='ios' />
       <Route component={_ => OSS(site.work.OSS)} path='oss' />

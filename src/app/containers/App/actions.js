@@ -2,6 +2,7 @@ import * as Rx from 'rxjs'
 
 import {
   TOGGLE_MENU,
+  MOBILE_SITE
 } from './constants'
 
 export const toggleMenu = _ => (

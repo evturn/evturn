@@ -1,2 +1,2 @@
 export const TOGGLE_MENU = 'TOGGLE_MENU'
-export const CHANGE_HEX = 'CHANGE_HEX'
+export const MOBILE_SITE = 'MOBILE_SITE'

@@ -4,6 +4,7 @@ import css from './style.css'
 
 export default OSS => (
   <ul className={css.items}>{OSS.map((x, i) =>
+
     <li key={i} className={css.item}>
       <div className={css.content}>
         <div className={css.name}>{x.name}</div>

@@ -10,6 +10,7 @@ import css from './style.css'
 const img = {
   bp: `build/` + require('site-images/banana-plants.png'),
   av: `build/` + require('site-images/ev-av.svg'),
+  skel: `build/` + require('site-images/skel.gif'),
   poster: `build/` + require('site-images/transparent.png'),
   title: `build/` + require('site-images/title-white.svg')
 }
@@ -61,17 +62,16 @@ class Home extends Component {
           </div>
 
           <div className={css.cover}>
-
             <div className={css.logo}>
-              <img src={img.av} />
+              <img src={img.skel} />
             </div>
 
             <div className={css.title}>
               <img src={img.title} />
               <div className={css.subtitle} />
             </div>
-
           </div>
+
           <div className={css.overlay} />
         </div>
 

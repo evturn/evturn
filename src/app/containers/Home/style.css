@@ -63,7 +63,7 @@
   left: 0;
   text-align: center;
   z-index: 100;
-  background-color: bg-light-70;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   padding: 10px;
 
@@ -77,8 +77,8 @@
 }
 
 .logo img {
-  background-color: bg-light-30;
-  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0;
   border-radius: 50%;
 }
 

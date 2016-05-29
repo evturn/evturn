@@ -54,7 +54,7 @@ About.propTypes = {
   links: PropTypes.array
 }
 
-const mapStateToProps = ({ site, video }) => ({
+const mapStateToProps = ({ site }) => ({
   featuredTech: site.about.featuredTech,
   bio: site.about.bio,
   links: site.contact.links

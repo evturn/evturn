@@ -1,18 +1,24 @@
 @value global '../../style.css';
 
-@value tablet from global;
+@value tablet, tablet-portrait from global;
 @value clearfix from global;
 @value font-helv-neue from global;
-@value tx-secondary from global;
+@value tx-dark-gray, tx-secondary from global;
 
 .items {
   display: block;
   composes: clearfix;
   width: 100%;
-  max-width: 1000px;
+  max-width: 700px;
   margin: 40px auto 0 auto;
   text-align: center;
   font-family: font-helv-neue;
+}
+
+@media tablet {
+  .items {
+    max-width: 1000px;
+  }
 }
 
 .item {
@@ -23,11 +29,21 @@
   width: 100%;
 }
 
+@media tablet-portrait {
+  .item {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 40px;
+    height: 340px;
+    width: 50%;
+  }
+}
+
 @media tablet {
   .item {
     display: inline-block;
     float: left;
-    height: 340px;
     width: 33.3333333333%;
   }
 }
@@ -35,31 +51,31 @@
 .content {
   position: relative;
   height: 100%;
-  max-width: 300px;
   padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
+  max-width: 300px;
 }
 
 @media tablet {
   .content {
     padding-bottom: 20px;
-    margin-left: 40px;
     margin-right: auto;
   }
 }
 
 .links {
-  position: absolute;
+  position: relative;
   text-align: right;
-  bottom: 0;
-  right: 0;
+
 }
 
-@media tablet {
+@media tablet-portrait {
   .links {
+    position: absolute;
     bottom: -20px;
+    right: 20px;
   }
 }
 
@@ -85,7 +101,14 @@
 }
 
 .link a {
-  color: tx-secondary;
+  transition: all 0.1s ease;
+  color: tx-dark-gray;
+}
+
+.link a:hover {
+  @media tablet {
+    color: tx-secondary;
+  }
 }
 
 .name {

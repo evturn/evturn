@@ -1,125 +1,16 @@
-@value global '../../style.css';
+@value global: '../../style.css';
 
-@value tablet, desktop, break from global;
-@value clearfix, flex from global;
-@value border-gray-40 from global;
-@value font-helv-neue from global;
+@value tablet from global;
+@value clearfix: clearfix from global;
 
-.root {
-  position: relative;
+.slideshow {
   composes: clearfix;
-  padding: 20px 20px 0px;
-}
-
-@media break {
-  .root {
-    padding: 25px 40px 0px;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media tablet {
-  .root {
-    width: auto;
-    float: left;
-    width: 40%;
-    padding: 0 20px;
+  .slideshow {
+    padding: 20px 15px 15px 15px;
   }
-}
-
-.name {
-  display: block;
-  position: relative;
-  font-size: 26px;
-  font-family: font-helv-neue;
-  text-transform: uppercase;
-  text-align: left;
-}
-
-
-@media break {
-  .name {
-    float: left;
-    width: 50%;
-    margin-bottom: 10px;
-  }
-}
-
-@media tablet {
-  .name {
-    float: none;
-    width: auto;
-  }
-}
-
-.desc {
-  position: relative;
-  line-height: 24px;
-  text-align: justify;
-  font-family: font-helv-neue;
-  padding-bottom: 20px;
-}
-
-@media break {
-  .desc {
-    float: right;
-    width: 50%;
-  }
-}
-
-@media tablet {
-  .desc {
-    width: auto;
-    margin-top: 0;
-    float: none;
-    min-height: 245px;
-  }
-}
-
-.tech {
-  border-top: 1px solid border-gray-40;
-}
-
-.links,
-.tech {
-  composes: flex;
-  position: relative;
-  text-align: left;
-  margin-bottom: 5px;
-}
-
-@media break {
-  .links, .tech {
-    width: 250px;
-  }
-}
-
-@media tablet {
-  .links, .tech {
-    width: auto;
-    border-top: 1px solid border-gray-40;
-  }
-}
-
-.links .item,
-.tech .item {
-  display: inline-block;
-  text-align: center;
-  font-size: 10px;
-  width: 50px;
-  height: 50px;
-}
-
-.item span {
-  font-size: 2.5em;
-  line-height: 45px;
-  color: tx-primary;
-}
-
-.caption {
-  font-size: 10px;
-  font-family: font-helv-neue;
-}
-
-.links .ext {
-  color: #7C7C87;
 }
