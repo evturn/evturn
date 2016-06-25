@@ -18,7 +18,7 @@ const unmountPlayer = _ => (
 
 const mountPlayer = player => (
   (actions, store) => {
-    return store.getState().route.locationBeforeTransitions.pathname.length > 1
+    return store.getState().route.pathname.length > 1
       || window.innerWidth <= 1024
         ? Rx.Observable.timer(800)
             .mapTo({ type: REMOVE_LOADING_INDICATOR })

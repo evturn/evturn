@@ -28,35 +28,29 @@ class Home extends Component {
     return (
       <div className={css.root}>
         <div className={css.fullpage}>
-
           <Video
             src={src}
             ready={ready}
             done={done}
             poster={img.poster}
           />
-
           <LoadingIndicator
             img={img.av}
             ready={ready}
             done={done}
           />
-
           <div className={css.sections}>
             <Sections sections={sections} />
           </div>
-
           <div className={css.cover}>
             <div className={css.logo}>
               <img src={img.skel} />
             </div>
-
             <div className={`${css.title} ${!done && !initialized ? css.wait : ''}`}>
               <img src={img.title} />
               <div className={css.subtitle} />
             </div>
           </div>
-
           <div className={css.overlay} />
         </div>
       </div>

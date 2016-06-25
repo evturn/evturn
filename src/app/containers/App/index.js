@@ -18,6 +18,7 @@ class App extends Component {
       toggleMenu,
       mobile,
       initialized,
+      notRoot,
     } = this.props
 
     return (
@@ -29,6 +30,7 @@ class App extends Component {
           mobile={mobile}
           ready={ready}
           initialized={initialized}
+          notRoot={notRoot}
         />
         {this.props.children}
       </div>
@@ -46,6 +48,7 @@ App.propTypes = {
   toggleMenu: PropTypes.func,
   mobile: PropTypes.bool,
   initialized: PropTypes.bool,
+  notRoot: PropTypes.bool,
 }
 
 const mapStateToProps = ({ site, video, route }) => ({
@@ -56,6 +59,7 @@ const mapStateToProps = ({ site, video, route }) => ({
   mobile: video.mobile,
   route: route.locationBeforeTransitions.pathname,
   initialized: video.initialized,
+  notRoot: route.notRoot,
 })
 
 const mapDispatchToProps = dispatch => ({

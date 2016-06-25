@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 import css from './style.css'
 import av from 'site-images/ev-av.svg'
 
-const Logo = ({ ready, mobile, initialized }) => {
+const Logo = ({ ready, mobile, initialized, notRoot }) => {
   return (
-    <div className={`${css.logo} ${initialized ? '' : !ready ? css.wait : '' }`}>
+    <div className={`${css.logo} ${initialized || notRoot ? '' : !ready ? css.wait : '' }`}>
       <Link to="/">
         <img src={`build/${av}`} />
       </Link>

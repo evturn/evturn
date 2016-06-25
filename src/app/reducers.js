@@ -7,13 +7,17 @@ import slideshowReducer from 'containers/Projects/reducer'
 import { LOCATION_CHANGE } from 'react-router-redux'
 
 function routeReducer(state={
-  locationBeforeTransitions: null
+  locationBeforeTransitions: null,
+  pathname: null,
+  notRoot: false,
 }, action) {
   switch (action.type) {
 
     case LOCATION_CHANGE:
       return Object.assign({}, state, {
         locationBeforeTransitions: action.payload,
+        pathname: action.payload.pathname,
+        notRoot: action.payload.pathname.length > 1,
       })
 
     default:
