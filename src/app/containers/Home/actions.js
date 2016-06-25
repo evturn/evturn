@@ -74,10 +74,13 @@ const mountPlayer = player => (
           Rx.Observable.fromEvent(player, 'playing')
             .map(x => {
               store.dispatch(_ => completeFadeWithTime(300))
+
+              player.playbackRate = store.getState().video.initialized
+                ? 0.6
+                : 1
+
               store.dispatch(initializePlayer)
               store.dispatch(beginFade)
-
-              player.playbackRate = 0.6
             })
             .map(_ => ({ type: ADJUST_PLAYBACK_RATE }))
         )
