@@ -4,7 +4,7 @@ import WEB from './web'
 import TECH from './tech'
 import sections from './sections'
 import contact from './contact'
-import { groupA, groupB } from './videos'
+import playlist from './videos'
 import { mobile, desktop } from './nav'
 import { copy, tools } from './about'
 
@@ -36,23 +36,6 @@ const assembleProjects = _ => {
   }
 }
 
-const assembleVideos = _ => {
-  const head = []
-
-  const shuffle = _ => {
-    const vid = groupA[Math.floor(Math.random() * groupA.length)]
-    const exists = head.filter(x => x === vid)[0]
-
-    !exists ? head.push(vid) : shuffle()
-  }
-
-  while(head.length !== groupA.length) {
-    shuffle()
-  }
-
-  return { playlist: head.concat(groupB) }
-}
-
 const assembleSiteStatics = _ => ({
   nav: {
     desktop,
@@ -69,5 +52,5 @@ const assembleSiteStatics = _ => ({
 export default {
   site: assembleSiteStatics(),
   slideshow: assembleProjects(),
-  video: assembleVideos()
+  video: { playlist }
 }
