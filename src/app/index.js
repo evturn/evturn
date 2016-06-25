@@ -1,5 +1,4 @@
 import React from 'react'
-import * as Rx from 'rxjs'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, useRouterHistory } from 'react-router'

@@ -3,7 +3,7 @@ import * as Rx from 'rxjs'
 import {
   MOUNT_VIDEO_PLAYER,
   INITIALIZE_PLAYER,
-  KILL_LOADING_SCREEN ,
+  KILL_LOADING_SCREEN,
   FADE_LOADING_SCREEN,
   LOAD_NEXT_VIDEO,
   BAIL_ON_INITIALIZE,
@@ -57,32 +57,33 @@ const mountPlayer = player => (
 
     store.dispatch(timeoutWithAbort(3000))
 
-    const playlist = store.getState().video.playlist
+    return Rx.Observable.of(store.getState().video)
+      .flatMap(({ playlist, length }) => {
+        return Rx.Observable.merge(
+          Rx.Observable.of({ src: playlist[0], id: 0 })
+            .map(payload => ({ type: MOUNT_VIDEO_PLAYER, payload })),
 
-    const start$ = Rx.Observable.from(playlist)
-      .filter((_, i) => i === 0)
-      .map(x => ({ src: x, id: 0 }))
-      .map(payload => ({ type: MOUNT_VIDEO_PLAYER, payload }))
+          Rx.Observable.fromEvent(player, 'ended')
+            .flatMap(_ => {
+              return Rx.Observable.of(store.getState().video.id)
+                .map(x => x === length - 1 ? 0 : x + 1)
+                .map(x => ({ src: playlist[x], id: x }))
+            })
+            .map(payload => ({ type: LOAD_NEXT_VIDEO, payload })),
 
-    const ended$ = Rx.Observable.fromEvent(player, 'ended')
-      .map(x => store.getState().video.id)
-      .map(id => id === playlist.length - 1 ? 0 : id + 1)
-      .map(x => ({ src: playlist[x], id: x }))
-      .map(payload => ({ type: LOAD_NEXT_VIDEO, payload }))
+          Rx.Observable.fromEvent(player, 'playing')
+            .map(x => {
+              if (!store.getState().video.initialized) {
+                store.dispatch(_ => completeFadeWithTime(800))
+                store.dispatch(initializePlayer)
+                store.dispatch(beginFade)
+              }
 
-    const playing$ = Rx.Observable.fromEvent(player, 'playing')
-      .map(x => {
-        if (!store.getState().video.initialized) {
-          store.dispatch(_ => completeFadeWithTime(800))
-          store.dispatch(initializePlayer)
-          store.dispatch(beginFade)
-        }
-
-        player.playbackRate = 0.6
+              player.playbackRate = 0.6
+            })
+            .map(_ => ({ type: ADJUST_PLAYBACK_RATE }))
+        )
       })
-      .map(_ => ({ type: ADJUST_PLAYBACK_RATE }))
-
-    return Rx.Observable.merge(start$, ended$, playing$)
   }
 )
 
