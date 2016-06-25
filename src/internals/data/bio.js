@@ -1,19 +1,19 @@
 import devicons from './devicons'
 
 const technologies = [
-  'node',
-  'react',
-  'javascript',
-  'swift',
-  'rxjs',
-  'gulp',
-  'webpack',
-  'redux',
-  'mongodb',
-  'git',
-  'ubuntu',
+  'less',
   'photoshop',
-  'less'
+  'ubuntu',
+  'git',
+  'mongodb',
+  'gulp',
+  'redux',
+  'webpack',
+  'rxjs',
+  'swift',
+  'javascript',
+  'react',
+  'node',
 ]
 
 function assembleBio() {

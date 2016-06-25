@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
 import Home from './containers/Home'
 import About from './containers/About'
-import Projects from'./containers/Projects'
+import Projects from './containers/Projects'
 
 import Web from'./components/Web'
 import IOS from './components/IOS'
