@@ -8,14 +8,11 @@ import Sections from 'components/Sections'
 import css from './style.css'
 
 const img = {
-  bp: `build/` + require('site-images/banana-plants.png'),
   av: `build/` + require('site-images/ev-av.svg'),
   skel: `build/` + require('site-images/skel.gif'),
   poster: `build/` + require('site-images/transparent.png'),
   title: `build/` + require('site-images/title-white.svg')
 }
-
-const backgroundImage = { backgroundImage: `url(${img.bp})` }
 
 class Home extends Component {
   render() {
@@ -25,13 +22,12 @@ class Home extends Component {
       done,
       sections,
       initialized,
+      mobile,
     } = this.props
 
     return (
       <div className={css.root}>
-        <div
-          className={css.fullpage}
-          style={backgroundImage}>
+        <div className={css.fullpage}>
 
           <Video
             src={src}
@@ -74,6 +70,7 @@ Home.propTypes = {
   done: PropTypes.bool,
   sections: PropTypes.array,
   initialized: PropTypes.bool,
+  mobile: PropTypes.bool,
 }
 
 const mapStateToProps = ({ video, site }) => ({
@@ -82,6 +79,7 @@ const mapStateToProps = ({ video, site }) => ({
   done: video.done,
   sections: site.sections,
   initialized: video.initialized,
+  mobile: video.mobile,
 })
 
 export default connect(mapStateToProps)(Home)

@@ -6,17 +6,10 @@ import 'sanitize.css/sanitize.css'
 import 'data/google-analytics'
 
 import { toggleMenu } from './actions'
-import { skipVideoInitialization } from 'containers/Home/actions'
 
 import Header from '../../components/Header'
 
 class App extends Component {
-  componentWillMount() {
-    if (this.props.route.length > 1) {
-      this.props.skipVideoInitialization(800)
-    }
-  }
-
   render() {
     const {
       nav,
@@ -29,7 +22,6 @@ class App extends Component {
 
     return (
       <div className="site">
-
         <Header
           nav={nav}
           open={open}
@@ -38,9 +30,7 @@ class App extends Component {
           ready={ready}
           initialized={initialized}
         />
-
         {this.props.children}
-
       </div>
     )
   }
@@ -70,7 +60,6 @@ const mapStateToProps = ({ site, video, route }) => ({
 
 const mapDispatchToProps = dispatch => ({
   toggleMenu: _ => dispatch(toggleMenu()),
-  skipVideoInitialization: duration => dispatch(skipVideoInitialization(duration))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

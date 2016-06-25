@@ -20,6 +20,7 @@
   background-position-x: 70%;
   background-position-y: -70%;
   background-repeat: no-repeat;
+  background-color: #000;
 }
 
 @media tablet {
@@ -27,6 +28,7 @@
     background-size: 135%;
     background-position-x: 50%;
     background-position-y: -20%;
+    background-image: none;
   }
 }
 

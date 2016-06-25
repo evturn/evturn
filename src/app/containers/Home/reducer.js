@@ -1,12 +1,11 @@
 import {
-  MOUNT_VIDEO_PLAYER,
   INITIALIZE_PLAYER,
-  KILL_LOADING_SCREEN ,
-  FADE_LOADING_SCREEN,
-  LOAD_NEXT_VIDEO,
-  UNMOUNT_VIDEO_PLAYER,
-  ADJUST_PLAYBACK_RATE,
-  BAIL_ON_INITIALIZE
+  INITIALIZE_PLAYER_SUCCESS,
+  INITIALIZE_PLAYER_ABORT,
+  FADE_LOADING_INDICATOR,
+  REMOVE_LOADING_INDICATOR,
+  PLAY_NEXT_IN_QUEUE,
+  UNMOUNT_PLAYER,
 } from './constants'
 
 const initialState = {
@@ -16,25 +15,51 @@ const initialState = {
   id: 0,
 }
 
-function videoReducer(state = initialState, action) {
+const videoReducer = (state=initialState, action) => {
   switch (action.type) {
     case INITIALIZE_PLAYER:
-    case MOUNT_VIDEO_PLAYER:
-    case FADE_LOADING_SCREEN:
-    case KILL_LOADING_SCREEN:
-    case LOAD_NEXT_VIDEO:
       return Object.assign({}, state, {
-        ...action.payload
+        src: state.playlist[0],
+        id: 0,
       })
-    case UNMOUNT_VIDEO_PLAYER:
+
+    case INITIALIZE_PLAYER_SUCCESS:
       return Object.assign({}, state, {
-        ...action.payload
+        initialized: true,
       })
-    case BAIL_ON_INITIALIZE:
+
+    case INITIALIZE_PLAYER_ABORT:
       return Object.assign({}, state, {
-        ...action.payload
+        mobile: true,
+        initialized: true,
+        ready: true,
       })
-    case ADJUST_PLAYBACK_RATE:
+
+    case FADE_LOADING_INDICATOR:
+      return Object.assign({}, state, {
+        ready: true,
+      })
+
+    case REMOVE_LOADING_INDICATOR:
+      return Object.assign({}, state, {
+        done: true,
+      })
+
+    case PLAY_NEXT_IN_QUEUE:
+      return Object.assign({}, state, {
+        ready: false,
+        done: false,
+        src: action.src,
+        id: action.id,
+      })
+
+    case UNMOUNT_PLAYER:
+      return Object.assign({}, state, {
+        src: null,
+        id: 0,
+        mobile: false,
+      })
+
     default:
       return state
   }

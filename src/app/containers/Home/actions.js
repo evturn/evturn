@@ -1,88 +1,71 @@
 import * as Rx from 'rxjs'
 
 import {
-  MOUNT_VIDEO_PLAYER,
   INITIALIZE_PLAYER,
-  KILL_LOADING_SCREEN,
-  FADE_LOADING_SCREEN,
-  LOAD_NEXT_VIDEO,
-  BAIL_ON_INITIALIZE,
-  UNMOUNT_VIDEO_PLAYER,
-  ADJUST_PLAYBACK_RATE
+  INITIALIZE_PLAYER_SUCCESS,
+  INITIALIZE_PLAYER_ABORT,
+  FADE_LOADING_INDICATOR,
+  REMOVE_LOADING_INDICATOR,
+  PLAY_NEXT_IN_QUEUE,
+  UNMOUNT_PLAYER,
 } from './constants'
-
-const beginFade = _ => (
-  Rx.Observable.of({ ready: true })
-    .map(payload => ({ type: FADE_LOADING_SCREEN, payload }))
-)
-const completeFadeWithTime = duration => (
-  Rx.Observable.timer(duration)
-    .map(_ => ({ done: true }))
-    .map(payload => ({ type: KILL_LOADING_SCREEN, payload  }))
-)
-
-const initializePlayer = _ => (
-  Rx.Observable.of({ initialized: true })
-    .map(payload => ({ type: INITIALIZE_PLAYER, payload }))
-)
-
-const timeoutWithAbort = duration => actions => (
-  Rx.Observable.timer(duration)
-    .flatMap(beginFade)
-    .takeUntil(actions.ofType(INITIALIZE_PLAYER))
-)
-
-const setToMobile = _ => (
-  Rx.Observable.of({ mobile: true })
-    .map(payload => ({ type: BAIL_ON_INITIALIZE, payload }))
-)
-
-const bailOnInitialize = duration => (
-  Rx.Observable.merge(
-    setToMobile(),
-    completeFadeWithTime(duration),
-    beginFade()
-  )
-)
-
-const skipVideoInitialization = duration => (
-  (actions, store) => bailOnInitialize(duration)
-)
 
 const mountPlayer = player => (
   (actions, store) => {
-    if (window.innerWidth <= 1024) {
-      return bailOnInitialize(800)
+
+    if (store.getState().route.locationBeforeTransitions.pathname.length > 1
+      || window.innerWidth <= 1024) {
+      return abortVideoPlayerSetup()
     }
 
-    store.dispatch(timeoutWithAbort(3000))
+    function abortVideoPlayerSetup() {
+      return Rx.Observable.timer(800)
+        .map(_ => ({ type: REMOVE_LOADING_INDICATOR }))
+        .startWith({ type: INITIALIZE_PLAYER_ABORT })
+    }
+
+    function videoIsPlaying(player) {
+      store.getState().video.initialized
+        ? player.playbackRate = 0.6
+        : store.dispatch(_ =>
+            Rx.Observable.of({ type: INITIALIZE_PLAYER_SUCCESS })
+          )
+
+      return Rx.Observable.timer(300)
+        .map(_ => ({ type: REMOVE_LOADING_INDICATOR }))
+        .startWith({ type: FADE_LOADING_INDICATOR })
+    }
+
+    function videoHasEnded(playlist) {
+      return Rx.Observable.of(store.getState().video.id)
+        .map(x => (
+          x === playlist.length - 1
+            ? 0
+            : x + 1
+        ))
+        .map(x => ({
+          type: PLAY_NEXT_IN_QUEUE,
+          src: playlist[x],
+          id: x
+        }))
+    }
+
 
     return Rx.Observable.of(store.getState().video)
-      .flatMap(({ playlist, length }) => {
+      .flatMap(({ playlist }) => {
+
+        store.dispatch(actions =>
+          Rx.Observable.timer(3000)
+            .map(_ => ({ type: FADE_LOADING_INDICATOR }))
+            .takeUntil(actions.ofType(INITIALIZE_PLAYER_SUCCESS))
+            .startWith({ type: INITIALIZE_PLAYER })
+        )
+
         return Rx.Observable.merge(
-          Rx.Observable.of({ src: playlist[0], id: 0 })
-            .map(payload => ({ type: MOUNT_VIDEO_PLAYER, payload })),
-
-          Rx.Observable.fromEvent(player, 'ended')
-            .flatMap(_ => {
-              return Rx.Observable.of(store.getState().video.id)
-                .map(x => x === length - 1 ? 0 : x + 1)
-                .map(x => ({ src: playlist[x], id: x, ready: false, done: false }))
-            })
-            .map(payload => ({ type: LOAD_NEXT_VIDEO, payload })),
-
           Rx.Observable.fromEvent(player, 'playing')
-            .map(x => {
-              store.dispatch(_ => completeFadeWithTime(300))
-
-              player.playbackRate = store.getState().video.initialized
-                ? 0.6
-                : 1
-
-              store.dispatch(initializePlayer)
-              store.dispatch(beginFade)
-            })
-            .map(_ => ({ type: ADJUST_PLAYBACK_RATE }))
+            .flatMap(_ => videoIsPlaying(player)),
+          Rx.Observable.fromEvent(player, 'ended')
+            .flatMap(_ => videoHasEnded(playlist))
         )
       })
   }
@@ -90,13 +73,11 @@ const mountPlayer = player => (
 
 const unmountPlayer = _ => (
   (actions, store) => (
-    Rx.Observable.of({ src: null, id: 0, mobile: false })
-      .map(payload => ({ type: UNMOUNT_VIDEO_PLAYER, payload }))
+    Rx.Observable.of({ type: UNMOUNT_PLAYER })
   )
 )
 
 export {
-  skipVideoInitialization,
   mountPlayer,
   unmountPlayer
 }
