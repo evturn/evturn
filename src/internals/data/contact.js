@@ -2,22 +2,18 @@ export default [
   {
     name: 'email',
     url: 'mailto:evturn@gmail.com',
-    icon: 'fa fa-envelope',
-    featured: true
+    icon: 'fa fa-envelope'
   }, {
     name: 'github',
     url: 'http://github.com/evturn',
-    icon: 'fa fa-github-square',
-    featured: true
+    icon: 'fa fa-github-square'
   }, {
     name: 'linkedin',
     url: 'http://www.linkedin.com/in/evturn/',
-    icon: 'fa fa-linkedin-square',
-    featured: true
+    icon: 'fa fa-linkedin-square'
   }, {
     name: 'twitter',
     url: 'http://twitter.com/evturn',
-    icon: 'fa fa-twitter-square',
-    featured: true
+    icon: 'fa fa-twitter-square'
   }
 ]

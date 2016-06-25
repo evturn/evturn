@@ -16,4 +16,4 @@ export default [
     id: 4,
     image: 'dumb-facts.png'
   }
-];
+]
