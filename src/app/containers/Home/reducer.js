@@ -30,7 +30,6 @@ const videoReducer = (state=initialState, action) => {
 
     case INITIALIZE_PLAYER_ABORT:
       return Object.assign({}, state, {
-        mobile: true,
         initialized: true,
         ready: true,
       })
@@ -57,7 +56,6 @@ const videoReducer = (state=initialState, action) => {
       return Object.assign({}, state, {
         src: null,
         id: 0,
-        mobile: false,
       })
 
     default:

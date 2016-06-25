@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import Sections from 'components/Sections'
 import Footer from 'components/Footer'
+
 import css from './style.css'
 
 class Projects extends Component {
@@ -10,9 +11,7 @@ class Projects extends Component {
     return (
       <div className={`${css.root} ${css.wrap}`}>
         <Sections sections={this.props.sections} />
-
         {this.props.children}
-
         <Footer />
       </div>
     )

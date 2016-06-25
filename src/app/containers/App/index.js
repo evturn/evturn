@@ -8,6 +8,7 @@ import 'data/google-analytics'
 import { toggleMenu } from './actions'
 
 import Header from '../../components/Header'
+import FlyoutMenu from 'components/FlyoutMenu'
 
 class App extends Component {
   render() {
@@ -16,22 +17,21 @@ class App extends Component {
       open,
       ready,
       toggleMenu,
-      mobile,
-      initialized,
-      notRoot,
+      visible,
     } = this.props
 
     return (
       <div className="site">
         <Header
-          nav={nav}
-          open={open}
-          toggleMenu={toggleMenu}
-          mobile={mobile}
+          nav={nav.desktop}
           ready={ready}
-          initialized={initialized}
-          notRoot={notRoot}
-        />
+          visible={visible}>
+          <FlyoutMenu
+            nav={nav.mobile}
+            open={open}
+            toggleMenu={toggleMenu}
+          />
+        </Header>
         {this.props.children}
       </div>
     )
@@ -41,14 +41,11 @@ class App extends Component {
 App.propTypes = {
   params: PropTypes.object,
   children: React.PropTypes.node,
-  page: PropTypes.string,
   nav: PropTypes.object,
   open: PropTypes.bool,
   ready: PropTypes.bool,
   toggleMenu: PropTypes.func,
-  mobile: PropTypes.bool,
-  initialized: PropTypes.bool,
-  notRoot: PropTypes.bool,
+  visible: PropTypes.bool,
 }
 
 const mapStateToProps = ({ site, video, route }) => ({
@@ -56,10 +53,7 @@ const mapStateToProps = ({ site, video, route }) => ({
   nav: site.nav,
   open: site.open,
   ready: video.ready,
-  mobile: video.mobile,
-  route: route.locationBeforeTransitions.pathname,
-  initialized: video.initialized,
-  notRoot: route.notRoot,
+  visible: video.initialized || route.notRoot,
 })
 
 const mapDispatchToProps = dispatch => ({

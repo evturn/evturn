@@ -22,7 +22,6 @@ class Home extends Component {
       done,
       sections,
       initialized,
-      mobile,
     } = this.props
 
     return (
@@ -64,7 +63,6 @@ Home.propTypes = {
   done: PropTypes.bool,
   sections: PropTypes.array,
   initialized: PropTypes.bool,
-  mobile: PropTypes.bool,
 }
 
 const mapStateToProps = ({ video, site }) => ({
@@ -73,7 +71,6 @@ const mapStateToProps = ({ video, site }) => ({
   done: video.done,
   sections: site.sections,
   initialized: video.initialized,
-  mobile: video.mobile,
 })
 
 export default connect(mapStateToProps)(Home)
