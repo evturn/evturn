@@ -23,7 +23,8 @@ class App extends Component {
       open,
       ready,
       toggleMenu,
-      mobile
+      mobile,
+      initialized,
     } = this.props
 
     return (
@@ -35,6 +36,7 @@ class App extends Component {
           toggleMenu={toggleMenu}
           mobile={mobile}
           ready={ready}
+          initialized={initialized}
         />
 
         {this.props.children}
@@ -52,7 +54,8 @@ App.propTypes = {
   open: PropTypes.bool,
   ready: PropTypes.bool,
   toggleMenu: PropTypes.func,
-  mobile: PropTypes.bool
+  mobile: PropTypes.bool,
+  initialized: PropTypes.bool,
 }
 
 const mapStateToProps = ({ site, video, route }) => ({
@@ -61,7 +64,8 @@ const mapStateToProps = ({ site, video, route }) => ({
   open: site.open,
   ready: video.ready,
   mobile: video.mobile,
-  route: route.locationBeforeTransitions.pathname
+  route: route.locationBeforeTransitions.pathname,
+  initialized: video.initialized,
 })
 
 const mapDispatchToProps = dispatch => ({

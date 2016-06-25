@@ -5,12 +5,13 @@ import FlyoutMenu from 'components/FlyoutMenu'
 
 import css from './style.css'
 
-export default ({ open, nav, toggleMenu, ready, mobile }) => (
+export default ({ open, nav, toggleMenu, ready, mobile, initialized }) => (
   <header className={css.root}>
     <Navbar
       nav={nav.desktop}
       ready={ready}
       mobile={mobile}
+      initialized={initialized}
     />
 
     <div className={css.subnav} />

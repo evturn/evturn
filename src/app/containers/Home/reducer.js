@@ -23,6 +23,9 @@ function videoReducer(state = initialState, action) {
     case FADE_LOADING_SCREEN:
     case KILL_LOADING_SCREEN:
     case LOAD_NEXT_VIDEO:
+      return Object.assign({}, state, {
+        ...action.payload
+      })
     case UNMOUNT_VIDEO_PLAYER:
       return Object.assign({}, state, {
         ...action.payload

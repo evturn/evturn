@@ -5,7 +5,7 @@ import Logo from 'components/Logo'
 
 import css from './style.css'
 
-export default ({ nav, ready, mobile }) => (
+export default ({ nav, ready, mobile, initialized }) => (
   <div className={css.root}>
 
     <div className={css.pages}>{nav.map((x, i) =>
@@ -20,6 +20,7 @@ export default ({ nav, ready, mobile }) => (
     <Logo
       ready={ready}
       mobile={mobile}
+      initialized={initialized}
     />
 
     <div className={css.diamond} />

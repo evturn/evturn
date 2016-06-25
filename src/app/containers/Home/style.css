@@ -3,7 +3,7 @@
 @value clearfix from global;
 @value tablet, desktop from global;
 @value font-mer from global;
-@value bgOverlay, bg-light, bg-light-20, bg-light-70, tx-light from global;
+@value bgOverlay, bg-light, bg-matte, bg-light-20, bg-light-70, tx-light from global;
 
 .root {
   position: relative;
@@ -91,7 +91,7 @@
     display: block;
     position: absolute;
     margin: 0 auto;
-    top: 35%;
+    top: 40%;
     right: 0;
     left: 0;
     text-align: center;
@@ -99,7 +99,29 @@
     font-family: font-mer;
     height: auto;
     display: block;
-    width: 60%;
+    width: 50%;
+  }
+
+  .title img {
+    opacity: 1;
+    transition: 1.5s;
+    -webkit-filter: drop-shadow(6px 5px 0px bg-matte);
+    filter: drop-shadow(6px 5px 0px bg-matte);
+  }
+
+  .title.wait img {
+    opacity: 0;
+  }
+
+  .wait .subtitle {
+    opacity: 0;
+    transition-delay: 4.0s;
+    transition: 1.0s;
+  }
+
+  .subtitle {
+    transition-delay: 8.0s;
+    transition: 2.0s;
   }
 }
 
@@ -113,7 +135,12 @@
 }
 
 .subtitle:before {
+  opacity: 0;
+}
+
+.subtitle:after {
   content: "developer";
+  opacity: 1;
 }
 
 @media tablet {

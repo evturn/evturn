@@ -67,17 +67,15 @@ const mountPlayer = player => (
             .flatMap(_ => {
               return Rx.Observable.of(store.getState().video.id)
                 .map(x => x === length - 1 ? 0 : x + 1)
-                .map(x => ({ src: playlist[x], id: x }))
+                .map(x => ({ src: playlist[x], id: x, ready: false, done: false }))
             })
             .map(payload => ({ type: LOAD_NEXT_VIDEO, payload })),
 
           Rx.Observable.fromEvent(player, 'playing')
             .map(x => {
-              if (!store.getState().video.initialized) {
-                store.dispatch(_ => completeFadeWithTime(800))
-                store.dispatch(initializePlayer)
-                store.dispatch(beginFade)
-              }
+              store.dispatch(_ => completeFadeWithTime(300))
+              store.dispatch(initializePlayer)
+              store.dispatch(beginFade)
 
               player.playbackRate = 0.6
             })

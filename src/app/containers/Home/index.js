@@ -19,7 +19,13 @@ const backgroundImage = { backgroundImage: `url(${img.bp})` }
 
 class Home extends Component {
   render() {
-    const { src, ready, done, sections } = this.props
+    const {
+      src,
+      ready,
+      done,
+      sections,
+      initialized,
+    } = this.props
 
     return (
       <div className={css.root}>
@@ -49,7 +55,7 @@ class Home extends Component {
               <img src={img.skel} />
             </div>
 
-            <div className={css.title}>
+            <div className={`${css.title} ${!done && !initialized ? css.wait : ''}`}>
               <img src={img.title} />
               <div className={css.subtitle} />
             </div>
@@ -66,14 +72,16 @@ Home.propTypes = {
   src: PropTypes.string,
   ready: PropTypes.bool,
   done: PropTypes.bool,
-  sections: PropTypes.array
+  sections: PropTypes.array,
+  initialized: PropTypes.bool,
 }
 
 const mapStateToProps = ({ video, site }) => ({
   src:  video.src,
   ready: video.ready,
   done: video.done,
-  sections: site.sections
+  sections: site.sections,
+  initialized: video.initialized,
 })
 
 export default connect(mapStateToProps)(Home)
