@@ -15,12 +15,9 @@ export default [
         icon: 'fa fa-github-square'
       }
     ],
-    thumbnail: 'drive-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'drive-1.png',
-      'drive-2.png',
-      'drive-3.png',
-      'drive-4.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'gulp', 'sass']
@@ -44,11 +41,9 @@ export default [
         icon: 'fa fa-twitter'
       }
     ],
-    thumbnail: 'marshallz-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'marshallz-1.png',
-      'marshallz-2.png',
-      'marshallz-3.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'react', 'redux', 'mongodb', 'rxjs', 'webpack', 'less']
@@ -68,13 +63,9 @@ export default [
         icon: 'fa fa-circle-o'
       }
     ],
-    thumbnail: 'ng-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'ng-1.png',
-      'ng-2.png',
-      'ng-3.png',
-      'ng-4.png',
-      'ng-5.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'gulp', 'less']
@@ -99,10 +90,9 @@ export default [
         icon: 'fa fa-circle-o'
       }
     ],
-    thumbnail: 'gw-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'gw-1.png',
-      'gw-2.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['wordpress', 'gulp', 'less']
@@ -122,11 +112,9 @@ export default [
         icon: 'fa fa-circle-o'
       }
     ],
-    thumbnail: 'bfs-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'bfs-1.png',
-      'bfs-2.png',
-      'bfs-3.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['wordpress', 'sass']
@@ -146,10 +134,9 @@ export default [
         icon: 'fa fa-github-square'
       }
     ],
-    thumbnail: 'mwmi-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'mwmi-1.png',
-      'mwmi-2.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
@@ -169,10 +156,9 @@ export default [
         icon: 'fa fa-github-square'
       }
     ],
-    thumbnail: 'tectonic-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'tectonic-1.png',
-      'tectonic-2.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'rxjs', 'web-socket', 'less', 'webpack']
@@ -192,11 +178,9 @@ export default [
         icon: 'fa fa-github-square'
       }
     ],
-    thumbnail: 'mim-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'mim-1.png',
-      'mim-2.png',
-      'mim-3.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
@@ -212,12 +196,9 @@ export default [
         icon: 'fa fa-github-square'
       }
     ],
-    thumbnail: 'pique-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'pique-1.png',
-      'pique-2.png',
-      'pique-3.png',
-      'pique-4.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech : ['rails', 'postgresql']
@@ -227,10 +208,9 @@ export default [
     id: 10,
     slug: 'where-to',
     links: null,
-    thumbnail: 'whereto-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'whereto-2.png',
-      'whereto-1.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'mongodb', 'sass']
@@ -250,11 +230,9 @@ export default [
         icon: 'fa fa-github-square'
       }
     ],
-    thumbnail: 'rb-tn.png',
+    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     images: [
-      'ramen-buffet-1.png',
-      'ramen-buffet-2.png',
-      'ramen-buffet-3.png'
+      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     ],
     featured: true,
     tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']

@@ -24,4 +24,4 @@ app.get('*', (req, res) => {
   res.send('index.html')
 })
 
-app.listen(3000, _ => console.log('Supperz'))
+app.listen(3000, _ => console.log('Up & Running 🌐'))

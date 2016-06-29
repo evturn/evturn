@@ -6,7 +6,7 @@ function assembleCarousel() {
   function assignImageSource(props) {
     return {
       ...props,
-      src: `build/` + require(`work-images/${props.src}`)
+      src: props.src
     }
   }
 
@@ -14,11 +14,17 @@ function assembleCarousel() {
     if (!acc.nav) { acc.nav = [] }
     if (!acc.projects) { acc.projects = [] }
 
-    acc.nav.push(assignImageSource({ src: x.thumbnail, id: x.id }))
+    acc.nav.push(assignImageSource({
+      src: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      id: x.id
+    }))
     acc.projects.push({
       ...x,
       images: x.images
-        .map((x, i) => assignImageSource({ src: x, active: i === 0 })),
+        .map((x, i) => assignImageSource({
+          src: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+          active: i === 0
+        })),
       tech: x.tech
         .map(x => devicons.filter(y => x === y.slug))
     })
