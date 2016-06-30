@@ -3,19 +3,16 @@ const webpack = require('webpack');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-module.exports = ({
-    loaders,
-    entry,
-    output,
-    plugins,
-    devtool,
-    postcss,
-    devServer,
-    debug,
-    cache,
-  }) => {
-
+module.exports = opts => {
   return {
+    entry: opts.entry,
+    output: opts.output,
+    plugins: opts.plugins,
+    devtool: opts.devtool,
+    postcss: opts.postcss,
+    devServer: opts.devServer,
+    debug: opts.debug,
+    cache: opts.cache,
     context: path.join(process.cwd(), 'src/app'),
 
     module: {
@@ -43,7 +40,7 @@ module.exports = ({
           include: /node_modules/,
           loaders: ['style-loader', 'css-loader']
         },
-      ].concat(loaders)
+      ].concat(opts.loaders)
     },
 
     resolve: {
@@ -70,13 +67,5 @@ module.exports = ({
     target: 'web',
     stats: false,
     progress: true,
-    entry,
-    output,
-    plugins,
-    devtool,
-    postcss,
-    devServer,
-    debug,
-    cache
   }
 }
