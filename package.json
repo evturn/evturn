@@ -92,6 +92,7 @@
     "postcss-cssnext": "2.7.0",
     "postcss-focus": "1.0.0",
     "postcss-loader": "0.9.1",
+    "postcss-modules-values": "^1.2.2",
     "postcss-reporter": "1.4.1",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.4",
