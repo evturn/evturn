@@ -72,9 +72,7 @@ module.exports = require('./webpack.base.babel.js')({
   postcss:  _ => ([
     values,
     postcssFocus(),
-    cssnext({
-      browsers: [ 'last 2 versions', 'IE > 10' ],
-    }),
+    cssnext({ browsers: [ 'last 2 versions', 'IE > 10' ] }),
     postcssReporter({ clearMessages: true })
   ])
 })

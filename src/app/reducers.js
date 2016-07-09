@@ -25,14 +25,10 @@ function routeReducer(state={
   }
 }
 
-function createReducer() {
-  return combineReducers({
+export default combineReducers({
     video: videoReducer,
     site: globalReducer,
     slideshow: slideshowReducer,
     routing: routerReducer,
     route: routeReducer
   })
-}
-
-export default createReducer

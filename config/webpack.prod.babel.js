@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-
 const cssnext = require('postcss-cssnext')
 const postcssFocus = require('postcss-focus')
 const postcssReporter = require('postcss-reporter')
@@ -63,14 +62,10 @@ module.exports = require('./webpack.base.babel.js')({
     })
   ],
 
-  postcss:  _ => ([
+  postcss: _ => ([
     values,
     postcssFocus(),
-    cssnext({
-      browsers: [ 'last 2 versions', 'IE > 10' ],
-    }),
-    postcssReporter({
-      clearMessages: true
-    })
+    cssnext({ browsers: [ 'last 2 versions', 'IE > 10' ] }),
+    postcssReporter({ clearMessages: true })
   ])
 })

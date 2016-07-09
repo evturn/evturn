@@ -1,6 +1,6 @@
-const express = require('express')
-const path = require('path')
 const fs = require('fs')
+const path = require('path')
+const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
@@ -20,7 +20,7 @@ app.use(hotMiddleware)
 
 app.use(express.static(path.join(__dirname, '..')))
 
-app.get('*', (req, res) => {
+app.get('*', (req, res, next) => {
   res.send('index.html')
 })
 

@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import { createEpicMiddleware } from 'redux-observable'
-import createReducer from './reducers'
+import rootReducer from './reducers'
 import logger from 'redux-logger'
 
 const observableMiddleware = createEpicMiddleware()
@@ -21,7 +21,7 @@ const configureStore = (initialState, history) => {
   ]
 
   const store = createStore(
-    createReducer(),
+    rootReducer,
     initialState,
     compose(...enhancers)
   )
