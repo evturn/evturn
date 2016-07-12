@@ -7,6 +7,8 @@ import {
   UNMOUNT_VIDEO,
   FADE_LOADER,
   HIDE_LOADER,
+  VIDEO_PLAYING,
+  VIDEO_ENDED,
 } from './constants'
 
 export const mountVideo = player => ({
@@ -21,4 +23,12 @@ const abortPlayerInit = _ => ({
 
 export const unmountVideo = _ => ({
   type: UNMOUNT_VIDEO,
+})
+
+export const videoPlaying = _ => ({
+  type: VIDEO_PLAYING,
+})
+
+export const videoEnded = _ => ({
+  type: VIDEO_ENDED,
 })
