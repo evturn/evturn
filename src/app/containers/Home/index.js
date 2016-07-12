@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import Video from 'components/Video'
+import VideoPlayer from './VideoPlayer'
 import LoadingIndicator from 'components/LoadingIndicator'
 import Sections from 'components/Sections'
 
@@ -27,7 +27,7 @@ class Home extends Component {
     return (
       <div className={css.root}>
         <div className={css.fullpage}>
-          <Video
+          <VideoPlayer
             src={src}
             ready={ready}
             done={done}

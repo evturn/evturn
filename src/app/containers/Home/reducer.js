@@ -1,11 +1,12 @@
 import {
-  INITIALIZE_PLAYER,
-  INITIALIZE_PLAYER_SUCCESS,
-  INITIALIZE_PLAYER_ABORT,
-  FADE_LOADING_INDICATOR,
-  REMOVE_LOADING_INDICATOR,
-  PLAY_NEXT_IN_QUEUE,
-  UNMOUNT_PLAYER,
+  MOUNT_VIDEO,
+  MOUNT_SUCCESS,
+  MOUNT_ERROR,
+  ABORT_MOUNT,
+  PLAY_NEXT,
+  UNMOUNT_VIDEO,
+  FADE_LOADER,
+  HIDE_LOADER,
 } from './constants'
 
 const initialState = {
@@ -17,42 +18,43 @@ const initialState = {
 
 const videoReducer = (state=initialState, action) => {
   switch (action.type) {
-    case INITIALIZE_PLAYER:
+    case MOUNT_VIDEO:
       return Object.assign({}, state, {
-        src: state.playlist[0],
-        id: 0,
+        src: state.playlist[action.payload.index],
+        id: action.payload.index,
       })
 
-    case INITIALIZE_PLAYER_SUCCESS:
+    case MOUNT_SUCCESS:
       return Object.assign({}, state, {
         initialized: true,
       })
 
-    case INITIALIZE_PLAYER_ABORT:
+    case ABORT_MOUNT:
       return Object.assign({}, state, {
         initialized: true,
         ready: true,
       })
 
-    case FADE_LOADING_INDICATOR:
+    case FADE_LOADER:
       return Object.assign({}, state, {
         ready: true,
       })
 
-    case REMOVE_LOADING_INDICATOR:
+    case HIDE_LOADER:
       return Object.assign({}, state, {
+        initialized: true,
         done: true,
       })
 
-    case PLAY_NEXT_IN_QUEUE:
+    case PLAY_NEXT:
       return Object.assign({}, state, {
         ready: false,
         done: false,
-        src: action.src,
-        id: action.id,
+        src: state.playlist[state.id + 1],
+        id: state.id + 1,
       })
 
-    case UNMOUNT_PLAYER:
+    case UNMOUNT_VIDEO:
       return Object.assign({}, state, {
         src: null,
         id: 0,

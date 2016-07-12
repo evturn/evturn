@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import VideoPlayer from 'components/Video'
+import Video from 'components/Video'
 import * as Actions from './actions'
 
 
-class Video extends Component {
+class VideoPlayer extends Component {
   componentDidMount() {
     this.props.mountPlayer(this.player)
   }
@@ -21,7 +21,7 @@ class Video extends Component {
   render() {
     return (
       <Video
-        backingInstance={::this.getBackingInstace}
+        backingInstance={::this.getBackingInstance}
         poster={this.props.poster}
         src={this.props.src}
       />
@@ -29,7 +29,7 @@ class Video extends Component {
   }
 }
 
-Video.propTypes = {
+VideoPlayer.propTypes = {
   src: PropTypes.string,
   ready: PropTypes.bool,
   done: PropTypes.bool,
@@ -43,8 +43,8 @@ const mapStateToProps = ({ video }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  mountPlayer: player => dispatch(Actions.mountPlayer(player)),
-  unmountPlayer: _ => dispatch(Actions.unmountPlayer())
+  mountPlayer: player => dispatch(Actions.mountVideo(player)),
+  unmountPlayer: _ => dispatch(Actions.unmountVideo())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Video)
+export default connect(mapStateToProps, mapDispatchToProps)(VideoPlayer)
