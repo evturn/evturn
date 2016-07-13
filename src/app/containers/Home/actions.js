@@ -11,10 +11,8 @@ import {
   VIDEO_ENDED,
 } from './constants'
 
-export const mountVideo = player => ({
+export const mountVideo = _ => ({
   type: MOUNT_VIDEO,
-  payload: { index: 0 },
-  player,
 })
 
 const abortPlayerInit = _ => ({

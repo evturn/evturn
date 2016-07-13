@@ -104,9 +104,9 @@
     width: 50%;
   }
 
-  .title img {
+  .title.yield img {
     opacity: 1;
-    transition: 1.5s;
+    transition: 1s;
     -webkit-filter: drop-shadow(6px 5px 0px bg-matte);
     filter: drop-shadow(6px 5px 0px bg-matte);
   }
@@ -140,7 +140,7 @@
   opacity: 0;
 }
 
-.subtitle:after {
+.yield .subtitle:after {
   content: "developer";
   opacity: 1;
 }

@@ -20,13 +20,8 @@ const videoReducer = (state=initialState, action) => {
   switch (action.type) {
     case MOUNT_VIDEO:
       return Object.assign({}, state, {
-        src: state.playlist[action.payload.index],
-        id: action.payload.index,
-      })
-
-    case MOUNT_SUCCESS:
-      return Object.assign({}, state, {
-        initialized: true,
+        src: state.playlist[0],
+        id: 0,
       })
 
     case ABORT_MOUNT:
@@ -47,11 +42,14 @@ const videoReducer = (state=initialState, action) => {
       })
 
     case PLAY_NEXT:
+      const index = state.id + 1 === state.playlist.length
+        ? 0
+        : state.id + 1
       return Object.assign({}, state, {
         ready: false,
         done: false,
-        src: state.playlist[state.id + 1],
-        id: state.id + 1,
+        src: state.playlist[index],
+        id: index,
       })
 
     case UNMOUNT_VIDEO:

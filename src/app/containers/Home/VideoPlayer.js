@@ -20,8 +20,11 @@ class VideoPlayer extends Component {
       this.player.addEventListener('playing', _ => {
         if (!this.props.src.includes('vid-28')) {
           this.player.playbackRate = 0.5
+          this.props.videoPlaying()
+        } else {
+          this.props.videoPlaying()
         }
-        this.props.videoPlaying()
+
       })
       this.player.addEventListener('ended', this.props.videoEnded)
     }

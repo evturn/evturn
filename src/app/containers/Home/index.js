@@ -45,7 +45,7 @@ class Home extends Component {
             <div className={css.logo}>
               <img src={img.skel} />
             </div>
-            <div className={`${css.title} ${!done && !initialized ? css.wait : ''}`}>
+            <div className={`${css.title} ${!done && !initialized ? css.wait : css.yield}`}>
               <img src={img.title} />
               <div className={css.subtitle} />
             </div>
