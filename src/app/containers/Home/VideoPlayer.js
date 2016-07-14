@@ -12,21 +12,24 @@ class VideoPlayer extends Component {
 
   componentWillUnmount() {
     this.props.unmountPlayer()
+
+    if (this.player !== null) {
+      this.player.removeEventListener('playing', this.playing)
+      this.player.removeEventListener('ended', this.ended)
+      console.log(this.player)
+    }
   }
 
   listenForChanges(player) {
     this.player = player
     if (this.player !== null) {
-      this.player.addEventListener('playing', _ => {
+      this.playing = this.player.addEventListener('playing', _ => {
         if (!this.props.src.includes('vid-28')) {
           this.player.playbackRate = 0.5
-          this.props.videoPlaying()
-        } else {
-          this.props.videoPlaying()
         }
-
+          this.props.videoPlaying()
       })
-      this.player.addEventListener('ended', this.props.videoEnded)
+      this.ended = this.player.addEventListener('ended', this.props.videoEnded)
     }
   }
 

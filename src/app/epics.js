@@ -26,7 +26,7 @@ const setLoadingTimeout = action$ => {
 const videoPlaying = action$ => {
   return action$.ofType(VIDEO_PLAYING)
     .switchMap(action => {
-      return Observable.timer(500)
+      return Observable.timer(300)
         .mapTo({ type: HIDE_LOADER })
         .startWith({ type: FADE_LOADER })
     })

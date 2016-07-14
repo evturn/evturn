@@ -56,6 +56,9 @@ const videoReducer = (state=initialState, action) => {
       return Object.assign({}, state, {
         src: null,
         id: 0,
+        initialized: false,
+        ready: false,
+        done: false,
       })
 
     default:
