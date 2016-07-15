@@ -12,24 +12,16 @@ import FlyoutMenu from 'components/FlyoutMenu'
 
 class App extends Component {
   render() {
-    const {
-      nav,
-      open,
-      ready,
-      toggleMenu,
-      visible,
-    } = this.props
-
     return (
       <div className="site">
         <Header
-          nav={nav.desktop}
-          ready={ready}
-          visible={visible}>
+          nav={this.props.nav.desktop}
+          ready={this.props.ready}
+          visible={this.props.visible}>
           <FlyoutMenu
-            nav={nav.mobile}
-            open={open}
-            toggleMenu={toggleMenu}
+            nav={this.props.nav.mobile}
+            open={this.props.open}
+            toggleMenu={this.props.toggleMenu}
           />
         </Header>
         {this.props.children}

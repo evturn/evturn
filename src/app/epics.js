@@ -2,7 +2,6 @@ import { Observable } from 'rxjs'
 import { combineEpics } from 'redux-observable'
 import {
   MOUNT_VIDEO,
-  MOUNT_SUCCESS,
   MOUNT_ERROR,
   ABORT_MOUNT,
   PLAY_NEXT,

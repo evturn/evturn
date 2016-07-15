@@ -5,7 +5,6 @@ import rootEpic from './epics'
 import rootReducer from './reducers'
 import logger from 'redux-logger'
 
-
 function configureStore(initialState, history) {
   const middlewares = [
     createEpicMiddleware(rootEpic),
