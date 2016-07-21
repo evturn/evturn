@@ -5,11 +5,11 @@ import Home from './containers/Home'
 import About from './containers/About'
 import Projects from './containers/Projects'
 
-import Web from'./components/Web'
-import IOS from './components/IOS'
-import OSS from './components/OSS'
+import Web from './containers/Projects/Web'
+import IOS from './containers/Projects/IOS'
+import OSS from './containers/Projects/OSS'
 
-const createRoutes = ({ site }) => (
+export default ({ site }) => (
   <Route component={App} path='/'>
     <IndexRoute component={Home} />
 
@@ -25,5 +25,3 @@ const createRoutes = ({ site }) => (
     <Route component={_ => About(site)} path='about' />
   </Route>
 )
-
-export default createRoutes
