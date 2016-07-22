@@ -6,16 +6,15 @@ import * as Actions from './actions'
 
 class VideoPlayer extends Component {
   componentDidMount() {
-    this.props.mountPlayer()
+    this.props.mountVideo()
   }
 
   componentWillUnmount() {
-    this.props.unmountPlayer()
+    this.props.unmountVideo()
 
     if (this.player !== null) {
       this.player.removeEventListener('playing', this.playing)
       this.player.removeEventListener('ended', this.ended)
-      console.log(this.player)
     }
   }
 
@@ -50,17 +49,16 @@ VideoPlayer.propTypes = {
   poster: PropTypes.string
 }
 
-const mapStateToProps = ({ video }) => ({
-  src:  video.src,
-  ready: video.ready,
-  done: video.done
-})
-
-const mapDispatchToProps = dispatch => ({
-  mountPlayer:   player => dispatch(Actions.mountVideo(player)),
-  unmountPlayer: _ => dispatch(Actions.unmountVideo()),
-  videoPlaying:  _ => dispatch(Actions.videoPlaying()),
-  videoEnded:    _ => dispatch(Actions.videoEnded()),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(VideoPlayer)
+export default connect(
+  ({ video }) => ({
+    src:  video.src,
+    ready: video.ready,
+    done: video.done
+  }),
+  dispatch => ({
+    mountVideo:   _ => dispatch(Actions.mountVideo()),
+    unmountVideo: _ => dispatch(Actions.unmountVideo()),
+    videoPlaying:  _ => dispatch(Actions.videoPlaying()),
+    videoEnded:    _ => dispatch(Actions.videoEnded()),
+  })
+)(VideoPlayer)

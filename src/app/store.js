@@ -5,7 +5,7 @@ import rootEpic from './epics'
 import rootReducer from './reducers'
 import logger from 'redux-logger'
 
-function configureStore(initialState, history) {
+export default function configureStore(initialState, history) {
   const middlewares = [
     createEpicMiddleware(rootEpic),
     routerMiddleware(history)
@@ -34,5 +34,3 @@ function configureStore(initialState, history) {
 
   return store
 }
-
-export default configureStore

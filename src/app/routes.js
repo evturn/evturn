@@ -9,7 +9,7 @@ import Web from './containers/Projects/Web'
 import IOS from './containers/Projects/IOS'
 import OSS from './containers/Projects/OSS'
 
-export default ({ site }) => (
+export default state => (
   <Route component={App} path='/'>
     <IndexRoute component={Home} />
 
@@ -18,10 +18,10 @@ export default ({ site }) => (
       <Route component={Web} path='web'>
         <Route component={Web} path=':id' />
       </Route>
-      <Route component={_ => IOS(site)} path='ios' />
-      <Route component={_ => OSS(site)} path='oss' />
+      <Route component={_ => IOS(state.site)} path='ios' />
+      <Route component={_ => OSS(state.site)} path='oss' />
     </Route>
 
-    <Route component={_ => About(site)} path='about' />
+    <Route component={_ => About(state.site)} path='about' />
   </Route>
 )
