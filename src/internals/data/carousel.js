@@ -2,7 +2,7 @@ import webProjects from './web'
 import devicons from './devicons'
 
 const nav = webProjects.reduce((acc, x) => {
-  acc.nav.push({
+  acc.push({
     src: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
     id: x.id
   })

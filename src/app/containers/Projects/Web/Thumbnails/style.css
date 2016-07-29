@@ -1,4 +1,4 @@
-@value global: '../../../style.css';
+@value global: '../../../../style.css';
 
 @value tablet from global;
 @value clearfix, flex from global;

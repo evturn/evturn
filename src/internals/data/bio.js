@@ -18,7 +18,7 @@ const technologies = [
 
 export default {
   copy: `As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.`,
-  tools: technologies.reduce((acc, x) {
+  tools: technologies.reduce((acc, x) => {
     return devicons
       .filter(y => x === y.slug)
       .concat(acc)
