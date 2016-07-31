@@ -10,6 +10,7 @@ import {
 } from './constants'
 
 const initialState = {
+  playlist: [],
   initialized: false,
   ready: false,
   done: false,

@@ -27,12 +27,15 @@ class Home extends Component {
     return (
       <div className={css.root}>
         <div className={css.fullpage}>
+
           <VideoPlayer
+            playlist={this.props.playlist}
             src={src}
             ready={ready}
             done={done}
             poster={img.poster}
           />
+
           <LoadingIndicator
             img={img.av}
             ready={ready}

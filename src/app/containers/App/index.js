@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import cx from 'classnames'
 
 import 'sanitize.css/sanitize.css'
-import 'data/google-analytics'
+import 'config/analytics'
 
 import { toggleMenu } from './actions'
 

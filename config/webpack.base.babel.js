@@ -53,6 +53,7 @@ module.exports = opts => {
         data:          path.join(process.cwd(), 'src', 'internals', 'data/'),
         routes:        path.join(process.cwd(), 'src', 'app',       'routes'),
         images:        path.join(process.cwd(), 'src', 'assets',    'img/'),
+        config:        path.join(process.cwd(), 'config/'),
         css:           path.join(process.cwd(), 'src', 'assets',    'css/'),
         less:          path.join(process.cwd(), 'src', 'assets',    'less/'),
         'work-images': path.join(process.cwd(), 'src', 'assets',    'img', 'work/'),

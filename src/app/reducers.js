@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import globalReducer from 'containers/App/reducer'
+import appReducer from 'containers/App/reducer'
 import videoReducer from 'containers/Home/reducer'
 import slideshowReducer from 'containers/Projects/reducer'
 import { LOCATION_CHANGE } from 'react-router-redux'
@@ -27,7 +27,7 @@ function routeReducer(state={
 
 export default combineReducers({
     video: videoReducer,
-    site: globalReducer,
+    site: appReducer,
     slideshow: slideshowReducer,
     routing: routerReducer,
     route: routeReducer

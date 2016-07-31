@@ -1,0 +1,38 @@
+{
+  "sections": [{
+      "title": "Web",
+      "route": "work/web",
+      "icon": "fa fa-laptop"
+    },{
+      "title": "iOS",
+      "route": "work/ios",
+      "icon": "fa fa-mobile"
+    },{
+      "title": "Open Source",
+      "route": "work/oss",
+      "icon": "fa fa-code-fork"
+  }],
+  "nav": {
+    "desktop": [{
+        "name": "Projects",
+        "route": "work/web"
+      },{
+        "name": "About",
+        "route": "about"
+    }],
+    "mobile": [{
+        "name": ""
+      },{
+        "name": "Home",
+        "route": "/"
+      },{
+        "name": "Projects",
+        "route": "work/web"
+      },{
+        "name": "About",
+        "route": "about"
+    }]
+  },
+  "tools": [ "less", "photoshop", "ubuntu", "git", "mongodb", "gulp", "redux", "webpack", "rxjs", "swift", "javascript", "react", "node" ],
+  "copy": "As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation."
+}
