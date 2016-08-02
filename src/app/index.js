@@ -1,8 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router, useRouterHistory } from 'react-router'
+import { Router, useRouterHistory, applyRouterMiddleware } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
+import useScroll from 'react-router-scroll'
 import { createHashHistory } from 'history'
 import configureStore from './store'
 import createRoutes from './routes'
@@ -50,6 +51,7 @@ render(
     <Router
       history={history}
       routes={routes}
+      render={applyRouterMiddleware(useScroll())}
     />
   </Provider>,
   document.getElementById('app')

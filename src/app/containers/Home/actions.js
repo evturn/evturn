@@ -1,26 +1,21 @@
 import {
   MOUNT_VIDEO,
-  MOUNT_SUCCESS,
-  MOUNT_ERROR,
-  ABORT_MOUNT,
-  PLAY_NEXT,
   UNMOUNT_VIDEO,
-  FADE_LOADER,
-  HIDE_LOADER,
+  ABORT_MOUNT,
   VIDEO_PLAYING,
   VIDEO_ENDED,
-} from './constants'
+} from '../../constants'
 
 export const mountVideo = _ => ({
   type: MOUNT_VIDEO,
 })
 
-const abortPlayerInit = _ => ({
-  type: ABORT_INIT,
-})
-
 export const unmountVideo = _ => ({
   type: UNMOUNT_VIDEO,
+})
+
+export const abortMount = _ => ({
+  type: ABORT_MOUNT,
 })
 
 export const videoPlaying = _ => ({

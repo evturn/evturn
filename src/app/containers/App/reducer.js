@@ -1,9 +1,6 @@
-import {
-  TOGGLE_MENU,
-} from './constants'
+import { TOGGLE_MENU } from '../../constants'
 
-const appReducer = (state={ open: false }, action) => {
-
+export default (state={ open: false }, action) => {
   switch (action.type) {
     case TOGGLE_MENU:
       return Object.assign({}, state, {
@@ -14,5 +11,3 @@ const appReducer = (state={ open: false }, action) => {
       return state
   }
 }
-
-export default appReducer

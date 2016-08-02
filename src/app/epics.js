@@ -10,7 +10,7 @@ import {
   HIDE_LOADER,
   VIDEO_PLAYING,
   VIDEO_ENDED,
-} from './containers/Home/constants'
+} from './constants'
 
 const setLoadingTimeout = action$ => {
   return action$.ofType(MOUNT_VIDEO)

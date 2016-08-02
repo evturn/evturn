@@ -1,3 +1,5 @@
+export const TOGGLE_MENU   = 'app/header/toggle'
+
 export const MOUNT_VIDEO   = 'home/video/mount'
 export const MOUNT_SUCCESS = 'home/video/loaded'
 export const MOUNT_ERROR   = 'home/video/error'

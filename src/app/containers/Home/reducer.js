@@ -7,7 +7,7 @@ import {
   UNMOUNT_VIDEO,
   FADE_LOADER,
   HIDE_LOADER,
-} from './constants'
+} from '../../constants'
 
 const initialState = {
   playlist: [],
