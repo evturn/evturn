@@ -5,12 +5,18 @@ import css from './style.css'
 
 const cx = classNames.bind(css)
 
-export default ({ images }) => (
+export default props => (
   <div className={css.carousel}>
-    <div className={css.slides}>{images.map((x, i)=>
-      <div key={i} className={cx('slide', { 'active': x.active })}>
-        <img src={x.src} />
-      </div>
-    )}</div>
+    <div className={css.slides}>
+      {props.images.map((x, i) => {
+        return (
+          <div
+            key={i}
+            className={cx('slide', { 'active': i === props.slide })}>
+            <img src={x} />
+          </div>
+        )
+      })}
+    </div>
   </div>
 )

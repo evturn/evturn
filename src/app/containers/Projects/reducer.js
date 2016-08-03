@@ -1,27 +1,28 @@
-import {
-  LOAD_SLIDESHOW,
-  UPDATE_ACTIVE_SLIDE,
-  TEAR_DOWN_CAROUSEL
-} from './constants'
+import * as Types from '../../constants'
 
-function slideshowReducer(state = {}, action) {
+export default function webProjectsReducer(state={
+  items: [],
+  slug: 'drive',
+  slide: 0,
+}, action) {
   switch (action.type) {
-    case LOAD_SLIDESHOW:
+    case Types.MOUNT_CAROUSEL:
       return Object.assign({}, state, {
-        ...action.payload,
-        active: 0
+        slide: 0,
+        slug: action.payload.slug,
       })
-    case UPDATE_ACTIVE_SLIDE:
+
+    case Types.NEXT_SLIDE:
       return Object.assign({}, state, {
-        ...action.payload
+        slide: action.payload.slide,
       })
-    case TEAR_DOWN_CAROUSEL:
+
+    case Types.UNMOUNT_CAROUSEL:
       return Object.assign({}, state, {
-        ...action.payload
+        slide: null
       })
+
     default:
       return state
   }
 }
-
-export default slideshowReducer

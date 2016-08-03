@@ -13,9 +13,9 @@ export default {
         url: 'https://github.com/drivepublishing/drivepublishing.github.io',
         icon: 'fa fa-github-square'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'gulp', 'sass']
   },{
@@ -36,9 +36,9 @@ export default {
         url: 'http://twitter.com/marshallzBlog',
         icon: 'fa fa-twitter'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'react', 'redux', 'mongodb', 'rxjs', 'webpack', 'less']
   },{
@@ -55,9 +55,9 @@ export default {
       url: 'http://wearebnr.com',
       icon: 'fa fa-circle-o'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'gulp', 'less']
 
@@ -79,9 +79,9 @@ export default {
       url: 'http://gigareef.com',
       icon: 'fa fa-circle-o'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['wordpress', 'gulp', 'less']
   },{
@@ -100,9 +100,9 @@ export default {
         icon: 'fa fa-circle-o'
       }
     ],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['wordpress', 'sass']
   },{
@@ -119,9 +119,9 @@ export default {
         url: 'https://github.com/evturn/mwmi',
         icon: 'fa fa-github-square'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
   },{
@@ -138,9 +138,9 @@ export default {
         url: 'https://github.com/evturn/gin-tectonic',
         icon: 'fa fa-github-square'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'rxjs', 'web-socket', 'less', 'webpack']
   },{
@@ -157,9 +157,9 @@ export default {
         url: 'https://github.com/evturn/madeinmusic.co',
         icon: 'fa fa-github-square'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
   },{
@@ -172,9 +172,9 @@ export default {
       url: 'https://github.com/piqueapp/piqueapp.github.io',
       icon: 'fa fa-github-square'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech : ['rails', 'postgresql']
   },{
@@ -183,9 +183,9 @@ export default {
     id: 10,
     slug: 'where-to',
     links: null,
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'mongodb', 'sass']
   },{
@@ -202,9 +202,9 @@ export default {
         url: 'https://github.com/evturn/ramen-buffet',
         icon: 'fa fa-github-square'
     }],
-    thumbnail: 'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+    thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     images: [
-      'https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif',
+      'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     ],
     tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']
   }],
@@ -326,7 +326,7 @@ export default {
     icon: 'fa fa-twitter-square'
   }],
 
-  devicons: [{
+  tech: [{
     name: 'Node',
     icon: 'devicon-nodejs-plain',
     slug: 'node'

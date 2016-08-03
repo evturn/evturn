@@ -9,10 +9,18 @@ import configureStore from './store'
 import createRoutes from './routes'
 import 'containers/App/style.css'
 
-import { videos, } from './containers/App/data'
+import { videos, web, ios, oss, tech } from './containers/App/data'
 import ui from './ui.json'
 const initialState = {
   site: ui,
+  projects: {
+    web: {
+      items: web,
+    },
+    ios,
+    oss,
+  },
+  tech,
   video: {
     playlist: sortVideos(videos),
     initialized: false,

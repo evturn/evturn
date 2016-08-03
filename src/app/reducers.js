@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux'
 
 import appReducer from 'containers/App/reducer'
 import videoReducer from 'containers/Home/reducer'
-import slideshowReducer from 'containers/Projects/reducer'
+import webProjectsReducer from 'containers/Projects/reducer'
 import { LOCATION_CHANGE } from 'react-router-redux'
 
 function routeReducer(state={
@@ -25,10 +25,21 @@ function routeReducer(state={
   }
 }
 
+const ossReducer = (state=[]) => state
+const iosReducer = (state=[]) => state
+const techReducer = (state=[]) => state
+
+const projectsReducer = combineReducers({
+  web: webProjectsReducer,
+  oss: ossReducer,
+  ios: iosReducer,
+})
+
 export default combineReducers({
     video: videoReducer,
     site: appReducer,
-    slideshow: slideshowReducer,
+    tech: techReducer,
+    projects: projectsReducer,
     routing: routerReducer,
     route: routeReducer
   })

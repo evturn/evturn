@@ -1,39 +1,36 @@
 import { Observable } from 'rxjs'
 import { combineEpics } from 'redux-observable'
-import {
-  MOUNT_VIDEO,
-  MOUNT_ERROR,
-  ABORT_MOUNT,
-  PLAY_NEXT,
-  UNMOUNT_VIDEO,
-  FADE_LOADER,
-  HIDE_LOADER,
-  VIDEO_PLAYING,
-  VIDEO_ENDED,
-} from './constants'
+import * as Types from './constants'
 
 const setLoadingTimeout = action$ => {
-  return action$.ofType(MOUNT_VIDEO)
+  return action$.ofType(Types.MOUNT_VIDEO)
     .switchMap(action => {
       return Observable.timer(3000)
-        .mapTo({ type: HIDE_LOADER })
-        .takeUntil(action$.ofType(VIDEO_PLAYING))
-        .startWith({ type: FADE_LOADER })
+        .mapTo({ type: Types.HIDE_LOADER })
+        .takeUntil(action$.ofType(Types.VIDEO_PLAYING))
+        .startWith({ type: Types.FADE_LOADER })
       })
 }
 
 const videoPlaying = action$ => {
-  return action$.ofType(VIDEO_PLAYING)
+  return action$.ofType(Types.VIDEO_PLAYING)
     .switchMap(action => {
       return Observable.timer(300)
-        .mapTo({ type: HIDE_LOADER })
-        .startWith({ type: FADE_LOADER })
+        .mapTo({ type: Types.HIDE_LOADER })
+        .startWith({ type: Types.FADE_LOADER })
     })
 }
 
 const videoEnded = action$ => {
-  return action$.ofType(VIDEO_ENDED)
-    .mapTo({ type: PLAY_NEXT })
+  return action$.ofType(Types.VIDEO_ENDED)
+    .mapTo({ type: Types.PLAY_NEXT })
 }
+
+// const loadProject = action$ => {
+//   return action$.ofType(Types.MOUNT_CAROUSEL)
+//     .switchMap(action => {
+//       return Observable.
+//     })
+// }
 
 export default combineEpics(setLoadingTimeout, videoPlaying, videoEnded)
