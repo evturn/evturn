@@ -2,8 +2,8 @@ import React from 'react'
 
 import css from './style.css'
 
-export default ({ OSS }) => (
-  <ul className={css.items}>{OSS.map((x, i) =>
+export default props => (
+  <ul className={css.items}>{props.oss.map((x, i) =>
 
     <li key={i} className={css.item}>
       <div className={css.content}>

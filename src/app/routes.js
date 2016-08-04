@@ -18,8 +18,8 @@ export default state => (
       <Route component={Web} path='web'>
         <Route component={Web} path=':id' />
       </Route>
-      <Route component={_ => IOS(state.site)} path='ios' />
-      <Route component={_ => OSS(state.site)} path='oss' />
+      <Route component={_ => IOS(state.projects)} path='ios' />
+      <Route component={_ => OSS(state.projects)} path='oss' />
     </Route>
 
     <Route component={_ => About(state.site)} path='about' />
