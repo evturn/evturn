@@ -7,47 +7,8 @@ import useScroll from 'react-router-scroll'
 import { createHashHistory } from 'history'
 import configureStore from './store'
 import createRoutes from './routes'
+import { initialState } from './reducers'
 import 'containers/App/style.css'
-
-import { videos, web, ios, oss, tech } from './containers/App/data'
-import ui from './ui.json'
-const initialState = {
-  site: ui,
-  projects: {
-    web: {
-      items: web,
-    },
-    ios,
-    oss,
-  },
-  tech,
-  video: {
-    playlist: sortVideos(videos),
-    initialized: false,
-    ready: false,
-    done: false,
-    id: 0,
-  }
-}
-
-function sortVideos(videos) {
-  const firstHalf = videos.slice(0, 5)
-  const secondHalf = videos.slice(6, videos.length)
-
-  function shuffle(items, acc) {
-    if (acc.length === items.length) {
-      return acc
-    }
-    const randomSelection = items[Math.floor(Math.random() * items.length)]
-
-    if (!acc.includes(randomSelection)) {
-      acc.push(randomSelection)
-    }
-    return shuffle(items, acc)
-  }
-
-  return shuffle(firstHalf, [ videos[0] ]).concat(shuffle(secondHalf, []))
-}
 
 const browserHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 const store = configureStore(initialState, browserHistory)

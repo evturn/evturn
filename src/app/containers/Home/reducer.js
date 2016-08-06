@@ -17,11 +17,13 @@ const initialState = {
   id: 0,
 }
 
-const videoReducer = (state=initialState, action) => {
+export default (state=initialState, action) => {
   switch (action.type) {
     case MOUNT_VIDEO:
+      const playlist = sortVideos(state.items)
       return Object.assign({}, state, {
-        src: state.playlist[0],
+        playlist,
+        src: playlist[0],
         id: 0,
       })
 
@@ -67,4 +69,21 @@ const videoReducer = (state=initialState, action) => {
   }
 }
 
-export default videoReducer
+function sortVideos(videos) {
+  const firstHalf = videos.slice(0, 5)
+  const secondHalf = videos.slice(6, videos.length)
+
+  function shuffle(items, acc) {
+    if (acc.length === items.length) {
+      return acc
+    }
+    const randomSelection = items[Math.floor(Math.random() * items.length)]
+
+    if (!acc.includes(randomSelection)) {
+      acc.push(randomSelection)
+    }
+    return shuffle(items, acc)
+  }
+
+  return shuffle(firstHalf, [ videos[0] ]).concat(shuffle(secondHalf, []))
+}

@@ -5,6 +5,8 @@ import appReducer from 'containers/App/reducer'
 import videoReducer from 'containers/Home/reducer'
 import webProjectsReducer from 'containers/Projects/reducer'
 import { LOCATION_CHANGE } from 'react-router-redux'
+import { videos, web, ios, oss, tech } from './containers/App/data'
+import ui from './ui.json'
 
 function routeReducer(state={
   locationBeforeTransitions: null,
@@ -43,3 +45,22 @@ export default combineReducers({
     routing: routerReducer,
     route: routeReducer
   })
+
+export const initialState = {
+  site: ui,
+  projects: {
+    web: {
+      items: web,
+    },
+    ios,
+    oss,
+  },
+  tech,
+  video: {
+    items: videos,
+    initialized: false,
+    ready: false,
+    done: false,
+    id: 0,
+  }
+}
