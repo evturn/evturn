@@ -3,7 +3,7 @@ import React from 'react'
 import css from './style.css'
 
 export default props => (
-  <ul className={css.items}>{props.oss.map((x, i) =>
+  <ul className={css.items}>{props.oss.items.map((x, i) =>
 
     <li key={i} className={css.item}>
       <div className={css.content}>

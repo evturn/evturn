@@ -5,7 +5,7 @@ import cx from 'classnames'
 import 'sanitize.css/sanitize.css'
 import 'config/analytics'
 
-import { toggleMenu } from './actions'
+import * as Actions from './actions'
 
 import Header from '../../components/Header'
 import FlyoutMenu from 'components/FlyoutMenu'
@@ -49,7 +49,7 @@ const mapStateToProps = ({ site, video, route }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleMenu: _ => dispatch(toggleMenu()),
+  toggleMenu: _ => dispatch(Actions.toggleMenu()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -26,11 +26,4 @@ const videoEnded = action$ => {
     .mapTo({ type: Types.PLAY_NEXT })
 }
 
-// const loadProject = action$ => {
-//   return action$.ofType(Types.MOUNT_CAROUSEL)
-//     .switchMap(action => {
-//       return Observable.
-//     })
-// }
-
 export default combineEpics(setLoadingTimeout, videoPlaying, videoEnded)

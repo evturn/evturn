@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 import * as Actions from 'containers/Projects/actions'
+import { selectProject } from '../../../reducers/projects'
 
 import Details from './Details'
 import Carousel from './Carousel'
@@ -26,24 +27,16 @@ class Web extends Component {
   }
 
   render () {
-    const project = this.props.projects
-      .filter(x => x.slug === this.props.slug)
-      .map(project => ({
-        ...project,
-        tech: project.tech
-          .map(x => this.props.tech.filter(y => y.slug === x)[0])
-      }))[0]
-
     return (
       <div>
         <div className={css.slideshow}>
-          {project
+          {this.props.project
             ? <div>
                 <Carousel
-                  images={project.images}
+                  images={this.props.project.images}
                   slide={this.props.slide}
                 />
-                <Details {...project} />
+                <Details {...this.props.project} />
               </div>
             : null
           }
@@ -59,18 +52,22 @@ class Web extends Component {
 }
 
 Web.propTypes = {
+  project: PropTypes.object,
   projects: PropTypes.array,
   slug: PropTypes.string,
   slide: PropTypes.number,
   tech: PropTypes.array,
 }
 
-const mapStateToProps = state => ({
-  projects: state.projects.web.items,
-  slug: state.projects.web.slug,
-  slide: state.projects.web.slide,
-  tech: state.tech,
-})
+const mapStateToProps = state => {
+  const project = selectProject(state)
+  return {
+    project,
+    projects: state.projects.web.items,
+    slug: state.projects.web.slug,
+    slide: state.projects.web.slide,
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   mountCarousel:  slug => dispatch(Actions.mountCarousel(slug)),

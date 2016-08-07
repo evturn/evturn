@@ -7,7 +7,8 @@ import useScroll from 'react-router-scroll'
 import { createHashHistory } from 'history'
 import configureStore from './store'
 import createRoutes from './routes'
-import { initialState } from './reducers'
+import initialState from 'containers/App/data'
+
 import 'containers/App/style.css'
 
 const browserHistory = useRouterHistory(createHashHistory)({ queryKey: false })
