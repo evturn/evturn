@@ -3,14 +3,6 @@ import React from 'react'
 import Footer from 'components/Footer'
 import css from './style.css'
 
-/*
-technologies.reduce((acc, x) => {
-    return devicons
-      .filter(y => x === y.slug)
-      .concat(acc)
-  }, [])
-*/
-
 export default ({ copy, tools, contact }) => (
   <div className={`${css.root} ${css.wrap}`}>
 

@@ -5,6 +5,8 @@ import VideoPlayer from './VideoPlayer'
 import LoadingIndicator from 'components/LoadingIndicator'
 import Sections from 'components/Sections'
 
+import * as Actions from './actions'
+
 import css from './style.css'
 
 const img = {
@@ -16,39 +18,29 @@ const img = {
 
 class Home extends Component {
   render() {
-    const {
-      src,
-      ready,
-      done,
-      sections,
-      initialized,
-    } = this.props
-
     return (
       <div className={css.root}>
         <div className={css.fullpage}>
-
           <VideoPlayer
-            playlist={this.props.playlist}
-            src={src}
-            ready={ready}
-            done={done}
+            items={this.props.items}
+            ready={this.props.ready}
+            done={this.props.done}
             poster={img.poster}
           />
 
           <LoadingIndicator
             img={img.av}
-            ready={ready}
-            done={done}
+            ready={this.props.ready}
+            done={this.props.done}
           />
           <div className={css.sections}>
-            <Sections sections={sections} />
+            <Sections sections={this.props.sections} />
           </div>
           <div className={css.cover}>
             <div className={css.logo}>
               <img src={img.skel} />
             </div>
-            <div className={`${css.title} ${!done && !initialized ? css.wait : css.yield}`}>
+            <div className={`${css.title} ${!this.props.done && !this.props.initialized ? css.wait : css.yield}`}>
               <img src={img.title} />
               <div className={css.subtitle} />
             </div>
@@ -61,19 +53,21 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  src: PropTypes.string,
+  items: PropTypes.array,
   ready: PropTypes.bool,
   done: PropTypes.bool,
   sections: PropTypes.array,
   initialized: PropTypes.bool,
 }
 
-const mapStateToProps = ({ video, site }) => ({
-  src:  video.src,
-  ready: video.ready,
-  done: video.done,
-  sections: site.sections,
-  initialized: video.initialized,
-})
+const mapStateToProps = state => {
+  return {
+    items: state.video.items,
+    ready: state.video.ready,
+    done: state.video.done,
+    sections: state.site.sections,
+    initialized: state.video.initialized,
+  }
+}
 
 export default connect(mapStateToProps)(Home)

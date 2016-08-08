@@ -1,9 +1,10 @@
 import { Observable } from 'rxjs'
 import { combineEpics } from 'redux-observable'
 import * as Types from './constants'
+import { sortVideos } from './reducers/video'
 
 const setLoadingTimeout = action$ => {
-  return action$.ofType(Types.MOUNT_VIDEO)
+  return action$.ofType(Types.SHUFFLE_VIDEOS)
     .switchMap(action => {
       return Observable.timer(3000)
         .mapTo({ type: Types.HIDE_LOADER })
@@ -26,4 +27,14 @@ const videoEnded = action$ => {
     .mapTo({ type: Types.PLAY_NEXT })
 }
 
-export default combineEpics(setLoadingTimeout, videoPlaying, videoEnded)
+const shuffleVideos = action$ => {
+  return action$.ofType(Types.MOUNT_VIDEO)
+    .switchMap(action => {
+      return Observable.of({
+        type: Types.SHUFFLE_VIDEOS,
+        payload: { playlist: sortVideos(action.payload.videos) }
+      })
+    })
+}
+
+export default combineEpics(setLoadingTimeout, videoPlaying, videoEnded, shuffleVideos)

@@ -3,7 +3,7 @@ import { routerReducer, LOCATION_CHANGE } from 'react-router-redux'
 
 import siteReducer from './site'
 import contentReducer from './content'
-import videoReducer from 'containers/Home/reducer'
+import videoReducer from './video'
 import projectsReducer from './projects'
 
 function routeReducer(state={

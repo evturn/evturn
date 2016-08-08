@@ -6,7 +6,7 @@ import * as Actions from './actions'
 
 class VideoPlayer extends Component {
   componentDidMount() {
-    this.props.mountVideo()
+    this.props.mountVideo(this.props.items)
   }
 
   componentWillUnmount() {
@@ -46,19 +46,23 @@ VideoPlayer.propTypes = {
   src: PropTypes.string,
   ready: PropTypes.bool,
   done: PropTypes.bool,
-  poster: PropTypes.string
+  initialized: PropTypes.bool,
+  poster: PropTypes.string,
+  items: PropTypes.array,
 }
 
 export default connect(
-  ({ video }) => ({
-    src:  video.src,
-    ready: video.ready,
-    done: video.done
+  state => ({
+    src:  state.video.src,
+    ready: state.video.ready,
+    done: state.video.done,
+    items: state.video.items,
+    initialized: state.video.initialized,
   }),
   dispatch => ({
-    mountVideo:   _ => dispatch(Actions.mountVideo()),
+    mountVideo:   items => dispatch(Actions.mountVideo(items)),
     unmountVideo: _ => dispatch(Actions.unmountVideo()),
-    videoPlaying:  _ => dispatch(Actions.videoPlaying()),
-    videoEnded:    _ => dispatch(Actions.videoEnded()),
+    videoPlaying: _ => dispatch(Actions.videoPlaying()),
+    videoEnded:   _ => dispatch(Actions.videoEnded()),
   })
 )(VideoPlayer)

@@ -1,27 +1,29 @@
-import {
-  MOUNT_VIDEO,
-  UNMOUNT_VIDEO,
-  ABORT_MOUNT,
-  VIDEO_PLAYING,
-  VIDEO_ENDED,
-} from '../../constants'
+import * as Types from '../../constants'
 
-export const mountVideo = _ => ({
-  type: MOUNT_VIDEO,
+export const mountVideo = items => ({
+  type: Types.MOUNT_VIDEO,
+  payload: { videos: items },
 })
 
 export const unmountVideo = _ => ({
-  type: UNMOUNT_VIDEO,
+  type: Types.UNMOUNT_VIDEO,
 })
 
 export const abortMount = _ => ({
-  type: ABORT_MOUNT,
+  type: Types.ABORT_MOUNT,
 })
 
-export const videoPlaying = _ => ({
-  type: VIDEO_PLAYING,
-})
+export const videoPlaying = initialized => {
+  return {
+    type: Types.VIDEO_PLAYING,
+    payload: { initialized },
+  }
+}
 
 export const videoEnded = _ => ({
-  type: VIDEO_ENDED,
+  type: Types.VIDEO_ENDED,
+})
+
+export const shuffleVideos = _ => ({
+  type: Types.SHUFFLE_VIDEOS,
 })
