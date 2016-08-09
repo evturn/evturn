@@ -22,6 +22,6 @@ export default state => (
       <Route component={_ => OSS(state.projects)} path='oss' />
     </Route>
 
-    <Route component={_ => About(state.site)} path='about' />
+    <Route component={_ => About(state.content)} path='about' />
   </Route>
 )

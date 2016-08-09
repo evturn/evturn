@@ -37,4 +37,9 @@ const shuffleVideos = action$ => {
     })
 }
 
-export default combineEpics(setLoadingTimeout, videoPlaying, videoEnded, shuffleVideos)
+export default combineEpics(
+  setLoadingTimeout,
+  videoPlaying,
+  videoEnded,
+  shuffleVideos
+)
