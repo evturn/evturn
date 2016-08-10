@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import classNames from 'classnames/bind'
-import closeIcon from 'site-images/close-light.svg'
+import closeIcon from 'images/site/close-light.svg'
 
 import css from './style.css'
 

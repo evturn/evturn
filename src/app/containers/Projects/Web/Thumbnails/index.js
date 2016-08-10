@@ -16,7 +16,7 @@ export default props => {
               key={i}
               className={cx('thumb', { 'active': x.slug === props.slug })}>
               <Link to={`/work/web/${x.slug}`}>
-                <img src={x.thumbnail} />
+                <img src={require(`images/work/${x.thumbnail}`)} />
                 <div className={css.overlay} />
               </Link>
             </li>

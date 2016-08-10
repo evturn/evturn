@@ -13,7 +13,7 @@ export default props => (
           <div
             key={i}
             className={cx('slide', { 'active': i === props.slide })}>
-            <img src={x} />
+            <img src={require(`images/work/${x}`)} />
           </div>
         )
       })}

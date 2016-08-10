@@ -10,10 +10,10 @@ import * as Actions from './actions'
 import css from './style.css'
 
 const img = {
-  av: `build/` + require('site-images/ev-av.svg'),
-  skel: `build/` + require('site-images/skel.gif'),
-  poster: `build/` + require('site-images/transparent.png'),
-  title: `build/` + require('site-images/title-white.svg')
+  av: require('images/site/ev-av.svg'),
+  skel: require('images/site/skel.gif'),
+  poster: require('images/site/transparent.png'),
+  title: require('images/site/title-white.svg')
 }
 
 class Home extends Component {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 
 import css from './style.css'
-import av from 'site-images/ev-av.svg'
+import av from 'images/site/ev-av.svg'
 
 export default props => {
   const visibility = props.visible ? '' : !props.ready ? css.wait : ''

@@ -6,7 +6,7 @@ export default props => (
   <ul className={css.items}>{props.ios.items.map((x, i) =>
     <li key={i} className={css.item}>
       <div className={css.name}>{x.name}</div>
-      <img src="https://media3.giphy.com/media/lpydvIOdsHw0U/200_s.gif" />
+      <img src={require(`images/work/${x.image}`)} />
     </li>
   )}</ul>
 )

@@ -14,7 +14,7 @@ export default props => {
       <div className={css.about}>
         <div className={css.av}>
           <div className={css.image}>
-            <img className="img" src={`build/` + require('site-images/ev-av.svg')} />
+            <img className="img" src={require('images/site/ev-av.svg')} />
           </div>
         </div>
         <div className={css.details}>

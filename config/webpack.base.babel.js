@@ -50,20 +50,15 @@ module.exports = opts => {
         components:    path.join(process.cwd(), 'src', 'app',       'components/'),
         reducers:      path.join(process.cwd(), 'src', 'app',       'reducers/'),
         store:         path.join(process.cwd(), 'src', 'app',       'store/'),
-        data:          path.join(process.cwd(), 'src', 'internals', 'data/'),
         routes:        path.join(process.cwd(), 'src', 'app',       'routes'),
         images:        path.join(process.cwd(), 'src', 'assets',    'img/'),
         config:        path.join(process.cwd(), 'config/'),
         css:           path.join(process.cwd(), 'src', 'assets',    'css/'),
-        less:          path.join(process.cwd(), 'src', 'assets',    'less/'),
-        'work-images': path.join(process.cwd(), 'src', 'assets',    'img', 'work/'),
-        'site-images': path.join(process.cwd(), 'src', 'assets',    'img', 'site/')
       },
       modules: [ 'app', 'node_modules' ],
       extensions: [ '', '.js', '.jsx', '.less' ],
       packageMains: [ 'jsnext:main', 'main' ]
     },
-
     name: 'browser',
     target: 'web',
     stats: false,

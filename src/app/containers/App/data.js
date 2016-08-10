@@ -15,9 +15,12 @@ export default {
             url: 'https://github.com/drivepublishing/drivepublishing.github.io',
             icon: 'fa fa-github-square'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'drive-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'drive-1.png',
+          'drive-2.png',
+          'drive-3.png',
+          'drive-4.png'
         ],
         tech: ['node', 'gulp', 'sass']
       },{
@@ -38,9 +41,11 @@ export default {
             url: 'http://twitter.com/marshallzBlog',
             icon: 'fa fa-twitter'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'marshallz-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'marshallz-1.png',
+          'marshallz-2.png',
+          'marshallz-3.png'
         ],
         tech: ['node', 'react', 'redux', 'mongodb', 'rxjs', 'webpack', 'less']
       },{
@@ -57,9 +62,13 @@ export default {
           url: 'http://wearebnr.com',
           icon: 'fa fa-circle-o'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'ng-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'ng-1.png',
+          'ng-2.png',
+          'ng-3.png',
+          'ng-4.png',
+          'ng-5.png'
         ],
         tech: ['node', 'gulp', 'less']
 
@@ -81,9 +90,10 @@ export default {
           url: 'http://gigareef.com',
           icon: 'fa fa-circle-o'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'gw-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'gw-1.png',
+          'gw-2.png'
         ],
         tech: ['wordpress', 'gulp', 'less']
       },{
@@ -102,9 +112,11 @@ export default {
             icon: 'fa fa-circle-o'
           }
         ],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'bfs-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'bfs-1.png',
+          'bfs-2.png',
+          'bfs-3.png'
         ],
         tech: ['wordpress', 'sass']
       },{
@@ -121,9 +133,10 @@ export default {
             url: 'https://github.com/evturn/mwmi',
             icon: 'fa fa-github-square'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'mwmi-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'mwmi-1.png',
+          'mwmi-2.png'
         ],
         tech: ['node', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
       },{
@@ -141,8 +154,10 @@ export default {
             icon: 'fa fa-github-square'
         }],
         thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'tectonic-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'tectonic-1.png',
+          'tectonic-2.png'
         ],
         tech: ['node', 'rxjs', 'web-socket', 'less', 'webpack']
       },{
@@ -159,9 +174,11 @@ export default {
             url: 'https://github.com/evturn/madeinmusic.co',
             icon: 'fa fa-github-square'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'mim-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'mim-1.png',
+          'mim-2.png',
+          'mim-3.png'
         ],
         tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
       },{
@@ -174,9 +191,12 @@ export default {
           url: 'https://github.com/piqueapp/piqueapp.github.io',
           icon: 'fa fa-github-square'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'pique-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'pique-1.png',
+          'pique-2.png',
+          'pique-3.png',
+          'pique-4.png'
         ],
         tech : ['rails', 'postgresql']
       },{
@@ -185,9 +205,10 @@ export default {
         id: 10,
         slug: 'where-to',
         links: null,
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'whereto-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'whereto-2.png',
+          'whereto-1.png'
         ],
         tech: ['node', 'mongodb', 'sass']
       },{
@@ -204,9 +225,11 @@ export default {
             url: 'https://github.com/evturn/ramen-buffet',
             icon: 'fa fa-github-square'
         }],
-        thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+        thumbnail: 'rb-tn.png',
         images: [
-          'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
+          'ramen-buffet-1.png',
+          'ramen-buffet-2.png',
+          'ramen-buffet-3.png'
         ],
         tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']
       }]
