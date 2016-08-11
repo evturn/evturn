@@ -1,13 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-
-import * as Actions from 'containers/Projects/actions'
-import { selectProject } from '../../../reducers/projects'
-
 import Details from './Details'
 import Carousel from './Carousel'
 import Thumbnails from './Thumbnails'
+import * as Actions from 'containers/Projects/actions'
 
 import css from './style.css'
 
@@ -43,7 +40,7 @@ class Web extends Component {
         </div>
 
         <Thumbnails
-          projects={this.props.projects}
+          projects={this.props.items}
           slug={this.props.slug}
         />
       </div>
@@ -53,24 +50,23 @@ class Web extends Component {
 
 Web.propTypes = {
   project: PropTypes.object,
-  projects: PropTypes.array,
+  items: PropTypes.array,
   slug: PropTypes.string,
   slide: PropTypes.number,
   tech: PropTypes.array,
 }
 
 const mapStateToProps = state => {
-  const project = selectProject(state)
   return {
-    project,
-    projects: state.projects.web.items,
+    project: state.projects.web.project,
+    items: state.projects.web.items,
     slug: state.projects.web.slug,
     slide: state.projects.web.slide,
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  mountCarousel:  slug => dispatch(Actions.mountCarousel(slug)),
+  mountCarousel: slug => dispatch(Actions.mountCarousel(slug)),
   unmountCarousel: _ => dispatch(Actions.unmountCarousel())
 })
 

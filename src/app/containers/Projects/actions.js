@@ -9,7 +9,3 @@ export const mountCarousel = (slug='drive') => ({
 export const unmountCarousel = _ => ({
   type: Types.UNMOUNT_CAROUSEL
 })
-
-export const nextSlide = _ => ({
-  type: Types.NEXT_SLIDE
-})

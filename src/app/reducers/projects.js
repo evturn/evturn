@@ -3,20 +3,22 @@ import * as Types from '../constants'
 
 function carouselReducer(state={
   items: [],
+  project: {},
   slug: 'drive',
   slide: 0,
 }, action) {
   switch (action.type) {
 
-    case Types.MOUNT_CAROUSEL:
+    case Types.SELECT_PROJECT:
       return Object.assign({}, state, {
         slide: 0,
         slug: action.payload.slug,
+        project: action.payload.project,
       })
 
     case Types.NEXT_SLIDE:
       return Object.assign({}, state, {
-        slide: action.payload.slide,
+        slide: state.slide === state.project.images.length - 1 ? 0 : state.slide + 1,
       })
 
     case Types.UNMOUNT_CAROUSEL:
@@ -44,12 +46,12 @@ const projectsReducer = combineReducers({
 export default projectsReducer
 
 export const selectProject = state => {
-  return state.projects.web.items
-    .filter(x => x.slug === state.projects.web.slug)
+  return state.items
+    .filter(x => x.slug === state.slug)
     .map(project => ({
       ...project,
       tech: project.tech
-        .map(x => state.content.tech.filter(y => y.slug === x)[0])
+        .map(x => state.tech.filter(y => y.slug === x)[0])
     }))[0]
 }
 
