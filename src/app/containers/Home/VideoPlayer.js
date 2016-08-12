@@ -5,16 +5,27 @@ import Video from 'components/Video'
 import * as Actions from './actions'
 
 class VideoPlayer extends Component {
+  constructor(props) {
+    super(props)
+
+    this.preventPlayback = window.innerWidth <= 1024
+  }
   componentDidMount() {
-    this.props.mountVideo(this.props.items)
+    if (this.preventPlayback) {
+      this.props.abortMount()
+    } else {
+      this.props.mountVideo(this.props.items)
+    }
   }
 
   componentWillUnmount() {
-    this.props.unmountVideo()
+    if (this.preventPlayback) {
+      this.props.unmountVideo()
 
-    if (this.player !== null) {
-      this.player.removeEventListener('playing', this.playing)
-      this.player.removeEventListener('ended', this.ended)
+      if (this.player !== null) {
+        this.player.removeEventListener('playing', this.playing)
+        this.player.removeEventListener('ended', this.ended)
+      }
     }
   }
 
@@ -64,5 +75,6 @@ export default connect(
     unmountVideo: _ => dispatch(Actions.unmountVideo()),
     videoPlaying: _ => dispatch(Actions.videoPlaying()),
     videoEnded:   _ => dispatch(Actions.videoEnded()),
+    abortMount:   _ => dispatch(Actions.abortMount())
   })
 )(VideoPlayer)
