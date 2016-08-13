@@ -39,7 +39,7 @@
 
 @media tablet {
   .logo {
-    top: 33.333333333%;
+    top: 40%;
     padding: 20px;
     width: 140px;
     height: 140px;
@@ -60,7 +60,7 @@
 
 @media tablet {
   .spinner {
-    top: 33.333333333%;
+    top: 40%;
   }
 }
 
