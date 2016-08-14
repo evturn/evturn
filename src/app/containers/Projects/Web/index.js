@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import Details from './Details'
 import Carousel from './Carousel'
 import Thumbnails from './Thumbnails'

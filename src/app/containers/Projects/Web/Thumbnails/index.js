@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import A from 'components/A'
 import classNames from 'classnames/bind'
 
 import css from './style.css'
@@ -15,10 +15,10 @@ export default props => {
             <li
               key={i}
               className={cx('thumb', { 'active': x.slug === props.slug })}>
-              <Link to={`/work/web/${x.slug}`}>
+              <A pathname={`/work/web/${x.slug}`}>
                 <img src={require(`images/work/${x.thumbnail}`)} />
                 <div className={css.overlay} />
-              </Link>
+              </A>
             </li>
           )
         })}

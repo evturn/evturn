@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import A from 'components/A'
 
 import css from './style.css'
 
@@ -8,10 +8,12 @@ const Sections = ({ sections }) => (
     <div className={css.sections}>
       <ul className={css.ul}>{sections.map((x, i) =>
         <li key={i} className={css.li}>
-          <Link to={x.route} activeClassName={css.active}>
+          <A
+            pathname={x.route}
+            activeClassName={css.active}>
             <span className={x.icon} />
             <div className={css.name}>{x.title}</div>
-          </Link>
+          </A>
         </li>
       )}</ul>
     </div>

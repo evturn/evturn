@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import A from 'components/A'
 import classNames from 'classnames/bind'
 import closeIcon from 'images/site/close-light.svg'
 
@@ -17,10 +17,15 @@ export default ({ open, nav, toggleMenu }) => (
       <div className={css.corner} />
       <ul className={css.ul}>
         {nav.map((x, i) =>
-          <li key={i} className={css.li} onClick={toggleMenu}>{x.route ?
-            <Link to={x.route} children={x.name} /> :
-            <img src={closeIcon} />
-          }</li>
+          <li
+            key={i}
+            className={css.li}
+            onClick={toggleMenu}>
+            {x.route
+              ? <A pathname={x.route}>{x.name}</A>
+              : <img src={closeIcon} />
+            }
+          </li>
         )}
       </ul>
     </nav>
