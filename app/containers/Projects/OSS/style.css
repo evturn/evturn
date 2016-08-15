@@ -1,0 +1,122 @@
+@value global '../../../style.css';
+
+@value tablet, tablet-portrait from global;
+@value clearfix from global;
+@value font-helv-neue from global;
+@value tx-dark-gray, tx-secondary from global;
+
+.items {
+  display: block;
+  composes: clearfix;
+  width: 100%;
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  text-align: center;
+  font-family: font-helv-neue;
+}
+
+@media tablet {
+  .items {
+    max-width: 1000px;
+  }
+}
+
+.item {
+  display: block;
+  vertical-align: top;
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+@media tablet-portrait {
+  .item {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 40px;
+    height: 340px;
+    width: 50%;
+  }
+}
+
+@media tablet {
+  .item {
+    display: inline-block;
+    float: left;
+    width: 33.3333333333%;
+  }
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+@media tablet {
+  .content {
+    padding-bottom: 20px;
+    margin-right: auto;
+  }
+}
+
+.links {
+  position: relative;
+  text-align: right;
+
+}
+
+@media tablet-portrait {
+  .links {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+  }
+}
+
+.link {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+@media tablet {
+  .link {
+    margin-left: 20px;
+  }
+}
+
+.link span {
+  font-size: 32px;
+}
+
+@media tablet {
+  .link span {
+    font-size: 29px;
+  }
+}
+
+.link a {
+  transition: all 0.1s ease;
+  color: tx-dark-gray;
+}
+
+.link a:hover {
+  @media tablet {
+    color: tx-secondary;
+  }
+}
+
+.name {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 18px;
+  text-align: justify;
+}

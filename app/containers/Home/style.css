@@ -1,0 +1,183 @@
+@value global: '../../style.css';
+
+@value clearfix from global;
+@value tablet, desktop from global;
+@value font-mer from global;
+@value bgOverlay, bg-light, bg-matte, bg-light-20, bg-light-70, tx-light from global;
+
+.root {
+  position: relative;
+  background-color: bg-light;
+}
+
+.fullpage{
+  display: block;
+  position: relative;
+  composes: clearfix;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-position-x: 70%;
+  background-position-y: -70%;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+@media tablet {
+  .fullpage {
+    background-size: 135%;
+    background-position-x: 50%;
+    background-position-y: -20%;
+    background-image: none;
+  }
+}
+
+@media desktop {
+  .fullpage {
+    background-size: 112%;
+    background-position-x: 50%;
+    background-position-y: 0%;
+  }
+}
+
+.sections {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+@media tablet {
+  .sections {
+    display: none;
+  }
+}
+
+.logo {
+  display: block;
+  position: absolute;
+  width: 200px;
+  margin: 0 auto;
+  top: 35%;
+  right: 0;
+  left: 0;
+  text-align: center;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  padding: 10px;
+
+
+}
+
+@media tablet {
+  .logo {
+    display: none;
+  }
+}
+
+.logo img {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0;
+  border-radius: 50%;
+}
+
+.title {
+  display: none;
+}
+
+@media tablet {
+  .title {
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    top: 40%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: tx-light;
+    font-family: font-mer;
+    height: auto;
+    display: block;
+    width: 50%;
+  }
+
+  .title.yield img {
+    opacity: 1;
+    transition: 1s;
+    -webkit-filter: drop-shadow(6px 5px 0px bg-matte);
+    filter: drop-shadow(6px 5px 0px bg-matte);
+  }
+
+  .title.wait img {
+    opacity: 0;
+  }
+
+  .wait .subtitle {
+    opacity: 0;
+    transition-delay: 4.0s;
+    transition: 1.0s;
+  }
+
+  .subtitle {
+    transition-delay: 8.0s;
+    transition: 2.0s;
+  }
+}
+
+.subtitle {
+  text-transform: uppercase;
+  text-align: right;
+  margin-top: -4%;
+  padding-right: 4%;
+  font-family: font-mer;
+  font-size: 12px;
+}
+
+.subtitle:before {
+  opacity: 0;
+}
+
+.yield .subtitle:after {
+  content: "developer";
+  opacity: 1;
+}
+
+@media tablet {
+  .subtitle {
+    font-size: 2vw;
+  }
+}
+
+.overlay {
+  position: absolute;
+  background-color: bgOverlay;
+  opacity: .95;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 50;
+}
+
+@media tablet {
+  .overlay {
+    display: none;
+  }
+}
+
+.sm-title {
+  position: absolute;
+  z-index: 100;
+  font-size: 25px;
+  margin: 0 auto 10px auto;
+  top: 50px;
+  right: 0;
+  left: 0;
+  text-transform: uppercase;
+  text-align: center;
+  color: tx-light;
+  width: 250px;
+}

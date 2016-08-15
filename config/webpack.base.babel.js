@@ -13,7 +13,7 @@ module.exports = opts => {
     devServer: opts.devServer,
     debug: opts.debug,
     cache: opts.cache,
-    context: path.join(process.cwd(), 'src/app'),
+    context: path.join(process.cwd(), 'app'),
 
     module: {
       loaders: [
@@ -45,15 +45,15 @@ module.exports = opts => {
 
     resolve: {
       alias: {
-        actions:       path.join(process.cwd(), 'src', 'app',       'actions/'),
-        containers:    path.join(process.cwd(), 'src', 'app',       'containers/'),
-        components:    path.join(process.cwd(), 'src', 'app',       'components/'),
-        reducers:      path.join(process.cwd(), 'src', 'app',       'reducers/'),
-        store:         path.join(process.cwd(), 'src', 'app',       'store/'),
-        routes:        path.join(process.cwd(), 'src', 'app',       'routes'),
-        images:        path.join(process.cwd(), 'src', 'assets',    'img/'),
+        actions:       path.join(process.cwd(), 'app',       'actions/'),
+        containers:    path.join(process.cwd(), 'app',       'containers/'),
+        components:    path.join(process.cwd(), 'app',       'components/'),
+        reducers:      path.join(process.cwd(), 'app',       'reducers/'),
+        store:         path.join(process.cwd(), 'app',       'store/'),
+        routes:        path.join(process.cwd(), 'app',       'routes'),
+        images:        path.join(process.cwd(), 'assets',    'img/'),
         config:        path.join(process.cwd(), 'config/'),
-        css:           path.join(process.cwd(), 'src', 'assets',    'css/'),
+        css:           path.join(process.cwd(), 'assets',    'css/'),
       },
       modules: [ 'app', 'node_modules' ],
       extensions: [ '', '.js', '.jsx', '.less' ],

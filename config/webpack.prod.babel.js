@@ -10,7 +10,7 @@ const values = require('postcss-modules-values')
 
 module.exports = require('./webpack.base.babel.js')({
   entry: [
-    path.join(process.cwd(), 'src/app'),
+    path.join(process.cwd(), 'app'),
   ],
 
   output: {
@@ -24,7 +24,7 @@ module.exports = require('./webpack.base.babel.js')({
       test: /\.js$|\.jsx$/,
       loader: 'babel',
       exclude: /node_modules/,
-      include: path.join(process.cwd(), 'src'),
+      include: path.join(process.cwd(), 'app'),
     },{
       test: /\.css$/,
       exclude: /node_modules/,

@@ -1,0 +1,76 @@
+@value global: '../../style.css';
+
+@value tablet from global;
+@value font-helv-neue from global;
+@value bg-sections, tx-matte, tx-dark-gray from global;
+
+.nav {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 65px;
+  background-color: bg-sections;
+}
+
+.sections {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ul {
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  top: 12.5px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media tablet {
+  .ul {
+    left: auto;
+    width: auto;
+  }
+}
+
+.li {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  width: 102px;
+  font-family: font-helv-neue;
+  font-weight: 300;
+  text-align: center;
+}
+
+@media tablet {
+  .li {
+    width: 80px;
+  }
+}
+
+.li a {
+  color: tx-matte;
+  transition: all 0.3s ease;
+}
+
+.li a.active {
+  color: tx-dark-gray;
+  cursor: default;
+}
+
+.li span {
+  font-size: 24px;
+}
+
+.li .name {
+  font-size: 12px;
+}

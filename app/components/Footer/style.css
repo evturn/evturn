@@ -1,0 +1,20 @@
+@value global: '../../style.css';
+
+@value tx-dark-gray from global;
+
+.footer {
+  position: relative;
+  height: 40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  color: tx-dark-gray;
+  font-size: 12px;
+}
+
+.text {
+  display: block;
+  position: relative;
+  line-height: 40px;
+}

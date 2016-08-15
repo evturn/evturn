@@ -1,0 +1,16 @@
+@value global: '../../../style.css';
+
+@value tablet from global;
+@value clearfix: clearfix from global;
+
+.slideshow {
+  composes: clearfix;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media tablet {
+  .slideshow {
+    padding: 20px 15px 15px 15px;
+  }
+}
