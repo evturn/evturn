@@ -1,5 +1,6 @@
 import React from 'react'
 import A from 'components/A'
+import Img from 'components/Img'
 import classNames from 'classnames/bind'
 import closeIcon from 'images/site/close-light.svg'
 
@@ -23,7 +24,7 @@ export default ({ open, nav, toggleMenu }) => (
             onClick={toggleMenu}>
             {x.route
               ? <A pathname={x.route}>{x.name}</A>
-              : <img src={closeIcon} />
+              : <Img src={closeIcon} />
             }
           </li>
         )}
