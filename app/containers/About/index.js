@@ -1,6 +1,7 @@
 import React from 'react'
-
+import Img from 'components/Img'
 import Footer from 'components/Footer'
+import img from 'images/site/ev-av.svg'
 import css from './style.css'
 
 import { selectTech } from '../../reducers/content'
@@ -14,7 +15,7 @@ export default props => {
       <div className={css.about}>
         <div className={css.av}>
           <div className={css.image}>
-            <img className="img" src={require('images/site/ev-av.svg')} />
+            <Img src={img} />
           </div>
         </div>
         <div className={css.details}>

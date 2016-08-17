@@ -1,6 +1,6 @@
 import React from 'react'
 import A from 'components/A'
-
+import Img from 'components/Img'
 import css from './style.css'
 import av from 'images/site/ev-av.svg'
 
@@ -9,7 +9,7 @@ export default props => {
   return (
     <div className={`${css.logo} ${visibility}`}>
       <A pathname="/">
-        <img src={`build/${av}`} />
+        <Img src={av} />
       </A>
     </div>
   )
