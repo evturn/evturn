@@ -1,20 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-
+import Img from 'components/Img'
 import VideoPlayer from './VideoPlayer'
 import LoadingIndicator from 'components/LoadingIndicator'
 import Sections from 'components/Sections'
-
 import * as Actions from './actions'
-
+import av from 'images/site/ev-av.svg'
+import skel from 'images/site/skel.gif'
+import title from 'images/site/title-white.svg'
 import css from './style.css'
-
-const img = {
-  av: require('images/site/ev-av.svg'),
-  skel: require('images/site/skel.gif'),
-  poster: require('images/site/transparent.png'),
-  title: require('images/site/title-white.svg')
-}
 
 class Home extends Component {
   render() {
@@ -25,11 +19,9 @@ class Home extends Component {
             items={this.props.items}
             ready={this.props.ready}
             done={this.props.done}
-            poster={img.poster}
           />
-
           <LoadingIndicator
-            img={img.av}
+            img={av}
             ready={this.props.ready}
             done={this.props.done}
           />
@@ -38,10 +30,10 @@ class Home extends Component {
           </div>
           <div className={css.cover}>
             <div className={css.logo}>
-              <img src={img.skel} />
+              <Img src={skel} />
             </div>
             <div className={`${css.title} ${!this.props.done && !this.props.initialized ? css.wait : css.yield}`}>
-              <img src={img.title} />
+              <Img src={title} />
               <div className={css.subtitle} />
             </div>
           </div>

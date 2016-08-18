@@ -2,8 +2,7 @@ import React from 'react'
 import A from 'components/A'
 import Img from 'components/Img'
 import classNames from 'classnames/bind'
-import closeIcon from 'images/site/close-light.svg'
-
+import close from './close.svg'
 import css from './style.css'
 
 const cx = classNames.bind(css)
@@ -24,7 +23,7 @@ export default ({ open, nav, toggleMenu }) => (
             onClick={toggleMenu}>
             {x.route
               ? <A pathname={x.route}>{x.name}</A>
-              : <Img src={closeIcon} />
+              : <img src={close} />
             }
           </li>
         )}

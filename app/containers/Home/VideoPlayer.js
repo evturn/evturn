@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-
 import Video from 'components/Video'
 import * as Actions from './actions'
+import poster from './poster.png'
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class VideoPlayer extends Component {
     return (
       <Video
         backingInstance={::this.listenForChanges}
-        poster={this.props.poster}
+        poster={`build/${poster}`}
         src={this.props.src}
       />
     )
