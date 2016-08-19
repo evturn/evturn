@@ -7,27 +7,30 @@ import css from './style.css'
 
 const cx = classNames.bind(css)
 
-export default ({ open, nav, toggleMenu }) => (
-  <div>
-    <div className={css.burger} onClick={toggleMenu}>
-      <span className="fa fa-bars" />
+export default props => {
+  return (
+    <div>
+      <div
+        className={css.burger}
+        onClick={props.toggleMenu}>
+        <span className="fa fa-bars" />
+      </div>
+      <nav className={cx('root', { open: props.open })}>
+        <div className={css.corner} />
+        <ul className={css.ul}>
+          {props.nav.map((x, i) =>
+            <li
+              key={i}
+              className={css.li}
+              onClick={props.toggleMenu}>
+              {x.route
+                ? <A pathname={x.route}>{x.name}</A>
+                : <img src={close} />
+              }
+            </li>
+          )}
+        </ul>
+      </nav>
     </div>
-
-    <nav className={cx('root', { open })}>
-      <div className={css.corner} />
-      <ul className={css.ul}>
-        {nav.map((x, i) =>
-          <li
-            key={i}
-            className={css.li}
-            onClick={toggleMenu}>
-            {x.route
-              ? <A pathname={x.route}>{x.name}</A>
-              : <img src={close} />
-            }
-          </li>
-        )}
-      </ul>
-    </nav>
-  </div>
-)
+  )
+}
