@@ -13,15 +13,14 @@ export default state => (
   <Route component={App} path='/'>
     <IndexRoute component={Home} />
 
-    <Route component={Projects} path='work'>
+    <Route path='work' component={Projects}>
       <IndexRoute component={Web} />
-      <Route component={Web} path='web'>
-        <Route component={Web} path=':slug' />
+      <Route path='web' component={Web}>
+        <Route path=':slug' component={Web} />
       </Route>
-      <Route component={_ => IOS(state.projects)} path='ios' />
-      <Route component={_ => OSS(state.projects)} path='oss' />
+      <Route path='ios' component={_ => IOS(state.projects)} />
+      <Route path='oss' component={_ => OSS(state.projects)} />
     </Route>
-
-    <Route component={_ => About(state.content)} path='about' />
+    <Route path='about' component={_ => About(state.content)} />
   </Route>
 )
