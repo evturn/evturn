@@ -1,17 +1,28 @@
-
 const request = require('request')
+const mkdirp = require('mkdirp')
+const rimrafSync = require('rimraf').sync
+const c = require('chalk')
 const { Observable } = require('rxjs')
 const { config, api } = require('cloudinary')
 
-const options = { max_results: 500, tags: true }
-const byTag = { site: [], work: [] }
+Observable.create(receiveImages)
+  .subscribe(parseImageData)
 
-api.resources_by_tag('evturn', parseImageData, options)
+function receiveImages(observer) {
+  return callCloudinaryAPI(res => observer.next(res))
+}
+
+function callCloudinaryAPI(resFn) {
+  api.resources_by_tag('evturn', resFn, {
+    max_results: 500,
+    tags: true
+  })
+}
 
 function parseImageData(res) {
   return Observable.from(res.resources)
-    .reduce(sortByTag, byTag)
-    .flatMap()
+    .reduce(sortByTag, { site: [], work: [] })
+    .do(x => c.blue(x))
     .subscribe(x => console.log(x))
 }
 
