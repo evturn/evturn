@@ -1,3 +1,4 @@
+const fs = require('fs')
 const request = require('request')
 const mkdirp = require('mkdirp')
 const rimrafSync = require('rimraf').sync
@@ -5,12 +6,15 @@ const c = require('chalk')
 const { Observable } = require('rxjs')
 const { config, api } = require('cloudinary')
 
-Observable.create(receiveImages)
-  .subscribe(parseImageData)
 
 function receiveImages(observer) {
-  return callCloudinaryAPI(res => observer.next(res))
+  return callCloudinaryAPI(res => observer.next(res.resources))
 }
+
+Observable.create(receiveImages)
+  .flatMap(parseImageData)
+  .map(createPaths)
+  .subscribe(x => console.log(x))
 
 function callCloudinaryAPI(resFn) {
   api.resources_by_tag('evturn', resFn, {
@@ -19,36 +23,39 @@ function callCloudinaryAPI(resFn) {
   })
 }
 
-function parseImageData(res) {
-  return Observable.from(res.resources)
-    .reduce(sortByTag, { site: [], work: [] })
-    .do(x => c.blue(x))
-    .subscribe(x => console.log(x))
+function parseImageData(images) {
+  return Observable.from(images)
+    .map(x => ({
+      folder: getImageFolderDir(x.tags),
+      file: removeFileNameHash(x.public_id),
+      url: x.url,
+      format: x.format,
+    }))
 }
 
-function sortByTag(acc, x) {
-  console.log(x)
-  if (x.tags.includes('work')) {
-    acc.work = acc.work.concat([x.url])
-  } else {
-    acc.site = acc.site.concat([x.url])
+function createPaths(data) {
+  return {
+    dest: `media/${data.folder}/${data.file}.${data.format}`,
+    url: data.url
   }
-  return acc
 }
 
-function handleReponse(error, response, body) {
-  if (error) {
-    handleError(error)
-  }
-  checkStatus(response)
-  parseBody(body)
+function getImageFolderDir(tags) {
+  return tags.filter(x => x !== 'evturn')[0]
 }
 
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    console.log(`Status ${response.status}`)
-    return response
-  }
+function removeFileNameHash(fileName) {
+  return fileName.replace(/_.*$/, '')
+}
+
+function fetchMedia(url, dest) {
+  request
+    .get(url)
+    .on('error', handleError)
+    .on('response', response => {
+      response.pipe(fs.createWriteStream(dest))
+      response.on('end', _ => console.log(c.bgBlue('Success')))
+    })
 }
 
 function handleError(error) {
@@ -56,23 +63,4 @@ function handleError(error) {
   return error
 }
 
-function parseBody(body) {
-  if (body) {
-    console.log(body)
-    console.log(typeof body)
-  }
-}
 
-/*
-function fetchAndPipeToWriteStream(paths) {
-  return new Promise((resolve, reject) => {
-    request
-      .get(paths.src)
-      .on('error', err => reject(`Error fetching public permalink - ${err} ☠️`))
-      .on('response', response => {
-        response.pipe(fs.createWriteStream(paths.dest))
-        response.on('end', _ => resolve())
-      })
-  })
-}
-*/
