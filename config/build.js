@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 const request = require('request')
 const mkdirp = require('mkdirp')
 const rimrafSync = require('rimraf').sync
@@ -6,18 +7,19 @@ const c = require('chalk')
 const { Observable } = require('rxjs')
 const { config, api } = require('cloudinary')
 
-
-function receiveImages(observer) {
-  return callCloudinaryAPI(res => observer.next(res.resources))
-}
-
-Observable.create(receiveImages)
+Observable.create(callCloudinaryAPI)
   .flatMap(parseImageData)
   .map(createPaths)
-  .subscribe(x => console.log(x))
+  .flatMap(fetchMedia)
+  .subscribe(
+    x => console.log(c.bgBlue(x)),
+    e => console.log(c.bgRed(e)),
+  )
 
-function callCloudinaryAPI(resFn) {
-  api.resources_by_tag('evturn', resFn, {
+function callCloudinaryAPI(observer) {
+  api.resources_by_tag(
+    'evturn',
+    res => observer.next(res.resources), {
     max_results: 500,
     tags: true
   })
@@ -26,7 +28,6 @@ function callCloudinaryAPI(resFn) {
 function parseImageData(images) {
   return Observable.from(images)
     .map(x => ({
-      folder: getImageFolderDir(x.tags),
       file: removeFileNameHash(x.public_id),
       url: x.url,
       format: x.format,
@@ -35,32 +36,28 @@ function parseImageData(images) {
 
 function createPaths(data) {
   return {
-    dest: `media/${data.folder}/${data.file}.${data.format}`,
+    dest: path.resolve(process.cwd(), 'media/') + `${data.file}.${data.format}`,
     url: data.url
   }
 }
 
-function getImageFolderDir(tags) {
-  return tags.filter(x => x !== 'evturn')[0]
-}
-
 function removeFileNameHash(fileName) {
-  return fileName.replace(/_.*$/, '')
+  return fileName
+    .replace(/evturn/,'')
+    .replace(/_.*$/, '')
 }
 
-function fetchMedia(url, dest) {
-  request
-    .get(url)
-    .on('error', handleError)
-    .on('response', response => {
-      response.pipe(fs.createWriteStream(dest))
-      response.on('end', _ => console.log(c.bgBlue('Success')))
-    })
+let blank = ' '
+function fetchMedia({ url, dest }) {
+  return Observable.create(observer => {
+    request
+      .get(url)
+      .on('error', e => observer.error(e))
+      .on('response', response => {
+        response.pipe(fs.createWriteStream(dest))
+        response.on('end', _ => {
+          observer.next(blank += ' ')
+        })
+      })
+  })
 }
-
-function handleError(error) {
-  console.log(`Network error: ${error}`)
-  return error
-}
-
-
