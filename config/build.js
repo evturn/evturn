@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const request = require('request')
 const mkdirp = require('mkdirp')
-const rimrafSync = require('rimraf').sync
+const rimraf = require('rimraf')
 const c = require('chalk')
 const { Observable } = require('rxjs')
 const { config, api } = require('cloudinary')
@@ -13,7 +13,7 @@ Observable.create(callCloudinaryAPI)
   .flatMap(fetchMedia)
   .subscribe(
     x => console.log(c.bgBlue(x)),
-    e => console.log(c.bgRed(e)),
+    e => console.log(c.bgRed(e))
   )
 
 function callCloudinaryAPI(observer) {
@@ -25,7 +25,16 @@ function callCloudinaryAPI(observer) {
   })
 }
 
+function cleanAndMakeDirs() {
+  rimraf.sync('media')
+  mkdirp.sync('media/site')
+  mkdirp.sync('media/work')
+  console.log(c.magenta('Directories created'))
+}
+
 function parseImageData(images) {
+  cleanAndMakeDirs()
+
   return Observable.from(images)
     .map(x => ({
       file: removeFileNameHash(x.public_id),
