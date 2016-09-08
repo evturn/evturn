@@ -1,9 +1,9 @@
+const c = require('chalk')
 const fs = require('fs')
 const path = require('path')
 const request = require('request')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
-const c = require('chalk')
 const { Observable } = require('rxjs')
 const { config, api } = require('cloudinary')
 
@@ -25,13 +25,6 @@ function callCloudinaryAPI(observer) {
   })
 }
 
-function cleanAndMakeDirs() {
-  rimraf.sync('media')
-  mkdirp.sync('media/site')
-  mkdirp.sync('media/work')
-  console.log(c.magenta('Directories created'))
-}
-
 function parseImageData(images) {
   cleanAndMakeDirs()
 
@@ -41,6 +34,13 @@ function parseImageData(images) {
       url: x.url,
       format: x.format,
     }))
+}
+
+function cleanAndMakeDirs() {
+  rimraf.sync('media')
+  mkdirp.sync('media/site')
+  mkdirp.sync('media/work')
+  console.log(c.magenta('Directories created'))
 }
 
 function createPaths(data) {

@@ -4,4 +4,4 @@ node_modules
 *.hot-update.js.map
 *.hot-update.js
 *.hot-update.json
-dist/index.html
+media
