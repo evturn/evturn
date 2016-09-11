@@ -1,11 +1,10 @@
+import 'whatwg-fetch'
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import 'sanitize.css/sanitize.css'
 import 'config/analytics'
-
 import * as Actions from './actions'
-
 import Header from '../../components/Header'
 import FlyoutMenu from 'components/FlyoutMenu'
 
@@ -13,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="site">
+      <FontLoader />
         <Header
           nav={this.props.nav.desktop}
           ready={this.props.ready}

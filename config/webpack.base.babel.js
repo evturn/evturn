@@ -45,15 +45,14 @@ module.exports = opts => {
 
     resolve: {
       alias: {
-        actions:       path.join(process.cwd(), 'app',       'actions/'),
-        containers:    path.join(process.cwd(), 'app',       'containers/'),
-        components:    path.join(process.cwd(), 'app',       'components/'),
-        reducers:      path.join(process.cwd(), 'app',       'reducers/'),
-        store:         path.join(process.cwd(), 'app',       'store/'),
-        routes:        path.join(process.cwd(), 'app',       'routes'),
-        images:        path.join(process.cwd(), 'media/'),
+        actions:       path.join(process.cwd(), 'app',    'actions/'),
+        containers:    path.join(process.cwd(), 'app',    'containers/'),
+        components:    path.join(process.cwd(), 'app',    'components/'),
+        reducers:      path.join(process.cwd(), 'app',    'reducers/'),
+        store:         path.join(process.cwd(), 'app',    'store/'),
+        routes:        path.join(process.cwd(), 'app',    'routes'),
+        images:        path.join(process.cwd(), 'assets', 'media/'),
         config:        path.join(process.cwd(), 'config/'),
-        css:           path.join(process.cwd(), 'assets',    'css/'),
       },
       modules: [ 'app', 'node_modules' ],
       extensions: [ '', '.js', '.jsx', '.less' ],
