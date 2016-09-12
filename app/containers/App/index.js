@@ -12,7 +12,6 @@ class App extends Component {
   render() {
     return (
       <div className="site">
-      <FontLoader />
         <Header
           nav={this.props.nav.desktop}
           ready={this.props.ready}

@@ -52,6 +52,7 @@ module.exports = opts => {
         store:         path.join(process.cwd(), 'app',    'store/'),
         routes:        path.join(process.cwd(), 'app',    'routes'),
         images:        path.join(process.cwd(), 'assets', 'media/'),
+        assets:        path.join(process.cwd(), 'assets/'),
         config:        path.join(process.cwd(), 'config/'),
       },
       modules: [ 'app', 'node_modules' ],
