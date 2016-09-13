@@ -1,6 +1,7 @@
 import React from 'react'
 import Img from 'components/Img'
 import Footer from 'components/Footer'
+import Icon from 'components/Icon'
 import img from 'images/site/ev-av.svg'
 import css from './style.css'
 
@@ -26,7 +27,7 @@ export default props => {
           <div className={css.tech}>
             <ul className={css.list}>{tools.map((x, i) =>
               <li key={i} className={css.item}>
-                <span className={x.icon} />
+                <Icon className={x.icon} />
               </li>
             )}</ul>
           </div>

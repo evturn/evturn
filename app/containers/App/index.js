@@ -8,10 +8,12 @@ import * as Actions from './actions'
 import Header from '../../components/Header'
 import FlyoutMenu from 'components/FlyoutMenu'
 
+import css from './style.css'
+
 class App extends Component {
   render() {
     return (
-      <div className="site">
+      <div className={css.root}>
         <Header
           nav={this.props.nav.desktop}
           ready={this.props.ready}
