@@ -1,5 +1,9 @@
 {
   "fonts": [{
+    "format": "css",
+      "file": "/fonts/style",
+      "url": "https://www.dropbox.com/s/aguggq8ibm14wzq/style.css?dl=1"
+  },{
       "format": "eot",
       "file": "/fonts/evcon",
       "url": "https://www.dropbox.com/s/g6ujzcwe7g77ugg/evcon.eot?dl=1"
