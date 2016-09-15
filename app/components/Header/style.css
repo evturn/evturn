@@ -1,6 +1,6 @@
 @value global: '../../style.css';
 
-@value tablet from global;
+@value font-railway from global;
 @value bg-matte, borderGray, tx-light, bg-accent from global;
 @value clearfix: clearfix from global;
 @value tablet from global;
@@ -66,6 +66,7 @@
 }
 
 .page a {
+  font-family: font-railway;
   color: tx-light;
 }
 
