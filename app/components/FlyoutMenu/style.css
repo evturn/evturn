@@ -31,25 +31,55 @@
   left: -80px;
 }
 
-.ul {
+.routes {
   width: 220px;
 }
 
-.li {
+.route {
   display: block;
   position: relative;
-  width: 100%;
+  margin: 0 auto;
+  width: 75%;
+  text-align: right;
+  border-top: 1px solid borderGrayFade;
+  min-height: 60px;
+}
+
+.name {
   text-transform: uppercase;
-  text-align: center;
   font-family: font-helv-neue;
   font-size: 19px;
   font-weight: 500;
-  border-top: 1px solid borderGrayFade;
   line-height: 60px;
   height: 60px;
+  margin: auto;
 }
 
-.li span {
+.parentName {
+  composes: name;
+  height: 50px;
+}
+
+.childName {
+  composes: name;
+  line-height: 40px;
+  height: 40px;
+  font-size: 13px;
+}
+
+.childRoutes {
+  padding-bottom: 10px;
+  border: none;
+}
+
+.childRoute {
+  composes: route;
+  border: none;
+  min-height: 40px;
+  width: 100%;
+}
+
+.route span {
   position: absolute;
   top: 0;
   right: 0;
@@ -61,7 +91,11 @@
   color: tx-light;
 }
 
-.li img {
+.close {
+  composes: route;
+}
+
+.close img {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -69,11 +103,11 @@
   width: 40px;
 }
 
-.li:last-child {
+.routes > .route:last-child {
   border-bottom: 1px solid borderGrayFade;
 }
 
-.li a {
+.route a {
   position: absolute;
   top: 0;
   right: 0;

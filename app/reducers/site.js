@@ -4,6 +4,9 @@ import * as Types from '../constants'
 function menuToggle(state=false, action) {
   switch (action.type) {
 
+    case Types.LOCATION_CHANGE:
+      return false
+
     case Types.TOGGLE_MENU:
       return !state
 
@@ -39,13 +42,21 @@ function desktopNav(state=[{
 }
 
 function mobileNav(state=[{
-    name: ''
-  },{
     name: 'Home',
-    route: '/'
+    route: '/',
   },{
     name: 'Projects',
-    route: 'work/web'
+    route: 'work/web',
+    childRoutes: [{
+      name: 'Web',
+      route: 'work/web',
+    },{
+      name: 'Mobile',
+      route: 'work/mobile',
+    },{
+      name: 'Open Source',
+      route: 'work/oss',
+    }]
   },{
     name: 'About',
     route: 'about'

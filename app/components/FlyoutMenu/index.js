@@ -15,17 +15,38 @@ export default props => {
         onClick={props.toggleMenu}>
         <span className="fa fa-bars" />
       </div>
-      <nav className={cx('root', { open: props.open })}>
+      <nav className={cx('root', {
+        open: props.open,
+      })}>
         <div className={css.corner} />
-        <ul className={css.ul}>
-          {props.nav.map((x, i) =>
+        <ul className={css.routes}>
+          <li
+            className={css.close}
+            onClick={props.toggleMenu}>
+            <img src={close} />
+          </li>
+          {props.nav.map(x =>
             <li
-              key={i}
-              className={css.li}
-              onClick={props.toggleMenu}>
-              {x.route
-                ? <A pathname={x.route}>{x.name}</A>
-                : <img src={close} />
+              key={x.name}
+              className={css.route}>
+              <h3 className={cx('name', {
+                parentName: x.childRoutes,
+              })}>
+                <A pathname={x.route}>{x.name}</A>
+              </h3>
+              {x.childRoutes
+                ? <ul className={css.childRoutes}>
+                    {x.childRoutes.map(x =>
+                      <li
+                        key={x.name}
+                        className={css.childRoute}>
+                        <h5 className={css.childName}>
+                          <A pathname={x.route}>{x.name}</A>
+                        </h5>
+                      </li>
+                    )}
+                  </ul>
+                : null
               }
             </li>
           )}
