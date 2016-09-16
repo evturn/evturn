@@ -11,6 +11,7 @@ const setLoadingTimeout = action$ => {
         .mapTo({ type: Types.HIDE_LOADER })
         .takeUntil(action$.ofType(Types.VIDEO_PLAYING))
         .startWith({ type: Types.FADE_LOADER })
+        .delay(1000)
       })
 }
 
