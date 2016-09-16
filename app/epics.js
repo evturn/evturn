@@ -15,6 +15,11 @@ const setLoadingTimeout = action$ => {
       })
 }
 
+const abortVideoMount = action$ => {
+  return action$.ofType(Types.ABORT_MOUNT)
+    .mapTo({ type: Types.HIDE_LOADER })
+}
+
 const videoPlaying = action$ => {
   return action$.ofType(Types.VIDEO_PLAYING)
     .switchMap(action => {
@@ -67,6 +72,7 @@ export default combineEpics(
   setLoadingTimeout,
   videoPlaying,
   videoEnded,
+  abortVideoMount,
   shuffleVideos,
   loadProject,
   nextSlide,
