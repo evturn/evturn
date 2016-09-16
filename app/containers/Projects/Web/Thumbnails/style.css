@@ -54,7 +54,6 @@
 }
 
 .overlay {
-  box-shadow: inset 0px -276px 158px -122px rgba(0, 0, 0, 0.7);
   transition: all 0.7s ease;
   display: block;
   position: absolute;
@@ -63,4 +62,10 @@
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+@media tablet {
+  .overlay {
+    box-shadow: inset 0px -276px 158px -122px rgba(0, 0, 0, 0.7);
+  }
 }
