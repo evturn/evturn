@@ -6,7 +6,7 @@ import About from './containers/About'
 import Projects from './containers/Projects'
 
 import Web from './containers/Projects/Web'
-import IOS from './containers/Projects/IOS'
+import Mobile from './containers/Projects/Mobile'
 import OSS from './containers/Projects/OSS'
 
 export default state => (
@@ -18,7 +18,7 @@ export default state => (
       <Route path='web' component={Web}>
         <Route path=':slug' component={Web} />
       </Route>
-      <Route path='ios' component={_ => IOS(state.projects)} />
+      <Route path='mobile' component={_ => Mobile(state.projects)} />
       <Route path='oss' component={_ => OSS(state.projects)} />
     </Route>
     <Route path='about' component={_ => About(state.content)} />

@@ -17,8 +17,8 @@ function sectionsReducer(state=[{
     route: 'work/web',
     icon: 'fa fa-laptop'
   },{
-    title: 'iOS',
-    route: 'work/ios',
+    title: 'Mobile',
+    route: 'work/mobile',
     icon: 'fa fa-mobile'
   },{
     title: 'Open Source',
