@@ -15,6 +15,7 @@ module.exports = require('./webpack.base.babel.js')({
 
   output: {
     path: path.resolve(process.cwd(), 'build'),
+    publicPath: 'build/',
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js'
   },
@@ -27,7 +28,7 @@ module.exports = require('./webpack.base.babel.js')({
       include: path.join(process.cwd(), 'app'),
     },{
       test: /\.css$/,
-      exclude: /node_modules/,
+      exclude: [ /node_modules/, /assets/ ],
       loader: ExtractTextPlugin.extract(
         'style-loader',
         'css-loader?modules&importLoaders=1!postcss-loader'

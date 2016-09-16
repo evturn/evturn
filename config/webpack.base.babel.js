@@ -37,7 +37,7 @@ module.exports = opts => {
           loader: 'file?name=fonts/[name].[hash].[ext]',
         },{
           test: /\.css$/,
-          include: /node_modules/,
+          include: [ /node_modules/, /assets/ ],
           loaders: ['style-loader', 'css-loader']
         },
       ].concat(opts.loaders)

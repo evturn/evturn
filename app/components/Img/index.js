@@ -5,7 +5,7 @@ export default props => {
     <img
       className={props.className}
       style={{ ...props.style }}
-      src={`build/${props.src}`}
+      src={props.src}
     />
   )
 }
