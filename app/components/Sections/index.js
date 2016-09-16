@@ -1,13 +1,12 @@
 import React from 'react'
 import A from 'components/A'
-
 import css from './style.css'
 
-const Sections = ({ sections }) => (
+export default props => (
   <div className={css.nav}>
     <div className={css.sections}>
-      <ul className={css.ul}>{sections.map((x, i) =>
-        <li key={i} className={css.li}>
+      <ul className={css.ul}>{props.sections.map(x =>
+        <li key={x.title} className={css.li}>
           <A
             pathname={x.route}
             activeClassName={css.active}>
@@ -19,5 +18,3 @@ const Sections = ({ sections }) => (
     </div>
   </div>
 )
-
-export default Sections

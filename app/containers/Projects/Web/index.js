@@ -40,7 +40,7 @@ class Web extends Component {
 
         <Thumbnails
           projects={this.props.items}
-          slug={this.props.slug}
+          slug={this.props.params.slug}
         />
       </div>
     )

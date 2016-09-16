@@ -10,18 +10,18 @@ export default props => {
   return (
     <div className={css.root}>
       <ul className={css.ul}>
-        {props.projects.map(x => {
-          return (
-            <li
-              key={x.slug}
-              className={cx('thumb', { 'active': x.slug === props.slug })}>
-              <A pathname={`/work/web/${x.slug}`}>
-                <Img src={require(`images/work/${x.thumbnail}`)} />
-                <div className={css.overlay} />
-              </A>
-            </li>
-          )
-        })}
+        {props.projects.map(x =>
+          <li
+            key={x.slug}
+            className={cx('thumb', {
+              active: x.slug === props.slug
+            })}>
+            <A pathname={`/work/web/${x.slug}`}>
+              <Img src={require(`images/work/${x.thumbnail}`)} />
+              <div className={css.overlay} />
+            </A>
+          </li>
+        )}
       </ul>
     </div>
   )

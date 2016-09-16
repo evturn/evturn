@@ -71,7 +71,7 @@
     width: auto;
     margin-top: 0;
     float: none;
-    min-height: 245px;
+    min-height: 185px;
   }
 }
 
@@ -90,13 +90,13 @@
 @media break {
   .links, .tech {
     width: 250px;
+    min-height: 60px;
   }
 }
 
 @media tablet {
   .links, .tech {
     width: auto;
-    border-top: 1px solid border-gray-40;
   }
 }
 
