@@ -21,7 +21,7 @@ class Home extends Component {
             done={this.props.done}
           />
           <LoadingIndicator
-            img={av}
+            img={skel}
             ready={this.props.ready}
             done={this.props.done}
           />
