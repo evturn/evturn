@@ -4,7 +4,6 @@ export default {
       items: [{
         name: 'Drive Publishing',
         description: `Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.`,
-        id: 1,
         slug: 'drive',
         links: [{
             name: 'Website',
@@ -24,9 +23,69 @@ export default {
         ],
         tech: ['nodejs', 'gulp', 'sass']
       },{
+        name: 'Golfweek',
+        description: 'A complete rebuild of Golfweek.com which included a customized CMS. Designed and built by New York City based product design and development shops Born & Raised and Gigareef.',
+        slug: 'golfweek',
+        links: [{
+          name: 'Website',
+          url: 'http://golfweek.com',
+          icon: 'evcon-chrome'
+        },{
+          name: 'B&R',
+          url: 'http://wearebnr.com',
+          icon: 'fa fa-circle-o'
+        },{
+          name: 'Gigareef',
+          url: 'http://gigareef.com',
+          icon: 'fa fa-circle-o'
+        }],
+        thumbnail: 'gw-tn.png',
+        images: [
+          'gw-1.png',
+          'gw-2.png'
+        ],
+        tech: ['wordpress', 'gulp', 'less']
+      },{
+        name: 'Brooklyn Friends School',
+        description: `SM&KK Studios designed a complete refresh of the Brooklyn Friends School brand.`,
+        slug: 'bfs',
+        links: [
+          {
+            name: 'Website',
+            url: 'http://brooklynfriends.org/',
+            icon: 'evcon-chrome'
+          },{
+            name: 'SMKK',
+            url: 'http://smkkstudios.com/work/brooklynfriendsschool',
+            icon: 'fa fa-circle-o'
+          }
+        ],
+        thumbnail: 'bfs-tn.png',
+        images: [
+          'bfs-1.png',
+          'bfs-2.png',
+          'bfs-3.png'
+        ],
+        tech: ['wordpress', 'sass']
+      },{
+        name: 'Brightcove Gallery',
+        description: `The Brightcove Gallery is a video portal and CMS for product showcases, live events, and internal communications. I developed half a dozen customizable site templates that also give users the ability to customize colors and designs.`,
+        slug: 'brightcove-gallery',
+        links: [{
+            name: 'Website',
+            url: 'https://brightcove.com/en/gallery',
+            icon: 'evcon-chrome'
+        }],
+        thumbnail: 'bc-tn.png',
+        images: [
+          'bc-1.png',
+          'bc-2.png',
+          'bc-3.png'
+        ],
+        tech: ['nodejs', 'handlebars', 'mongodb', 'less', 'jquery', 'react']
+      },{
         name: 'Marshallz Blog',
         description: `Built using React, Redux, and RxJS, this program continuously posts new content to the website in addition to posting on Twitter. Content for these posts are gathered anywhere from RSS feeds to online washing machine manuals.`,
-        id: 2,
         slug: 'marshallz',
         links: [{
             name: 'Website',
@@ -51,7 +110,6 @@ export default {
       },{
         name: 'Nutty Goodness',
         description: 'Led by New York City based product design and development shop Born & Raised for health snack producer, Nutty Goodness.',
-        id: 3,
         slug: 'nutty-goodness',
         links: [{
           name: 'Website',
@@ -73,56 +131,8 @@ export default {
         tech: ['nodejs', 'gulp', 'less']
 
       },{
-        name: 'Golfweek',
-        description: 'A complete rebuild of Golfweek.com which included a customized CMS. Designed and built by New York City based product design and development shops Born & Raised and Gigareef.',
-        id: 4,
-        slug: 'golfweek',
-        links: [{
-          name: 'Website',
-          url: 'http://golfweek.com',
-          icon: 'evcon-chrome'
-        },{
-          name: 'B&R',
-          url: 'http://wearebnr.com',
-          icon: 'fa fa-circle-o'
-        },{
-          name: 'Gigareef',
-          url: 'http://gigareef.com',
-          icon: 'fa fa-circle-o'
-        }],
-        thumbnail: 'gw-tn.png',
-        images: [
-          'gw-1.png',
-          'gw-2.png'
-        ],
-        tech: ['wordpress', 'gulp', 'less']
-      },{
-        name: 'Brooklyn Friends School',
-        description: `SM&KK Studios designed a complete refresh of the Brooklyn Friends School brand.`,
-        id: 5,
-        slug: 'bfs',
-        links: [
-          {
-            name: 'Website',
-            url: 'http://brooklynfriends.org/',
-            icon: 'evcon-chrome'
-          },{
-            name: 'SMKK',
-            url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-            icon: 'fa fa-circle-o'
-          }
-        ],
-        thumbnail: 'bfs-tn.png',
-        images: [
-          'bfs-1.png',
-          'bfs-2.png',
-          'bfs-3.png'
-        ],
-        tech: ['wordpress', 'sass']
-      },{
         name: 'Mama We Made It',
         description: `A 'Universal' React application custom CMS. All data is sent upon inital load with the app rendering on both the server and client side.`,
-        id: 6,
         slug: 'mwmi',
         links: [{
             name: 'Website',
@@ -142,7 +152,6 @@ export default {
       },{
         name: 'Tectonic',
         description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
-        id: 7,
         slug: 'gin-tectonic',
         links: [{
             name: 'Website',
@@ -163,7 +172,6 @@ export default {
       },{
         name: 'Made In Music',
         description: `Keystone.js, a Node based CMS, uses Express and MongoDB.`,
-        id: 8,
         slug: 'mim',
         links: [{
             name: 'Website',
@@ -184,7 +192,6 @@ export default {
       },{
         name: 'Pique',
         description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
-        id: 9,
         slug: 'pique',
         links: [{
           name: 'Github',
@@ -202,7 +209,6 @@ export default {
       },{
         name: 'Where TO',
         description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
-        id: 10,
         slug: 'where-to',
         links: null,
         thumbnail: 'whereto-tn.png',
@@ -214,7 +220,6 @@ export default {
       },{
         name: 'Ramen Buffet',
         description: `Manage multiple lists of tasks or todos. Lists can be sorted by importance, priority, or status.`,
-        id: 11,
         slug: 'ramen-buffet',
         links: [{
             name: 'Website',
