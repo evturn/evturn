@@ -9,7 +9,7 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://drivepublishing.com',
-            icon: 'fa fa-chrome'
+            icon: 'evcon-chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/drivepublishing/drivepublishing.github.io',
@@ -22,7 +22,7 @@ export default {
           'drive-3.png',
           'drive-4.png'
         ],
-        tech: ['node', 'gulp', 'sass']
+        tech: ['nodejs', 'gulp', 'sass']
       },{
         name: 'Marshallz Blog',
         description: `Built using React, Redux, and RxJS, this program continuously posts new content to the website in addition to posting on Twitter. Content for these posts are gathered anywhere from RSS feeds to online washing machine manuals.`,
@@ -31,7 +31,7 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://marshallz.com',
-            icon: 'fa fa-chrome'
+            icon: 'evcon-chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/marshallz',
@@ -47,7 +47,7 @@ export default {
           'marshallz-2.png',
           'marshallz-3.png'
         ],
-        tech: ['node', 'react', 'redux', 'mongodb', 'rxjs', 'webpack', 'less']
+        tech: ['nodejs', 'react', 'redux', 'mongodb', 'rxjs', 'webpack', 'less', 'redux-observable']
       },{
         name: 'Nutty Goodness',
         description: 'Led by New York City based product design and development shop Born & Raised for health snack producer, Nutty Goodness.',
@@ -56,7 +56,7 @@ export default {
         links: [{
           name: 'Website',
           url: 'http://nuttygoodness.com',
-          icon: 'fa fa-chrome'
+          icon: 'evcon-chrome'
         },{
           name: 'B&R',
           url: 'http://wearebnr.com',
@@ -70,7 +70,7 @@ export default {
           'ng-4.png',
           'ng-5.png'
         ],
-        tech: ['node', 'gulp', 'less']
+        tech: ['nodejs', 'gulp', 'less']
 
       },{
         name: 'Golfweek',
@@ -80,7 +80,7 @@ export default {
         links: [{
           name: 'Website',
           url: 'http://golfweek.com',
-          icon: 'fa fa-chrome'
+          icon: 'evcon-chrome'
         },{
           name: 'B&R',
           url: 'http://wearebnr.com',
@@ -105,7 +105,7 @@ export default {
           {
             name: 'Website',
             url: 'http://brooklynfriends.org/',
-            icon: 'fa fa-chrome'
+            icon: 'evcon-chrome'
           },{
             name: 'SMKK',
             url: 'http://smkkstudios.com/work/brooklynfriendsschool',
@@ -127,7 +127,7 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://mamawemadeit.com',
-            icon: 'fa fa-chrome'
+            icon: 'evcon-chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/mwmi',
@@ -138,7 +138,7 @@ export default {
           'mwmi-1.png',
           'mwmi-2.png'
         ],
-        tech: ['node', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
+        tech: ['nodejs', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
       },{
         name: 'Tectonic',
         description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
@@ -147,7 +147,7 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://evturn.com/gin-tectonic',
-            icon: 'fa fa-chrome'
+            icon: 'evcon-chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/gin-tectonic',
@@ -159,7 +159,7 @@ export default {
           'tectonic-1.png',
           'tectonic-2.png'
         ],
-        tech: ['node', 'rxjs', 'web-socket', 'less', 'webpack']
+        tech: ['nodejs', 'rxjs', 'web-socket', 'less', 'webpack']
       },{
         name: 'Made In Music',
         description: `Keystone.js, a Node based CMS, uses Express and MongoDB.`,
@@ -168,7 +168,7 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://madeinmusic.co',
-            icon: 'fa fa-chrome'
+            icon: 'evcon-chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/madeinmusic.co',
@@ -180,7 +180,7 @@ export default {
           'mim-2.png',
           'mim-3.png'
         ],
-        tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
+        tech: ['nodejs', 'backbone', 'mongodb', 'gulp', 'less']
       },{
         name: 'Pique',
         description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
@@ -210,7 +210,7 @@ export default {
           'whereto-2.png',
           'whereto-1.png'
         ],
-        tech: ['node', 'mongodb', 'sass']
+        tech: ['nodejs', 'mongodb', 'sass']
       },{
         name: 'Ramen Buffet',
         description: `Manage multiple lists of tasks or todos. Lists can be sorted by importance, priority, or status.`,
@@ -219,7 +219,7 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://ramenbuffet.com',
-            icon: 'fa fa-chrome'
+            icon: 'evcon-chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/ramen-buffet',
@@ -231,7 +231,7 @@ export default {
           'ramen-buffet-2.png',
           'ramen-buffet-3.png'
         ],
-        tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']
+        tech: ['nodejs', 'backbone', 'mongodb', 'handlebars', 'less']
       }]
     },
 
@@ -342,7 +342,7 @@ export default {
   },
 
   content: {
-    tools: [ 'less', 'photoshop', 'ubuntu', 'git', 'mongodb', 'gulp', 'redux', 'webpack', 'rxjs', 'swift', 'javascript', 'react', 'node' ],
+    tools: [ 'less', 'photoshop', 'ubuntu', 'git', 'mongodb', 'gulp', 'redux', 'webpack', 'rxjs', 'swift', 'javascript', 'react', 'nodejs' ],
     copy: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
     contact: [{
       name: 'email',
@@ -364,11 +364,11 @@ export default {
 
     tech: [{
       name: 'Node',
-      icon: 'devicon-nodejs-plain',
-      slug: 'node'
+      icon: 'evcon-nodejs',
+      slug: 'nodejs'
     },{
       name: 'React',
-      icon: 'devicon-react-plain-wordmark',
+      icon: 'evcon-react',
       slug: 'react'
     },{
       name: 'RxJS',
@@ -384,23 +384,27 @@ export default {
       slug: 'webpack'
     },{
       name: 'MongoDB',
-      icon: 'devicon-mongodb-plain',
+      icon: 'evcon-mongodb',
       slug: 'mongodb'
     },{
+      name: 'Chrome',
+      icon: 'evcon-chrome',
+      slug: 'chrome'
+    },{
       name: 'Less',
-      icon: 'devicon-less-plain-wordmark',
+      icon: 'evcon-less',
       slug: 'less'
     },{
       name: 'git',
-      icon: 'devicon-git-plain',
+      icon: 'evcon-git',
       slug: 'git'
     },{
       name: 'JavaScript',
-      icon: 'devicon-javascript-plain',
+      icon: 'evcon-javascript',
       slug: 'javascript'
     },{
       name: 'iOS',
-      icon: 'fa fa-apple',
+      icon: 'evcon-apple',
       slug: 'ios'
     },{
       name: 'Swift',
@@ -408,11 +412,11 @@ export default {
       slug: 'swift'
     },{
       name: 'Gulp',
-      icon: 'devicon-gulp-plain',
+      icon: 'evcon-gulp',
       slug: 'gulp'
     },{
       name: 'Backbone',
-      icon: 'devicon-backbonejs-plain',
+      icon: 'evcon-backbone',
       slug: 'backbone'
     },{
       name: 'Babel',
@@ -424,7 +428,7 @@ export default {
       slug: 'handlebars'
     },{
       name: 'Ubuntu',
-      icon: 'devicon-ubuntu-plain',
+      icon: 'evcon-ubuntu',
       slug: 'ubuntu'
     }, {
       name: 'Firebase',
@@ -440,39 +444,39 @@ export default {
       slug: 'express'
     }, {
       name: 'Sass',
-      icon: 'devicon-sass-original',
+      icon: 'evcon-sass',
       slug: 'sass'
     },{
       name: 'Rails',
-      icon: 'devicon-rails-plain-wordmark',
+      icon: 'evcon-rails',
       slug: 'rails'
     }, {
       name: 'PostgreSQL',
-      icon: 'devicon-postgresql-plain-wordmark',
+      icon: 'evcon-postgresql',
       slug: 'postgresql'
     },{
       name: 'Wordpress',
-      icon: 'devicon-wordpress-plain',
+      icon: 'evcon-wordpress',
       slug: 'wordpress',
     }, {
       name: 'Photoshop',
-      icon: 'devicon-photoshop-plain',
+      icon: 'evcon-photoshop',
       slug: 'photoshop'
     },{
-      name: 'AngularJS',
-      icon: 'devicon-angularjs-plain',
+      name: 'Angular',
+      icon: 'evcon-angular',
       slug: 'angular'
     },{
       name: 'jQuery',
-      icon: 'devicon-jquery-plain',
+      icon: 'evcon-jquery',
       slug: 'jquery'
     },{
       name: 'Bootstrap',
-      icon: 'devicon-bootstrap-plain',
+      icon: 'evcon-bootstrap',
       slug: 'bootstrap'
     },{
       name: 'CSS Preprocessors',
-      icon: 'devicon-css3-plain-wordmark',
+      icon: 'evcon-css3',
       slug: 'css'
     },{
       name: 'Web Socket',
@@ -482,6 +486,10 @@ export default {
       name: 'Browserify',
       icon: 'evcon-browserify',
       slug: 'browserify'
+    }, {
+      name: 'Redux Observable',
+      icon: 'evcon-redux-observable',
+      slug: 'redux-observable'
     }]
   }
 }
