@@ -10,7 +10,6 @@ module.exports = opts => {
     plugins: opts.plugins,
     devtool: opts.devtool,
     postcss: opts.postcss,
-    devServer: opts.devServer,
     debug: opts.debug,
     cache: opts.cache,
     context: path.join(process.cwd(), 'app'),

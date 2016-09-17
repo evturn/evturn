@@ -243,20 +243,19 @@ export default {
     ios: {
       items: [{
           name: 'Troposphere',
-          id: 1,
-          image: 'troposphere.png'
-        },{
-          name: 'Mixtape',
-          id: 2,
-          image: 'mixtape.png'
+          image: 'ios-troposphere.jpg'
         },{
           name: 'Confectionery',
-          id: 3,
-          image: 'confectionery.png'
+          image: 'ios-confectionery.jpg'
+        },{
+          name: 'Mixtape',
+          image: 'ios-mixtape.jpg'
+        },{
+          name: 'Stratosphere',
+          image: 'ios-stratosphere.jpg'
         },{
           name: 'Dumb Facts',
-          id: 4,
-          image: 'dumb-facts.png'
+          image: 'ios-dumb-facts.jpg'
       }]
     },
 

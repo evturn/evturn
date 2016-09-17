@@ -39,18 +39,6 @@ module.exports = require('./webpack.base.babel.js')({
     }
   ],
 
-  devServer: {
-    outputPath: path.resolve(process.cwd(), 'build'),
-    historyApiFallback: true,
-    headers: { 'Access-Control-Allow-Origin': '*', },
-    hot: true,
-    inline: true,
-    stats: false,
-    progress: true,
-    port: 3000,
-    host: 'localhost'
-  },
-
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

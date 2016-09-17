@@ -13,7 +13,7 @@ Observable.create(callCloudinaryAPI())
   .map(createPaths)
   .flatMap(fetchAssets())
   .subscribe(
-    x => console.log(c.bgBlue(x)),
+    createProgressBar(),
     e => console.log(c.bgRed(e))
   )
 
@@ -56,8 +56,6 @@ function removeFileNameHash(fileName) {
 }
 
 function fetchAssets() {
-  let blank = ' '
-
   return ({ url, dest }) => {
     return Observable.create(observer => {
       request
@@ -65,8 +63,43 @@ function fetchAssets() {
         .on('error', e => observer.error(e))
         .on('response', response => {
           response.pipe(fs.createWriteStream(dest))
-          response.on('end', _ => observer.next(blank += ' '))
+          response.on('end', _ => {
+
+            observer.next(true)
+          })
         })
     })
+  }
+}
+
+function createProgressBar() {
+  let i = 0
+  let __ = ' '
+  const inc = _ => __ += ' '
+  const dec = _ => __ = __.substr(0, (__.length - 1) - 1)
+  let direction = inc
+  return _ => {
+    const bars = [
+      `${c.red.bgRed(__)}`,
+      `${c.yellow.bgYellow(__)}`,
+      `${c.green.bgGreen(__)}`,
+      `${c.cyan.bgCyan(__)}`,
+      `${c.magenta.bgMagenta(__)}`,
+      `${c.blue.bgBlue(__)}`,
+      `${c.red.bgRed(__)}`,
+      `${c.yellow.bgYellow(__)}`,
+      `${c.green.bgGreen(__)}`,
+      `${c.cyan.bgCyan(__)}`,
+      `${c.magenta.bgMagenta(__)}`,
+      `${c.blue.bgBlue(__)}`,
+    ]
+    console.log(bars[i])
+    i = i === bars.length - 1 ? 0 : i + 1
+    if (__.length === 50) {
+      direction = dec
+    } else if (__.length === 1) {
+      direction = inc
+    }
+    direction()
   }
 }
