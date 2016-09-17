@@ -1,4 +1,4 @@
-@value global '../../../../style.css';
+@value global '../../../style.css';
 
 @value tablet, desktop, break from global;
 @value clearfix, flex from global;

@@ -1,4 +1,4 @@
-@value global: '../../../../style.css';
+@value global: '../../../style.css';
 
 @value break, tablet, desktop from global;
 @value border-gray-40 from global;

@@ -1,65 +1,45 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import Details from './Details'
-import Carousel from './Carousel'
-import Thumbnails from './Thumbnails'
+import Carousel from 'components/Carousel'
 import * as Actions from 'containers/Projects/actions'
-
 import css from './style.css'
 
 class Web extends Component {
-  componentWillMount() {
-    this.props.mountCarousel(this.props.params.slug)
+  onCarouselMount() {
+    this.props.mountCarousel(this.props.slug)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.params.slug !== nextProps.params.slug) {
-      this.props.mountCarousel(nextProps.params.slug)
-    }
-  }
-
-  componentWillUnmount() {
+  onCarouselUnmount() {
     this.props.unmountCarousel()
   }
 
   render () {
     return (
-      <div>
-        <div className={css.slideshow}>
-          {this.props.project
-            ? <div>
-                <Carousel
-                  images={this.props.project.images}
-                  slide={this.props.slide}
-                />
-                <Details {...this.props.project} />
-              </div>
-            : null
-          }
-        </div>
-
-        <Thumbnails
-          projects={this.props.items}
-          slug={this.props.params.slug}
-        />
-      </div>
+      <Carousel
+        className={css.slideshow}
+        onMount={::this.onCarouselMount}
+        onUnmount={::this.onCarouselUnmount}
+        current={this.props.current}
+        slide={this.props.slide}
+        items={this.props.items}
+        slug={this.props.slug}
+      />
     )
   }
 }
 
 Web.propTypes = {
-  project: PropTypes.object,
+  current: PropTypes.object,
   items: PropTypes.array,
   slug: PropTypes.string,
   slide: PropTypes.number,
-  tech: PropTypes.array,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    project: state.projects.web.project,
+    current: state.projects.web.project,
     items: state.projects.web.items,
-    slug: state.projects.web.slug,
+    slug: ownProps.params.slug,
     slide: state.projects.web.slide,
   }
 }
