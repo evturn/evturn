@@ -51,7 +51,7 @@ module.exports = opts => {
         reducers:      path.join(process.cwd(), 'app',    'reducers/'),
         store:         path.join(process.cwd(), 'app',    'store/'),
         routes:        path.join(process.cwd(), 'app',    'routes'),
-        images:        path.join(process.cwd(), 'assets', 'media/'),
+        images:        path.join(process.cwd(), 'assets', 'images/'),
         assets:        path.join(process.cwd(), 'assets/'),
         config:        path.join(process.cwd(), 'config/'),
       },

@@ -1,7 +1,7 @@
 {
-  "fonts": [{
+  "assets": [{
       "format": "css",
-      "file": "/fonts/style",
+      "file": "/css/style",
       "url": "https://www.dropbox.com/s/aguggq8ibm14wzq/style.css?dl=1"
   },{
       "format": "eot",
@@ -33,12 +33,14 @@
       "url": "https://www.dropbox.com/s/m88uozpxdgufg5d/devicon.woff?dl=1"
   }],
   "dirs": {
+    "output": "assets",
     "remove": [ "assets" ],
     "make": [
       "assets",
       "assets/fonts",
-      "assets/media/site",
-      "assets/media/work"
+      "assets/css",
+      "assets/images/site",
+      "assets/images/work"
     ]
   }
 }

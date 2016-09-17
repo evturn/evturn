@@ -9,7 +9,7 @@ import configureStore from './store'
 import createRoutes from './routes'
 import initialState from 'containers/App/data'
 
-import 'assets/fonts/style.css'
+import 'assets/css/style.css'
 import 'containers/App/style.css'
 
 const browserHistory = useRouterHistory(createHashHistory)({ queryKey: false })

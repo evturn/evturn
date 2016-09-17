@@ -5,8 +5,8 @@ const request = require('request')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 const { Observable } = require('rxjs')
-const { config, api } = require('cloudinary')
-const { fonts, dirs } = require('./manifest.json')
+const { api } = require('cloudinary')
+const { assets, dirs } = require('./manifest.json')
 
 Observable.create(callCloudinaryAPI())
   .flatMap(parseData)
@@ -30,28 +30,28 @@ function callCloudinaryAPI() {
   }
 }
 
-function parseData(images) {
-  const fonts$ = Observable.from(fonts)
-  const images$ = Observable.from(images)
+function parseData(data) {
+  const dropboxData$ = Observable.from(assets)
+  const cloudinaryData$ = Observable.from(data)
     .map(x => ({
       file: removeFileNameHash(x.public_id),
       url: x.url,
       format: x.format,
     }))
 
-  return Observable.concat(images$, fonts$)
+  return Observable.concat(cloudinaryData$, dropboxData$)
 }
 
 function createPaths(data) {
   return {
-    dest: path.resolve(process.cwd(), 'assets/') + `${data.file}.${data.format}`,
+    dest: path.resolve(process.cwd(), dirs.output) + `/${data.file}.${data.format}`,
     url: data.url
   }
 }
 
 function removeFileNameHash(fileName) {
   return fileName
-    .replace(/evturn/, '/media')
+    .replace(/evturn/, '/images')
     .replace(/_.*$/, '')
 }
 
@@ -65,9 +65,7 @@ function fetchAssets() {
         .on('error', e => observer.error(e))
         .on('response', response => {
           response.pipe(fs.createWriteStream(dest))
-          response.on('end', _ => {
-            observer.next(blank += ' ')
-          })
+          response.on('end', _ => observer.next(blank += ' '))
         })
     })
   }
