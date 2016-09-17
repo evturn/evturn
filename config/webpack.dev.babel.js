@@ -3,16 +3,11 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const cssnext = require('postcss-cssnext')
-const postcssFocus = require('postcss-focus')
-const postcssReporter = require('postcss-reporter')
-const values = require('postcss-modules-values')
 
 module.exports = require('./webpack.base.babel.js')({
   debug: true,
   cache: true,
   devtool: 'inline-source-map',
-  contentBase: path.join(process.cwd()),
 
   entry: [
     'webpack-hot-middleware/client',
@@ -56,11 +51,4 @@ module.exports = require('./webpack.base.babel.js')({
       }
     })
   ],
-
-  postcss:  _ => ([
-    values,
-    postcssFocus(),
-    cssnext({ browsers: [ 'last 2 versions', 'IE > 10' ] }),
-    postcssReporter({ clearMessages: true })
-  ])
 })

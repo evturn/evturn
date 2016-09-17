@@ -3,6 +3,7 @@
 @value tablet from global;
 @value font-helv-neue from global;
 @value bg-sections, tx-matte, tx-dark-gray from global;
+@value iphone6 from global;
 
 .nav {
   display: block;
@@ -44,10 +45,14 @@
   display: inline-block;
   position: relative;
   vertical-align: top;
-  width: 102px;
+  width: 90px;
   font-family: font-helv-neue;
   font-weight: 300;
   text-align: center;
+}
+
+@media iphone6 {
+  width: 102px;
 }
 
 @media tablet {
@@ -69,6 +74,7 @@
 .li span {
   font-size: 24px;
 }
+
 
 .li .name {
   font-size: 12px;

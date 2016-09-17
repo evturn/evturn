@@ -3,15 +3,9 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const cssnext = require('postcss-cssnext')
-const postcssFocus = require('postcss-focus')
-const postcssReporter = require('postcss-reporter')
-const values = require('postcss-modules-values')
 
 module.exports = require('./webpack.base.babel.js')({
-  entry: [
-    path.join(process.cwd(), 'app'),
-  ],
+  entry: [ path.join(process.cwd(), 'app') ],
 
   output: {
     path: path.resolve(process.cwd(), 'build'),
@@ -20,8 +14,7 @@ module.exports = require('./webpack.base.babel.js')({
     chunkFilename: '[name].[chunkhash].chunk.js'
   },
 
-  loaders: [
-    {
+  loaders: [{
       test: /\.js$|\.jsx$/,
       loader: 'babel',
       exclude: /node_modules/,
@@ -33,8 +26,7 @@ module.exports = require('./webpack.base.babel.js')({
         'style-loader',
         'css-loader?modules&importLoaders=1!postcss-loader'
       )
-    }
-  ],
+  }],
 
   plugins: [
     new CleanWebpackPlugin(['build'], {
@@ -62,11 +54,4 @@ module.exports = require('./webpack.base.babel.js')({
       }
     })
   ],
-
-  postcss: _ => ([
-    values,
-    postcssFocus(),
-    cssnext({ browsers: [ 'last 2 versions', 'IE > 10' ] }),
-    postcssReporter({ clearMessages: true })
-  ])
 })

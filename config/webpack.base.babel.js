@@ -1,17 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
-
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const cssnext = require('postcss-cssnext')
+const postcssFocus = require('postcss-focus')
+const postcssReporter = require('postcss-reporter')
+const values = require('postcss-modules-values')
 
 module.exports = opts => {
   return {
     entry: opts.entry,
-    output: opts.output,
     plugins: opts.plugins,
+    target: 'web',
+    stats: false,
+    progress: true,
     devtool: opts.devtool,
-    postcss: opts.postcss,
-    debug: opts.debug,
     cache: opts.cache,
+    debug: opts.debug,
+    output: opts.output,
     context: path.join(process.cwd(), 'app'),
 
     module: {
@@ -58,9 +63,12 @@ module.exports = opts => {
       extensions: [ '', '.js', '.jsx', '.less' ],
       packageMains: [ 'jsnext:main', 'main' ]
     },
-    name: 'browser',
-    target: 'web',
-    stats: false,
-    progress: true,
+
+    postcss:  _ => ([
+      values,
+      postcssFocus(),
+      cssnext({ browsers: [ 'last 2 versions', 'IE > 10' ] }),
+      postcssReporter({ clearMessages: true })
+    ])
   }
 }

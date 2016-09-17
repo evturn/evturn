@@ -9,7 +9,7 @@ const webpackConfig = require('./webpack.dev.babel.js')
 const app = express()
 const compiler = webpack(webpackConfig)
 
-app.use(webpackDevMiddleware(compiler))
+app.use(webpackDevMiddleware(compiler, { noInfo: true }))
 app.use(webpackHotMiddleware(compiler))
 app.use(express.static(path.join(__dirname, '..')))
 
