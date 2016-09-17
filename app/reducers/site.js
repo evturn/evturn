@@ -76,3 +76,7 @@ const siteReducer = combineReducers({
 })
 
 export default siteReducer
+
+const selectMobileRouteTransition = state => {
+  state.map()
+}
