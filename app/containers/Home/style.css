@@ -10,6 +10,10 @@
   background-color: bg-light;
 }
 
+video::-webkit-media-controls {
+  display: none;
+}
+
 .fullpage{
   display: block;
   position: relative;

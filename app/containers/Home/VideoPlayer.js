@@ -45,6 +45,8 @@ class VideoPlayer extends Component {
   render() {
     return (
       <Video
+        controls={this.props.controls || false}
+        className={this.props.className}
         backingInstance={::this.listenForChanges}
         poster={poster}
         src={this.props.src}
