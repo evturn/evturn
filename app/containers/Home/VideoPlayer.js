@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Video from 'components/Video'
 import * as Actions from './actions'
-import poster from 'images/site/poster.png'
+import poster from 'images/site/28.gif'
 
 class VideoPlayer extends Component {
   constructor(props) {

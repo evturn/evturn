@@ -4,6 +4,7 @@
 @value bg-gray, bg-light-20, bg-accent-80 from global;
 
 .root {
+  display: none;
   position: absolute;
   background-color: #000000;
   top: 0;
@@ -13,14 +14,18 @@
   z-index: 900;
 }
 
+@media tablet {
+  .root {
+    display: block;
+  }
+}
+
 .root img {
   display: block;
   margin: 0 auto;
   width: 100px;
   height: 100px;
 }
-
-
 
 .logo {
   animation-delay: 1s;

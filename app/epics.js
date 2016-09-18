@@ -17,7 +17,11 @@ const setLoadingTimeout = action$ => {
 
 const abortVideoMount = action$ => {
   return action$.ofType(Types.ABORT_MOUNT)
-    .mapTo({ type: Types.HIDE_LOADER })
+    .switchMap(action => {
+      return Observable.timer(300)
+        .mapTo({ type: Types.HIDE_LOADER })
+        .startWith({ type: Types.FADE_LOADER })
+    })
 }
 
 const videoPlaying = action$ => {

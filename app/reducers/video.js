@@ -20,7 +20,6 @@ function videoReducer (state={
 
     case Types.ABORT_MOUNT:
       return Object.assign({}, state, {
-        initialized: true,
         ready: true,
       })
 

@@ -31,17 +31,11 @@ class Home extends Component {
             <Sections sections={this.props.sections} />
           </div>
           <div className={css.cover}>
-            <div className={css.logo}>
-              <A pathname={this.props.mobileContentLink}>
-                <Img src={skel} />
-              </A>
-            </div>
             <div className={`${css.title} ${!this.props.done && !this.props.initialized ? css.wait : css.yield}`}>
               <Img src={title} />
               <div className={css.subtitle} />
             </div>
           </div>
-          <div className={css.overlay} />
         </div>
       </div>
     )
