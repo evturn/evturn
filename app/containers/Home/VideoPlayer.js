@@ -43,6 +43,7 @@ class VideoPlayer extends Component {
   }
 
   render() {
+    console.log(this.props.poster)
     return (
       <video
         className={this.props.className}
