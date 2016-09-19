@@ -3,40 +3,24 @@ const util = require('util')
 const c = require('chalk')
 const compose = (f, g) => x => f(g(x))
 
-module.exports = compiler => {
-  const data = {
-    options: util.inspect(compiler.options, { depth: null, breakLength: 80 }),
-    outputPath: `\n{ outputPath: '${compiler.outputPath}' }`,
-  }
-
-  const writeLog = writeFile(handler(appendFile(data)))
-  writeLog(data)
+module.exports = data => {
+  const createLog = writeFile(handler(compose(appendFile(data), _ => handler())))
+  createLog(data)
 }
 
 function handler(fn) {
   return err => {
-    if (err) { console.log(c.bgRed(err)) }
-    else {
-      console.log(c.bgBlue('Writing...'))
-      return fn()
-    }
+    if (err) { console.log(c.bgRed(util.inspect(err))) }
+    else if (typeof fn === 'function') { fn() }
+    else { console.log(c.bgBlue('File created.')) }
   }
 }
 
 function writeFile(fn) {
-  return data => {
-    fs.writeFile('build/config.log.js', data.options, 'utf8', fn)
-  }
+  return data => fs.writeFile('build/config.log.js', data.options, 'utf8', fn)
+
 }
 
 function appendFile(data) {
-  return _ => {
-    fs.appendFile('build/config.log.js', data.outputPath, err => {
-      if (err) {
-        console.log(c.bgRed(err))
-      } else {
-        console.log(c.bgBlue('Cool Boanz Jr.'))
-      }
-    })
-  }
+  return fn => fs.appendFile('build/config.log.js', data.output, fn)
 }
