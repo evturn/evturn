@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import * as Actions from './actions'
-import transparentPoster from 'images/site/poster.png'
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -43,13 +42,13 @@ class VideoPlayer extends Component {
   }
 
   render() {
-    console.log(this.props.poster)
     return (
       <video
         className={this.props.className}
         ref={::this.listenForChanges}
         src={this.props.src}
-        poster={this.preventPlayback ? this.props.poster : transparentPoster}
+        poster={this.props.poster}
+        contols="false"
         type="video/mp4"
         preload="auto"
         autoPlay="true"

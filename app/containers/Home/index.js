@@ -10,7 +10,7 @@ import { selectRouteByTitle } from '../../reducers/route'
 import av from 'images/site/ev-av.svg'
 import skel from 'images/site/skel.gif'
 import title from 'images/site/title-white.svg'
-import poster from 'images/site/fallback-poster.gif'
+import poster from 'images/site/poster.png'
 import css from './style.css'
 
 class Home extends Component {
