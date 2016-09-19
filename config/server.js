@@ -1,12 +1,12 @@
 const path = require('path')
-const util = require('util')
+
 const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 const webpackConfig = require('./webpack.dev.babel.js')
-const logConfig = require('./log-config')
+const writeConfigLog = require('./log-config')
 
 const app = express()
 const compiler = webpack(webpackConfig)
@@ -19,14 +19,11 @@ const middleware = webpackDevMiddleware(compiler, {
   stats: 'errors-only',
 })
 
-logConfig({
-  options: util.inspect(compiler.options),
-  output: `\n{ outputPath: '${compiler.outputPath}' }`,
-})
+
 app.use(middleware)
 app.use(webpackHotMiddleware(compiler))
 app.use(express.static(path.join(process.cwd(), '/')))
-
+writeConfigLog(compiler)
 
 app.get('*', (req, res) => res.send('index.html'))
 
