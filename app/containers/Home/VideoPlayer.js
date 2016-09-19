@@ -50,7 +50,6 @@ class VideoPlayer extends Component {
         ref={::this.listenForChanges}
         src={this.props.src}
         poster={this.preventPlayback ? this.props.poster : transparentPoster}
-        controls={false}
         type="video/mp4"
         preload="auto"
         autoPlay="true"
