@@ -10,7 +10,9 @@
   background-color: bg-light;
 }
 
-video::-webkit-media-controls {
+.player button,
+.player[data-state=hidden],
+.player::-webkit-media-controls {
   display: none;
 }
 

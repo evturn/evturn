@@ -18,6 +18,7 @@ class Home extends Component {
       <div className={css.root}>
         <div className={css.fullpage}>
           <VideoPlayer
+            className={css.player}
             items={this.props.items}
             ready={this.props.ready}
             done={this.props.done}
