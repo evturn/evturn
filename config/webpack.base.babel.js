@@ -62,7 +62,7 @@ module.exports = opts => {
       },
       modules: [ 'app', 'node_modules' ],
       extensions: [ '', '.js', '.jsx', '.less' ],
-      packageMains: [ 'jsnext:main', 'main' ]
+      mainFields: [ 'jsnext:main', 'main' ]
     },
 
     postcss:  _ => ([

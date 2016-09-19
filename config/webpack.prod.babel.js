@@ -3,9 +3,11 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const createWebpackConfig = require('./webpack.base.babel.js')
+const cwd = process.cwd()
 
-module.exports = require('./webpack.base.babel.js')({
-  entry: [ path.join(process.cwd(), 'app') ],
+module.exports = createWebpackConfig({
+  entry: [ path.join(cwd, 'app') ],
 
   output: {
     path: path.resolve(process.cwd(), 'build'),
@@ -18,7 +20,7 @@ module.exports = require('./webpack.base.babel.js')({
       test: /\.js$|\.jsx$/,
       loader: 'babel',
       exclude: /node_modules/,
-      include: path.join(process.cwd(), 'app'),
+      include: path.join(cwd, 'app'),
     },{
       test: /\.css$/,
       exclude: [ /node_modules/, /assets/ ],
@@ -29,7 +31,7 @@ module.exports = require('./webpack.base.babel.js')({
   }],
 
   plugins: [
-    new CleanWebpackPlugin(['build'], { root: path.join(process.cwd()) }),
+    new CleanWebpackPlugin(['build'], { root: cwd }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ compressor: { warnings: false } }),
