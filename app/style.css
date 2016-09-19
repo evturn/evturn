@@ -73,13 +73,3 @@
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-
-.wrap {
-  padding-top: 103px;
-}
-
-@media tablet {
-  .wrap {
-    padding-top: 118px;
-  }
-}

@@ -1,58 +1,62 @@
 @value global: '../../style.css';
 
-@value wrap from global;
 @value clearfix from global;
 @value tablet from global;
 @value flex from global;
 @value bg-light, tx-primary, tx-dark from global;
 
-.root {
-  composes: clearfix;
-}
-
-.wrap {
-  composes: wrap;
-}
-
 .about {
   position: relative;
-  height: 440px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 25px;
   composes: clearfix;
 }
 
-@media tablet {
+@media (min-width: 737px) {
   .about {
-    padding-top: 5px;
+    min-height: 810px;
   }
 }
 
-.image {
-  position: relative;
+@media (min-width: 769px) {
+  .about {
+    min-height: 600px;
+  }
+}
+
+.info {
   composes: clearfix;
-  width: 130px;
-  height: 130px;
-  margin: 0 auto;
-  border-radius: 50%;
-  overflow: hidden;
+  margin: 40px 0 20px;
+  max-width: 1200px;
+}
+
+@media (min-width: 737px) {
+  .info {
+    padding-top: 50px;
+  }
+}
+
+@media (min-width: 769px) {
+  .info {
+    padding-top: 0;
+  }
+}
+
+@media tablet {
+  .info {
+    margin: 70px auto 40px;
+  }
+}
+
+.av {
+  margin-bottom: 20px
 }
 
 @media tablet {
   .av {
+    display: inline-block;
     position: relative;
-    float: left;
-    height: 500px;
     width: 45%;
-  }
-
-  .image {
-    position: absolute;
-    top: 24%;
-    right: 180px;
-    width: 220px;
-    height: 220px;
+    height: 100%;
+    margin-bottom: auto;
   }
 }
 
@@ -60,24 +64,87 @@
   .details {
     position: relative;
     float: right;
-    height: 500px;
     width: 55%;
+    height: 100%;
   }
-  .details .tech {
-    display: block;
-    position: absolute;
-    right: 10px;
-    top: 5%;
+}
+
+.copy {
+  position: relative;
+  composes: clearfix;
+  margin: 0 auto 10px;
+  max-width: 450px;
+}
+
+@media tablet {
+  .copy {
+    margin: 30px auto 0 0;
   }
-  .details .bio {
-    float: left;
-    top: 25%;
+}
+
+.image {
+  position: relative;
+  width: 130px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media tablet {
+  .image {
+    width: 220px;
+    height: auto;
+  }
+}
+
+.contact {
+  position: relative;
+  composes: clearfix;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+@media tablet {
+  .contact {
+    margin-bottom: 30px;
+  }
+  .contact .title {
+    display: none;
+  }
+}
+
+.links {
+  composes: flex;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  right: 0;
+  left: 0;
+  padding-top: 20px;
+  width: 255px;
+}
+
+@media tablet {
+  .links {
+    position: relative;
+    width: auto;
+    max-width: 860px;
+    padding: 0;
   }
 }
 
 .tech {
   composes: flex;
   width: 100%;
+}
+
+@media tablet {
+  .tech {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: -15%;
+  }
 }
 
 .tech span {
@@ -114,19 +181,11 @@
   }
 }
 
-.bio {
-  margin: 0 auto;
-  max-width: 450px;
-  position: relative;
-  composes: clearfix;
-  margin-bottom: 30px;
-}
-
 .title {
   text-align: center;
   text-transform: uppercase;
   font-size: 26px;
-  margin: 25px 15px;
+  margin: 0 15px;
 }
 
 .text {
@@ -134,43 +193,6 @@
   margin: 15px;
   line-height: 24px;
   text-align: justify;
-}
-
-.contact {
-  composes: clearfix;
-  position: relative;
-  width: 100%;
-  height: 320px;
-  margin: 0 auto;
-}
-
-@media tablet {
-  .contact {
-    height: 150px;
-    margin-bottom: 30px;
-  }
-  .contact .title {
-    display: none;
-  }
-}
-
-.links {
-  composes: flex;
-  position: absolute;
-  margin: 0 auto;
-  text-align: center;
-  right: 0;
-  left: 0;
-  padding-top: 20px;
-  width: 255px;
-}
-
-@media tablet {
-  .links {
-    width: auto;
-    max-width: 860px;
-    padding: auto;
-  }
 }
 
 .link {

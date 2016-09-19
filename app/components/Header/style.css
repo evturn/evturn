@@ -7,7 +7,7 @@
 
 .root {
   display: block;
-  position: absolute;
+  position: relative;
   composes: clearfix;
   background-color: bg-matte;
   z-index: 1000;

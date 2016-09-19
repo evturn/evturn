@@ -17,7 +17,8 @@ class App extends Component {
         <Header
           nav={this.props.nav.desktop}
           ready={this.props.ready}
-          visible={this.props.visible}>
+          visible={this.props.visible}
+          style={this.props.style}>
           <FlyoutMenu
             nav={this.props.nav.mobile}
             open={this.props.open}
@@ -46,6 +47,7 @@ const mapStateToProps = ({ site, video, route }) => ({
   open: site.open,
   ready: video.ready,
   visible: video.initialized || route.notRoot,
+  style: !route.notRoot ? { position: 'absolute' } : null,
 })
 
 const mapDispatchToProps = dispatch => ({

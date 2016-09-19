@@ -3,8 +3,10 @@ import A from 'components/A'
 import Logo from 'components/Logo'
 import css from './style.css'
 
-export default ({ nav, ready, visible, children }) => (
-  <header className={css.root}>
+export default ({ nav, ready, visible, children, style }) => (
+  <header
+    className={css.root}
+    style={style}>
     <div className={css.nav}>
       <div className={css.pages}>
         {nav.map(x => (

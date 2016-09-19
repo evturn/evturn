@@ -10,6 +10,13 @@
   font-family: font-helv-neue;
 }
 
+@media tablet {
+  .items {
+    padding-top: 5%;
+    min-height: 550px;
+  }
+}
+
 .item {
   display: inline-block;
   width: 40%;

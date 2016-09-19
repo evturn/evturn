@@ -17,6 +17,7 @@
 
 @media tablet {
   .items {
+    margin: 70px auto 0 auto;
     max-width: 1000px;
   }
 }

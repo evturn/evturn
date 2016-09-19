@@ -10,9 +10,8 @@ import Mobile from './containers/Projects/Mobile'
 import OSS from './containers/Projects/OSS'
 
 export default state => (
-  <Route component={App} path='/'>
+  <Route path='/' component={App}>
     <IndexRoute component={Home} />
-
     <Route path='work' component={Projects}>
       <IndexRoute component={Web} />
       <Route path='web' component={Web}>
@@ -21,6 +20,6 @@ export default state => (
       <Route path='mobile' component={_ => Mobile(state.projects)} />
       <Route path='oss' component={_ => OSS(state.projects)} />
     </Route>
-    <Route path='about' component={_ => About(state.content)} />
+    <Route path='about' component={About} />
   </Route>
 )

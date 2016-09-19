@@ -12,19 +12,18 @@ class Projects extends Component {
     return (
       <div className={cx('root', 'wrap')}>
         {this.props.children}
-        <Sections sections={this.props.sections} />
-        <Footer />
+        <Footer items={this.props.sections} />
       </div>
     )
   }
+
+  static propTypes = {
+    sections: PropTypes.array
+  }
 }
 
-Projects.propTypes = {
-  sections: PropTypes.array
-}
-
-const mapStateToProps = state => ({
-  sections: state.site.sections
-})
-
-export default connect(mapStateToProps)(Projects)
+export default connect(
+  state => ({
+    sections: state.site.sections,
+  })
+)(Projects)
