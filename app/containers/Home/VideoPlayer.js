@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import Video from 'components/Video'
 import * as Actions from './actions'
-import poster from 'images/site/28.gif'
+import transparentPoster from 'images/site/poster.png'
 
 class VideoPlayer extends Component {
   constructor(props) {
     super(props)
 
-    this.preventPlayback = window.innerWidth <= 1024
+    this.preventPlayback = window.innerWidth < 1025
   }
+
   componentDidMount() {
     if (this.preventPlayback) {
       this.props.abortMount()
@@ -44,12 +44,16 @@ class VideoPlayer extends Component {
 
   render() {
     return (
-      <Video
-        controls={false}
+      <video
         className={this.props.className}
-        backingInstance={::this.listenForChanges}
-        poster={poster}
+        ref={::this.listenForChanges}
         src={this.props.src}
+        poster={this.preventPlayback ? this.props.poster : transparentPoster}
+        controls={false}
+        type="video/mp4"
+        preload="auto"
+        autoPlay="true"
+        muted="true"
       />
     )
   }

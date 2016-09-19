@@ -10,6 +10,7 @@ import { selectRouteByTitle } from '../../reducers/route'
 import av from 'images/site/ev-av.svg'
 import skel from 'images/site/skel.gif'
 import title from 'images/site/title-white.svg'
+import poster from 'images/site/28.gif'
 import css from './style.css'
 
 class Home extends Component {
@@ -20,6 +21,7 @@ class Home extends Component {
           <VideoPlayer
             className={css.player}
             items={this.props.items}
+            poster={poster}
             ready={this.props.ready}
             done={this.props.done}
           />
