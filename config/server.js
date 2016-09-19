@@ -4,10 +4,12 @@ const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const webpackConfig = require('./webpack.dev.babel.js')
 
 const app = express()
 const compiler = webpack(webpackConfig)
+compiler.apply(new DashboardPlugin())
 
 app.use(webpackDevMiddleware(compiler, { noInfo: true }))
 app.use(webpackHotMiddleware(compiler))

@@ -44,11 +44,6 @@ module.exports = require('./webpack.base.babel.js')({
       inject: true,
       filename: '../index.html'
     }),
-    new webpack.DefinePlugin({
-      __DEV__: true,
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      }
-    })
+    new webpack.DefinePlugin({ __DEV__: true })
   ],
 })

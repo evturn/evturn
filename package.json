@@ -4,10 +4,10 @@
   "description": "A website about me for you.",
   "main": "",
   "scripts": {
-    "start": "NODE_ENV=development babel-node config/server.js",
-    "build": "NODE_ENV=production webpack --config config/webpack.prod.babel.js --color -p && npm run static",
-    "fetch": "node config/build.js",
-    "static": "open index.html"
+    "start": "NODE_ENV=development webpack-dashboard -- babel-node config/server.js",
+    "build": "NODE_ENV=production webpack --config config/webpack.prod.babel.js --color -p",
+    "postbuild": "open index.html",
+    "fetch": "node config/build.js"
   },
   "repository": {
     "type": "git",

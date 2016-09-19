@@ -29,16 +29,10 @@ module.exports = require('./webpack.base.babel.js')({
   }],
 
   plugins: [
-    new CleanWebpackPlugin(['build'], {
-      root: path.join(process.cwd())
-    }),
+    new CleanWebpackPlugin(['build'], { root: path.join(process.cwd()) }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    }),
+    new webpack.optimize.UglifyJsPlugin({ compressor: { warnings: false } }),
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: 'Evan Turner | Developer',
@@ -47,11 +41,6 @@ module.exports = require('./webpack.base.babel.js')({
       inject: true
     }),
     new ExtractTextPlugin('[name].[contenthash].css'),
-    new webpack.DefinePlugin({
-      __DEV__: false,
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      }
-    })
+    new webpack.DefinePlugin({ __DEV__: false }),
   ],
 })

@@ -9,7 +9,6 @@ const values = require('postcss-modules-values')
 module.exports = opts => {
   return {
     entry: opts.entry,
-    plugins: opts.plugins,
     target: 'web',
     stats: false,
     progress: true,
@@ -18,6 +17,8 @@ module.exports = opts => {
     debug: opts.debug,
     output: opts.output,
     context: path.join(process.cwd(), 'app'),
+
+    plugins: opts.plugins,
 
     module: {
       loaders: [
