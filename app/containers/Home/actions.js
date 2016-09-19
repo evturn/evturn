@@ -2,7 +2,11 @@ import * as Types from '../../constants'
 
 export const mountVideo = items => ({
   type: Types.MOUNT_VIDEO,
-  payload: { videos: items },
+  payload: {
+    videos: items,
+    playing: false,
+    shouldAbort: window.innerWidth < 1025,
+  },
 })
 
 export const unmountVideo = _ => ({
@@ -13,12 +17,9 @@ export const abortMount = _ => ({
   type: Types.ABORT_MOUNT,
 })
 
-export const videoPlaying = initialized => {
-  return {
-    type: Types.VIDEO_PLAYING,
-    payload: { initialized },
-  }
-}
+export const videoPlaying = _ => ({
+  type: Types.VIDEO_PLAYING,
+})
 
 export const videoEnded = _ => ({
   type: Types.VIDEO_ENDED,

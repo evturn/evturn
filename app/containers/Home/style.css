@@ -10,9 +10,18 @@
   background-color: bg-light;
 }
 
-.player button,
-.player[data-state=hidden],
-.player::-webkit-media-controls {
+.fallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%)
+}
+
+.none {
   display: none;
 }
 

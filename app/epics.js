@@ -5,14 +5,21 @@ import { sortVideos } from './reducers/video'
 import { selectProject } from './reducers/projects'
 
 const setLoadingTimeout = action$ => {
-  return action$.ofType(Types.SHUFFLE_VIDEOS)
+  return action$.ofType(Types.MOUNT_VIDEO)
     .switchMap(action => {
+      if (action.payload.shouldAbort) {
+        return Observable.timer(1000)
+          .mapTo({ type: Types.HIDE_LOADER })
+          .startWith({ type: Types.FADE_LOADER })
+      }
+
       return Observable.timer(3000)
         .mapTo({ type: Types.HIDE_LOADER })
-        .takeUntil(action$.ofType(Types.VIDEO_PLAYING))
+        .takeUntil(action$.ofType(Types.HIDE_LOADER))
         .startWith({ type: Types.FADE_LOADER })
         .delay(1000)
-      })
+    })
+
 }
 
 const abortVideoMount = action$ => {

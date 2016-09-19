@@ -322,6 +322,7 @@ export default {
   },
 
   video: {
+    fallback: 'http://res.cloudinary.com/evturn/image/upload/v1474241100/evturn/site/28.gif',
     items: [
       'https://www.dropbox.com/s/ijpt86526hf68ve/vid-28.m4v?dl=1',
       'https://www.dropbox.com/s/nijl1tqzivxjlnd/vid-8.m4v?dl=1',

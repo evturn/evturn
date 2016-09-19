@@ -18,24 +18,14 @@ export default class Console extends Component {
 
   setWidth(items) {
     const pixels = window.innerWidth < 568 ? 12 : 20
-    const padding = pixels > 12 ? 60 : 40
     const { key, val } = items
-      .map(x => ({
-        key: x.key.length * pixels,
-        val: x.value.length * pixels,
-      }))
+      .map(x => ({ key: x.key.length * pixels, val: x.value.length * pixels }))
       .reduce((acc, x) => {
-
-        if (x.key > acc.key) {
-          acc.key = x.key
-        }
-        if (x.val > acc.val) {
-          acc.val = x.val
-        }
-
+        if (x.key > acc.key) { acc.key = x.key }
+        if (x.val > acc.val) { acc.val = x.val }
         return acc
       }, { key: 0, val: 0 })
-
+    const padding = pixels > 12 ? 60 : 40
     this.setState({
       width: {
         key: key + 'px',

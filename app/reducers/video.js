@@ -2,11 +2,13 @@ import * as Types from '../constants'
 
 function videoReducer (state={
   items: [],
+  fallback: '',
   playlist: [],
   initialized: false,
   ready: false,
   done: false,
   id: 0,
+  playing: false,
 }, action) {
   switch (action.type) {
 
@@ -16,6 +18,11 @@ function videoReducer (state={
         playlist,
         src: playlist[0],
         id: 0,
+      })
+
+    case Types.VIDEO_PLAYING:
+      return Object.assign({}, state, {
+        playing: true,
       })
 
     case Types.ABORT_MOUNT:
@@ -52,6 +59,7 @@ function videoReducer (state={
         initialized: false,
         ready: false,
         done: false,
+        playing: false,
       })
 
     default:
