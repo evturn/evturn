@@ -11,28 +11,21 @@
 }
 
 .item {
-  width: 200px;
-  display: block;
-  margin: 40px auto;
+  display: inline-block;
+  width: 40%;
+  margin: 30px auto;
 }
 
 @media tablet {
   .item {
     width: 12.5%;
-    display: inline-block;
-    margin: 40px;
+    margin: 30px;
   }
 }
 
 .name {
   text-transform: uppercase;
-  font-size: 26px;
+  font-size: 13px;
   max-width: 300px;
   margin-bottom: 10px;
-}
-
-@media tablet {
-  .name{
-    font-size: 13px;
-  }
 }

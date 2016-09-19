@@ -1,15 +1,16 @@
 @value global: '../../style.css';
 
-@value tx-dark-gray from global;
+@value tx-gray, bg-matte from global;
 
 .footer {
   position: relative;
+  background-color: bg-matte;
   height: 40px;
   bottom: 0;
   right: 0;
   left: 0;
   text-align: center;
-  color: tx-dark-gray;
+  color: tx-gray;
   font-size: 12px;
 }
 

@@ -27,7 +27,6 @@ class Home extends Component {
 
   render() {
     return (
-
       <div className={css.root}>
         <div className={css.fullpage}>
           {this.props.done && !this.props.playing

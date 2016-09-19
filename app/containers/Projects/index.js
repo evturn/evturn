@@ -11,8 +11,8 @@ class Projects extends Component {
   render() {
     return (
       <div className={cx('root', 'wrap')}>
-        <Sections sections={this.props.sections} />
         {this.props.children}
+        <Sections sections={this.props.sections} />
         <Footer />
       </div>
     )
@@ -23,8 +23,8 @@ Projects.propTypes = {
   sections: PropTypes.array
 }
 
-const mapStateToProps = ({ site }) => ({
-  sections: site.sections
+const mapStateToProps = state => ({
+  sections: state.site.sections
 })
 
 export default connect(mapStateToProps)(Projects)
