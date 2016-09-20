@@ -1,6 +1,9 @@
 @value global: '../../style.css';
 
 @value tx-gray, bg-matte from global;
+@value font-helv-neue from global;
+@value bg-sections, tx-matte, tx-dark-gray from global;
+@value tablet, iphone6 from global;
 
 .footer {
   position: relative;
@@ -25,4 +28,70 @@
   position: relative;
   background-color: bg-matte;
   line-height: 40px;
+}
+
+.nav {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 70px;
+  background-color: bg-sections;
+}
+
+.sections {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ul {
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  top: 12.5px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.li {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  width: 90px;
+  font-family: font-helv-neue;
+  font-weight: 300;
+  text-align: center;
+}
+
+@media iphone6 {
+  width: 102px;
+}
+
+@media tablet {
+  .li {
+    width: 80px;
+  }
+}
+
+.li a {
+  color: tx-matte;
+  transition: all 0.3s ease;
+}
+
+.li a.active {
+  color: tx-dark-gray;
+  cursor: default;
+}
+
+.li span {
+  font-size: 24px;
+}
+
+
+.li .name {
+  font-size: 12px;
 }

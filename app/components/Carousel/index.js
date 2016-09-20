@@ -1,52 +1,54 @@
-import React, { Component, PropTypes } from 'react'
-import CarouselPanel from './CarouselPanel'
-import CarouselSlides from './CarouselSlides'
-import CarouselDock from './CarouselDock'
+import React from 'react'
+import classNames from 'classnames/bind'
+import Img from 'components/Img'
+import css from './style.css'
 
-export default class Carousel extends Component {
-  static propTypes = {
-    current: PropTypes.object,
-    items: PropTypes.array,
-    slug: PropTypes.string,
-    slide: PropTypes.number,
-  }
+const cx = classNames.bind(css)
 
-  componentWillMount() {
-    this.props.onMount()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.slug !== nextProps.slug) {
-      this.props.onMount()
-    }
-  }
-
-  componentWillUnmount() {
-    this.props.onUnmount()
-  }
-
-  render () {
-    return (
-      <div>
-        <div className={this.props.className}>
-          {this.props.current
-            ? <div>
-                <CarouselSlides
-                  images={this.props.current.images}
-                  slide={this.props.slide}
-                />
-                <CarouselPanel {...this.props.current} />
-              </div>
-            : null
-          }
-        </div>
-
-        <CarouselDock
-          projects={this.props.items}
-          slug={this.props.slug}
-        />
+export default props => (
+  <div className={css.carousel}>
+    <div className={css.image}>
+      <div className={css.slides}>
+        {props.images.map((x, i) =>
+          <div
+            key={i}
+            className={cx('slide', {
+              active: i === props.slide
+            })}>
+            <Img src={require(`images/work/${x}`)} />
+          </div>
+        )}
       </div>
-    )
-  }
-}
+    </div>
 
+    <div className={css.panel}>
+      <div className={css.name}>{props.name}</div>
+      <div className={css.desc}>{props.description}</div>
+      <ul className={css.links}>
+        {props.links
+          ? props.links.map(x =>
+              <li key={x.name}
+                className={css.item}>
+                <a
+                  className={css.ext}
+                  href={x.url}
+                  target="_blank">
+                  <span className={x.icon} />
+                </a>
+                <div className={css.caption}>{x.name}</div>
+              </li>
+            )
+          : null
+        }
+      </ul>
+      <ul className={css.tech}>
+        {props.tech.map(x =>
+          <li key={x.name} className={css.item}>
+            <span className={x.icon} />
+            <div className={css.caption}>{x.name}</div>
+          </li>
+        )}
+      </ul>
+    </div>
+  </div>
+)

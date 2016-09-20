@@ -2,7 +2,7 @@ import { Observable } from 'rxjs'
 import { combineEpics } from 'redux-observable'
 import * as Types from './constants'
 import { sortVideos } from './reducers/video'
-import { selectProject } from './reducers/projects'
+import { selectProject } from 'containers/Web/selectors'
 
 const setLoadingTimeout = action$ => {
   return action$.ofType(Types.MOUNT_VIDEO)
@@ -19,7 +19,6 @@ const setLoadingTimeout = action$ => {
         .startWith({ type: Types.FADE_LOADER })
         .delay(1000)
     })
-
 }
 
 const abortVideoMount = action$ => {

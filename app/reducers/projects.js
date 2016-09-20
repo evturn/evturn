@@ -2,8 +2,8 @@ import { combineReducers } from 'redux'
 import * as Types from '../constants'
 
 function carouselReducer(state={
-  items: [],
   project: {},
+  items: [],
   slug: 'drive',
   slide: 0,
 }, action) {
@@ -44,15 +44,3 @@ const projectsReducer = combineReducers({
 })
 
 export default projectsReducer
-
-export const selectProject = state => {
-  return state.items
-    .filter(x => x.slug === state.slug)
-    .map(project => ({
-      ...project,
-      tech: project.tech
-        .map(x => state.tech.filter(y => y.slug === x)[0])
-    }))[0]
-}
-
-

@@ -1,29 +1,23 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router, useRouterHistory, applyRouterMiddleware } from 'react-router'
+import { HashRouter, Match, Miss, Link } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-import useScroll from 'react-router-scroll'
 import { createHashHistory } from 'history'
 import configureStore from './store'
-import createRoutes from './routes'
 import initialState from 'containers/App/data'
-
+import App from 'containers/App'
 import 'assets/css/style.css'
 import 'containers/App/style.css'
 
-const browserHistory = useRouterHistory(createHashHistory)({ queryKey: false })
-const store = configureStore(initialState, browserHistory)
-const history = syncHistoryWithStore(browserHistory, store)
-const routes = createRoutes(initialState)
+const store = configureStore(initialState, createHashHistory({ queryKey: false }))
+const history = syncHistoryWithStore(createHashHistory({ queryKey: false }), store)
 
 render(
   <Provider store={store}>
-    <Router
-      history={history}
-      routes={routes}
-      render={applyRouterMiddleware(useScroll())}
-    />
+    <HashRouter history={history}>
+      <Match pattern="*" component={App} />
+    </HashRouter>
   </Provider>,
   document.getElementById('app')
 )

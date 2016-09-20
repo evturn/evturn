@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import Link from 'react-router/Link'
 
 export default props => {
   const { pathname, query, ...rest } = props

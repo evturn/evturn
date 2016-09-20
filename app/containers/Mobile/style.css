@@ -1,0 +1,44 @@
+@value global '../../style.css';
+
+@value tablet from global;
+@value font-helv-neue from global;
+
+.mobile {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.items {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-family: font-helv-neue;
+}
+
+@media tablet {
+  .items {
+    padding-top: 5%;
+    min-height: 550px;
+  }
+}
+
+.item {
+  display: inline-block;
+  width: 40%;
+  margin: 30px auto;
+}
+
+@media tablet {
+  .item {
+    width: 12.5%;
+    margin: 30px;
+  }
+}
+
+.name {
+  text-transform: uppercase;
+  font-size: 13px;
+  max-width: 300px;
+  margin-bottom: 10px;
+}

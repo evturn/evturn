@@ -5,16 +5,17 @@ import A from 'components/A'
 import Img from 'components/Img'
 import Video from 'components/Video'
 import LoadingIndicator from 'components/LoadingIndicator'
-import * as Actions from './actions'
-import { selectRouteByTitle } from 'reducers/route'
 import av from 'images/site/ev-av.svg'
 import skel from 'images/site/skel.gif'
 import title from 'images/site/title-white.svg'
+import { selectRouteByTitle } from 'reducers/route'
+import * as Actions from './actions'
 import css from './style.css'
 
 const cx = classNames.bind(css)
 
 class Home extends Component {
+
   constructor(props) {
     super(props)
     this.image = new Image()
@@ -74,6 +75,7 @@ class Home extends Component {
     fallback: PropTypes.string,
     src: PropTypes.string,
   }
+
 }
 
 export default connect(
