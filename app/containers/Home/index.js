@@ -3,11 +3,10 @@ import classNames from 'classnames/bind'
 import { connect } from 'react-redux'
 import A from 'components/A'
 import Img from 'components/Img'
-import VideoPlayer from './VideoPlayer'
+import Video from 'components/Video'
 import LoadingIndicator from 'components/LoadingIndicator'
-import Sections from 'components/Sections'
 import * as Actions from './actions'
-import { selectRouteByTitle } from '../../reducers/route'
+import { selectRouteByTitle } from 'reducers/route'
 import av from 'images/site/ev-av.svg'
 import skel from 'images/site/skel.gif'
 import title from 'images/site/title-white.svg'
@@ -37,13 +36,11 @@ class Home extends Component {
             : null
           }
 
-          <VideoPlayer
+          <Video
+            {...this.props }
             className={cx({
-              none: this.props.done && !this.props.playing,
+              none: this.props.done && !this.props.playing
             })}
-            items={this.props.items}
-            ready={this.props.ready}
-            done={this.props.done}
           />
 
           <LoadingIndicator
@@ -65,21 +62,22 @@ class Home extends Component {
       </div>
     )
   }
+
+  static propTypes = {
+    mobileContentLink: PropTypes.string,
+    items: PropTypes.array,
+    ready: PropTypes.bool,
+    done: PropTypes.bool,
+    sections: PropTypes.array,
+    initialized: PropTypes.bool,
+    playing: PropTypes.bool,
+    fallback: PropTypes.string,
+    src: PropTypes.string,
+  }
 }
 
-Home.propTypes = {
-  mobileContentLink: PropTypes.string,
-  items: PropTypes.array,
-  ready: PropTypes.bool,
-  done: PropTypes.bool,
-  sections: PropTypes.array,
-  initialized: PropTypes.bool,
-  playing: PropTypes.bool,
-  fallback: PropTypes.string,
-}
-
-const mapStateToProps = state => {
-  return {
+export default connect(
+  state => ({
     mobileContentLink: selectRouteByTitle(state, 'Projects'),
     items: state.video.items,
     ready: state.video.ready,
@@ -88,7 +86,6 @@ const mapStateToProps = state => {
     initialized: state.video.initialized,
     playing: state.video.playing,
     fallback: state.video.fallback,
-  }
-}
-
-export default connect(mapStateToProps)(Home)
+    src:  state.video.src,
+  }),
+  Actions)(Home)
