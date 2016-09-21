@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import * as Types from '../constants'
+import * as Types from '../../constants'
 
 function menuToggle(state=false, action) {
   switch (action.type) {
@@ -69,14 +69,8 @@ const navReducer = combineReducers({
   mobile: mobileNav,
 })
 
-const siteReducer = combineReducers({
+export default combineReducers({
   open: menuToggle,
   sections: sectionsReducer,
-  nav: navReducer
+  nav: navReducer,
 })
-
-export default siteReducer
-
-const selectMobileRouteTransition = state => {
-  state.map()
-}

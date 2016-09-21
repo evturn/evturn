@@ -1,6 +1,6 @@
-import * as Types from '../constants'
+import * as Types from '../../constants'
 
-function videoReducer (state={
+export default function videoReducer (state={
   items: [],
   fallback: '',
   playlist: [],
@@ -65,24 +65,4 @@ function videoReducer (state={
     default:
       return state
   }
-}
-
-export default videoReducer
-
-export const sortVideos = items => {
-  const firstHalf = shuffle(items.slice(0, 5), [ items[0] ])
-  const secondHalf = shuffle(items.slice(6, items.length), [])
-  return firstHalf.concat(secondHalf)
-}
-
-function shuffle(items, acc) {
-  if (acc.length === items.length) {
-    return acc
-  }
-  const randomSelection = items[Math.floor(Math.random() * items.length)]
-
-  if (!acc.includes(randomSelection)) {
-    acc.push(randomSelection)
-  }
-  return shuffle(items, acc)
 }

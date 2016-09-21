@@ -1,7 +1,5 @@
-import {
-  TOGGLE_MENU,
-} from '../../constants'
+import * as Types from '../../constants'
 
 export const toggleMenu = _ => (
-  { type: TOGGLE_MENU }
+  { type: Types.TOGGLE_MENU }
 )

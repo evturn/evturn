@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import * as Types from '../constants'
+import * as Types from '../../constants'
 
 function carouselReducer(state={
   project: {},
@@ -37,10 +37,8 @@ function projectsPlatformReducer(state={
   return state
 }
 
-const projectsReducer = combineReducers({
+export default combineReducers({
   web: carouselReducer,
   oss: projectsPlatformReducer,
   ios: projectsPlatformReducer,
 })
-
-export default projectsReducer

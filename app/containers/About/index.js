@@ -5,8 +5,7 @@ import Footer from 'components/Footer'
 import Icon from 'components/Icon'
 import img from 'images/site/ev-av.svg'
 import css from './style.css'
-
-import { selectTech } from '../../reducers/content'
+import { selectTech } from 'containers/About/selectors'
 
 class About extends Component {
   render() {

@@ -6,7 +6,7 @@ import A from 'components/A'
 import Img from 'components/Img'
 import Carousel from 'components/Carousel'
 import Footer from 'components/Footer'
-import * as Actions from 'containers/Web/actions'
+import * as Actions from './actions'
 import css from './style.css'
 
 const cx = classNames.bind(css)

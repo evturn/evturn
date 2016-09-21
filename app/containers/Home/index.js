@@ -1,15 +1,14 @@
 import React, { Component, PropTypes } from 'react'
-import classNames from 'classnames/bind'
 import { connect } from 'react-redux'
+import classNames from 'classnames/bind'
 import A from 'components/A'
 import Img from 'components/Img'
 import Video from 'components/Video'
 import LoadingIndicator from 'components/LoadingIndicator'
+import * as Actions from 'containers/Home/actions'
 import av from 'images/site/ev-av.svg'
 import skel from 'images/site/skel.gif'
 import title from 'images/site/title-white.svg'
-import { selectRouteByTitle } from 'reducers/route'
-import * as Actions from './actions'
 import css from './style.css'
 
 const cx = classNames.bind(css)
@@ -65,7 +64,6 @@ class Home extends Component {
   }
 
   static propTypes = {
-    mobileContentLink: PropTypes.string,
     items: PropTypes.array,
     ready: PropTypes.bool,
     done: PropTypes.bool,
@@ -80,7 +78,6 @@ class Home extends Component {
 
 export default connect(
   state => ({
-    mobileContentLink: selectRouteByTitle(state, 'Projects'),
     items: state.video.items,
     ready: state.video.ready,
     done: state.video.done,

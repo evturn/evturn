@@ -1,4 +1,3 @@
-
 export const selectProject = state => {
   return state.items
     .filter(x => x.slug === state.slug)
