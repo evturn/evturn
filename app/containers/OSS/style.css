@@ -16,14 +16,16 @@
   composes: clearfix;
   width: 100%;
   max-width: 700px;
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
+  padding-top: 40px;
   text-align: center;
   font-family: font-helv-neue;
 }
 
 @media tablet {
   .items {
-    margin: 70px auto 0 auto;
+    margin: 0 auto;
+    padding-top: 70px;
     max-width: 1000px;
   }
 }

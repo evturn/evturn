@@ -1,5 +1,4 @@
-export { LOCATION_CHANGE } from 'react-router-redux'
-
+export const LOCATION_CHANGE  = 'app/LOCATION_CHANGE'
 export const TOGGLE_MENU      = 'app/header/toggle'
 export const SHUFFLE_VIDEOS   = 'home/video/SHUFFLE_VIDEOS'
 export const SORT_VIDEOS      = 'home/video/sort'

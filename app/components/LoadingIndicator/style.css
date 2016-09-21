@@ -1,6 +1,6 @@
 @value global: '../../style.css';
 
-@value tablet from global;
+@value tablet, tablet-sm from global;
 @value bg-gray, bg-light-20, bg-accent-80 from global;
 
 .root {

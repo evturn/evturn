@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from 'components/Footer'
 import css from './style.css'
 
 export default props => (
@@ -25,6 +24,5 @@ export default props => (
         </li>
       )}
     </ul>
-    <Footer />
   </div>
 )

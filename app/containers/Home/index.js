@@ -6,7 +6,6 @@ import Img from 'components/Img'
 import Video from 'components/Video'
 import LoadingIndicator from 'components/LoadingIndicator'
 import * as Actions from 'containers/Home/actions'
-import av from 'images/site/ev-av.svg'
 import skel from 'images/site/skel.gif'
 import title from 'images/site/title-white.svg'
 import css from './style.css'
@@ -31,7 +30,7 @@ class Home extends Component {
           {this.props.done && !this.props.playing
             ? <Img
                 className={css.fallback}
-                src={this.props.done && !this.props.playing ? this.props.fallback : null}
+                src={this.props.initialized && !this.props.playing ? this.props.fallback : null}
               />
             : null
           }

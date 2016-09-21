@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import Link from 'react-router/Link'
 import classNames from 'classnames/bind'
 import A from 'components/A'
 import Img from 'components/Img'
@@ -45,15 +44,14 @@ class Web extends Component {
                 className={cx('thumb', {
                   active: x.slug === this.props.slug
                 })}>
-                <Link to={`/work/web/${x.slug}`}>
+                <A pathname={`/work/web/${x.slug}`}>
                   <Img src={require(`images/work/${x.thumbnail}`)} />
                   <div className={css.overlay} />
-                </Link>
+                </A>
               </li>
             )}
           </ul>
         </div>
-        <Footer />
       </div>
     )
   }

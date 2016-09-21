@@ -30,9 +30,12 @@
 @value bgOverlay:              #606970;
 
 @value mobile:                 (min-width: 320px);
+
+@value tablet-sm:              (min-width: 737px);
+@value tablet-portrait:        (min-width: 769px);
+
 @value iphone6:                (min-width: 374px);
 @value break:                  (min-width: 600px);
-@value tablet-portrait:        (min-width: 769px);
 @value tablet:                 (min-width: 1025px);
 @value desktop:                (min-width: 1441px);
 @value desktop-lg:             (min-width: 1920px);

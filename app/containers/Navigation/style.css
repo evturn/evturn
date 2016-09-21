@@ -1,0 +1,62 @@
+@value global: '../../style.css';
+
+@value font-railway, bg-matte, tx-light, bg-light, clearfix, tablet from global;
+
+.root {
+  background-color: bg-light;
+}
+
+.header {
+  display: block;
+  position: relative;
+  composes: clearfix;
+  z-index: 2000;
+  width: 100%;
+}
+
+.navbar {
+  position: relative;
+  height: 100px;
+}
+
+@media tablet  {
+  .navbar {
+    height: 140px;
+  }
+}
+
+.links {
+  display: none;
+}
+
+@media tablet {
+  .links {
+    display: block;
+    position: relative;
+    composes: clearfix;
+    max-width: 440px;
+    margin: 0 auto;
+    z-index: 1010;
+  }
+}
+
+.link {
+  display: inline-block;
+  position: absolute;
+  text-transform: uppercase;
+  line-height: 80px;
+  top: 10px;
+}
+
+.link:first-child {
+  left: 0;
+}
+
+.link:nth-child(2)  {
+  right: 0;
+}
+
+.link a {
+  font-family: font-railway;
+  color: tx-light;
+}

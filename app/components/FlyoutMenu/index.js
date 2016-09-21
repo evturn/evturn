@@ -25,14 +25,18 @@ export default props => {
             onClick={props.toggleMenu}>
             <img src={close} />
           </li>
-          {props.nav.map(x =>
+          {props.items.map(x =>
             <li
               key={x.name}
               className={css.route}>
               <h3 className={cx('name', {
                 parentName: x.childRoutes,
               })}>
-                <A pathname={x.route}>{x.name}</A>
+                <A
+                  pathname={x.route}
+                  onClick={props.onClick}>
+                  {x.name}
+                </A>
               </h3>
               {x.childRoutes
                 ? <ul className={css.childRoutes}>
@@ -41,7 +45,11 @@ export default props => {
                         key={x.name}
                         className={css.childRoute}>
                         <h5 className={css.childName}>
-                          <A pathname={x.route}>{x.name}</A>
+                          <A
+                            pathname={x.route}
+                            onClick={props.onClick}>
+                            {x.name}
+                          </A>
                         </h5>
                       </li>
                     )}

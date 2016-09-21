@@ -42,7 +42,7 @@ export default function videoReducer (state={
       })
 
     case Types.PLAY_NEXT:
-      const index = state.id + 1 === state.playlist.length
+      const index = state.id + 1 === state.playlist.length - 1
         ? 0
         : state.id + 1
       return Object.assign({}, state, {

@@ -1,3 +1,7 @@
+export const selectLoadingState = (state, pathname) => {
+  return pathname === '/' && !state.video.initialized && !state.video.ready
+}
+
 export function selectRouteTitle(state, pathname) {
 
   function matchRoute(route, acc) {

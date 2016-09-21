@@ -2,13 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:700,700italic,900,900italic);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css);
 
-:root {
-  background-color: #ffffff;
-}
-
 body {
   font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-color: #212121;
 }
 
 img {

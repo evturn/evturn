@@ -1,12 +1,26 @@
 @value global: '../../style.css';
 
 @value tablet from global;
-@value bg-light, bg-gray from global;
+@value bg-light, borderGray, bg-matte, bg-gray from global;
 
 .logo {
   display: block;
-  position: absolute;
-  height: 60px;
+  position: relative;
+  width: 100%;
+  height: 75px;
+  background-color: bg-matte;
+}
+
+@media tablet {
+  .logo {
+    background-color: none;
+    height: 100px;
+  }
+}
+
+.img {
+  display: block;
+  position: relative;
   width: 60px;
   top: 15px;
   left: 0;
@@ -21,29 +35,76 @@
 }
 
 @media tablet {
-  .logo {
-    height: 100px;
+  .img {
     width: 100px;
   }
 }
 
-.logo.wait,
-.logo.wait img {
+.img.wait,
+.img.wait img {
   opacity: 0;
   height: 0;
   width: 0;
   background-color: transparent;
 }
 
-.logo img {
+.img img {
   background-color: bg-gray;
   border-radius: 50%;
   padding: 3px;
 }
 
 @media tablet {
-  .logo img {
+  .img img {
     transition: all 0.3s ease;
     padding: 10px;
   }
+}
+
+.diamond {
+  position: absolute;
+  z-index: 1005;
+  margin: 0 auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 110px;
+  width: 140px;
+  border-top: 110px solid bg-matte;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+}
+
+@media tablet {
+  .diamond.wait {
+    display: none;
+    height: 0;
+    widht: 0;
+  }
+  .diamond {
+    display: block;
+    height: 160px;
+    width: 206px;
+    transition: all 0.3s ease;
+    border-top: 160px solid bg-matte;
+    border-left: 206px solid transparent;
+    border-right: 206px solid transparent;
+  }
+}
+
+.border.wait {
+  display: none;
+  height: 0;
+  background-color: bg-matte;
+}
+
+.border {
+  display: block;
+  position: relative;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid borderGray;
 }

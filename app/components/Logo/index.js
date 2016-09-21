@@ -1,16 +1,20 @@
 import React from 'react'
+import classNames from 'classnames/bind'
 import A from 'components/A'
 import Img from 'components/Img'
 import css from './style.css'
-import av from 'images/site/ev-av.svg'
 
-export default props => {
-  const visibility = props.visible ? '' : !props.ready ? css.wait : ''
-  return (
-    <div className={`${css.logo} ${visibility}`}>
-      <A pathname="/">
-        <Img src={av} />
-      </A>
+const cx = classNames.bind(css)
+
+export default ({ loading, image }) => (
+  <div className={css.logo}>
+
+    <div className={cx('img', { wait: loading })}>
+      <A pathname="/"><Img src={image} /></A>
     </div>
-  )
-}
+
+    <div className={cx('diamond', { wait: loading })} />
+    <div className={cx('border', { wait: loading })} />
+
+  </div>
+)
