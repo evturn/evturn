@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.header.absolute {
+  position: absolute;
+}
+
 .navbar {
   position: relative;
   height: 100px;

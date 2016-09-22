@@ -1,6 +1,6 @@
 @value global '../../style.css';
 
-@value tablet from global;
+@value tablet, desktop from global;
 @value font-helv-neue from global;
 
 .mobile {
@@ -18,7 +18,7 @@
 
 @media tablet {
   .items {
-    padding-top: 5%;
+    padding-top: 73px;
     min-height: 600px;
   }
 }
@@ -33,8 +33,10 @@
   .item {
     width: 12.5%;
     margin: 30px;
+    max-width: 180px;
   }
 }
+
 
 .name {
   text-transform: uppercase;

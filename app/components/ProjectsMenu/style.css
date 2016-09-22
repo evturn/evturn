@@ -32,6 +32,12 @@
   padding-right: 15px;
 }
 
+@media tablet {
+  .ul {
+    top: 22px;
+  }
+}
+
 .li {
   display: inline-block;
   position: relative;
@@ -48,7 +54,7 @@
 
 @media tablet {
   .li {
-    width: 80px;
+    width: 130px;
   }
 }
 
@@ -57,9 +63,8 @@
   transition: all 0.3s ease;
 }
 
-.li a.active {
+.active {
   color: tx-dark-gray;
-  cursor: default;
 }
 
 .li span {
@@ -67,6 +72,15 @@
 }
 
 
-.li .name {
+.name {
   font-size: 12px;
+}
+
+@media tablet {
+  .li span {
+    display: none;
+  }
+  .name {
+    font-size: 16px;
+  }
 }

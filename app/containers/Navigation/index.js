@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import classNames from 'classnames/bind'
 import Match from 'react-router/Match'
 import Home from 'containers/Home'
 import About from 'containers/About'
@@ -31,8 +32,9 @@ class Navigation extends Component {
 
         <Header
           notRoot={this.props.notRoot}
-          items={this.props.nav.desktop}
           loading={this.props.loading}
+          nav={this.props.nav.desktop}
+          items={this.props.sections}
           image={img}>
           <FlyoutMenu
             items={this.props.nav.mobile}
@@ -43,54 +45,54 @@ class Navigation extends Component {
         </Header>
 
         <Match pattern="/" exactly component={Home} />
-
-        <MatchRoutes routes={this.props.routes}>
-          <Footer>
-            <ProjectsMenu items={this.props.sections} />
-          </Footer>
-        </MatchRoutes>
+        <MatchRoutes routes={this.props.routes} />
 
       </div>
     )
   }
 }
 
-const MatchRoutes = ({ routes, children }) => {
-  return <div>
-    {routes.map((x, i) => (
-      <Match key={i} pattern={x.pattern} render={props =>
-        <div>
-          <x.component {...props} />
-          {children}
-        </div>
-      } />
-    ))}
-  </div>
+const MatchRoutes = ({ routes }) => {
+  return (
+    <div>
+      {routes.map((x, i) => (
+        <Match key={i} pattern={x.pattern} render={props =>
+          <div>
+            <x.component {...props} />
+            <Footer />
+          </div>
+        } />
+      ))}
+    </div>
+  )
 }
 
-const Header = ({ items, notRoot, loading, image, children }) => (
-  <header
-    style={{ position: notRoot ? 'relative' : 'absolute' }}
-    className={css.header}>
-    <div className={css.navbar}>
-      <div className={css.links}>
-        {items.map(x =>
-          <div key={x.name} className={css.link}>
-            <A pathname={x.route}>{x.name}</A>
-          </div>
-        )}
+const Header = props => {
+  const cx = classNames.bind(css)
+  return (
+    <header className={cx('header', { absolute: !props.notRoot })}>
+      <div className={css.navbar}>
+        <div className={css.links}>
+          {props.nav.map(x =>
+            <div key={x.name} className={css.link}>
+              <A pathname={x.route}>{x.name}</A>
+            </div>
+          )}
+        </div>
+        <Logo loading={props.loading} image={props.image} />
       </div>
-      <Logo loading={loading} image={image} />
-    </div>
-    {children}
-  </header>
-)
+      {props.children}
+      <div style={{ display: !props.notRoot ? 'none' : 'block' }}>
+        <ProjectsMenu items={props.items} />
+      </div>
+    </header>
+  )
+}
 
-const Footer = ({ children }) => {
+const Footer = _ => {
   return (
     <footer className={css.footer}>
       <div className={css.content}>
-        {children}
         <div className={css.text}>Evan Turner | evturn.com © 2016</div>
       </div>
     </footer>
@@ -104,7 +106,7 @@ export default connect(
       { pattern: '/work/web/:slug?', component: Web, },
       { pattern: '/work/mobile', component: _ => Mobile(state.projects) },
       { pattern: '/work/oss', component: _ => OSS(state.projects) },
-      { pattern: '/about', component: About }
+      { pattern: '/about', component: About  }
     ]
     return {
       routes,
