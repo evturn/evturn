@@ -1,6 +1,6 @@
 @value global: '../../style.css';
 
-@value font-railway, bg-matte, tx-light, bg-light, clearfix, tablet from global;
+@value font-railway, tx-gray, bg-matte, tx-light, bg-light, clearfix, tablet from global;
 
 .root {
   background-color: bg-light;
@@ -59,4 +59,23 @@
 .link a {
   font-family: font-railway;
   color: tx-light;
+}
+
+
+.footer {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  text-align: center;
+  color: tx-gray;
+  font-size: 12px;
+}
+
+.text {
+  display: block;
+  position: relative;
+  background-color: bg-matte;
+  line-height: 40px;
 }

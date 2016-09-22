@@ -1,131 +1,89 @@
 @value global '../../style.css';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono';
 
-@value tablet, tablet-portrait from global;
-@value clearfix from global;
+@value tablet, tablet-sm, tablet-portrait from global;
+@value clearfix, flex from global;
 @value font-helv-neue from global;
-@value tx-dark-gray, tx-secondary from global;
+@value tx-dark-gray, bg-matte, tx-secondary from global;
 
 .oss {
   position: relative;
+  composes: clearfix;
   width: 100%;
   margin: 0 auto;
+  background-color: #1d1f21;
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media tablet-sm {
+  .oss {
+    min-height: 810px;
+  }
+}
+
+@media tablet-portrait {
+  .oss {
+    min-height: 600px;
+  }
 }
 
 .items {
-  display: block;
-  composes: clearfix;
-  width: 100%;
-  max-width: 700px;
+  position: relative;
+  composes: flex;
   margin: 0 auto;
-  padding-top: 40px;
-  text-align: center;
-  font-family: font-helv-neue;
 }
 
-@media tablet {
+@media tablet-sm {
   .items {
-    margin: 0 auto;
-    padding-top: 70px;
-    max-width: 1000px;
+    width: 85%;
   }
 }
 
 .item {
-  display: block;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   vertical-align: top;
-  text-align: center;
-  margin-bottom: 40px;
-  width: 100%;
 }
 
-@media tablet-portrait {
+@media tablet-sm {
   .item {
     display: inline-block;
+    position: relative;
     vertical-align: top;
-    text-align: center;
-    margin-bottom: 40px;
-    height: 340px;
     width: 50%;
   }
 }
 
-@media tablet {
-  .item {
-    display: inline-block;
-    float: left;
-    width: 33.3333333333%;
-  }
+.name {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-family: font-helv-neue;
+  color: #3c3;
 }
 
-.content {
-  position: relative;
-  height: 100%;
-  padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-  max-width: 300px;
+.desc {
+  font-size: 14px;
+  text-align: justify;
+  margin-bottom: 10px;
+  font-family: 'Roboto Mono', monospace;
 }
 
-@media tablet {
-  .content {
-    padding-bottom: 20px;
-    margin-right: auto;
-  }
-}
-
-.links {
-  position: relative;
-  text-align: right;
-
-}
-
-@media tablet-portrait {
-  .links {
-    position: absolute;
-    bottom: -20px;
-    right: 20px;
+@media tablet-sm {
+  .desc {
+    font-size: 16px;
   }
 }
 
 .link {
   display: inline-block;
-  margin-left: 15px;
 }
 
-@media tablet {
-  .link {
-    margin-left: 20px;
-  }
-}
-
-.link span {
-  font-size: 32px;
-}
-
-@media tablet {
-  .link span {
-    font-size: 29px;
-  }
-}
-
-.link a {
-  transition: all 0.1s ease;
-  color: tx-dark-gray;
-}
-
-.link a:hover {
-  @media tablet {
-    color: tx-secondary;
-  }
-}
-
-.name {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-
-.desc {
-  font-size: 18px;
-  text-align: justify;
+.icon {
+  font-size: 22px;
+  color: #fff;
+  width: 30px;
+  height: 30px;
 }

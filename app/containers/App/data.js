@@ -241,82 +241,55 @@ export default {
     },
 
     ios: {
-      items: [{
-          name: 'Troposphere',
-          image: 'ios-troposphere.jpg'
-        },{
-          name: 'Confectionery',
-          image: 'ios-confectionery.jpg'
-        },{
-          name: 'Mixtape',
-          image: 'ios-mixtape.jpg'
-        },{
-          name: 'Stratosphere',
-          image: 'ios-stratosphere.jpg'
-        },{
-          name: 'Dumb Facts',
-          image: 'ios-dumb-facts.jpg'
-      }]
+      items: [
+        { name: 'Troposphere',   image: 'ios-troposphere.jpg' },
+        { name: 'Confectionery', image: 'ios-confectionery.jpg' },
+        { name: 'Mixtape',       image: 'ios-mixtape.jpg' },
+        { name: 'Stratosphere',  image: 'ios-stratosphere.jpg' },
+        { name: 'Dumb Facts',    image: 'ios-dumb-facts.jpg' }
+      ]
     },
 
     oss: {
       items: [{
-        name: 'Sentence Generator',
-        description: `Extracted from a web application I built that continuously generates automated text content for blog posts. The specific part of the program is an implementation of a Markov-chain. The sentence generator portion is available as a installable package for Node developers.`,
-        id: 1,
-        slug: 'sentence-generator',
-        links: [{
-            url: 'https://github.com/evturn/sentence-generator',
-            icon: 'fa fa-github'
-          },{
-            url: 'https://www.npmjs.com/package/sentence-generator',
-            icon: 'evcon-npm'
-          }
-        ]},{
         name: 'Object Iterable',
-        description: `Create a new object containing the same properties of any given source object along with an @@iterator method to make use of the default iteration behavior (such as for-of) that built-in iterables like Array or Map have.`,
-        id: 2,
+        description: `Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.`,
         slug: 'object-iterable',
-        links: [{
-            url: 'https://github.com/evturn/object-iterable',
-            icon: 'fa fa-github'
-          },{
-            url: 'https://www.npmjs.com/package/object-iterable',
-            icon: 'evcon-npm'
-        }]
+        links: [
+          { url: 'https://github.com/evturn/object-iterable', icon: 'fa fa-github' },
+          { url: 'https://www.npmjs.com/package/object-iterable', icon: 'evcon-npm' }
+        ]
       },{
         name: 'Proto',
-        description: `A small utility for inheriting and/or copying properties from one JavaScript object to another using prototypes without constructor functions.`,
-        id: 3,
+        description: `Copies properties from one object to another using prototypes without using the \`new\` operator and invoking a constructor call.`,
         slug: 'proto',
-        links: [{
-            url: 'https://github.com/evturn/proto',
-            icon: 'fa fa-github'
-          }, {
-            url: 'https://www.npmjs.com/package/@evturn/proto',
-            icon: 'evcon-npm'
-        }]
+        links: [
+          { url: 'https://github.com/evturn/proto', icon: 'fa fa-github' },
+          { url: 'https://www.npmjs.com/package/@evturn/proto', icon: 'evcon-npm' }
+        ]
+      },{
+        name: 'Sentence Generator',
+        description: `Transforms text input into a specified amount of newly generated sentences using a markov-chain.`,
+        slug: 'sentence-generator',
+        links: [
+          { url: 'https://github.com/evturn/sentence-generator', icon: 'fa fa-github' },
+          { url: 'https://www.npmjs.com/package/sentence-generator', icon: 'evcon-npm' }
+        ]
       },{
         name: 'Slackbots',
-        description: `This package allows for developers to easily create customized instances of new Bots on Slack. This API uses Web Sockets and the native Node Event Emitter to send messages in real time. Once configured all chatroom activity can be used to trigger your bot's behavior.`,
-        id: 4,
+        description: `Boilerplate for connecting to the Slack API and running a slackbot.`,
         slug: 'slackbots',
-        links: [{
-          url: 'https://github.com/faquet/bots',
-          icon: 'fa fa-github'
-        }]
+        links: [
+          { url: 'https://github.com/faquet/bots', icon: 'fa fa-github' }
+        ]
       },{
         name: 'Babel Preset',
-        description: `A preset of Babel plugins used to compile new and proposed features of the JavaScript specification into backwards compatible code for browser engines.`,
-        id: 5,
-        slug: 'sentence-generator',
-        links: [{
-          url: 'https://github.com/evturn/babel-preset-evturn',
-          icon: 'fa fa-github'
-        },{
-          url: 'https://www.npmjs.com/package/babel-preset-evturn',
-          icon: 'evcon-npm'
-        }]
+        description: `Specified group of Babel plugins that transpile proposed and newly added language features to the JavaScript spec to backwards compatible versions.`,
+        slug: 'babel-preset',
+        links: [
+          { url: 'https://github.com/evturn/babel-preset-evturn', icon: 'fa fa-github' },
+          { url: 'https://www.npmjs.com/package/babel-preset-evturn', icon: 'evcon-npm' }
+        ]
       }]
     }
   },
@@ -349,152 +322,46 @@ export default {
   content: {
     tools: [ 'less', 'photoshop', 'ubuntu', 'git', 'mongodb', 'gulp', 'redux', 'webpack', 'rxjs', 'swift', 'javascript', 'react', 'nodejs' ],
     copy: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
-    contact: [{
-      name: 'email',
-      url: 'mailto:evturn@gmail.com',
-      icon: 'fa fa-envelope'
-    }, {
-      name: 'github',
-      url: 'http://github.com/evturn',
-      icon: 'fa fa-github-square'
-    }, {
-      name: 'linkedin',
-      url: 'http://www.linkedin.com/in/evturn/',
-      icon: 'fa fa-linkedin-square'
-    }, {
-      name: 'twitter',
-      url: 'http://twitter.com/evturn',
-      icon: 'fa fa-twitter-square'
-    }],
+    contact: [
+      { name: 'email',    url: 'mailto:evturn@gmail.com', icon: 'fa fa-envelope' },
+      { name: 'github',   url: 'http://github.com/evturn', icon: 'fa fa-github-square' },
+      { name: 'linkedin', url: 'http://www.linkedin.com/in/evturn/', icon: 'fa fa-linkedin-square' },
+      { name: 'twitter',  url: 'http://twitter.com/evturn', icon: 'fa fa-twitter-square' }
+    ],
 
-    tech: [{
-      name: 'Node',
-      icon: 'evcon-nodejs',
-      slug: 'nodejs'
-    },{
-      name: 'React',
-      icon: 'evcon-react',
-      slug: 'react'
-    },{
-      name: 'RxJS',
-      icon: 'evcon-rxjs',
-      slug: 'rxjs'
-    },{
-      name: 'Redux',
-      icon: 'evcon-redux',
-      slug: 'redux'
-    },{
-      name: 'Webpack',
-      icon: 'evcon-webpack',
-      slug: 'webpack'
-    },{
-      name: 'MongoDB',
-      icon: 'evcon-mongodb',
-      slug: 'mongodb'
-    },{
-      name: 'Chrome',
-      icon: 'evcon-chrome',
-      slug: 'chrome'
-    },{
-      name: 'Less',
-      icon: 'evcon-less',
-      slug: 'less'
-    },{
-      name: 'git',
-      icon: 'evcon-git',
-      slug: 'git'
-    },{
-      name: 'JavaScript',
-      icon: 'evcon-javascript',
-      slug: 'javascript'
-    },{
-      name: 'iOS',
-      icon: 'evcon-apple',
-      slug: 'ios'
-    },{
-      name: 'Swift',
-      icon: 'evcon-swift',
-      slug: 'swift'
-    },{
-      name: 'Gulp',
-      icon: 'evcon-gulp',
-      slug: 'gulp'
-    },{
-      name: 'Backbone',
-      icon: 'evcon-backbone',
-      slug: 'backbone'
-    },{
-      name: 'Babel',
-      icon: 'evcon-babel',
-      slug: 'babel'
-    },{
-      name: 'Handlebars',
-      icon: 'evcon-handlebars',
-      slug: 'handlebars'
-    },{
-      name: 'Ubuntu',
-      icon: 'evcon-ubuntu',
-      slug: 'ubuntu'
-    }, {
-      name: 'Firebase',
-      icon: 'fa fa-database one-half-em',
-      slug: 'firebase'
-    },{
-      name: 'Underscore',
-      icon: 'fa fa-minus one-half-em',
-      slug: 'underscore'
-    }, {
-      name: 'Express',
-      icon: 'evcon-express',
-      slug: 'express'
-    }, {
-      name: 'Sass',
-      icon: 'evcon-sass',
-      slug: 'sass'
-    },{
-      name: 'Rails',
-      icon: 'evcon-rails',
-      slug: 'rails'
-    }, {
-      name: 'PostgreSQL',
-      icon: 'evcon-postgresql',
-      slug: 'postgresql'
-    },{
-      name: 'Wordpress',
-      icon: 'evcon-wordpress',
-      slug: 'wordpress',
-    }, {
-      name: 'Photoshop',
-      icon: 'evcon-photoshop',
-      slug: 'photoshop'
-    },{
-      name: 'Angular',
-      icon: 'evcon-angular',
-      slug: 'angular'
-    },{
-      name: 'jQuery',
-      icon: 'evcon-jquery',
-      slug: 'jquery'
-    },{
-      name: 'Bootstrap',
-      icon: 'evcon-bootstrap',
-      slug: 'bootstrap'
-    },{
-      name: 'CSS Preprocessors',
-      icon: 'evcon-css3',
-      slug: 'css'
-    },{
-      name: 'Web Socket',
-      icon: 'evcon-web-socket',
-      slug: 'web-socket'
-    },{
-      name: 'Browserify',
-      icon: 'evcon-browserify',
-      slug: 'browserify'
-    }, {
-      name: 'Redux Observable',
-      icon: 'evcon-redux-observable',
-      slug: 'redux-observable'
-    }]
+    tech: [
+      { name: 'Node', icon: 'evcon-nodejs', slug: 'nodejs'},
+      { name: 'React', icon: 'evcon-react', slug: 'react'},
+      { name: 'RxJS', icon: 'evcon-rxjs', slug: 'rxjs'},
+      { name: 'Redux', icon: 'evcon-redux', slug: 'redux'},
+      { name: 'Webpack', icon: 'evcon-webpack', slug: 'webpack'},
+      { name: 'MongoDB', icon: 'evcon-mongodb', slug: 'mongodb'},
+      { name: 'Chrome', icon: 'evcon-chrome', slug: 'chrome'},
+      { name: 'Less', icon: 'evcon-less', slug: 'less'},
+      { name: 'git', icon: 'evcon-git', slug: 'git'},
+      { name: 'JavaScript', icon: 'evcon-javascript', slug: 'javascript'},
+      { name: 'iOS', icon: 'evcon-apple', slug: 'ios'},
+      { name: 'Swift', icon: 'evcon-swift', slug: 'swift'},
+      { name: 'Gulp', icon: 'evcon-gulp', slug: 'gulp'},
+      { name: 'Backbone', icon: 'evcon-backbone', slug: 'backbone'},
+      { name: 'Babel', icon: 'evcon-babel', slug: 'babel'},
+      { name: 'Handlebars', icon: 'evcon-handlebars', slug: 'handlebars'},
+      { name: 'Ubuntu', icon: 'evcon-ubuntu', slug: 'ubuntu'},
+      { name: 'Firebase', icon: 'fa fa-database one-half-em', slug: 'firebase'},
+      { name: 'Underscore', icon: 'fa fa-minus one-half-em', slug: 'underscore'},
+      { name: 'Express', icon: 'evcon-express', slug: 'express'},
+      { name: 'Sass', icon: 'evcon-sass', slug: 'sass'},
+      { name: 'Rails', icon: 'evcon-rails', slug: 'rails'},
+      { name: 'PostgreSQL', icon: 'evcon-postgresql', slug: 'postgresql'},
+      { name: 'Wordpress', icon: 'evcon-wordpress', slug: 'wordpress',},
+      { name: 'Photoshop', icon: 'evcon-photoshop', slug: 'photoshop'},
+      { name: 'Angular', icon: 'evcon-angular', slug: 'angular'},
+      { name: 'jQuery', icon: 'evcon-jquery', slug: 'jquery'},
+      { name: 'Bootstrap', icon: 'evcon-bootstrap', slug: 'bootstrap'},
+      { name: 'CSS Preprocessors', icon: 'evcon-css3', slug: 'css'},
+      { name: 'Web Socket', icon: 'evcon-web-socket', slug: 'web-socket'},
+      { name: 'Browserify', icon: 'evcon-browserify', slug: 'browserify'},
+      { name: 'Redux Observable', icon: 'evcon-redux-observable', slug: 'redux-observable' }
+    ]
   }
 }

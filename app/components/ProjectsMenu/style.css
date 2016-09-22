@@ -5,31 +5,6 @@
 @value bg-sections, tx-matte, tx-dark-gray from global;
 @value tablet, iphone6 from global;
 
-.footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.content {
-  position: relative;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 100%;
-  text-align: center;
-  color: tx-gray;
-  font-size: 12px;
-}
-
-.text {
-  display: block;
-  position: relative;
-  background-color: bg-matte;
-  line-height: 40px;
-}
-
 .nav {
   display: block;
   position: relative;

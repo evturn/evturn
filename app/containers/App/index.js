@@ -4,7 +4,6 @@ import { HashRouter, Match } from 'react-router'
 import initialState from 'containers/App/data'
 import Navigation from 'containers/Navigation'
 import configureStore from '../../store'
-import css from './style.css'
 import 'sanitize.css/sanitize.css'
 import 'config/analytics'
 
