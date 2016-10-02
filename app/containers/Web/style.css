@@ -44,9 +44,16 @@
   width: 20%;
 }
 
+.thumb:nth-child(n+11) {
+  display: none;
+}
+
 @media tablet {
   .thumb {
     width: 16.6666666666%
+  }
+  .thumb:nth-child(n+11) {
+    display: inline-block;
   }
 }
 

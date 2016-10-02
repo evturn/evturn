@@ -260,6 +260,13 @@ export default {
           { url: 'https://www.npmjs.com/package/object-iterable', icon: 'evcon-npm' }
         ]
       },{
+        name: 'Meta Preserve',
+        description: 'Preserves the creation date of images by replacing File metadata with Exif metadata.',
+        slug: 'meta-preserve',
+        links: [
+          { url: 'https://github.com/evturn/meta-preserve', icon: 'fa fa-github' }
+        ]
+      },{
         name: 'Proto',
         description: `Copies properties from one object to another using prototypes without using the \`new\` operator and invoking a constructor call.`,
         slug: 'proto',
