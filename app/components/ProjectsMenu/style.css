@@ -1,16 +1,9 @@
-@value global: '../../style.css';
-
-@value tx-gray, bg-matte from global;
-@value font-helv-neue from global;
-@value bg-sections, tx-matte, tx-dark-gray from global;
-@value tablet, iphone6 from global;
-
 .nav {
   display: block;
   position: relative;
   width: 100%;
   height: 70px;
-  background-color: bg-sections;
+  background-color: #f2f2f3;
 }
 
 .sections {
@@ -32,7 +25,7 @@
   padding-right: 15px;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .ul {
     top: 22px;
   }
@@ -43,28 +36,28 @@
   position: relative;
   vertical-align: top;
   width: 90px;
-  font-family: font-helv-neue;
+  font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
   font-weight: 300;
   text-align: center;
 }
 
-@media iphone6 {
+@media (min-width: 374px) {
   width: 102px;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .li {
     width: 130px;
   }
 }
 
 .li a {
-  color: tx-matte;
+  color: #212121;
   transition: all 0.3s ease;
 }
 
 .active {
-  color: tx-dark-gray;
+  color: #808080;
 }
 
 .li span {
@@ -76,7 +69,7 @@
   font-size: 12px;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .li span {
     display: none;
   }

@@ -1,14 +1,5 @@
-@value global '../../style.css';
-@import 'https://fonts.googleapis.com/css?family=Roboto+Mono';
-
-@value tablet, tablet-sm, tablet-portrait from global;
-@value clearfix, flex from global;
-@value font-helv-neue from global;
-@value tx-dark-gray, bg-matte, tx-secondary from global;
-
 .oss {
   position: relative;
-  composes: clearfix;
   width: 100%;
   margin: 0 auto;
   background-color: #1d1f21;
@@ -17,25 +8,31 @@
   padding-bottom: 30px;
 }
 
-@media tablet-sm {
+.oss:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 1024px)-sm {
   .oss {
     min-height: 810px;
   }
 }
 
-@media tablet-portrait {
+@media (min-width: 1024px)-portrait {
   .oss {
     min-height: 600px;
   }
 }
 
 .items {
+  display: flex;
   position: relative;
-  composes: flex;
   margin: 0 auto;
 }
 
-@media tablet-sm {
+@media (min-width: 1024px)-sm {
   .items {
     width: 85%;
   }
@@ -48,7 +45,7 @@
   vertical-align: top;
 }
 
-@media tablet-sm {
+@media (min-width: 1024px)-sm {
   .item {
     display: inline-block;
     position: relative;
@@ -60,7 +57,7 @@
 .name {
   font-size: 24px;
   margin-bottom: 5px;
-  font-family: font-helv-neue;
+  font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
   color: #3c3;
 }
 
@@ -71,7 +68,7 @@
   font-family: 'Roboto Mono', monospace;
 }
 
-@media tablet-sm {
+@media (min-width: 1024px)-sm {
   .desc {
     font-size: 16px;
   }

@@ -1,16 +1,11 @@
-const path = require('path')
-const express = require('express')
-const webpack = require('webpack')
-const webpackDevMiddleware = require('webpack-dev-middleware')
-const webpackHotMiddleware = require('webpack-hot-middleware')
-const DashboardPlugin = require('webpack-dashboard/plugin')
-const webpackConfig = require('./webpack.dev.babel.js')
-const writeConfigLog = require('./log')
+import express from 'express'
+import path from 'path'
+import webpack from 'webpack'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+import webpackConfig from './webpack.base.babel.js'
 
-const app = express()
 const compiler = webpack(webpackConfig)
-compiler.apply(new DashboardPlugin())
-
 const middleware = webpackDevMiddleware(compiler, {
   noInfo: true,
   silent: true,
@@ -18,11 +13,21 @@ const middleware = webpackDevMiddleware(compiler, {
   stats: 'errors-only',
 })
 
-app.use(middleware)
-app.use(webpackHotMiddleware(compiler))
-app.use(express.static(path.join(process.cwd(), '/')))
-writeConfigLog(compiler)
+const app = express()
 
-app.get('*', (req, res) => res.send('index.html'))
+app.use(webpackHotMiddleware(compiler))
+app.use(middleware)
+
+const fs = middleware.fileSystem
+
+app.get('*', (req, res) => {
+  fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
+    if (err) {
+      res.sendStatus(404)
+    } else {
+      res.send(file.toString())
+    }
+  })
+})
 
 app.listen(3000, _ => console.log('Up & Running 🌐'))

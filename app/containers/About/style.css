@@ -1,13 +1,11 @@
-@value global: '../../style.css';
-
-@value clearfix from global;
-@value tablet from global;
-@value flex from global;
-@value bg-light, tx-primary, tx-dark from global;
-
 .about {
   position: relative;
-  composes: clearfix;
+}
+
+.about:after {
+  display: block;
+  content: '';
+  clear: both;
 }
 
 @media (min-width: 737px) {
@@ -23,9 +21,14 @@
 }
 
 .info {
-  composes: clearfix;
   margin: 40px 0 20px;
   max-width: 1200px;
+}
+
+.info:after {
+  display: block;
+  content: '';
+  clear: both;
 }
 
 @media (min-width: 737px) {
@@ -40,7 +43,7 @@
   }
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .info {
     margin: 70px auto 40px;
   }
@@ -50,7 +53,7 @@
   margin-bottom: 20px
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .av {
     display: inline-block;
     position: relative;
@@ -60,7 +63,7 @@
   }
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .details {
     position: relative;
     float: right;
@@ -71,12 +74,17 @@
 
 .copy {
   position: relative;
-  composes: clearfix;
   margin: 0 auto 10px;
   max-width: 450px;
 }
 
-@media tablet {
+.copy:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 1024px) {
   .copy {
     margin: 30px auto 0 0;
   }
@@ -89,7 +97,7 @@
   margin: 0 auto;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .image {
     width: 220px;
     height: auto;
@@ -98,13 +106,18 @@
 
 .contact {
   position: relative;
-  composes: clearfix;
   width: 100%;
   height: 100%;
   margin: 0 auto;
 }
 
-@media tablet {
+.contact:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 1024px) {
   .contact {
     margin-bottom: 30px;
   }
@@ -114,7 +127,7 @@
 }
 
 .links {
-  composes: flex;
+  display: flex;
   position: relative;
   margin: 0 auto;
   text-align: center;
@@ -124,7 +137,7 @@
   width: 255px;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .links {
     position: relative;
     width: auto;
@@ -134,11 +147,11 @@
 }
 
 .tech {
-  composes: flex;
+  display: flex;
   width: 100%;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .tech {
     display: block;
     position: absolute;
@@ -169,7 +182,7 @@
   display: none;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .tech .item {
     display: block;
     text-align: right;
@@ -204,7 +217,7 @@
   height: 110px;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .link {
     display: inline-block;
     width: 25%;
@@ -221,7 +234,7 @@
   color: tx-dark;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .link a {
     width: 80px;
   }
@@ -233,10 +246,10 @@
   line-height: 60px;
   font-size: 60px;
   border-radius: 50%;
-  background-color: bg-light;
+  background-color: #FFFFFF;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .link span {
     width: 80px;
     height: 80px;
@@ -244,8 +257,8 @@
     font-size: 80px;
   }
   .link span:hover {
-    background-color: bg-light;
-    color: tx-primary;
+    background-color: #FFFFFF;
+    color: #7C7C87;
   }
 }
 

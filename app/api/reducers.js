@@ -181,7 +181,7 @@ function contentReducer(state={
     contact: [],
   }, action) {
 
-  if (state.tech.length) {
+  if (state.tech.length && !state.tools.length) {
     return {
       ...state,
       tools: selectTech(state)

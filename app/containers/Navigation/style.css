@@ -1,17 +1,18 @@
-@value global: '../../style.css';
-
-@value font-railway, tx-gray, bg-matte, tx-light, bg-light, clearfix, tablet from global;
-
 .root {
-  background-color: bg-light;
+  background-color: #FFFFFF;
 }
 
 .header {
   display: block;
   position: relative;
-  composes: clearfix;
   z-index: 2000;
   width: 100%;
+}
+
+.header:after {
+  display: block;
+  content: '';
+  clear: both;
 }
 
 .header.absolute {
@@ -23,7 +24,7 @@
   height: 100px;
 }
 
-@media tablet  {
+@media (min-width: 1024px)  {
   .navbar {
     height: 140px;
   }
@@ -33,14 +34,18 @@
   display: none;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .links {
     display: block;
     position: relative;
-    composes: clearfix;
     max-width: 440px;
     margin: 0 auto;
     z-index: 1010;
+  }
+  .links:after {
+    display: block;
+    content: '';
+    clear: both;
   }
 }
 
@@ -61,8 +66,8 @@
 }
 
 .link a {
-  font-family: font-railway;
-  color: tx-light;
+  font-family: 'Raleway', sans-serif;
+  color: #FFFFFF;
 }
 
 
@@ -73,13 +78,13 @@
   left: 0;
   height: 100%;
   text-align: center;
-  color: tx-gray;
+  color: #CFCFCF;
   font-size: 12px;
 }
 
 .text {
   display: block;
   position: relative;
-  background-color: bg-matte;
+  background-color: #212121;
   line-height: 40px;
 }

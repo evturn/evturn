@@ -1,8 +1,3 @@
-@value global: '../../style.css';
-
-@value tablet, flex from global;
-@value clearfix: clearfix from global;
-
 .web {
   position: relative;
   width: 100%;
@@ -18,10 +13,15 @@
 }
 
 .ul {
-  position: relative;
   display: flex;
-  composes: clearfix;
+  position: relative;
   transition: all 0.3s ease;
+}
+
+.ul:after {
+  display: block;
+  content: '';
+  clear: both;
 }
 
 .ul .active {
@@ -48,7 +48,7 @@
   display: none;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .thumb {
     width: 16.6666666666%
   }
@@ -66,9 +66,9 @@
 }
 
 .overlay {
-  transition: all 0.7s ease;
   display: block;
   position: absolute;
+  transition: all 0.7s ease;
   z-index: 1;
   top: 0;
   left: 0;
@@ -76,7 +76,7 @@
   width: 100%;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .overlay {
     box-shadow: inset 0px -276px 158px -122px rgba(0, 0, 0, 0.3);
   }

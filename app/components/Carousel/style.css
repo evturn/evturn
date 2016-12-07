@@ -1,18 +1,15 @@
-@value global: '../../style.css';
-
-@value break, tablet, desktop from global;
-@value border-gray-40 from global;
-@value flex, clearfix: clearfix from global;
-@value border-gray-40 from global;
-@value font-helv-neue from global;
-
 .carousel {
-  composes: clearfix;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-@media tablet {
+.carousel:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 1024px) {
   .carousel {
     padding: 20px 15px 15px 15px;
   }
@@ -21,29 +18,34 @@
 .image {
   position: relative;
   overflow: hidden;
-  composes: clearfix;
   width: 100%;
   height: 200px;
-  border-bottom: 1px solid border-gray-40;
+  border-bottom: 1px solid rgba(207, 207, 207, 0.4);
 }
 
-@media break {
+.image:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 600px) {
   .image {
     height: 400px;
   }
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .image {
     margin-top: 0;
     float: right;
     width: 60%;
     height: 365px;
-    border: 1px solid border-gray-40;
+    border: 1px solid rgba(207, 207, 207, 0.4);
   }
 }
 
-@media desktop {
+@media (min-width: 1441px) {
   .image {
     height: 390px;
   }
@@ -59,7 +61,6 @@
 
 .slide {
   position: absolute;
-  composes: clearfix;
   transition: all 1s ease;
   transition-duration: 1s;
   opacity: 0;
@@ -68,6 +69,12 @@
   left: 0;
   height: 100%;
   overflow: hidden;
+}
+
+.slide:after {
+  display: block;
+  content: '';
+  clear: both;
 }
 
 .slide.active {
@@ -94,17 +101,22 @@
 
 .panel {
   position: relative;
-  composes: clearfix;
   padding: 20px 20px 0px;
 }
 
-@media break {
+.panel:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@media (min-width: 600px) {
   .panel {
     padding: 25px 40px 0px;
   }
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .panel {
     width: auto;
     float: left;
@@ -117,13 +129,13 @@
   display: block;
   position: relative;
   font-size: 26px;
-  font-family: font-helv-neue;
+  font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   text-align: left;
 }
 
 
-@media break {
+@media (min-width: 600px) {
   .name {
     float: left;
     width: 50%;
@@ -131,7 +143,7 @@
   }
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .name {
     float: none;
     width: auto;
@@ -142,18 +154,18 @@
   position: relative;
   line-height: 24px;
   text-align: justify;
-  font-family: font-helv-neue;
+  font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
   padding-bottom: 20px;
 }
 
-@media break {
+@media (min-width: 600px) {
   .desc {
     float: right;
     width: 50%;
   }
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .desc {
     width: auto;
     margin-top: 0;
@@ -163,25 +175,25 @@
 }
 
 .tech {
-  border-top: 1px solid border-gray-40;
+  border-top: 1px solid rgba(207, 207, 207, 0.4);
 }
 
 .links,
 .tech {
-  composes: flex;
+  display: flex;
   position: relative;
   text-align: left;
   margin-bottom: 5px;
 }
 
-@media break {
+@media (min-width: 600px) {
   .links, .tech {
     width: 250px;
     min-height: 60px;
   }
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .links, .tech {
     width: auto;
   }
@@ -199,12 +211,12 @@
 .item span {
   font-size: 2.5em;
   line-height: 45px;
-  color: tx-primary;
+  color: #7C7C87;
 }
 
 .caption {
   font-size: 10px;
-  font-family: font-helv-neue;
+  font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
 }
 
 .links .ext {

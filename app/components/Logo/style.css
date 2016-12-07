@@ -1,17 +1,12 @@
-@value global: '../../style.css';
-
-@value tablet from global;
-@value bg-light, borderGray, bg-matte, bg-gray from global;
-
 .logo {
   display: block;
   position: relative;
   width: 100%;
   height: 75px;
-  background-color: bg-matte;
+  background-color: #212121;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .logo {
     background-color: none;
     height: 100px;
@@ -25,7 +20,7 @@
   top: 15px;
   left: 0;
   right: 0;
-  background-color: bg-light;
+  background-color: #FFFFFF;
   border-radius: 50%;
   margin: 0 auto;
   z-index: 1200;
@@ -34,7 +29,7 @@
   transition: all 0.5s ease;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .img {
     width: 100px;
   }
@@ -49,12 +44,12 @@
 }
 
 .img img {
-  background-color: bg-gray;
+  background-color: #CFCFCF;
   border-radius: 50%;
   padding: 3px;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .img img {
     transition: all 0.3s ease;
     padding: 10px;
@@ -70,12 +65,12 @@
   left: 0;
   height: 110px;
   width: 140px;
-  border-top: 110px solid bg-matte;
+  border-top: 110px solid #212121;
   border-left: 140px solid transparent;
   border-right: 140px solid transparent;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .diamond.wait {
     display: none;
     height: 0;
@@ -86,7 +81,7 @@
     height: 160px;
     width: 206px;
     transition: all 0.3s ease;
-    border-top: 160px solid bg-matte;
+    border-top: 160px solid #212121;
     border-left: 206px solid transparent;
     border-right: 206px solid transparent;
   }
@@ -95,7 +90,7 @@
 .border.wait {
   display: none;
   height: 0;
-  background-color: bg-matte;
+  background-color: #212121;
 }
 
 .border {
@@ -106,5 +101,5 @@
   width: 100%;
   height: 40px;
   background-color: #ffffff;
-  border-bottom: 1px solid borderGray;
+  border-bottom: 1px solid #696874;
 }

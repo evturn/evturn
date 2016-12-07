@@ -1,8 +1,3 @@
-@value global '../../style.css';
-
-@value tablet, desktop from global;
-@value font-helv-neue from global;
-
 .mobile {
   position: relative;
   width: 100%;
@@ -13,10 +8,10 @@
   display: block;
   margin: 0 auto;
   text-align: center;
-  font-family: font-helv-neue;
+  font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .items {
     padding-top: 73px;
     min-height: 600px;
@@ -29,7 +24,7 @@
   margin: 30px auto;
 }
 
-@media tablet {
+@media (min-width: 1024px) {
   .item {
     width: 12.5%;
     margin: 30px;

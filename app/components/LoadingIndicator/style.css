@@ -1,8 +1,3 @@
-@value global: '../../style.css';
-
-@value tablet, tablet-sm from global;
-@value bg-gray, bg-light-20, bg-accent-80 from global;
-
 .root {
   display: block;
   position: absolute;
@@ -50,14 +45,14 @@
 }
 
 .spinner:before {
-  content: "";
   display: block;
   position: absolute;
+  content: '';
   left: -2px;
   top: 0px;
   height: 100%;
   width: 100%;
-  border-top: 10px solid bg-gray;
+  border-top: 10px solid #CFCFCF;
   border-left: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid transparent;
