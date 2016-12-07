@@ -1,14 +1,18 @@
 import React from 'react'
 
-export const Icon = ({ className, style, children }) => {
+export const Icon = ({ viewBox, className, style, children, ...rest }) => {
   const size = !className
     ? {width: '32px', height: '32px'}
     : style
+  const box = !viewBox
+    ? '0 0 32 32'
+    : viewBox
   return (
     <svg
       className={className}
       style={size}
-      viewBox="0 0 32 32">
+      viewBox={box}
+      {...rest}>
       {children}
     </svg>
   )

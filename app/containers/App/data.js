@@ -5,150 +5,80 @@ export default {
         name: 'Drive Publishing',
         description: `Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.`,
         slug: 'drive',
-        links: [{
-            name: 'Website',
-            url: 'http://drivepublishing.com',
-            icon: 'evcon-chrome'
-          }, {
-            name: 'Github',
-            url: 'https://github.com/drivepublishing/drivepublishing.github.io',
-            icon: 'fa fa-github-square'
-        }],
-        thumbnail: 'drive-tn.png',
-        images: [
-          'drive-1.png',
-          'drive-2.png',
-          'drive-3.png',
-          'drive-4.png'
+        links: [
+          {name: 'Website', url: 'http://drivepublishing.com', icon: 'chrome'},
+          {name: 'Github', url: 'https://github.com/drivepublishing/drivepublishing.github.io', icon: 'github'}
         ],
-        tech: ['nodejs', 'gulp', 'sass']
+        thumbnail: 'drive-tn.png',
+        images: ['drive-1.png', 'drive-2.png', 'drive-3.png', 'drive-4.png'],
+        tech: ['node', 'gulp', 'sass']
       },{
         name: 'Golfweek',
         description: 'A complete rebuild of Golfweek.com which included a customized CMS. Designed and built by New York City based product design and development shops Born & Raised and Gigareef.',
         slug: 'golfweek',
-        links: [{
-          name: 'Website',
-          url: 'http://golfweek.com',
-          icon: 'evcon-chrome'
-        },{
-          name: 'B&R',
-          url: 'http://wearebnr.com',
-          icon: 'fa fa-circle-o'
-        },{
-          name: 'Gigareef',
-          url: 'http://gigareef.com',
-          icon: 'fa fa-circle-o'
-        }],
-        thumbnail: 'gw-tn.png',
-        images: [
-          'gw-1.png',
-          'gw-2.png'
+        links: [
+          {name: 'Website', url: 'http://golfweek.com', icon: 'chrome'},
+          {name: 'B&R', url: 'http://wearebnr.com', icon: '⌘'},
+          {name: 'Gigareef', url: 'http://gigareef.com', icon: '⌘'}
         ],
+        thumbnail: 'gw-tn.png',
+        images: ['gw-1.png', 'gw-2.png'],
         tech: ['wordpress', 'gulp', 'less']
       },{
         name: 'Brooklyn Friends School',
         description: `SM&KK Studios designed a complete refresh of the Brooklyn Friends School brand.`,
         slug: 'bfs',
         links: [
-          {
-            name: 'Website',
-            url: 'http://brooklynfriends.org/',
-            icon: 'evcon-chrome'
-          },{
-            name: 'SMKK',
-            url: 'http://smkkstudios.com/work/brooklynfriendsschool',
-            icon: 'fa fa-circle-o'
-          }
+          {name: 'Website', url: 'http://brooklynfriends.org/', icon: 'chrome'},
+          {name: 'SMKK', url: 'http://smkkstudios.com/work/brooklynfriendsschool', icon: '⌘'}
         ],
         thumbnail: 'bfs-tn.png',
-        images: [
-          'bfs-1.png',
-          'bfs-2.png',
-          'bfs-3.png'
-        ],
+        images: ['bfs-1.png', 'bfs-2.png', 'bfs-3.png'],
         tech: ['wordpress', 'sass']
       },{
         name: 'Brightcove Gallery',
         description: `The Brightcove Gallery is a video portal and CMS for product showcases, live events, and internal communications. I developed half a dozen customizable site templates that also give users the ability to customize colors and designs.`,
         slug: 'brightcove-gallery',
-        links: [{
-            name: 'Website',
-            url: 'https://brightcove.com/en/gallery',
-            icon: 'evcon-chrome'
-        }],
-        thumbnail: 'bc-tn.png',
-        images: [
-          'bc-1.png',
-          'bc-2.png',
-          'bc-3.png'
+        links: [
+          {name: 'Website', url: 'https://brightcove.com/en/gallery', icon: 'chrome'}
         ],
-        tech: ['nodejs', 'handlebars', 'mongodb', 'less', 'jquery', 'react']
+        thumbnail: 'bc-tn.png',
+        images: ['bc-1.png', 'bc-2.png', 'bc-3.png'],
+        tech: ['node', 'handlebars', 'mongodb', 'less', 'jquery', 'react']
       },{
         name: 'Marshallz Blog',
         description: `Built using React, Redux, and RxJS, this program continuously posts new content to the website in addition to posting on Twitter. Content for these posts are gathered anywhere from RSS feeds to online washing machine manuals.`,
         slug: 'marshallz',
-        links: [{
-            name: 'Website',
-            url: 'http://marshallz.com',
-            icon: 'evcon-chrome'
-          }, {
-            name: 'Github',
-            url: 'https://github.com/evturn/marshallz',
-            icon: 'fa fa-github-square'
-          }, {
-            name: 'Twitter',
-            url: 'http://twitter.com/marshallzBlog',
-            icon: 'fa fa-twitter'
-        }],
-        thumbnail: 'marshallz-tn.png',
-        images: [
-          'marshallz-1.png',
-          'marshallz-2.png',
-          'marshallz-3.png'
+        links: [
+          {name: 'Website', url: 'http://marshallz.com', icon: 'chrome' },
+          {name: 'Github', url: 'https://github.com/evturn/marshallz', icon: 'github'},
+          {name: 'Twitter', url: 'http://twitter.com/marshallzBlog', icon: 'twitter'}
         ],
-        tech: ['nodejs', 'react', 'redux', 'mongodb', 'rxjs', 'webpack', 'less', 'redux-observable']
+        thumbnail: 'marshallz-tn.png',
+        images: ['marshallz-1.png', 'marshallz-2.png', 'marshallz-3.png'],
+        tech: ['node', 'react', 'redux', 'firebase', 'rxjs', 'webpack', 'less', 'reduxobservable']
       },{
         name: 'Nutty Goodness',
         description: 'Led by New York City based product design and development shop Born & Raised for health snack producer, Nutty Goodness.',
         slug: 'nutty-goodness',
-        links: [{
-          name: 'Website',
-          url: 'http://nuttygoodness.com',
-          icon: 'evcon-chrome'
-        },{
-          name: 'B&R',
-          url: 'http://wearebnr.com',
-          icon: 'fa fa-circle-o'
-        }],
-        thumbnail: 'ng-tn.png',
-        images: [
-          'ng-1.png',
-          'ng-2.png',
-          'ng-3.png',
-          'ng-4.png',
-          'ng-5.png'
+        links: [
+          {name: 'Website', url: 'http://nuttygoodness.com', icon: 'chrome'},
+          {name: 'B&R', url: 'http://wearebnr.com', icon: '⌘'}
         ],
-        tech: ['nodejs', 'gulp', 'less']
-
+        thumbnail: 'ng-tn.png',
+        images: ['ng-1.png','ng-2.png','ng-3.png','ng-4.png','ng-5.png'],
+        tech: ['node', 'gulp', 'less']
       },{
         name: 'Mama We Made It',
         description: `A 'Universal' React application custom CMS. All data is sent upon inital load with the app rendering on both the server and client side.`,
         slug: 'mwmi',
-        links: [{
-            name: 'Website',
-            url: 'http://mamawemadeit.com',
-            icon: 'evcon-chrome'
-          }, {
-            name: 'Github',
-            url: 'https://github.com/evturn/mwmi',
-            icon: 'fa fa-github-square'
-        }],
-        thumbnail: 'mwmi-tn.png',
-        images: [
-          'mwmi-1.png',
-          'mwmi-2.png'
+        links: [
+          {name: 'Website', url: 'http://mamawemadeit.com', icon: 'chrome'},
+          {name: 'Github', url: 'https://github.com/evturn/mwmi', icon: 'github'}
         ],
-        tech: ['nodejs', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
+        thumbnail: 'mwmi-tn.png',
+        images: ['mwmi-1.png', 'mwmi-2.png'],
+        tech: ['node', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
       },{
         name: 'Tectonic',
         description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
@@ -156,11 +86,11 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://evturn.com/gin-tectonic',
-            icon: 'evcon-chrome'
+            icon: 'chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/gin-tectonic',
-            icon: 'fa fa-github-square'
+            icon: 'github'
         }],
         thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
         thumbnail: 'tectonic-tn.png',
@@ -168,7 +98,7 @@ export default {
           'tectonic-1.png',
           'tectonic-2.png'
         ],
-        tech: ['nodejs', 'rxjs', 'web-socket', 'less', 'webpack']
+        tech: ['node', 'rxjs', 'websocket', 'less', 'webpack']
       },{
         name: 'Made In Music',
         description: `Keystone.js, a Node based CMS, uses Express and MongoDB.`,
@@ -176,11 +106,11 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://madeinmusic.co',
-            icon: 'evcon-chrome'
+            icon: 'chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/madeinmusic.co',
-            icon: 'fa fa-github-square'
+            icon: 'github'
         }],
         thumbnail: 'mim-tn.png',
         images: [
@@ -188,7 +118,7 @@ export default {
           'mim-2.png',
           'mim-3.png'
         ],
-        tech: ['nodejs', 'backbone', 'mongodb', 'gulp', 'less']
+        tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
       },{
         name: 'Pique',
         description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
@@ -196,7 +126,7 @@ export default {
         links: [{
           name: 'Github',
           url: 'https://github.com/piqueapp/piqueapp.github.io',
-          icon: 'fa fa-github-square'
+          icon: 'github'
         }],
         thumbnail: 'pique-tn.png',
         images: [
@@ -216,7 +146,7 @@ export default {
           'whereto-2.png',
           'whereto-1.png'
         ],
-        tech: ['nodejs', 'mongodb', 'sass']
+        tech: ['node', 'mongodb', 'sass']
       },{
         name: 'Ramen Buffet',
         description: `Manage multiple lists of tasks or todos. Lists can be sorted by importance, priority, or status.`,
@@ -224,11 +154,11 @@ export default {
         links: [{
             name: 'Website',
             url: 'http://ramenbuffet.com',
-            icon: 'evcon-chrome'
+            icon: 'chrome'
           }, {
             name: 'Github',
             url: 'https://github.com/evturn/ramen-buffet',
-            icon: 'fa fa-github-square'
+            icon: 'github'
         }],
         thumbnail: 'rb-tn.png',
         images: [
@@ -236,7 +166,7 @@ export default {
           'ramen-buffet-2.png',
           'ramen-buffet-3.png'
         ],
-        tech: ['nodejs', 'backbone', 'mongodb', 'handlebars', 'less']
+        tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']
       }]
     },
 
@@ -256,46 +186,46 @@ export default {
         description: `Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.`,
         slug: 'object-iterable',
         links: [
-          { url: 'https://github.com/evturn/object-iterable', icon: 'fa fa-github' },
-          { url: 'https://www.npmjs.com/package/object-iterable', icon: 'evcon-npm' }
+          { url: 'https://github.com/evturn/object-iterable', icon: 'github' },
+          { url: 'https://www.npmjs.com/package/object-iterable', icon: 'npm' }
         ]
       },{
         name: 'Meta Preserve',
         description: 'Preserves the creation date of images by replacing File metadata with Exif metadata.',
         slug: 'meta-preserve',
         links: [
-          { url: 'https://github.com/evturn/meta-preserve', icon: 'fa fa-github' }
+          { url: 'https://github.com/evturn/meta-preserve', icon: 'github' }
         ]
       },{
         name: 'Proto',
         description: `Copies properties from one object to another using prototypes without using the \`new\` operator and invoking a constructor call.`,
         slug: 'proto',
         links: [
-          { url: 'https://github.com/evturn/proto', icon: 'fa fa-github' },
-          { url: 'https://www.npmjs.com/package/@evturn/proto', icon: 'evcon-npm' }
+          { url: 'https://github.com/evturn/proto', icon: 'github' },
+          { url: 'https://www.npmjs.com/package/@evturn/proto', icon: 'npm' }
         ]
       },{
         name: 'Sentence Generator',
         description: `Transforms text input into a specified amount of newly generated sentences using a markov-chain.`,
         slug: 'sentence-generator',
         links: [
-          { url: 'https://github.com/evturn/sentence-generator', icon: 'fa fa-github' },
-          { url: 'https://www.npmjs.com/package/sentence-generator', icon: 'evcon-npm' }
+          { url: 'https://github.com/evturn/sentence-generator', icon: 'github' },
+          { url: 'https://www.npmjs.com/package/sentence-generator', icon: 'npm' }
         ]
       },{
         name: 'Slackbots',
         description: `Boilerplate for connecting to the Slack API and running a slackbot.`,
         slug: 'slackbots',
         links: [
-          { url: 'https://github.com/faquet/bots', icon: 'fa fa-github' }
+          { url: 'https://github.com/faquet/bots', icon: 'github' }
         ]
       },{
         name: 'Babel Preset',
         description: `Specified group of Babel plugins that transpile proposed and newly added language features to the JavaScript spec to backwards compatible versions.`,
         slug: 'babel-preset',
         links: [
-          { url: 'https://github.com/evturn/babel-preset-evturn', icon: 'fa fa-github' },
-          { url: 'https://www.npmjs.com/package/babel-preset-evturn', icon: 'evcon-npm' }
+          { url: 'https://github.com/evturn/babel-preset-evturn', icon: 'github' },
+          { url: 'https://www.npmjs.com/package/babel-preset-evturn', icon: 'npm' }
         ]
       }]
     }
@@ -337,38 +267,38 @@ export default {
     ],
 
     tech: [
-      { name: 'Node', icon: 'evcon-nodejs', slug: 'nodejs'},
-      { name: 'React', icon: 'evcon-react', slug: 'react'},
-      { name: 'RxJS', icon: 'evcon-rxjs', slug: 'rxjs'},
-      { name: 'Redux', icon: 'evcon-redux', slug: 'redux'},
-      { name: 'Webpack', icon: 'evcon-webpack', slug: 'webpack'},
-      { name: 'MongoDB', icon: 'evcon-mongodb', slug: 'mongodb'},
-      { name: 'Chrome', icon: 'evcon-chrome', slug: 'chrome'},
-      { name: 'Less', icon: 'evcon-less', slug: 'less'},
-      { name: 'git', icon: 'evcon-git', slug: 'git'},
-      { name: 'JavaScript', icon: 'evcon-javascript', slug: 'javascript'},
-      { name: 'iOS', icon: 'evcon-apple', slug: 'ios'},
-      { name: 'Swift', icon: 'evcon-swift', slug: 'swift'},
-      { name: 'Gulp', icon: 'evcon-gulp', slug: 'gulp'},
-      { name: 'Backbone', icon: 'evcon-backbone', slug: 'backbone'},
-      { name: 'Babel', icon: 'evcon-babel', slug: 'babel'},
-      { name: 'Handlebars', icon: 'evcon-handlebars', slug: 'handlebars'},
-      { name: 'Ubuntu', icon: 'evcon-ubuntu', slug: 'ubuntu'},
-      { name: 'Firebase', icon: 'fa fa-database one-half-em', slug: 'firebase'},
+      { name: 'Node', icon: 'node', slug: 'node'},
+      { name: 'React', icon: 'react', slug: 'react'},
+      { name: 'RxJS', icon: 'rxjs', slug: 'rxjs'},
+      { name: 'Redux', icon: 'redux', slug: 'redux'},
+      { name: 'Webpack', icon: 'webpack', slug: 'webpack'},
+      { name: 'MongoDB', icon: 'mongodb', slug: 'mongodb'},
+      { name: 'Chrome', icon: 'chrome', slug: 'chrome'},
+      { name: 'Less', icon: 'less', slug: 'less'},
+      { name: 'git', icon: 'git', slug: 'git'},
+      { name: 'JavaScript', icon: 'javascript', slug: 'javascript'},
+      { name: 'iOS', icon: 'apple', slug: 'ios'},
+      { name: 'Swift', icon: 'swift', slug: 'swift'},
+      { name: 'Gulp', icon: 'gulp', slug: 'gulp'},
+      { name: 'Backbone', icon: 'backbone', slug: 'backbone'},
+      { name: 'Babel', icon: 'babel', slug: 'babel'},
+      { name: 'Handlebars', icon: 'handlebars', slug: 'handlebars'},
+      { name: 'Ubuntu', icon: 'ubuntu', slug: 'ubuntu'},
+      { name: 'Firebase', icon: 'firebase', slug: 'firebase'},
       { name: 'Underscore', icon: 'fa fa-minus one-half-em', slug: 'underscore'},
-      { name: 'Express', icon: 'evcon-express', slug: 'express'},
-      { name: 'Sass', icon: 'evcon-sass', slug: 'sass'},
-      { name: 'Rails', icon: 'evcon-rails', slug: 'rails'},
-      { name: 'PostgreSQL', icon: 'evcon-postgresql', slug: 'postgresql'},
-      { name: 'Wordpress', icon: 'evcon-wordpress', slug: 'wordpress',},
-      { name: 'Photoshop', icon: 'evcon-photoshop', slug: 'photoshop'},
-      { name: 'Angular', icon: 'evcon-angular', slug: 'angular'},
-      { name: 'jQuery', icon: 'evcon-jquery', slug: 'jquery'},
-      { name: 'Bootstrap', icon: 'evcon-bootstrap', slug: 'bootstrap'},
-      { name: 'CSS Preprocessors', icon: 'evcon-css3', slug: 'css'},
-      { name: 'Web Socket', icon: 'evcon-web-socket', slug: 'web-socket'},
-      { name: 'Browserify', icon: 'evcon-browserify', slug: 'browserify'},
-      { name: 'Redux Observable', icon: 'evcon-redux-observable', slug: 'redux-observable' }
+      { name: 'Express', icon: 'express', slug: 'express'},
+      { name: 'Sass', icon: 'sass', slug: 'sass'},
+      { name: 'Rails', icon: 'rails', slug: 'rails'},
+      { name: 'PostgreSQL', icon: 'postgresql', slug: 'postgresql'},
+      { name: 'Wordpress', icon: 'wordpress', slug: 'wordpress',},
+      { name: 'Photoshop', icon: 'photoshop', slug: 'photoshop'},
+      { name: 'Angular', icon: 'angular', slug: 'angular'},
+      { name: 'jQuery', icon: 'jquery', slug: 'jquery'},
+      { name: 'Bootstrap', icon: 'bootstrap', slug: 'bootstrap'},
+      { name: 'CSS Preprocessors', icon: 'css3', slug: 'css'},
+      { name: 'Web Socket', icon: 'websocket', slug: 'websocket'},
+      { name: 'Browserify', icon: 'browserify', slug: 'browserify'},
+      { name: 'Redux Observable', icon: 'reduxobservable', slug: 'reduxobservable' }
     ]
   }
 }

@@ -222,3 +222,9 @@
 .links .ext {
   color: #7C7C87;
 }
+
+.icon {
+  height: 32px;
+  width: 32px;
+  fill: #7C7C87;
+}

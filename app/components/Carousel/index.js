@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind'
+import SVGIcon from 'components/Icons'
 import Img from 'components/Img'
 import css from './style.css'
 
@@ -27,13 +28,12 @@ export default props => (
       <ul className={css.links}>
         {props.links
           ? props.links.map(x =>
-              <li key={x.name}
-                className={css.item}>
+              <li key={x.name} className={css.item}>
                 <a
                   className={css.ext}
                   href={x.url}
                   target="_blank">
-                  <span className={x.icon} />
+                  <SVGIcon name={x.icon} className={css.icon} />
                 </a>
                 <div className={css.caption}>{x.name}</div>
               </li>
@@ -44,7 +44,7 @@ export default props => (
       <ul className={css.tech}>
         {props.tech.map(x =>
           <li key={x.name} className={css.item}>
-            <span className={x.icon} />
+            <SVGIcon name={x.icon} />
             <div className={css.caption}>{x.name}</div>
           </li>
         )}
