@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Img from 'components/Img'
-import Icon from 'components/Icon'
+import SVGIcon from 'components/Icons'
 import img from 'images/site/ev-av.svg'
 import css from './style.css'
 
@@ -26,7 +26,7 @@ class About extends Component {
               <ul className={css.list}>
                 {this.props.tools.map((x, i) =>
                   <li key={i} className={css.item}>
-                    <Icon className={x.icon} />
+                    <SVGIcon name={x} />
                   </li>
                 )}
               </ul>

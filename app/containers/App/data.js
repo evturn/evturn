@@ -327,8 +327,8 @@ export default {
   },
 
   content: {
-    tools: [ 'less', 'photoshop', 'ubuntu', 'git', 'mongodb', 'gulp', 'redux', 'webpack', 'rxjs', 'swift', 'javascript', 'react', 'nodejs' ],
-    copy: 'As the web continues to evolve, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
+    tools: ['node', 'react', 'javascript', 'swift', 'rxjs', 'webpack', 'redux', 'gulp', 'mongodb', 'git', 'ubuntu', 'photoshop', 'less'],
+    copy: 'As software and technology evolves, exploring solutions and strategies for building rich applications is not only essential but provides an exciting opportunity for design innovation.',
     contact: [
       { name: 'email',    url: 'mailto:evturn@gmail.com', icon: 'fa fa-envelope' },
       { name: 'github',   url: 'http://github.com/evturn', icon: 'fa fa-github-square' },
