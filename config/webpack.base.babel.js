@@ -50,11 +50,9 @@ module.exports = opts => {
 
     resolve: {
       alias: {
-        actions:       path.join(process.cwd(), 'app',    'actions/'),
         containers:    path.join(process.cwd(), 'app',    'containers/'),
         components:    path.join(process.cwd(), 'app',    'components/'),
-        reducers:      path.join(process.cwd(), 'app',    'reducers/'),
-        store:         path.join(process.cwd(), 'app',    'store/'),
+        api:           path.join(process.cwd(), 'app',    'api/'),
         routes:        path.join(process.cwd(), 'app',    'routes'),
         images:        path.join(process.cwd(), 'assets', 'images/'),
         assets:        path.join(process.cwd(), 'assets/'),

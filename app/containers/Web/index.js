@@ -4,7 +4,7 @@ import classNames from 'classnames/bind'
 import A from 'components/A'
 import Img from 'components/Img'
 import Carousel from 'components/Carousel'
-import * as Actions from './actions'
+import * as Actions from 'api/actions'
 import css from './style.css'
 
 const cx = classNames.bind(css)

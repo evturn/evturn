@@ -12,7 +12,7 @@ import ProjectsMenu from 'components/ProjectsMenu'
 import Logo from 'components/Logo'
 import A from 'components/A'
 import img from 'images/site/ev-av.svg'
-import * as Actions from './actions'
+import * as Actions from 'api/actions'
 import { selectLoadingState } from 'containers/Navigation/selectors'
 import css from './style.css'
 

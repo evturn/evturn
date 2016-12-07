@@ -4,7 +4,6 @@ import Img from 'components/Img'
 import Icon from 'components/Icon'
 import img from 'images/site/ev-av.svg'
 import css from './style.css'
-import { selectTech } from 'containers/About/selectors'
 
 class About extends Component {
   render() {
@@ -59,7 +58,7 @@ class About extends Component {
 
 export default connect(
   state => ({
-    tools: selectTech(state.content),
+    tools: state.content.tools,
     copy: state.content.copy,
     contact: state.content.contact,
     sections: state.site.sections,
