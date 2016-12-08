@@ -8,34 +8,3 @@
   bottom: 0;
   background-color: purple;
 }
-
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-ul {
-  padding-left: 0;
-}
-
-ol, li {
-  list-style-type: none;
-}
-
-ul, ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
- }
-
-a,
-a:hover,
-a:active,
-a:focus {
-  text-decoration: none;
-  outline: none;
-}
-
-button:focus {
-  outline: 0;
-}

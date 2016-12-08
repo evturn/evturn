@@ -1,33 +1,28 @@
-import express from 'express'
 import path from 'path'
+import fs from 'fs'
+import Koa from 'koa'
 import webpack from 'webpack'
-import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackConfig from './webpack.base.babel.js'
+import webpackMiddleware from 'koa-webpack'
+import webpackConfig from './webpack.config.js'
 
 const compiler = webpack(webpackConfig)
-const middleware = webpackDevMiddleware(compiler, {
-  noInfo: true,
-  silent: true,
-  publicPath: '/',
-  stats: 'errors-only',
+const filepath = path.join(compiler.outputPath, 'index.html')
+const middleware = webpackMiddleware({
+  compiler,
+  dev: {
+    noInfo: true,
+    silent: true,
+    publicPath: '/',
+    stats: 'errors-only',
+  }
 })
 
-const app = express()
+const app = new Koa()
 
-app.use(webpackHotMiddleware(compiler))
 app.use(middleware)
 
-const fs = middleware.fileSystem
-
-app.get('*', (req, res) => {
-  fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
-    if (err) {
-      res.sendStatus(404)
-    } else {
-      res.send(file.toString())
-    }
-  })
+app.use(ctx => {
+  ctx.body = fs.readFileSync(filepath).toString()
 })
 
 app.listen(3000, _ => console.log('Up & Running 🌐'))
