@@ -5,4 +5,4 @@ node_modules
 *.hot-update.js
 *.hot-update.json
 config.log.js
-assets
+public
