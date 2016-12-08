@@ -9,3 +9,19 @@
   background-repeat: no-repeat;
   background-color: #000;
 }
+
+.h1 {
+  position: absolute;
+  top: 35%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'MarkWebPro-Heavy';
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 120px;
+  text-align: center;
+}

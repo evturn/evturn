@@ -22,7 +22,7 @@ class Home extends Component {
     return (
       <div className={css.root}>
         <HomeVideo onVideoChange={this.onVideoChange} />
-        {loading ? <LoadingIndicator /> : <HomeBanner />}
+        {loading ? <LoadingIndicator /> : null}
       </div>
     )
   }

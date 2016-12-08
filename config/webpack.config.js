@@ -32,20 +32,35 @@ const configureWebpack = opts => ({
       include: /node_modules/,
       loaders: [ 'style-loader', 'css-loader' ],
     },{
-      test: /\.svg$/,
-      loader: 'file-loader',
-    },{
       test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
+      loader: 'url',
+      query: {
+        name: 'fonts/[hash].[ext]',
+        limit: 5000,
+        mimetype: 'application/font-woff'
+      }
     },{
-      test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/font-woff',
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url',
+      query: {
+        limit: 5000,
+        mimetype: 'application/font-woff',
+        name: 'fonts/[hash].[ext]'
+      }
     },{
       test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'file?name=fonts/[name].[hash].[ext]&mimetype=application/octet-stream',
+      loader: 'url',
+      query: {
+        limit: 5000,
+        mimetype: 'application/octet-stream',
+        name: 'fonts/[hash].[ext]'
+      },
     },{
       test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'file?name=fonts/[name].[hash].[ext]',
+      loader: 'file',
+      query: {
+        name: 'fonts/[hash].[ext]'
+      }
     },{
       test: /.*\.(gif|png|jpe?g)$/i,
       loaders: [
@@ -77,9 +92,7 @@ const configureWebpack = opts => ({
       containers: path.join(CWD, 'app',    'containers'),
       components: path.join(CWD, 'app',    'components'),
       api:        path.join(CWD, 'app',    'api'),
-      routes:     path.join(CWD, 'app',    'routes'),
-      images:     path.join(CWD, 'assets', 'images'),
-      assets:     path.join(CWD, 'assets'),
+      public:     path.join(CWD, 'public'),
       config:     path.join(CWD, 'config'),
     },
     modules: ['app', 'node_modules'],
