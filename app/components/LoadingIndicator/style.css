@@ -1,105 +1,70 @@
 .root {
-  display: block;
   position: absolute;
-  background-color: #000000;
-  top: 0;
-  right: 0;
+  top: 35%;
   bottom: 0;
-  left: 0;
-  z-index: 900;
-}
-
-.root img {
-  display: block;
-  margin: 0 auto;
-  width: 120px;
-  height: auto;
-}
-
-.logo {
-  animation-delay: 1s;
-  animation-duration: 1.2s;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  top: 40%;
   right: 0;
-  padding: 20px;
-  border-radius: 50%;
-  background: #ffffff;
-  width: 140px;
-  height: 140px;
-  overflow: hidden;
-}
-
-.spinner {
-  width: 140px;
-  height: 140px;
-  position: absolute;
-  margin: 0 auto;
   left: 0;
-  top: 40%;
-  right: 0;
-  border-radius: 100%;
-  animation: rotation 1s infinite linear;
-}
-
-.spinner:before {
-  display: block;
-  position: absolute;
-  content: '';
-  left: -2px;
-  top: 0px;
-  height: 100%;
   width: 100%;
-  border-top: 10px solid #CFCFCF;
-  border-left: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-radius: 100%;
+  height: 100%;
 }
 
-.spinner ::-webkit-scrollbar {
-  display: none;
+.w {
+  position: relative;
+  margin: 2em auto;
+  right: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
 }
 
-@-webkit-keyframes rotation {
-  from {-webkit-transform: rotate(0deg);}
-  to {-webkit-transform: rotate(360deg);}
+.wave {
+  display: inline-block;
+  animation-fill-mode: both;
+  height: 35px;
+  width: 4px;
+  margin: 2px;
+  border-radius: 2px;
 }
 
-@-moz-keyframes rotation {
-  from {-moz-transform: rotate(0deg);}
-  to {-moz-transform: rotate(360deg);}
+.w .wave {
+  background-color: #fdee00;
 }
 
-@-o-keyframes rotation {
-  from {-o-transform: rotate(0deg);}
-  to {-o-transform: rotate(360deg);}
+.w1 {
+  composes: wave;
+  animation: scaley 1s 0.1s infinite cubic-bezier(.2,.68,.18,1.08);
 }
 
-@keyframes rotation {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
+.w2 {
+  composes: wave;
+  animation: scaley 1s 0.2s infinite cubic-bezier(.2,.68,.18,1.08);
 }
 
-@-webkit-keyframes fadeOut {
+.w3 {
+  composes: wave;
+  animation: scaley 1s 0.30000000000000004s infinite cubic-bezier(.2,.68,.18,1.08);
+}
+
+.w4 {
+  composes: wave;
+  animation: scaley 1s 0.4s infinite cubic-bezier(.2,.68,.18,1.08);
+}
+
+.w5 {
+  composes: wave;
+  animation: scaley 1s 0.5s infinite cubic-bezier(.2,.68,.18,1.08);
+}
+
+@keyframes scaley {
   0% {
-    opacity: 1;
+    transform: scaleY(1.0);
   }
-
+  50% {
+    transform: scaleY(0.4);
+  }
   100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
+    transform: scaleY(1.0);
   }
 }
 

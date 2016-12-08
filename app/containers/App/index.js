@@ -1,20 +1,21 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { HashRouter, Match } from 'react-router'
-import initialState from 'containers/App/data'
-import Navigation from 'containers/Navigation'
-import configureStore from 'api/store'
-import 'sanitize.css/sanitize.css'
-import 'config/analytics'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Router from 'react-router/HashRouter'
+import Match from 'react-router/Match'
+import Home from 'containers/Home'
 
-const store = configureStore(initialState)
+import css from './style.css'
 
-const App = _ => (
-  <Provider store={store}>
-    <HashRouter>
-      <Match pattern="*" component={Navigation} />
-    </HashRouter>
-  </Provider>
-)
+class App extends Component {
+  render() {
+    return (
+      <div className={css.root}>
+        <Router>
+          <Match pattern='/' component={Home} />
+        </Router>
+      </div>
+    )
+  }
+}
 
-export default App
+export default connect(null)(App)

@@ -1,74 +1,18 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:600,700,400,300);
-@import url(https://fonts.googleapis.com/css?family=Merriweather:700,700italic,900,900italic);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css);
+.root {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: purple;
+}
 
 body {
-  font-family: 'HelveticaNeue-Thin', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translateX(-50%) translateY(-50%)
-}
-
-video::-webkit-media-controls {
-  display: none !important;
-}
-
-.overlay {
-  overflow: hidden;
-  position: fixed;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.6;
-  top: 0;
-  left: 0;
-  transition: 0.3s;
-}
-
-@media (min-width: 1024px) {
-  .overlay {
-    background-color: #ffffff;
-    opacity: 0.6;
-  }
-}
-
-a {
-  text-decoration: none;
-}
-/* Base Styles
--------------------------------------------------------- */
-
-@-webkit-keyframes bugfix {
-  from {padding:0;}
-  to {padding:0;}
-}
-
-/* Resets
----------------------*/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-/* Headers
----------------------*/
 
 ul {
   padding-left: 0;
@@ -84,8 +28,6 @@ ul, ol {
   padding: 0;
  }
 
-/* Links
----------------------*/
 a,
 a:hover,
 a:active,

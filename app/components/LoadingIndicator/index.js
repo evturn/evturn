@@ -1,21 +1,16 @@
 import React from 'react'
-import Img from 'components/Img'
-import classNames from 'classnames/bind'
-
 import css from './style.css'
 
-const cx = classNames.bind(css)
-
-export default ({ img, ready, done }) => (
-  <div className={cx('root', {
-    'fade': done
-  })}>
-    <div className={css.logo}>
-      <Img
-        className={css.image}
-        src={img}
-      />
+export default ({ done }) => {
+  return (
+    <div className={`${css.root} ${done ? css.fade : ''}`}>
+      <div className={css.w}>
+        <div className={css.w1} />
+        <div className={css.w2} />
+        <div className={css.w3} />
+        <div className={css.w4} />
+        <div className={css.w5} />
+      </div>
     </div>
-    <div className={css.spinner} />
-  </div>
-)
+  )
+}
