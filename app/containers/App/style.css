@@ -40,27 +40,46 @@
 }
 
 .root {
-  position: absolute;
+  position: relative;
   height: 100%;
   width: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
   font-family: 'MarkWebPro-Regular';
   letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+.projects {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #cdcdcd;
+}
+
+.plank {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 500px;
+  background-color: #fff;
+  height: 100%;
+  box-shadow: -3px 52px 90px -33px rgba(0, 0, 0, .2);
+}
+
 .c0rdz {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-center;
-  background-color: #fff;
+  background-color: transparent;
   max-width: 668px;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .item {

@@ -27,12 +27,13 @@ const webProjects = projects.web.items
 
 const ProjectCards = props => {
   return (
-    <div className={css.c0rdz}>
-      {webProjects.map((x, i) =>
-        <ProjectCard
-          {...x}
-          key={x.slug}  />
-      )}
+    <div className={css.projects}>
+      <div className={css.plank} />
+      <div className={css.c0rdz}>
+        {webProjects.map((x, i) =>
+          <ProjectCard {...x} key={x.slug}  />
+        )}
+      </div>
     </div>
   )
 }
