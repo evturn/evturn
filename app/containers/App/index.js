@@ -21,8 +21,7 @@ export const App = props => {
 
 const webProjects = projects.web.items
   .map(x => ({
-    name: x.name,
-    slug: x.slug,
+    ...x,
     thumbnail: importImage(x.thumbnail)
   }))
 

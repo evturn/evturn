@@ -3,6 +3,7 @@ export default {
     web: {
       items: [{
         name: 'Drive Publishing',
+        shortDescription: `From legacy catalogs to new songwriters, Drive is more than an independent music publishing company.`,
         description: `Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.`,
         slug: 'drive',
         links: [
@@ -14,6 +15,7 @@ export default {
         tech: ['node', 'gulp', 'sass']
       },{
         name: 'Golfweek',
+        shortDescription: `A high-end weekly golfing magazine originally launched in 1975.`,
         description: 'A complete rebuild of Golfweek.com which included a customized CMS. Designed and built by New York City based product design and development shops Born & Raised and Gigareef.',
         slug: 'golfweek',
         links: [
@@ -26,6 +28,7 @@ export default {
         tech: ['wordpress', 'gulp', 'less']
       },{
         name: 'Brooklyn Friends School',
+        shortDescription: `Founded in 1867 Brooklyn Friends School is one of the oldest continuously operating independent schools in New York City.`,
         description: `SM&KK Studios designed a complete refresh of the Brooklyn Friends School brand.`,
         slug: 'bfs',
         links: [
@@ -37,6 +40,7 @@ export default {
         tech: ['wordpress', 'sass']
       },{
         name: 'Brightcove Gallery',
+        shortDescription: `A leading global provider of cloud services for video enables marketers to create engaging video portal experiences.`,
         description: `The Brightcove Gallery is a video portal and CMS for product showcases, live events, and internal communications. I developed half a dozen customizable site templates that also give users the ability to customize colors and designs.`,
         slug: 'brightcove-gallery',
         links: [
@@ -47,6 +51,7 @@ export default {
         tech: ['node', 'handlebars', 'mongodb', 'less', 'jquery', 'react']
       },{
         name: 'Marshallz Blog',
+        shortDescription: `Bot authored blog posts and twitter statuses continuously created by a long running program and a markov chain.`,
         description: `Built using React, Redux, and RxJS, this program continuously posts new content to the website in addition to posting on Twitter. Content for these posts are gathered anywhere from RSS feeds to online washing machine manuals.`,
         slug: 'marshallz',
         links: [
@@ -59,6 +64,7 @@ export default {
         tech: ['node', 'react', 'redux', 'firebase', 'rxjs', 'webpack', 'less', 'reduxobservable']
       },{
         name: 'Nutty Goodness',
+        shortDescription: `All-natural solution for snaking and leading a healthier lifestyle.`,
         description: 'Led by New York City based product design and development shop Born & Raised for health snack producer, Nutty Goodness.',
         slug: 'nutty-goodness',
         links: [
@@ -70,6 +76,7 @@ export default {
         tech: ['node', 'gulp', 'less']
       },{
         name: 'Mama We Made It',
+        shortDescription: `Showcasing the human aspect of the journey to success, this weekly podcast delivers unfiltered conversations from honest perspectives.`,
         description: `A 'Universal' React application custom CMS. All data is sent upon inital load with the app rendering on both the server and client side.`,
         slug: 'mwmi',
         links: [
@@ -81,6 +88,7 @@ export default {
         tech: ['node', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
       },{
         name: 'Tectonic',
+        shortDescription: `A mapping of coordinates from earthquakes happening in real-time merged with a live stream of tweets in that area.`,
         description: `Displays a real-time list of earthquakes, including information about their locations, magnitudes, and dates. All data for the map and any earthquake comes through from the USGS. Using RxJS, a Reactive Extensions library, this stream of data is merged with another a WebSocket server that takes coordinates from earthquakes as they arrive and searches Twitter for tweet in that location.`,
         slug: 'gin-tectonic',
         links: [{
@@ -101,13 +109,10 @@ export default {
         tech: ['node', 'rxjs', 'websocket', 'less', 'webpack']
       },{
         name: 'Made In Music',
+        shortDescription: `From musicians, entertainers, and industry profressionals, Made In Music takes a weekly look at the music business from an insider's perspective.`,
         description: `Keystone.js, a Node based CMS, uses Express and MongoDB.`,
         slug: 'mim',
         links: [{
-            name: 'Website',
-            url: 'http://madeinmusic.co',
-            icon: 'chrome'
-          }, {
             name: 'Github',
             url: 'https://github.com/evturn/madeinmusic.co',
             icon: 'github'
@@ -121,6 +126,7 @@ export default {
         tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
       },{
         name: 'Pique',
+        shortDescription: `A place for professionals interested in working on new ideas and building a team.`,
         description: `Pique is an app for people who are interested in networking, collaborating, and working on projects.`,
         slug: 'pique',
         links: [{
@@ -136,37 +142,6 @@ export default {
           'pique-4.png'
         ],
         tech : ['rails', 'postgresql']
-      },{
-        name: 'Where TO',
-        description: `Search venues around you and bookmark spots. Create custom lists of places you want to remember and can reference when you want to try something new.`,
-        slug: 'where-to',
-        links: null,
-        thumbnail: 'whereto-tn.png',
-        images: [
-          'whereto-2.png',
-          'whereto-1.png'
-        ],
-        tech: ['node', 'mongodb', 'sass']
-      },{
-        name: 'Ramen Buffet',
-        description: `Manage multiple lists of tasks or todos. Lists can be sorted by importance, priority, or status.`,
-        slug: 'ramen-buffet',
-        links: [{
-            name: 'Website',
-            url: 'http://ramenbuffet.com',
-            icon: 'chrome'
-          }, {
-            name: 'Github',
-            url: 'https://github.com/evturn/ramen-buffet',
-            icon: 'github'
-        }],
-        thumbnail: 'rb-tn.png',
-        images: [
-          'ramen-buffet-1.png',
-          'ramen-buffet-2.png',
-          'ramen-buffet-3.png'
-        ],
-        tech: ['node', 'backbone', 'mongodb', 'handlebars', 'less']
       }]
     },
 

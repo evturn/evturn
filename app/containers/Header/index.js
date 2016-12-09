@@ -25,7 +25,9 @@ class Header extends Component {
             <hr className={css.line1} />
             <hr className={css.line3} />
           </div>
-          <HeaderNav open={open} />
+          <HeaderNav
+            open={open}
+            onClick={this.toggleMenu} />
         </div>
       </header>
     )

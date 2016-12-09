@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './style.css'
 
-export const ProjectCard = ({ thumbnail, name }) => {
+export const ProjectCard = ({ thumbnail, shortDescription, name }) => {
   return (
     <div className={css.root}>
       <div className={css.card}>
@@ -11,6 +11,7 @@ export const ProjectCard = ({ thumbnail, name }) => {
         <div className={css.copy}>
           <div className={css.name}>{name}</div>
           <div className={css.border} />
+          <div className={css.desc}>{shortDescription}</div>
         </div>
       </div>
     </div>

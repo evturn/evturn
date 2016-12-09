@@ -6,10 +6,19 @@
 .card {
   position: relative;
   margin: 20px auto;
-  width: 175px;
-  height: 350px;
+  width: 200px;
+  height: 400px;
   border-radius: 1px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: -3px 8px 22px -1px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 1024px) {
+  .card {
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: scale(1.03);
+  }
 }
 
 .curtain {
@@ -37,7 +46,8 @@
   content: '';
   display: block;
   width: 80px;
-  height: 10px;
+  height: 5px;
+  margin: 5px 0;
   background-color: #cdcdcd;
 }
 
@@ -59,4 +69,10 @@
   letter-spacing: -0.025em;
   text-transform: uppercase;
   font-family: 'MarkWebPro-Heavy';
+}
+
+.desc {
+  font-size: 12px;
+  font-family: 'MarkWebPro-Regular';
+  letter-spacing: -0.025em;
 }
