@@ -1,29 +1,28 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import { createEpicMiddleware } from 'redux-observable'
+import { createStore, applyMiddleware } from 'redux'
 import logger from 'redux-logger'
-import rootEpic from 'api/epics'
 import rootReducer from 'api/reducers'
 
 export default function configureStore(initialState) {
-  const middleware = [ createEpicMiddleware(rootEpic) ]
+  const middleware = [thunkmasterFlex]
 
   if (__DEV__) {
     middleware.push(logger())
   }
 
-  const enhancers = [ applyMiddleware(...middleware) ]
   const store = createStore(
     rootReducer,
     initialState,
-    compose(...enhancers)
+    applyMiddleware(...middleware)
   )
 
-  if (module.hot) {
-    module.hot.accept('./reducers', _ => {
-      const nextRootReducer = require('./reducers')
-      store.replaceReducer(nextRootReducer)
-    })
-  }
-
   return store
+}
+
+function thunkmasterFlex({ dispatch , getState }) {
+  return next => action => {
+    if (typeof action === 'function') {
+      return action(dispatch, getState)
+    }
+    return next(action)
+  }
 }

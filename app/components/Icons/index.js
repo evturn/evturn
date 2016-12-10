@@ -1,6 +1,7 @@
 import React from 'react'
 import BackboneIcon from './Backbone'
 import ChromeIcon from './Chrome'
+import CSSModulesIcon from './CSSModules'
 import ExpressIcon from './Express'
 import FirebaseIcon from './Firebase'
 import GitIcon from './Git'
@@ -38,6 +39,7 @@ export const SVGIcon = ({ name, ...rest }) => {
 const icons = {
   backbone: BackboneIcon,
   chrome: ChromeIcon,
+  cssmodules: CSSModulesIcon,
   express: ExpressIcon,
   firebase: FirebaseIcon,
   git: GitIcon,

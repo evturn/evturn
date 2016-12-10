@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './style.css'
 
-export const ProjectCard = ({ image, copy, title }) => {
+export const Card = ({ image, copy, title }) => {
   return (
     <div className={css.root}>
       <div className={css.card}>
@@ -18,4 +18,4 @@ export const ProjectCard = ({ image, copy, title }) => {
   )
 }
 
-export default ProjectCard
+export default Card

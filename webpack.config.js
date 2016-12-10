@@ -162,9 +162,7 @@ const prodBuild = _ => configureWebpack({
       'react-dom',
       'react-router',
       'react-redux',
-      'rxjs',
       'redux',
-      'redux-observable',
     ],
   },
 

@@ -70,10 +70,12 @@
   letter-spacing: -0.025em;
   text-transform: uppercase;
   font-family: 'MarkWebPro-Heavy';
+  color: #000;
 }
 
 .desc {
   font-size: 12px;
   font-family: 'MarkWebPro-Regular';
   letter-spacing: -0.025em;
+  color: #000;
 }

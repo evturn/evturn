@@ -8,8 +8,7 @@
     "clean": "rimraf ./build",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production webpack --config webpack.config.js --color -p",
-    "postbuild": "open index.html",
-    "fetch": "node config/build.js"
+    "postbuild": "open index.html"
   },
   "dependencies": {
     "react": "^15.3.0",
@@ -49,7 +48,7 @@
     "postcss-cssnext": "^2.9.0",
     "postcss-focus": "1.0.0",
     "postcss-loader": "^1.2.0",
-    "postcss-reporter": "1.4.1",
+    "postcss-reporter": "^2.0.0",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.4",
     "style-loader": "0.13.1",

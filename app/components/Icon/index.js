@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Icon = ({ viewBox, className, style, children, ...rest }) => {
-  const size = !className
+  const size = !className && !style
     ? {width: '32px', height: '32px'}
     : style
   const box = !viewBox

@@ -1,0 +1,69 @@
+.root {
+  position: fixed;
+  z-index: 10;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+}
+
+.curtain {
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to left, #00d2ff , #3a7bd5);
+}
+
+.project {
+  position: absolute;
+  z-index: 20;
+  top: 10%;
+  left: 0;
+  right: 0;
+  height: 600px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: 'MarkWebPro-Heavy';
+  font-size: 60px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
+.ul {
+  display: flex;
+  padding-left: 0;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.li {
+  width: 45px;
+  list-style: none;
+}
+
+.img {
+  height: 315px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  box-shadow: 0px 5px 60px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  border-radius: 1px;
+}

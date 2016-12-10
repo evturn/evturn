@@ -1,38 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Match from 'react-router/Match'
+import Link from 'react-router/Link'
+import ProjectProfile from './ProjectProfile'
 import Card from 'components/Card'
 import css from './style.css'
 
-const ProjectCards = projects => {
-
-  function imageLoader(filename) {
-    return require(`public/images/${filename}`)
-  }
-
-  const webProjects = projects
-    .map(x => ({...x, image: imageLoader(x.thumbnail)}))
-
-  function Cards(props) {
+class ProjectCards extends Component {
+  render() {
     return (
       <div className={css.root}>
         <div className={css.plank} />
         <div className={css.c0rdz}>
-          {webProjects.map((x, i) =>
-            <Card
-              title={x.name}
-              image={x.image}
-              copy={x.shortDescription}
-              key={x.slug}  />
+          {projects.map((x, i) =>
+            <Link
+              to={`/${x.slug}`}
+              key={x.slug}>
+              <Card
+                title={x.name}
+                image={x.image}
+                copy={x.shortDescription} />
+            </Link>
           )}
         </div>
+        <Match pattern=':slug' render={props => {
+          const project = projects.filter(x => x.slug === props.params.slug)[0]
+          return <ProjectProfile {...props} {...project} />
+        }} />
       </div>
     )
   }
-
-  Cards.displayName = `Cards(webProjects)`
-  return Cards
 }
 
-export default ProjectCards([{
+function imageLoader(filename) {
+  return require(`public/images/${filename}`)
+}
+
+const projects = [{
     name: 'Drive Publishing',
     shortDescription: `From legacy catalogs to new songwriters, Drive is more than an independent music publishing company.`,
     description: `Drive is a music publishing company that manages the catalogues of many new and legendary songwriters and musicians.`,
@@ -92,7 +95,7 @@ export default ProjectCards([{
     ],
     thumbnail: 'marshallz-tn.png',
     images: ['marshallz-1.png', 'marshallz-2.png', 'marshallz-3.png'],
-    tech: ['node', 'react', 'redux', 'firebase', 'rxjs', 'webpack', 'less', 'reduxobservable']
+    tech: ['node', 'react', 'redux', 'firebase', 'rxjs', 'webpack', 'cssmodules', 'reduxobservable']
   },{
     name: 'Nutty Goodness',
     shortDescription: `All-natural solution for snaking and leading a healthier lifestyle.`,
@@ -152,4 +155,6 @@ export default ProjectCards([{
     thumbnail: 'pique-tn.png',
     images: ['pique-1.png', 'pique-2.png', 'pique-3.png', 'pique-4.png'],
     tech : ['rails', 'postgresql']
-}])
+}].map(x => ({...x, image: imageLoader(x.thumbnail)}))
+
+export default ProjectCards
