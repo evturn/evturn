@@ -20,7 +20,7 @@ const HeaderNav = ({ open, onClick }) => {
         </li>
         <li className={css.li}>
           <Link
-            to='/projects'
+            to='/web'
             onClick={onClick}
             className={css.link}>Web</Link>
         </li>

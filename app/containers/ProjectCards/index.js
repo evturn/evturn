@@ -10,10 +10,11 @@ class ProjectCards extends Component {
     return (
       <div className={css.root}>
         <div className={css.plank} />
+        <div className={css.header}>Web</div>
         <div className={css.c0rdz}>
           {projects.map((x, i) =>
             <Link
-              to={`/${x.slug}`}
+              to={`/web/${x.slug}`}
               key={x.slug}>
               <Card
                 title={x.name}
@@ -22,7 +23,7 @@ class ProjectCards extends Component {
             </Link>
           )}
         </div>
-        <Match pattern=':slug' render={props => {
+        <Match pattern='/web/:slug' render={props => {
           const project = projects.filter(x => x.slug === props.params.slug)[0]
           return <ProjectProfile {...props} {...project} />
         }} />

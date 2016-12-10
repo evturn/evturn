@@ -32,6 +32,16 @@
   z-index: 1;
 }
 
+.header {
+  position: relative;
+  font-size: 80px;
+  text-align: center;
+  font-family: 'MarkWebPro-Heavy';
+  z-index: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
 .item {
   display: inline-block;
   width: 33.3333333333%;

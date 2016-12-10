@@ -32,7 +32,7 @@ export class ProjectProfile extends Component {
             </ul>
           </div>
         </div>
-        <Link to='/' className={css.curtain} />
+        <Link to='/web' className={css.curtain} />
       </div>
     )
   }

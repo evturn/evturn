@@ -11,12 +11,8 @@ export const App = props => {
     <Router>
       <div className={css.root}>
         <Header />
-        <Match pattern='/' render={props =>
-          <div>
-            <Home />
-            <ProjectCards />
-          </div>
-        } />
+        <Match pattern='/' exactly component={Home} />
+        <Match pattern='/web' component={ProjectCards} />
       </div>
     </Router>
   )
