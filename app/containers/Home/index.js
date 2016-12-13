@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import HomeVideo from './HomeVideo'
-import HomeBanner from './HomeBanner'
 import LoadingIndicator from 'components/LoadingIndicator'
 import css from './style.css'
 
