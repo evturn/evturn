@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import HomeVideo from './HomeVideo'
 import LoadingIndicator from 'components/LoadingIndicator'
+import Logo from 'components/Logo'
 import css from './style.css'
 
 class Home extends Component {
@@ -21,7 +22,11 @@ class Home extends Component {
     return (
       <div className={css.root}>
         <HomeVideo onVideoChange={this.onVideoChange} />
-        {loading ? <LoadingIndicator /> : null}
+        <div className={css.flex}>
+        {loading
+          ? <LoadingIndicator />
+          : <Logo className={css.logo} />}
+        </div>
       </div>
     )
   }

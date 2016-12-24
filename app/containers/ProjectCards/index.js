@@ -9,7 +9,6 @@ class ProjectCards extends Component {
   render() {
     return (
       <div className={css.root}>
-        <div className={css.plank} />
         <div className={css.header}>Web</div>
         <div className={css.c0rdz}>
           {projects.map((x, i) =>
@@ -46,21 +45,8 @@ const projects = [{
       {name: 'Github', url: 'https://github.com/drivepublishing/drivepublishing.github.io', icon: 'github'}
     ],
     thumbnail: 'drive-tn.png',
-    images: ['drive-1.png', 'drive-2.png', 'drive-3.png', 'drive-4.png'],
+    images: ['drive-1.png'],
     tech: ['node', 'gulp', 'sass']
-  },{
-    name: 'Golfweek',
-    shortDescription: `A high-end weekly golfing magazine originally launched in 1975.`,
-    description: 'A complete rebuild of Golfweek.com which included a customized CMS. Designed and built by New York City based product design and development shops Born & Raised and Gigareef.',
-    slug: 'golfweek',
-    links: [
-      {name: 'Website', url: 'http://golfweek.com', icon: 'chrome'},
-      {name: 'B&R', url: 'http://wearebnr.com', icon: '⌘'},
-      {name: 'Gigareef', url: 'http://gigareef.com', icon: '⌘'}
-    ],
-    thumbnail: 'gw-tn.png',
-    images: ['gw-1.png', 'gw-2.png'],
-    tech: ['wordpress', 'gulp', 'less']
   },{
     name: 'Brooklyn Friends School',
     shortDescription: `Founded in 1867 Brooklyn Friends School is one of the oldest continuously operating independent schools in New York City.`,
@@ -71,7 +57,7 @@ const projects = [{
       {name: 'SMKK', url: 'http://smkkstudios.com/work/brooklynfriendsschool', icon: '⌘'}
     ],
     thumbnail: 'bfs-tn.png',
-    images: ['bfs-1.png', 'bfs-2.png', 'bfs-3.png'],
+    images: ['bfs-1.png'],
     tech: ['wordpress', 'sass']
   },{
     name: 'Brightcove Gallery',
@@ -82,7 +68,7 @@ const projects = [{
       {name: 'Website', url: 'https://brightcove.com/en/gallery', icon: 'chrome'}
     ],
     thumbnail: 'bc-tn.png',
-    images: ['bc-1.png', 'bc-2.png', 'bc-3.png'],
+    images: ['bc-1.png'],
     tech: ['node', 'handlebars', 'mongodb', 'less', 'jquery', 'react']
   },{
     name: 'Marshallz Blog',
@@ -95,8 +81,21 @@ const projects = [{
       {name: 'Twitter', url: 'http://twitter.com/marshallzBlog', icon: 'twitter'}
     ],
     thumbnail: 'marshallz-tn.png',
-    images: ['marshallz-1.png', 'marshallz-2.png', 'marshallz-3.png'],
+    images: ['marshallz-1.png'],
     tech: ['node', 'react', 'redux', 'firebase', 'rxjs', 'webpack', 'cssmodules', 'reduxobservable']
+  },{
+    name: 'Golfweek',
+    shortDescription: `A high-end weekly golfing magazine originally launched in 1975.`,
+    description: 'A complete rebuild of Golfweek.com which included a customized CMS. Designed and built by New York City based product design and development shops Born & Raised and Gigareef.',
+    slug: 'golfweek',
+    links: [
+      {name: 'Website', url: 'http://golfweek.com', icon: 'chrome'},
+      {name: 'B&R', url: 'http://wearebnr.com', icon: '⌘'},
+      {name: 'Gigareef', url: 'http://gigareef.com', icon: '⌘'}
+    ],
+    thumbnail: 'gw-tn.png',
+    images: ['gw-1.png'],
+    tech: ['wordpress', 'gulp', 'less']
   },{
     name: 'Nutty Goodness',
     shortDescription: `All-natural solution for snaking and leading a healthier lifestyle.`,
@@ -107,7 +106,7 @@ const projects = [{
       {name: 'B&R', url: 'http://wearebnr.com', icon: '⌘'}
     ],
     thumbnail: 'ng-tn.png',
-    images: ['ng-1.png','ng-2.png','ng-3.png','ng-4.png','ng-5.png'],
+    images: ['ng-1.png'],
     tech: ['node', 'gulp', 'less']
   },{
     name: 'Mama We Made It',
@@ -119,7 +118,7 @@ const projects = [{
       {name: 'Github', url: 'https://github.com/evturn/mwmi', icon: 'github'}
     ],
     thumbnail: 'mwmi-tn.png',
-    images: ['mwmi-1.png', 'mwmi-2.png'],
+    images: ['mwmi-1.png'],
     tech: ['node', 'react', 'rxjs', 'redux', 'webpack', 'mongodb']
   },{
     name: 'Tectonic',
@@ -132,7 +131,7 @@ const projects = [{
     ],
     thumbnail: 'https://i.ytimg.com/vi/lz9VzshE0_4/hqdefault.jpg',
     thumbnail: 'tectonic-tn.png',
-    images: ['tectonic-1.png', 'tectonic-2.png'],
+    images: ['tectonic-1.png'],
     tech: ['node', 'rxjs', 'websocket', 'less', 'webpack']
   },{
     name: 'Made In Music',
@@ -143,7 +142,7 @@ const projects = [{
       {name: 'Github', url: 'https://github.com/evturn/madeinmusic.co', icon: 'github'}
     ],
     thumbnail: 'mim-tn.png',
-    images: ['mim-1.png', 'mim-2.png', 'mim-3.png'],
+    images: ['mim-1.png'],
     tech: ['node', 'backbone', 'mongodb', 'gulp', 'less']
   },{
     name: 'Pique',
@@ -154,7 +153,7 @@ const projects = [{
       {name: 'Github', url: 'https://github.com/piqueapp/piqueapp.github.io', icon: 'github'}
     ],
     thumbnail: 'pique-tn.png',
-    images: ['pique-1.png', 'pique-2.png', 'pique-3.png', 'pique-4.png'],
+    images: ['pique-1.png'],
     tech : ['rails', 'postgresql']
 }].map(x => ({...x, image: imageLoader(x.thumbnail)}))
 

@@ -14,12 +14,6 @@ const HeaderNav = ({ open, onClick }) => {
         </li>
         <li className={css.li}>
           <Link
-            to='/'
-            onClick={onClick}
-            className={css.link}>Software</Link>
-        </li>
-        <li className={css.li}>
-          <Link
             to='/web'
             onClick={onClick}
             className={css.link}>Web</Link>
@@ -29,6 +23,12 @@ const HeaderNav = ({ open, onClick }) => {
             to='/'
             onClick={onClick}
             className={css.link}>Mobile</Link>
+        </li>
+        <li className={css.li}>
+          <Link
+            to='/'
+            onClick={onClick}
+            className={css.link}>Software</Link>
         </li>
         <li className={css.li}>
           <Link
