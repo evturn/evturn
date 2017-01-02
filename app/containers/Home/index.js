@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import HomeVideo from './HomeVideo'
 import LoadingIndicator from 'components/LoadingIndicator'
 import Logo from 'components/Logo'
@@ -32,4 +31,4 @@ class Home extends Component {
   }
 }
 
-export default connect(null)(Home)
+export default Home

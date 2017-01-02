@@ -3,7 +3,8 @@ import Router from 'react-router/HashRouter'
 import Match from 'react-router/Match'
 import Header from 'containers/Header'
 import Home from 'containers/Home'
-import ProjectCards from 'containers/ProjectCards'
+import Web from 'containers/Web'
+import Software from 'containers/Software'
 import css from './style.css'
 
 export const App = props => {
@@ -12,7 +13,8 @@ export const App = props => {
       <div className={css.root}>
         <Header />
         <Match pattern='/' exactly component={Home} />
-        <Match pattern='/web' component={ProjectCards} />
+        <Match pattern='/web' component={Web} />
+        <Match pattern='/software' component={Software} />
       </div>
     </Router>
   )
