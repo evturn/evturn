@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
-import ProjectCard from 'components/ProjectCard'
+import PageHeader from 'components/PageHeader'
+import ProjectCards from 'components/ProjectCards'
 import WebProject from './WebProject'
 import css from './style.css'
 
@@ -9,16 +10,16 @@ class Web extends Component {
   render() {
     return (
       <div className={css.root}>
-        <div className={css.header}>Web</div>
-        <div className={css.c0rdz}>
-          {projects.map((x, i) =>
-            <ProjectCard
-              key={x.slug}
-              title={x.name}
-              style={{backgroundImage: `url(${x.image})`}}
-              copy={x.shortDescription} />
-          )}
-        </div>
+        <PageHeader text='Web' />
+
+        <ProjectCards items={projects.map(x => ({
+            key: x.slug,
+            title: x.name,
+            style: {backgroundImage: `url(${x.image})`},
+            copy: x.shortDescription,
+          }))
+        } />
+
         <Match pattern='/web/:slug' render={props => {
           const project = projects.filter(x => x.slug === props.params.slug)[0]
           return <WebProject {...props} {...project} />

@@ -3,7 +3,7 @@ import Link from 'react-router/Link'
 import SVGIcon from 'components/Icons'
 import css from './style.css'
 
-export class ProjectProfile extends Component {
+export class WebProject extends Component {
   componentDidMount() {
     document.body.style.overflow = 'hidden'
   }
@@ -38,4 +38,4 @@ export class ProjectProfile extends Component {
   }
 }
 
-export default ProjectProfile
+export default WebProject

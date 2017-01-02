@@ -2,40 +2,17 @@ import React from 'react'
 import Link from 'react-router/Link'
 import css from './style.css'
 
-const HeaderNav = ({ open, onClick }) => {
+const HeaderNav = ({ routes, open, onClick }) => {
   return (
     <div className={`${css.root} ${open ? css.open : ''}`}>
       <ul className={css.ul}>
-        <li className={css.li}>
-          <Link
-            to='/'
-            onClick={onClick}
-            className={css.link}>Start</Link>
-        </li>
-        <li className={css.li}>
-          <Link
-            to='/web'
-            onClick={onClick}
-            className={css.link}>Web</Link>
-        </li>
-        <li className={css.li}>
-          <Link
-            to='/'
-            onClick={onClick}
-            className={css.link}>Mobile</Link>
-        </li>
-        <li className={css.li}>
-          <Link
-            to='/software'
-            onClick={onClick}
-            className={css.link}>Software</Link>
-        </li>
-        <li className={css.li}>
-          <Link
-            to='/'
-            onClick={onClick}
-            className={css.link}>Contact</Link>
-        </li>
+        {routes.map(x =>
+          <li className={css.li} key={x.to}>
+            <Link
+              to={x.to}
+              onClick={onClick}
+              className={css.link}>{x.text}</Link>
+          </li>)}
       </ul>
     </div>
   )

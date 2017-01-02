@@ -9,7 +9,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
-@media (min-width: 668px) {
+@media (min-width: 667px) {
   .root {
     width: 500px;
   }
@@ -36,7 +36,7 @@
   padding-left: 0;
 }
 
-@media (min-width: 668px) {
+@media (min-width: 667px) {
   .ul {
     width: 300px;
   }
@@ -55,7 +55,7 @@
   text-align: center;
 }
 
-@media (min-width: 668px) {
+@media (min-width: 667px) {
   .li {
     text-align: left;
   }
@@ -79,7 +79,7 @@
   font-family: 'MarkWebPro-Heavy';
 }
 
-@media (min-width: 668px) {
+@media (min-width: 667px) {
   .link {
     text-align: left;
     font-size: 60px;

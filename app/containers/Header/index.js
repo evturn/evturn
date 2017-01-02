@@ -8,6 +8,16 @@ class Header extends Component {
     this.toggleMenu = ::this.toggleMenu
   }
 
+  static defaultProps = {
+    routes: [
+      {to: '/',         text: 'Start'},
+      {to: '/web',      text: 'Web'},
+      {to: '/mobile',   text: 'Mobile'},
+      {to: '/software', text: 'Software'},
+      {to: '/contact',  text: 'Contact'}
+    ]
+  }
+
   state = {open: false}
 
   toggleMenu() {
@@ -16,6 +26,7 @@ class Header extends Component {
 
   render() {
     const { open } = this.state
+    const { routes } = this.props
     return (
       <header className={css.root}>
         <div className={css.wrap}>
@@ -27,6 +38,7 @@ class Header extends Component {
           </div>
           <HeaderNav
             open={open}
+            routes={routes}
             onClick={this.toggleMenu} />
         </div>
       </header>

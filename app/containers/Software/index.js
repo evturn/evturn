@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
-import ProjectCard from 'components/ProjectCard'
-import Logo from 'components/Logo'
+import PageHeader from 'components/PageHeader'
+import ProjectCards from 'components/ProjectCards'
+import SVGIcon from 'components/Icons'
 import css from './style.css'
 
 class Software extends Component {
   render() {
+    const items = projects.map(x => ({
+      key: x.slug,
+      title: x.name,
+      style: {backgroundColor: x.color},
+      copy: x.description,
+      children: x.links.map(x =>
+        <div className={css.icon} key={x.href}>
+          <SVGIcon
+            className={css.svg}
+            name={x.icon} />
+        </div>)
+    }))
+
     return (
       <div className={css.root}>
-        <div className={css.header}>Software</div>
-        <div className={css.c0rdz}>
-          {projects.map((x, i) =>
-            <ProjectCard
-              key={x.slug}
-              title={x.name}
-              style={{backgroundColor: x.color}}
-              copy={x.description}>
-              <Logo className={css.logo} />
-            </ProjectCard>
-          )}
-        </div>
+        <PageHeader text='Software' />
+        <ProjectCards items={items} />
       </div>
     )
   }
@@ -32,8 +36,8 @@ const projects = [{
     slug: 'object-iterable',
     color: '#00ffec',
     links: [
-      { url: 'https://github.com/evturn/object-iterable', icon: 'github' },
-      { url: 'https://www.npmjs.com/package/object-iterable', icon: 'npm' }
+      { href: 'https://github.com/evturn/object-iterable', icon: 'github' },
+      { href: 'https://www.npmjs.com/package/object-iterable', icon: 'npm' }
     ]
   },{
     name: 'Meta Preserve',
@@ -41,7 +45,7 @@ const projects = [{
     slug: 'meta-preserve',
     color: '#00fdff',
     links: [
-      { url: 'https://github.com/evturn/meta-preserve', icon: 'github' }
+      { href: 'https://github.com/evturn/meta-preserve', icon: 'github' }
     ]
   },{
     name: 'Proto',
@@ -49,8 +53,8 @@ const projects = [{
     slug: 'proto',
     color: '#00e7ff',
     links: [
-      { url: 'https://github.com/evturn/proto', icon: 'github' },
-      { url: 'https://www.npmjs.com/package/@evturn/proto', icon: 'npm' }
+      { href: 'https://github.com/evturn/proto', icon: 'github' },
+      { href: 'https://www.npmjs.com/package/@evturn/proto', icon: 'npm' }
     ]
   },{
     name: 'Sentence Generator',
@@ -58,8 +62,8 @@ const projects = [{
     slug: 'sentence-generator',
     color: '#00d2ff',
     links: [
-      { url: 'https://github.com/evturn/sentence-generator', icon: 'github' },
-      { url: 'https://www.npmjs.com/package/sentence-generator', icon: 'npm' }
+      { href: 'https://github.com/evturn/sentence-generator', icon: 'github' },
+      { href: 'https://www.npmjs.com/package/sentence-generator', icon: 'npm' }
     ]
   },{
     name: 'Slackbots',
@@ -67,7 +71,7 @@ const projects = [{
     slug: 'slackbots',
     color: '#00bdff',
     links: [
-      { url: 'https://github.com/faquet/bots', icon: 'github' }
+      { href: 'https://github.com/faquet/bots', icon: 'github' }
     ]
   },{
     name: 'Babel Preset',
@@ -75,8 +79,8 @@ const projects = [{
     slug: 'babel-preset',
     color: '#00a8ff',
     links: [
-      { url: 'https://github.com/evturn/babel-preset-evturn', icon: 'github' },
-      { url: 'https://www.npmjs.com/package/babel-preset-evturn', icon: 'npm' }
+      { href: 'https://github.com/evturn/babel-preset-evturn', icon: 'github' },
+      { href: 'https://www.npmjs.com/package/babel-preset-evturn', icon: 'npm' }
     ]
 }]
 

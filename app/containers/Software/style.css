@@ -7,39 +7,13 @@
   padding-top: 50px;
 }
 
-.c0rdz {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-center;
-  background-color: transparent;
-  max-width: 668px;
-  margin: 0 auto;
-  z-index: 1;
+.icon {
+  display: inline-block;
+  margin-right: 15px;
 }
 
-.header {
-  position: relative;
-  font-size: 50px;
-  text-align: center;
-  color: #fff;
-  font-family: 'MarkWebPro-Heavy';
-  z-index: 1;
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
-}
-
-@media (min-width: 1024px) {
-  .header {
-    text-align: left;
-    font-size: 80px;
-  }
-}
-
-.logo {
-  height: auto;
-  width: 100%;
-  padding: 60px;
-  opacity: 0.75;
+.svg {
+  color: #00d2ff;
+  width: 25px;
+  height: 25px;
 }
