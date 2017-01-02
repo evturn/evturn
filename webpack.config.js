@@ -160,9 +160,7 @@ const prodBuild = _ => configureWebpack({
     vendor: [
       'react',
       'react-dom',
-      'react-router',
-      'react-redux',
-      'redux',
+      'react-router'
     ],
   },
 

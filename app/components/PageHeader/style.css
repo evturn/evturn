@@ -7,11 +7,14 @@
   z-index: 1;
   letter-spacing: -0.025em;
   text-transform: uppercase;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media (min-width: 1024px) {
   .root {
     text-align: left;
     font-size: 80px;
+    padding: 0 10px;
   }
 }

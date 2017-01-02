@@ -5,6 +5,7 @@ import Header from 'containers/Header'
 import Home from 'containers/Home'
 import Web from 'containers/Web'
 import Software from 'containers/Software'
+import Mobile from 'containers/Mobile'
 import css from './style.css'
 
 export const App = props => {
@@ -15,6 +16,7 @@ export const App = props => {
         <Match pattern='/' exactly component={Home} />
         <Match pattern='/web' component={Web} />
         <Match pattern='/software' component={Software} />
+        <Match pattern='/mobile' component={Mobile} />
       </div>
     </Router>
   )
