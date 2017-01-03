@@ -5,7 +5,7 @@ import Koa from 'koa'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from './webpack.config.js'
+import webpackConfig from './webpack2.config.js'
 
 const compiler = webpack(webpackConfig)
 const devMiddleware = koaDevMiddleware(compiler, {
