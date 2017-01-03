@@ -74,10 +74,16 @@ const projects = [{
       { href: 'https://github.com/faquet/bots', icon: 'github' }
     ]
   },{
+    name: 'Edit0r',
+    description: `An editor for the browser that transforms text to markdown in real-time.`,
+    color: `#00a8ff`,
+    slug: 'edit0r',
+    links: []
+  },{
     name: 'Babel Preset',
     description: `Specified group of Babel plugins that transpile proposed and newly added language features to the JavaScript spec to backwards compatible versions.`,
     slug: 'babel-preset',
-    color: '#00a8ff',
+    color: '#0092ff',
     links: [
       { href: 'https://github.com/evturn/babel-preset-evturn', icon: 'github' },
       { href: 'https://www.npmjs.com/package/babel-preset-evturn', icon: 'npm' }
