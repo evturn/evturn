@@ -6,3 +6,13 @@
   background: linear-gradient(to left, #00d2ff , #3a7bd5);
   padding-top: 50px;
 }
+
+.more {
+  margin-right: 15px;
+}
+
+.svg {
+  color: #00d2ff;
+  width: 25px;
+  height: 25px;
+}

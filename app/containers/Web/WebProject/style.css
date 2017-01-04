@@ -1,12 +1,26 @@
 .root {
+  display: flex;
   position: fixed;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
   z-index: 10;
   margin: 0 auto;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  overflow-y: scroll;
+  transition: none;
+}
+
+.dismiss {
+  top: 100vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.remain {
+  top: 0;
+  transition: all 0.1s ease-in-out;
 }
 
 .curtain {
@@ -22,48 +36,187 @@
 }
 
 .project {
-  position: absolute;
+  position: relative;
   z-index: 20;
-  top: 10%;
-  left: 0;
-  right: 0;
-  height: 600px;
-  width: 600px;
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
+  background-color: #fff;
+}
+
+@media (min-width: 667px) {
+  .project {
+    height: 600px;
+    width: 600px;
+    border: 1px solid;
+    border-radius: 3px;
+    border-image: linear-gradient(90deg, rgb(58, 123, 213) 50%, rgb(0, 210, 255)) 3;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}
+
+.body {
+  display: flex;
+  height: 100%;
+  align-items: baseline;
+  padding: 0 15px;
+}
+
+.content {
+
 }
 
 .description {
   margin-bottom: 20px;
+  letter-spacing: -0.028em;
+}
+
+.window {
+  display: none;
+}
+
+@media (min-width: 667px) {
+  .window {
+    display: block;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    background-color: #3C4C50;
+    height: 25px;
+    width: 100%;
+    padding: 0 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+}
+
+.close,
+.min,
+.max {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  margin: 5px 10px 0 0;
+  border-radius: 50%;
+}
+
+.close {
+  background-color: #FF6159;
+}
+
+.min {
+  background-color: #FFBF2F;
+}
+
+.max {
+  background-color: #29CD42;
+}
+
+.header {
+  background: linear-gradient(to left, #010101 , #1B1C1C);
+  color: #fff;
+  padding: 0 15px;
 }
 
 .name {
   font-family: 'MarkWebPro-Heavy';
-  font-size: 60px;
-  line-height: 50px;
-  margin-bottom: 20px;
+  font-size: 5vw;
+  line-height: 55px;
+  margin: 0 0 20px;
   text-transform: uppercase;
   letter-spacing: -0.025em;
 }
 
+@media (min-width: 667px) {
+  .name {
+    font-size: 60px;
+    line-height: 65px;
+  }
+}
+
 .ul {
   display: flex;
-  padding-left: 0;
   align-items: flex-start;
   flex-wrap: wrap;
+  margin: 0;
+  padding-left: 0;
+}
+
+.ul:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  margin: 10px 0 5px;
+  background: linear-gradient(to right, #eee, #fff);
+}
+
+@media (min-width: 667px) {
+  .ul {
+    width: 570px;
+  }
 }
 
 .li {
-  width: 45px;
+  width: 50px;
+  margin-bottom: 5px;
   list-style: none;
+  text-align: center;
+}
+
+.svg {
+  width: 26px;
+  color: #3C4C50;
+  min-height: 30px;
+}
+
+.links {
+  width: 100%;
+  text-align: right;
+  margin: 10px 0;
+}
+
+.item {
+  display: inline-block;
+  margin: 0 0 0 15px;
+}
+
+.link {
+  background-color: #00d2ff;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  padding: 2.5px;
+  border-radius: 3px;
+}
+
+.tech {
+  margin-top: 5px;
+  font-size: 9px;
+  font-family: 'MarkWebPro-Book';
+  letter-spacing: -0.025em;
 }
 
 .img {
-  height: 315px;
+  height: 185px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 50%;
-  box-shadow: 0px 5px 60px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-  border-radius: 1px;
+  background-position-x: 50%;
+  box-shadow: inset 0px 7px 29px -2px rgba(0, 0, 0, .2);
+  border-radius: 2px;
+}
+
+@media (min-width: 667px) {
+  .img {
+    height: 285px;
+  }
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
 }

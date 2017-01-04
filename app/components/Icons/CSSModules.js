@@ -1,17 +1,14 @@
 import React from 'react'
 import Icon from 'components/Icon'
 
-export const CSSModulesIcon = props => {
-  const { style, className } = props
-  const fill = style && style.fill ? style.fill : '#000000'
+export const CSSModulesIcon = ({ className, ...rest }) => {
   return (
     <Icon
-      style={{height: '45px', width: '45px'}}
-      {...props}
-      viewBox='0 0 1000.000000 1000.000000'>
+      {...rest}
+      className={className}
+      viewBox='0 0 1000.000000 600.000000'>
       <g
-        transform='translate(0.000000,870.000000) scale(0.100000,-0.100000)'
-        fill={fill}
+        transform='translate(0.000000,870.000000) scale(0.120000,-0.125000)'
         stroke='none'>
         <path d="M730 5000 l0 -3500 3505 0 3505 0 0 215 0 215 200 0 200 0 0 75 0 75
           -200 0 -200 0 0 200 0 200 170 0 170 0 0 75 0 75 -170 0 -170 0 0 175 0 175

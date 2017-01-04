@@ -28,7 +28,7 @@ class Header extends Component {
     const { open } = this.state
     const { routes } = this.props
     return (
-      <header className={css.root}>
+      <header className={`${css.root} ${!open ? css.short : ''}`}>
         <div className={css.wrap}>
           <div
             onClick={this.toggleMenu}

@@ -13,7 +13,10 @@
 }
 
 .svg {
-  color: #00d2ff;
+  background-color: #00d2ff;
+  color: #fff;
   width: 25px;
   height: 25px;
+  padding: 2.5px;
+  border-radius: 3px;
 }

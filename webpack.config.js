@@ -99,7 +99,6 @@ const plugins = {
   production: [
     new webpack.optimize.CommonsChunkPlugin({names: ['vendor', 'manifest']}),
     new webpack.optimize.OccurrenceOrderPlugin(true),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     new HtmlWebpackPlugin({
       template: 'app/index.html',

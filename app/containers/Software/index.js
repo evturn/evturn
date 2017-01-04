@@ -6,7 +6,7 @@ import ProjectCards from 'components/ProjectCards'
 import SVGIcon from 'components/Icons'
 import css from './style.css'
 
-class Software extends Component {
+export class Software extends Component {
   render() {
     const items = projects.map(x => ({
       key: x.slug,
@@ -15,9 +15,7 @@ class Software extends Component {
       copy: x.description,
       children: x.links.map(x =>
         <div className={css.icon} key={x.href}>
-          <SVGIcon
-            className={css.svg}
-            name={x.icon} />
+          <SVGIcon className={css.svg} name={x.icon} />
         </div>)
     }))
 
@@ -36,7 +34,7 @@ const projects = [{
     slug: 'object-iterable',
     color: '#00ffec',
     links: [
-      { href: 'https://github.com/evturn/object-iterable', icon: 'github' },
+      { href: 'https://github.com/evturn/object-iterable', icon: 'code' },
       { href: 'https://www.npmjs.com/package/object-iterable', icon: 'npm' }
     ]
   },{
@@ -45,7 +43,7 @@ const projects = [{
     slug: 'meta-preserve',
     color: '#00fdff',
     links: [
-      { href: 'https://github.com/evturn/meta-preserve', icon: 'github' }
+      { href: 'https://github.com/evturn/meta-preserve', icon: 'code' }
     ]
   },{
     name: 'Proto',
@@ -53,7 +51,7 @@ const projects = [{
     slug: 'proto',
     color: '#00e7ff',
     links: [
-      { href: 'https://github.com/evturn/proto', icon: 'github' },
+      { href: 'https://github.com/evturn/proto', icon: 'code' },
       { href: 'https://www.npmjs.com/package/@evturn/proto', icon: 'npm' }
     ]
   },{
@@ -62,7 +60,7 @@ const projects = [{
     slug: 'sentence-generator',
     color: '#00d2ff',
     links: [
-      { href: 'https://github.com/evturn/sentence-generator', icon: 'github' },
+      { href: 'https://github.com/evturn/sentence-generator', icon: 'code' },
       { href: 'https://www.npmjs.com/package/sentence-generator', icon: 'npm' }
     ]
   },{
@@ -71,7 +69,7 @@ const projects = [{
     slug: 'slackbots',
     color: '#00bdff',
     links: [
-      { href: 'https://github.com/faquet/bots', icon: 'github' }
+      { href: 'https://github.com/faquet/bots', icon: 'code' }
     ]
   },{
     name: 'Edit0r',
@@ -85,7 +83,7 @@ const projects = [{
     slug: 'babel-preset',
     color: '#0092ff',
     links: [
-      { href: 'https://github.com/evturn/babel-preset-evturn', icon: 'github' },
+      { href: 'https://github.com/evturn/babel-preset-evturn', icon: 'code' },
       { href: 'https://www.npmjs.com/package/babel-preset-evturn', icon: 'npm' }
     ]
 }]
