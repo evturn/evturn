@@ -58,6 +58,14 @@ export class LazyLoad extends Component {
   }
 }
 
+export const LazilyLoadFactory = (Component, modules) => {
+  return props => (
+    <LazilyLoad modules={modules}>
+      {mods => <Component {...mods} {...props} />}
+    </LazilyLoad>
+  )
+}
+
 export const importDefault = res => (
   res.then(module => module.default)
 )
