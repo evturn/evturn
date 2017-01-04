@@ -3,11 +3,6 @@ import HeaderNav from './HeaderNav'
 import css from './style.css'
 
 class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.toggleMenu = ::this.toggleMenu
-  }
-
   static defaultProps = {
     routes: [
       {to: '/',         text: 'Start'},
@@ -20,7 +15,7 @@ class Header extends Component {
 
   state = {open: false}
 
-  toggleMenu() {
+  toggleMenu = _ => {
     this.setState({open: !this.state.open})
   }
 

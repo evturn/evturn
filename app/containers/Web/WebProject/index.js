@@ -62,7 +62,9 @@ export class WebProject extends Component {
               <ul className={css.links}>
                 {links.map(x =>
                   <li key={x.url} className={css.item}>
-                    <SVGIcon name={x.icon} className={css.link} />
+                    <a href={x.url} target="_blank">
+                      <SVGIcon name={x.icon} className={css.link} />
+                    </a>
                   </li>)}
               </ul>
 

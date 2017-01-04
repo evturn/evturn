@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Match from 'react-router/Match'
-import Link from 'react-router/Link'
 import PageHeader from 'components/PageHeader'
 import ProjectCards from 'components/ProjectCards'
 import SVGIcon from 'components/Icons'
@@ -15,7 +13,9 @@ export class Software extends Component {
       copy: x.description,
       children: x.links.map(x =>
         <div className={css.icon} key={x.href}>
-          <SVGIcon className={css.svg} name={x.icon} />
+          <a href={x.href} target="_blank">
+            <SVGIcon className={css.svg} name={x.icon} />
+          </a>
         </div>)
     }))
 
