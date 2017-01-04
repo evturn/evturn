@@ -3,7 +3,7 @@ import Link from 'react-router/Link'
 import SVGIcon from 'components/Icons'
 import css from './style.css'
 
-export class WebProject extends Component {
+export class Project extends Component {
   state = {
     enter: false,
     animation: window.innerWidth < 667 ? true : false,
@@ -87,4 +87,4 @@ export class WebProject extends Component {
   }
 }
 
-export default WebProject
+export default Project

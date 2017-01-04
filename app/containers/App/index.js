@@ -13,8 +13,14 @@ export const App = props => {
         <Header />
         <Match pattern='/' exactly component={Home} />
         <Match pattern='/web' render={props =>
-          <LazyLoad modules={{web: _ => import('containers/Web')}}>
-            {({ web: { default:Web }}) => <Web {...props} />}
+          <LazyLoad modules={{
+            web:     _ => import('containers/Web'),
+            project: _ => import('containers/Project')
+          }}>
+            {({ web: { default:Web }, project: { default:Project }}) =>
+              <Web {...props}>
+                {props => <Project {...props} />}
+              </Web>}
           </LazyLoad>
         } />
         <Match pattern='/software' render={props =>

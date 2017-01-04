@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, Children } from 'react'
 import Match from 'react-router/Match'
-import LazyLoad from 'containers/LazyLoad'
 import Link from 'react-router/Link'
 import MoreIcon from 'components/Icons/More'
 import PageHeader from 'components/PageHeader'
@@ -8,7 +7,13 @@ import ProjectCards from 'components/ProjectCards'
 import css from './style.css'
 
 export class Web extends Component {
+
+  getProjectBySlug({ params: { slug } }) {
+    return projects.filter(x => x.slug === slug)[0]
+  }
+
   render() {
+    const { children } = this.props
     return (
       <div className={css.root}>
         <PageHeader text='Web' />
@@ -27,12 +32,8 @@ export class Web extends Component {
         } />
 
         <Match pattern='/web/:slug' render={props => {
-          const project = projects.filter(x => x.slug === props.params.slug)[0]
-          return (
-            <LazyLoad modules={{webProject: _ => import('./WebProject')}}>
-              {({ webProject: { default:WebProject } }) => <WebProject {...props} {...project} />}
-            </LazyLoad>
-          )
+          const project = this.getProjectBySlug(props)
+          return Children.only(children(project))
         }} />
       </div>
     )
