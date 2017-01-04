@@ -1,26 +1,27 @@
 .root {
   display: flex;
   position: fixed;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
-  z-index: 10;
-  margin: 0 auto;
-  top: 0;
+  top: 100vh;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  transition: none;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
 }
 
-.dismiss {
-  top: 100vh;
-  transition: all 0.3s ease-in-out;
-}
-
-.remain {
+.enter {
   top: 0;
-  transition: all 0.1s ease-in-out;
+}
+
+@media (min-width: 667px) {
+  .root {
+    top: 0;
+    transition: none;
+  }
 }
 
 .curtain {
@@ -46,7 +47,8 @@
 
 @media (min-width: 667px) {
   .project {
-    height: 600px;
+    min-height: 600px;
+    height: auto;
     width: 600px;
     border: 1px solid;
     border-radius: 3px;
@@ -73,24 +75,15 @@
 }
 
 .window {
-  display: none;
+  display: block;
+  background-color: #3C4C50;
+  height: 25px;
+  width: 100%;
+  padding: 0 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-@media (min-width: 667px) {
-  .window {
-    display: block;
-    position: absolute;
-    top: -25px;
-    left: 0;
-    right: 0;
-    background-color: #3C4C50;
-    height: 25px;
-    width: 100%;
-    padding: 0 15px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-}
 
 .close,
 .min,
@@ -104,6 +97,7 @@
 
 .close {
   background-color: #FF6159;
+  cursor: pointer;
 }
 
 .min {
@@ -117,20 +111,20 @@
 .header {
   background: linear-gradient(to left, #010101 , #1B1C1C);
   color: #fff;
-  padding: 0 15px;
 }
 
-.name {
+.title {
   font-family: 'MarkWebPro-Heavy';
   font-size: 5vw;
   line-height: 55px;
   margin: 0 0 20px;
+  padding: 0 15px;
   text-transform: uppercase;
   letter-spacing: -0.025em;
 }
 
 @media (min-width: 667px) {
-  .name {
+  .title {
     font-size: 60px;
     line-height: 65px;
   }

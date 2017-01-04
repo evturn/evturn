@@ -4,81 +4,53 @@ import SVGIcon from 'components/Icons'
 import css from './style.css'
 
 export class WebProject extends Component {
-
-  state = {origin: 0, y: 0, style: {}, transition: ''}
+  state = {
+    enter: false,
+    animation: window.innerWidth < 667 ? true : false,
+  }
 
   componentDidMount() {
     document.body.style.overflow = 'hidden'
+    this.onEnter()
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timeout)
     document.body.style.overflow = 'auto'
+    clearTimeout(this.timeout)
   }
 
-  handleTouchStart = ({ targetTouches: [ e ] }) => {
-    this.setState({transition: '', origin: e.clientY})
+  onEnter = _ => {
+    this.timeout = setTimeout(_ => this.setState({enter: true}), 50)
   }
 
-  handleTouchMove = ({ targetTouches: [ e ] }) => {
-    const distance = e.clientY - this.state.origin
-    const top = distance >= 0 ? distance : 0
-    this.setState({style: {top: `${top}px`}, y: e.clientY})
-  }
-
-  handleTouchEnd = ({ targetTouches: [ e ] }) => {
-    const { origin, y } = this.state
-    const transition = y - origin > 150 ? true : false
-    this.setState({ transition, style: {}, origin: 0, y: 0 })
+  onLeave = _ => {
+    this.setState({enter: false})
+    this.timeout = this.state.animation
+                 ? setTimeout(this.navigateBack, 300)
+                 : this.navigateBack()
   }
 
   navigateBack = _ => {
-    this.timeout = setTimeout(_ => window.history.back(), 300)
-  }
-
-  updateCSS = transition => {
-    switch (transition) {
-      case true:
-        return css.dismiss
-      case false:
-        return css.remain
-      case '':
-      default:
-        return ''
-    }
+    window.history.back()
   }
 
   render() {
-    const { style, transition } = this.state
+    const { enter } = this.state
     const { name, shortDescription, tech, image, links } = this.props
     const imageURL = require(`public/images/${image}`)
 
-    if (transition) {
-      this.navigateBack()
-    }
-
     return (
       <div
-        style={style}
-        className={`${css.root} ${this.updateCSS(transition)}`}>
-        <div
-          onTouchStart={this.handleTouchStart}
-          onTouchMove={this.handleTouchMove}
-          onTouchEnd={this.handleTouchEnd}
-          className={css.project}>
-
-          <div className={css.window}>
-            <Link to='/web'>
-              <div className={css.close} />
-            </Link>
-            <div className={css.min} />
-            <div className={css.max} />
-          </div>
-
+        className={`${css.root} ${enter ? css.enter : ''}`}>
+        <div className={css.project}>
           <div className={css.header}>
-            <h2 className={css.name}>{name}</h2>
+            <div className={css.window}>
+              <div onClick={this.onLeave} className={css.close} />
+              <div onClick={this.onLeave} className={css.min} />
+              <div className={css.max} />
+            </div>
+            <h2 className={css.title}>{name}</h2>
           </div>
-
 
           <div className={css.body}>
             <div className={css.content}>
