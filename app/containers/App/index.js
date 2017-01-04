@@ -1,7 +1,7 @@
 import React from 'react'
 import Router from 'react-router/HashRouter'
 import Match from 'react-router/Match'
-import LazyLoad from 'containers/LazyLoad'
+import LazyLoad, { importDefault } from 'containers/LazyLoad'
 import Header from 'containers/Header'
 import Home from 'containers/Home'
 import css from './style.css'
@@ -14,23 +14,23 @@ export const App = props => {
         <Match pattern='/' exactly component={Home} />
         <Match pattern='/web' render={props =>
           <LazyLoad modules={{
-            web:     _ => import('containers/Web'),
-            project: _ => import('containers/Project')
+            Web:     _ => importDefault(import('containers/Web')),
+            Project: _ => importDefault(import('containers/Project'))
           }}>
-            {({ web: { default:Web }, project: { default:Project }}) =>
+            {({ Web, Project }) =>
               <Web {...props}>
                 {props => <Project {...props} />}
               </Web>}
           </LazyLoad>
         } />
         <Match pattern='/software' render={props =>
-          <LazyLoad modules={{software: _ => import('containers/Software')}}>
-            {({ software: { default:Software }}) => <Software {...props} />}
+          <LazyLoad modules={{Software: _ => importDefault(import('containers/Software'))}}>
+            {({ Software }) => <Software {...props} />}
           </LazyLoad>
         } />
         <Match pattern='/mobile' render={props =>
-          <LazyLoad modules={{mobile: _ => import('containers/Mobile')}}>
-            {({ mobile: { default:Mobile }}) => <Mobile {...props} />}
+          <LazyLoad modules={{Mobile: _ => importDefault(import('containers/Mobile'))}}>
+            {({ Mobile }) => <Mobile {...props} />}
           </LazyLoad>
         } />
       </div>
