@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import HomeVideo from './HomeVideo'
 import LoadingIndicator from 'components/LoadingIndicator'
+import Brushstroke from 'components/Icons/Brushstroke'
 import Logo from 'components/Logo'
 import css from './style.css'
 
 class Home extends Component {
-  constructor(props) {
-    super(props)
-    this.onVideoChange = ::this.onVideoChange
-  }
-
   state = {loading: true}
 
-  onVideoChange(nextState) {
+  onVideoChange = nextState => {
     this.setState(nextState)
   }
 
@@ -21,10 +17,17 @@ class Home extends Component {
     return (
       <div className={css.root}>
         <HomeVideo onVideoChange={this.onVideoChange} />
-        <div className={css.flex}>
-        {loading
-          ? <LoadingIndicator />
-          : <Logo className={css.logo} />}
+        <div className={css.overlay}>
+          <div className={css.mid}>
+            {loading
+              ? <LoadingIndicator />
+              :  <div>
+                  <div className={css.stroke}>
+                    <Brushstroke className={css.svg} />
+                  </div>
+                  <Logo className={css.logo} />
+                </div>}
+          </div>
         </div>
       </div>
     )

@@ -43,13 +43,17 @@ export class Project extends Component {
       <div
         className={`${css.root} ${enter ? css.enter : ''}`}>
         <div className={css.project}>
+
           <div className={css.header}>
             <div className={css.window}>
               <div onClick={this.onLeave} className={css.close} />
               <div onClick={this.onLeave} className={css.min} />
               <div className={css.max} />
             </div>
-            <h2 className={css.title}>{name}</h2>
+
+            <div className={css.banner}>
+              <h2 className={css.title}>{name}</h2>
+            </div>
           </div>
 
           <div className={css.body}>
