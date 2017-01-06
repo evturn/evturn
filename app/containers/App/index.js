@@ -11,6 +11,7 @@ export const App = props => {
   const Project = _ => importDefault(import('containers/Project'))
   const Software = _ => importDefault(import('containers/Software'))
   const Mobile = _ => importDefault(import('containers/Mobile'))
+  const Contact = _ => importDefault(import('containers/Contact'))
 
   return (
     <Router>
@@ -37,6 +38,12 @@ export const App = props => {
         <Match pattern='/mobile' render={props =>
           <LazyLoad modules={{ Mobile }}>
             {({ Mobile }) => <Mobile {...props} />}
+          </LazyLoad>
+        } />
+
+        <Match pattern='/contact' render={props =>
+          <LazyLoad modules={{ Contact }}>
+            {({ Contact }) => <Contact {...props} />}
           </LazyLoad>
         } />
       </div>

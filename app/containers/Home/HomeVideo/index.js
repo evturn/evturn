@@ -36,6 +36,7 @@ export class Video extends Component {
 
   componentDidMount() {
     this.setSource()
+    console.log(this.video.oncanplay)
     this.video.addEventListener('ended', this.setSource)
     this.video.addEventListener('playing', this.onPlay)
   }
@@ -56,7 +57,8 @@ export class Video extends Component {
     })
   }
 
-  onPlay() {
+  onPlay(e) {
+    console.log(e)
     this.props.onVideoChange({loading: false})
     this.video.playbackRate = this.state.playbackRate
   }
@@ -70,8 +72,9 @@ export class Video extends Component {
         className={css.video}
         type="video/mp4"
         preload="auto"
-        autoPlay="true"
-        muted="true"
+        autoPlay
+        muted
+        playsInline
       />
     )
   }

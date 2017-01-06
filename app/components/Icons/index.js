@@ -35,6 +35,9 @@ const icons = {
   cssmodules: {
     module: importModule('CSSModules'), displayName: 'CSS Modules'
   },
+  email: {
+    module: importModule('Email'), displayName: 'Mail'
+  },
   express: {
     module: importModule('Express'), displayName: 'Express'
   },
@@ -45,7 +48,7 @@ const icons = {
     module: importModule('Git'), displayName: 'Git'
   },
   github: {
-    module: importModule('GitHub'), displayName: 'GitHub'
+    module: importModule('Github'), displayName: 'GitHub'
   },
   gulp: {
     module: importModule('Gulp'), displayName: 'Gulp'
@@ -61,6 +64,9 @@ const icons = {
   },
   less: {
     module: importModule('Less'), displayName: 'LESS'
+  },
+  linkedin:{
+    module: importModule('Linkedin'), displayName: 'Linkedin'
   },
   mongodb: {
     module: importModule('MongoDB'), displayName: 'MongoDB'
