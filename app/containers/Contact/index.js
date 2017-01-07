@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SVGIcon from 'components/Icons'
+import SVG from 'components/SVG'
 import css from './style.css'
 
 export class Contact extends Component {
@@ -18,7 +18,7 @@ export class Contact extends Component {
           {links.map(x =>
             <li key={x.url} className={css.item}>
               <a href={x.url} className={css.link} target="_blank">
-                <SVGIcon name={x.icon} className={css.svg} />
+                <SVG name={x.icon} className={css.svg} />
               </a>
             </li>)}
         </ul>

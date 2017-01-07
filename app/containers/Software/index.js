@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PageHeader from 'components/PageHeader'
 import ProjectCards from 'components/ProjectCards'
-import SVGIcon from 'components/Icons'
+import SVG from 'components/SVG'
 import css from './style.css'
 
 export class Software extends Component {
@@ -14,7 +14,7 @@ export class Software extends Component {
       children: x.links.map(x =>
         <div className={css.icon} key={x.href}>
           <a href={x.href} target="_blank">
-            <SVGIcon className={css.svg} name={x.icon} />
+            <SVG className={css.svg} name={x.icon} />
           </a>
         </div>)
     }))

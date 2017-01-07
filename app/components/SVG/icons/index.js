@@ -1,19 +1,4 @@
-import React, { Children } from 'react'
-import LazyLoad, { importDefault } from 'containers/LazyLoad'
-
-export const SVGIcon = ({ name, children, ...rest }) => {
-  const { module, displayName } = icons[name]
-  return (
-    <LazyLoad modules={{ module }}>
-      {({ module:Component }) =>
-        <div>
-          <Component {...rest} />
-          {children ? Children.only(children({ displayName })) : null }
-        </div>
-      }
-    </LazyLoad>
-  )
-}
+import { importDefault } from 'containers/LazyLoad'
 
 const importModule = filename => {
   return _ => importDefault(import(`components/Icons/${filename}`))
@@ -124,4 +109,4 @@ const icons = {
   },
 }
 
-export default SVGIcon
+export default icons

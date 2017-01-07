@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from 'components/Logo'
+import Logo from 'components/SVG/theme/Logo'
 import css from './style.css'
 
 export const ProjectCards = ({ items=[], ...rest }) => {

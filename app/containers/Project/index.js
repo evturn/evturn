@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'react-router/Link'
-import SVGIcon from 'components/Icons'
+import SVG from 'components/SVG'
 import css from './style.css'
 
 export class Project extends Component {
@@ -67,7 +67,7 @@ export class Project extends Component {
                 {links.map(x =>
                   <li key={x.url} className={css.item}>
                     <a href={x.url} target="_blank">
-                      <SVGIcon name={x.icon} className={css.link} />
+                      <SVG name={x.icon} className={css.link} />
                     </a>
                   </li>)}
               </ul>
@@ -75,10 +75,10 @@ export class Project extends Component {
               <ul className={css.ul}>
                 {tech.map(x =>
                   <li key={x} className={css.li}>
-                    <SVGIcon name={x} className={css.svg}>
+                    <SVG name={x} className={css.svg}>
                       {({ displayName }) =>
                         <div className={css.tech}>{displayName}</div>}
-                    </SVGIcon>
+                    </SVG>
                   </li>)}
               </ul>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component, Children } from 'react'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
-import MoreIcon from 'components/Icons/More'
+import MoreIcon from 'components/SVG/icons/More'
 import PageHeader from 'components/PageHeader'
 import ProjectCards from 'components/ProjectCards'
 import css from './style.css'
