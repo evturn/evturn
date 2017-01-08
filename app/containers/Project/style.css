@@ -25,6 +25,7 @@
 }
 
 .curtain {
+  display: none;
   position: absolute;
   z-index: 11;
   top: 0;
@@ -42,16 +43,23 @@
   height: 100%;
   width: 100%;
   margin: 0 auto;
+  overflow-y: scroll;
 }
 
-@media (min-width: 667px) {
+@media (min-height: 415px) {
+  .project {
+    overflow-y: hidden;
+  }
+}
+
+@media (min-width: 667px) and (min-height: 768px) {
   .project {
     min-height: 600px;
     height: auto;
     width: 600px;
-    border: 1px solid;
-    border-radius: 3px;
-    border-image: linear-gradient(90deg, rgb(58, 123, 213) 50%, rgb(0, 210, 255)) 3;
+  }
+  .curtain {
+    display: block;
   }
 }
 

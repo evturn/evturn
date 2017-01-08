@@ -31,13 +31,12 @@ export class Project extends Component {
   }
 
   navigateBack = _ => {
-    window.history.back()
+    this.props.onClose()
   }
 
   render() {
     const { enter } = this.state
     const { name, shortDescription, tech, image, links } = this.props
-    const imageURL = require(`public/images/${image}`)
 
     return (
       <div
@@ -61,7 +60,7 @@ export class Project extends Component {
               <div className={css.description}>{shortDescription}</div>
               <div
                 className={css.img}
-                style={{backgroundImage: `url(${imageURL})` }} />
+                style={{backgroundImage: `url(${image})` }} />
 
               <ul className={css.links}>
                 {links.map(x =>
@@ -85,7 +84,7 @@ export class Project extends Component {
           </div>
         </div>
 
-        <Link to='/web' className={css.curtain} />
+        <div onClick={this.onLeave} className={css.curtain} />
       </div>
     )
   }

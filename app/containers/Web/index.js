@@ -1,40 +1,55 @@
 import React, { Component, Children } from 'react'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
+import Project from 'containers/Project'
 import MoreIcon from 'components/SVG/icons/More'
 import PageHeader from 'components/PageHeader'
 import ProjectCards from 'components/ProjectCards'
 import css from './style.css'
 
 export class Web extends Component {
+  state = {project: null}
 
-  getProjectBySlug({ params: { slug } }) {
-    return projects.filter(x => x.slug === slug)[0]
+  getProjectBySlug = slug => {
+    const project = projects
+      .filter(x => x.slug === slug)
+      .map(x => ({...x, image: require(`public/images/${x.image}`)}))[0]
+    this.setState({ project })
+  }
+
+  removeProject = _ => {
+    this.setState({project: null})
   }
 
   render() {
-    const { children } = this.props
+    const { project } = this.state
     return (
-      <div className={css.root}>
-        <PageHeader text='Web' />
+      <div>
+        <div className={css.root}>
+          <PageHeader text='Web' />
 
-        <ProjectCards items={projects.map(x => ({
-            key: x.slug,
-            title: x.name,
-            style: {backgroundImage: `url(${require(`public/images/${x.thumbnail}`)})`},
-            copy: x.shortDescription,
-            children: <Link
-              to={`/web/${x.slug}`}
-              className={css.more}>
-                <MoreIcon className={css.svg} />
-              </Link>
-          }))
-        } />
+          <ProjectCards items={projects.map(x => ({
+              key: x.slug,
+              title: x.name,
+              style: {backgroundImage: `url(${require(`public/images/${x.thumbnail}`)})`},
+              copy: x.shortDescription,
+              children: <div
+                onClick={_ => this.getProjectBySlug(x.slug)}
+                className={css.more}>
+                  <MoreIcon className={css.svg} />
+                </div>
+            }))
+          } />
 
-        <Match pattern='/web/:slug' render={props => {
-          const project = this.getProjectBySlug(props)
-          return Children.only(children(project))
-        }} />
+        </div>
+
+
+        {!!project
+          ? <Project
+              {...project}
+              onClose={this.removeProject} />
+          : null}
+
       </div>
     )
   }
