@@ -1,9 +1,4 @@
 .DS_Store
 node_modules
-*.log
-*.hot-update.js.map
-*.hot-update.js
-*.hot-update.json
-config.log.js
 build
 public
