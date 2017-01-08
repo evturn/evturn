@@ -1,9 +1,6 @@
 import React, { Component, Children, PropTypes } from 'react'
 
 export class LazyLoad extends Component {
-  constructor(props) {
-    super(props)
-  }
   static propTypes = {
     children: PropTypes.func.isRequired,
   }
@@ -56,14 +53,6 @@ export class LazyLoad extends Component {
       ? null
       : Children.only(children(modules))
   }
-}
-
-export const LazilyLoadFactory = (Component, modules) => {
-  return props => (
-    <LazilyLoad modules={modules}>
-      {mods => <Component {...mods} {...props} />}
-    </LazilyLoad>
-  )
 }
 
 export const importDefault = res => (

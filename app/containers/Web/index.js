@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react'
+import React, { Component } from 'react'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
 import LazyLoad, { importDefault } from 'containers/LazyLoad'
@@ -28,7 +28,6 @@ export class Web extends Component {
       <div>
         <div className={css.root}>
           <PageHeader text='Web' />
-
           <ProjectCards items={projects.map(x => ({
               key: x.slug,
               title: x.name,
