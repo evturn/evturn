@@ -1,4 +1,4 @@
-  (function(_, e, v, t, u, r, n) {
+(function(_, e, v, t, u, r, n) {
     _['GoogleAnalyticsObject'] = u
     _[u] = _[u] || function() {
       (_[u].q = _[u].q || []).push(arguments)

@@ -1,7 +1,7 @@
 import React, { Component, Children } from 'react'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
-import Project from 'containers/Project'
+import LazyLoad, { importDefault } from 'containers/LazyLoad'
 import MoreIcon from 'components/SVG/icons/More'
 import PageHeader from 'components/PageHeader'
 import ProjectCards from 'components/ProjectCards'
@@ -22,6 +22,7 @@ export class Web extends Component {
   }
 
   render() {
+    const Project = _ => importDefault(import('containers/Project'))
     const { project } = this.state
     return (
       <div>
@@ -40,14 +41,15 @@ export class Web extends Component {
                 </div>
             }))
           } />
-
         </div>
 
-
         {!!project
-          ? <Project
-              {...project}
-              onClose={this.removeProject} />
+          ? <LazyLoad modules={{ Project }}>
+              {({ Project }) =>
+                <Project
+                  {...project}
+                  onClose={this.removeProject} />}
+            </LazyLoad>
           : null}
 
       </div>

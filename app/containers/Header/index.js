@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import HeaderNav from './HeaderNav'
+import Menu from 'components/Menu'
+import Curtain from 'components/Curtain'
+import Hamburger from 'components/Hamburger'
 import css from './style.css'
 
 class Header extends Component {
@@ -23,20 +25,20 @@ class Header extends Component {
     const { open } = this.state
     const { routes } = this.props
     return (
-      <header className={`${css.root} ${!open ? css.short : ''}`}>
-        <div className={css.wrap}>
-          <div
-            onClick={this.toggleMenu}
-            className={`${css.hamburger} ${open ? css.open : ''}`}>
-            <hr className={css.line1} />
-            <hr className={css.line3} />
+      <div className={css.root}>
+        <header className={css.header}>
+          <div className={css.wrap}>
+            <Hamburger
+              open={open}
+              onClick={this.toggleMenu} />
+            <Menu
+              open={open}
+              routes={routes}
+              onClick={this.toggleMenu} />
           </div>
-          <HeaderNav
-            open={open}
-            routes={routes}
-            onClick={this.toggleMenu} />
-        </div>
-      </header>
+        </header>
+        <Curtain show={open} onClick={this.toggleMenu} />
+      </div>
     )
   }
 }

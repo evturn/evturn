@@ -1,5 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Root from 'containers/Root'
+import App from 'containers/App'
+import 'sanitize.css/sanitize.css'
+import 'containers/App/analytics'
 
-render(<Root />, document.getElementById('app'))
+render(<App />, document.getElementById('app'))

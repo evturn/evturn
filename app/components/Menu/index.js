@@ -4,7 +4,7 @@ import css from './style.css'
 
 const HeaderNav = ({ routes, open, onClick }) => {
   return (
-    <div className={`${css.root} ${open ? css.open : ''}`}>
+    <nav className={`${css.root} ${open ? css.open : ''}`}>
       <ul className={css.ul}>
         {routes.map(x =>
           <li className={css.li} key={x.to}>
@@ -14,7 +14,7 @@ const HeaderNav = ({ routes, open, onClick }) => {
               className={css.link}>{x.text}</Link>
           </li>)}
       </ul>
-    </div>
+    </nav>
   )
 }
 

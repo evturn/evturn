@@ -8,7 +8,6 @@ import css from './style.css'
 
 export const App = props => {
   const Web = _ => importDefault(import('containers/Web'))
-  const Project = _ => importDefault(import('containers/Project'))
   const Software = _ => importDefault(import('containers/Software'))
   const Mobile = _ => importDefault(import('containers/Mobile'))
   const Contact = _ => importDefault(import('containers/Contact'))
@@ -21,11 +20,8 @@ export const App = props => {
         <Match pattern='/' exactly component={Home} />
 
         <Match pattern='/web' render={props =>
-          <LazyLoad modules={{ Web, Project }}>
-            {({ Web, Project }) =>
-              <Web {...props}>
-                {props => <Project {...props} />}
-              </Web>}
+          <LazyLoad modules={{ Web }}>
+            {({ Web }) => <Web {...props} />}
           </LazyLoad>
         } />
 

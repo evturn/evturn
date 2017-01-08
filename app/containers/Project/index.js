@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'react-router/Link'
 import SVG from 'components/SVG'
+import Curtain from 'components/Curtain'
 import css from './style.css'
 
 export class Project extends Component {
@@ -84,7 +85,7 @@ export class Project extends Component {
           </div>
         </div>
 
-        <div onClick={this.onLeave} className={css.curtain} />
+        <Curtain onClick={this.onLeave} className={css.curtain} />
       </div>
     )
   }
