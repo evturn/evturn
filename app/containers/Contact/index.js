@@ -5,8 +5,8 @@ import css from './style.css'
 export class Contact extends Component {
   static defaultProps = {
     links: [
-      {url: 'http://github.com/evturn',           icon: 'code' },
-      {url: 'mailto:evturn@gmail.com',            icon: 'email' },
+      {url: 'http://github.com/evturn', icon: 'code' },
+      {url: 'mailto:evturn@gmail.com',  icon: 'email' },
     ]
   }
 

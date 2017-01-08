@@ -3,11 +3,18 @@ import PageHeader from 'components/PageHeader'
 import css from './style.css'
 
 export class Mobile extends Component {
-  constructor(props) {
-    super(props)
+  static defaultProps = {
+    projects: [
+      {name: 'Troposphere',   image: 'ios-troposphere.png' },
+      {name: 'Confectionery', image: 'ios-confectionery.png'},
+      {name: 'Mixtape',       image: 'ios-mixtape.png'},
+      {name: 'Stratosphere',  image: 'ios-stratosphere.png'},
+      {name: 'Dumb Facts',    image: 'ios-dumb-facts.png'}
+    ]
   }
 
   render() {
+    const { projects } = this.props
     return (
       <div className={css.root}>
         <PageHeader text='Mobile' />
@@ -15,7 +22,7 @@ export class Mobile extends Component {
           {projects.map(x =>
             <div className={css.item} key={x.name}>
               <div className={css.title}>{x.name}</div>
-              <img src={x.image} className={css.img} />
+              <img src={require(`public/images/${x.image}`)} className={css.img} />
             </div>
           )}
         </div>
@@ -23,13 +30,5 @@ export class Mobile extends Component {
     )
   }
 }
-
-const projects = [
-  {name: 'Troposphere',   image: 'ios-troposphere.png',   bottom: true },
-  {name: 'Confectionery', image: 'ios-confectionery.png', top: true},
-  {name: 'Mixtape',       image: 'ios-mixtape.png',       bottom: true},
-  {name: 'Stratosphere',  image: 'ios-stratosphere.png',  top: true},
-  {name: 'Dumb Facts',    image: 'ios-dumb-facts.png',    bottom: true}
-].map(x => ({...x, image: require(`public/images/${x.image}`)}))
 
 export default Mobile

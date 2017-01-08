@@ -73,7 +73,7 @@ const cssLoaders = {
             importLoaders: 1,
           }
         }, {
-          loader: 'postcss-loader?sourceMap'
+          loader: 'postcss-loader'
       }]
     })
   }
@@ -173,17 +173,7 @@ module.exports = {
         options: {name: 'fonts/[hash].[ext]'}
       }, {
         test: /.*\.(gif|png|jpe?g)$/i,
-        use: [{
-          loader: 'file-loader',
-        }, {
-          loader: 'image-webpack-loader',
-          options: {
-            progressive: true,
-            optimizationLevel: 6,
-            interlaced: false,
-            pngquant: {quality: '65-90', speed: 5}
-          }
-        }]
+        loader: 'file-loader',
       }, {
         test: /\.html$/,
         loader: 'html-loader',

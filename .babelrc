@@ -5,8 +5,7 @@
     "stage-0"
   ],
   "plugins": [
-    "add-module-exports",
-    "transform-function-bind"
+    "add-module-exports"
   ],
   "env": {
     "production": {

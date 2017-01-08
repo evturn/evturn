@@ -6,4 +6,3 @@ node_modules
 *.hot-update.json
 config.log.js
 build
-public

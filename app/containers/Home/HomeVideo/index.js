@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import css from './style.css'
 
 export class Video extends Component {
-
-
   state = {src: '', index: 0}
 
   componentDidMount() {

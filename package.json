@@ -2,19 +2,20 @@
   "name": "evturn",
   "version": "2.0.1",
   "description": "A website about me for you.",
+  "engines": {
+    "node": "7.4.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development babel-node server/development",
-    "now-start": "NODE_ENV=production babel-node index.js",
+    "now-start": "NODE_ENV=production node index.js",
     "clean": "rimraf ./build",
     "prebuild": "npm run clean",
-    "build": "NODE_ENV=production webpack --config webpack.config.js --color -p",
-    "now-build": "NODE_ENV=production webpack --config webpack.config.js --color -p"
+    "build": "NODE_ENV=production webpack --config webpack.config.js --color -p"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "koa": "v2.0.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-router": "4.0.0-alpha.6",
@@ -27,7 +28,6 @@
     "babel-loader": "^6.2.9",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-transform": "^2.0.2",
-    "babel-plugin-transform-function-bind": "^6.8.0",
     "babel-plugin-transform-react-constant-elements": "^6.9.1",
     "babel-plugin-transform-react-inline-elements": "^6.8.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.2.7",
@@ -41,8 +41,8 @@
     "file-loader": "0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.24.1",
-    "image-webpack-loader": "^3.0.0",
     "imports-loader": "^0.7.0",
+    "koa": "v2.0.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-focus": "1.0.0",
     "postcss-loader": "^1.2.0",
