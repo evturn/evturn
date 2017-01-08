@@ -1,7 +1,7 @@
 import { importDefault } from 'containers/LazyLoad'
 
 const importModule = filename => {
-  return _ => importDefault(import(`components/Icons/${filename}`))
+  return _ => importDefault(import(`components/SVG/icons/${filename}`))
 }
 
 const icons = {
