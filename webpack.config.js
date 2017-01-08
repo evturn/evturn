@@ -26,7 +26,6 @@ const output = {
   },
   production: {
     path: path.resolve(CWD, 'build'),
-    publicPath: 'build/',
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js'
   }
@@ -103,10 +102,9 @@ const plugins = {
     new HtmlWebpackPlugin({
       template: 'app/index.html',
       appMountId: 'app',
+      title: 'Evan Turner | Developer',
       favicon: 'app/favicon.png',
       inject: true,
-      title: 'Evan Turner | Developer',
-      filename: '../index.html',
     }),
     new ExtractTextPlugin({filename: '[name].[contenthash].css'}),
     new webpack.DefinePlugin({
