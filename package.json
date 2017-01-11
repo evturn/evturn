@@ -8,7 +8,6 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development babel-node server/development",
-    "now-start": "NODE_ENV=production node index.js",
     "clean": "rimraf ./build",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production webpack --config webpack.config.js --color -p"
@@ -41,6 +40,7 @@
     "file-loader": "0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.24.1",
+    "image-webpack-loader": "^3.1.0",
     "imports-loader": "^0.7.0",
     "koa": "v2.0.0",
     "postcss-cssnext": "^2.9.0",

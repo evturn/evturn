@@ -29,13 +29,13 @@ export class Software extends Component {
 }
 
 const projects = [{
-    name: 'Object Iterable',
-    description: `Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.`,
-    slug: 'object-iterable',
+    name: 'Sentence Generator',
+    description: `Transforms text input into a specified amount of newly generated sentences using a markov-chain.`,
+    slug: 'sentence-generator',
     color: '#00ffec',
     links: [
-      { href: 'https://github.com/evturn/object-iterable', icon: 'code' },
-      { href: 'https://www.npmjs.com/package/object-iterable', icon: 'npm' }
+      { href: 'https://github.com/evturn/sentence-generator', icon: 'code' },
+      { href: 'https://www.npmjs.com/package/sentence-generator', icon: 'npm' }
     ]
   },{
     name: 'Meta Preserve',
@@ -46,22 +46,30 @@ const projects = [{
       { href: 'https://github.com/evturn/meta-preserve', icon: 'code' }
     ]
   },{
+    name: 'Edit0r',
+    description: `An editor for the browser that transforms text to markdown in real-time.`,
+    color: `#00a8ff`,
+    slug: 'edit0r',
+    links: [
+      { href: 'https://github.com/evturn/edit0r', icon: 'code' }
+    ]
+  },{
+    name: 'Object Iterable',
+    description: `Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.`,
+    slug: 'object-iterable',
+    color: '#00e7ff',
+    links: [
+      { href: 'https://github.com/evturn/object-iterable', icon: 'code' },
+      { href: 'https://www.npmjs.com/package/object-iterable', icon: 'npm' }
+    ]
+  },{
     name: 'Proto',
     description: `Copies properties from one object to another using prototypes without using the \`new\` operator and invoking a constructor call.`,
     slug: 'proto',
-    color: '#00e7ff',
+    color: '#00d2ff',
     links: [
       { href: 'https://github.com/evturn/proto', icon: 'code' },
       { href: 'https://www.npmjs.com/package/@evturn/proto', icon: 'npm' }
-    ]
-  },{
-    name: 'Sentence Generator',
-    description: `Transforms text input into a specified amount of newly generated sentences using a markov-chain.`,
-    slug: 'sentence-generator',
-    color: '#00d2ff',
-    links: [
-      { href: 'https://github.com/evturn/sentence-generator', icon: 'code' },
-      { href: 'https://www.npmjs.com/package/sentence-generator', icon: 'npm' }
     ]
   },{
     name: 'Slackbots',
@@ -71,12 +79,6 @@ const projects = [{
     links: [
       { href: 'https://github.com/faquet/bots', icon: 'code' }
     ]
-  },{
-    name: 'Edit0r',
-    description: `An editor for the browser that transforms text to markdown in real-time.`,
-    color: `#00a8ff`,
-    slug: 'edit0r',
-    links: []
   },{
     name: 'Babel Preset',
     description: `Specified group of Babel plugins that transpile proposed and newly added language features to the JavaScript spec to backwards compatible versions.`,

@@ -9,20 +9,20 @@
 }
 
 .ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
   width: 100%;
   padding: 0;
-  align-items: center;
   text-align: center;
-  max-width: 1024px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 .item {
   display: inline-block;
-  width: 100%;
+  width: 50%;
 }
 
 .link {
@@ -31,13 +31,6 @@
 
 .svg {
   color: #00d2ff;
-  width: 150px;
-  height: 150px;
-}
-
-@media (min-width: 1024px) {
-  .svg {
-    width: 200px;
-    height: 200px;
-  }
+  width: 100px;
+  height: 100px;
 }

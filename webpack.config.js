@@ -26,6 +26,7 @@ const output = {
   },
   production: {
     path: path.resolve(CWD, 'build'),
+    publicPath: 'build/',
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js'
   }
@@ -104,6 +105,7 @@ const plugins = {
       appMountId: 'app',
       title: 'Evan Turner | Software Engineer',
       favicon: 'public/favicon.png',
+      filename: '../index.html',
       inject: true,
     }),
     new ExtractTextPlugin({filename: '[name].[contenthash].css'}),
@@ -173,7 +175,17 @@ module.exports = {
         options: {name: 'fonts/[hash].[ext]'}
       }, {
         test: /.*\.(gif|png|jpe?g)$/i,
-        loader: 'file-loader',
+        use: [{
+          loader: 'file-loader',
+        }, {
+          loader: 'image-webpack-loader',
+          options: {
+            progressive: true,
+            optimizationLevel: 6,
+            interlaced: false,
+            pngquant: {quality: '65-90', speed: 5}
+          }
+        }]
       }, {
         test: /\.html$/,
         loader: 'html-loader',

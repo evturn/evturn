@@ -67,6 +67,7 @@
 
 .content {
   padding: 15px;
+  margin: 0 auto;
 }
 
 .description {
@@ -180,11 +181,11 @@
 
 .item {
   display: inline-block;
-  margin: 0 0 0 15px;
+  margin: 0 0 0 5px;
 }
 
 .link {
-  color: #00d2ff;
+  color: #3C4C50;
   width: 30px;
   height: 30px;
   padding: 2.5px;

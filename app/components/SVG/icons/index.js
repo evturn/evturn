@@ -9,13 +9,16 @@ const icons = {
     module: importModule('Backbone'), displayName: 'Backbone'
   },
   business: {
-    module: importModule('Business'), displayName: 'Company'
+    module: importModule('Business'), displayName: 'Business'
   },
   chrome: {
     module: importModule('Chrome'), displayName: 'Chrome'
   },
   code: {
     module: importModule('Code'), displayName: 'Code'
+  },
+  company: {
+    module: importModule('Company'), displayName: 'Company'
   },
   cssmodules: {
     module: importModule('CSSModules'), displayName: 'CSS Modules'
@@ -46,6 +49,9 @@ const icons = {
   },
   jquery: {
     module: importModule('JQuery'), displayName: 'jQuery'
+  },
+  launch: {
+    module: importModule('Launch'), displayName: 'Launch'
   },
   less: {
     module: importModule('Less'), displayName: 'LESS'
