@@ -60,14 +60,14 @@
   display: flex;
   height: 100%;
   align-items: baseline;
-  background-color: #fff;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
 }
 
 .content {
   padding: 15px;
   margin: 0 auto;
+  background-color: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .description {

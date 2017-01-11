@@ -9,12 +9,13 @@
   text-transform: uppercase;
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 30px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1366px) {
   .root {
     text-align: left;
     font-size: 80px;
-    padding: 0 10px;
+    padding: 0 40px 30px;
   }
 }

@@ -37,7 +37,7 @@ export class Project extends Component {
 
   render() {
     const { enter } = this.state
-    const { name, shortDescription, tech, image, links } = this.props
+    const { name, description, tech, image, links } = this.props
 
     return (
       <div
@@ -58,10 +58,10 @@ export class Project extends Component {
 
           <div className={css.body}>
             <div className={css.content}>
-              <div className={css.description}>{shortDescription}</div>
+              <div className={css.description}>{description}</div>
               <div
                 className={css.img}
-                style={{backgroundImage: `url(${image})` }} />
+                style={{backgroundImage: `url(${require(`public/images/${image}`)})` }} />
 
               <ul className={css.links}>
                 {links.map(x =>

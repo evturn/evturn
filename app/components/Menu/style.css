@@ -93,19 +93,19 @@
     line-height: 70px;
     padding: 0 15px;
   }
-}
 
-.link:after {
-  position: absolute;
-  content: '';
-  top: 10px;
-  bottom: 0px;
-  left: 0px;
-  width: 0%;
-  background-color: rgba(255,255,255,0.15);
-  transition: width .3s ease-out;
-}
+  .link:after {
+    position: absolute;
+    content: '';
+    top: 10px;
+    bottom: 0px;
+    left: 0px;
+    width: 0%;
+    background-color: rgba(255,255,255,0.15);
+    transition: width .3s ease-out;
+  }
 
-.link:hover:after {
-  width: 104%;
+  .link:hover:after {
+    width: 104%;
+  }
 }

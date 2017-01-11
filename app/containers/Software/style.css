@@ -1,6 +1,7 @@
 .root {
   position: relative;
   height: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   width: 100%;
   background: linear-gradient(to left, #00d2ff , #3a7bd5);
@@ -19,4 +20,39 @@
   height: 25px;
   padding: 2.5px;
   border-radius: 3px;
+}
+
+.items {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: transparent;
+  width: 90%;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.item {
+  display: inline-block;
+  margin: 20px auto;
+  width: 100%;
+}
+
+@media (min-width: 414px) {
+  .item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 667px) {
+  .items {
+    max-width: 667px;
+  }
+}
+
+@media (min-width: 736px) {
+  .item {
+    width: 33.3333333333%;
+  }
 }

@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
 import PageHeader from 'components/PageHeader'
-import ProjectCards from 'components/ProjectCards'
+import ProjectCard from 'components/ProjectCard'
 import SVG from 'components/SVG'
 import css from './style.css'
 
 export class Software extends Component {
   render() {
-    const items = projects.map(x => ({
-      key: x.slug,
-      title: x.name,
-      style: {backgroundColor: x.color},
-      copy: x.description,
-      children: x.links.map(x =>
-        <div className={css.icon} key={x.href}>
-          <a href={x.href} target="_blank">
-            <SVG className={css.svg} name={x.icon} />
-          </a>
-        </div>)
-    }))
-
     return (
       <div className={css.root}>
         <PageHeader text='Software' />
-        <ProjectCards items={items} />
+        <div className={css.items}>
+          {projects.map(x =>
+            <ProjectCard
+              {...x}
+              key={x.slug}
+              style={{backgroundColor: x.color}}
+              className={css.item}>
+              {x.links.map(x =>
+                <div className={css.icon} key={x.href}>
+                  <a href={x.href} target="_blank">
+                    <SVG className={css.svg} name={x.icon} />
+                  </a>
+                </div>)}
+            </ProjectCard>)}
+        </div>
       </div>
     )
   }
@@ -48,7 +49,7 @@ const projects = [{
   },{
     name: 'Edit0r',
     description: `An editor for the browser that transforms text to markdown in real-time.`,
-    color: `#00a8ff`,
+    color: '#00e7ff',
     slug: 'edit0r',
     links: [
       { href: 'https://github.com/evturn/edit0r', icon: 'code' }
@@ -57,7 +58,7 @@ const projects = [{
     name: 'Object Iterable',
     description: `Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.`,
     slug: 'object-iterable',
-    color: '#00e7ff',
+    color: '#00d2ff',
     links: [
       { href: 'https://github.com/evturn/object-iterable', icon: 'code' },
       { href: 'https://www.npmjs.com/package/object-iterable', icon: 'npm' }
@@ -66,7 +67,7 @@ const projects = [{
     name: 'Proto',
     description: `Copies properties from one object to another using prototypes without using the \`new\` operator and invoking a constructor call.`,
     slug: 'proto',
-    color: '#00d2ff',
+    color: '#00bdff',
     links: [
       { href: 'https://github.com/evturn/proto', icon: 'code' },
       { href: 'https://www.npmjs.com/package/@evturn/proto', icon: 'npm' }
@@ -75,7 +76,7 @@ const projects = [{
     name: 'Slackbots',
     description: `Boilerplate for connecting to the Slack API and running a slackbot.`,
     slug: 'slackbots',
-    color: '#00bdff',
+    color: `#00a8ff`,
     links: [
       { href: 'https://github.com/faquet/bots', icon: 'code' }
     ]
