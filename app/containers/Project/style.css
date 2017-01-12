@@ -45,7 +45,7 @@
   }
 }
 
-@media (min-width: 667px) and (min-height: 768px) {
+@media (min-width: 667px) and (min-height: 667px) {
   .project {
     min-height: 600px;
     height: auto;
@@ -56,18 +56,23 @@
   }
 }
 
+.header {
+  color: #fff;
+}
+
 .body {
   display: flex;
   height: 100%;
   align-items: baseline;
+  background-color: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .content {
   padding: 15px;
   margin: 0 auto;
-  background-color: #fff;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+
 }
 
 .description {
@@ -115,10 +120,6 @@
 
 .banner {
   background: linear-gradient(to left, #010101 , #1B1C1C);
-}
-
-.header {
-  color: #fff;
 }
 
 .title {
