@@ -111,14 +111,6 @@ const plugins = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new OfflinePlugin({
-      publicPath: 'build/',
-      relativePaths: false,
-      ServiceWorker: {
-        events: true,
-        output: 'terrance.js',
-        navigateFallbackURL: '/',
-        publicPath: 'build/terrance.js',
-      },
       caches: {
         main: [':rest:'],
         additional: [':externals:'],
