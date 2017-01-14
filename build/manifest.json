@@ -1,13 +1,13 @@
 {
   "icons": [
     {
-      "src": "favicon-32x32.png",
+      "src": "build/9588d25f5f5176f599dcd02f9617a64f.png",
       "sizes": "32x32",
       "type": "image/png",
       "density": 1.0
     },
     {
-      "src": "favicon-96x96.png",
+      "src": "build/a259794cd45770878f27e0f86ebeb945.png",
       "sizes": "96x96",
       "type": "image/png",
       "density": 2.0

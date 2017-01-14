@@ -96,12 +96,7 @@ const plugins = {
     new webpack.DefinePlugin({__DEV__: true}),
   ],
   production: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      children: true,
-      minChunks: 2,
-      async: true,
-    }),
+    new webpack.optimize.CommonsChunkPlugin({names: ['vendor', 'manifest']}),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     new HtmlWebpackPlugin({
@@ -110,10 +105,7 @@ const plugins = {
       filename: '../index.html',
       inject: true,
     }),
-    new ExtractTextPlugin({
-      filename: '[name].[contenthash].css',
-      allChunks: true,
-    }),
+    new ExtractTextPlugin({filename: '[name].[contenthash].css'}),
     new webpack.DefinePlugin({
       __DEV__: false,
       'process.env.NODE_ENV': JSON.stringify('production')
@@ -124,12 +116,12 @@ const plugins = {
       ServiceWorker: {
         events: true,
         output: 'terrance.js',
-        scope: './',
+        scope: '/build/',
         publicPath: 'build/terrance.js',
       },
       caches: {
         main: [':rest:'],
-        additional: ['*.chunk.js'],
+        additional: [':externals:'],
       },
       AppCache: false,
       safeToUseOptionalCaches: true,
@@ -198,6 +190,10 @@ module.exports = {
         loader: 'file-loader',
         options: {name: 'fonts/[hash].[ext]'}
       }, {
+        test: /\/json$/,
+        loader: 'file-loader',
+        exclude: /node_modules/,
+      },{
         test: /.*\.(gif|png|jpe?g)$/i,
         use: [{
           loader: 'file-loader',
@@ -214,9 +210,6 @@ module.exports = {
         test: /\.html$/,
         loader: 'html-loader',
       }, {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },{
         test: /\.(mp4|webm)$/,
         loader: 'url-loader',
         options: {limit: 10000}
