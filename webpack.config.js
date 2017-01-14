@@ -117,6 +117,7 @@ const plugins = {
         events: true,
         output: 'terrance.js',
         scope: '/build/',
+        navigateFallbackURL: '/',
         publicPath: 'build/terrance.js',
       },
       caches: {
