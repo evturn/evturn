@@ -90,8 +90,6 @@ const plugins = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       appMountId: 'app',
-      title: 'Evan Turner | Software Engineer',
-      favicon: 'public/favicon.png',
       inject: true,
     }),
     new webpack.DefinePlugin({__DEV__: true}),
@@ -103,8 +101,6 @@ const plugins = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       appMountId: 'app',
-      title: 'Evan Turner | Software Engineer',
-      favicon: 'public/favicon.png',
       filename: '../index.html',
       inject: true,
     }),
@@ -169,6 +165,9 @@ module.exports = {
           mimetype: 'application/octet-stream',
           name: 'fonts/[hash].[ext]'
         },
+      },{
+        test: /\.ico$/,
+        loader: 'file-loader',
       },{
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',

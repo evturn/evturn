@@ -2,6 +2,7 @@ import React from 'react'
 import Router from 'react-router/HashRouter'
 import AsyncRoute from 'components/AsyncRoute'
 import { importDefault } from 'containers/LazyLoad'
+import Head from 'containers/App/Head'
 import Header from 'containers/Header'
 import css from './style.css'
 
@@ -10,6 +11,7 @@ export const App = props => {
     <Router>
       {({ router }) =>
         <div className={css.root}>
+          <Head />
           <Header />
           <AsyncRoute
             pattern='/'
@@ -33,7 +35,4 @@ export const App = props => {
   )
 }
 
-
-
 export default App
-
