@@ -15,7 +15,7 @@ const entry = {
   ],
   production: {
     main: path.join(CWD, 'app/index.js'),
-    vendor: ['react', 'react-dom', 'react-router'],
+    vendor: ['react', 'react-dom', 'react-router', 'react-helmet'],
   }
 }
 
