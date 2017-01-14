@@ -26,7 +26,7 @@ const Head = props => {
         {name: 'twitter:site',        content: '@evturn'},
         {name: 'twitter:url',         content: 'https://evturn.com/#/'},
         {name: 'twitter:description', content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
-        {name: 'keywords',            content: 'evan turner, web apps, developer, software, javascript, mobile, technologies'},
+        {name: 'keywords',            content: 'evturn, evturn.com, evan turner, web apps, developer, software, javascript, mobile, technologies'},
         {name: 'description',         content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
         {name: 'theme-color',         content: '#00d2ff'},
       ]}
