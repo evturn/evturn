@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Link from 'react-router/Link'
+import AsyncLink from 'components/AsyncLink'
 import SVG from 'components/SVG'
 import Curtain from 'components/Curtain'
 import css from './style.css'
@@ -46,8 +46,12 @@ export class Project extends Component {
 
           <div className={css.header}>
             <div className={css.window}>
-              <div onClick={this.onLeave} className={css.close} />
-              <div onClick={this.onLeave} className={css.min} />
+              <AsyncLink
+                to='/web'
+                onClick={this.onLeave}>
+                <div className={css.close} />
+                <div className={css.min} />
+              </AsyncLink>
               <div className={css.max} />
             </div>
 

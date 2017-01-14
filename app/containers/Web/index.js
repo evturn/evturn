@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
 import LazyLoad, { importDefault } from 'containers/LazyLoad'
+import AsyncRoute from 'components/AsyncRoute'
 import MoreIcon from 'components/SVG/icons/More'
 import PageHeader from 'components/PageHeader'
 import ProjectCard from 'components/ProjectCard'
@@ -10,18 +11,31 @@ import css from './style.css'
 export class Web extends Component {
   state = {project: null}
 
-  getProjectBySlug = slug => {
-    const project = projects
-      .filter(x => x.slug === slug)[0]
-    this.setState({ project })
+  componentDidMount() {
+    this.getProjectBySlug(this.props.location)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.query !== nextProps.location.query) {
+      this.getProjectBySlug(nextProps.location)
+    }
+  }
+
+  getProjectBySlug = ({ query }) => {
+    if (query && query.slug) {
+      const project = projects
+        .filter(x => x.slug === query.slug)[0]
+      this.setState({ project })
+    } else {
+      this.setState({project: null})
+    }
   }
 
   removeProject = _ => {
-    this.setState({project: null})
+    this.props.router.transitionTo('/web')
   }
 
   render() {
-    const Project = _ => importDefault(import('containers/Project'))
     const { project } = this.state
     return (
       <div className={css.root}>
@@ -33,21 +47,21 @@ export class Web extends Component {
               {...x}
               key={x.slug}
               className={css.item}>
-              <div
-                onClick={_ => this.getProjectBySlug(x.slug)}
+              <Link
+                to={{ pathname: '/web', query: {slug: x.slug}}}
                 className={css.more}>
                   <MoreIcon className={css.svg} />
-              </div>
+              </Link>
             </ProjectCard>)}
         </div>
 
         {!!project
-          ? <LazyLoad modules={{ Project }}>
-              {({ Project }) =>
-                <Project {...project} onClose={this.removeProject} />}
-            </LazyLoad>
+          ? <AsyncRoute
+              {...project}
+              pattern='/'
+              onClose={this.removeProject}
+              component={_ => importDefault(import('containers/Project'))} />
           : null}
-
       </div>
     )
   }

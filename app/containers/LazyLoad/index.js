@@ -5,9 +5,7 @@ export class LazyLoad extends Component {
     children: PropTypes.func.isRequired,
   }
 
-  state = {
-    loaded: false
-  }
+  state = {loaded: false}
 
   componentWillMount() {
     this.load(this.props)

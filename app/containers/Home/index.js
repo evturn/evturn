@@ -4,7 +4,7 @@ import LoadingIndicator from 'components/LoadingIndicator'
 import LogoBrush from 'components/SVG/theme/LogoBrush'
 import css from './style.css'
 
-class Home extends Component {
+export class Home extends Component {
   static defaultProps = {
     videoURLs: [
       'https://www.dropbox.com/s/ijpt86526hf68ve/vid-28.m4v?dl=1',
