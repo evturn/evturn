@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 const CWD = process.cwd()
 const ENV = process.env.NODE_ENV
 
@@ -109,6 +110,12 @@ const plugins = {
       __DEV__: false,
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
+    new OfflinePlugin({
+      caches: {
+        main: [':rest:'],
+        additional: [':externals:']
+      }
+    })
   ]
 }
 

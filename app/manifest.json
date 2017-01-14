@@ -1,0 +1,35 @@
+{
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "density": 1.0
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": 2.0
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "density": 3.0
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "density": 4.0
+    }
+  ],
+  "name": "Evan Turner | Software Engineer",
+  "short_name": "Evan Turner",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#00d2ff",
+  "background_color": "#00d2ff"
+}
