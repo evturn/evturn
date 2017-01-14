@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import App from 'containers/App'
-import './manifest.json'
+import 'public/manifest.json'
 import 'sanitize.css/sanitize.css'
 import 'containers/App/analytics'
 

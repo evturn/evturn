@@ -111,6 +111,7 @@ const plugins = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new OfflinePlugin({
+      publicPath: '/',
       caches: {
         main: [':rest:'],
         additional: [':externals:']
