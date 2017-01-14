@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import Helmet from 'react-helmet'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
 import LazyLoad, { importDefault } from 'containers/LazyLoad'
@@ -39,6 +40,11 @@ export class Web extends Component {
     const { project } = this.state
     return (
       <div className={css.root}>
+        <Helmet title='Web' meta={[
+          {name: 'twitter:title', content: 'Web'},
+          {property: 'og:title',  content: 'Web'},
+        ]} />
+
         <PageHeader text='Web' />
 
         <div className={css.items}>

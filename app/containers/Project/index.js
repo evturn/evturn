@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Helmet from 'react-helmet'
 import AsyncLink from 'components/AsyncLink'
 import SVG from 'components/SVG'
 import Curtain from 'components/Curtain'
@@ -42,6 +43,17 @@ export class Project extends Component {
     return (
       <div
         className={`${css.root} ${enter ? css.enter : ''}`}>
+        <Helmet title={name} meta={[
+          {name: 'twitter:card',        content: 'summary_large_image'},
+          {name: 'twitter:title',       content: name},
+          {name: 'twitter:description', content: description},
+          {name: 'twitter:image',       content: image},
+          {name: 'twitter:site',        content: '@evturn'},
+          {property: 'og:title',        content: name},
+          {property: 'og:description',  content: description},
+          {property: 'og:image',        content: image},
+          {name: 'description',         content: description},
+        ]} />
         <div className={css.project}>
 
           <div className={css.header}>
@@ -65,6 +77,7 @@ export class Project extends Component {
               <div className={css.description}>{description}</div>
               <div
                 className={css.img}
+                title={`A screenshot of the ${name} website.`}
                 style={{backgroundImage: `url(${require(`public/images/${image}`)})` }} />
 
               <ul className={css.links}>

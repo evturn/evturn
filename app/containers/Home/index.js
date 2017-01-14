@@ -50,6 +50,7 @@ export class Home extends Component {
               : <LogoBrush />}
           </div>
         </div>
+        <h1>Evan Turner | Software Engineer</h1>
       </div>
     )
   }

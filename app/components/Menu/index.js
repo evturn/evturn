@@ -5,9 +5,9 @@ import css from './style.css'
 const HeaderNav = ({ routes, open, onClick }) => {
   return (
     <nav className={`${css.root} ${open ? css.open : ''}`}>
-      <ul className={css.ul}>
+      <ul className={css.ul} role='menu'>
         {routes.map(x =>
-          <li className={css.li} key={x.to}>
+          <li className={css.li} key={x.to} role='menuitem'>
             <Link
               to={x.to}
               onClick={onClick}

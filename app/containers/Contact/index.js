@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Helmet from 'react-helmet'
 import SVG from 'components/SVG'
 import css from './style.css'
 
@@ -14,6 +15,11 @@ export class Contact extends Component {
     const { links } = this.props
     return (
       <div className={css.root}>
+        <Helmet title='Contact' meta={[
+          {name: 'twitter:title', content: 'Contact'},
+          {property: 'og:title',  content: 'Contact'},
+        ]} />
+
         <ul className={css.ul}>
           {links.map(x =>
             <li key={x.url} className={css.item}>

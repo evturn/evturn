@@ -6,6 +6,7 @@ export const Brushstroke = ({ className, ...rest }) => {
     <Icon
       {...rest}
       className={className}
+      name='A smooth scribble-like pattern from drawn from a white marker that resembles the stroke of a paintbrush'
       viewBox="0 0 1000.000000 1235.000000">
       <g className={className} transform="translate(0.000000,1235.000000) scale(0.10000,-0.10000)" stroke="none">
       <path d="M6572 11541 c-7 -4 -120 -9 -250 -10 -131 -1 -249 -3 -263 -6 -13 -2

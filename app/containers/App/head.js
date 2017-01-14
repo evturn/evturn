@@ -4,28 +4,34 @@ import Helmet from 'react-helmet'
 const Head = props => {
   return (
     <Helmet
-      titleAttributes={{itemprop: 'name', lang: 'en'}}
+      htmlAttributes={{lang: 'en'}}
       defaultTitle='Evan Turner | Software Engineer'
+      titleAttributes={{itemprop: 'name', lang: 'en'}}
+      title='Software Engineer'
+      titleTemplate='Evan Turner | %s'
       meta={[
-        {name: 'keywords',            content: 'web, apps, developer, software, javascript, mobile, technology'},
-        {name: 'description',         content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
         {property: 'og:description',  content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
         {property: 'og:title',        content: 'Evan Turner | Software Engineer'},
         {property: 'og:site_name',    content: 'Evan Turner'},
-        {property: 'og:url',          content: 'https://evturn.com/'},
+        {property: 'og:url',          content: 'https://evturn.com/#/'},
         {property: 'og:image',        content: require('public/favicon.png')},
+        {property: 'og:image:alt',    content: 'An elegant stencil in black and white of a guy with a beard and shades'},
         {property: 'og:type',         content: 'website'},
         {property: 'og:locale',       content: 'en_US'},
         {name: 'twitter:card',        content: 'summary'},
         {name: 'twitter:title',       content: 'Evan Turner | Software Engineer'},
         {name: 'twitter:image',       content: require('public/favicon.png')},
+        {name: 'twitter:image:src',   content: require('public/favicon.png')},
+        {name: 'twitter:image:alt',   content: 'An elegant stencil in black and white of a guy with a beard and shades'},
         {name: 'twitter:site',        content: '@evturn'},
-        {name: 'twitter:url',         content: 'https://evturn.com/'},
+        {name: 'twitter:url',         content: 'https://evturn.com/#/'},
         {name: 'twitter:description', content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
+        {name: 'keywords',            content: 'evan turner, web apps, developer, software, javascript, mobile, technologies'},
+        {name: 'description',         content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
         {name: 'theme-color',         content: '#00d2ff'},
       ]}
       link={[
-        {rel: 'canonical',                          href: 'https://evturn.com/'},
+        {rel: 'canonical',                          href: 'https://evturn.com/#/'},
         {rel: 'apple-touch-icon',                   href: require('public/apple-touch-icon.png')},
         {rel: 'apple-touch-icon', sizes: '57x57',   href: require('public/apple-touch-icon-57x57.png')},
         {rel: 'apple-touch-icon', sizes: '60x60',   href: require('public/apple-touch-icon-60x60.png')},

@@ -9,7 +9,11 @@ export const ProjectCard = ({ style={}, ...rest }) => {
   return (
     <div className={rest.className}>
       <div className={css.root}>
-        <div className={css.header} style={style} {...header} />
+        <div
+          style={style}
+          {...header}
+          title={rest.name}
+          className={css.header} />
 
         <div className={css.copy}>
           <div className={css.title}>{rest.name}</div>

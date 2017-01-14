@@ -15,7 +15,9 @@ export const Icon = ({ viewBox, className, style={}, children, ...rest }) => {
       className={className}
       style={size}
       viewBox={box}
+      aria-labelledby='title'
       {...rest}>
+      <title>{rest.name || rest.title}</title>
       {children}
     </svg>
   )

@@ -8,7 +8,7 @@ export const SVG = ({ name, children, ...rest }) => {
     <LazyLoad modules={{ module }}>
       {({ module:Component }) =>
         <div>
-          <Component {...rest} />
+          <Component title={name} {...rest} />
           {children ? Children.only(children({ displayName })) : null }
         </div>
       }

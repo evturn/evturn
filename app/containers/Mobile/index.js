@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Helmet from 'react-helmet'
 import PageHeader from 'components/PageHeader'
 import css from './style.css'
 
@@ -17,12 +18,20 @@ export class Mobile extends Component {
     const { projects } = this.props
     return (
       <div className={css.root}>
+        <Helmet title='Mobile' meta={[
+          {name: 'twitter:title', content: 'Mobile'},
+          {property: 'og:title',  content: 'Mobile'},
+        ]} />
+
         <PageHeader text='Mobile' />
         <div className={css.items}>
           {projects.map(x =>
             <div className={css.item} key={x.name}>
               <div className={css.title}>{x.name}</div>
-              <img src={require(`public/images/${x.image}`)} className={css.img} />
+              <img
+                src={require(`public/images/${x.image}`)}
+                alt={`Screenshot of an absolutely stunning mobile app called ${x.name}`}
+                className={css.img} />
             </div>
           )}
         </div>

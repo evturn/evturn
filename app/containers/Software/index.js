@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Helmet from 'react-helmet'
 import PageHeader from 'components/PageHeader'
 import ProjectCard from 'components/ProjectCard'
 import SVG from 'components/SVG'
@@ -8,7 +9,13 @@ export class Software extends Component {
   render() {
     return (
       <div className={css.root}>
+        <Helmet title='Software' meta={[
+          {name: 'twitter:title', content: 'Software'},
+          {property: 'og:title',  content: 'Software'},
+        ]} />
+
         <PageHeader text='Software' />
+
         <div className={css.items}>
           {projects.map(x =>
             <ProjectCard
