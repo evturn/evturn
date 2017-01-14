@@ -8,11 +8,11 @@ const Head = props => {
       defaultTitle='Evan Turner | Software Engineer'
       meta={[
         {name: 'keywords',            content: 'web, apps, developer, software, javascript, mobile, technology'},
-        {name: 'description',         content: 'Web & Software Developer'},
-        {property: 'og:description',  content: 'Web & Software Developer'},
+        {name: 'description',         content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
+        {property: 'og:description',  content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
         {property: 'og:title',        content: 'Evan Turner | Software Engineer'},
-        {property: 'og:site_name',    content: 'evturn'},
-        {property: 'og:url',          content: 'https://evturn.com'},
+        {property: 'og:site_name',    content: 'Evan Turner'},
+        {property: 'og:url',          content: 'https://evturn.com/'},
         {property: 'og:image',        content: require('public/favicon.png')},
         {property: 'og:type',         content: 'website'},
         {property: 'og:locale',       content: 'en_US'},
@@ -20,8 +20,8 @@ const Head = props => {
         {name: 'twitter:title',       content: 'Evan Turner | Software Engineer'},
         {name: 'twitter:image',       content: require('public/favicon.png')},
         {name: 'twitter:site',        content: '@evturn'},
-        {name: 'twitter:url',         content: 'https://evturn.com'},
-        {name: 'twitter:description', content: 'Web & Software Developer'},
+        {name: 'twitter:url',         content: 'https://evturn.com/'},
+        {name: 'twitter:description', content: 'Software Engineer based in New York City developing apps for web, mobile, and emerging technologies'},
         {name: 'theme-color',         content: '#00d2ff'},
       ]}
       link={[
