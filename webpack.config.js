@@ -111,7 +111,7 @@ const plugins = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new OfflinePlugin({
-      publicPath: 'build/',
+      publicPath: '/',
       relativePaths: false,
       ServiceWorker: {
         events: true,
