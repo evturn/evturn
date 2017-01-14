@@ -110,7 +110,10 @@ const plugins = {
       filename: '../index.html',
       inject: true,
     }),
-    new ExtractTextPlugin({filename: '[name].[contenthash].css'}),
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash].css',
+      allChunks: true,
+    }),
     new webpack.DefinePlugin({
       __DEV__: false,
       'process.env.NODE_ENV': JSON.stringify('production')
@@ -120,13 +123,12 @@ const plugins = {
       relativePaths: false,
       ServiceWorker: {
         events: true,
-
         output: 'terrance.js',
+        scope: './',
         publicPath: 'build/terrance.js',
       },
       caches: {
         main: [':rest:'],
-        externals: ['public/manifest.json'],
         additional: ['*.chunk.js'],
       },
       AppCache: false,
