@@ -8,5 +8,11 @@ import 'containers/App/analytics'
 render(<App />, document.getElementById('app'))
 
 if (!__DEV__) {
-  require('offline-plugin/runtime').install()
+  const OfflinePluginRuntime = require('offline-plugin/runtime')
+  OfflinePluginRuntime.install({
+    onUpdating:     _ => undefined,
+    onUpdateReady:  _ => OfflinePluginRuntime.applyUpdate(),
+    onUpdated:      _ => window.location.reload(),
+    onUpdateFailed: _ => undefined,
+  })
 }

@@ -96,7 +96,12 @@ const plugins = {
     new webpack.DefinePlugin({__DEV__: true}),
   ],
   production: [
-    new webpack.optimize.CommonsChunkPlugin({names: ['vendor', 'manifest']}),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      children: true,
+      minChunks: 2,
+      async: true,
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     new HtmlWebpackPlugin({
@@ -111,11 +116,21 @@ const plugins = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new OfflinePlugin({
-      publicPath: '/',
+      publicPath: 'build/',
+      relativePaths: false,
+      ServiceWorker: {
+        events: true,
+
+        output: 'terrance.js',
+        publicPath: 'build/terrance.js',
+      },
       caches: {
         main: [':rest:'],
-        additional: [':externals:']
-      }
+        externals: ['public/manifest.json'],
+        additional: ['*.chunk.js'],
+      },
+      AppCache: false,
+      safeToUseOptionalCaches: true,
     })
   ]
 }
@@ -197,6 +212,9 @@ module.exports = {
         test: /\.html$/,
         loader: 'html-loader',
       }, {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },{
         test: /\.(mp4|webm)$/,
         loader: 'url-loader',
         options: {limit: 10000}
