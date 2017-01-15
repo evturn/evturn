@@ -10,7 +10,8 @@
     "start": "NODE_ENV=development babel-node server/development",
     "clean": "rimraf ./build",
     "prebuild": "npm run clean",
-    "build": "NODE_ENV=production webpack --config webpack.config.js --color -p"
+    "build": "NODE_ENV=production webpack --config webpack.config.js --color -p",
+    "prod": "NODE_ENV=production node index.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -35,6 +36,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "exports-loader": "^0.6.3",
     "extract-text-webpack-plugin": "beta",
@@ -43,6 +45,7 @@
     "html-webpack-plugin": "^2.24.1",
     "image-webpack-loader": "^3.1.0",
     "imports-loader": "^0.7.0",
+    "json-loader": "^0.5.4",
     "koa": "v2.0.0",
     "offline-plugin": "^4.5.5",
     "postcss-cssnext": "^2.9.0",

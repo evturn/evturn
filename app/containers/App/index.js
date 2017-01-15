@@ -2,7 +2,7 @@ import React from 'react'
 import Router from 'react-router/HashRouter'
 import AsyncRoute from 'components/AsyncRoute'
 import { importDefault } from 'containers/LazyLoad'
-import Head from 'containers/App/Head'
+import Head from 'components/Head'
 import Header from 'containers/Header'
 import css from './style.css'
 
