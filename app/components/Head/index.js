@@ -20,7 +20,7 @@ const Head = props => {
         {rel: 'apple-touch-icon', sizes: '144x144', href: 'build/apple-touch-icon-144x144.png'},
         {rel: 'apple-touch-icon', sizes: '152x152', href: 'build/apple-touch-icon-152x152.png'},
         {rel: 'shortcut icon', type: 'image/x-icon',href: 'build/favicon.ico'},
-        {rel: 'canonical',                          href: 'https://evturn.com/#/'},
+        {rel: 'canonical',                          href: 'https://evturn.com/'},
         {rel: 'icon',             sizes: '32x32',   href: 'build/favicon-32x32.png'},
         {rel: 'icon',             sizes: '96x96',   href: 'build/favicon-96x96.png'},
         {rel: 'icon',             sizes: '128x128', href: 'build/favicon-128x128.png'},
