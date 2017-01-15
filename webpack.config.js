@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const OfflinePlugin = require('offline-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CWD = process.cwd()
 const ENV = process.env.NODE_ENV
@@ -95,23 +94,6 @@ const plugins = {
       inject: true,
     }),
     new webpack.DefinePlugin({__DEV__: true}),
-    new OfflinePlugin({
-      excludes: [
-        '**/*.hot-update.*',
-        'process-update.js',
-        '**/*.json',
-        '*.chunky-mclover.js',
-      ],
-      caches: {
-        main: [':rest:'],
-        additional: [':externals:'],
-      },
-      ServiceWorker: {
-        events: true,
-      },
-      AppCache: false,
-      safeToUseOptionalCaches: true,
-    })
   ],
   production: [
     new webpack.optimize.CommonsChunkPlugin({names: ['vendor', 'manifest']}),
@@ -132,24 +114,7 @@ const plugins = {
       {from: 'public/static'},
       {from: 'app/manifest.json'}],
       {copyUnmodified: true}
-    ),
-    new OfflinePlugin({
-      excludes: [
-        '**/*.hot-update.*',
-        'process-update.js',
-        '**/*.json',
-        '*.chunky-mclover.js',
-      ],
-      caches: {
-        main: [':rest:'],
-        additional: [':externals:'],
-      },
-      ServiceWorker: {
-        events: true,
-      },
-      AppCache: false,
-      safeToUseOptionalCaches: true,
-    })
+    )
   ]
 }
 
