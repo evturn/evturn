@@ -1,0 +1,9 @@
+body {
+  background-color: #101010;
+}
+.root {
+  font-family: monospace;
+  font-size: 40px;
+  color: #ffee00;
+  background-color: #101010;
+}
