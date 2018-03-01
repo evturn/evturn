@@ -5,7 +5,7 @@
   "repository": "git@github.com:evturn/evturn.git",
   "main": "index.js",
   "scripts": {
-    "build": "node --experimental-modules webpack.config.mjs"
+    "build": "node --experimental-modules tools/webpack.production.config.mjs"
   },
   "author": "Evan Turner <ev@evturn.com>",
   "license": "ISC",

@@ -1,11 +1,12 @@
 import HTMLPlugin from 'html-webpack-plugin';
-import path from 'path';
 import webpack from 'webpack';
+import { pathTo } from './utils.mjs';
 
 const compiler = webpack({
   entry: './src/index.js',
+  context: process.cwd(),
   output: {
-    path: path.resolve(process.cwd(), 'build'),
+    path: pathTo('build'),
     filename: 'main.js',
   },
   mode: 'production',
@@ -13,7 +14,7 @@ const compiler = webpack({
     rules: [{
       test: /\.js$/,
       exclude: [ /node_modules/ ],
-      include: [ path.resolve(process.cwd(), 'src') ],
+      include: [ pathTo('src') ],
       use: {
         loader: 'babel-loader',
         options: {
@@ -26,16 +27,22 @@ const compiler = webpack({
     }, {
       test: /\.css$/,
       use: [
-        {loader: 'style-loader'},
-        {loader: 'css-loader', options: { modules: true, importLoaders: 1 }},
-        {loader: 'postcss-loader'},
+        { loader: 'style-loader' },
+        { loader: 'css-loader', 
+          options: { 
+            modules: true, 
+            importLoaders: 1 }},
+        { loader: 'postcss-loader', 
+          options: { 
+            config: { 
+              path: pathTo('tools', 'postcss.config.js') }}},
       ],
     }],
   },
   resolve: {
     modules: [
       'node_modules',
-      path.resolve(process.cwd(), 'src'),
+      pathTo('src'),
     ],
   },
   target: 'web',
