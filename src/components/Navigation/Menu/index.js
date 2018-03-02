@@ -1,10 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './style.css';
 
-const Menu = props => {
+const Menu = ({ items, menuVisible, onClick }) => {
+  const menuStyles = menuVisible ? ` ${styles.open}` : '';
   return (
-    <div>
-
-    </div>
+    <nav className={styles.root + menuStyles}>
+      <ul 
+        className={styles.ul}
+        role="menu">
+        {items.map(item =>
+          <li
+            className={styles.li}
+            role="menuitem">
+              <Link
+                className={styles.link}
+                key={item.title}
+                onClick={onClick}
+                to={item.route}>
+                {item.title}
+              </Link>
+          </li>
+        )}
+      </ul>
+    </nav>
   );
 };
+
+export default Menu;
