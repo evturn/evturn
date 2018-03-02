@@ -25,6 +25,7 @@ const config = {
         options: {
           plugins: [
             '@babel/plugin-proposal-class-properties',
+            '@babel/plugin-proposal-export-default-from',
             '@babel/plugin-proposal-object-rest-spread',
           ],
           presets: [
