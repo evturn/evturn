@@ -5,7 +5,8 @@
   "repository": "git@github.com:evturn/evturn.git",
   "main": "index.js",
   "scripts": {
-    "build": "node --experimental-modules tools/webpack.production.config.mjs"
+    "build": "node --experimental-modules tools/webpack.production.config.mjs",
+    "start": "node --experimental-modules tools/server.mjs"
   },
   "author": "Evan Turner <ev@evturn.com>",
   "license": "ISC",
@@ -18,9 +19,11 @@
     "html-webpack-plugin": "github:webpack-contrib/html-webpack-plugin",
     "postcss-loader": "^2.1.1",
     "style-loader": "^0.20.2",
-    "webpack": "^4.0.1"
+    "webpack": "^4.0.1",
+    "webpack-dev-middleware": "^3.0.0"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }
