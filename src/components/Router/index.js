@@ -1,19 +1,8 @@
 import React, { Children, Component, cloneElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Route from './Route.js';
-import Home from 'screens/Home';
-import Navigation from 'components/Navigation';
+export Route from './Route.js'
 
-const Routes = ({ children, data }) => {
-  return (
-    <div>
-      {Children.map(children, c =>
-         cloneElement(c, { data }))}
-    </div>
-  );
-};
-
-class Router extends Component {
+export class Router extends Component {
   static defaultProps = {
     data: {},
   }
@@ -21,14 +10,11 @@ class Router extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Routes data={this.props.data}>
-          <Navigation />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/whatever" component={Home} />
-        </Routes>
+        <div>
+          {Children.map(this.props.children, c =>
+             cloneElement(c, {data: this.props.data}))}
+        </div>
       </BrowserRouter>
     );
   }
 }
-
-export default Router;
