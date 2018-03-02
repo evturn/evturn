@@ -53,6 +53,7 @@ const config = {
       pathTo('src'),
     ],
     alias: {
+      'components': pathTo('src', 'components'),
       'screens': pathTo('src', 'screens'),
     },
   },

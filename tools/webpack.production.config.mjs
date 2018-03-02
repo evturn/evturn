@@ -44,6 +44,10 @@ const compiler = webpack({
       'node_modules',
       pathTo('src'),
     ],
+    alias: {
+      'components': pathTo('src', 'components'),
+      'screens': pathTo('src', 'screens'),
+    },
   },
   target: 'web',
   plugins: [
