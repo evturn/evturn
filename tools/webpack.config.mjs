@@ -3,7 +3,10 @@ import webpack from 'webpack';
 import { pathTo } from './utils.mjs';
 
 const config = {
-  entry: './src/index.js',
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    './src/index.js'
+  ],
   context: process.cwd(),
   output: {
     path: pathTo('build'),
@@ -52,6 +55,7 @@ const config = {
   },
   target: 'web',
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HTMLPlugin({ 
       filename: 'index.html',
       template: 'src/utils/index.html',
