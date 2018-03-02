@@ -11,10 +11,13 @@ class Video extends Component {
     urls: [],
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.updateVideoSrc(this.state.index);
+  }
+
+  componentDidMount() {
     this.player.addEventListener('ended', () => this.updateVideoSrc(this.state.index));
-    this.player.addEventListener('playing', () => this.player.playbackRate = 0.5);
+    this.player.addEventListener('playing', () => this.player.playbackRate = 0.65);
   }
 
   captureRef = ref => {
