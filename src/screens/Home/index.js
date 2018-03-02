@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styles from './style.css';
+import Video from './Video';
 
 class Home extends Component {
   render() {
     return (
       <div className={styles.root}>
-        Now That's What I Call Music 12342992342999
+        <Video urls={this.props.data.video} />
       </div>
     );
   }
