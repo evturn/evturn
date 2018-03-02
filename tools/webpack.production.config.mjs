@@ -52,6 +52,7 @@ const compiler = webpack({
     alias: {
       'components': pathTo('src', 'components'),
       'screens': pathTo('src', 'screens'),
+      'shared': pathTo('src', 'shared'),
     },
   },
   target: 'web',
