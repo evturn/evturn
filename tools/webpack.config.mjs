@@ -52,6 +52,9 @@ const config = {
       'node_modules',
       pathTo('src'),
     ],
+    alias: {
+      'screens': pathTo('src', 'screens'),
+    },
   },
   target: 'web',
   plugins: [
