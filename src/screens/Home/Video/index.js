@@ -11,8 +11,29 @@ class Video extends Component {
     urls: [],
   }
 
-  componentWillMount() {
-    this.setState({src: this.props.urls[this.state.index]})
+  componentDidMount() {
+    this.updateVideoSrc(this.state.index);
+    this.player.addEventListener('ended', () => this.updateVideoSrc(this.state.index));
+    this.player.addEventListener('playing', () => this.player.playbackRate = 0.5);
+  }
+
+  captureRef = ref => {
+    this.player = ref;
+  }
+
+  getNextIndex = index => {
+    return index >= this.props.urls.length - 1 ? 0 : index + 1;
+  }
+
+  getSourceURL = index => {
+    return this.props.urls[index];
+  }
+
+  updateVideoSrc = index => {
+    this.setState({
+      index: this.getNextIndex(index),
+      src: this.getSourceURL(index),
+    });
   }
 
   render() {
@@ -23,9 +44,9 @@ class Video extends Component {
         muted
         playsInline
         preload="auto"
+        ref={this.captureRef}
         src={this.state.src} 
-        type="video/mp4"
-      />
+        type="video/mp4" />
     );
   }
 }

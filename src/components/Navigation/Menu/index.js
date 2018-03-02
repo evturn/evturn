@@ -12,10 +12,10 @@ const Menu = ({ items, menuVisible, onClick }) => {
         {items.map(item =>
           <li
             className={styles.li}
+            key={item.title}
             role="menuitem">
               <Link
                 className={styles.link}
-                key={item.title}
                 onClick={onClick}
                 to={item.route}>
                 {item.title}
