@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'shared/Card';
 import styles from './style.css';
 
-const OpenSource = ({ data }) => {
+const Work = ({ data }) => {
   return (
     <div className={styles.root}>
       <div className={styles.items}>
@@ -16,4 +16,4 @@ const OpenSource = ({ data }) => {
   );
 };
 
-export default OpenSource;
+export default Work;
