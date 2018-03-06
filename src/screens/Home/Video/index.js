@@ -17,7 +17,8 @@ class Video extends Component {
 
   componentDidMount() {
     this.player.addEventListener('ended', () => this.updateVideoSrc(this.state.index));
-    this.player.addEventListener('playing', () => this.player.playbackRate = 0.65);
+    this.player.addEventListener('playing', this.onPlaying);
+    this.player.addEventListener('loadstart', this.onLoadStart);
   }
 
   captureRef = ref => {
@@ -30,6 +31,15 @@ class Video extends Component {
 
   getSourceURL = index => {
     return this.props.urls[index];
+  }
+
+  onLoadStart = e => {
+    this.props.onVideoStateChange(false);
+  }
+  
+  onPlaying = e => {
+    this.player.playbackRate = 0.65;
+    this.props.onVideoStateChange(true);
   }
 
   updateVideoSrc = index => {
