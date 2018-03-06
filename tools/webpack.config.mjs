@@ -41,12 +41,10 @@ const config = {
         { loader: 'css-loader', 
           options: { 
             localIdentName: '[local]-[path]-[hash:base64:5]',
-            sourceMap: true,
             modules: true, 
             importLoaders: 1 }},
         { loader: 'postcss-loader', 
           options: { 
-            sourceMap: true,
             config: { 
               path: pathTo('tools', 'postcss.config.js') }}},
       ],
