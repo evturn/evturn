@@ -13,4 +13,4 @@ app.use(devMiddleware(compiler, {
 
 app.use(hotMiddleware(compiler));
 
-app.listen(3000, () => console.log('Running.'))
+app.listen(3002, () => console.log('Running in development on 3002.'))

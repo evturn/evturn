@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node --experimental-modules tools/webpack.production.config.mjs",
-    "serve": "node --experimental-modules server/index.mjs",
+    "serve": "node --experimental-modules index.mjs",
     "start": "node --experimental-modules tools/server.mjs"
   },
   "author": "Evan Turner <ev@evturn.com>",
