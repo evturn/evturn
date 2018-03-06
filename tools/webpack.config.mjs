@@ -5,7 +5,7 @@ import { pathTo } from './utils.mjs';
 const config = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './src/index.js'
+    pathTo('src', 'index.js')
   ],
   context: process.cwd(),
   output: {
