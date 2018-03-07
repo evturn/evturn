@@ -1,0 +1,20 @@
+.root {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 40%;
+}
+
+.brushstroke {
+  position: absolute;
+  top: 0px;
+  bottom: 360px;
+  right: 340px;
+  transform: rotate(260deg);
+}
+
+.svg {
+  fill: #ffffff;
+  height: auto;
+  width: 70%;
+}
