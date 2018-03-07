@@ -6,7 +6,8 @@ const Navbar = ({ menuVisible, onClick }) => {
   return (
     <div 
       className={styles.root + burgerStyles}
-      onClick={onClick}>
+      onClick={onClick}
+      role="button">
       <hr className={styles.bar} />
       <hr className={styles.bar} />
     </div>
