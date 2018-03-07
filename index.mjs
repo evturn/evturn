@@ -1,8 +1,8 @@
 import express from 'express';
-import path from 'path';
+import { pathTo  } from './tools/utils.mjs';
 
 const app = express();
 
-app.use(express.static(path.join(process.cwd(), 'build')));
-app.get('*', (req, res) => res.send('index.html'));
+app.use(express.static(pathTo('build')));
+app.get('*', (req, res) => res.sendFile(pathTo('build', 'index.html')));
 app.listen(3002, () => console.log('Serving on 3002'));
