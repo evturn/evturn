@@ -19,11 +19,9 @@ class Home extends Component {
           onVideoStateChange={this.handleVideoStateChange}
           urls={this.props.data.video} />
         <div className={styles.overlay}>
-          <div className={styles.mid}>
-            { this.state.isPlaying
-                ? <h1>Sup</h1>
-                : <ActivityIndicator />}
-          </div>
+          { this.state.isPlaying
+              ? <ActivityIndicator />
+              : <ActivityIndicator />}
         </div>
       </div>
     );
