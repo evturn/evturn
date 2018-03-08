@@ -6,6 +6,7 @@
   --shade-4: #7b8184;
   --shade-5: #babac2;
   --shade-6: #e0e0e6;
+  --shade-7: #fefefe;
 }
 
 .root {
@@ -30,10 +31,57 @@
   height: 200px;
 }
 
+.bara,
+.barb,
+.barc,
+.bard {
+  position: relative;
+}
+
 .bara {
   width: 75px;
   height: 200px;
-  background-color: var(--shade-3);
+  background-color: var(--shade-7);
+}
+
+.barb {
+  width: 125px;
+  height: 200px;
+  background-color: var(--shade-7);
+}
+
+.barc {
+  width: 125px;
+  height: 200px;
+  background-color: var(--shade-7);
+}
+
+.bard {
+  width: 75px;
+  height: 200px;
+  background-color: var(--shade-7);
+}
+
+.bara .edgea {
+  position: absolute;
+  border-top: 98px solid transparent;
+  border-left: 35px solid var(--shade-0);
+  border-bottom: 97px solid transparent;
+  border-right: 0px solid transparent;
+  z-index: 2;
+  left: 0;
+  top: 2px;
+}
+
+.bara .edgeb {
+  border-top: 100px solid transparent;
+  border-right: 36px solid var(--shade-2);
+  border-bottom: 100px solid transparent;
+  border-left: 39px solid transparent;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  position: absolute;
 }
 
 .bara .anga:after {
@@ -44,10 +92,15 @@
   border-bottom: 100px solid var(--shade-1);
 }
 
-.barb {
-  width: 125px;
-  height: 200px;
-  background-color: var(--shade-3);
+.barb .diar {
+  position: absolute;
+  border-top: 99px solid transparent;
+  border-left: 60px solid var(--shade-2);
+  border-bottom: 97px solid transparent;
+  border-right: 0px solid transparent;
+  z-index: 2;
+  top: 2px;
+  left: 0;
 }
 
 .barb .pyra:after {
@@ -58,10 +111,15 @@
   border-bottom: 100px solid var(--shade-2);
 }
 
-.barc {
-  width: 125px;
-  height: 200px;
-  background-color: var(--shade-6);
+.barc .dial {
+  border-top: 99px solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 97px solid transparent;
+  border-right: 60px solid var(--shade-4);
+  position: absolute;
+  top: 2px;
+  right: 0;
+  z-index: 1;
 }
 
 .barc .pyra:after {
@@ -72,18 +130,51 @@
   border-bottom: 100px solid var(--shade-4);
 }
 
-.bard {
-  width: 75px;
-  height: 200px;
-  background-color: var(--shade-6);
-}
-
 .bard .anga:after {
   border-top: 100px solid var(--shade-5);
 }
 
 .bard .angb:after {
   border-bottom: 100px solid var(--shade-5);
+}
+
+.edgea {
+  position: absolute;
+  border-top: 100px solid transparent;
+  border-left: 35px solid var(--shade-0);
+  border-bottom: 100px solid transparent;
+  border-right: 0px solid transparent;
+  z-index: 2;
+}
+
+.bard .edgea {
+  border-top: 96px solid transparent;
+  border-left: 34px solid var(--shade-4);
+  border-bottom: 95px solid transparent;
+  border-right: 0 solid transparent;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  z-index: 1;
+}
+
+.bard .edgeb {
+  border-top: 98px solid transparent;
+  border-right: 35px solid var(--shade-6);
+  border-bottom: 98px solid transparent;
+  border-left: 39px solid transparent;
+  position: absolute;
+  right: 0;
+  top: 2px;
+  z-index: 1;
+}
+
+.edgeb {
+  border-top: 100px solid transparent;
+  border-right: 35px solid var(--shade-5);
+  border-bottom: 100px solid transparent;
+  border-left: 0px solid transparent;
+  z-index: 2;
 }
 
 .anga:after {
