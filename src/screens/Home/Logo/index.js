@@ -10,6 +10,8 @@ const Logo = props => {
         <div className={styles.bar1} />
         <div className={styles.bar2}> 
           <div className={styles.bar20} />
+          <div className={styles.bar21} />
+          <div className={styles.bar22} />
         </div>
       </div>
       <div className={styles.avatar}>
