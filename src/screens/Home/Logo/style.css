@@ -37,7 +37,7 @@
 }
 
 .bara .anga:after {
-  border-top: 100px solid var(--shade-0);
+  border-top: 100px solid var(--shade-1);
 }
 
 .bara .angb:after {
@@ -55,7 +55,7 @@
 }
 
 .barb .pyrb:after {
-  border-bottom: 100px solid var(--shade-0);
+  border-bottom: 100px solid var(--shade-2);
 }
 
 .barc {
@@ -65,11 +65,11 @@
 }
 
 .barc .pyra:after {
-  border-top: 100px solid var(--shade-1);
+  border-top: 100px solid var(--shade-4);
 }
 
 .barc .pyrb:after {
-  border-bottom: 100px solid var(--shade-3);
+  border-bottom: 100px solid var(--shade-4);
 }
 
 .bard {
@@ -83,7 +83,7 @@
 }
 
 .bard .angb:after {
-  border-bottom: 100px solid var(--shade-4);
+  border-bottom: 100px solid var(--shade-5);
 }
 
 .anga:after {
@@ -138,9 +138,46 @@
 
 .tria:after {
   border-top: 50px solid transparent;
-  border-right: 100px solid var(--shade-1);
-  border-bottom: 50px solid var(--shade-1);
+  border-right: 100px solid var(--shade-2);
+  border-bottom: 50px solid var(--shade-2);
   border-left: 100px solid transparent;
+}
+
+.trib:after {
+  border-top: 50px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 50px solid var(--shade-6);
+  border-left: 100px solid var(--shade-6);
+}
+
+.squa .trix:after {
+  border-top: 100px solid transparent;
+  border-right: 125px solid var(--shade-3);
+  border-bottom: 0px solid var(--shade-3);
+  border-left: 75px solid transparent;
+}
+
+.squb .trix:after {
+  border-top: 100px solid transparent;
+  border-left: 125px solid var(--shade-5);
+  border-bottom: 0px solid var(--shade-5);
+  border-right: 75px solid transparent;
+  z-index: 2;
+}
+
+.squc .trix:after {
+  border-top: 0px solid transparent;
+  border-right: 125px solid var(--shade-1);
+  border-bottom: 100px solid transparent;
+  border-left: 75px solid transparent;
+}
+
+.squd .trix:after {
+  border-top: 0px solid transparent;
+  border-left: 125px solid var(--shade-3);
+  border-bottom: 100px solid transparent;
+  border-right: 75px solid transparent;
+  z-index: 2;
 }
 
 .squb,
@@ -157,7 +194,7 @@
   display: flex;
 }
 
-.obta:after,
+.trix:after,
 .anga:after,
 .angb:after,
 .pyra:after,
@@ -173,13 +210,6 @@
   position: absolute;
   height: 0;
   width: 0;
-}
-
-.trib:after {
-  border-top: 50px solid transparent;
-  border-right: 100px solid transparent;
-  border-bottom: 50px solid var(--shade-6);
-  border-left: 100px solid var(--shade-6);
 }
 
 .tric:after {
@@ -203,5 +233,6 @@
   align-items: center;
   right: 0;
   left: 0;
-  top: 10px;
+  top: 35px;
+  z-index: 3;
 }

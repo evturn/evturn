@@ -9,8 +9,10 @@ const Logo = props => {
         <div className={styles.tris}>
           <div className={styles.squa}>
             <div className={styles.tria} />
+            <div className={styles.trix} />
           </div>
           <div className={styles.squb}>
+            <div className={styles.trix} />
             <div className={styles.trib} />
           </div>
         </div>
@@ -35,8 +37,10 @@ const Logo = props => {
         <div className={styles.tris}>
           <div className={styles.squc}>
             <div className={styles.tric} />
+            <div className={styles.trix} />
           </div>
           <div className={styles.squd}>
+            <div className={styles.trix} />
             <div className={styles.trid} />
           </div>
         </div>
