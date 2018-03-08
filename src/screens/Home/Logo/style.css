@@ -1,3 +1,13 @@
+:root {
+  --shade-0: #2b2a2e;
+  --shade-1: #3e3d42;
+  --shade-2: #4e5053;
+  --shade-3: #67696d;
+  --shade-4: #7b8184;
+  --shade-5: #babac2;
+  --shade-6: #e0e0e6;
+}
+
 .root {
   display: flex;
   justify-content: center;
@@ -9,76 +19,75 @@
   width: 100%;
 }
 
-
 .hedron {
   width: 400px;
   height: 800px;
 }
 
 .bars {
+  display: flex;
   width: 400px;
   height: 200px;
-  display: flex;
 }
 
 .bara {
   width: 75px;
   height: 200px;
-  background-color: #67696d;
+  background-color: var(--shade-3);
 }
 
 .bara .anga:after {
-  border-top: 100px solid #2b2a2e;
+  border-top: 100px solid var(--shade-0);
 }
 
 .bara .angb:after {
-  border-bottom: 100px solid #3e3d42;
+  border-bottom: 100px solid var(--shade-1);
 }
 
 .barb {
   width: 125px;
   height: 200px;
-  background-color: #67696d;
+  background-color: var(--shade-3);
 }
 
 .barb .pyra:after {
-  border-top: 100px solid #4e5053;
+  border-top: 100px solid var(--shade-2);
 }
 
 .barb .pyrb:after {
-  border-bottom: 100px solid #2b2a2e;
+  border-bottom: 100px solid var(--shade-0);
 }
 
 .barc {
   width: 125px;
   height: 200px;
-  background-color: #e0e0e6;
+  background-color: var(--shade-6);
 }
 
 .barc .pyra:after {
-  border-top: 100px solid #3e3d42;
+  border-top: 100px solid var(--shade-1);
 }
 
 .barc .pyrb:after {
-  border-bottom: 100px solid #67696d;
+  border-bottom: 100px solid var(--shade-3);
 }
 
 .bard {
   width: 75px;
   height: 200px;
-  background-color: #e0e0e6;
+  background-color: var(--shade-6);
 }
 
 .bard .anga:after {
-  border-top: 100px solid #babac6;
+  border-top: 100px solid var(--shade-5);
 }
 
 .bard .angb:after {
-  border-bottom: 100px solid #7b8184;
+  border-bottom: 100px solid var(--shade-4);
 }
 
 .anga:after {
-  border-top: 100px solid #3e3d42;
+  border-top: 100px solid var(--shade-1);
   border-right: 37.5px solid transparent;
   border-bottom: 50px solid transparent;
   border-left: 37.5px solid transparent;
@@ -87,12 +96,12 @@
 .angb:after {
   border-top: 100px solid transparent;
   border-right: 37.5px solid transparent;
-  border-bottom: 100px solid #3e3d42;
+  border-bottom: 100px solid var(--shade-1);
   border-left: 37.5px solid transparent;
 }
 
 .pyra:after {
-  border-top: 100px solid #7b8184;
+  border-top: 100px solid var(--shade-4);
   border-right: 62.5px solid transparent;
   border-bottom: 50px solid transparent;
   border-left: 62.5px solid transparent;
@@ -101,22 +110,22 @@
 .pyrb:after {
   border-top: 100px solid transparent;
   border-right: 62.5px solid transparent;
-  border-bottom: 100px solid #7b8184;
+  border-bottom: 100px solid var(--shade-4);
   border-left: 62.5px solid transparent;
 }
 
 .pyrc:after {
-  border-top: 50px solid #3e3d42;
-  border-right: 100px solid #3e3d42;
+  border-top: 50px solid var(--shade-1);
+  border-right: 100px solid var(--shade-1);
   border-bottom: 50px solid transparent;
   border-left: 100px solid transparent;
 }
 
 .pyrd:after {
-  border-top: 50px solid #3e3d42;
+  border-top: 50px solid var(--shade-1);
   border-right: 100px solid transparent;
   border-bottom: 50px solid transparent;
-  border-left: 100px solid #3e3d42;
+  border-left: 100px solid var(--shade-1);
 }
 
 .squa,
@@ -124,13 +133,13 @@
   height: 100px;
   width: 200px;
   background-color: transparent;
-  border-right: 1px solid #67696d;
+  border-right: 1px solid var(--shade-3);
 }
 
 .tria:after {
   border-top: 50px solid transparent;
-  border-right: 100px solid #3e3d42;
-  border-bottom: 50px solid #3e3d42;
+  border-right: 100px solid var(--shade-1);
+  border-bottom: 50px solid var(--shade-1);
   border-left: 100px solid transparent;
 }
 
@@ -139,7 +148,7 @@
   height: 100px;
   width: 200px;
   background-color: transparent;
-  border-left: 1px solid #67696d;
+  border-left: 1px solid var(--shade-3);
 }
 
 .tris {
@@ -169,22 +178,22 @@
 .trib:after {
   border-top: 50px solid transparent;
   border-right: 100px solid transparent;
-  border-bottom: 50px solid #e0e0e6;
-  border-left: 100px solid #e0e0e6;
+  border-bottom: 50px solid var(--shade-6);
+  border-left: 100px solid var(--shade-6);
 }
 
 .tric:after {
-  border-top: 50px solid #2b2a2e;
-  border-right: 100px solid #2b2a2e;
+  border-top: 50px solid var(--shade-0);
+  border-right: 100px solid var(--shade-0);
   border-bottom: 50px solid transparent;
   border-left: 100px solid transparent;
 }
 
 .trid:after {
-  border-top: 50px solid #7b8184;
+  border-top: 50px solid var(--shade-4);
   border-right: 100px solid transparent;
   border-bottom: 50px solid transparent;
-  border-left: 100px solid #7b8184;
+  border-left: 100px solid var(--shade-4);
 }
 
 .avatar {
@@ -192,12 +201,7 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  right: 0;
+  left: 0;
+  top: 10px;
 }
-/*
-  #e0e0e6
-  #babac2
-  #7b8184
-  #67696d
-  #3e3d42
-*/
