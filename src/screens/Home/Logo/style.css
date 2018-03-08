@@ -1,20 +1,58 @@
 .root {
-  position: relative;
+  height: 450px;
+  width: 100%;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+}
+
+.avatar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  top: 19%;
+  right: 0;
+  height: 270px;
+  width: 100%;
+}
+
+.bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   height: 100%;
   width: 100%;
-  margin-bottom: 40%;
 }
 
-.brushstroke {
+.bar {
+  border-radius: 30px;
+}
+.bar0, .bar1, .bar2 {
   position: absolute;
-  top: 0px;
-  bottom: 360px;
-  right: 340px;
-  transform: rotate(260deg);
+  border-radius: 10px;
+  height: 275px;
+  width: 165px;
 }
 
-.svg {
-  fill: #ffffff;
-  height: auto;
-  width: 70%;
+.bar0 {
+  background-color: #272727;
+  transform: rotate(30deg);
+}
+
+.bar1 {
+  background-color: #3f3f3f;
+  transform: rotate(150deg);
+}
+
+.bar2 {
+  background-color: #575757;
+  transform: rotate(90deg);
+}
+
+.bar20 {
+
 }

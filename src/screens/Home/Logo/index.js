@@ -5,8 +5,16 @@ import styles from './style.css';
 const Logo = props => {
   return (
     <div className={styles.root}>
-      <Brushstroke />
-      <Avatar />
+      <div className={styles.bars}>
+        <div className={styles.bar0} />
+        <div className={styles.bar1} />
+        <div className={styles.bar2}> 
+          <div className={styles.bar20} />
+        </div>
+      </div>
+      <div className={styles.avatar}>
+        <Avatar />
+      </div>
     </div>
   );
 };

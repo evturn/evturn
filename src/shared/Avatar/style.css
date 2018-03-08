@@ -1,9 +1,3 @@
 .root {
-  position: absolute;
-  z-index: 1;
-  top: 46%;
-  right: 0;
-  height: 270px;
-  width: 100%;
-  border-radius: 50%;
+  height: 150px;
 }
