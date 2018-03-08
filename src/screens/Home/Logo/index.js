@@ -5,13 +5,40 @@ import styles from './style.css';
 const Logo = props => {
   return (
     <div className={styles.root}>
-      <div className={styles.bars}>
-        <div className={styles.bar0} />
-        <div className={styles.bar1} />
-        <div className={styles.bar2}> 
-          <div className={styles.bar20} />
-          <div className={styles.bar21} />
-          <div className={styles.bar22} />
+      <div className={styles.hedron}>
+        <div className={styles.tris}>
+          <div className={styles.squa}>
+            <div className={styles.tria} />
+          </div>
+          <div className={styles.squb}>
+            <div className={styles.trib} />
+          </div>
+        </div>
+        <div className={styles.bars}> 
+          <div className={styles.bara}>
+            <div className={styles.anga} />
+            <div className={styles.angb} />
+          </div>
+          <div className={styles.barb}> 
+            <div className={styles.pyra} />
+            <div className={styles.pyrb} />
+          </div>
+          <div className={styles.barc}> 
+            <div className={styles.pyra} />
+            <div className={styles.pyrb} />
+          </div>
+          <div className={styles.bard}>
+            <div className={styles.anga} />
+            <div className={styles.angb} />
+          </div>
+        </div>
+        <div className={styles.tris}>
+          <div className={styles.squc}>
+            <div className={styles.tric} />
+          </div>
+          <div className={styles.squd}>
+            <div className={styles.trid} />
+          </div>
         </div>
       </div>
       <div className={styles.avatar}>
