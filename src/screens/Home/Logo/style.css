@@ -18,9 +18,6 @@
 .bars {
   width: 400px;
   height: 200px;
-  background-color: #e0e0e6;
-  border-top: 1px solid #67696d;
-  border-bottom: 1px solid #67696d;
   display: flex;
 }
 
@@ -30,6 +27,14 @@
   background-color: #67696d;
 }
 
+.bara .anga:after {
+  border-top: 100px solid #2b2a2e;
+}
+
+.bara .angb:after {
+  border-bottom: 100px solid #3e3d42;
+}
+
 .barb {
   width: 125px;
   height: 200px;
@@ -37,11 +42,11 @@
 }
 
 .barb .pyra:after {
-  border-top: 100px solid #7b8184;
+  border-top: 100px solid #4e5053;
 }
 
 .barb .pyrb:after {
-  border-bottom: 100px solid #7b8184;
+  border-bottom: 100px solid #2b2a2e;
 }
 
 .barc {
@@ -51,11 +56,11 @@
 }
 
 .barc .pyra:after {
-  border-top: 100px solid #babac2;
+  border-top: 100px solid #3e3d42;
 }
 
 .barc .pyrb:after {
-  border-bottom: 100px solid #babac2;
+  border-bottom: 100px solid #67696d;
 }
 
 .bard {
@@ -69,7 +74,7 @@
 }
 
 .bard .angb:after {
-  border-bottom: 100px solid #babac6;
+  border-bottom: 100px solid #7b8184;
 }
 
 .anga:after {
@@ -124,8 +129,8 @@
 
 .tria:after {
   border-top: 50px solid transparent;
-  border-right: 100px solid #67696d;
-  border-bottom: 50px solid #67696d;
+  border-right: 100px solid #3e3d42;
+  border-bottom: 50px solid #3e3d42;
   border-left: 100px solid transparent;
 }
 
@@ -164,13 +169,13 @@
 .trib:after {
   border-top: 50px solid transparent;
   border-right: 100px solid transparent;
-  border-bottom: 50px solid #babac2;
-  border-left: 100px solid #babac2;
+  border-bottom: 50px solid #e0e0e6;
+  border-left: 100px solid #e0e0e6;
 }
 
 .tric:after {
-  border-top: 50px solid #3e3d42;
-  border-right: 100px solid #3e3d42;
+  border-top: 50px solid #2b2a2e;
+  border-right: 100px solid #2b2a2e;
   border-bottom: 50px solid transparent;
   border-left: 100px solid transparent;
 }
@@ -183,7 +188,11 @@
 }
 
 .avatar {
+  display: flex;
   position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 /*
   #e0e0e6
