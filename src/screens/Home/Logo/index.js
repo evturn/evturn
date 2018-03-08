@@ -27,8 +27,10 @@ const Logo = props => {
             <div className={styles.diar} />
             <div className={styles.pyra} />
             <div className={styles.pyrb} />
+            <div className={styles.dial} />
           </div>
           <div className={styles.barc}> 
+            <div className={styles.diar} />
             <div className={styles.pyra} />
             <div className={styles.pyrb} />
             <div className={styles.dial} />
@@ -52,7 +54,6 @@ const Logo = props => {
         </div>
       </div>
       <div className={styles.avatar}>
-        <Avatar />
       </div>
     </div>
   );

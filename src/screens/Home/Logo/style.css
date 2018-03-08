@@ -7,6 +7,7 @@
   --shade-5: #babac2;
   --shade-6: #e0e0e6;
   --shade-7: #fefefe;
+  --alpha-0: 0.8;
 }
 
 .root {
@@ -29,6 +30,8 @@
   display: flex;
   width: 400px;
   height: 200px;
+  border-top: 1.5px solid var(--shade-7);
+  border-bottom: 1.5px solid var(--shade-7);
 }
 
 .bara,
@@ -73,6 +76,14 @@
   top: 2px;
 }
 
+.bara .anga:after {
+  border-top: 100px solid var(--shade-1);
+}
+
+.bara .angb:after {
+  border-bottom: 100px solid var(--shade-1);
+}
+
 .bara .edgeb {
   border-top: 100px solid transparent;
   border-right: 36px solid var(--shade-2);
@@ -82,14 +93,6 @@
   left: 0;
   top: 0;
   position: absolute;
-}
-
-.bara .anga:after {
-  border-top: 100px solid var(--shade-1);
-}
-
-.bara .angb:after {
-  border-bottom: 100px solid var(--shade-1);
 }
 
 .barb .diar {
@@ -111,6 +114,36 @@
   border-bottom: 100px solid var(--shade-2);
 }
 
+.barb .dial {
+  border-top: 98px solid transparent;
+  border-left: 0px solid transparent;
+  border-bottom: 99px solid transparent;
+  border-right: 61px solid var(--shade-3);
+  position: absolute;
+  top: 2px;
+  right: 0;
+  z-index: 1;
+}
+
+.barc .diar {
+  border-top: 98px solid transparent;
+  border-left: 59px solid var(--shade-3);
+  border-bottom: 96px solid transparent;
+  border-right: 0px solid transparent;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  z-index: 2;
+}
+
+.barc .pyra:after {
+  border-top: 100px solid var(--shade-4);
+}
+
+.barc .pyrb:after {
+  border-bottom: 100px solid var(--shade-4);
+}
+
 .barc .dial {
   border-top: 99px solid transparent;
   border-left: 0px solid transparent;
@@ -120,14 +153,6 @@
   top: 2px;
   right: 0;
   z-index: 1;
-}
-
-.barc .pyra:after {
-  border-top: 100px solid var(--shade-4);
-}
-
-.barc .pyrb:after {
-  border-bottom: 100px solid var(--shade-4);
 }
 
 .bard .anga:after {
