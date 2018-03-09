@@ -249,7 +249,15 @@
   height: 100px;
   width: 200px;
   background-color: transparent;
-  border-right: 1px solid var(--shade-3);
+  border-right: 2px solid var(--shade-7);
+}
+
+.squb,
+.squd {
+  height: 100px;
+  width: 200px;
+  background-color: transparent;
+  border-left: 2px solid var(--shade-7);
 }
 
 .tria:after {
@@ -283,25 +291,34 @@
 
 .squc .trix:after {
   border-top: 0px solid transparent;
-  border-right: 125px solid var(--shade-1);
+  border-right: 123px solid var(--shade-1);
+  border-bottom: 98px solid transparent;
+  border-left: 77px solid transparent;
+  z-index: 2;
+}
+
+.squc .triz:after {
+  border-top: 0px solid transparent;
+  border-right: 125px solid var(--shade-7);
   border-bottom: 100px solid transparent;
   border-left: 75px solid transparent;
+  z-index: 1;
 }
 
 .squd .trix:after {
   border-top: 0px solid transparent;
-  border-left: 125px solid var(--shade-3);
-  border-bottom: 100px solid transparent;
+  border-left: 122px solid var(--shade-3);
+  border-bottom: 98px solid transparent;
   border-right: 75px solid transparent;
   z-index: 2;
 }
 
-.squb,
-.squd {
-  height: 100px;
-  width: 200px;
-  background-color: transparent;
-  border-left: 1px solid var(--shade-3);
+.squd .triz:after {
+  border-top: 0px solid transparent;
+  border-left: 125px solid var(--shade-7);
+  border-bottom: 100px solid transparent;
+  border-right: 75px solid transparent;
+  z-index: 1;
 }
 
 .tris {
@@ -310,6 +327,7 @@
   display: flex;
 }
 
+.triz:after,
 .trix:after,
 .anga:after,
 .angb:after,
