@@ -6,56 +6,57 @@ const Logo = props => {
   return (
     <div className={styles.root}>
       <div className={styles.hedron}>
-        <div className={styles.tris}>
-          <div className={styles.squa}>
-            <div className={styles.tria} />
-            <div className={styles.trix} />
+        <div className={styles.vertices}>
+          <div className={styles.rectangleA}>
+            <div className={styles.vertexAA} />
+            <div className={styles.vertexAB} />
           </div>
-          <div className={styles.squb}>
-            <div className={styles.trix} />
-            <div className={styles.trib} />
-          </div>
-        </div>
-        <div className={styles.bars}> 
-          <div className={styles.bara}>
-            <div className={styles.edgea} />
-            <div className={styles.anga} />
-            <div className={styles.angb} />
-            <div className={styles.edgeb} />
-          </div>
-          <div className={styles.barb}> 
-            <div className={styles.diar} />
-            <div className={styles.pyra} />
-            <div className={styles.pyrb} />
-            <div className={styles.dial} />
-          </div>
-          <div className={styles.barc}> 
-            <div className={styles.diar} />
-            <div className={styles.pyra} />
-            <div className={styles.pyrb} />
-            <div className={styles.dial} />
-          </div>
-          <div className={styles.bard}>
-            <div className={styles.edgea} />
-            <div className={styles.anga} />
-            <div className={styles.angb} />
-            <div className={styles.edgeb} />
+          <div className={styles.rectangleB}>
+            <div className={styles.vertexBA} />
+            <div className={styles.vertexBB} />
           </div>
         </div>
-        <div className={styles.tris}>
-          <div className={styles.squc}>
-            <div className={styles.tric} />
-            <div className={styles.triz} />
-            <div className={styles.trix} />
+        <div className={styles.middle}> 
+          <div className={styles.columnA}>
+            <div className={styles.diagonalAA} />
+            <div className={styles.isoscelesAA} />
+            <div className={styles.isoscelesAB} />
+            <div className={styles.diagonalAB} />
           </div>
-          <div className={styles.squd}>
-            <div className={styles.trix} />
-            <div className={styles.triz} />
-            <div className={styles.trid} />
+          <div className={styles.columnB}> 
+            <div className={styles.diagonalBA} />
+            <div className={styles.pyramidBA} />
+            <div className={styles.pyramidBB} />
+            <div className={styles.diagonalBB} />
+          </div>
+          <div className={styles.columnC}> 
+            <div className={styles.diagonalCA} />
+            <div className={styles.pyramidCA} />
+            <div className={styles.pyramidCB} />
+            <div className={styles.diagonalCB} />
+          </div>
+          <div className={styles.columnD}>
+            <div className={styles.diagonalDA} />
+            <div className={styles.isoscelesDA} />
+            <div className={styles.isoscelesDB} />
+            <div className={styles.diagonalDB} />
+          </div>
+        </div>
+        <div className={styles.vertices}>
+          <div className={styles.rectangleC}>
+            <div className={styles.vertexCA} />
+            <div className={styles.edgeC} />
+            <div className={styles.vertexCB} />
+          </div>
+          <div className={styles.rectangleD}>
+            <div className={styles.vertexDA} />
+            <div className={styles.edgeD} />
+            <div className={styles.vertexDB} />
           </div>
         </div>
       </div>
       <div className={styles.avatar}>
+        <Avatar />
       </div>
     </div>
   );

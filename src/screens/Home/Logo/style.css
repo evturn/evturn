@@ -1,5 +1,4 @@
-:root {
-  --shade-0: #2b2a2e;
+:root { --shade-0: #2b2a2e;
   --shade-1: #3e3d42;
   --shade-2: #4e5053;
   --shade-3: #67696d;
@@ -26,7 +25,7 @@
   height: 800px;
 }
 
-.bars {
+.middle {
   display: flex;
   width: 400px;
   height: 200px;
@@ -34,38 +33,20 @@
   border-bottom: 1.5px solid var(--shade-7);
 }
 
-.bara,
-.barb,
-.barc,
-.bard {
+.columnA,
+.columnB,
+.columnC,
+.columnD {
   position: relative;
 }
 
-.bara {
+.columnA {
   width: 75px;
   height: 200px;
   background-color: var(--shade-7);
 }
 
-.barb {
-  width: 125px;
-  height: 200px;
-  background-color: var(--shade-7);
-}
-
-.barc {
-  width: 125px;
-  height: 200px;
-  background-color: var(--shade-7);
-}
-
-.bard {
-  width: 75px;
-  height: 200px;
-  background-color: var(--shade-7);
-}
-
-.bara .edgea {
+.columnA .diagonalAA {
   position: absolute;
   border-top: 98px solid transparent;
   border-left: 35px solid var(--shade-0);
@@ -76,15 +57,21 @@
   top: 2px;
 }
 
-.bara .anga:after {
+.columnA .isoscelesAA:after {
   border-top: 100px solid var(--shade-1);
+  border-right: 37.5px solid transparent;
+  border-Bottom: 50px solid transparent;
+  border-left: 37.5px solid transparent;
 }
 
-.bara .angb:after {
+.columnA .isoscelesAB:after {
+  border-top: 100px solid transparent;
+  border-right: 37.5px solid transparent;
   border-bottom: 100px solid var(--shade-1);
+  border-left: 37.5px solid transparent;
 }
 
-.bara .edgeb {
+.columnA .diagonalAB {
   border-top: 100px solid transparent;
   border-right: 36px solid var(--shade-2);
   border-bottom: 100px solid transparent;
@@ -95,7 +82,13 @@
   position: absolute;
 }
 
-.barb .diar {
+.columnB {
+  width: 125px;
+  height: 200px;
+  background-color: var(--shade-7);
+}
+
+.columnB .diagonalBA {
   position: absolute;
   border-top: 99px solid transparent;
   border-left: 60px solid var(--shade-2);
@@ -106,15 +99,21 @@
   left: 0;
 }
 
-.barb .pyra:after {
+.columnB .pyramidBA:after {
   border-top: 100px solid var(--shade-2);
+  border-right: 62.5px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 62.5px solid transparent;
 }
 
-.barb .pyrb:after {
+.columnB .pyramidBB:after {
+  border-top: 100px solid transparent;
+  border-right: 62.5px solid transparent;
   border-bottom: 100px solid var(--shade-2);
+  border-left: 62.5px solid transparent;
 }
 
-.barb .dial {
+.columnB .diagonalBB {
   border-top: 98px solid transparent;
   border-left: 0px solid transparent;
   border-bottom: 99px solid transparent;
@@ -125,7 +124,13 @@
   z-index: 1;
 }
 
-.barc .diar {
+.columnC {
+  width: 125px;
+  height: 200px;
+  background-color: var(--shade-7);
+}
+
+.columnC .diagonalCA {
   border-top: 98px solid transparent;
   border-left: 59px solid var(--shade-3);
   border-bottom: 96px solid transparent;
@@ -136,15 +141,21 @@
   z-index: 2;
 }
 
-.barc .pyra:after {
+.columnC .pyramidCA:after {
   border-top: 100px solid var(--shade-4);
+  border-right: 62.5px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 62.5px solid transparent;
 }
 
-.barc .pyrb:after {
+.columnC .pyramidCB:after {
+  border-top: 100px solid transparent;
+  border-right: 62.5px solid transparent;
   border-bottom: 100px solid var(--shade-4);
+  border-left: 62.5px solid transparent;
 }
 
-.barc .dial {
+.columnC .diagonalCB {
   border-top: 99px solid transparent;
   border-left: 0px solid transparent;
   border-bottom: 97px solid transparent;
@@ -155,24 +166,13 @@
   z-index: 1;
 }
 
-.bard .anga:after {
-  border-top: 100px solid var(--shade-5);
+.columnD {
+  width: 75px;
+  height: 200px;
+  background-color: var(--shade-7);
 }
 
-.bard .angb:after {
-  border-bottom: 100px solid var(--shade-5);
-}
-
-.edgea {
-  position: absolute;
-  border-top: 100px solid transparent;
-  border-left: 35px solid var(--shade-0);
-  border-bottom: 100px solid transparent;
-  border-right: 0px solid transparent;
-  z-index: 2;
-}
-
-.bard .edgea {
+.columnD .diagonalDA {
   border-top: 96px solid transparent;
   border-left: 34px solid var(--shade-4);
   border-bottom: 95px solid transparent;
@@ -183,7 +183,21 @@
   z-index: 1;
 }
 
-.bard .edgeb {
+.columnD .isoscelesDA:after {
+  border-top: 100px solid var(--shade-5);
+  border-right: 37.5px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 37.5px solid transparent;
+}
+
+.columnD .isoscelesDB:after {
+  border-top: 100px solid transparent;
+  border-right: 37.5px solid transparent;
+  border-bottom: 100px solid var(--shade-5);
+  border-left: 37.5px solid transparent;
+}
+
+.columnD .diagonalDB {
   border-top: 98px solid transparent;
   border-right: 35px solid var(--shade-6);
   border-bottom: 98px solid transparent;
@@ -194,94 +208,44 @@
   z-index: 1;
 }
 
-.edgeb {
-  border-top: 100px solid transparent;
-  border-right: 35px solid var(--shade-5);
-  border-bottom: 100px solid transparent;
-  border-left: 0px solid transparent;
-  z-index: 2;
-}
-
-.anga:after {
-  border-top: 100px solid var(--shade-1);
-  border-right: 37.5px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-left: 37.5px solid transparent;
-}
-
-.angb:after {
-  border-top: 100px solid transparent;
-  border-right: 37.5px solid transparent;
-  border-bottom: 100px solid var(--shade-1);
-  border-left: 37.5px solid transparent;
-}
-
-.pyra:after {
-  border-top: 100px solid var(--shade-4);
-  border-right: 62.5px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-left: 62.5px solid transparent;
-}
-
-.pyrb:after {
-  border-top: 100px solid transparent;
-  border-right: 62.5px solid transparent;
-  border-bottom: 100px solid var(--shade-4);
-  border-left: 62.5px solid transparent;
-}
-
-.pyrc:after {
-  border-top: 50px solid var(--shade-1);
-  border-right: 100px solid var(--shade-1);
-  border-bottom: 50px solid transparent;
-  border-left: 100px solid transparent;
-}
-
-.pyrd:after {
-  border-top: 50px solid var(--shade-1);
-  border-right: 100px solid transparent;
-  border-bottom: 50px solid transparent;
-  border-left: 100px solid var(--shade-1);
-}
-
-.squa,
-.squc {
+.rectangleA,
+.rectangleC {
   height: 100px;
   width: 200px;
   background-color: transparent;
   border-right: 2px solid var(--shade-7);
 }
 
-.squb,
-.squd {
+.rectangleB,
+.rectangleD {
   height: 100px;
   width: 200px;
   background-color: transparent;
   border-left: 2px solid var(--shade-7);
 }
 
-.tria:after {
+.vertexAA:after {
   border-top: 50px solid transparent;
   border-right: 100px solid var(--shade-2);
   border-bottom: 50px solid var(--shade-2);
   border-left: 100px solid transparent;
 }
 
-.trib:after {
+.vertexBB:after {
   border-top: 50px solid transparent;
   border-right: 100px solid transparent;
   border-bottom: 50px solid var(--shade-6);
   border-left: 100px solid var(--shade-6);
 }
 
-.squa .trix:after {
+.rectangleA .vertexAB:after {
   border-top: 100px solid transparent;
   border-right: 125px solid var(--shade-3);
   border-bottom: 0px solid var(--shade-3);
   border-left: 75px solid transparent;
 }
 
-.squb .trix:after {
+.rectangleB .vertexBA:after {
   border-top: 100px solid transparent;
   border-left: 125px solid var(--shade-5);
   border-bottom: 0px solid var(--shade-5);
@@ -289,7 +253,7 @@
   z-index: 2;
 }
 
-.squc .trix:after {
+.rectangleC .vertexCB:after {
   border-top: 0px solid transparent;
   border-right: 123px solid var(--shade-1);
   border-bottom: 98px solid transparent;
@@ -297,7 +261,7 @@
   z-index: 2;
 }
 
-.squc .triz:after {
+.rectangleC .edgeC:after {
   border-top: 0px solid transparent;
   border-right: 125px solid var(--shade-7);
   border-bottom: 100px solid transparent;
@@ -305,7 +269,7 @@
   z-index: 1;
 }
 
-.squd .trix:after {
+.rectangleD .vertexDA:after {
   border-top: 0px solid transparent;
   border-left: 122px solid var(--shade-3);
   border-bottom: 98px solid transparent;
@@ -313,7 +277,7 @@
   z-index: 2;
 }
 
-.squd .triz:after {
+.rectangleD .edgeD:after {
   border-top: 0px solid transparent;
   border-left: 125px solid var(--shade-7);
   border-bottom: 100px solid transparent;
@@ -321,24 +285,30 @@
   z-index: 1;
 }
 
-.tris {
+.vertices {
   height: 100px;
   width: 100%;
   display: flex;
 }
 
-.triz:after,
-.trix:after,
-.anga:after,
-.angb:after,
-.pyra:after,
-.pyrb:after,
-.pyrc:after,
-.pyrd:after,
-.tria:after,
-.trib:after,
-.tric:after,
-.trid:after {
+.edgeC:after,
+.edgeD:after,
+.isoscelesAA:after,
+.isoscelesAB:after,
+.isoscelesDA:after,
+.isoscelesDB:after,
+.pyramidBA:after,
+.pyramidBB:after,
+.pyramidCA:after,
+.pyramidCB:after,
+.vertexAA:after,
+.vertexAB:after,
+.vertexBA:after,
+.vertexBB:after,
+.vertexCA:after,
+.vertexCB:after,
+.vertexDA:after,
+.vertexDB:after {
   content: '';
   border-style: solid;
   position: absolute;
@@ -346,14 +316,14 @@
   width: 0;
 }
 
-.tric:after {
+.vertexCA:after {
   border-top: 50px solid var(--shade-0);
   border-right: 100px solid var(--shade-0);
   border-bottom: 50px solid transparent;
   border-left: 100px solid transparent;
 }
 
-.trid:after {
+.vertexDB:after {
   border-top: 50px solid var(--shade-4);
   border-right: 100px solid transparent;
   border-bottom: 50px solid transparent;
@@ -370,3 +340,4 @@
   top: 35px;
   z-index: 3;
 }
+
