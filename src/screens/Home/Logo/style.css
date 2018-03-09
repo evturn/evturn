@@ -210,14 +210,15 @@
 
 .rectangleA,
 .rectangleC {
+  position: relative;
   height: 100px;
   width: 200px;
   background-color: transparent;
-  border-right: 2px solid var(--shade-7);
 }
 
 .rectangleB,
 .rectangleD {
+  position: relative;
   height: 100px;
   width: 200px;
   background-color: transparent;
@@ -231,26 +232,47 @@
   border-left: 100px solid transparent;
 }
 
+.rectangleA .edgeA:after {
+  border-top: 100px solid transparent;
+  border-right: 125px solid var(--shade-7);
+  border-bottom: 0px solid transparent;
+  border-left: 75px solid transparent;
+  z-index: 1;
+}
+
+.rectangleA .vertexAB:after {
+  border-top: 98px solid transparent;
+  border-right: 122px solid var(--shade-3);
+  border-bottom: 0px solid transparent;
+  border-left: 0px solid transparent;
+  z-index: 2;
+  top: 2px;
+  right: 0;
+}
+
+.rectangleB .vertexBA:after {
+  border-top: 98px solid transparent;
+  border-left: 122px solid var(--shade-5);
+  border-bottom: 0px solid transparent;
+  border-right: 75px solid transparent;
+  z-index: 2;
+  top: 2px;
+  left: 0px;
+}
+
+.rectangleB .edgeB:after {
+  border-top: 100px solid transparent;
+  border-left: 125px solid var(--shade-7);
+  border-bottom: 0px solid transparent;
+  border-right: 75px solid transparent;
+  z-index: 1;
+}
+
 .vertexBB:after {
   border-top: 50px solid transparent;
   border-right: 100px solid transparent;
   border-bottom: 50px solid var(--shade-6);
   border-left: 100px solid var(--shade-6);
-}
-
-.rectangleA .vertexAB:after {
-  border-top: 100px solid transparent;
-  border-right: 125px solid var(--shade-3);
-  border-bottom: 0px solid var(--shade-3);
-  border-left: 75px solid transparent;
-}
-
-.rectangleB .vertexBA:after {
-  border-top: 100px solid transparent;
-  border-left: 125px solid var(--shade-5);
-  border-bottom: 0px solid var(--shade-5);
-  border-right: 75px solid transparent;
-  z-index: 2;
 }
 
 .rectangleC .vertexCB:after {
@@ -291,6 +313,8 @@
   display: flex;
 }
 
+.edgeA:after,
+.edgeB:after,
 .edgeC:after,
 .edgeD:after,
 .isoscelesAA:after,

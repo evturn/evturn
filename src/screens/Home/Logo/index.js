@@ -9,10 +9,12 @@ const Logo = props => {
         <div className={styles.vertices}>
           <div className={styles.rectangleA}>
             <div className={styles.vertexAA} />
+            <div className={styles.edgeA} />
             <div className={styles.vertexAB} />
           </div>
           <div className={styles.rectangleB}>
             <div className={styles.vertexBA} />
+            <div className={styles.edgeB} />
             <div className={styles.vertexBB} />
           </div>
         </div>
@@ -56,7 +58,6 @@ const Logo = props => {
         </div>
       </div>
       <div className={styles.avatar}>
-        <Avatar />
       </div>
     </div>
   );
