@@ -2,6 +2,26 @@ import React from 'react';
 import Avatar from 'shared/Avatar';
 import styles from './style.css';
 
+/*
+                                          _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ .vertices                               |                             |
+     .rectangleA .edge     .vertex       |           . //\\.           |
+     .rectangleB .edge     .vertex       |       . ' ///...\\\         |
+                                         |   . '   /////.....\\\\      | 
+ .middle                                 |  '.....//////.......\\\\\   |
+     .columnA    .diagonal .isosceles    |  |\\// \\\/// \\\/// \\//|  |
+     .columnB    .diagonal .pyramid      |  | \/   \\//   \\//   \/ |  |
+     .columnC    .diagonal .pyramid      |  | /\   //\\   //\\   /\ |  |
+     .columnD    .diagonal .isosceles    |  |//\\ ///\\\ ///\\\ //\\|  |
+                                         |  '\\\\\'''''''//////'''''.  |
+ .vertices                               |      \\\\'''''/////    .'   |
+     .rectangleC .edge     .vertex       |         \\\'''///   .'      |
+     .rectangleD .edge     .vertex       |             \\// .'         |
+                                         |                             |
+                                         | _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
+
+*/
+
 const Logo = props => {
   return (
     <div className={styles.root}>
