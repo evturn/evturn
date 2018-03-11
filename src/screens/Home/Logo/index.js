@@ -10,32 +10,32 @@ const Logo = props => {
         <g>
           /* Vertices */
                   
-          <polygon points="200 75,
+          <polygon points="200 50,
                            50  150,
                            100 150" 
                    className={styles.s2} />
-          <polygon points="200 75,
+          <polygon points="200 50,
                            100 150,
                            200 150" 
                    className={styles.s3} />
-          <polygon points="200 75,
+          <polygon points="200 50,
                            200 150,
                            300 150" 
                    className={styles.s5} />
-          <polygon points="200 75,
+          <polygon points="200 50,
                            300 150,
                            350 150"
                    className={styles.s6} />
 
-          <polyline points="200 75,
+          <polyline points="200 50,
                             100 150" 
                     stroke="#ffffff"
                     strokeWidth="1" />
-          <polyline points="200 75,
+          <polyline points="200 50,
                             200 150" 
                     stroke="#ffffff"
                     strokeWidth="1" />
-          <polyline points="200 75,
+          <polyline points="200 50,
                             300 150" 
                     stroke="#ffffff"
                     strokeWidth="1" />
@@ -127,32 +127,32 @@ const Logo = props => {
                    stroke="#ffffff"
                    strokeWidth="1" />
           /* Vertices */
-          <polygon points="200 375,
+          <polygon points="200 400,
                            50  300,
                            100 300" 
                    className={styles.s0} />
-          <polygon points="200 375,
+          <polygon points="200 400,
                            200 300,
                            100 300" 
                    className={styles.s1} />
-          <polygon points="200 375,
+          <polygon points="200 400,
                            300 300,
                            200 300" 
                    className={styles.s3} />
-          <polygon points="200 375,
+          <polygon points="200 400,
                            300 300,
                            350 300"
                    className={styles.s4} />
 
-          <polyline points="200 375,
+          <polyline points="200 400,
                             100 300" 
                     stroke="#ffffff"
                     strokeWidth="1" />
-          <polyline points="200 375,
+          <polyline points="200 400,
                             200 300" 
                     stroke="#ffffff"
                     strokeWidth="1" />
-          <polyline points="200 375,
+          <polyline points="200 400,
                             300 300" 
                     stroke="#ffffff"
                     strokeWidth="1" />
@@ -162,13 +162,13 @@ const Logo = props => {
                             350 300"
                     stroke="#ffffff"
                     strokeWidth="1" />
-          <polyline points="200 75,
+          <polyline points="200 50,
                             50  150,
                             50  300,
-                            200 375,
+                            200 400,
                             350 300,
                             350 150,
-                            200 75"
+                            200 50"
                     fill="none"
                     stroke="#ffffff"
                     strokeWidth="1" />
