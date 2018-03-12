@@ -6,11 +6,10 @@ const Logo = props => {
   return (
     <div className={styles.root}>
       <svg 
-          style={{width: '60%', height:' 60%'}}
+          className={styles.svg}
           viewBox="50 50 300 350">
           <g>
-            /* Vertices */
-                    
+            /* Top Vertices */
             <polygon points="200 50,
                              50  150,
                              100 150" 
@@ -27,19 +26,15 @@ const Logo = props => {
                              300 150,
                              350 150"
                      className={styles.s6} />
-
             <polyline points="200 50,
                               100 150" 
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+                      className={styles.stroke} />
             <polyline points="200 50,
                               200 150" 
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+                      className={styles.stroke} />
             <polyline points="200 50,
                               300 150" 
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+                      className={styles.stroke} />
             /* Left Diagonal */
             <polygon points="50  150,
                              75  225,
@@ -75,58 +70,42 @@ const Logo = props => {
             <polygon points="75  225,
                              50  150,
                              100 150" 
-                     className={styles.s1}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s1} ${styles.stroke}`} />
             /* Top-Left Pyramid */
             <polygon points="150 225,
                              100 150,
                              200 150"
-                     className={styles.s2}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s2} ${styles.stroke}`} />
             /* Top-Right Pyramid */
             <polygon points="250 225,
                              200 150,
                              300 150"
-                     className={styles.s4}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s4} ${styles.stroke}`} />
             /* Top-Right Isosceles */
             <polygon points="325 225,
                              300 150,
                              350 150" 
-                     className={styles.s5}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s5} ${styles.stroke}`} />
             /* Bottom-Left Isosceles */
             <polygon points="75  225,
                              50  300,
                              100 300" 
-                     className={styles.s1}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s1} ${styles.stroke}`} />
             /* Bottom-Left Pyramid */
             <polygon points="150 225,
                              100 300,
                              200 300" 
-                     className={styles.s2}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s2} ${styles.stroke}`} />
             /* Bottom-Right Pyramid */
             <polygon points="250 225,
                              200 300,
                              300 300" 
-                     className={styles.s4}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s4} ${styles.stroke}`} />
             /* Bottom-Right Isosceles */
             <polygon points="325 225,
                              300 300,
                              350 300"
-                     className={styles.s5}
-                     stroke="#ffffff"
-                     strokeWidth="1" />
+                     className={`${styles.s5} ${styles.stroke}`} />
             /* Vertices */
             <polygon points="200 400,
                              50  300,
@@ -144,25 +123,17 @@ const Logo = props => {
                              300 300,
                              350 300"
                      className={styles.s4} />
-
             <polyline points="200 400,
                               100 300" 
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+                     className={styles.stroke} />
             <polyline points="200 400,
                               200 300" 
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+                     className={styles.stroke} />
             <polyline points="200 400,
                               300 300" 
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+                     className={styles.stroke} />
 
-
-            <polyline points="50 300,
-                              350 300"
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+            /* Outer border */
             <polyline points="200 50,
                               50  150,
                               50  300,
@@ -171,13 +142,10 @@ const Logo = props => {
                               350 150,
                               200 50"
                       fill="none"
-                      stroke="#ffffff"
-                      strokeWidth="1" />
+                      className={styles.stroke} />
           </g>
         </svg>
-        <div className={styles.avatar}>
-          <Avatar />
-        </div>
+        <Avatar />
       </div>
   );
 };

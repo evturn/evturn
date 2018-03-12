@@ -1,4 +1,4 @@
-:root { 
+.root { 
   --shade-0: #2b2a2e;
   --shade-1: #3e3d42;
   --shade-2: #4e5053;
@@ -42,26 +42,31 @@
   fill: var(--shade-7);
 }
 
+.stroke {
+  stroke: #ffffff;
+  stroke-width: 1;
+}
+
 .root {
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 25%;
-  left: 0;
-  right: 0;
-  max-height: 500px;
-  height: 100%;
-  width: 100%;
+  /* position: absolute; */
+  /* top: 25%; */
+  /* left: 0; */
+  /* right: 0; */
+  /* max-height: 500px; */
+  /* height: 100%; */
+  /* width: 100%; */
 }
 
-.avatar {
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  right: 0;
-  left: 0;
-  top: 35px;
-  z-index: 3;
+.svg {
+  width: 200px;
+}
+
+@media (max-width: 540px) {
+  /* .svg { */
+  /*   min-width: 150px; */
+  /*   min-height: 200px; */
+  /* } */
 }
 
