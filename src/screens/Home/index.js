@@ -18,9 +18,9 @@ class Home extends Component {
       <div className={styles.root}>
         <Video 
           onVideoStateChange={this.handleVideoStateChange}
-          urls={this.props.data.video} />
+          urls={[] || this.props.data.video} />
         <div className={styles.overlay}>
-          { this.state.isPlaying
+          { !this.state.isPlaying
               ? <Logo />
               : <ActivityIndicator />}
         </div>

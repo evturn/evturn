@@ -1,0 +1,48 @@
+.root { 
+  --shade-0: #2b2a2e;
+  --shade-1: #3e3d42;
+  --shade-2: #4e5053;
+  --shade-3: #67696d;
+  --shade-4: #7b8184;
+  --shade-5: #babac2;
+  --shade-6: #e0e0e6;
+  --shade-7: #fefefe;
+  width: 200px;
+}
+
+.stroke {
+  stroke: #ffffff;
+  stroke-width: 1;
+}
+
+.s0 {
+  fill: var(--shade-0);
+}
+
+.s1 {
+  fill: var(--shade-1);
+}
+
+.s2 {
+  fill: var(--shade-2);
+}
+
+.s3 {
+  fill: var(--shade-3);
+}
+
+.s4 {
+  fill: var(--shade-4);
+}
+
+.s5 {
+  fill: var(--shade-5);
+}
+
+.s6 {
+  fill: var(--shade-6);
+}
+
+.s7 {
+  fill: var(--shade-7);
+}
