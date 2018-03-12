@@ -1,12 +1,9 @@
-.root {
-  position: absolute;
-  right: 0;
-  left: 0;
-  z-index: 3;
-  margin-top: 15px;
-  text-align: center;
+.black {
+  fill: #ffffff;
+  stroke: #000000;
+  stroke-width: 3.5;
 }
 
-.svg {
-  height: 215px;
+.white {
+  fill: #000000;
 }

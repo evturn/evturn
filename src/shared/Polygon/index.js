@@ -4,9 +4,9 @@ import styles from './style.css';
 const Polygon = props => {
   return (
     <svg 
-      className={styles.root}
+      {...props}
       viewBox="50 50 300 350">
-      <g>
+      <g className={styles.root}>
         /* Top Vertices */
         <polygon 
           points="200 50, 50  150, 100 150" 
