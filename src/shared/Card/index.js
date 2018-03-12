@@ -11,7 +11,6 @@ const Card = ({ item }) => {
   return (
     <div className={styles.root}>
       <div className={styles.inner}>
-
         <div
           className={styles.header}
           key={item.slug}>

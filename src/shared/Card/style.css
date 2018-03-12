@@ -45,7 +45,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  border-bottom: 3px solid var(--shade-5);
 }
 
 @media (min-width: 414px) {
