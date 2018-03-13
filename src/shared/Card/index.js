@@ -1,4 +1,6 @@
 import React from 'react';
+import Content from './Content.js';
+import Footer from './Footer.js';
 import Icons from 'shared/Icons';
 import styles from './style.css';
 
@@ -16,22 +18,10 @@ const Card = ({ item }) => {
           key={item.slug}>
           <Icon item={item} />
         </div>
-        <div className={styles.copy}>
-          <div className={styles.title}>{item.name}</div>
-          <div className={styles.desc}>{item.description}</div>
-        </div>
 
-        <div className={styles.footer}>
-          {item.links.map(link =>
-            <div 
-              className={styles.icon} 
-              key={link.href}>
-              <a 
-                href={link.href} 
-                target="_blank">
-                {link.icon}
-              </a>
-            </div>)}
+        <div className={styles.info}>
+          <Content item={item} />
+          <Footer item={item} />
         </div>
 
       </div>
