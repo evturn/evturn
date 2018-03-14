@@ -8,6 +8,7 @@ const Work = ({ data }) => {
       <div className={styles.items}>
         {data.work.map(item =>
           <Card 
+            headerProps={{ style: {backgroundColor: 'goldenrod'}}}
             item={item}
             key={item.slug}/>
         )}
