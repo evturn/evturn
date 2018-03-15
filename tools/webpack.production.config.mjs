@@ -7,11 +7,35 @@ const compiler = webpack({
   context: process.cwd(),
   output: {
     path: pathTo('build'),
-    filename: 'main.js',
+    filename: 'static/js/[name].[chunkhash:8].js',
+    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    publicPath: '/',
   },
   mode: 'production',
   module: {
     rules: [{
+      exclude: [
+        /\.html$/,
+        /\.js$/,
+        /\.css$/,
+        /\.json$/,
+        /\.bmp$/,
+        /\.gif$/,
+        /\.jpe?g$/,
+        /\.png$/,
+      ],
+      loader: 'file-loader',
+      options: {
+        name: 'static/media/[name].[hash:8].[ext]',
+      },
+    },{
+      test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+        name: 'static/media/[name].[hash:8].ext',
+      },
+    },{
       test: /\.js$/,
       exclude: [ /node_modules/ ],
       include: [ pathTo('src') ],
@@ -28,6 +52,7 @@ const compiler = webpack({
             '@babel/preset-react',
           ],
         },
+            '@babel/plugin-syntax-dynamic-import',
       },
     }, {
       test: /\.css$/,

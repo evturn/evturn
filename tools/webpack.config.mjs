@@ -10,13 +10,36 @@ const config = {
   context: process.cwd(),
   output: {
     path: pathTo('build'),
-    filename: '[name].main.js',
+    filename: 'static/js/bundle.js',
+    chunkFilename: 'static/js/[name].chunk.js',
     publicPath: '/',
   },
   mode: 'development',
   devtool: 'inline-source-map',
   module: {
     rules: [{
+      exclude: [
+        /\.html$/,
+        /\.js$/,
+        /\.css$/,
+        /\.json$/,
+        /\.bmp$/,
+        /\.gif$/,
+        /\.jpe?g$/,
+        /\.png$/,
+      ],
+      loader: 'file-loader',
+      options: {
+        name: 'static/media/[name].[hash:8].[ext]',
+      },
+    },{
+      test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+        name: 'static/media/[name].[hash:8].ext',
+      },
+    },{
       test: /\.js$/,
       exclude: [ /node_modules/ ],
       include: [ pathTo('src') ],
