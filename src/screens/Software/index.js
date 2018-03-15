@@ -16,7 +16,7 @@ const Software = ({ data }) => {
           <Card 
             headerProps={{children: <Icon item={item} />}}
             item={item}
-            key={item.slug}/>
+            key={item.slug} />
         )}
       </div>
     </div>

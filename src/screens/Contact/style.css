@@ -1,0 +1,26 @@
+.root {
+  padding-top:50px;
+}
+
+.items {
+  margin: 0 25px;
+}
+
+.item {
+  font-size: 50px;
+  text-align: left;
+  font-family: var(--font-heavy);
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 667px) {
+  .item {
+    font-size: 80px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: var(--shade-6);
+}

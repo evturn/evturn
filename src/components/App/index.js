@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import data from './data.json';
 import { Route, Router } from 'components/Router';
+import Contact from 'screens/Contact';
 import Home from 'screens/Home';
 import Software from 'screens/Software';
 import Work from 'screens/Work';
@@ -15,6 +16,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/software" component={Software} />
         <Route exact path="/work" component={Work} />
+        <Route exact path="/contact" component={Contact} />
       </Router>
     );
   }
