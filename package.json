@@ -3,14 +3,7 @@
   "version": "3.0.0",
   "description": "A website about me for you.",
   "repository": "git@github.com:evturn/evturn.git",
-  "main": "index.js",
-  "scripts": {
-    "build": "node --experimental-modules tools/webpack.production.config.mjs",
-    "serve": "node --experimental-modules index.mjs",
-    "start": "node --experimental-modules tools/server.mjs"
-  },
   "author": "Evan Turner <ev@evturn.com>",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.40",
@@ -19,6 +12,7 @@
     "@babel/preset-react": "^7.0.0-beta.40",
     "babel-loader": "^8.0.0-beta.0",
     "css-loader": "^0.28.10",
+    "express": "^4.16.2",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "github:webpack-contrib/html-webpack-plugin",
     "postcss-loader": "^2.1.1",
@@ -29,9 +23,14 @@
     "webpack-hot-middleware": "^2.21.1"
   },
   "dependencies": {
-    "express": "^4.16.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
-  }
+  },
+  "scripts": {
+    "build": "node --experimental-modules tools/webpack.config.prod.mjs",
+    "serve": "node --experimental-modules tools/server.prod.mjs",
+    "start": "node --experimental-modules tools/server.dev.mjs"
+  },
+  "license": "ISC"
 }

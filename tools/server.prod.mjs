@@ -1,5 +1,5 @@
 import express from 'express';
-import { pathTo  } from './tools/utils.mjs';
+import { pathTo  } from './utils.mjs';
 
 const app = express();
 
