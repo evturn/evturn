@@ -8,6 +8,11 @@
   background-color: #2B2B2D;
 }
 
+.image {
+  width: 200px;
+  height: 200px;
+}
+
 .items {
   display: flex;
   position: relative;
