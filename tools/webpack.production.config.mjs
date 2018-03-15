@@ -33,7 +33,7 @@ const compiler = webpack({
       loader: 'url-loader',
       options: {
         limit: 10000,
-        name: 'static/media/[name].[hash:8].ext',
+        name: 'static/media/[name].[hash:8].[ext]',
       },
     },{
       test: /\.js$/,
@@ -52,7 +52,6 @@ const compiler = webpack({
             '@babel/preset-react',
           ],
         },
-            '@babel/plugin-syntax-dynamic-import',
       },
     }, {
       test: /\.css$/,
