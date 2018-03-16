@@ -9,9 +9,22 @@ const compiler = webpack({
     path: pathTo('build'),
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
-    publicPath: '/',
+    publicPath: './',
   },
   mode: 'production',
+  optimization: {
+    runtimeChunk: true,
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'all',
+          test: pathTo('node_modules'),
+          name: 'vendor',
+          enforce: true
+        }
+      }
+    }
+  },
   module: {
     rules: [{
       exclude: [
@@ -46,6 +59,7 @@ const compiler = webpack({
             '@babel/plugin-proposal-class-properties',
             '@babel/plugin-proposal-export-default-from',
             '@babel/plugin-proposal-object-rest-spread',
+            '@babel/plugin-syntax-dynamic-import',
           ],
           presets: [
             '@babel/preset-env',
