@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import data from './data.json';
 import { Route, Router } from 'components/Router';
 import Contact from 'screens/Contact';
 import Home from 'screens/Home';
@@ -11,7 +10,7 @@ import styles from './style.css';
 class App extends Component {
   render() {
     return (
-      <Router data={data}>
+      <Router data={this.props.data}>
         <Navigation />
         <Route exact path="/" component={Home} />
         <Route exact path="/software" component={Software} />

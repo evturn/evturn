@@ -10,7 +10,7 @@ const Work = ({ data }) => {
           <Card 
             headerProps={{ 
               style: {
-                backgroundImage: `url(${require(`../../static/${item.thumbnail}`)})`,
+                backgroundImage: `url(${require(`static/media/${item.thumbnail}`)})`,
               },
             }}
             item={item}
