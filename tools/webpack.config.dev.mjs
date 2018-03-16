@@ -80,8 +80,9 @@ const config = {
     ],
     alias: {
       'components': pathTo('src', 'components'),
-      'screens': pathTo('src', 'screens'),
-      'shared': pathTo('src', 'shared'),
+      'screens':    pathTo('src', 'screens'),
+      'shared':     pathTo('src', 'shared'),
+      'static':     pathTo('src', 'static'),
     },
   },
   target: 'web',
@@ -89,7 +90,7 @@ const config = {
     new webpack.HotModuleReplacementPlugin(),
     new HTMLPlugin({ 
       filename: 'index.html',
-      template: 'src/utils/index.html',
+      template: 'src/static/index.html',
     }),
   ],
 };

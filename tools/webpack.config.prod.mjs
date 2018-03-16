@@ -75,15 +75,16 @@ const compiler = webpack({
     ],
     alias: {
       'components': pathTo('src', 'components'),
-      'screens': pathTo('src', 'screens'),
-      'shared': pathTo('src', 'shared'),
+      'screens':    pathTo('src', 'screens'),
+      'shared':     pathTo('src', 'shared'),
+      'static':     pathTo('src', 'static'),
     },
   },
   target: 'web',
   plugins: [
     new HTMLPlugin({ 
       filename: 'index.html',
-      template: 'src/utils/index.html',
+      template: 'src/static/index.html',
     }),
   ],
 }); 
@@ -94,5 +95,6 @@ compiler.run((e, s) => {
   } else {
     const stats = s.toString({ colors: true, chunks: false });
     console.log(stats);
+    console.log('Finished. Now please get out of my face.');
   }
 });
