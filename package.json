@@ -31,9 +31,9 @@
     "react-router-dom": "^4.2.2"
   },
   "scripts": {
-    "build": "node --experimental-modules tools/webpack.config.prod.mjs",
+    "build": "sh scripts/build.sh",
     "serve": "node --experimental-modules tools/server.prod.mjs",
-    "start": "node --experimental-modules tools/server.dev.mjs"
+    "start": "sh scripts/start.sh"
   },
   "license": "ISC"
 }
