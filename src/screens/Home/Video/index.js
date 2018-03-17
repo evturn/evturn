@@ -16,6 +16,7 @@ class Video extends Component {
   }
 
   componentDidMount() {
+    this.player.addEventListener('loadeddata', this.onLoadedData);
     this.player.addEventListener('ended', () => this.updateVideoSrc(this.state.index));
     this.player.addEventListener('playing', this.onPlaying);
     this.player.addEventListener('loadstart', this.onLoadStart);
@@ -33,13 +34,17 @@ class Video extends Component {
     return this.props.urls[index];
   }
 
+  onLoadedData = e => {
+    this.props.onVideoCanPlay(true);
+  }
+
   onLoadStart = e => {
-    this.props.onVideoStateChange(false);
+    this.props.onVideoIsPlaying(false);
   }
   
   onPlaying = e => {
     this.player.playbackRate = 0.65;
-    this.props.onVideoStateChange(true);
+    this.props.onVideoIsPlaying(true);
   }
 
   updateVideoSrc = index => {
