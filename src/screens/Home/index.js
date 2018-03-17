@@ -32,8 +32,11 @@ class Home extends Component {
   }
 
   render() {
+    const rootClass = !this.state.video 
+                    ? ' ' + styles.cool
+                    : '';
     return (
-      <div className={styles.root}>
+      <div className={styles.root + rootClass}>
         <Video 
           onVideoCanPlay={this.handleVideoCanPlay}
           onVideoIsPlaying={this.handleVideoIsPlaying}

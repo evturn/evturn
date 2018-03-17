@@ -7,10 +7,9 @@
   background-position-x: 70%;
   background-position-y: -70%;
   background-repeat: no-repeat;
-  background-color: #101010;
 }
 
-.overlay{
+.overlay {
   display: flex;
   height: 100%;
   z-index: 1;
@@ -18,3 +17,29 @@
   align-items: center;
 }
 
+.cool {
+  animation-name: oh-dude;
+  animation-duration: 10s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-color: var(--shade-bg);
+}
+
+@keyframes oh-dude {
+  0% {
+    background-color: var(--shade-bg);
+  }
+  15% {
+    background-color: gold;
+  }
+  33% {
+    background-color: goldenrod;
+  }
+  66% {
+    background-color: hotpink;
+  }
+  100% {
+    background-color: royalblue;
+  }
+}

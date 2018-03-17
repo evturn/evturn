@@ -5,6 +5,8 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  animation-name: easy;
+  animation-duration: .2s;
 }
 
 .shape {
@@ -29,4 +31,13 @@
   min-width: 100px;
   max-width: 130px;
   width: 12%;
+}
+
+@keyframes easy {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
 }
