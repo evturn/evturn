@@ -1,4 +1,5 @@
 import HTMLPlugin from 'html-webpack-plugin';
+import CSSPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { pathTo } from './utils.mjs';
 
@@ -70,7 +71,7 @@ const compiler = webpack({
     }, {
       test: /\.css$/,
       use: [
-        { loader: 'style-loader' },
+        CSSPlugin.loader,
         { loader: 'css-loader', 
           options: { 
             modules: true, 
@@ -96,6 +97,10 @@ const compiler = webpack({
   },
   target: 'web',
   plugins: [
+    new CSSPlugin({
+      filename: 'static/css/[name].css',
+      chunkFilename: 'static/css/[id].css',
+    }),
     new HTMLPlugin({ 
       filename: 'index.html',
       template: 'src/static/index.html',
