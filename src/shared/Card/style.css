@@ -4,12 +4,6 @@
   width: 100%;
 }
 
-@media (min-width: 414px) {
-  .root {
-    width: 50%;
-  }
-}
-
 @media (min-width: 736px) {
   .root {
     width: 33.3333333333%;
@@ -25,12 +19,6 @@
   box-shadow: -3px 8px 22px -1px rgba(0, 0, 0, 0.4);
 }
 
-@media (min-width: 414px) {
-  .inner {
-    width: 175px;
-  }
-}
-
 @media (min-width: 567px) {
   .inner {
     width: 200px;
@@ -44,13 +32,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-}
-
-@media (min-width: 414px) {
-  .header {
-    height: 175px;
-    width: 175px;
-  }
 }
 
 @media (min-width: 567px) {

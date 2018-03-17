@@ -9,6 +9,7 @@ const Icon = ({ item }) => {
 };
 
 const Software = ({ data }) => {
+  window.scroll(0, 0);
   return (
     <div className={styles.root}>
       <div className={styles.items}>

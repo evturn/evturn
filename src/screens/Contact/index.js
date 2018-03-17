@@ -11,7 +11,8 @@ const Contact = props => {
             key={item.href}>
             <a 
               className={styles.link}
-              href={item.href}>
+              href={item.href}
+              target="_blank">
               {item.text}
             </a>
           </div>

@@ -3,6 +3,7 @@ import Card from 'shared/Card';
 import styles from './style.css';
 
 const Work = ({ data }) => {
+  window.scroll(0, 0);
   return (
     <div className={styles.root}>
       <div className={styles.items}>
