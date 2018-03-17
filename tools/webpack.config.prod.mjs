@@ -107,8 +107,12 @@ compiler.run((e, s) => {
   if (e) {
     console.log(e);
   } else {
-    const stats = s.toString({ colors: true, chunks: false });
+    const stats = s.toString({ 
+      children: false,
+      chunks: false,
+      colors: true, 
+      warnings: false,
+    });
     console.log(stats);
-    console.log('Finished. Now please get out of my face.');
   }
 });
