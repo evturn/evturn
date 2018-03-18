@@ -107,6 +107,7 @@ const config = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new InterpolateHTMLPlugin({
+      ANALYTICS: '',
       PUBLIC_URL: '',
     }),
   ],

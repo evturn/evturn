@@ -119,6 +119,7 @@ const compiler = webpack({
       template: pathTo('public', 'index.html'),
     }),
     new InterpolateHTMLPlugin({
+      ANALYTICS: 'analytics.js',
       PUBLIC_URL: '',
     }),
   ],
