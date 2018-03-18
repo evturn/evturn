@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  animation-name: easy;
+  animation-duration: .2s;
+}
+
+.shape {
+  max-width: 265px;
+  min-width: 200px;
+  width: 25%;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+}
+
+.svg {
+  min-width: 100px;
+  max-width: 130px;
+  width: 12%;
+}
+
+@keyframes easy {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}

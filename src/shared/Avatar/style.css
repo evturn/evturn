@@ -1,0 +1,9 @@
+.black {
+  fill: #ffffff;
+  stroke: #000000;
+  stroke-width: 3.5;
+}
+
+.white {
+  fill: #000000;
+}
