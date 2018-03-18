@@ -1,3 +1,4 @@
+import autoprefixer from 'autoprefixer';
 import HTMLPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import { InterpolateHTMLPlugin, pathTo } from './utils.mjs';
@@ -69,8 +70,20 @@ const config = {
             importLoaders: 1 }},
         { loader: 'postcss-loader', 
           options: { 
-            config: { 
-              path: pathTo('tools', 'postcss.config.js') }}},
+            ident: 'postcss',
+            plugins: () => [
+              autoprefixer({
+                browsers: [
+                  '>1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie < 9',
+                ],
+                flexbox: 'no-2009',
+              }),
+            ],
+          }
+        },
       ],
     }],
   },
