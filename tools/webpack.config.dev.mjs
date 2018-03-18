@@ -1,6 +1,6 @@
 import HTMLPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
-import { pathTo } from './utils.mjs';
+import { InterpolateHTMLPlugin, pathTo } from './utils.mjs';
 
 const config = {
   entry: [
@@ -88,10 +88,13 @@ const config = {
   },
   target: 'web',
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HTMLPlugin({ 
-      filename: 'index.html',
-      template: 'src/static/index.html',
+      inject: true,
+      template: pathTo('public', 'index.html'),
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new InterpolateHTMLPlugin({
+      PUBLIC_URL: '',
     }),
   ],
 };

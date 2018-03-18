@@ -1,7 +1,7 @@
 import HTMLPlugin from 'html-webpack-plugin';
 import CSSPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
-import { pathTo } from './utils.mjs';
+import { InterpolateHTMLPlugin, pathTo } from './utils.mjs';
 
 const compiler = webpack({
   entry: './src/index.js',
@@ -10,7 +10,7 @@ const compiler = webpack({
     path: pathTo('build'),
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
-    publicPath: './',
+    publicPath: '/',
   },
   mode: 'production',
   optimization: {
@@ -46,8 +46,8 @@ const compiler = webpack({
       test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
       loader: 'url-loader',
       options: {
-        limit: 10000,
-        name: 'static/media/[name].[hash:8].[ext]',
+        limit: 1000,
+        name: 'static/media/[name][hash:8].[ext]',
       },
     },{
       test: /\.js$/,
@@ -102,8 +102,11 @@ const compiler = webpack({
       chunkFilename: 'static/css/[id].css',
     }),
     new HTMLPlugin({ 
-      filename: 'index.html',
-      template: 'src/static/index.html',
+      inject: true,
+      template: pathTo('public', 'index.html'),
+    }),
+    new InterpolateHTMLPlugin({
+      PUBLIC_URL: '',
     }),
   ],
 }); 
@@ -111,6 +114,7 @@ const compiler = webpack({
 compiler.run((e, s) => {
   if (e) {
     console.log(e);
+    process.exit(1);
   } else {
     const stats = s.toString({ 
       children: false,
