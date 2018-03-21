@@ -1,4 +1,4 @@
-#! /bin/env bash
+#!/bin/env bash
 
 BUILDDIR="${PWD}/build";
 TOOLSDIR="${PWD}/tools";
@@ -17,6 +17,7 @@ node --experimental-modules --no-warnings "${TOOLSDIR}/webpack.config.prod.mjs";
 
 echo `tput setaf 6`$'➤  Copying public files...\n'`tput sgr0`;
 
-rsync --exclude="index.html" -avh "${PUBLICDIR}/" "${BUILDDIR}/";
+rsync -avh "${PUBLICDIR}/media/" "${BUILDDIR}/static/media";
+rsync -avh "${PUBLICDIR}/manifest.json" "${BUILDDIR}/";
 
 echo `tput setaf 2`$'\n❖  Build completed.\n'`tput sgr0`;
