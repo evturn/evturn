@@ -106,10 +106,7 @@ const config = {
       template: pathTo('public', 'index.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new InterpolateHTMLPlugin({
-      ANALYTICS: '',
-      PUBLIC_URL: '',
-    }),
+    new InterpolateHTMLPlugin({PUBLIC_URL: ''}),
   ],
 };
 

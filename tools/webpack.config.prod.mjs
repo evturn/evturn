@@ -118,10 +118,7 @@ const compiler = webpack({
       inject: true,
       template: pathTo('public', 'index.html'),
     }),
-    new InterpolateHTMLPlugin({
-      ANALYTICS: 'analytics.js',
-      PUBLIC_URL: '',
-    }),
+    new InterpolateHTMLPlugin({PUBLIC_URL: ''}),
   ],
 }); 
 
