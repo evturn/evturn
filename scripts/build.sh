@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 BUILDDIR="${PWD}/build";
 TOOLSDIR="${PWD}/tools";
