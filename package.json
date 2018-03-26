@@ -34,7 +34,8 @@
   "scripts": {
     "build": "sh scripts/build.sh",
     "serve": "sh scripts/serve.sh",
-    "start": "sh scripts/start.sh"
+    "start": "sh scripts/start.sh",
+    "hstart": "./scripts/start.hs"
   },
   "license": "ISC"
 }
