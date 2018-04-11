@@ -9,8 +9,8 @@ const compiler = webpack({
   context: process.cwd(),
   output: {
     path: pathTo('build'),
-    filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    filename: 'js/[name].[chunkhash:8].js',
+    chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
     publicPath: '/',
   },
   mode: 'production',
@@ -41,14 +41,14 @@ const compiler = webpack({
       ],
       loader: 'file-loader',
       options: {
-        name: 'static/media/[name].[hash:8].[ext]',
+        name: 'media/[name].[hash:8].[ext]',
       },
     },{
       test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
       loader: 'url-loader',
       options: {
         limit: 1000,
-        name: 'static/media/[name][hash:8].[ext]',
+        name: 'media/[name][hash:8].[ext]',
       },
     },{
       test: /\.js$/,
@@ -111,8 +111,8 @@ const compiler = webpack({
   target: 'web',
   plugins: [
     new CSSPlugin({
-      filename: 'static/css/[name].css',
-      chunkFilename: 'static/css/[id].css',
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css',
     }),
     new HTMLPlugin({ 
       inject: true,
