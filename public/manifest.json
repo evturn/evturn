@@ -1,10 +1,10 @@
 {
-  "name": "Evan Turner | Software Engineer",
+  "name": "Evan Turner | Developer",
   "short_name": "Evan Turner",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#2b2b2b",
-  "theme_color": "#cdcdcd",
+  "background_color": "#d7ff00",
+  "theme_color": "#2b2b2b",
   "description": "Software Engineer based in New York City developing apps for native and web",
   "icons": [{
     "src": "media/favicon-48.png",
