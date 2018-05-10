@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
 
-BUILDDIR="${PWD}/build";
-TOOLSDIR="${PWD}/tools";
-PUBLICDIR="${PWD}/public";
+BUILD_DIR="${PWD}/build"
+TOOLS_DIR="${PWD}/tools"
+PUBLIC_DIR="${PWD}/public"
 
-echo `tput setaf 6`$'\n➤  Create production build...'`tput sgr0`;
+CYAN="$(tput setaf 6)"
+GREEN="$(tput setaf 2)"
+RESET="$(tput sgr0)"
 
-if [[ -d $BUILDDIR && ! -L $BUILDDIR ]]; then
-  rm -rf $BUILDDIR;
-  echo `tput setaf 2`$'✓  Old files removed.\n'`tput sgr0`;
+echo "${CYAN}➤  Creating production build\n${RESET}"
+
+if [[ -d $BUILD_DIR && ! -L $BUILD_DIR ]]; then
+  rm -rf $BUILD_DIR;
+  echo "${CYAN}✓  Cleaning build/\n${RESET}"
 fi
 
-mkdir "${PWD}/build/"
+mkdir $BUILD_DIR
 
-echo `tput setaf 6`$'➤  Running compiler...\n'`tput sgr0`;
+node --experimental-modules --no-warnings "${TOOLS_DIR}/webpack.config.prod.mjs"
+rsync --exclude "index.html" -avhz --no-perms "${PUBLIC_DIR}/" "${BUILD_DIR}/"
 
-node --experimental-modules --no-warnings "${TOOLSDIR}/webpack.config.prod.mjs";
-
-echo `tput setaf 6`$'➤  Copying public files...\n'`tput sgr0`;
-
-rsync -avh "${PUBLICDIR}/media/" "${BUILDDIR}/media";
-rsync -avh "${PUBLICDIR}/manifest.json" "${BUILDDIR}/";
-
-echo `tput setaf 2`$'\n❖  Build completed.\n'`tput sgr0`;
+echo "${GREEN}\n⌁  Done. ⌁\n${RESET}"
