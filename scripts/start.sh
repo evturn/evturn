@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-TOOLSDIR="${PWD}/tools";
+TOOLS_DIR="${PWD}/tools"
 
-echo `tput setaf 6`$'\n➤  Starting dev server\n'`tput sgr0`;
+CYAN="$(tput setaf 6)"
+RESET="$(tput sgr0)"
 
-node --experimental-modules --no-warnings "${TOOLSDIR}/server.dev.mjs";
+echo "${CYAN}\n➤  Starting dev server\n${RESET}"
+node --experimental-modules --no-warnings "${TOOLS_DIR}/server.dev.mjs";
