@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-TOOLSDIR="${PWD}/tools";
+TOOLS_DIR="${PWD}/tools";
+GREEN="$(tput setaf 2)"
+RESET="$(tput sgr0)"
 
 if [ $# -eq 0 ]; then
-  node --experimental-modules --no-warnings "${TOOLSDIR}/server.prod.mjs";
+  node --experimental-modules --no-warnings "${TOOL_SDIR}/server.prod.mjs";
 else
-  nohup node --experimental-modules --no-warnings "${TOOLSDIR}/server.prod.mjs" &
+  nohup node --experimental-modules --no-warnings "${TOOL_SDIR}/server.prod.mjs" &
 fi;
 
-echo `tput setaf 2`$'\n➤  Starting production server\n'`tput sgr0`;
+echo "${GREEN}\n➤  Running production server\n${RESET}"
 
