@@ -28,9 +28,7 @@
 }
 
 .svg {
-  min-width: 100px;
-  max-width: 130px;
-  width: 12%;
+  width: 85px;
 }
 
 @keyframes easy {

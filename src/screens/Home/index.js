@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './style.css';
-import ActivityIndicator from 'shared/ActivityIndicator';
+import BlastWave from './BlastWave';
 import Logo from './Logo';
 import Video from './Video';
 
@@ -42,9 +42,9 @@ class Home extends Component {
           onVideoIsPlaying={this.handleVideoIsPlaying}
           urls={this.props.data.video} />
         <div className={styles.overlay}>
-          { this.state.isPlaying || !this.state.video
-              ? <Logo />
-              : <ActivityIndicator />}
+          <Logo>
+            <BlastWave />
+          </Logo>
         </div>
       </div>
     );
