@@ -1,9 +1,13 @@
 {
   "name": "evturn",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A website about me for you.",
   "repository": "git@github.com:evturn/evturn.git",
   "author": "Evan Turner <ev@evturn.com>",
+  "scripts": {
+    "build": "./scripts/build",
+    "start": "./scripts/start"
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.41",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.40",
@@ -30,12 +34,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
-  },
-  "scripts": {
-    "build": "sh scripts/build.sh",
-    "serve": "sh scripts/serve.sh",
-    "start": "sh scripts/start.sh",
-    "hstart": "./scripts/start.hs"
   },
   "license": "ISC"
 }
