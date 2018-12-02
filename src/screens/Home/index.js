@@ -37,10 +37,11 @@ class Home extends Component {
                     : '';
     return (
       <div className={styles.root + rootClass}>
-        <Video 
-          onVideoCanPlay={this.handleVideoCanPlay}
-          onVideoIsPlaying={this.handleVideoIsPlaying}
-          urls={this.props.data.video} />
+        { this.state.video && 
+          <Video 
+            onVideoCanPlay={this.handleVideoCanPlay}
+            onVideoIsPlaying={this.handleVideoIsPlaying}
+            urls={this.props.data.video} /> }
         <div className={styles.overlay}>
           <Logo>
             <BlastWave />
