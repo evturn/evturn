@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "noLib": true,
+    "jsx": "react",
+    "paths": {
+      "*": ["*", "*/index"],
+      ".*": ["*/index"]
+    },
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

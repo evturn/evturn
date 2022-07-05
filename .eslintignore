@@ -1,0 +1,6 @@
+.buildcache/
+config/
+dist/
+node_modules/
+public/
+scripts/

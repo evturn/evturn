@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "isolatedModules": false,
+    "jsx": "react-jsx",
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noStrictGenericChecks": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "paths": {
+      "*": [
+        "*",
+        "*/index",
+        "node_modules"
+      ],
+      "@/*": ["./*"],
+    },
+    "plugins": [{
+      "name": "typescript-plugin-css-modules",
+      "options": {
+        "classnameTransform": "dashes",
+        "customMatcher": "\\.css$",
+      },
+    }],
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strict": false,
+    "suppressExcessPropertyErrors": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmitOnError": true,
+    "target": "esnext",
+  },
+  "include": [
+    "src/*.ts",
+    "src/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "config/*.ts",
+  ],
+  "exclude": [
+    "**/node_modules",
+  ],
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true
+  },
+}
