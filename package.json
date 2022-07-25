@@ -18,6 +18,8 @@
     "react-router-dom": "^6.3.0"
   },
   "scripts": {
+    "build": "BUILD_ENV=prod node --loader ts-node/esm ./scripts/build.ts",
+    "serve": "node --loader ts-node/esm ./scripts/serve.ts",
     "start": "BUILD_ENV=dev node --loader ts-node/esm ./scripts/start.ts"
   },
   "browserslist": {

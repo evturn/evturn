@@ -56,7 +56,9 @@
     "import/resolver": {
       "alias": {
         "map": [
-          ["@", "./src"]
+          ["@", "./src"],
+          ["@screens", "./src/screens"],
+          ["@static", "./src/static"]
         ],
         "extensions": [".js", ".json", ".ts", ".tsx"]
       },

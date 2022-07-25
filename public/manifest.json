@@ -4,8 +4,8 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#d7ff00",
-  "theme_color": "#2b2b2b",
-  "description": "Software Engineer based in New York City developing apps for native and web",
+  "theme_color": "#002b36",
+  "description": "Software Engineer based in Los Angeles developing apps for the web and native platforms",
   "icons": [{
     "src": "media/favicon-48.png",
     "sizes": "48x48",

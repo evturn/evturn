@@ -72,7 +72,6 @@ export function createCompiler({
   config,
   port,
   urls,
-  useYarn,
   useTypeScript,
   webpack,
 }) {

@@ -58,11 +58,10 @@ function getClientEnvironment(publicUrl) {
       },
       {
         __DEV__: BUILD_ENV === 'dev' ? true : undefined,
-        MANIFEST_FILENAME: BUILD_ENV === 'dev' ? `shared/manifest` : 'manifest',
+        MANIFEST_FILENAME: 'manifest',
         NODE_ENV: process.env.NODE_ENV || 'development',
         BUILD_ENV,
         PUBLIC_URL: publicUrl,
-
         WDS_SOCKET_HOST: process.env.WEB_BASE_URL,
         WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,
         WDS_SOCKET_PORT: process.env.WDS_SOCKET_PORT,

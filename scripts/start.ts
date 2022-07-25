@@ -22,6 +22,7 @@ const {
   checkRequiredFiles,
   choosePort,
   compileScreen,
+  isInteractive,
   openBrowser,
   prepareProxy,
   prepareUrls,
@@ -29,13 +30,8 @@ const {
 } = confutils;
 
 function clearConsole() {
-  process.stdout.write(
-    process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H'
-  );
+  process.stdout.write(process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H');
 }
-
-const useYarn = false;
-const isInteractive = process.stdout.isTTY;
 
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
@@ -56,8 +52,10 @@ if (process.env.HOST) {
 
 checkBrowsers(paths.appPath, isInteractive)
   .then(() => {
-    // We attempt to use the default port but if it is busy, we offer the user to
-    // run on a different port. `choosePort()` Promise resolves to the next free port.
+    /**
+     * We attempt to use the default port but if it is busy, we offer the user to
+     * run on a different port. `choosePort()` Promise resolves to the next free port.
+     */
     return choosePort(HOST, DEFAULT_PORT);
   })
   .then(port => {
@@ -81,7 +79,6 @@ checkBrowsers(paths.appPath, isInteractive)
       config: webpackConfig,
       port,
       urls,
-      useYarn,
       useTypeScript,
       webpack,
     });
@@ -118,7 +115,7 @@ checkBrowsers(paths.appPath, isInteractive)
     });
 
     if (process.env.CI !== 'true') {
-      // Gracefully exit when stdin ends
+      /* Gracefully exit when stdin ends */
       process.stdin.on('end', function () {
         devServer.close();
         process.exit();
@@ -127,6 +124,7 @@ checkBrowsers(paths.appPath, isInteractive)
   })
   .catch(err => {
     if (err && err.message) {
+      console.log(`🥶`);
       console.log(err.message);
     }
     process.exit(1);

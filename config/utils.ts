@@ -6,6 +6,7 @@ import openBrowser from 'react-dev-utils/openBrowser';
 import { checkBrowsers } from 'react-dev-utils/browsersHelper';
 import FileSizeReporter from 'react-dev-utils/FileSizeReporter';
 import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages';
+import { StatsError } from 'webpack';
 import printBuildError from './utils/print-build-error';
 
 const compileScreen = `
@@ -55,6 +56,16 @@ export default {
     measureInitialFileSize: FileSizeReporter.measureFileSizesBeforeBuild,
     printBuildError,
     printFinalFileSize,
-    printWebpackMessages: formatWebpackMessages,
+    printWebpackMessages: formatWebpackMessages as (json: WebpackMessagesParams) => WebpackMessages,
   },
+};
+
+type WebpackMessages = {
+  errors:   string[];
+  warnings: string[];
+};
+
+type WebpackMessagesParams = {
+  errors?:   string[] | StatsError[] | undefined;
+  warnings?: string[] | StatsError[] | undefined;
 };

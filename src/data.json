@@ -6,204 +6,187 @@
     {"route": "/contact", "title": "Contact"}
   ],
   "software": [{
-    "name": "Jaws",
-    "description": "Haskell implementation of a markov-chain which posts its results on Twitter according to an arbitrary crontab.",
-    "slug": "jaws",
-    "image": "Haskell",
-    "links": [
-      { "href": "https://github.com/evturn/jaws", "text": "Source" }
-    ]
-  },{
-    "name": "Redux Connect Decorator",
-    "description": "React Redux's connect higher-order component configured using the JS language decorator syntax proposal.",
-    "slug": "redux-connect-decorator",
-    "image": "ES6",
-    "links": [
-      { "href": "https://github.com/evturn/redux-connect-decorator", "text": "Source" },
-      { "href": "https://www.npmjs.com/package/redux-connect-decorator", "text": "Package" }
-    ]
-  },{
-    "name": "Meta Preserve",
-    "description": "Preserves the creation date of images by replacing File metadata with Exif metadata.",
-    "slug": "meta-preserve",
-    "image": "Node",
-    "links": [
-      { "href": "https://github.com/evturn/meta-preserve", "text": "Source" }
-    ]
-  },{
-    "name": "Vim Hardaway",
-    "description": "Colorscheme with added syntax highlighting for less common filetypes.",
-    "slug": "vim-hardaway",
-    "image": "Vim",
-    "links": [
-      { "href": "https://github.com/evturn", "text": "Source" }
-    ]
-  },{
-    "name": "Prints",
-    "description": "Interactive color pretty printer for the Glasgow Haskell Compiler.",
-    "slug": "prints",
-    "image": "Haskell",
-    "links": [
-      { "href": "https://github.com/evturn/prints", "text": "Source" },
-      { "href": "https://hackage.haskell.org/package/prints", "text": "Package" }
-    ]
-  },{
-    "name": "Edit0r",
-    "description": "An editor for the browser that transforms text to markdown in real-time.",
-    "slug": "edit0r",
-    "image": "JS",
-    "links": [
-      { "href": "https://github.com/evturn/edit0r", "text": "Source" }
-    ]
-  },{
-    "name": "Sentence Generator",
-    "description": "Transforms text input into a specified amount of newly generated sentences using a markov-chain.",
-    "slug": "sentence-generator",
-    "image": "Node",
-    "links": [
-      { "href": "https://github.com/evturn/sentence-generator", "text": "Source" },
-      { "href": "https://www.npmjs.com/package/sentence-generator", "text": "Package" }
-    ]
-  },{
-    "name": "Object Iterable",
-    "description": "Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.",
-    "slug": "object-iterable",
-    "image": "JS",
-    "links": [
-      { "href": "https://github.com/evturn/object-iterable", "text": "Source" },
-      { "href": "https://www.npmjs.com/package/object-iterable", "text": "Package" }
-    ]
-  },{
-    "name": "Proto",
-    "description": "Copies properties from one object to another using prototypes without using the `new` operator and invoking a constructor call.",
-    "slug": "proto",
-    "image": "JS",
-    "links": [
-      { "href": "https://github.com/evturn/proto", "text": "Source" },
-      { "href": "https://www.npmjs.com/package/@evturn/proto", "text": "Package" }
-    ]
-  },{
-    "name": "Slackbots",
-    "description": "Boilerplate for connecting to the Slack API and running a slackbot.",
-    "slug": "slackbots",
-    "image": "Node",
-    "links": [
-      { "href": "https://github.com/faquet/bots", "text": "Source" }
-    ]
-  },{
-    "name": "Babel Preset",
-    "description": "Specified group of Babel plugins that transpile proposed and newly added language features to the JavaScript spec to backwards compatible versions.",
-    "slug": "babel-preset",
-    "image": "ES6",
-    "links": [
-      { "href": "https://github.com/evturn/babel-preset-evturn", "text": "Source" },
-      { "href": "https://www.npmjs.com/package/babel-preset-evturn", "text": "Package" }
-    ]
+      "name": "Jaws",
+      "description": "Haskell implementation of a markov-chain which posts its results on Twitter according to an arbitrary crontab.",
+      "slug": "jaws",
+      "image": "Haskell",
+      "links": [
+        { "href": "https://github.com/evturn/jaws", "text": "Source" }
+      ]
+    },{
+      "name": "Redux Connect Decorator",
+      "description": "React Redux's connect higher-order component configured using the JS language decorator syntax proposal.",
+      "slug": "redux-connect-decorator",
+      "image": "ESNext",
+      "links": [
+        { "href": "https://github.com/evturn/redux-connect-decorator", "text": "Source" },
+        { "href": "https://www.npmjs.com/package/redux-connect-decorator", "text": "Package" }
+      ]
+    },{
+      "name": "Meta Preserve",
+      "description": "Preserves the creation date of images by replacing File metadata with Exif metadata.",
+      "slug": "meta-preserve",
+      "image": "Node",
+      "links": [
+        { "href": "https://github.com/evturn/meta-preserve", "text": "Source" }
+      ]
+    },{
+      "name": "Cosmic Barf",
+      "description": "Colorscheme with added syntax highlighting for less common filetypes.",
+      "slug": "cosmic-barf",
+      "image": "Vim",
+      "links": [
+        { "href": "https://github.com/evturn/cosmic-barf", "text": "Source" }
+      ]
+    },{
+      "name": "Prints",
+      "description": "Interactive color pretty printer for the Glasgow Haskell Compiler.",
+      "slug": "prints",
+      "image": "Haskell",
+      "links": [
+        { "href": "https://github.com/evturn/prints", "text": "Source" },
+        { "href": "https://hackage.haskell.org/package/prints", "text": "Package" }
+      ]
+    },{
+      "name": "Edit0r",
+      "description": "An editor for the browser that transforms text to markdown and displays it in real-time.",
+      "slug": "edit0r",
+      "image": "JS",
+      "links": [
+        { "href": "https://github.com/evturn/edit0r", "text": "Source" }
+      ]
+    },{
+      "name": "Sentence Generator",
+      "description": "Transforms text input into a specified amount of newly generated sentences using a markov-chain.",
+      "slug": "sentence-generator",
+      "image": "Node",
+      "links": [
+        { "href": "https://github.com/evturn/sentence-generator", "text": "Source" },
+        { "href": "https://www.npmjs.com/package/sentence-generator", "text": "Package" }
+      ]
+    },{
+      "name": "Object Iterable",
+      "description": "Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.",
+      "slug": "object-iterable",
+      "image": "JS",
+      "links": [
+        { "href": "https://github.com/evturn/object-iterable", "text": "Source" },
+        { "href": "https://www.npmjs.com/package/object-iterable", "text": "Package" }
+      ]
+    },{
+      "name": "Proto",
+      "description": "Copies properties from one object to another using prototypes without using the `new` operator and invoking a constructor call.",
+      "slug": "proto",
+      "image": "JS",
+      "links": [
+        { "href": "https://github.com/evturn/proto", "text": "Source" },
+        { "href": "https://www.npmjs.com/package/@evturn/proto", "text": "Package" }
+      ]
   }],
   "work": [{
-    "name": "Campuswire",
-    "description": "A communication platform for university classrooms where students collaborate with features like class Q&A, announcements and discussions.",
-    "slug": "campuswire",
-    "links": [
-      { "href": "https://campuswire.com/", "text": "Website" }
-    ],
-    "thumbnail": "cw-tn.png"
-  },{
-    "name": "Get Pique",
-    "description": "Pique is a 500 Startups portfolio company. Based in Silicon Valley, 500 Startups manages $200M in assets and has invested in over 1,300 tech startups.",
-    "slug": "getpique",
-    "links": [
-      { "href": "http://getpique.co/", "text": "Website" }
-    ],
-    "thumbnail": "getpique-tn.png"
-  },{
-    "name": "Brooklyn Friends School",
-    "description": "Founded in 1867 Brooklyn Friends School is one of the oldest continuously operating independent schools in New York City.",
-    "slug": "bfs",
-    "links": [
-      { "href": "http://brooklynfriends.org/", "text": "Website" },
-      { "href": "http://smkkstudios.com/work/brooklynfriendsschool", "text": "SM&KK" }
-    ],
-    "thumbnail": "bfs-tn.png"
-  },{
-    "name": "Drive Publishing",
-    "description": "From legacy catalogs to new songwriters, Drive is more than an independent music publishing company.",
-    "slug": "drive",
-    "links": [
-      { "href": "http://drivepublishing.com", "text": "Website" }
-    ],
-    "thumbnail": "drive-tn.png"
-  },{
-    "name": "Mama We Made It",
-    "description": "Showcasing the human aspect of the journey to success, this weekly podcast delivers unfiltered conversations from honest perspectives.",
-    "slug": "mwmi",
-    "links": [
-      { "href": "http://mamawemadeit.com", "text": "Website" }
-    ],
-    "thumbnail": "mwmi-tn.png"
-  },{
-    "name": "Brightcove Gallery",
-    "description": "A leading global provider of cloud services for video enables marketers to create engaging video portal experiences.",
-    "slug": "brightcove-gallery",
-    "links": [
-      { "href": "https://brightcove.com/en/gallery", "text": "Website" }
-    ],
-    "thumbnail": "bc-tn.png"
-  },{
-    "name": "GenFKD",
-    "description": "Founded in 2013 as a financial literacy organization, GenFKD is growing into an organization that’s revolutionizing American higher education.",
-    "slug": "genfkd",
-    "links": [
-      { "href": "http://genfkd.org/", "text": "Website" },
-      { "href": "http://gigareef.com", "text": "Gigareef" }
-    ],
-    "thumbnail": "genfkd-tn.png"
-  },{
-    "name": "Marshallz Blog",
-    "description": "Bot authored blog posts and twitter statuses continuously created by a long running program and a markov chain.",
-    "slug": "marshallz",
-    "links": [
-      { "href": "http://marshallz.com", "text": "Website" },
-      { "href": "http://twitter.com/marshallzBlog", "text": "Twitter" }
-    ],
-    "thumbnail": "marshallz-tn.png"
-  },{
-    "name": "Golfweek",
-    "description": "A high-end weekly golfing magazine originally launched in 1975.",
-    "slug": "golfweek",
-    "links": [
-      { "href": "http://golfweek.com", "text": "Website" },
-      { "href": "http://gigareef.com", "text": "Gigareef" }
-    ],
-    "thumbnail": "gw-tn.png"
-  },{
-    "name": "Nutty Goodness",
-    "description": "All-natural solution for snacking and leading a healthier lifestyle.",
-    "slug": "nutty-goodness",
-    "links": [
-      { "href": "http://nuttygoodness.com", "text": "Website" }
-    ],
-    "thumbnail": "ng-tn.png"
-  },{
-    "name": "Bootonic",
-    "description": "This musical act presents its sounds with a reappearance from the classic Winamp player rewritten in JavaScript.",
-    "slug": "bootonic",
-    "links": [
-      { "href": "https://bootonic.com", "text": "Website" }
-    ],
-    "thumbnail": "bootonic-tn.png"
-  },{
-    "name": "Made In Music",
-    "description": "From musicians, entertainers, and industry profressionals, Made In Music takes a weekly look at the music business from an insider's perspective.",
-    "slug": "mim",
-    "links": [],
-    "thumbnail": "mim-tn.png"
-  },{
-    "name": "Tectonic",
-    "description": "A mapping of coordinates from earthquakes happening in real-time merged with a live stream of tweets in that area.",
-    "slug": "gin-tectonic",
-    "links": [],
-    "thumbnail": "tectonic-tn.png"
+      "name": "Campuswire",
+      "description": "A communication platform for university classrooms where students collaborate with features like class Q&A, announcements and discussions.",
+      "slug": "campuswire",
+      "links": [
+        { "href": "https://campuswire.com/", "text": "Website" }
+      ],
+      "thumbnail": "cw-tn.png"
+    },{
+      "name": "Brooklyn Friends School",
+      "description": "Founded in 1867 Brooklyn Friends School is one of the oldest continuously operating independent schools in New York City.",
+      "slug": "bfs",
+      "links": [
+        { "href": "http://brooklynfriends.org/", "text": "Website" },
+        { "href": "http://smkkstudios.com/work/brooklynfriendsschool", "text": "SM&KK" }
+      ],
+      "thumbnail": "bfs-tn.png"
+    },{
+      "name": "Brightcove Gallery",
+      "description": "A leading global provider of cloud services for video enables marketers to create engaging video portal experiences.",
+      "slug": "brightcove-gallery",
+      "links": [
+        { "href": "https://brightcove.com/en/gallery", "text": "Website" }
+      ],
+      "thumbnail": "bc-tn.png"
+    },{
+      "name": "Golfweek",
+      "description": "A high-end weekly golfing magazine originally launched in 1975.",
+      "slug": "golfweek",
+      "links": [
+        { "href": "http://golfweek.com", "text": "Website" },
+        { "href": "http://gigareef.com", "text": "Gigareef" }
+      ],
+      "thumbnail": "gw-tn.png"
+    },{
+      "name": "Drive Publishing",
+      "description": "From legacy catalogs to new songwriters, Drive is more than an independent music publishing company.",
+      "slug": "drive",
+      "links": [
+        { "href": "http://drivepublishing.com", "text": "Website" }
+      ],
+      "thumbnail": "drive-tn.png"
+    },{
+      "name": "Mama We Made It",
+      "description": "Showcasing the human aspect of the journey to success, this weekly podcast delivers unfiltered conversations from honest perspectives.",
+      "slug": "mwmi",
+      "links": [
+        { "href": "http://mamawemadeit.com", "text": "Website" }
+      ],
+      "thumbnail": "mwmi-tn.png"
+    },{
+      "name": "Get Pique",
+      "description": "Pique is a 500 Startups portfolio company. Based in Silicon Valley, 500 Startups manages $200M in assets and has invested in over 1,300 tech startups.",
+      "slug": "getpique",
+      "links": [
+        { "href": "http://getpique.co/", "text": "Website" }
+      ],
+      "thumbnail": "getpique-tn.png"
+    },{
+      "name": "Nutty Goodness",
+      "description": "All-natural solution for snacking and leading a healthier lifestyle.",
+      "slug": "nutty-goodness",
+      "links": [
+        { "href": "http://nuttygoodness.com", "text": "Website" }
+      ],
+      "thumbnail": "ng-tn.png"
+    },{
+      "name": "Bootonic",
+      "description": "This musical act presents its sounds with a reappearance from the classic Winamp player rewritten in JavaScript.",
+      "slug": "bootonic",
+      "links": [
+        { "href": "https://bootonic.com", "text": "Website" }
+      ],
+      "thumbnail": "bootonic-tn.png"
+    },{
+      "name": "GenFKD",
+      "description": "Founded in 2013 as a financial literacy organization, GenFKD is growing into an organization that’s revolutionizing American higher education.",
+      "slug": "genfkd",
+      "links": [
+        { "href": "http://genfkd.org/", "text": "Website" },
+        { "href": "http://gigareef.com", "text": "Gigareef" }
+      ],
+      "thumbnail": "genfkd-tn.png"
+    },{
+      "name": "Marshallz Blog",
+      "description": "Bot authored blog posts and twitter statuses continuously created by a long running program and a markov chain.",
+      "slug": "marshallz",
+      "links": [
+        { "href": "http://marshallz.com", "text": "Website" },
+        { "href": "http://twitter.com/marshallzBlog", "text": "Twitter" }
+      ],
+      "thumbnail": "marshallz-tn.png"
+    },{
+      "name": "Made In Music",
+      "description": "From musicians, entertainers, and industry profressionals, Made In Music takes a weekly look at the music business from an insider's perspective.",
+      "slug": "mim",
+      "links": [],
+      "thumbnail": "mim-tn.png"
+    },{
+      "name": "Tectonic",
+      "description": "A mapping of coordinates from earthquakes happening in real-time merged with a live stream of tweets in that area.",
+      "slug": "gin-tectonic",
+      "links": [],
+      "thumbnail": "tectonic-tn.png"
   }],
   "contact": [
     { "href": "mailto:ev@evturn.com", "text": "Email" },

@@ -18,4 +18,4 @@ config/_*
 config/utils/_*
 scripts/*.js
 
-/v3
+.vscode

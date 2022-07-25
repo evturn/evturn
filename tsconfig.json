@@ -24,6 +24,8 @@
         "node_modules"
       ],
       "@/*": ["./*"],
+      "@screens/*": ["./screens/*"],
+      "@static/*": ["./static/*"],
     },
     "plugins": [{
       "name": "typescript-plugin-css-modules",

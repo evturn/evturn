@@ -1,6 +1,6 @@
-import { BlastWave, Logo } from '../../Logo';
-import { Player } from '../../Player';
-import data from '../../data.json';
+import data from '@/data.json';
+import { BlastWave, Logo } from '@/Logo';
+import { Player } from '@/Player';
 
 type Props = {
   children?: React.ReactNode;
