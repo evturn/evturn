@@ -18,4 +18,6 @@ config/_*
 config/utils/_*
 scripts/*.js
 
+src/static/videos/*
+
 .vscode

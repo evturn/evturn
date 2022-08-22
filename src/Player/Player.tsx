@@ -6,7 +6,7 @@ type Props = {
   urls: string[];
 };
 
-export const Player = (props: Props) => {
+const VideoPlayer = (props: Props) => {
   const ref = useRef<HTMLVideoElement>(null);
   const [index, setIndex] = useState(0);
 
@@ -27,11 +27,11 @@ export const Player = (props: Props) => {
   ]);
 
   const handleLoadedData = useCallback(() => {
-    console.log('loadeddata');
+    process.env.__DEV__ && console.log('loadeddata');
   }, []);
 
   const handleLoadStart = useCallback(() => {
-    console.log('loadstart');
+    process.env.__DEV__ && console.log('loadstart');
   }, []);
 
   const src = useMemo(() => {
@@ -80,5 +80,15 @@ export const Player = (props: Props) => {
         {props.children}
       </div>
     </div>
+  );
+};
+
+export const Player = (props: Props) => {
+  const urls = props.urls.map(filename => require(`@static/videos/${filename}`));
+
+  return (
+    <VideoPlayer
+      {...props}
+      urls={urls} />
   );
 };
