@@ -84,6 +84,15 @@
       ]
   }],
   "work": [{
+      "name": "Vancery",
+      "description": "Acquired by Trinity Life Sciences in 2022, Vancery is an information marketplace where professionals exchange ideas, knowledge, and experiences in paid consulting projects.",
+      "slug": "vancery",
+      "links": [
+        { "href": "https://www.businesswire.com/news/home/20220804005069/en/Trinity-Life-Sciences-Acquires-Vancery%E2%80%99s-Customer-Research-Technology", "text": "Press" },
+        { "href": "https://vancery.com", "text": "Website" }
+      ],
+      "thumbnail": "vancery-tn.png"
+  }, {
       "name": "Campuswire",
       "description": "A communication platform for university classrooms where students collaborate with features like class Q&A, announcements and discussions.",
       "slug": "campuswire",
@@ -96,8 +105,8 @@
       "description": "Founded in 1867 Brooklyn Friends School is one of the oldest continuously operating independent schools in New York City.",
       "slug": "bfs",
       "links": [
-        { "href": "http://brooklynfriends.org/", "text": "Website" },
-        { "href": "http://smkkstudios.com/work/brooklynfriendsschool", "text": "SM&KK" }
+        { "href": "https://brooklynfriends.org/", "text": "Website" },
+        { "href": "https://smkkstudios.com/work/brooklynfriendsschool", "text": "SM&KK" }
       ],
       "thumbnail": "bfs-tn.png"
     },{
@@ -113,8 +122,8 @@
       "description": "A high-end weekly golfing magazine originally launched in 1975.",
       "slug": "golfweek",
       "links": [
-        { "href": "http://golfweek.com", "text": "Website" },
-        { "href": "http://gigareef.com", "text": "Gigareef" }
+        { "href": "https://golfweek.com", "text": "Website" },
+        { "href": "https://gigareef.com", "text": "Gigareef" }
       ],
       "thumbnail": "gw-tn.png"
     },{
@@ -122,7 +131,7 @@
       "description": "From legacy catalogs to new songwriters, Drive is more than an independent music publishing company.",
       "slug": "drive",
       "links": [
-        { "href": "http://drivepublishing.com", "text": "Website" }
+        { "href": "https://drivepublishing.com", "text": "Website" }
       ],
       "thumbnail": "drive-tn.png"
     },{
@@ -130,23 +139,21 @@
       "description": "Showcasing the human aspect of the journey to success, this weekly podcast delivers unfiltered conversations from honest perspectives.",
       "slug": "mwmi",
       "links": [
-        { "href": "http://mamawemadeit.com", "text": "Website" }
+        { "href": "https://mamawemadeit.com", "text": "Website" }
       ],
       "thumbnail": "mwmi-tn.png"
     },{
       "name": "Get Pique",
       "description": "Pique is a 500 Startups portfolio company. Based in Silicon Valley, 500 Startups manages $200M in assets and has invested in over 1,300 tech startups.",
       "slug": "getpique",
-      "links": [
-        { "href": "http://getpique.co/", "text": "Website" }
-      ],
+      "links": [],
       "thumbnail": "getpique-tn.png"
     },{
       "name": "Nutty Goodness",
       "description": "All-natural solution for snacking and leading a healthier lifestyle.",
       "slug": "nutty-goodness",
       "links": [
-        { "href": "http://nuttygoodness.com", "text": "Website" }
+        { "href": "https://nuttygoodness.com", "text": "Website" }
       ],
       "thumbnail": "ng-tn.png"
     },{
@@ -162,8 +169,7 @@
       "description": "Founded in 2013 as a financial literacy organization, GenFKD is growing into an organization that’s revolutionizing American higher education.",
       "slug": "genfkd",
       "links": [
-        { "href": "http://genfkd.org/", "text": "Website" },
-        { "href": "http://gigareef.com", "text": "Gigareef" }
+        { "href": "https://gigareef.com", "text": "Gigareef" }
       ],
       "thumbnail": "genfkd-tn.png"
     },{
@@ -171,8 +177,7 @@
       "description": "Bot authored blog posts and twitter statuses continuously created by a long running program and a markov chain.",
       "slug": "marshallz",
       "links": [
-        { "href": "http://marshallz.com", "text": "Website" },
-        { "href": "http://twitter.com/marshallzBlog", "text": "Twitter" }
+        { "href": "https://marshallz.com", "text": "Website" }
       ],
       "thumbnail": "marshallz-tn.png"
     },{
