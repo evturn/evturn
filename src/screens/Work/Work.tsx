@@ -35,5 +35,5 @@ type Lookup<T extends Slug = Slug> = {
 const lookup = data.work.reduce<Lookup>((acc, x) => ({
   ...acc,
   /* eslint-disable-next-line @typescript-eslint/no-var-requires */
-  [x.slug]: require(`@static/${x.thumbnail}`) as string,
+  [x.slug]: require(`@static/images/${x.thumbnail}`) as string,
 }), {});

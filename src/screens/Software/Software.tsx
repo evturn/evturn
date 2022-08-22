@@ -38,7 +38,7 @@ const DynamicHeader = (props: DynamicHeaderProps) => {
       <Header
         style={{
           /* eslint-disable-next-line @typescript-eslint/no-var-requires */
-          backgroundImage: `url(${require(`@static/${props.thumbnail}`) as string})`,
+          backgroundImage: `url(${require(`@static/images/${props.thumbnail}`) as string})`,
         }} />
     );
   }

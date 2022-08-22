@@ -52,7 +52,7 @@
       "description": "A mapping of coordinates from earthquakes happening in real-time merged with a live stream of tweets in that area.",
       "slug": "tectonic",
       "links": [],
-      "thumbnail": "tectonic-tn.png"
+      "thumbnail": "tectonic.png"
     },{
       "name": "Edit0r",
       "description": "An editor for the browser that transforms text to markdown and displays it in real-time.",
@@ -97,7 +97,7 @@
         { "href": "https://www.businesswire.com/news/home/20220804005069/en/Trinity-Life-Sciences-Acquires-Vancery%E2%80%99s-Customer-Research-Technology", "text": "Press" },
         { "href": "https://vancery.com", "text": "Website" }
       ],
-      "thumbnail": "vancery-tn.png"
+      "thumbnail": "vancery.png"
   }, {
       "name": "Campuswire",
       "description": "A communication platform for university classrooms where students collaborate with features like class Q&A, announcements and discussions.",
@@ -105,7 +105,7 @@
       "links": [
         { "href": "https://campuswire.com/", "text": "Website" }
       ],
-      "thumbnail": "cw-tn.png"
+      "thumbnail": "cw.png"
     },{
       "name": "Brooklyn Friends School",
       "description": "Founded in 1867 Brooklyn Friends School is one of the oldest continuously operating independent schools in New York City.",
@@ -114,7 +114,7 @@
         { "href": "https://brooklynfriends.org/", "text": "Website" },
         { "href": "https://smkkstudios.com/work/brooklynfriendsschool", "text": "SM&KK" }
       ],
-      "thumbnail": "bfs-tn.png"
+      "thumbnail": "bfs.png"
     },{
       "name": "Brightcove Gallery",
       "description": "A leading global provider of cloud services for video enables marketers to create engaging video portal experiences.",
@@ -122,7 +122,7 @@
       "links": [
         { "href": "https://brightcove.com/en/gallery", "text": "Website" }
       ],
-      "thumbnail": "bc-tn.png"
+      "thumbnail": "bc.png"
     },{
       "name": "Golfweek",
       "description": "A high-end weekly golfing magazine originally launched in 1975.",
@@ -131,7 +131,7 @@
         { "href": "https://golfweek.com", "text": "Website" },
         { "href": "https://gigareef.com", "text": "Gigareef" }
       ],
-      "thumbnail": "gw-tn.png"
+      "thumbnail": "gw.png"
     },{
       "name": "Drive Publishing",
       "description": "From legacy catalogs to new songwriters, Drive is more than an independent music publishing company.",
@@ -139,7 +139,7 @@
       "links": [
         { "href": "https://drivepublishing.com", "text": "Website" }
       ],
-      "thumbnail": "drive-tn.png"
+      "thumbnail": "drive.png"
     },{
       "name": "Mama We Made It",
       "description": "Showcasing the human aspect of the journey to success, this weekly podcast delivers unfiltered conversations from honest perspectives.",
@@ -147,13 +147,13 @@
       "links": [
         { "href": "https://mamawemadeit.com", "text": "Website" }
       ],
-      "thumbnail": "mwmi-tn.png"
+      "thumbnail": "mwmi.png"
     },{
       "name": "Get Pique",
       "description": "Pique is a 500 Startups portfolio company. Based in Silicon Valley, 500 Startups manages $200M in assets and has invested in over 1,300 tech startups.",
       "slug": "getpique",
       "links": [],
-      "thumbnail": "getpique-tn.png"
+      "thumbnail": "getpique.png"
     },{
       "name": "Nutty Goodness",
       "description": "All-natural solution for snacking and leading a healthier lifestyle.",
@@ -161,7 +161,7 @@
       "links": [
         { "href": "https://nuttygoodness.com", "text": "Website" }
       ],
-      "thumbnail": "ng-tn.png"
+      "thumbnail": "ng.png"
     },{
       "name": "Bootonic",
       "description": "This musical act presents its sounds with a reappearance from the classic Winamp player rewritten in JavaScript.",
@@ -169,7 +169,7 @@
       "links": [
         { "href": "https://bootonic.com", "text": "Website" }
       ],
-      "thumbnail": "bootonic-tn.png"
+      "thumbnail": "bootonic.png"
     },{
       "name": "GenFKD",
       "description": "Founded in 2013 as a financial literacy organization, GenFKD is growing into an organization that’s revolutionizing American higher education.",
@@ -177,7 +177,7 @@
       "links": [
         { "href": "https://gigareef.com", "text": "Gigareef" }
       ],
-      "thumbnail": "genfkd-tn.png"
+      "thumbnail": "genfkd.png"
     },{
       "name": "Marshallz Blog",
       "description": "Bot authored blog posts and twitter statuses continuously created by a long running program and a markov chain.",
@@ -185,13 +185,13 @@
       "links": [
         { "href": "https://marshallz.com", "text": "Website" }
       ],
-      "thumbnail": "marshallz-tn.png"
+      "thumbnail": "marshallz.png"
     },{
       "name": "Made In Music",
       "description": "From musicians, entertainers, and industry profressionals, Made In Music takes a weekly look at the music business from an insider's perspective.",
       "slug": "mim",
       "links": [],
-      "thumbnail": "mim-tn.png"
+      "thumbnail": "mim.png"
   }],
   "contact": [
     { "href": "mailto:ev@evturn.com", "text": "Email" },
