@@ -5,22 +5,4 @@
   margin: 0 auto;
   width: 100%;
   padding-top: 50px;
-  background-color: var(--shade-bg);
-}
-
-.items {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: transparent;
-  width: 90%;
-  margin: 0 auto;
-  z-index: 1;
-}
-
-@media (min-width: 667px) {
-  .items {
-    max-width: 667px;
-  }
 }

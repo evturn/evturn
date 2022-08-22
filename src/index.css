@@ -11,17 +11,6 @@ code {
 }
 
 :root {
-  --shade-0: #2b2a2e;
-  --shade-1: #3e3d42;
-  --shade-2: #4e5053;
-  --shade-3: #67696d;
-  --shade-4: #7b8184;
-  --shade-5: #babac2;
-  --shade-6: #e0e0e6;
-  --shade-7: #fefefe;
-
-  --gray-0: #cdcdcd;
-  --shade-bg: #002b36;
   --font-heavy: 'MarkWebPro-Heavy';
   --font-black: 'MarkWebPro-Black';
   --font-bold: 'MarkWebPro-Bold';
@@ -30,14 +19,39 @@ code {
   --font-light: 'MarkWebPro-Light';
   --font-extra-light: 'MarkWebPro-ExtraLight';
 
-  --sm: 540px;
-  --md: 720px;
-  --lg: 960px;
-  --xl: 1140px;
+  --bg-dark: #00222C;
+  --bg-main: #002b36;
+  --bg-light: #005a6f;
+
+  --tx-dark: #5fd7ff;
+  --tx-main: #eee8d5;
+  --tx-light: #fdf6e3;
+
+  --yellow: #d7ff00;
+  --green: #00ffaf;
+  --red: #ff0087;
+  /*
+  #002b36;
+  #003847;
+  #004052;
+  #005a6f;
+  #d0d0d0;
+  #eee8d5;
+  #fdf6e3;
+  #87ffff;
+  #5fafff;
+  #5fd7ff;
+  #00ffff;
+  #00ffaf;
+  #afffaf;
+  #d7ff00;
+  #ff5f00;
+  #ff0087;
+  */
 }
 
 body {
-  background-color: var(--shade-bg);
+  background-color: var(--bg-main);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -88,8 +102,10 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
-  font-family: 'MarkWebPro-Regular';
+  font-family: var(--font-regular);
   letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  background-color: var(--bg-main);
 }

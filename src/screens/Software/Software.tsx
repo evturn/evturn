@@ -13,16 +13,39 @@ export const Software = (props: Props) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.items}>
+      <Card.Container>
         {data.software.map(item =>
           <Card
             item={item}
             key={item.slug}>
-            <Header>
-              {createElement(Icons[item.image])}
-            </Header>
+            <DynamicHeader
+              image={item.image}
+              thumbnail={item.thumbnail} />
           </Card>)}
-      </div>
+      </Card.Container>
     </div>
+  );
+};
+
+type DynamicHeaderProps = {
+  image?:     string;
+  thumbnail?: string;
+};
+
+const DynamicHeader = (props: DynamicHeaderProps) => {
+  if (props.thumbnail) {
+    return (
+      <Header
+        style={{
+          /* eslint-disable-next-line @typescript-eslint/no-var-requires */
+          backgroundImage: `url(${require(`@static/${props.thumbnail}`) as string})`,
+        }} />
+    );
+  }
+
+  return (
+    <Header>
+      {createElement(Icons[props.image])}
+    </Header>
   );
 };

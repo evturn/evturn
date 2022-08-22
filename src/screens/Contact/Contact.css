@@ -22,5 +22,10 @@
 
 .link {
   text-decoration: none;
-  color: var(--shade-6);
+  color: var(--tx-main);
+  transition: color 150ms ease-in-out;
+}
+
+.link:hover {
+  color: var(--tx-dark);
 }

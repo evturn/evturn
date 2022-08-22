@@ -1,8 +1,8 @@
 {
   "menu": [
     {"route": "/", "title": "Home"},
-    {"route": "/software", "title": "Software"},
     {"route": "/work", "title": "Work"},
+    {"route": "/software", "title": "Software"},
     {"route": "/contact", "title": "Contact"}
   ],
   "software": [{
@@ -39,14 +39,20 @@
         { "href": "https://github.com/evturn/cosmic-barf", "text": "Source" }
       ]
     },{
-      "name": "Prints",
-      "description": "Interactive color pretty printer for the Glasgow Haskell Compiler.",
-      "slug": "prints",
-      "image": "Haskell",
+      "name": "Proto",
+      "description": "Copies properties from one object to another using prototypes without using the `new` operator and invoking a constructor call.",
+      "slug": "proto",
+      "image": "JS",
       "links": [
-        { "href": "https://github.com/evturn/prints", "text": "Source" },
-        { "href": "https://hackage.haskell.org/package/prints", "text": "Package" }
+        { "href": "https://github.com/evturn/proto", "text": "Source" },
+        { "href": "https://www.npmjs.com/package/@evturn/proto", "text": "Package" }
       ]
+    },{
+      "name": "Tectonic",
+      "description": "A mapping of coordinates from earthquakes happening in real-time merged with a live stream of tweets in that area.",
+      "slug": "tectonic",
+      "links": [],
+      "thumbnail": "tectonic-tn.png"
     },{
       "name": "Edit0r",
       "description": "An editor for the browser that transforms text to markdown and displays it in real-time.",
@@ -65,6 +71,15 @@
         { "href": "https://www.npmjs.com/package/sentence-generator", "text": "Package" }
       ]
     },{
+      "name": "Prints",
+      "description": "Interactive color pretty printer for the Glasgow Haskell Compiler.",
+      "slug": "prints",
+      "image": "Haskell",
+      "links": [
+        { "href": "https://github.com/evturn/prints", "text": "Source" },
+        { "href": "https://hackage.haskell.org/package/prints", "text": "Package" }
+      ]
+    },{
       "name": "Object Iterable",
       "description": "Enables iteration for non-iterable types, such as objects, by implementing the iterator protocol.",
       "slug": "object-iterable",
@@ -72,15 +87,6 @@
       "links": [
         { "href": "https://github.com/evturn/object-iterable", "text": "Source" },
         { "href": "https://www.npmjs.com/package/object-iterable", "text": "Package" }
-      ]
-    },{
-      "name": "Proto",
-      "description": "Copies properties from one object to another using prototypes without using the `new` operator and invoking a constructor call.",
-      "slug": "proto",
-      "image": "JS",
-      "links": [
-        { "href": "https://github.com/evturn/proto", "text": "Source" },
-        { "href": "https://www.npmjs.com/package/@evturn/proto", "text": "Package" }
       ]
   }],
   "work": [{
@@ -186,12 +192,6 @@
       "slug": "mim",
       "links": [],
       "thumbnail": "mim-tn.png"
-    },{
-      "name": "Tectonic",
-      "description": "A mapping of coordinates from earthquakes happening in real-time merged with a live stream of tweets in that area.",
-      "slug": "gin-tectonic",
-      "links": [],
-      "thumbnail": "tectonic-tn.png"
   }],
   "contact": [
     { "href": "mailto:ev@evturn.com", "text": "Email" },

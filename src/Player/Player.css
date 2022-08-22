@@ -7,7 +7,7 @@
   background-position-x: 70%;
   background-position-y: -70%;
   background-repeat: no-repeat;
-  background-color: var(--shade-bg);
+  background-color: var(--bg-main);
 }
 
 .overlay {

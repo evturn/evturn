@@ -11,5 +11,5 @@ export type CardItem = {
 
 export type CardItemLink = {
   href?: string;
-  text:  string;
+  text?: string;
 };

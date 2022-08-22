@@ -3,7 +3,7 @@
   "short_name": "Evan Turner",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#d7ff00",
+  "background_color": "#002b36",
   "theme_color": "#002b36",
   "description": "Software Engineer based in Los Angeles developing apps for the web and native platforms",
   "icons": [{

@@ -8,7 +8,7 @@ type Props = {
 
 export const Card = (props: Props) => {
   return (
-    <div className={styles.root}>
+    <div className={styles.item}>
       <div className={styles.wrap}>
 
         {props.children}
@@ -61,3 +61,13 @@ const Footer = (props: FooterProps) => {
     </div>
   );
 };
+
+const CardsContainer = (props: Pick<Props, 'children'>) => {
+  return (
+    <div className={styles.root}>
+      {props.children}
+    </div>
+  );
+};
+
+Card.Container = CardsContainer;

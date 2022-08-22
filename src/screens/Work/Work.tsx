@@ -11,7 +11,7 @@ export const Work = (props: Props) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.items}>
+      <Card.Container>
         {data.work.map(item =>
           <Card
             item={item}
@@ -21,7 +21,7 @@ export const Work = (props: Props) => {
                 backgroundImage: `url(${lookup[item.slug]})`,
               }} />
           </Card>)}
-      </div>
+      </Card.Container>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 .root {
   position: fixed;
   width: 100%;
-  background-color: rgba(0, 44, 55, 0.95);
+  background-color: rgba(25, 25, 25, 0.95);
   top: 0px;
   right: 0px;
   bottom: 0px;
@@ -74,9 +74,14 @@
   text-transform: uppercase;
   letter-spacing: -0.025em;
   text-align: center;
-  color: #fff;
+  color: var(--tx-main);
   text-decoration: none;
-  font-family: 'MarkWebPro-Heavy';
+  font-family: var(--font-heavy);
+  transition: color 150ms ease-in-out;
+}
+
+.link:hover {
+  color: var(--tx-dark);
 }
 
 @media (min-width: 667px) {
@@ -101,7 +106,7 @@
     bottom: 0px;
     left: 0px;
     width: 0%;
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(95, 215, 255, 0.15);
     transition: width .3s ease-out;
   }
 
